@@ -99,7 +99,7 @@ $$x = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}.$$
 This way of writing is called a **column vector**, and the numbers $x_1, \dots, x_n$ are the **coordinates** of $x$. The reason for writing it vertically will become clear with the product of matrices (lesson L08). To save space, in these notes vectors often appear as rows too, like $(1, 2, 3)$: it is the same vector.
 
 > [!NOTE] How the exam papers write it
-> In the exam papers a column vector written as a row often appears as ${}^t(1, 2, 3)$ or $t(1, 2, 3)$: the $t$ stands for "transpose" and means "this row, put vertically". The transpose is covered in lesson L08.
+> In the exam papers a column vector written as a row often appears as ${}^t(1, 2, 3)$, with a small $t$ at the top left: the $t$ stands for "transpose" and means "this row, put vertically". The transpose is covered in lesson L08.
 
 ### The sum of vectors (pp. 20–21)
 
@@ -504,7 +504,7 @@ The Linear Algebra and Geometry written test has 10 multiple-choice questions wi
 > **Solution.** It is (e). The vectors are the complex numbers and the scalars the real ones; the sum is that of $\C$ and the product by a scalar $\lambda z$ is the product in $\C$ of a real by a complex number, which is still complex: $\lambda(a + bi) = \lambda a + (\lambda b)i$. Axioms 1–5 hold because they are special cases of the properties of the field $\C$, as for "$\K$ over itself" (Exercise 5.8). The others: (a) and (d) say true things, but they do not rule out the structure over $\R$; (b) is false, for example $\Q$ is not a vector space over $\R$ because $\sqrt 2 \cdot 1 \notin \Q$; (c) is false, because $i \cdot 1 = i \notin \R$.
 
 2. **Ruling out the option "it is not a vector space".** In the questions on dimension a trap answer of this kind often appears: "$T^s(3)$ has no dimension because it is not a vector space" (24/01/2024, question 5), "$S(3)$ has no dimension because it is not a vector space" and "$X$ is not necessarily a vector space", with $X = \Span(v_1, v_2, v_3)$ (15/01/2026, questions 4 and 3). To rule them out you need to know which sets are vector spaces: triangular or symmetric matrices and Spans always are (lesson L06).
-3. **Subspaces.** The most frequent question of this part is "which of these sets is (or is not) a subspace?": exams of 08/02/2024 (question 2), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 3). You solve it with the checks of this lesson (is the zero there? do the sum and the multiples stay inside?) and with the definition of subspace of lesson L06.
+3. **Subspaces.** The most frequent question of this part is "which of these sets is (or is not) a subspace?": exams of 08/02/2024 (question 2), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 6). You solve it with the checks of this lesson (is the zero there? do the sum and the multiples stay inside?) and with the definition of subspace of lesson L06.
 4. **Calculations component by component** in $\K^n$, including those with complex numbers in $\C^n$, and with polynomials: you need them in almost all the exercises of the course.
 
 > [!METHOD] · "Is it a vector space?" in four checks
@@ -582,7 +582,7 @@ Q: With the usual sum and product by a scalar, which of these sets of polynomial
 + The polynomials of degree less than or equal to $2$, that is $\R_2[x]$.
 - The polynomials with all coefficients greater than or equal to $0$.
 - The polynomials of the form $x^2 + bx + c$, with $b, c \in \R$.
-= $\R_2[x]$ is the space of Exercise 5.7. The others fail: $x^2 + (-x^2 + x) = x$ does not have degree $2$; the zero polynomial has $p(0) = 0 \neq 1$; $(-1) \cdot x = -x$ has a negative coefficient; $(x^2 + 1) + (x^2 + 1) = 2x^2 + 2$ does not have the form $x^2 + bx + c$. Similar to the exams of 08/02/2024 (question 2) and 07/09/2026 (question 3), which ask which set of polynomials is (or is not) a subspace.
+= $\R_2[x]$ is the space of Exercise 5.7. The others fail: $x^2 + (-x^2 + x) = x$ does not have degree $2$; the zero polynomial has $p(0) = 0 \neq 1$; $(-1) \cdot x = -x$ has a negative coefficient; $(x^2 + 1) + (x^2 + 1) = 2x^2 + 2$ does not have the form $x^2 + bx + c$. Similar to the exams of 08/02/2024 (question 2) and 07/09/2026 (question 6), which ask which set of polynomials is (or is not) a subspace.
 
 Q: With the operations of $\R^2$, which of these subsets is a vector space over $\R$?
 + $\{(x, y) \in \R^2 \mid x + y = 0\}$
@@ -933,5 +933,5 @@ Operations point by point | For functions: $(f + g)(x) = f(x) + g(x)$ and $(\lam
 
 - **2026 course handouts** (Buzano, Radeschi), lesson 5 "Spazi vettoriali I", pp. 20–25: sections 5.A–5.D are followed in order, with the page next to each heading; definitions, propositions and exercises keep their numbering (Definitions 5.1–5.4, Proposition 5.5, Exercises 5.6–5.10).
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.5 (groups, uniqueness of the inverse, cancellation, rings and fields), §2.1 (Euclidean space, sum, product by a scalar and their properties), §2.2.1–2.2.4 (definition of vector space, Proposition 2.2.1, the spaces $\K^n$, $\K[x]$ and $F(X, \K)$).
-- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (question 5), 08/02/2024 (question 2), 10/07/2024 (question 2), 07/02/2025 (question 2, reported with a solution written for these notes), 03/06/2025 (question 2), 15/01/2026 (questions 3 and 4), 05/02/2026 (question 2), 07/09/2026 (question 3).
+- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (question 5), 08/02/2024 (question 2), 10/07/2024 (question 2), 07/02/2025 (question 2, reported with a solution written for these notes), 03/06/2025 (question 2), 15/01/2026 (questions 3 and 4), 05/02/2026 (question 2), 07/09/2026 (question 6).
 - The **"Beyond the handouts"** parts (uniqueness of the inverse and cancellation, why axiom 5 is needed, more consequences of the axioms, the space $F(X, \K)$, the method for the exam and exercises 6–10) are additions in these notes to connect the lesson to the rest of the course and to the exam.

@@ -41,7 +41,7 @@ italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/cont
 > [!CHANNELS]
 > The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
 
-## The change-of-basis matrix (p. 79)
+## The change-of-basis matrix (pp. 79–80)
 
 In lesson L15 you saw the associated matrix $[f]^{\mathcal B}_{\mathcal C}$: column $j$ contains the coordinates of $f(v_j)$ with respect to the target basis. Now we take as $f$ the simplest map of all, the identity $\id(v) = v$, but with **two different bases**. The result is a tool to translate coordinates from one basis to the other.
 
@@ -427,7 +427,7 @@ Q: Let $\mathcal B = \{(1, 1), (0, 1)\}$ and let $A \in M(2, \R)$ be such that $
 - $\begin{pmatrix} 3 & 2 \\ -2 & -1 \end{pmatrix}$
 - $\begin{pmatrix} -1 & -2 \\ 2 & 3 \end{pmatrix}$
 - $\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}$
-= With $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ we have $[L_A]^{\mathcal B}_{\mathcal B} = M^{-1}AM$, so $A = M\,[L_A]^{\mathcal B}_{\mathcal B}\,M^{-1} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -2 & 3 \end{pmatrix}$. Check: $A(1, 1) = (1, 1)$, with coordinates $(1, 0)$ with respect to $\mathcal B$: it is the first given column. The third answer uses the formula the wrong way round ($M^{-1}\cdot{}\cdot M$). Similar to the exam of 03/06/2025, question 5.
+= With $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ we have $[L_A]^{\mathcal B}_{\mathcal B} = M^{-1}AM$, so $A = M\,[L_A]^{\mathcal B}_{\mathcal B}\,M^{-1} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -2 & 3 \end{pmatrix}$. Check: $A(1, 1) = (1, 1)$, with coordinates $(1, 0)$ with respect to $\mathcal B$: it is the first given column. The third answer uses the formula the wrong way round, $M^{-1}\,[L_A]^{\mathcal B}_{\mathcal B}\,M$. Similar to the exam of 03/06/2025, question 5.
 
 Q: If $A, B \in M(2, \R)$ are similar, which statement is necessarily true?
 + $\det A = \det B$

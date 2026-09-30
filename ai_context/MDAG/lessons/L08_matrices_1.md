@@ -136,7 +136,7 @@ A column vector takes up three lines of text. To save space it is written as the
 
 $${}^t(1, 2, 3) = {}^t\begin{pmatrix} 1 & 2 & 3 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}.$$
 
-In the exam papers it is everywhere: "$v_1 = {}^t(1, 0, -1)$", "$T({}^t(x, y, z)) = {}^t(x + 2y, \dots)$"; in scanned texts the $t$ can appear detached, as $t(1, 2)$. It always means: the **column** vector with those coordinates.
+In the exam papers it is everywhere: "$v_1 = {}^t(1, 0, -1)$", "$T({}^t(x, y, z)) = {}^t(x + 2y, \dots)$", always with the small $t$ at the top left. It always means: the **column** vector with those coordinates.
 
 ## The rank of a matrix (p. 37)
 

@@ -65,7 +65,11 @@ COURSES = [
         "modules": [("MD", "Discrete Mathematics"), ("AG", "Linear Algebra and Geometry")],
         "moodle": [("Part 1 · Discrete Mathematics, channels A, B and C", 3829),
                    ("Part 2 · Linear Algebra and Geometry, channels A, B and C", 3831)],
-        "links": [("Course sheet and exam", "MDAG/course.md")],
+        "note": ("The Linear Algebra and Geometry notes already cover all 26 lessons of the 2026 handouts, the same for "
+                 "the three channels: they are ready ahead of time, so the pace in class may differ. The Discrete "
+                 "Mathematics notes are not there yet."),
+        "links": [("Course sheet and exam", "MDAG/course.md"),
+                  ("Linear Algebra and Geometry lesson index", "MDAG/lesson_index.md")],
     },
     {
         "code": "ANMAT", "it_code": "ANMAT", "name": "Mathematical Analysis", "italian": "Analisi Matematica",

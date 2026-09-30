@@ -188,7 +188,7 @@ Another property that, the handouts say, follows directly from the definition:
 > [!PROP] 9.5
 > $\det({}^tA) = \det A$ holds.
 
-For a $2 \times 2$ matrix you see it straight away: ${}^tA = \begin{pmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{pmatrix}$ has determinant $a_{11}a_{22} - a_{21}a_{12}$, the same as $A$. For the $3 \times 3$ matrix of Example 9.2, the transpose $\begin{pmatrix} 1 & 2 & -1 \\ 2 & 1 & 0 \\ 1 & 2 & 1 \end{pmatrix}$ again has determinant $-6$ (try it with Sarrus).
+For a $2 \times 2$ matrix one computation is enough: ${}^tA = \begin{pmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{pmatrix}$ has determinant $a_{11}a_{22} - a_{21}a_{12}$, the same as $A$. For the $3 \times 3$ matrix of Example 9.2, the transpose $\begin{pmatrix} 1 & 2 & -1 \\ 2 & 1 & 0 \\ 1 & 2 & 1 \end{pmatrix}$ again has determinant $-6$ (try it with Sarrus).
 
 > [!PROOF] of Proposition 9.5
 > When you transpose, entry $(i, j)$ goes to $(j, i)$. A term of $\det({}^tA)$ is $({}^tA)_{1\sigma(1)} \cdots ({}^tA)_{n\sigma(n)} = a_{\sigma(1)1} \cdots a_{\sigma(n)n}$: it still takes one number from each row and from each column of $A$. Reordering the factors by row, it is the term of $\det A$ of the inverse permutation $\sigma^{-1}$, the one that "undoes" $\sigma$. And $\sigma^{-1}$ has the same sign as $\sigma$: if $\sigma$ is obtained with $k$ swaps, $\sigma^{-1}$ is obtained with the same $k$ swaps done in reverse order. So $\det({}^tA)$ and $\det A$ are sums of the same terms with the same signs (Martelli, Proposition 3.3.2).
@@ -343,7 +343,7 @@ raggio: 5
 ```
 
 > [!BEYOND] · where to find it in the book
-> In Martelli's book the determinant is in §3.3 (pp. 93–103): the definition and the cases $n = 1, 2, 3$ in §3.3.1 (pp. 93–94, with the representation with "colourings" and Proposition 3.3.2 on $\det({}^tA)$), triangular matrices in §3.3.2 (Proposition 3.3.3), the identity matrix in §3.3.3 (Definition 3.3.4), the Laplace expansion in §3.3.4 (pp. 96–97, Theorem 3.3.5), the geometric meaning in §3.3.10 (pp. 101–103). Permutations and their sign are in §1.2.5; the determinant of $\lambda A$ is Exercise 3.10.
+> In Martelli's book the determinant is in §3.3 (pp. 93–103): the definition and the cases $n = 1, 2, 3$ in §3.3.1 (pp. 93–95, with the representation with "colourings" and Proposition 3.3.2 on $\det({}^tA)$), triangular matrices in §3.3.2 (Proposition 3.3.3), the identity matrix in §3.3.3 (Definition 3.3.4), the Laplace expansion in §3.3.4 (pp. 96–97, Theorem 3.3.5), the geometric meaning in §3.3.10 (pp. 101–103). Permutations and their sign are in §1.2.5; the determinant of $\lambda A$ is Exercise 3.10.
 
 ## Towards the exam
 

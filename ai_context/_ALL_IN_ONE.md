@@ -2670,6 +2670,55 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 
 ---
 
+<!-- FILE: ai_context/MDAG/lesson_index.md -->
+> File: `ai_context/MDAG/lesson_index.md`
+
+# Linear Algebra and Geometry (MDAG, part 2) — lesson index
+
+Full course sheet (both modules, timetables of the three channels, exam): `course.md`. The 26 lessons follow the course's 2026 handouts (Buzano, Radeschi), the same for channels A, B and C, and are ready ahead of the lectures: the pace in class may differ. Every file has exam-style quizzes, worked exercises, review questions, a glossary and a "Towards the exam" section with the questions of the 2023–2026 exam sessions on the same topics. The notes for Discrete Mathematics (MDAG, part 1) are not there yet.
+
+| # | Title | Handouts | Book (Martelli) | File | Topics |
+|---|---|---|---|---|---|
+| L01 | Real numbers | pp. 2–5 | §1.1 and complement 1.II | `lessons/L01_real_numbers.md` · HTML: `notes/MDAG/L01_real_numbers.html` | number sets, construction of the real numbers, irrationality of √2, fields, order, notation and calculations with roots |
+| L02 | Complex numbers I | pp. 6–9 | §1.4.1–1.4.3 (pp. 25–27) | `lessons/L02_complex_numbers_1.md` · HTML: `notes/MDAG/L02_complex_numbers_1.html` | complex numbers, sum and product, real part and imaginary part, conjugate, modulus, inverse and division, the complex plane and the parallelogram rule |
+| L03 | Complex numbers II | pp. 10–14 | §1.4.4–1.4.6 (pp. 27–31) | `lessons/L03_complex_numbers_2.md` · HTML: `notes/MDAG/L03_complex_numbers_2.html` | polar coordinates, exponential form, modulus and argument of a complex number, product and inverse in polar form, Euler's identity, powers and n-th roots |
+| L04 | Polynomials | pp. 15–19 | §1.3 (pp. 21–25) and §1.4.7–1.4.8 (pp. 31–33) | `lessons/L04_polynomials.md` · HTML: `notes/MDAG/L04_polynomials.html` | polynomials and degree, division with remainder and Ruffini's rule, roots and multiplicity, how many roots a polynomial can have, the fundamental theorem of algebra, second-degree equations in the complex numbers and polynomials with real coefficients |
+| L05 | Vector spaces I | pp. 20–25 | §1.5, §2.1 and §2.2 | `lessons/L05_vector_spaces_1.md` · HTML: `notes/MDAG/L05_vector_spaces_1.html` | Euclidean space, sum of vectors and product by a scalar, groups, fields, definition of vector space and examples (polynomials, functions, sequences) |
+| L06 | Vector spaces II | pp. 26–30 | §2.2.5–2.2.16 | `lessons/L06_vector_spaces_2.md` · HTML: `notes/MDAG/L06_vector_spaces_2.html` | the space of matrices, vector subspaces, diagonal, triangular, symmetric and skew-symmetric matrices, linear combinations and the subspace spanned (Span) |
+| L07 | Vector spaces III | pp. 31–35 | §2.3.1–2.3.7 | `lessons/L07_vector_spaces_3.md` · HTML: `notes/MDAG/L07_vector_spaces_3.html` | linear dependence and independence, bases, standard basis of K^n and of polynomials, dimension of a vector space and the theorem on bases |
+| L08 | Matrices I | pp. 36–40 | §2.3.10, §3.2.3, §3.2.6, §3.4.1–3.4.5 and §4.4.5 | `lessons/L08_matrices_1.md` · HTML: `notes/MDAG/L08_matrices_1.html` | transpose of a matrix, symmetric matrices, row rank and column rank, the row-by-column product and its properties, trace |
+| L09 | Matrices II | pp. 41–45 | §3.3.1–3.3.4 and §3.3.10 | `lessons/L09_matrices_2.md` · HTML: `notes/MDAG/L09_matrices_2.html` | the determinant of a square matrix defined with permutations, the formulas for 2×2 and 3×3 matrices, triangular matrices and the identity matrix, the Laplace expansion and the first properties of the determinant |
+| L10 | Matrices III | pp. 46–49 | §3.3.5, §3.3.7, §3.4.5–3.4.7 | `lessons/L10_matrices_3.md` · HTML: `notes/MDAG/L10_matrices_3.html` | how the determinant changes with the Gauss moves, zero determinant and dependent rows, Binet's theorem, cofactors, the inverse matrix and the invertibility criterion |
+| L11 | Linear systems I | pp. 50–55 | §3.1 | `lessons/L11_linear_systems_1.md` · HTML: `notes/MDAG/L11_linear_systems_1.html` | linear systems and augmented matrix, Gauss moves, pivots and row echelon matrices, the Gauss and Gauss–Jordan algorithms, how to write all the solutions of a system |
+| L12 | Linear systems II | pp. 56–61 | §3.2 | `lessons/L12_linear_systems_2.md` · HTML: `notes/MDAG/L12_linear_systems_2.html` | associated homogeneous system, particular solution, affine subspaces, rank and pivots, the Rouché–Capelli theorem, square systems and systems with a parameter |
+| L13 | Linear systems III | pp. 62–67 | §2.3 and §3.2 | `lessons/L13_linear_systems_3.md` · HTML: `notes/MDAG/L13_linear_systems_3.html` | linear independence, generators, bases and coordinates with respect to a basis studied with linear systems, the rank and the determinant, plus a code that corrects transmission errors |
+| L14 | Linear maps I | pp. 68–73 | §4.1 and §4.2 | `lessons/L14_linear_maps_1.md` · HTML: `notes/MDAG/L14_linear_maps_1.html` | linear maps, examples and non-examples, the map associated with a matrix, kernel and image, injectivity and surjectivity, rank–nullity theorem |
+| L15 | Linear maps II | pp. 74–78 | §4.2.5, §4.2.7 and §4.3 | `lessons/L15_linear_maps_2.md` · HTML: `notes/MDAG/L15_linear_maps_2.html` | isomorphisms, isomorphic vector spaces, coordinates and the matrix associated with a linear map with respect to two bases |
+| L16 | Linear maps III | pp. 79–84 | §4.2.4, §4.3.3, §4.3.5 and §4.4 | `lessons/L16_linear_maps_3.md` · HTML: `notes/MDAG/L16_linear_maps_3.html` | change-of-basis matrix, composition of linear maps and product of matrices, endomorphisms and similar matrices |
+| L17 | Eigenvalues and eigenvectors I | pp. 85–89 | §5.1 | `lessons/L17_eigenvalues_eigenvectors_1.md` · HTML: `notes/MDAG/L17_eigenvalues_eigenvectors_1.html` | eigenvectors and eigenvalues of an endomorphism, diagonalisable endomorphisms and matrices, powers of matrices and the characteristic polynomial |
+| L18 | Eigenvalues and eigenvectors II | pp. 90–95 | §5.2 | `lessons/L18_eigenvalues_eigenvectors_2.md` · HTML: `notes/MDAG/L18_eigenvalues_eigenvectors_2.html` | independence of eigenvectors with distinct eigenvalues, eigenspaces and direct sum, algebraic and geometric multiplicity, the diagonalisability theorem and matrices with a parameter |
+| L19 | Scalar products I | pp. 96–99 | §7.1 and §7.2 | `lessons/L19_scalar_products_1.md` · HTML: `notes/MDAG/L19_scalar_products_1.html` | what a scalar product is, degenerate and positive definite products, the Euclidean scalar product, symmetric matrices and the matrix associated with a scalar product in a basis |
+| L20 | Scalar products II | pp. 100–104 | §7.1.5, §7.2.2 and §8.1 | `lessons/L20_scalar_products_2.md` · HTML: `notes/MDAG/L20_scalar_products_2.html` | how the matrix of a scalar product changes when the basis changes, quadratic forms, norm, the Cauchy–Schwarz and triangle inequalities, distances and angles between vectors |
+| L21 | Scalar products III | pp. 105–110 | §7.3 and §8.1.5–8.1.10 | `lessons/L21_scalar_products_3.md` · HTML: `notes/MDAG/L21_scalar_products_3.html` | orthogonal vectors, orthogonal complement, orthogonal projection onto a line and onto a subspace, orthogonal and orthonormal bases, the Gram–Schmidt algorithm, orthogonal decomposition and least squares |
+| L22 | Euclidean space I | pp. 111–115 | §4.4.8–4.4.9, §7.5, §8.2 and §9.1 | `lessons/L22_euclidean_space_1.md` · HTML: `notes/MDAG/L22_euclidean_space_1.html` | rotations and reflections of the plane, isometries between spaces with a scalar product, orthogonal matrices, classification of the isometries of the plane and of space, the cross product in R3 |
+| L23 | Euclidean space II | pp. 116–121 | §9.1 and §9.2 | `lessons/L23_euclidean_space_2.md` · HTML: `notes/MDAG/L23_euclidean_space_2.html` | properties of the cross product and area of the parallelogram, Cartesian and parametric form of lines and planes, affine subspaces and direction space (giacitura), intersections |
+| L24 | Euclidean space III | pp. 122–128 | §9.2.9, §9.2.10 and §8.1 | `lessons/L24_euclidean_space_3.md` · HTML: `notes/MDAG/L24_euclidean_space_3.html` | angles between lines, between a line and a plane and between planes, distances between points, between a point and a line, between skew lines and between a point and a plane |
+| L25 | Spectral theorem I | pp. 129–133 | §11.1 and §11.2 | `lessons/L25_spectral_theorem_1.md` · HTML: `notes/MDAG/L25_spectral_theorem_1.html` | Hermitian products on complex spaces, Hermitian matrices, associated matrix, self-adjoint endomorphisms and invariant subspaces |
+| L26 | Spectral theorem II | pp. 134–138 | §11.3 | `lessons/L26_spectral_theorem_2.md` · HTML: `notes/MDAG/L26_spectral_theorem_2.html` | the spectral theorem for self-adjoint endomorphisms, its proof, the version with symmetric and orthogonal matrices, the link with PCA |
+
+## Common threads (links between lessons)
+
+- **Gaussian elimination** (L11) is needed almost everywhere: rank (L08, L13), systems and Rouché–Capelli (L12), kernel and image (L14), coordinates and changes of basis (L15–L16), eigenspaces (L18), orthogonal complements (L21), intersections of lines and planes (L23).
+- **Complex numbers and polynomials** (L02–L04) → complex eigenvalues and diagonalisability over $\C$ (L17–L18), Hermitian products and matrices (L25–L26). At the exam they are quiz question 1 in 11 exam sessions out of 15.
+- **Dimension** (L07) → rank–nullity theorem (L14), geometric multiplicity $m_g(\lambda) = n - \rk(A - \lambda I)$ (L18), $\dim W + \dim W^\perp = n$ (L21), dimension of affine subspaces $n - \rk A$ (L23).
+- **Determinant** (L09–L10) → invertibility and inverse (L10), characteristic polynomial (L17), cross product and triple product (L22–L23), volume and distance between skew lines (L24).
+- **Two changes of basis**: for endomorphisms $M^{-1}AM$ (L16), for scalar products ${}^tMSM$ (L20). They coincide when $M$ is orthogonal (L22), as in the spectral theorem (L26).
+- **Orthogonal projections and Gram–Schmidt** (L21) → angle between a line and a plane and distances (L24), orthonormal bases of eigenvectors (L26).
+- **Exam**: problem 11 is almost always the diagonalisability of a matrix with a parameter (L17–L18, sometimes with the spectral theorem of L26); problem 12 is about scalar products, Gram–Schmidt, projections and the geometry of lines and planes (L19–L24).
+
+
+---
+
 <!-- FILE: ai_context/MDAG/lessons/L01_real_numbers.md -->
 > File: `ai_context/MDAG/lessons/L01_real_numbers.md`
 
@@ -3490,6 +3539,2662 @@ Quantifiers | $\forall$ "for all", $\exists$ "there exists", $\exists!$ "there e
 
 ---
 
+<!-- FILE: ai_context/MDAG/lessons/L02_complex_numbers_1.md -->
+> File: `ai_context/MDAG/lessons/L02_complex_numbers_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L02
+title: Complex numbers I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L02
+description: >-
+  Notes on lesson L02 of Linear Algebra and Geometry (MDAG, part 2): complex numbers, sum and product, real part and
+  imaginary part, conjugate, modulus, inverse and division, the complex plane and the parallelogram rule, with
+  exam-style quizzes and worked exercises.
+lede: >-
+  The equation $x^2 = -1$ has no real solutions. By adding a single new symbol, the imaginary unit $i$ with
+  $i^2 = -1$, you get the field $\C$ of complex numbers. Here you learn to compute with the numbers $a + bi$ (sums,
+  products, conjugate, modulus, inverse, divisions) and to see them as points of the plane. In every exam session from
+  2024 to 2026 there is at least one quiz question that starts from these computations.
+material: handouts
+facts:
+  Handouts: lesson 2 · pp. 6–9
+  Book: Martelli, §1.4.1–1.4.3 (pp. 25–27)
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 2 "Numeri complessi I"; B. Martelli, Geometria e algebra lineare, §1.4.1–1.4.3 and Exercise 1.4.3
+italian_file: L02_numeri_complessi_1.html
+html_notes: notes/MDAG/L02_complex_numbers_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L02_numeri_complessi_1.md
+```
+
+## In brief
+
+- No real number solves $x^2 = -1$. The **complex numbers** add to the reals a new symbol, the **imaginary unit** $i$, with a single new rule: $i^2 = -1$.
+- A complex number is written $z = a + bi$ with $a, b \in \R$. The real number $a$ is the **real part** $\operatorname{Re}(z)$, the real number $b$ (without the $i$) is the **imaginary part** $\operatorname{Im}(z)$.
+- You add real part to real part and imaginary part to imaginary part. You multiply as with letters, then replace $i^2$ with $-1$: $(7 + i)(4 - i) = 29 - 3i$.
+- $\C$ is a **field**, with the same nine properties as $\R$, but it **is not ordered**: between two complex numbers it makes no sense to say which one is bigger.
+- The **conjugate** of $z = a + bi$ is $\bar z = a - bi$. The **modulus** is the real number $|z| = \sqrt{a^2 + b^2}$, and $z\bar z = |z|^2$ holds.
+- Every $z \neq 0$ has an **inverse** $z^{-1} = \frac{\bar z}{|z|^2}$. To divide, you multiply numerator and denominator by the conjugate of the denominator.
+- Complex numbers are the points of the **complex plane**: $a + bi$ is the point $(a, b)$, the sum follows the **parallelogram rule**, the modulus is the distance from the origin.
+- At the exam: in three exam sessions question 1 of the quiz was an equation like $(1 + i)z = 3 + 2i$, to be solved precisely with the conjugate.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Why we need complex numbers (p. 6)
+
+In lesson L01 you saw that every new number set arises from an equation that has no solution in the old set. The last row of that table was
+
+$$x^2 = -1.$$
+
+No real number solves it, because the square of a real number is never negative:
+
+- if $x \ge 0$, then $x^2 = x \cdot x \ge 0$;
+- if $x < 0$, then $-x$ is positive and $x^2 = (-x) \cdot (-x) > 0$.
+
+So $x^2 + 1 \ge 1$ for every $x \in \R$: it is never $0$.
+
+The handouts present the complex numbers as an **extension** of $\R$, "built with the aim of obtaining better algebraic properties". In practice you add to the reals **a single** new object, $i$, whose square is $-1$, and you keep computing with the usual rules. The gain is large: in the complex numbers **every** polynomial equation of degree at least 1 has a solution. It is the fundamental theorem of algebra (lesson L04), and it is the reason why the course uses $\C$, for example when it looks for the eigenvalues of a matrix (lessons L17 and L18).
+
+> [!BEYOND] · where they really come from
+> Historically the complex numbers were born from equations of the **third degree**. In the sixteenth century Gerolamo Cardano published a formula to solve equations like $x^3 = 15x + 4$. Applied to this equation, the formula asks you to compute $\sqrt{-121}$, which does not exist among the reals. Yet the equation has a very simple real solution, $x = 4$: indeed $4^3 = 64$ and $15 \cdot 4 + 4 = 64$. Rafael Bombelli had the idea of computing with $\sqrt{-121} = 11i$ as if it were any other number: the formula becomes
+> $$x = \sqrt[3]{2 + 11i} + \sqrt[3]{2 - 11i},$$
+> and since $(2 + i)^3 = 2 + 11i$ and $(2 - i)^3 = 2 - 11i$ (you check it in exercise 1), you find $x = (2 + i) + (2 - i) = 4$. The "imaginary" numbers served to find real numbers.
+
+## What a complex number is (p. 6)
+
+> [!DEF] 2.1 · Complex numbers
+> A **complex number** is an algebraic object written in the following way:
+> $$a + bi$$
+> where $a$ and $b$ are arbitrary real numbers and $i$ is a new symbol called the **imaginary unit**.
+
+Piece by piece:
+
+- $a + bi$ is read "$a$ plus $b$ $i$". It is **a single number**, built with two real numbers: the first, $a$, stands alone; the second, $b$, is multiplied by $i$.
+- $a$ and $b$ are **any** reals: positive, negative, zero, fractions, roots. Writing $bi$ means $b \cdot i$. One also writes $ib$, especially with roots: $i\sqrt 3$ is clearer than $\sqrt 3 i$, where the $i$ might seem to be under the root.
+- $i$ **is not a real number**: it is a new symbol. The name "imaginary" is only historical. For us $i$ is an object you compute with following just one extra rule, which you will see shortly: $i^2 = -1$.
+- The $+$ in $a + bi$ cannot be "carried out": $a$ and $bi$ stay separate, as in $3 + 2\sqrt 2$ in lesson L01, which does not reduce to a single simpler number.
+
+Here are the handouts' examples, with the two components highlighted:
+
+| Complex number | $a$ | $b$ | Remark |
+|---|--:|--:|---|
+| $\sqrt 7$ | $\sqrt 7$ | $0$ | a real number is complex: $\sqrt 7 = \sqrt 7 + 0i$ |
+| $2 + i$ | $2$ | $1$ | $i$ alone means $1 \cdot i$ |
+| $23i$ | $0$ | $23$ | the part without $i$ is missing: $23i = 0 + 23i$ |
+| $4 - i$ | $4$ | $-1$ | $-i$ means $(-1) \cdot i$ |
+| $-1 + \pi i$ | $-1$ | $\pi$ | $b$ too can be irrational |
+
+Two special cases come up often:
+
+- if $b = 0$, the number $a + 0i = a$ is a **real number**: the reals are contained in the complex numbers;
+- if $a = 0$, the number $bi$ is called **purely imaginary** (for example $23i$, $-i$, $i\sqrt 2$).
+
+> [!NOTE] When two complex numbers are equal
+> $a + bi = c + di$ exactly when $a = c$ **and** $b = d$. In the handouts this is implicit in the way a complex number is written, and it becomes evident in section 2.D: each $a + bi$ corresponds to a single point $(a, b)$ of the plane, and two points coincide when they have the same coordinates. For example $x + yi = 3 - 2i$, with $x, y$ real, means $x = 3$ and $y = -2$. An equality between complex numbers is therefore equivalent to **two** equalities between real numbers: it is the trick for solving many equations (exercises 6 and 7).
+
+> [!PITFALL] The imaginary part does not contain $i$
+> Shortly the number $b$ will be called the **imaginary part** of $a + bi$. It is the real number $b$, not $bi$: the imaginary part of $4 - i$ is $-1$, not $-i$.
+
+## Sum and product (p. 6)
+
+The handouts say that complex numbers are added and multiplied "in the usual way", keeping in mind a single new relation:
+
+$$i^2 = -1.$$
+
+"In the usual way" means: as you do with literal expressions, treating $i$ as a letter (like the $x$ of $3 + 2x$) and using the commutative, associative and distributive properties. The only novelty is that, every time $i^2$ appears, you replace it with $-1$.
+
+### The sum
+
+$$(a + bi) + (c + di) = (a + c) + (b + d)i$$
+
+You add the parts without $i$ together and the parts with $i$ together, exactly as $(3 + 2x) + (1 - 5x) = 4 - 3x$.
+
+> [!EXAMPLE] · Sum and difference
+> $$(3 + 2i) + (1 - 5i) = (3 + 1) + (2 - 5)i = 4 - 3i.$$
+> The difference is done in the same way, taking care that the minus sign changes **both** parts of the second number:
+> $$(3 + 2i) - (1 - 5i) = (3 - 1) + (2 + 5)i = 2 + 7i.$$
+
+### The product
+
+To multiply $(a + bi)$ by $(c + di)$ you proceed like this.
+
+1. Distributive property: each term of the first bracket times each term of the second,
+   $$(a + bi)(c + di) = ac + a \cdot di + bi \cdot c + bi \cdot di.$$
+2. Reorder the factors: $ac + adi + bci + bd\,i^2$.
+3. Use the new rule: $bd\,i^2 = bd \cdot (-1) = -bd$.
+4. Collect the parts without $i$ and those with $i$:
+   $$(a + bi) \cdot (c + di) = (ac - bd) + (ad + bc)i.$$
+
+In the product a minus sign appears ($ac - bd$) that is not there in the sum: it all comes from $i^2 = -1$.
+
+> [!EXAMPLE] · The handouts' product: $(7 + i)(4 - i) = 29 - 3i$
+> The four products:
+> - $7 \cdot 4 = 28$;
+> - $7 \cdot (-i) = -7i$;
+> - $i \cdot 4 = 4i$;
+> - $i \cdot (-i) = -i^2 = -(-1) = +1$.
+>
+> Adding up: $28 + 1 + (-7 + 4)i = 29 - 3i$. With the formula: $a = 7$, $b = 1$, $c = 4$, $d = -1$, so $ac - bd = 28 - (1)(-1) = 29$ and $ad + bc = 7 \cdot (-1) + 1 \cdot 4 = -3$.
+
+More products, all with the same method:
+
+| Product | Computation | Result |
+|---|---|---|
+| $3(2 - i)$ | a real number multiplies both parts | $6 - 3i$ |
+| $i(2 + 3i)$ | $2i + 3i^2 = 2i - 3$ | $-3 + 2i$ |
+| $(1 + 2i)(3 - i)$ | $3 - i + 6i - 2i^2 = 3 + 5i + 2$ | $5 + 5i$ |
+| $(1 + i)^2$ | $1 + 2i + i^2 = 1 + 2i - 1$ | $2i$ |
+| $(2 + 3i)^2$ | $4 + 12i + 9i^2 = 4 + 12i - 9$ | $-5 + 12i$ |
+| $(1 + i)(1 - i)$ | $1 - i + i - i^2 = 1 + 1$ | $2$ |
+
+The last product is a **real** number. It is not a coincidence: you will understand why shortly, with the conjugate.
+
+> [!METHOD] Multiplying two complex numbers
+> 1. Carry out the four products: each term of the first bracket times each term of the second.
+> 2. Replace $i^2$ with $-1$: the term $bi \cdot di = bd\,i^2$ **changes sign** and becomes $-bd$.
+> 3. Collect the parts without $i$ and those with $i$.
+>
+> There is no need to learn the formula by heart: these three steps are enough.
+
+> [!PITFALL] You do not multiply "part by part"
+> $(1 + 2i)(3 - i)$ is **not** $1 \cdot 3 + 2 \cdot (-1)\,i = 3 - 2i$: the two mixed terms $1 \cdot (-i)$ and $2i \cdot 3$ are missing. The right result is $5 + 5i$. The second typical mistake is forgetting the change of sign: with $i^2 = +1$ you would get $3 + 5i - 2 = 1 + 5i$, which is wrong.
+
+### The powers of $i$ (beyond the handouts)
+
+The powers of $i$ repeat every four:
+
+| $n$ | $0$ | $1$ | $2$ | $3$ | $4$ | $5$ | $6$ | $7$ | $8$ |
+|---|---|---|---|---|---|---|---|---|---|
+| $i^n$ | $1$ | $i$ | $-1$ | $-i$ | $1$ | $i$ | $-1$ | $-i$ | $1$ |
+
+Indeed $i^3 = i^2 \cdot i = -i$ and $i^4 = i^2 \cdot i^2 = (-1)(-1) = 1$. From there it starts again: $i^5 = i^4 \cdot i = i$, and so on. So to compute $i^n$ you only need the **remainder** of the division of $n$ by $4$: if $n = 4k + r$, then
+$$i^n = (i^4)^k \cdot i^r = 1^k \cdot i^r = i^r.$$
+
+- $i^{15}$: $15 = 4 \cdot 3 + 3$, so $i^{15} = i^3 = -i$ (needed in exercise 2).
+- $i^{100}$: $100 = 4 \cdot 25 + 0$, so $i^{100} = 1$.
+- $i^{2026}$: $2026 = 4 \cdot 506 + 2$, so $i^{2026} = i^2 = -1$.
+
+$-i$ too has square $-1$: $(-i)^2 = (-1)^2 \cdot i^2 = -1$. So $x^2 = -1$ has **two** solutions in $\C$, $i$ and $-i$.
+
+### The set of complex numbers
+
+The set of complex numbers is denoted by $\C$, and the chain of number sets of lesson L01 gets longer:
+
+$$\N \subsetneq \Z \subsetneq \Q \subsetneq \R \subsetneq \C.$$
+
+The inclusion $\R \subsetneq \C$ is strict because $i \in \C$ but $i \notin \R$: its square is $-1$, and no real number has a negative square. Moreover, computations between real numbers do not change when you look at them inside $\C$: with the product formula, $(a + 0i)(c + 0i) = (ac - 0 \cdot 0) + (a \cdot 0 + 0 \cdot c)i = ac$. This is why we say that $\C$ **extends** $\R$.
+
+## The properties of C: a field that is not ordered (pp. 6–7)
+
+> [!PROP] 2.2
+> With the addition and multiplication defined above, the set $\C$ has the following properties:
+> 1. there is an **identity element** $0$ for addition $+$, such that $0 + a = a + 0 = a$, $\forall a \in \C$;
+> 2. the **commutative** property holds $a + b = b + a$, $\forall a, b \in \C$;
+> 3. the **associative** property holds $a + (b + c) = (a + b) + c$, $\forall a, b, c \in \C$;
+> 4. every element $a \in \C$ has an **inverse** (or **opposite**) $-a$, such that $a + (-a) = (-a) + a = 0$;
+> 5. there is an **identity element** $1$ for multiplication, such that $1 \cdot a = a \cdot 1 = a$, $\forall a \in \C$;
+> 6. the **commutative** property holds $a \cdot b = b \cdot a$, $\forall a, b \in \C$;
+> 7. the **associative** property holds $a \cdot (b \cdot c) = (a \cdot b) \cdot c$, $\forall a, b, c \in \C$;
+> 8. every element $a \in \C$ with $a \neq 0$ has an **inverse** $a^{-1}$, such that $a \cdot a^{-1} = a^{-1} \cdot a = 1$;
+> 9. the **distributive** property holds $a \cdot (b + c) = a \cdot b + a \cdot c$, $\forall a, b, c \in \C$.
+
+They are **the same nine properties** as Proposition 1.5 for $\R$ (lesson L01). Watch out for the letters: here $a, b, c$ denote **complex** numbers, not the components of $a + bi$. In $\C$:
+
+- zero is $0 = 0 + 0i$ and one is $1 = 1 + 0i$;
+- the opposite of $a + bi$ is $-a - bi$, because $(a + bi) + (-a - bi) = 0 + 0i = 0$;
+- the only property that requires a real computation is 8, the inverse: you will see it in the section on the inverse.
+
+The handouts conclude: "So, like $\R$, $\C$ is also a **field**." From this lesson on, when the course says "a field $\K$", it will almost always mean $\K = \R$ or $\K = \C$ (lesson L05).
+
+> [!BEYOND] · what you gain
+> Since the nine properties hold, all the computation rules valid in $\R$ work in $\C$: special products like $(z + w)^2 = z^2 + 2zw + w^2$ and $(z - w)(z + w) = z^2 - w^2$, factoring out, the zero-product rule (if $zw = 0$ and $z \neq 0$, multiplying by $z^{-1}$ you get $w = 0$). You will use it in lesson L04 to find the roots of polynomials.
+
+### C is not ordered
+
+The handouts stress a fundamental difference between $\C$ and all the number sets seen before ($\N$, $\Z$, $\Q$ and $\R$): **$\C$ is not ordered**. There is no notion of greater and smaller between complex numbers. The reason, in one line from the handouts: in an ordered field a square is always positive, but here $i^2 = -1$.
+
+> [!PROOF] · why $\C$ cannot be ordered
+> In an ordered field like $\R$ (lesson L01: $a > b$ means $a - b > 0$) the positive numbers obey two rules:
+> 1. sum and product of positive numbers are positive;
+> 2. for every $a \neq 0$, **one and only one** of $a$ and $-a$ is positive.
+>
+> From these two rules it follows that the square of a non-zero number is positive: if $a > 0$, then $a \cdot a > 0$ by rule 1; if instead $a < 0$, then $-a > 0$ and $a^2 = (-a) \cdot (-a) > 0$, again by rule 1.
+>
+> Suppose by contradiction that $\C$ has an order with these rules. Then $1 = 1^2$ is positive, because it is the square of $1 \neq 0$. But $-1 = i^2$ is positive too, because it is the square of $i \neq 0$. So $1$ and $-1$ would both be positive, against rule 2. Contradiction.
+>
+> (Complex numbers can also be lined up in some way, for example first by real part and then by imaginary part; but no order of this kind respects the rules of computation. It is in this sense that $\C$ is not ordered.)
+
+> [!PITFALL] No inequalities between complex numbers
+> Expressions like $z > 0$, $3i > 2i$ or $1 + i < 2$ **make no sense**. You can only compare **real** numbers linked to $z$, like the real part, the imaginary part or the modulus: $|3i| = 3 > 2 = |2i|$ is perfectly fine.
+
+## Real part, imaginary part and conjugate (p. 7)
+
+> [!DEF] Real part and imaginary part (p. 7)
+> Let $z = a + bi$ be a complex number. The numbers $a$ and $b$ are called respectively the **real part** and the **imaginary part** of $z$. We write $a = \operatorname{Re}(z)$ and $b = \operatorname{Im}(z)$. The number $z$ is real, that is it belongs to the subset $\R \subset \C$, if and only if its imaginary part is zero.
+
+> [!DEF] Conjugate (p. 7)
+> The **conjugate** of $z = a + bi$ is the complex number
+> $$\bar z = a - bi$$
+> obtained from $z$ by changing the sign of its imaginary part.
+
+Piece by piece:
+
+- $\operatorname{Re}(z)$ and $\operatorname{Im}(z)$ are two **real numbers**: they associate a real number with each complex number.
+- $\bar z$ is read "z bar" (or "z conjugate"): it is written with a small bar on top. With a long expression the bar covers everything: $\overline{z + w}$ is the conjugate of the sum.
+- The conjugate changes the sign **only** of the imaginary part: the real part stays as it is.
+
+| $z$ | $\operatorname{Re}(z)$ | $\operatorname{Im}(z)$ | $\bar z$ |
+|---|--:|--:|---|
+| $3 + 4i$ | $3$ | $4$ | $3 - 4i$ |
+| $-2 + i$ | $-2$ | $1$ | $-2 - i$ |
+| $1 - 3i$ | $1$ | $-3$ | $1 + 3i$ |
+| $5i$ | $0$ | $5$ | $-5i$ |
+| $7$ | $7$ | $0$ | $7$ |
+
+The last number, $7$, coincides with its own conjugate. The handouts note that this happens **exactly** for the real numbers:
+
+$$z \in \R \iff z = \bar z.$$
+
+Why, step by step: $a + bi = a - bi$ means (comparing the imaginary parts) $b = -b$, that is $2b = 0$, that is $b = 0$, that is $z$ is real.
+
+> [!BEYOND] · four useful rules on the conjugate
+> - $z + \bar z = (a + bi) + (a - bi) = 2a$: the sum of a number and its conjugate is **always real**, and $\operatorname{Re}(z) = \frac{z + \bar z}2$.
+> - $z - \bar z = 2bi$: the difference is always **purely imaginary**, and $\operatorname{Im}(z) = \frac{z - \bar z}{2i}$.
+> - $\bar{\bar z} = z$: conjugating twice brings you back to the starting point.
+> - The conjugate "goes inside" sums and products: $\overline{z + w} = \bar z + \bar w$ and $\overline{zw} = \bar z\,\bar w$ (you prove it in exercise 3). Check with $z = 1 + 2i$ and $w = 3 - i$: $zw = 3 - i + 6i - 2i^2 = 5 + 5i$, so $\overline{zw} = 5 - 5i$; and $\bar z\,\bar w = (1 - 2i)(3 + i) = 3 + i - 6i - 2i^2 = 5 - 5i$. Equal.
+
+## The modulus (p. 7)
+
+> [!DEF] Modulus (p. 7)
+> The **modulus** of $z = a + bi$ is the real number
+> $$|z| = \sqrt{a^2 + b^2}.$$
+
+Piece by piece:
+
+- $a^2 + b^2$ is a sum of squares of real numbers, so it is $\ge 0$ and the root exists: $|z|$ is a **real, non-negative** number.
+- If $z = a$ is real, $|a| = \sqrt{a^2}$ is the usual absolute value (lesson L01: $\sqrt{x^2} = |x|$). This is why the same symbol is used.
+- In the complex plane $|z|$ is the **distance** of the point $z$ from the origin (you see it in the section on the complex plane).
+
+| $z$ | $a^2 + b^2$ | $\lvert z \rvert$ |
+|---|---|--:|
+| $3 + 4i$ | $9 + 16 = 25$ | $5$ |
+| $1 - i$ | $1 + 1 = 2$ | $\sqrt 2$ |
+| $1 + 2i$ | $1 + 4 = 5$ | $\sqrt 5$ |
+| $-5$ | $25 + 0 = 25$ | $5$ |
+| $2i$ | $0 + 4 = 4$ | $2$ |
+| $5 - 12i$ | $25 + 144 = 169$ | $13$ |
+
+The handouts observe that the modulus $|z|$ is zero when $z = 0$, that is when $a = b = 0$, and it is **strictly positive** if $z \neq 0$. The reason: $a^2 \ge 0$ and $b^2 \ge 0$, and a sum of two non-negative numbers is $0$ only if both are zero.
+
+### The most used formula: $z\bar z = |z|^2$
+
+Let us multiply a number by its conjugate:
+
+1. $(a + bi)(a - bi) = a^2 - abi + abi - b^2 i^2$ (four products);
+2. the two terms with $i$ cancel out: $-abi + abi = 0$;
+3. $-b^2 i^2 = -b^2 \cdot (-1) = +b^2$.
+
+So
+
+$$z \cdot \bar z = (a + bi)(a - bi) = a^2 + b^2 = |z|^2.$$
+
+For example $(3 + 4i)(3 - 4i) = 9 - 12i + 12i - 16i^2 = 9 + 16 = 25 = 5^2$. And this also explains the product $(1 + i)(1 - i) = 2$ in the table above: it is $|1 + i|^2 = (\sqrt 2)^2$.
+
+> [!IDEA] · the conjugate "makes the $i$ disappear"
+> Whatever $z$ is, the product $z\bar z$ is a **real** and **non-negative** number. Multiplying by the conjugate is the way to turn a complex number into a real number: the inverse and the division are based on this.
+
+> [!PITFALL] $|z|^2$ is not $z^2$
+> $|z|^2 = a^2 + b^2$ is always real; $z^2 = a^2 - b^2 + 2abi$ in general is not. With $z = i$: $|i|^2 = 1$ but $i^2 = -1$. With $z = 1 + i$: $|z|^2 = 2$ but $z^2 = 2i$. And the modulus is not the sum of the parts: $|3 + 4i| = 5$, not $3 + 4 = 7$.
+
+## The inverse and division (pp. 7–8)
+
+Property 8 of Proposition 2.2 promises that every $z \neq 0$ has an inverse. The handouts show it with an explicit formula: it is an important fact, because at first sight it is not clear how to write $\frac 1{2 + i}$ in the form $c + di$.
+
+> [!PROP] · Inverse of a complex number (p. 7)
+> As in the rational and real numbers, every complex number $z \neq 0$ has an **inverse** $z^{-1}$ with respect to the multiplication operation, given by
+> $$z^{-1} = \frac{\bar z}{|z|^2}.$$
+
+Piece by piece:
+
+- $|z|^2 = a^2 + b^2$ is a **real, non-zero** number (because $z \neq 0$): dividing by it means multiplying the two parts of $\bar z$ by the real number $\frac 1{a^2 + b^2}$.
+- In coordinates:
+  $$(a + bi)^{-1} = \frac{a - bi}{a^2 + b^2} = \frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2}\,i.$$
+- Instead of $z^{-1}$ one also writes $\frac 1z$.
+
+**Why it works** (it is the handouts' check). Let us multiply $z$ by the candidate inverse and use $z\bar z = |z|^2$:
+
+$$z \cdot z^{-1} = \frac{z \bar z}{|z|^2} = \frac{|z|^2}{|z|^2} = 1.$$
+
+By the commutative property, $z^{-1} \cdot z = 1$ holds as well.
+
+> [!IDEA] · where the formula comes from
+> To write $\frac 1{a + bi}$ in the form $c + di$ you need to remove the $i$ from the denominator. It is done as with roots in lesson L01 (for $\frac 1{\sqrt 2 - 1}$ you multiplied top and bottom by $\sqrt 2 + 1$): you multiply numerator and denominator by the **conjugate** of the denominator,
+> $$\frac 1{a + bi} = \frac{a - bi}{(a + bi)(a - bi)} = \frac{a - bi}{a^2 + b^2}.$$
+
+> [!EXAMPLE] 2.3 · The inverses of $i$ and of $2 + i$
+> The inverse of $i$ is $-i$: indeed $i \cdot (-i) = -i^2 = 1$. With the formula: $\bar i = -i$ and $|i|^2 = 1$, so $i^{-1} = -i$.
+>
+> The inverse of $2 + i$ is
+> $$(2 + i)^{-1} = \frac{2 - i}{|2 + i|^2} = \frac{2 - i}5 = \frac 25 - \frac 15 i,$$
+> because $|2 + i|^2 = 4 + 1 = 5$. You can check that indeed
+> $$(2 + i) \cdot \frac{2 - i}5 = \frac{4 - 2i + 2i - i^2}5 = \frac{4 + 1}5 = 1.$$
+
+Two more examples with the same pattern:
+
+- $(3 + 4i)^{-1} = \frac{3 - 4i}{25} = \frac 3{25} - \frac 4{25}i$, because $|3 + 4i|^2 = 25$;
+- $(1 - i)^{-1} = \frac{1 + i}{2} = \frac 12 + \frac 12 i$, because $|1 - i|^2 = 2$.
+
+### Dividing two complex numbers
+
+Dividing by $z \neq 0$ means multiplying by its inverse: $\frac wz = w \cdot z^{-1} = \frac{w\bar z}{|z|^2}$. In practice:
+
+> [!METHOD] Dividing two complex numbers
+> 1. Write the fraction $\frac wz$.
+> 2. Multiply numerator and denominator by $\bar z$, the conjugate **of the denominator**.
+> 3. In the denominator you get $z\bar z = |z|^2$, a positive real number; in the numerator carry out the product $w\bar z$.
+> 4. Divide the real part and the imaginary part of the numerator by $|z|^2$.
+> 5. **Check**: multiply the result by $z$; you must get $w$ back.
+
+> [!EXAMPLE] · $\frac{4 + 3i}{1 + 2i}$
+> The conjugate of the denominator is $1 - 2i$:
+> $$\frac{4 + 3i}{1 + 2i} = \frac{(4 + 3i)(1 - 2i)}{(1 + 2i)(1 - 2i)} = \frac{4 - 8i + 3i - 6i^2}{1 + 4} = \frac{10 - 5i}5 = 2 - i.$$
+> Check: $(2 - i)(1 + 2i) = 2 + 4i - i - 2i^2 = 4 + 3i$. Correct.
+
+> [!EXAMPLE] · $\frac{1 + i}{1 - i}$
+> $$\frac{1 + i}{1 - i} = \frac{(1 + i)(1 + i)}{(1 - i)(1 + i)} = \frac{1 + 2i + i^2}{2} = \frac{2i}2 = i.$$
+> Check: $i(1 - i) = i - i^2 = 1 + i$.
+
+> [!PITFALL] You do not divide "part by part"
+> $\frac{4 + 3i}{1 + 2i}$ is **not** $\frac 41 + \frac 32 i$. Check: $(1 + 2i)(4 + \frac 32 i) = 4 + \frac 32 i + 8i + 3i^2 = 1 + \frac{19}2 i$, which is not $4 + 3i$. You can divide part by part only by a **real** number: this is why you first bring the real number $|z|^2$ into the denominator.
+
+### First-degree equations in C
+
+An equation like $(1 + 2i)z = 4 + 3i$ is solved as among the reals: you divide by the coefficient of $z$, which is not zero. So $z = \frac{4 + 3i}{1 + 2i} = 2 - i$, the quotient just computed.
+
+> [!EXAM] The most direct kind of question
+> "Find $z$ such that $(\ldots)z = \ldots$" was question 1 of the quiz in the exam sessions of 08/02/2024, 03/06/2025 and 03/06/2026. The method is always this: simplify the products, divide with the conjugate, **check by multiplying**. The three questions, solved, are in the section "Towards the exam".
+
+## The complex plane (pp. 8–9)
+
+While the real numbers $\R$ form a **line**, the complex numbers $\C$ form a **plane**, called the **complex plane**. Each complex number $a + bi$ is identified with the point with coordinates $(a, b)$ of the Cartesian plane, or, equivalently, with the **vector** applied at the origin $0$ and pointing to $(a, b)$ (Figure 1 of the handouts).
+
+- The horizontal axis is the **real axis**: it is exactly the subset $\R \subset \C$ of the real numbers.
+- The vertical axis is the **imaginary axis**: it contains all the numbers of the form $bi$, as $b \in \R$ varies.
+
+```graph
+title: In the complex plane the number $a + bi$ is the point $(a, b)$: the real part is read horizontally, the imaginary part vertically
+x: -4 4
+y: -3 3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+segment: 2 0 2 1 | grey | dashed
+segment: 0 1 2 1 | grey | dashed
+vector: 2 1 | accent | $2 + i$ | ne
+point: -1 2 | blue | $-1 + 2i$ | nw
+point: -3 0 | amber | $-3$ | n
+point: 0 2 | violet | $2i$ | ne
+point: -2 -2 | pink | $-2 - 2i$ | sw
+point: 3 -2 | green | $3 - 2i$ | se
+```
+
+The number $-3$ lies on the real axis and $2i$ on the imaginary axis. The number $2 + i$ is drawn as an arrow: it is the vector that starts at the origin and ends at the point $(2, 1)$.
+
+### The modulus is a distance
+
+The modulus $|a + bi| = \sqrt{a^2 + b^2}$ is the length of the vector, that is the **distance of the point from the origin**: by Pythagoras' theorem, in the right triangle with legs of length $|a|$ and $|b|$ the hypotenuse has length $\sqrt{a^2 + b^2}$. The handouts note it in lesson L03, when they introduce polar coordinates.
+
+```graph
+title: $\lvert 3 + 4i \rvert = 5$: the modulus is the hypotenuse of a triangle with legs $3$ and $4$
+x: -1 5
+y: -1 5
+names: $\operatorname{Re}$ $\operatorname{Im}$
+polygon: 0 0 3 0 3 4 | blue | faint
+vector: 3 4 | accent | thick | $3 + 4i$ | ne
+text: 1.5 -0.35 | $3$
+text: 3.35 2 | $4$
+text: 1.1 2.3 | accent | $\lvert z \rvert = 5$
+```
+
+### Conjugate and opposite
+
+In the plane, the conjugate $\bar z = a - bi$ has the same abscissa and the ordinate with its sign changed: it is the **mirror image of $z$ with respect to the real axis** (the handouts say this too, in lesson L03). The opposite $-z = -a - bi$ is instead the mirror image with respect to the **origin**.
+
+```graph
+title: Conjugate: symmetry with respect to the real axis. Opposite: symmetry with respect to the origin
+x: -6 6
+y: -3 3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+segment: 3 2 3 -2 | grey | dashed
+segment: 3 2 -3 -2 | grey | dashed
+vector: 3 2 | accent | $z = 3 + 2i$ | ne
+vector: 3 -2 | violet | $\bar z = 3 - 2i$ | se
+vector: -3 -2 | amber | $-z = -3 - 2i$ | sw
+```
+
+### The sum: the parallelogram rule
+
+The sum $z_1 + z_2$ is computed by interpreting $z_1$ and $z_2$ as vectors and adding them with the **parallelogram** rule: the point $z_1 + z_2$ is the fourth vertex of the parallelogram that has three vertices at $0$, $z_1$ and $z_2$. It works because the sum is done coordinate by coordinate, exactly like the sum of vectors in the plane (you will meet it again in lesson L05).
+
+```graph
+title: Figure 2 of the handouts: $z_1 = 1 + 3i$, $z_2 = 4 + i$, $z_1 + z_2 = 5 + 4i$
+x: -1 7
+y: -1 5
+names: $\operatorname{Re}$ $\operatorname{Im}$
+polygon: 0 0 1 3 5 4 4 1 | amber | faint
+segment: 1 3 5 4 | grey | dashed
+segment: 4 1 5 4 | grey | dashed
+vector: 1 3 | accent | $z_1$ | nw
+vector: 4 1 | blue | $z_2$ | se
+vector: 5 4 | amber | thick | $z_1 + z_2$ | ne
+```
+
+Read the drawing like this: start from $0$, go to $z_1$ and from there make the same move that takes $0$ to $z_2$ ($4$ to the right and $1$ up): you arrive at $5 + 4i$. Or do $z_2$ first and then $z_1$: you arrive at the same point, because the sum is commutative.
+
+> [!BEYOND] · the difference and the distance between two points
+> The difference $z - w$ is the vector that goes **from $w$ to $z$**. Its modulus is the distance between the two points: with $z = a + bi$ and $w = c + di$,
+> $$|z - w| = \sqrt{(a - c)^2 + (b - d)^2},$$
+> which is the distance formula of analytic geometry. For example the distance between $1 + i$ and $4 + 5i$ is $|3 + 4i| = 5$. Consequently $\{z \in \C \mid |z - c| = r\}$ is the **circle** with centre $c$ and radius $r$: it is needed in exercise 4.
+
+### And the product?
+
+The product $z_1 \cdot z_2$ also has a geometric meaning, which can be seen clearly only with **polar coordinates**: you study it in lesson L03. A foretaste: multiplying by $i$ **rotates** the point by a right angle anticlockwise. For example $i(2 + i) = 2i + i^2 = -1 + 2i$, and $i(-1 + 2i) = -i + 2i^2 = -2 - i$.
+
+```graph
+title: Multiplying by $i$ rotates by $90°$ around the origin (preview of lesson L03)
+x: -3 3
+y: -3 3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+arc: 0 0 0.8 0.4636 2.0344 | grey
+arc: 0 0 0.8 2.0344 3.6052 | grey
+vector: 2 1 | accent | $z = 2 + i$ | ne
+vector: -1 2 | blue | $iz = -1 + 2i$ | nw
+vector: -2 -1 | amber | $i^2 z = -2 - i$ | sw
+```
+
+Try it yourself with the tool below. In **z + w** mode drag the points $z$ and $w$: the parallelogram updates and below it you read the coordinates of the sum. Then choose **conjugate and inverse of z**: you see $\bar z$ mirrored with respect to the real axis and $1/z$, which lies inside the unit circle when $|z| > 1$ and outside when $|z| < 1$ (you will understand why in lesson L03).
+
+```widget complessi
+title: Sum, conjugate and inverse in the complex plane
+z: 1+3i
+w: 4+i
+modo: somma
+modi: somma coniugato
+raggio: 6
+```
+
+## Drawing sets of complex numbers (beyond the handouts)
+
+Exercise 2.6 of the handouts asks you to draw sets of complex numbers defined by a condition. The method is always the same.
+
+> [!METHOD] From a condition on $z$ to a drawing
+> 1. Write $z = x + yi$ with $x, y$ real: $\operatorname{Re}(z) = x$, $\operatorname{Im}(z) = y$, $\bar z = x - yi$, $|z| = \sqrt{x^2 + y^2}$.
+> 2. Translate the condition into a condition on $x$ and $y$. If it is an equality between complex numbers, equate real parts and imaginary parts.
+> 3. Recognise the figure: line, half-plane, circle, disc. Remember that $|z - c|$ is the distance of $z$ from the point $c$.
+
+| Condition | In $x$ and $y$ | Figure |
+|---|---|---|
+| $\operatorname{Re}(z) = 2$ | $x = 2$ | vertical line |
+| $\operatorname{Im}(z) > 1$ | $y > 1$ | half-plane above the line $y = 1$, line excluded |
+| $\lvert z \rvert = 3$ | $x^2 + y^2 = 9$ | circle with centre $0$ and radius $3$ |
+| $\lvert z - i \rvert \le 1$ | $x^2 + (y - 1)^2 \le 1$ | disc with centre $i$ and radius $1$, boundary included |
+| $\lvert z - 1 \rvert = \lvert z + 1 \rvert$ | $x = 0$ | the imaginary axis |
+
+Let us check the last row, which cannot be guessed by eye. $|z - 1|$ is the distance from $1$ and $|z + 1| = |z - (-1)|$ is the distance from $-1$: the points equidistant from $1$ and from $-1$ form the perpendicular bisector of the segment joining them, that is the imaginary axis. With the computations: squaring, $(x - 1)^2 + y^2 = (x + 1)^2 + y^2$, that is $x^2 - 2x + 1 = x^2 + 2x + 1$, that is $-4x = 0$, that is $x = 0$.
+
+```graph
+title: The disc $\lvert z - (1 + i) \rvert \le 2$: all the points at distance at most $2$ from the centre $1 + i$
+x: -2 4
+y: -2 4
+names: $\operatorname{Re}$ $\operatorname{Im}$
+polygon: 3 1 2.932 1.518 2.732 2 2.414 2.414 2 2.732 1.518 2.932 1 3 0.482 2.932 0 2.732 -0.414 2.414 -0.732 2 -0.932 1.518 -1 1 -0.932 0.482 -0.732 0 -0.414 -0.414 0 -0.732 0.482 -0.932 1 -1 1.518 -0.932 2 -0.732 2.414 -0.414 2.732 0 2.932 0.482 | blue
+point: 1 1 | blue | $1 + i$ | sw
+segment: 1 1 3 1 | accent | $2$ | n
+```
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book this lesson corresponds to §1.4, parts 1.4.1 "Definizione", 1.4.2 "Coniugio, norma e inverso" (with Example 1.4.1, which is 2.3 in the handouts) and 1.4.3 "Il piano complesso", on pp. 25–27 of the book. Exercise 1.4.3 (p. 30) lists the properties of the modulus and of the conjugate, including those of exercise 2.5 of the handouts; §1.5.3 (p. 36) defines fields in general.
+
+## Towards the exam
+
+**The test in two lines.** 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; 2 hours, no calculator, only 4 handwritten pages of notes. 2026/27 Linear Algebra exam sessions: 22/01/2027 and 05/02/2027 at 14:00. Complete rules and sources in lesson L01.
+
+**Complex numbers in the exam sessions.** In **each** of the 15 exam sessions from 24/01/2024 to 07/09/2026 there is at least one quiz question on complex numbers or on the roots of a polynomial, and in 11 sessions out of 15 it is question 1. They split like this among lessons L02–L04:
+
+| Type of question | Exam sessions (question) | Lesson |
+|---|---|---|
+| find $z$ from a first-degree equation, then compute an expression | 08/02/2024 (1), 03/06/2025 (1), 03/06/2026 (1) | L02 |
+| high powers, product in polar form, $n$-th roots | 24/01/2024 (2), 10/06/2024 (1), 10/07/2024 (1), 06/09/2024 (1), 16/01/2025 (1), 07/02/2025 (1), 02/09/2025 (2), 15/01/2026 (5), 05/02/2026 (1) | L03 |
+| which number is a root of a polynomial | 10/07/2025 (1), 03/07/2026 (7), 07/09/2026 (1) | L04 |
+
+The questions of lessons L03 and L04 too almost always end with the computations of this lesson: a product, an inverse, a division. Here are the three questions of type L02, with the solution.
+
+> [!EXAMPLE] · Exam of 08/02/2024, question 1
+> Find $z \in \C$ such that $(i - 1)(i - 2)z = (i + 1)(i + 2)(i + 3)$. Answers: $10 + 3i$; $i - 3$; $30 + 10i$; $3i - 1$; $1 - 30i$.
+>
+> **Solution.** First simplify the two sides.
+> - $(i - 1)(i - 2) = i^2 - 2i - i + 2 = -1 - 3i + 2 = 1 - 3i$.
+> - $(i + 1)(i + 2) = i^2 + 3i + 2 = 1 + 3i$, and then $(1 + 3i)(i + 3) = i + 3 + 3i^2 + 9i = 3 - 3 + 10i = 10i$.
+>
+> The equation becomes $(1 - 3i)z = 10i$, so
+> $$z = \frac{10i}{1 - 3i} = \frac{10i(1 + 3i)}{(1 - 3i)(1 + 3i)} = \frac{10i + 30i^2}{10} = \frac{-30 + 10i}{10} = -3 + i.$$
+> It is the answer $i - 3$. Check: $(1 - 3i)(-3 + i) = -3 + i + 9i - 3i^2 = -3 + 10i + 3 = 10i$.
+
+> [!EXAMPLE] · Exam of 03/06/2025, question 1
+> Given $z \in \C$ satisfying $(1 + i)z = 3 + 2i$, what is $2z(5 + i)$? Answers: $13 + 13i$; $26i$; $1 + i$; $13 - 13i$; $26$.
+>
+> **Solution.** $z = \frac{3 + 2i}{1 + i} = \frac{(3 + 2i)(1 - i)}{2} = \frac{3 - 3i + 2i - 2i^2}2 = \frac{5 - i}2$. Then
+> $$2z(5 + i) = (5 - i)(5 + i) = 25 - i^2 = 26.$$
+> The product is real because $5 - i$ and $5 + i$ are conjugates: $(5 - i)(5 + i) = |5 + i|^2 = 25 + 1$. Answer: $26$.
+
+> [!EXAMPLE] · Exam of 03/06/2026, question 1
+> If $(1 + i)z = 2i$, what is $\frac 1{z + i}$? Answers: $0$; $\frac 1{1 + i}$; $\frac{1 - 2i}5$; $\frac i{1 + i}$; $\frac{2 + i}5$.
+>
+> **Solution.** $z = \frac{2i}{1 + i} = \frac{2i(1 - i)}{2} = i - i^2 = 1 + i$. So $z + i = 1 + 2i$ and
+> $$\frac 1{1 + 2i} = \frac{1 - 2i}{(1 + 2i)(1 - 2i)} = \frac{1 - 2i}{5}.$$
+> Answer: $\frac{1 - 2i}5$. Watch out for answers written in different forms: $\frac 1{1 + i} = \frac{1 - i}2$ and $\frac i{1 + i} = \frac{1 + i}2$ are numbers different from the right one, and it is always best to reduce everything to the form $a + bi$ before comparing.
+
+> [!METHOD] The "find $z$" questions in five steps
+> 1. Carry out the products of known numbers, so that the equation becomes $\alpha z = \beta$ with $\alpha, \beta$ numbers.
+> 2. Divide: $z = \frac{\beta}{\alpha}$, multiplying top and bottom by $\bar\alpha$.
+> 3. Check by multiplying: $\alpha \cdot z$ must give $\beta$.
+> 4. Compute the required expression (sum, product, inverse).
+> 5. Reduce the five answers to the form $a + bi$ before choosing. In the quiz you can also **substitute** the answers into the equation: with one product per answer you find the right one.
+
+**Mistakes to avoid.** Forgetting that $i^2 = -1$ changes the sign; multiplying by the conjugate of the numerator instead of the denominator; confusing $|z|^2$ with $z^2$; dividing part by part; writing inequalities between complex numbers.
+
+> [!EXAM] The 4-page sheet
+> From this lesson a few lines are enough: $i^2 = -1$ and the powers of $i$ with period 4; $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$; $\bar z = a - bi$, $|z| = \sqrt{a^2 + b^2}$, $z\bar z = |z|^2$; $z^{-1} = \frac{\bar z}{|z|^2}$; "to divide, I multiply by the conjugate of the denominator"; $|z - c|$ is the distance from $c$.
+
+## Quiz
+
+```quiz
+Q: The number $z \in \C$ such that $(1 - i)z = 2 + 4i$ is:
++ $-1 + 3i$
+- $3 + i$
+- $-1 - 3i$
+- $1 + 3i$
+- $-2 + 4i$
+= $z = \frac{2 + 4i}{1 - i} = \frac{(2 + 4i)(1 + i)}{2} = \frac{2 + 2i + 4i + 4i^2}2 = \frac{-2 + 6i}2 = -1 + 3i$. Check: $(1 - i)(-1 + 3i) = -1 + 3i + i - 3i^2 = 2 + 4i$. The other answers, multiplied by $1 - i$, give $4 - 2i$, $-4 - 2i$, $4 + 2i$ and $2 + 6i$. Similar to the exams of 08/02/2024 and 03/06/2025, question 1.
+
+Q: If $(1 + 2i)z = 5$, then $\frac 1{z + i}$ is equal to:
++ $\frac{1 + i}2$
+- $\frac{1 - i}2$
+- $1 + i$
+- $\frac 12$
+- $\frac{1 - 3i}{10}$
+= $z = \frac 5{1 + 2i} = \frac{5(1 - 2i)}5 = 1 - 2i$, so $z + i = 1 - i$ and $\frac 1{1 - i} = \frac{1 + i}{(1 - i)(1 + i)} = \frac{1 + i}2$. The answer $\frac{1 - 3i}{10}$ is $\frac 1{1 + 3i}$: it comes out if you get the sign of $z$ wrong. Similar to the exam of 03/06/2026, question 1.
+
+Q: What is $(2 + 3i)(1 - 2i)$?
++ $8 - i$
+- $-4 - i$
+- $2 - 6i$
+- $8 + i$
+- $8 - 7i$
+= $(2 + 3i)(1 - 2i) = 2 - 4i + 3i - 6i^2 = 2 - i + 6 = 8 - i$. The answer $-4 - i$ comes from using $i^2 = +1$; $2 - 6i$ from multiplying "part by part". These are the computations with which question 1 of the exam of 08/02/2024 starts, where you had to carry out products like $(i - 1)(i - 2)$.
+
+Q: What is $i^{2026}$?
++ $-1$
+- $1$
+- $i$
+- $-i$
+- $2026\,i$
+= The powers of $i$ repeat every 4: $2026 = 4 \cdot 506 + 2$, so $i^{2026} = (i^4)^{506} \cdot i^2 = 1 \cdot (-1) = -1$. The same computation was needed in the exam of 05/02/2026 (question 1), to check that $(\pm i)^{2026} = -1$.
+
+Q: Which statement is true for **every** $z \in \C$?
++ $z + \bar z$ is a real number.
+- $z - \bar z$ is a real number.
+- $z^2 = |z|^2$.
+- $|z| = \operatorname{Re}(z) + \operatorname{Im}(z)$.
+- $\bar z = -z$.
+= With $z = a + bi$: $z + \bar z = 2a$ is real. Instead $z - \bar z = 2bi$ is not real if $b \neq 0$ (for example with $z = i$ it is $2i$); $i^2 = -1$ but $|i|^2 = 1$; $|1 + i| = \sqrt 2 \neq 2$; $\bar 1 = 1 \neq -1$.
+
+Q: The inverse of $3 - 4i$ is:
++ $\frac{3 + 4i}{25}$
+- $\frac{3 + 4i}5$
+- $\frac 13 - \frac 14 i$
+- $-3 + 4i$
+- $\frac{-3 + 4i}{25}$
+= $(3 - 4i)^{-1} = \frac{\overline{3 - 4i}}{|3 - 4i|^2} = \frac{3 + 4i}{9 + 16} = \frac{3 + 4i}{25}$. Check: $(3 - 4i)(3 + 4i) = 25$. With $\frac{3 + 4i}5$ you divided by $|z|$ instead of $|z|^2$ (the product comes out $5$); $\frac 13 - \frac 14 i$ inverts the parts separately (the product comes out $-\frac{25}{12}i$). An inverse to be computed like this was also in the exam of 10/06/2024 (question 1).
+
+Q: Which statement about $\C$ is true?
++ $\C$ is a field, but it is not ordered.
+- $\C$ is not a field, because $i$ has no inverse.
+- $\C$ is ordered: for example $2i > i$.
+- $\R$ is not contained in $\C$.
+- $0$ too has an inverse in $\C$.
+= $\C$ has the nine properties of Proposition 2.2, so it is a field; $i$ has inverse $-i$. It is not ordered: if it were, $1 = 1^2$ and $-1 = i^2$ would both be positive. $\R \subset \C$ (the numbers $a + 0i$) and $0$ never has an inverse.
+
+Q: What is the imaginary part of $\frac{3 - i}{1 + i}$? Write a number.
+N: -2
+= $\frac{3 - i}{1 + i} = \frac{(3 - i)(1 - i)}{2} = \frac{3 - 3i - i + i^2}{2} = \frac{2 - 4i}2 = 1 - 2i$. The imaginary part is the real number $-2$ (not $-2i$). The same division by $1 + i$ was needed in the exam of 03/06/2025, question 1.
+
+Q: In the complex plane, the set $\{z \in \C \mid |z - i| = 2\}$ is:
++ the circle with centre $i$ and radius $2$
+- the circle with centre $-i$ and radius $2$
+- the circle with centre $i$ and radius $4$
+- the full disc with centre $i$ and radius $2$
+- the horizontal line $\operatorname{Im}(z) = 2$
+= $|z - i|$ is the distance of $z$ from the point $i$: the points at distance exactly $2$ from $i$ form the circle with centre $i$ and radius $2$. In coordinates: $x^2 + (y - 1)^2 = 4$. The full disc would be $|z - i| \le 2$.
+
+Q: In the complex plane, $0$, $z = 1 + 3i$ and $w = 4 + i$ are three vertices of a parallelogram. The fourth vertex, opposite $0$, is:
++ $5 + 4i$
+- $3 - 2i$
+- $-3 + 2i$
+- $1 + 13i$
+- $5 + 3i$
+= By the parallelogram rule the fourth vertex is the sum $z + w = (1 + 4) + (3 + 1)i = 5 + 4i$: it is Figure 2 of the handouts. $3 - 2i$ and $-3 + 2i$ are the differences $w - z$ and $z - w$; $1 + 13i$ is the product $zw$.
+```
+
+## Exercises
+
+::: exercise basic Computations with the form $a + bi$
+Compute and write in the form $a + bi$: (a) $(3 - 2i) + (-1 + 5i)$; (b) $(3 - 2i) - (-1 + 5i)$; (c) $(3 - 2i)(-1 + 5i)$; (d) $(1 - 2i)^2$; (e) $(2 + i)^3$ and $(2 - i)^3$ (they are the cubes of Bombelli's story).
+::: solution
+(a) Real parts and imaginary parts separately: $(3 - 1) + (-2 + 5)i = 2 + 3i$.
+
+(b) The minus changes both parts of $-1 + 5i$: $(3 + 1) + (-2 - 5)i = 4 - 7i$.
+
+(c) Four products: $3 \cdot (-1) = -3$; $3 \cdot 5i = 15i$; $-2i \cdot (-1) = 2i$; $-2i \cdot 5i = -10i^2 = 10$. Sum: $(-3 + 10) + (15 + 2)i = 7 + 17i$.
+
+(d) Square of a binomial: $(1 - 2i)^2 = 1 - 4i + 4i^2 = 1 - 4i - 4 = -3 - 4i$.
+
+(e) First the square: $(2 + i)^2 = 4 + 4i + i^2 = 3 + 4i$. Then $(2 + i)^3 = (3 + 4i)(2 + i) = 6 + 3i + 8i + 4i^2 = 2 + 11i$. In the same way $(2 - i)^2 = 3 - 4i$ and $(2 - i)^3 = (3 - 4i)(2 - i) = 6 - 3i - 8i + 4i^2 = 2 - 11i$. The two bases added together give $(2 + i) + (2 - i) = 4$: the real solution of $x^3 = 15x + 4$ found by Bombelli.
+:::
+
+::: exercise intermediate Exercise 2.4 of the handouts: real part and imaginary part
+Compute the real part and the imaginary part of the following complex numbers:
+$$\frac{6 + 5i}{3 - i}, \qquad \frac{(2 + i)^3}{5i^{15}}, \qquad \frac{3 - 2i}{1 + 5i} + \frac{2 - 3i}{2 - i}.$$
+::: solution
+**First number.** I multiply top and bottom by the conjugate of the denominator, $3 + i$; in the denominator $|3 - i|^2 = 9 + 1 = 10$:
+$$\frac{6 + 5i}{3 - i} = \frac{(6 + 5i)(3 + i)}{10} = \frac{18 + 6i + 15i + 5i^2}{10} = \frac{13 + 21i}{10}.$$
+Real part $\frac{13}{10}$, imaginary part $\frac{21}{10}$.
+
+**Second number.** You computed the numerator in exercise 1: $(2 + i)^3 = 2 + 11i$. In the denominator $i^{15} = i^3 = -i$ (because $15 = 4 \cdot 3 + 3$), so $5i^{15} = -5i$. Then
+$$\frac{2 + 11i}{-5i} = \frac{(2 + 11i) \cdot i}{-5i \cdot i} = \frac{2i + 11i^2}{-5i^2} = \frac{-11 + 2i}{5}.$$
+Here I multiplied top and bottom by $i$, which is enough because the denominator is purely imaginary: $-5i \cdot i = -5i^2 = 5$. Real part $-\frac{11}5$, imaginary part $\frac 25$.
+
+**Third number.** Two divisions and a sum.
+- $\frac{3 - 2i}{1 + 5i} = \frac{(3 - 2i)(1 - 5i)}{1 + 25} = \frac{3 - 15i - 2i + 10i^2}{26} = \frac{-7 - 17i}{26}$.
+- $\frac{2 - 3i}{2 - i} = \frac{(2 - 3i)(2 + i)}{4 + 1} = \frac{4 + 2i - 6i - 3i^2}{5} = \frac{7 - 4i}5$.
+- Sum, with common denominator $130$:
+  $$\frac{-7 - 17i}{26} + \frac{7 - 4i}{5} = \frac{5(-7 - 17i) + 26(7 - 4i)}{130},$$
+  and the numerator is $-35 - 85i + 182 - 104i = 147 - 189i$. So the sum is $\frac{147 - 189i}{130}$.
+
+Real part $\frac{147}{130}$, imaginary part $-\frac{189}{130}$ (the fractions cannot be simplified: $147 = 3 \cdot 7^2$, $189 = 3^3 \cdot 7$ and $130 = 2 \cdot 5 \cdot 13$ have no common factors).
+:::
+
+::: exercise intermediate Exercise 2.5 of the handouts: properties of modulus and conjugate
+Prove that for every $z, w \in \C$ the following hold:
+$$|\bar z| = |z|, \qquad |z^{-1}| = \frac 1{|z|} \ (z \neq 0), \qquad \overline{z + w} = \bar z + \bar w, \qquad \overline{zw} = \bar z\,\bar w.$$
+::: solution
+I write $z = a + bi$ and $w = c + di$ with $a, b, c, d$ real.
+
+**1. $|\bar z| = |z|$.** $\bar z = a + (-b)i$, so $|\bar z| = \sqrt{a^2 + (-b)^2} = \sqrt{a^2 + b^2} = |z|$, because $(-b)^2 = b^2$. In the plane: a point and its mirror image with respect to the real axis have the same distance from the origin.
+
+**2. $|z^{-1}| = \frac 1{|z|}$.** For $z \neq 0$, $z^{-1} = \frac{a}{a^2 + b^2} - \frac{b}{a^2 + b^2}\,i$. I call $m = a^2 + b^2 = |z|^2 > 0$. Then
+$$|z^{-1}| = \sqrt{\frac{a^2}{m^2} + \frac{b^2}{m^2}} = \sqrt{\frac{a^2 + b^2}{m^2}} = \sqrt{\frac{m}{m^2}} = \frac{1}{\sqrt m} = \frac 1{|z|}.$$
+
+**3. $\overline{z + w} = \bar z + \bar w$.** $z + w = (a + c) + (b + d)i$, so $\overline{z + w} = (a + c) - (b + d)i$. On the other hand $\bar z + \bar w = (a - bi) + (c - di) = (a + c) - (b + d)i$. They are equal.
+
+**4. $\overline{zw} = \bar z\,\bar w$.** From the product formula $zw = (ac - bd) + (ad + bc)i$, so $\overline{zw} = (ac - bd) - (ad + bc)i$. On the other hand
+$$\bar z\,\bar w = (a - bi)(c - di) = ac - adi - bci + bd\,i^2 = (ac - bd) - (ad + bc)i.$$
+They are equal. In words: you can conjugate before or after doing the computations. This rule will be needed in lesson L04 (Proposition 4.11).
+:::
+
+::: exercise intermediate Exercise 2.6 of the handouts: three sets to draw
+Draw the following subsets in the complex plane:
+1. $A = \{z \in \C \text{ such that } \operatorname{Re}(z) > \operatorname{Im}(z)\}$;
+2. $B = \{z \in \C \text{ such that } z + \bar z = i\}$;
+3. $C = \{z \in \C \text{ such that } |z - 2| \ge 2\}$.
+::: solution
+I always write $z = x + yi$.
+
+**1. The set $A$.** The condition is $x > y$: the points that lie **below** the bisector $y = x$. It is an open half-plane: the line $y = x$ is excluded, because there $x = y$ holds and not $x > y$. Check with a point: $z = 1$ has $x = 1 > 0 = y$, and indeed it lies below the bisector.
+
+```graph
+title: $A = \{\operatorname{Re}(z) > \operatorname{Im}(z)\}$: the half-plane below the bisector, bisector excluded (dashed)
+x: -4 4
+y: -4 4
+names: $\operatorname{Re}$ $\operatorname{Im}$
+polygon: -6 -6 6 -6 6 6 | blue | dashed
+point: 1 0 | accent | $1$ | s
+text: 2 -1.8 | blue | $A$
+```
+
+**2. The set $B$.** $z + \bar z = (x + yi) + (x - yi) = 2x$, which is a **real** number. A real number cannot be equal to $i$, which has imaginary part $1$: equating the imaginary parts you would get $0 = 1$. So $B = \emptyset$, the empty set: there is nothing to draw.
+
+If the condition had been $z - \bar z = i$, we would have $2yi = i$, that is $y = \frac 12$: the horizontal line $\operatorname{Im}(z) = \frac 12$. It is always worth noticing when a condition is impossible: "the set is empty" is a complete answer, to be justified as above.
+
+**3. The set $C$.** $|z - 2|$ is the distance of $z$ from the point $2$. The condition asks for a distance of **at least** $2$: these are the points **outside** the circle with centre $2$ and radius $2$, together with the circle itself. In coordinates: $(x - 2)^2 + y^2 \ge 4$. The open disc $(x - 2)^2 + y^2 < 4$ is excluded; the circle passes through the origin, which therefore belongs to $C$ ($|0 - 2| = 2$).
+
+```graph
+title: $C = \{\lvert z - 2 \rvert \ge 2\}$: the whole plane except the inside of the circle; the circle is part of $C$
+x: -3 7
+y: -4 4
+names: $\operatorname{Re}$ $\operatorname{Im}$
+polygon: 9 0 9 6 -5 6 -5 -6 9 -6 9 0 4 0 3.932 -0.518 3.732 -1 3.414 -1.414 3 -1.732 2.518 -1.932 2 -2 1.482 -1.932 1 -1.732 0.586 -1.414 0.268 -1 0.068 -0.518 0 0 0.068 0.518 0.268 1 0.586 1.414 1 1.732 1.482 1.932 2 2 2.518 1.932 3 1.732 3.414 1.414 3.732 1 3.932 0.518 4 0 | violet | thin
+circle: 2 0 2 | violet | thick
+point: 2 0 | grey | hollow | $2$ | s
+point: 0 0 | violet | $0 \in C$ | nw
+text: 5.5 2.8 | violet | $C$
+```
+:::
+
+::: exercise basic Inverses and quotients
+Write in the form $a + bi$: (a) $(1 + i)^{-1}$; (b) $(2 - 3i)^{-1}$; (c) $\frac{5 + 5i}{1 - 2i}$; (d) $\frac{i}{1 + i}$.
+::: solution
+(a) $|1 + i|^2 = 2$, so $(1 + i)^{-1} = \frac{1 - i}2 = \frac 12 - \frac 12 i$. Check: $(1 + i)(1 - i) = 2$, divided by $2$ gives $1$.
+
+(b) $|2 - 3i|^2 = 4 + 9 = 13$, so $(2 - 3i)^{-1} = \frac{2 + 3i}{13} = \frac 2{13} + \frac 3{13}i$.
+
+(c) Conjugate of the denominator: $1 + 2i$; $|1 - 2i|^2 = 5$.
+$$\frac{(5 + 5i)(1 + 2i)}{5} = \frac{5 + 10i + 5i + 10i^2}{5} = \frac{-5 + 15i}5 = -1 + 3i.$$
+Check: $(-1 + 3i)(1 - 2i) = -1 + 2i + 3i - 6i^2 = 5 + 5i$.
+
+(d) $\frac{i}{1 + i} = \frac{i(1 - i)}{2} = \frac{i - i^2}2 = \frac{1 + i}2$.
+:::
+
+::: exercise intermediate An equation with the conjugate
+Find all $z \in \C$ such that $z + 2\bar z = 3 - i$.
+::: solution
+Here you cannot "divide by the coefficient", because both $z$ and $\bar z$ appear. You use the method of coordinates: $z = x + yi$ with $x, y$ real, so $\bar z = x - yi$.
+
+1. Left-hand side: $z + 2\bar z = x + yi + 2x - 2yi = 3x - yi$.
+2. The equation is $3x - yi = 3 - i$. Two complex numbers are equal when they have equal real parts and equal imaginary parts: $3x = 3$ and $-y = -1$.
+3. So $x = 1$, $y = 1$: the only solution is $z = 1 + i$.
+
+Check: $(1 + i) + 2(1 - i) = 1 + i + 2 - 2i = 3 - i$.
+:::
+
+::: exercise hard Two second-degree equations solved with coordinates
+(a) Find all $z \in \C$ with $z^2 = 2i$. (b) Find all $z \in \C$ with $|z|^2 + z = 7 + i$.
+::: solution
+**(a)** I write $z = x + yi$. Then $z^2 = x^2 - y^2 + 2xyi$, and the equation $z^2 = 0 + 2i$ becomes the system
+$$\begin{cases} x^2 - y^2 = 0 \\ 2xy = 2 \end{cases}$$
+From the first, $y = x$ or $y = -x$. With $y = -x$ the second gives $-2x^2 = 2$, that is $x^2 = -1$: impossible for real $x$. With $y = x$ the second gives $2x^2 = 2$, that is $x = \pm 1$. Solutions: $z = 1 + i$ and $z = -1 - i$, that is $z = \pm(1 + i)$. Check: $(1 + i)^2 = 1 + 2i + i^2 = 2i$. In lesson L03 you will find these two **square roots** of $2i$ again with polar coordinates; they are needed in Example 4.10 of lesson L04.
+
+**(b)** $|z|^2 = x^2 + y^2$ is real, so $|z|^2 + z = (x^2 + y^2 + x) + yi$. Equating real part and imaginary part with those of $7 + i$:
+$$\begin{cases} x^2 + y^2 + x = 7 \\ y = 1 \end{cases}$$
+Substituting $y = 1$: $x^2 + x + 1 = 7$, that is $x^2 + x - 6 = 0$, that is $(x + 3)(x - 2) = 0$. Two solutions: $z = 2 + i$ and $z = -3 + i$. Check: $|2 + i|^2 + 2 + i = 5 + 2 + i = 7 + i$ and $|-3 + i|^2 - 3 + i = 10 - 3 + i = 7 + i$.
+:::
+
+::: exercise hard The numbers of modulus 1
+(a) Prove that if $|z| = 1$ then $z^{-1} = \bar z$. (b) Use it to compute the inverse of $\frac 35 + \frac 45 i$.
+::: solution
+(a) If $|z| = 1$, then also $|z|^2 = 1$, and the inverse formula gives $z^{-1} = \frac{\bar z}{|z|^2} = \frac{\bar z}1 = \bar z$. In other words, $z\bar z = |z|^2 = 1$.
+
+(b) $\left|\frac 35 + \frac 45 i\right| = \sqrt{\frac 9{25} + \frac{16}{25}} = \sqrt{\frac{25}{25}} = 1$. So the inverse is the conjugate: $\frac 35 - \frac 45 i$. Check: $\left(\frac 35 + \frac 45 i\right)\left(\frac 35 - \frac 45 i\right) = \frac 9{25} + \frac{16}{25} = 1$. In the plane, the numbers of modulus 1 form the **unit circle**, the protagonist of lesson L03.
+:::
+
+::: exercise intermediate Two more sets
+Draw: (a) $D = \{z \in \C \mid \operatorname{Im}(\bar z + 2i) > 0\}$; (b) $E = \{z \in \C \mid |z| = |z - 2i|\}$.
+::: solution
+(a) With $z = x + yi$: $\bar z + 2i = x - yi + 2i = x + (2 - y)i$, so $\operatorname{Im}(\bar z + 2i) = 2 - y$. The condition $2 - y > 0$ is $y < 2$: the half-plane **below** the horizontal line $\operatorname{Im}(z) = 2$, line excluded. Watch out for the conjugate: it changes the sign of $y$, and this is why the half-plane lies below and not above.
+
+(b) $|z|$ is the distance from $0$, $|z - 2i|$ the distance from $2i$: the points equidistant from $0$ and from $2i$ lie on the perpendicular bisector of the segment joining them, that is on the horizontal line $\operatorname{Im}(z) = 1$. With the computations: $x^2 + y^2 = x^2 + (y - 2)^2$, that is $y^2 = y^2 - 4y + 4$, that is $y = 1$.
+:::
+
+::: exercise exam As at the exam: find $z$
+Find the number $z \in \C$ such that $(1 + i)(2 - i)\,z = (3 + i)(1 - i)$. Possible answers: (a) $1 - i$; (b) $1 + i$; (c) $2 - i$; (d) $-1 + i$; (e) $10 - 10i$.
+::: solution
+1. **I simplify the two sides.** $(1 + i)(2 - i) = 2 - i + 2i - i^2 = 3 + i$. $(3 + i)(1 - i) = 3 - 3i + i - i^2 = 4 - 2i$.
+2. **I divide.** $(3 + i)z = 4 - 2i$, so
+   $$z = \frac{4 - 2i}{3 + i} = \frac{(4 - 2i)(3 - i)}{9 + 1} = \frac{12 - 4i - 6i + 2i^2}{10} = \frac{10 - 10i}{10} = 1 - i.$$
+3. **Check.** $(3 + i)(1 - i) = 3 - 3i + i - i^2 = 4 - 2i$. Correct: the answer is (a).
+
+As a check, or as an alternative strategy in the quiz, you can multiply the other answers by $3 + i$: (b) gives $2 + 4i$, (c) gives $7 - i$, (d) gives $-4 + 2i$, (e) gives $40 - 20i$. None is $4 - 2i$. Answer (e) is the trap for those who forget to divide by $|3 + i|^2 = 10$.
+:::
+
+::: exercise exam As at the exam: first $z$, then an expression
+If $(2 - i)z = 5i$, then $z\bar z + z$ is: (a) $4 + 2i$; (b) $6 + 2i$; (c) $-4 - 2i$; (d) $5$; (e) $4 - 2i$.
+::: solution
+1. $z = \frac{5i}{2 - i} = \frac{5i(2 + i)}{4 + 1} = i(2 + i) = 2i + i^2 = -1 + 2i$. Check: $(2 - i)(-1 + 2i) = -2 + 4i + i - 2i^2 = 5i$.
+2. $z\bar z = |z|^2 = (-1)^2 + 2^2 = 5$.
+3. $z\bar z + z = 5 + (-1 + 2i) = 4 + 2i$: answer (a).
+
+Where the others come from: (b) is the result with $z = 1 + 2i$, that is with a sign mistake; (c) uses $z^2 = -3 - 4i$ instead of $z\bar z$; (d) forgets to add $z$; (e) uses $\bar z$ instead of $z$ in the last sum.
+:::
+
+## Review questions
+
+::: question Why does the equation $x^2 = -1$ have no real solutions, and how do complex numbers solve it?
+The square of a real number is never negative: $x^2 \ge 0$ for every $x \in \R$. The complex numbers add the symbol $i$ with $i^2 = -1$: in $\C$ the equation has two solutions, $i$ and $-i$.
+:::
+
+::: question What is a complex number? What are its real part and its imaginary part?
+An object of the form $a + bi$, with $a, b$ arbitrary reals and $i$ the imaginary unit (Definition 2.1). The real part is $\operatorname{Re}(z) = a$, the imaginary part is the real number $\operatorname{Im}(z) = b$, without the $i$.
+:::
+
+::: question How do you multiply two complex numbers?
+With the distributive property, each term times each term, then replacing $i^2$ with $-1$ and collecting: $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$. For example $(7 + i)(4 - i) = 29 - 3i$.
+:::
+
+::: question What is $i^n$? How do you compute it for large $n$?
+The powers of $i$ repeat every 4: $1, i, -1, -i$. Divide $n$ by 4 and look at the remainder $r$: $i^n = i^r$. For example $i^{15} = i^3 = -i$.
+:::
+
+::: question Is $\C$ a field? Is it ordered?
+It is a field: the nine properties of Proposition 2.2 hold, as in $\R$. It is not ordered: in an ordered field the squares of non-zero numbers are positive, so both $1 = 1^2$ and $-1 = i^2$ would be, which is impossible.
+:::
+
+::: question What is the conjugate of $z$? When is $z = \bar z$?
+$\bar z = a - bi$: you change the sign of the imaginary part. $z = \bar z$ if and only if $b = 0$, that is if and only if $z$ is real.
+:::
+
+::: question What is the modulus of $z$ and what does it mean in the plane?
+$|z| = \sqrt{a^2 + b^2}$, a non-negative real number, zero only for $z = 0$. It is the distance of the point $(a, b)$ from the origin, by Pythagoras' theorem.
+:::
+
+::: question What is $z\bar z$? Why is it important?
+$z\bar z = a^2 + b^2 = |z|^2$: it is always a non-negative real number. Multiplying by the conjugate removes the $i$, and it is the trick on which inverse and division are based.
+:::
+
+::: question What is the inverse of $z \neq 0$? How do you check it?
+$z^{-1} = \frac{\bar z}{|z|^2}$. Check: $z \cdot \frac{\bar z}{|z|^2} = \frac{|z|^2}{|z|^2} = 1$. For example $(2 + i)^{-1} = \frac{2 - i}5$.
+:::
+
+::: question How do you compute $\frac{w}{z}$?
+You multiply numerator and denominator by $\bar z$: the denominator becomes the real number $|z|^2$ and you divide the real part and the imaginary part of $w\bar z$ by it. At the end you check by multiplying by $z$.
+:::
+
+::: question What are the real axis and the imaginary axis of the complex plane?
+The real axis (horizontal) is the set of real numbers, $b = 0$; the imaginary axis (vertical) is the set of numbers $bi$, $a = 0$. The number $a + bi$ is the point $(a, b)$.
+:::
+
+::: question How do you see the sum of two complex numbers in the plane?
+With the parallelogram rule: $z_1 + z_2$ is the fourth vertex of the parallelogram with vertices $0$, $z_1$, $z_2$. For example $(1 + 3i) + (4 + i) = 5 + 4i$.
+:::
+
+::: question What figure is $\{z \in \C \mid |z - c| = r\}$, with $r > 0$?
+The circle with centre $c$ and radius $r$, because $|z - c|$ is the distance between $z$ and $c$. With $\le$ you get the disc, with $\ge$ the outside of the disc (circle included).
+:::
+
+## Glossary
+
+```glossary
+Imaginary unit $i$ | The new symbol of the complex numbers, with the rule $i^2 = -1$.
+Complex number | Object $a + bi$ with $a, b$ arbitrary reals (Definition 2.1). The set of complex numbers is $\C$.
+Real part $\operatorname{Re}(z)$ | The real number $a$ of $z = a + bi$.
+Imaginary part $\operatorname{Im}(z)$ | The real number $b$ of $z = a + bi$ (without the $i$).
+Purely imaginary | Complex number with zero real part, like $23i$ or $-i$.
+Form $a + bi$ | The way of writing a complex number that separates real part and imaginary part; it is also called algebraic or Cartesian form.
+Conjugate $\bar z$ | $\overline{a + bi} = a - bi$: you change the sign of the imaginary part; in the plane it is the mirror image with respect to the real axis.
+Modulus $\lvert z \rvert$ | $\sqrt{a^2 + b^2}$: non-negative real number, distance of $z$ from the origin.
+Inverse $z^{-1}$ | For $z \neq 0$, the number $\frac{\bar z}{\lvert z \rvert^2}$, which multiplied by $z$ gives $1$.
+Field | Set with sum and product that have the nine properties of Proposition 2.2: $\Q$, $\R$, $\C$.
+Ordered field | Field with a notion of greater and smaller compatible with the computations; $\R$ is one, $\C$ is not.
+Complex plane | The plane in which $a + bi$ is the point $(a, b)$, or the vector from the origin to $(a, b)$.
+Real axis | The horizontal axis of the complex plane: the real numbers.
+Imaginary axis | The vertical axis of the complex plane: the numbers $bi$.
+Parallelogram rule | $z_1 + z_2$ is the fourth vertex of the parallelogram with vertices $0$, $z_1$, $z_2$.
+Powers of $i$ | $i^0 = 1$, $i^1 = i$, $i^2 = -1$, $i^3 = -i$, then they repeat with period 4.
+Distance between two complex numbers | $\lvert z - w \rvert$: the length of the segment joining the points $z$ and $w$.
+```
+
+## Checklist
+
+```checklist
+- I can explain why $x^2 = -1$ has no real solutions and what the symbol $i$ adds.
+- I can recognise the real part and the imaginary part of a complex number, and I know that the imaginary part is a real number.
+- I can add, subtract and multiply complex numbers without forgetting that $i^2 = -1$.
+- I can compute $i^n$ for large $n$ with the remainder of the division by 4.
+- I can say why $\C$ is a field but is not ordered.
+- I can compute conjugate and modulus and use $z\bar z = |z|^2$.
+- I can compute the inverse of a complex number and divide by multiplying by the conjugate of the denominator, with the final check.
+- I can solve an equation like $(1 + i)z = 3 + 2i$ and, with coordinates, an equation in which $\bar z$ also appears.
+- I can draw a complex number in the plane, its conjugate, and the sum with the parallelogram rule.
+- I can turn conditions like $\operatorname{Re}(z) > \operatorname{Im}(z)$ and $|z - c| \le r$ into figures.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 2 "Numeri complessi I", pp. 6–9: sections 2.A–2.E are followed in order, with the page next to each heading; Definition 2.1, Proposition 2.2 and Example 2.3 keep their numbering; exercises 2.4, 2.5 and 2.6 are solved in the "Exercises" section (exercises 2, 3 and 4); Figures 1 and 2 are redrawn with the graphs.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.4.1–1.4.3 (pp. 25–27), Exercise 1.4.3 (p. 30), §1.5.3 on fields (p. 36).
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): questions 1 of 08/02/2024, 03/06/2025 and 03/06/2026, reported with solutions written for these notes; the table of the other exam sessions only indicates their type. Exam rules 2025/26 and dates 2026/27 as in lesson L01.
+- The **"Beyond the handouts"** parts (the story of Cardano and Bombelli, the powers of $i$, the rules on the conjugate, the distance, the method for drawing sets, why $\C$ is not ordered, the exercises that do not come from the handouts) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L03_complex_numbers_2.md -->
+> File: `ai_context/MDAG/lessons/L03_complex_numbers_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L03
+title: Complex numbers II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L03
+description: >-
+  Notes on lesson L03 of Linear Algebra and Geometry (MDAG, part 2): polar coordinates, exponential form, modulus and
+  argument of a complex number, product and inverse in polar form, Euler's identity, powers and n-th roots, with a
+  review of sine and cosine, exam-style quizzes and worked exercises.
+lede: >-
+  A non-zero complex number can be described by its distance from the origin and by an angle:
+  $z = re^{i\vartheta}$. In this form the product becomes simple (the moduli multiply, the angles add up), and a few
+  lines are enough to compute powers like $(1 + i)^{10}$ and all the solutions of $z^n = z_0$. In nine exam sessions
+  out of fifteen the question on complex numbers was precisely on these topics.
+material: handouts
+facts:
+  Handouts: lesson 3 · pp. 10–14
+  Book: Martelli, §1.4.4–1.4.6 (pp. 27–31)
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 3 "Numeri complessi II"; B. Martelli, Geometria e algebra lineare, §1.4.4–1.4.6
+italian_file: L03_numeri_complessi_2.html
+html_notes: notes/MDAG/L03_complex_numbers_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L03_numeri_complessi_2.md
+```
+
+## In brief
+
+- A point $(x, y) \neq (0, 0)$ of the plane can be described with the **polar coordinates** $(r, \vartheta)$: $r$ is the distance from the origin, $\vartheta$ the angle with the real axis. You go from one description to the other with $x = r\cos\vartheta$ and $y = r\sin\vartheta$.
+- A complex number $z \neq 0$ is written $z = r(\cos\vartheta + i\sin\vartheta) = re^{i\vartheta}$, where $e^{i\vartheta}$ is **a symbol** for $\cos\vartheta + i\sin\vartheta$. The number $r = |z|$ is the **modulus**, the angle $\vartheta$ is the **argument** (or phase).
+- $e^{i(\vartheta + \varphi)} = e^{i\vartheta}e^{i\varphi}$ holds (Proposition 3.2). So in the **product** of two complex numbers **the moduli multiply and the arguments add up**.
+- The inverse of $re^{i\vartheta}$ is $r^{-1}e^{-i\vartheta}$; the conjugate is $re^{-i\vartheta}$, that is the mirror image with respect to the real axis.
+- Two polar forms $r_0e^{i\vartheta_0}$ and $r_1e^{i\vartheta_1}$ give the same number if and only if $r_0 = r_1$ and the angles differ by a multiple of $2\pi$.
+- The numbers $e^{i\vartheta}$ form the **unit circle**; in particular $e^{i\pi} = -1$ (Euler's identity) and $e^{2\pi i} = 1$.
+- **Powers**: $\left(re^{i\vartheta}\right)^n = r^ne^{in\vartheta}$. **Roots**: if $z_0 = r_0e^{i\vartheta_0} \neq 0$, the equation $z^n = z_0$ has exactly $n$ solutions, with modulus $\sqrt[n]{r_0}$ and arguments $\frac{\vartheta_0}n + \frac{2k\pi}n$ for $k = 0, 1, \dots, n - 1$: the vertices of a regular polygon with $n$ sides.
+- At the exam: high powers, products in polar form and $n$-th roots were the question on complex numbers in 9 exam sessions out of 15 from 2024 to 2026.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Review: angles, sine and cosine (beyond the handouts)
+
+The handouts use sine, cosine and angles in radians without recalling them. Here you find everything you need, and nothing more.
+
+### Angles in radians
+
+In mathematics an angle is measured in **radians**: the measure of an angle is the **length of the arc** that the angle cuts on the circle of radius $1$ centred at the vertex. The full turn is as long as the whole circle, $2\pi \cdot 1 = 2\pi$. So $360° = 2\pi$, $180° = \pi$ and in general
+
+$$\vartheta_{\text{radians}} = \vartheta_{\text{degrees}} \cdot \frac{\pi}{180}.$$
+
+| Degrees | $0°$ | $30°$ | $45°$ | $60°$ | $90°$ | $120°$ | $135°$ | $150°$ | $180°$ | $270°$ | $360°$ |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| Radians | $0$ | $\frac\pi6$ | $\frac\pi4$ | $\frac\pi3$ | $\frac\pi2$ | $\frac{2\pi}3$ | $\frac{3\pi}4$ | $\frac{5\pi}6$ | $\pi$ | $\frac{3\pi}2$ | $2\pi$ |
+
+Angles are measured starting from the positive real half-axis, **anticlockwise**. A negative angle turns clockwise: $-\frac\pi2$ leads to the same point as $\frac{3\pi}2$.
+
+### Sine and cosine on the unit circle
+
+The **unit circle** is the circle with centre the origin and radius $1$. Start from the point $(1, 0)$ and go around the circle anticlockwise through an angle $\vartheta$: the point you reach has coordinates
+
+$$(\cos\vartheta,\ \sin\vartheta).$$
+
+This is the definition of cosine (the abscissa) and sine (the ordinate). All the rules that follow can be read off the drawing.
+
+```graph
+title: On the unit circle the point with angle $\vartheta$ is $(\cos\vartheta, \sin\vartheta)$; here $\vartheta = \frac\pi3$, $\cos\vartheta = \frac 12$, $\sin\vartheta = \frac{\sqrt 3}2$
+x: -0.3 1.5
+y: -0.3 1.3
+names: $x$ $y$
+arc: 0 0 1 0 pi/2 | grey
+arc: 0 0 0.25 0 pi/3 | amber
+segment: 0 0 1/2 sqrt(3)/2 | accent | thick
+segment: 1/2 0 1/2 sqrt(3)/2 | grey | dashed
+segment: 0 sqrt(3)/2 1/2 sqrt(3)/2 | grey | dashed
+point: 1 0 | blue | $0$ | ne
+point: sqrt(3)/2 1/2 | blue | $\frac\pi6$ | e
+point: sqrt(2)/2 sqrt(2)/2 | blue | $\frac\pi4$ | ne
+point: 1/2 sqrt(3)/2 | accent | $\frac\pi3$ | ne
+point: 0 1 | blue | $\frac\pi2$ | ne
+text: 0.3 0.12 | amber | $\vartheta$
+text: 0.5 -0.1 | $\frac 12$
+text: -0.14 0.866 | $\frac{\sqrt 3}2$
+```
+
+| $\vartheta$ | $0$ | $\frac\pi6$ | $\frac\pi4$ | $\frac\pi3$ | $\frac\pi2$ | $\pi$ | $\frac{3\pi}2$ |
+|---|---|---|---|---|---|---|---|
+| $\cos\vartheta$ | $1$ | $\frac{\sqrt 3}2$ | $\frac{\sqrt 2}2$ | $\frac 12$ | $0$ | $-1$ | $0$ |
+| $\sin\vartheta$ | $0$ | $\frac 12$ | $\frac{\sqrt 2}2$ | $\frac{\sqrt 3}2$ | $1$ | $0$ | $-1$ |
+
+A way to remember the table: from $0$ to $\frac\pi2$ the sine takes the values $\frac{\sqrt 0}2, \frac{\sqrt 1}2, \frac{\sqrt 2}2, \frac{\sqrt 3}2, \frac{\sqrt 4}2$, and the cosine does the same in reverse.
+
+In the other quadrants the values are the same, but **the signs change**: in the second quadrant (angles between $\frac\pi2$ and $\pi$) the cosine is negative and the sine positive; in the third both are negative; in the fourth the cosine is positive and the sine negative. For example:
+
+- $\frac{2\pi}3 = \pi - \frac\pi3$ lies in the second quadrant: $\cos\frac{2\pi}3 = -\frac 12$ and $\sin\frac{2\pi}3 = \frac{\sqrt 3}2$;
+- $\frac{5\pi}4 = \pi + \frac\pi4$ lies in the third quadrant: $\cos\frac{5\pi}4 = \sin\frac{5\pi}4 = -\frac{\sqrt 2}2$;
+- $\frac{5\pi}3 = 2\pi - \frac\pi3$ lies in the fourth quadrant: $\cos\frac{5\pi}3 = \frac 12$ and $\sin\frac{5\pi}3 = -\frac{\sqrt 3}2$.
+
+### The rules you need
+
+| Rule | Why | Example |
+|---|---|---|
+| $\cos^2\vartheta + \sin^2\vartheta = 1$ | the point is at distance $1$ from the origin (Pythagoras) | $\left(\frac 12\right)^2 + \left(\frac{\sqrt 3}2\right)^2 = 1$ |
+| $\cos(-\vartheta) = \cos\vartheta$, $\sin(-\vartheta) = -\sin\vartheta$ | $-\vartheta$ is the mirror image with respect to the $x$ axis | $\sin\left(-\frac\pi6\right) = -\frac 12$ |
+| $\cos(\vartheta + 2\pi) = \cos\vartheta$, $\sin(\vartheta + 2\pi) = \sin\vartheta$ | a full turn brings you back to the same point | $\cos\frac{7\pi}3 = \cos\frac\pi3 = \frac 12$ |
+| $\cos(\vartheta + \pi) = -\cos\vartheta$, $\sin(\vartheta + \pi) = -\sin\vartheta$ | half a turn leads to the opposite point | $\cos\frac{4\pi}3 = -\frac 12$ |
+
+And the **addition formulas**, which are needed for Proposition 3.2:
+
+$$\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta,$$
+
+$$\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta.$$
+
+## Polar coordinates (pp. 10–11)
+
+In lesson L02 you located a point of the plane with its **Cartesian coordinates** $(x, y)$: how far you move horizontally and how far vertically. There is another way, as when you give a direction: "walk $2$ kilometres towards the north-east". As the handouts recall (Figure 3), a point $(x, y)$ **other than the origin** can be located with
+
+- the **length** $r$ of the vector that goes from the origin to the point;
+- the **angle** $\vartheta$ that the vector forms with the real axis.
+
+```graph
+title: Polar coordinates of the point $1 + i\sqrt 3$: distance $r = 2$ from the origin and angle $\vartheta = \frac\pi3$ with the real axis
+x: -1 3
+y: -0.5 2.5
+names: $\operatorname{Re}$ $\operatorname{Im}$
+arc: 0 0 0.5 0 pi/3 | amber
+segment: 1 0 1 sqrt(3) | grey | dashed
+segment: 0 sqrt(3) 1 sqrt(3) | grey | dashed
+vector: 1 sqrt(3) | accent | thick | $1 + i\sqrt 3$ | ne
+text: 0.35 1.05 | accent | $r = 2$
+text: 0.72 0.25 | amber | $\vartheta = \frac\pi3$
+text: 1 -0.2 | $x = 1$
+text: -0.45 1.732 | $y = \sqrt 3$
+```
+
+> [!DEF] 3.1 · Polar coordinates
+> A point $(x, y)$ of the plane other than the origin can be identified with the length $r$ of the corresponding vector and the angle $\vartheta$ formed by the vector with the real axis. The **polar coordinates** of the point are the pair $(r, \vartheta)$. To go from polar coordinates to Cartesian coordinates $(x, y)$ it is enough to use the formulas
+> $$x = r\cos\vartheta, \qquad y = r\sin\vartheta.$$
+> Conversely,
+> $$r = \sqrt{x^2 + y^2}, \qquad \cos\vartheta = \frac{x}{\sqrt{x^2 + y^2}}, \qquad \sin\vartheta = \frac{y}{\sqrt{x^2 + y^2}}.$$
+
+Piece by piece:
+
+- $r$ is a **distance**, so it is always a **positive** real number ($r > 0$, because the point is not the origin).
+- $\vartheta$ is measured in radians, from the positive real half-axis, anticlockwise.
+- $x = r\cos\vartheta$ and $y = r\sin\vartheta$: the point with angle $\vartheta$ on the unit circle is $(\cos\vartheta, \sin\vartheta)$; moving away from the origin $r$ times as far you get $(r\cos\vartheta, r\sin\vartheta)$.
+- To go back: $r$ is found with Pythagoras; then $\cos\vartheta = \frac xr$ and $\sin\vartheta = \frac yr$. You need **both** equations to determine the angle, as you see in the pitfall below.
+- The origin is excluded: for the point $(0, 0)$ we have $r = 0$, and the angle makes no sense.
+- The angle is not unique: $\vartheta$ and $\vartheta + 2\pi$ (or $\vartheta - 2\pi$, or $\vartheta + 4\pi$…) indicate the same direction. We come back to this in the section on equal polar forms.
+
+> [!EXAMPLE] · From polar to Cartesian
+> - $(r, \vartheta) = \left(2, \frac\pi6\right)$: $x = 2\cos\frac\pi6 = 2 \cdot \frac{\sqrt 3}2 = \sqrt 3$ and $y = 2\sin\frac\pi6 = 2 \cdot \frac 12 = 1$. The point is $(\sqrt 3, 1)$.
+> - $(r, \vartheta) = \left(4, \frac{3\pi}4\right)$: $x = 4 \cdot \left(-\frac{\sqrt 2}2\right) = -2\sqrt 2$ and $y = 4 \cdot \frac{\sqrt 2}2 = 2\sqrt 2$.
+> - $(r, \vartheta) = (3, \pi)$: $x = 3 \cdot (-1) = -3$ and $y = 3 \cdot 0 = 0$. The point $(-3, 0)$ lies on the negative real half-axis.
+
+> [!EXAMPLE] · From Cartesian to polar
+> - $(1, 1)$: $r = \sqrt{1 + 1} = \sqrt 2$; $\cos\vartheta = \frac 1{\sqrt 2} = \frac{\sqrt 2}2$ and $\sin\vartheta = \frac{\sqrt 2}2$, so $\vartheta = \frac\pi4$.
+> - $(-\sqrt 3, 1)$: $r = \sqrt{3 + 1} = 2$; $\cos\vartheta = -\frac{\sqrt 3}2$ and $\sin\vartheta = \frac 12$. Negative cosine and positive sine: second quadrant. The angle of the first quadrant with cosine $\frac{\sqrt 3}2$ and sine $\frac 12$ is $\frac\pi6$; its mirror image in the second quadrant is $\pi - \frac\pi6 = \frac{5\pi}6$.
+> - $(0, -2)$: $r = 2$; $\cos\vartheta = 0$ and $\sin\vartheta = -1$, so $\vartheta = \frac{3\pi}2$ (or, equivalently, $-\frac\pi2$).
+> - $(1, -\sqrt 3)$: $r = 2$; $\cos\vartheta = \frac 12$ and $\sin\vartheta = -\frac{\sqrt 3}2$, fourth quadrant, $\vartheta = -\frac\pi3$ (or $\frac{5\pi}3$).
+
+> [!METHOD] Finding the polar coordinates of $(x, y)$
+> 1. Compute $r = \sqrt{x^2 + y^2}$.
+> 2. Compute $\cos\vartheta = \frac xr$ and $\sin\vartheta = \frac yr$.
+> 3. Look at the **signs** of cosine and sine to find the quadrant.
+> 4. Find in the table the angle of the first quadrant with the same values, without signs, and bring it into the right quadrant: $\pi - \alpha$ in the second, $\pi + \alpha$ in the third, $-\alpha$ (that is $2\pi - \alpha$) in the fourth.
+> 5. Check: $r\cos\vartheta$ and $r\sin\vartheta$ must give back $x$ and $y$.
+
+> [!PITFALL] One equation alone is not enough for the angle
+> The points $(1, 1)$ and $(-1, -1)$ have the same ratio $\frac yx = 1$, but different angles: $\frac\pi4$ and $\frac{5\pi}4$. Whoever uses only $\tan\vartheta = \frac yx$ (or the arctangent of the calculator, which in any case is not allowed at the exam) gets the quadrant wrong. In the same way $(1, \sqrt 3)$ and $(1, -\sqrt 3)$ have the same cosine $\frac 12$ but angles $\frac\pi3$ and $-\frac\pi3$. Always look at cosine **and** sine, or at the drawing.
+
+## The polar form of a complex number (pp. 10–11)
+
+Back to complex numbers: if $z = x + yi$ corresponds to the point $(x, y)$ with polar coordinates $(r, \vartheta)$, then
+
+$$z = x + yi = r\cos\vartheta + (r\sin\vartheta)i = r(\cos\vartheta + i\sin\vartheta).$$
+
+The handouts immediately note that
+
+$$|z| = \sqrt{x^2 + y^2} = r:$$
+
+the **modulus** of $z$ is the length of the vector that describes $z$. The expression $r(\cos\vartheta + i\sin\vartheta)$ is also called the **trigonometric form** of $z$: in the exam papers it often appears like this, for example $z = 2\cos\frac\pi4 + 2i\sin\frac\pi4$.
+
+**The conjugate.** The conjugate $\bar z = x - yi$ is the point obtained by changing the sign of the imaginary coordinate: geometrically it is the **reflection** of $z$ with respect to the real axis. In polar coordinates this corresponds to changing $\vartheta$ into $-\vartheta$ while keeping $r$ fixed (Figure 4 of the handouts, on the left). Indeed, with the rules of the review,
+$$r\bigl(\cos(-\vartheta) + i\sin(-\vartheta)\bigr) = r(\cos\vartheta - i\sin\vartheta) = x - yi.$$
+
+### The complex exponential
+
+The handouts introduce a convenient notation:
+
+> [!DEF] Polar form, modulus and argument (pp. 10–11)
+> We write
+> $$e^{i\vartheta} = \cos\vartheta + i\sin\vartheta.$$
+> In this way every complex number $z \neq 0$ can be written as
+> $$z = re^{i\vartheta}.$$
+> The number $r = |z|$ is the **modulus** of $z$ and the angle $\vartheta$ is called the **argument** (or **phase**) of $z$.
+
+Piece by piece:
+
+- $e^{i\vartheta}$ is, for the course, **a symbol**: it means exactly $\cos\vartheta + i\sin\vartheta$, nothing more. The handouts call it the "mysterious complex exponential".
+- $e^{i\vartheta}$ has modulus $1$: $\left|e^{i\vartheta}\right| = \sqrt{\cos^2\vartheta + \sin^2\vartheta} = 1$. Multiplying it by $r$ stretches the vector to length $r$.
+- The expression only works for $z \neq 0$: zero has modulus $0$ and no argument.
+- In the polar form **$r$ must be positive**. An expression like $-2e^{i\pi/4}$ denotes a complex number, but it is not a polar form (see the pitfall further down).
+
+> [!BEYOND] · why the letter $e$
+> The handouts explain that the deep reason lies in the representations of $e^x$, $\sin x$ and $\cos x$ as **power series**, which you will see in Calculus:
+> $$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots$$
+> $$\cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \cdots \qquad \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots$$
+> Substituting $x = i\vartheta$ in the first series and using $i^2 = -1$, $i^3 = -i$, $i^4 = 1$, the even terms give the series of the cosine and the odd ones $i$ times the series of the sine: $e^{i\vartheta} = \cos\vartheta + i\sin\vartheta$. For the course the definition as a symbol is enough; the name fits because $e^{i\vartheta}$ has the properties of the exponential (Proposition 3.2).
+
+Here are the numbers worth recognising at a glance:
+
+| $z$ | $\lvert z \rvert$ | argument | polar form |
+|---|--:|---|---|
+| $1$ | $1$ | $0$ | $e^{0} = e^{i \cdot 0}$ |
+| $i$ | $1$ | $\frac\pi2$ | $e^{i\pi/2}$ |
+| $-1$ | $1$ | $\pi$ | $e^{i\pi}$ |
+| $-i$ | $1$ | $\frac{3\pi}2$ (or $-\frac\pi2$) | $e^{3\pi i/2}$ |
+| $1 + i$ | $\sqrt 2$ | $\frac\pi4$ | $\sqrt 2\,e^{i\pi/4}$ |
+| $1 - i$ | $\sqrt 2$ | $-\frac\pi4$ (or $\frac{7\pi}4$) | $\sqrt 2\,e^{-i\pi/4}$ |
+| $-1 + i$ | $\sqrt 2$ | $\frac{3\pi}4$ | $\sqrt 2\,e^{3\pi i/4}$ |
+| $\sqrt 3 + i$ | $2$ | $\frac\pi6$ | $2e^{i\pi/6}$ |
+| $1 + i\sqrt 3$ | $2$ | $\frac\pi3$ | $2e^{i\pi/3}$ |
+| $-\sqrt 3 + i$ | $2$ | $\frac{5\pi}6$ | $2e^{5\pi i/6}$ |
+| $-2$ | $2$ | $\pi$ | $2e^{i\pi}$ |
+| $3i$ | $3$ | $\frac\pi2$ | $3e^{i\pi/2}$ |
+
+The trick for numbers like $\frac{\sqrt 3}2 - \frac 12 i$: the modulus is $1$ and the two parts are cosine and sine of a special angle ($\cos\vartheta = \frac{\sqrt 3}2$, $\sin\vartheta = -\frac 12$, so $\vartheta = -\frac\pi6$). If instead the modulus is not $1$, you factor it out: $\sqrt 3 + i = 2\left(\frac{\sqrt 3}2 + \frac 12 i\right) = 2e^{i\pi/6}$.
+
+> [!EXAMPLE] · From the polar form to the form $a + bi$
+> $2e^{2\pi i/3} = 2\left(\cos\frac{2\pi}3 + i\sin\frac{2\pi}3\right) = 2\left(-\frac 12 + \frac{\sqrt 3}2 i\right) = -1 + i\sqrt 3$.
+>
+> $\sqrt 2\,e^{-3\pi i/4} = \sqrt 2\left(-\frac{\sqrt 2}2 - \frac{\sqrt 2}2 i\right) = -1 - i$.
+
+> [!PITFALL] The modulus cannot be negative
+> $-6e^{3\pi i/4}$ is a complex number, but it is **not** written in polar form: the factor in front must be the modulus, which is positive. Since $-1 = e^{i\pi}$, you fix it like this: $-6e^{3\pi i/4} = 6e^{i\pi}e^{3\pi i/4} = 6e^{7\pi i/4}$. The exam of 16/01/2025 (question 1) asked for a product "in polar coordinates" and among the answers there were both $6e^{7\pi i/4}$ and $-6e^{3\pi i/4}$: only the first one is a polar form.
+
+## The product in polar form (p. 11)
+
+The expression $e^{i\vartheta}$ is convenient because it behaves like an exponential.
+
+> [!PROP] 3.2
+> The following relation holds
+> $$e^{i(\vartheta + \varphi)} = e^{i\vartheta} \cdot e^{i\varphi}.$$
+
+The handouts say that the relation follows from the addition formulas for sine and cosine, by substituting $e^{i\alpha} = \cos\alpha + i\sin\alpha$. Here is the complete computation.
+
+1. Write the product on the right with the definition: $e^{i\vartheta} \cdot e^{i\varphi} = (\cos\vartheta + i\sin\vartheta)(\cos\varphi + i\sin\varphi)$.
+2. Carry out the product as in lesson L02, with $i^2 = -1$:
+   $$= (\cos\vartheta\cos\varphi - \sin\vartheta\sin\varphi) + i(\sin\vartheta\cos\varphi + \cos\vartheta\sin\varphi).$$
+3. Recognise the addition formulas: the real part is $\cos(\vartheta + \varphi)$, the imaginary part is $\sin(\vartheta + \varphi)$.
+4. So the product equals $\cos(\vartheta + \varphi) + i\sin(\vartheta + \varphi) = e^{i(\vartheta + \varphi)}$. $\square$
+
+The consequence is the most important rule of the lesson. If
+
+$$z_1 = r_1e^{i\vartheta_1}, \qquad z_2 = r_2e^{i\vartheta_2},$$
+
+then, reordering the factors and using Proposition 3.2,
+
+$$z_1z_2 = r_1r_2\,e^{i(\vartheta_1 + \vartheta_2)}.$$
+
+> [!IDEA] · the product rule
+> When you multiply two complex numbers, **the moduli multiply and the arguments add up**. Geometrically, multiplying by $z_2$ means **rotating** by an angle $\vartheta_2$ and **stretching** by a factor $r_2$. For example multiplying by $i = e^{i\pi/2}$ rotates by a right angle, as you saw in lesson L02, and multiplying by $2$ doubles the distance from the origin without rotating.
+
+> [!EXAMPLE] · $(1 + i)(\sqrt 3 + i)$ in two ways
+> **In polar form.** $1 + i = \sqrt 2\,e^{i\pi/4}$ and $\sqrt 3 + i = 2e^{i\pi/6}$. So
+> $$(1 + i)(\sqrt 3 + i) = \sqrt 2 \cdot 2\,e^{i(\pi/4 + \pi/6)} = 2\sqrt 2\,e^{5\pi i/12}.$$
+> The modulus is $2\sqrt 2$ and the argument $\frac\pi4 + \frac\pi6 = \frac{3\pi + 2\pi}{12} = \frac{5\pi}{12}$, that is $75°$.
+>
+> **In Cartesian form.** $(1 + i)(\sqrt 3 + i) = \sqrt 3 + i + i\sqrt 3 + i^2 = (\sqrt 3 - 1) + (\sqrt 3 + 1)i$.
+>
+> The two results are the same number. Comparing them you also get, for free, $\cos\frac{5\pi}{12} = \frac{\sqrt 3 - 1}{2\sqrt 2} = \frac{\sqrt 6 - \sqrt 2}4$: the polar form and the Cartesian form check each other.
+
+```graph
+title: The product $(1 + i)(\sqrt 3 + i)$: the angles $\frac\pi4$ and $\frac\pi6$ add up to $\frac{5\pi}{12}$, the moduli $\sqrt 2$ and $2$ multiply to $2\sqrt 2$
+x: -0.6 3
+y: -0.4 3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+arc: 0 0 0.45 0 pi/4 | accent
+arc: 0 0 0.7 0 pi/6 | blue
+arc: 0 0 0.95 0 5pi/12 | amber
+vector: 1 1 | accent | $1 + i$ | e
+vector: sqrt(3) 1 | blue | $\sqrt 3 + i$ | e
+vector: 0.732 2.732 | amber | thick | $2\sqrt 2\,e^{5\pi i/12}$ | ne
+```
+
+Try it with the tool: in **z · w** mode drag $z$ and $w$ and look at the arcs; the arc of the product is always the sum of the two arcs, and below you read that the modulus of the product is the product of the moduli. Then choose **powers zⁿ**: you see the points $z, z^2, z^3, \dots$ turn around the origin, each time by the same angle.
+
+```widget complessi
+title: Product and powers in polar form
+z: 1+i
+w: 1.732+i
+modo: prodotto
+modi: prodotto potenza
+n: 3
+raggio: 4
+```
+
+### The inverse and the quotient
+
+The handouts note in particular that, if $z = re^{i\vartheta} \neq 0$, its inverse is
+
+$$z^{-1} = r^{-1}e^{-i\vartheta}.$$
+
+Check with the product rule: $z \cdot z^{-1} = r \cdot r^{-1}\,e^{i(\vartheta - \vartheta)} = 1 \cdot e^{0} = \cos 0 + i\sin 0 = 1$. The inverse has argument $-\vartheta$, opposite to that of $z$, and modulus $|z^{-1}| = r^{-1}$, the inverse of $|z| = r$ (Figure 4 of the handouts, on the right): if $z$ lies outside the unit circle, $z^{-1}$ lies inside, and vice versa.
+
+Putting the two rules together you get the **quotient**: $\frac{z_1}{z_2} = z_1 \cdot z_2^{-1} = \frac{r_1}{r_2}\,e^{i(\vartheta_1 - \vartheta_2)}$. The moduli divide, the arguments subtract.
+
+> [!EXAMPLE] · The same inverse as in lesson L02
+> $1 + i = \sqrt 2\,e^{i\pi/4}$, so $(1 + i)^{-1} = \frac 1{\sqrt 2}e^{-i\pi/4} = \frac 1{\sqrt 2}\left(\frac{\sqrt 2}2 - \frac{\sqrt 2}2 i\right) = \frac 12 - \frac 12 i$. It is the same result as the formula $z^{-1} = \frac{\bar z}{|z|^2} = \frac{1 - i}2$.
+
+```graph
+title: Figure 4 of the handouts with $z = 2e^{i\pi/3}$: the conjugate $\bar z = 2e^{-i\pi/3}$ is the reflection of $z$; the inverse $z^{-1} = \frac 12 e^{-i\pi/3}$ has the opposite angle and lies inside the unit circle
+x: -2.4 2.4
+y: -2 2
+names: $\operatorname{Re}$ $\operatorname{Im}$
+circle: 0 0 1 | grey
+arc: 0 0 0.4 0 pi/3 | accent
+arc: 0 0 0.4 -pi/3 0 | violet
+segment: 1 sqrt(3) 1 -sqrt(3) | grey | dashed
+vector: 1 sqrt(3) | accent | $z$ | ne
+vector: 1 -sqrt(3) | violet | $\bar z$ | se
+vector: 1/4 -sqrt(3)/4 | amber | thick | $z^{-1}$ | e
+text: 1.18 0.12 | grey | $1$
+```
+
+## When two polar forms give the same number (p. 11)
+
+An angle and the same angle plus a full turn indicate the same direction. This is why the handouts note:
+
+> [!PROP] · Equality of two polar forms (p. 11)
+> Two non-zero complex numbers expressed in polar form $r_0e^{i\vartheta_0}$ and $r_1e^{i\vartheta_1}$ are the same complex number if and only if both of the following facts hold:
+> - $r_0 = r_1$;
+> - $\vartheta_1 = \vartheta_0 + 2k\pi$ for some $k \in \Z$.
+
+In words: same distance from the origin, and angles that differ by a whole number of turns. For example
+
+$$e^{i\pi/2} = e^{5\pi i/2} = e^{-3\pi i/2} = i, \qquad 2e^{7\pi i/4} = 2e^{-\pi i/4} = \sqrt 2 - i\sqrt 2.$$
+
+This fact has two uses: **reducing** the large angles that come out of powers, and **solving** the equations $z^n = z_0$ in the section on roots.
+
+> [!METHOD] Reducing an angle
+> To simplify $e^{i\alpha}$ with $\alpha$ large, take away from (or add to) $\alpha$ multiples of $2\pi$ until you reach a convenient interval, $[0, 2\pi)$ or $(-\pi, \pi]$.
+>
+> With $\alpha = \frac{p}{q}\pi$ the computation is done on integers: a turn, $2\pi$, equals $\frac{2q}{q}\pi$; so you divide $p$ by $2q$ and keep the **remainder**. Example: $\alpha = \frac{2025}4\pi$. A turn equals $\frac 84\pi$, and $2025 = 8 \cdot 253 + 1$; so $\frac{2025}4\pi = 253 \cdot 2\pi + \frac\pi4$ and $e^{2025\pi i/4} = e^{i\pi/4}$.
+
+> [!BEYOND] · the principal argument
+> The handouts do not fix an interval for the argument: $\frac{7\pi}4$ and $-\frac\pi4$ are both fine. Many books call **principal argument** the one in $(-\pi, \pi]$ (others use $[0, 2\pi)$). In the quiz the answers use both conventions: if an answer does not match yours, try adding or taking away $2\pi$.
+
+## The unit circle and Euler's identity (p. 12)
+
+Since $\left|e^{i\vartheta}\right| = 1$, the complex numbers $e^{i\vartheta}$, as $\vartheta$ varies, are **precisely the points of the unit circle**: the point with angle $\vartheta$ is $e^{i\vartheta}$. In particular:
+
+- for $\vartheta = \frac\pi2$: $e^{i\pi/2} = \cos\frac\pi2 + i\sin\frac\pi2 = i$;
+- for $\vartheta = \pi$: $e^{i\pi} = \cos\pi + i\sin\pi = -1$. It is the famous **Euler's identity**, often written $e^{i\pi} + 1 = 0$;
+- for $\vartheta = 2\pi$: $e^{2\pi i} = \cos 2\pi + i\sin 2\pi = 1$.
+
+These three equalities are needed all the time: $-1 = e^{i\pi}$ is the way to bring a minus sign inside the angle, and $e^{2k\pi i} = 1$ for every $k \in \Z$ is the reason why angles can be reduced.
+
+## Powers (p. 12)
+
+Applying the product rule $n$ times to the same number $z = re^{i\vartheta}$, the moduli multiply $n$ times and the angles add up $n$ times:
+
+$$z^n = \underbrace{re^{i\vartheta} \cdots re^{i\vartheta}}_{n \text{ times}} = r^ne^{in\vartheta}.$$
+
+It is the formula that the handouts use at the beginning of section 3.B. The modulus must be raised to the $n$, the angle must be multiplied by $n$.
+
+> [!BEYOND] · the name
+> In trigonometric form the formula is written $\bigl(r(\cos\vartheta + i\sin\vartheta)\bigr)^n = r^n(\cos n\vartheta + i\sin n\vartheta)$ and is known as **De Moivre's formula**.
+
+> [!EXAMPLE] · $(1 + i)^8$ and $(1 + i)^{10}$
+> $1 + i = \sqrt 2\,e^{i\pi/4}$, so
+> $$(1 + i)^8 = (\sqrt 2)^8e^{8\pi i/4} = 16\,e^{2\pi i} = 16.$$
+> Check in Cartesian form: $(1 + i)^2 = 2i$, so $(1 + i)^8 = (2i)^4 = 16i^4 = 16$.
+>
+> In the same way $(1 + i)^{10} = (\sqrt 2)^{10}e^{10\pi i/4} = 32\,e^{5\pi i/2}$. I reduce the angle: $\frac{5\pi}2 = 2\pi + \frac\pi2$, so $(1 + i)^{10} = 32\,e^{i\pi/2} = 32i$.
+
+> [!EXAMPLE] · $(\sqrt 3 + i)^6$
+> $\sqrt 3 + i = 2e^{i\pi/6}$, so $(\sqrt 3 + i)^6 = 2^6e^{6\pi i/6} = 64\,e^{i\pi} = -64$. A complex number with non-zero imaginary part, raised to the sixth power, gives a negative real number: in Cartesian form it would take five multiplications.
+
+```graph
+title: The powers of $z = 1 + i$: each time the modulus is multiplied by $\sqrt 2$ and the angle grows by $\frac\pi4$
+x: -5.5 2
+y: -1.5 3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+segment: 1 1 0 2 | grey | dashed
+segment: 0 2 -2 2 | grey | dashed
+segment: -2 2 -4 0 | grey | dashed
+vector: 1 1 | accent | $z = 1 + i$ | e
+vector: 0 2 | blue | $z^2 = 2i$ | ne
+vector: -2 2 | violet | $z^3 = -2 + 2i$ | nw
+vector: -4 0 | amber | $z^4 = -4$ | nw
+```
+
+> [!METHOD] A high power without a calculator
+> 1. Write $z$ in polar form $re^{i\vartheta}$ (in the exam papers the modulus is almost always $1$, $\sqrt 2$ or $2$ and the angle is a special one).
+> 2. Apply $z^n = r^ne^{in\vartheta}$.
+> 3. Reduce the angle $n\vartheta$ by taking away multiples of $2\pi$.
+> 4. Go back to the form $a + bi$ with the table of sine and cosine, and compare with the answers.
+>
+> Alternatively, for small exponents: compute $z^2$ or $z^3$ in Cartesian form until you get a real or purely imaginary number, then continue with the powers of that one. For example $(1 + i)^2 = 2i$, and from there $(1 + i)^{10} = (2i)^5 = 32i^5 = 32i$.
+
+## The n-th roots (pp. 12–13)
+
+Now the inverse problem: given a complex number $z_0 \neq 0$, find **all** the $z$ with
+
+$$z^n = z_0.$$
+
+The solutions are called the **$n$-th roots** of $z_0$. Among the reals the equation $z^2 = -4$ has no solutions and $z^3 = 8$ has only one ($z = 2$); among the complex numbers, as you will see, there are always exactly $n$.
+
+### The handouts' reasoning, step by step
+
+1. Write the given number in polar form, $z_0 = r_0e^{i\vartheta_0}$, and the unknown too: $z = re^{i\vartheta}$, with $r > 0$ and $\vartheta$ to be found.
+2. By the formula for powers the equation becomes
+   $$z^n = r^ne^{in\vartheta} = r_0e^{i\vartheta_0}.$$
+3. Two polar forms are equal if and only if the moduli are equal and the angles differ by a multiple of $2\pi$. So the equation holds exactly when:
+   - $r^n = r_0$, that is $r = \sqrt[n]{r_0}$ (the usual positive real root: $r_0 > 0$ and also $r > 0$);
+   - $n\vartheta = \vartheta_0 + 2k\pi$ for some $k \in \Z$.
+4. Dividing the second condition by $n$:
+   $$\vartheta = \frac{\vartheta_0}n + \frac{2k\pi}n \quad \text{for some } k \in \Z.$$
+5. For $k = 0, 1, \dots, n - 1$ you get the arguments
+   $$\frac{\vartheta_0}n, \quad \frac{\vartheta_0}n + \frac{2\pi}n, \quad \dots, \quad \frac{\vartheta_0}n + \frac{2(n - 1)\pi}n.$$
+6. These $n$ angles all lie in an interval shorter than a turn, from $\frac{\vartheta_0}n$ to less than $\frac{\vartheta_0}n + 2\pi$: so they give $n$ **different** points. The other values of $k$ give nothing new: $k = n$ gives the angle $\frac{\vartheta_0}n + 2\pi$, that is the same point as $k = 0$; $k = n + 1$ the same as $k = 1$, and so on.
+
+> [!PROP] · The $n$-th roots (pp. 12–13)
+> Let $z_0 = r_0e^{i\vartheta_0}$ be a non-zero complex number. The equation $z^n = z_0$ has precisely $n$ distinct solutions:
+> $$z_k = \sqrt[n]{r_0}\;e^{i\left(\frac{\vartheta_0}n + \frac{2k\pi}n\right)}, \qquad k = 0, 1, \dots, n - 1.$$
+> They all have the same modulus $\sqrt[n]{r_0}$ and arguments separated by a constant step $\frac{2\pi}n$. Geometrically, they form the vertices of a **regular polygon** centred at the origin with $n$ sides and radius $\sqrt[n]{r_0}$.
+
+> [!EXAMPLE] 3.3 · The $n$-th roots of unity
+> The equation $z^n = 1$ has as solutions the complex numbers
+> $$z = e^{i\frac{2k\pi}n}, \qquad k = 0, 1, \dots, n - 1.$$
+> These $n$ solutions are the vertices of a regular polygon of radius $1$ with $n$ sides, having $1$ as a vertex. They are the **$n$-th roots of unity**.
+>
+> The computation: $1 = 1 \cdot e^{i \cdot 0}$, so $r_0 = 1$, $\vartheta_0 = 0$, and the roots have modulus $\sqrt[n]1 = 1$ and arguments $\frac{2k\pi}n$.
+> - $n = 2$: $e^{0} = 1$ and $e^{i\pi} = -1$.
+> - $n = 3$: $1$, $e^{2\pi i/3} = -\frac 12 + \frac{\sqrt 3}2 i$, $e^{4\pi i/3} = -\frac 12 - \frac{\sqrt 3}2 i$: an equilateral triangle.
+> - $n = 4$: $1$, $i$, $-1$, $-i$: a square.
+> - $n = 6$: the angles are multiples of $\frac\pi3$, and the roots are $\pm 1$, $\pm\frac 12 \pm \frac{\sqrt 3}2 i$: a hexagon (Figure 5 of the handouts, on the left).
+
+```graph
+title: Figure 5 (left): the sixth roots of $1$ are the vertices of a regular hexagon with a vertex at $1$
+x: -1.8 1.8
+y: -1.3 1.3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+circle: 0 0 1 | grey | thin
+polygon: 1 0 1/2 sqrt(3)/2 -1/2 sqrt(3)/2 -1 0 -1/2 -sqrt(3)/2 1/2 -sqrt(3)/2 | amber | dashed
+point: 1 0 | amber | $1$ | ne
+point: 1/2 sqrt(3)/2 | amber | $\frac 12 + \frac{\sqrt 3}2 i$ | ne
+point: -1/2 sqrt(3)/2 | amber | $-\frac 12 + \frac{\sqrt 3}2 i$ | nw
+point: -1 0 | amber | $-1$ | nw
+point: -1/2 -sqrt(3)/2 | amber | $-\frac 12 - \frac{\sqrt 3}2 i$ | sw
+point: 1/2 -sqrt(3)/2 | amber | $\frac 12 - \frac{\sqrt 3}2 i$ | se
+```
+
+> [!EXAMPLE] 3.4 · The three solutions of $z^3 = -8$
+> As in Figure 5 of the handouts (on the right), the three solutions of the equation $z^3 = -8$ have modulus $\sqrt[3]8 = 2$ and arguments $\frac\pi3$, $\pi$ and $\frac{5\pi}3$. They are the complex numbers
+> $$z_1 = 2e^{i\pi/3} = 2\left(\cos\frac\pi3 + i\sin\frac\pi3\right) = 1 + \sqrt 3 i,$$
+> $$z_2 = 2e^{i\pi} = -2,$$
+> $$z_3 = 2e^{5\pi i/3} = 2\left(\cos\frac{5\pi}3 + i\sin\frac{5\pi}3\right) = 1 - \sqrt 3 i.$$
+>
+> **Where the angles come from.** $-8$ is a negative real number: it lies on the negative real half-axis, so $-8 = 8e^{i\pi}$, with $r_0 = 8$ and $\vartheta_0 = \pi$. The first angle is $\frac\pi3$; then you add the step $\frac{2\pi}3$ twice: $\frac\pi3 + \frac{2\pi}3 = \pi$ and $\pi + \frac{2\pi}3 = \frac{5\pi}3$.
+>
+> **Check** on $z_1$: $(1 + i\sqrt 3)^2 = 1 + 2i\sqrt 3 - 3 = -2 + 2i\sqrt 3$, and then $(-2 + 2i\sqrt 3)(1 + i\sqrt 3) = -2 - 2i\sqrt 3 + 2i\sqrt 3 + 2i^2 \cdot 3 = -2 - 6 = -8$.
+
+```graph
+title: Figure 5 (right): the solutions of $z^3 = -8$ are the vertices of an equilateral triangle of radius $\sqrt[3]8 = 2$
+x: -3 3
+y: -2.5 2.5
+names: $\operatorname{Re}$ $\operatorname{Im}$
+circle: 0 0 2 | grey | thin
+polygon: 1 sqrt(3) -2 0 1 -sqrt(3) | amber | dashed
+point: 1 sqrt(3) | amber | $z_1 = 1 + \sqrt 3 i$ | ne
+point: -2 0 | amber | $z_2 = -2$ | nw
+point: 1 -sqrt(3) | amber | $z_3 = 1 - \sqrt 3 i$ | se
+```
+
+In the tool below you find the same example. Change $n$ to see triangles, squares, pentagons; change $z$ (for example $1$, $i$ or $-4$) and watch how the polygon rotates and changes radius.
+
+```widget complessi
+title: $n$-th roots: always $n$ of them, on the vertices of a regular polygon
+z: -8
+modo: radici
+modi: radici
+n: 3
+raggio: 3
+```
+
+> [!METHOD] Finding the $n$-th roots of $z_0$
+> 1. Write $z_0 = r_0e^{i\vartheta_0}$. Watch out for real numbers: a positive real has argument $0$, a negative real has argument $\pi$.
+> 2. The modulus of all the roots is $\sqrt[n]{r_0}$.
+> 3. The first argument is $\frac{\vartheta_0}n$; the others are obtained by adding $\frac{2\pi}n$, until you have $n$ of them.
+> 4. If the angles are special, go to the form $a + bi$.
+> 5. Draw: the points must form a regular polygon with $n$ sides.
+
+### The case $n = 2$: square roots
+
+For $n = 2$ the step is $\frac{2\pi}2 = \pi$: the two square roots of $z_0$ are **opposite**, $w$ and $-w$. Three examples that you will find again in lesson L04, inside the formula for second-degree equations:
+
+- $z^2 = -4$: $-4 = 4e^{i\pi}$, roots $2e^{i\pi/2} = 2i$ and $2e^{3\pi i/2} = -2i$. In general the square roots of a negative real number $-a$ are $\pm i\sqrt a$.
+- $z^2 = 2i$: $2i = 2e^{i\pi/2}$, roots $\sqrt 2\,e^{i\pi/4} = 1 + i$ and $\sqrt 2\,e^{5\pi i/4} = -1 - i$. They are the same ones found with coordinates in exercise 7 of lesson L02.
+- $z^2 = -3 + 4i$: here the angle is not a special one, and the method of lesson L02 is more convenient ($z = x + yi$, then $x^2 - y^2 = -3$ and $2xy = 4$): the roots are $\pm(1 + 2i)$.
+
+> [!PITFALL] The symbol $\sqrt{\ }$ among the complex numbers
+> Among the positive reals $\sqrt a$ denotes **the** positive root. Among the complex numbers there is no "positive" root: there are two opposite square roots, and writing $\sqrt{z_0}$ is ambiguous. This is why the rules of L01 like $\sqrt a\sqrt b = \sqrt{ab}$ no longer hold: $\sqrt{-1}\cdot\sqrt{-1}$ "should" be $\sqrt{(-1)(-1)} = \sqrt 1 = 1$, but with $\sqrt{-1} = i$ you get $i \cdot i = -1$. In lesson L04 the handouts write $\pm\sqrt\Delta$ precisely to indicate **the two** square roots of $\Delta$.
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book the lesson corresponds to §1.4, parts 1.4.4 "Coordinate polari" (pp. 27–29, with the proof of Proposition 1.4.2, which is 3.2 in the handouts), 1.4.5 "Proprietà dei numeri complessi" (p. 30, Exercise 1.4.3) and 1.4.6 "Radici $n$-esime di un numero complesso" (pp. 30–31, with Examples 1.4.4 and 1.4.5, that is 3.3 and 3.4 in the handouts, and Exercise 1.4.6, which is 3.5). At the end of chapter 1 (p. 37) Exercises 1.13 and 1.14 are solved here as exercises 9 and 10.
+
+## Towards the exam
+
+**The test in two lines.** 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; 2 hours, no calculator, only 4 handwritten pages of notes. 2026/27 Linear Algebra exam sessions: 22/01/2027 and 05/02/2027 at 14:00. Complete rules and sources in lesson L01.
+
+**What they ask.** In 9 of the 15 exam sessions from 24/01/2024 to 07/09/2026 the question on complex numbers was about this lesson:
+
+| Type of question | Exam sessions (question) |
+|---|---|
+| high power ($z^8$, $z^9$, $z^{12}$, $z^{2025}$) of a number given in the form $a + bi$ | 24/01/2024 (2), 10/07/2024 (1), 07/02/2025 (1), 15/01/2026 (5) |
+| power of a number given in trigonometric form | 06/09/2024 (1) |
+| product to be written in polar form | 16/01/2025 (1) |
+| roots: which number is (or is not) a solution of $z^n = z_0$, or what an expression with a square root equals | 10/06/2024 (1), 02/09/2025 (2), 05/02/2026 (1) |
+
+Here are three of these questions, with the solution.
+
+> [!EXAMPLE] · Exam of 16/01/2025, question 1
+> Given $z = 2\cos\frac\pi4 + 2i\sin\frac\pi4$, then $-3iz$ in polar coordinates is equal to: (a) $-6i\cos\frac\pi4 - 6i\sin\frac\pi4$; (b) $-6e^{3\pi i/4}$; (c) $-6i\cos\frac\pi4 + 6i\sin\frac\pi4$; (d) $6e^{7\pi i/4}$; (e) $0$.
+>
+> **Solution.** $z = 2e^{i\pi/4}$. The number $-3i$ lies on the negative imaginary half-axis: modulus $3$, argument $\frac{3\pi}2$, that is $-3i = 3e^{3\pi i/2}$. Moduli multiplied, arguments added:
+> $$-3iz = 6\,e^{i(\pi/4 + 3\pi/2)} = 6\,e^{7\pi i/4}.$$
+> Answer (d). Answer (b) denotes the same number ($-6e^{3\pi i/4} = 6e^{i\pi}e^{3\pi i/4} = 6e^{7\pi i/4}$) but it is not in polar coordinates, because the factor in front is negative. Answer (a) equals $-6\sqrt 2\,i$ and (c) equals $0$: they are numbers different from the result $6e^{7\pi i/4} = 3\sqrt 2 - 3\sqrt 2\,i$.
+
+> [!EXAMPLE] · Exam of 15/01/2026, question 5
+> Given $z = \frac{\sqrt 3}2 - \frac 12 i$, then $z^9$ is equal to: (a) $1$; (b) $\frac 12 - \frac{\sqrt 3}2 i$; (c) $-\frac{9\sqrt 3}2 + \frac 92 i$; (d) $i$; (e) $-\frac{\sqrt 3^9}{2^9} + \frac 1{2^9}i$.
+>
+> **Solution.** $|z| = \sqrt{\frac 34 + \frac 14} = 1$; $\cos\vartheta = \frac{\sqrt 3}2$ and $\sin\vartheta = -\frac 12$, fourth quadrant: $\vartheta = -\frac\pi6$. So
+> $$z^9 = e^{-9\pi i/6} = e^{-3\pi i/2}.$$
+> I add a turn: $-\frac{3\pi}2 + 2\pi = \frac\pi2$, so $z^9 = e^{i\pi/2} = i$. Answer (d). Answers (c) and (e) come from computations done on the two parts separately (multiplied by $9$, or raised to the ninth power, and then with the signs changed), which make no sense for complex numbers.
+
+> [!EXAMPLE] · Exam of 02/09/2025, question 2
+> Which of the following is a cube root of $z = 8e^{3\pi i/5}$? (a) $4e^{\pi i/5}$; (b) $2e^{\pi i/5 + 2\pi i/3}$; (c) $8e^{\pi i/3 + 2\pi ik}$; (d) $2e^{3\pi i/5}$; (e) $2e^{3\pi i/5 + \pi i/3}$.
+>
+> **Solution.** Modulus of the roots: $\sqrt[3]8 = 2$ (so (a) and (c) are excluded). Arguments: $\frac{3\pi/5}3 + \frac{2k\pi}3 = \frac\pi5 + \frac{2k\pi}3$ for $k = 0, 1, 2$. With $k = 1$ you get $2e^{\pi i/5 + 2\pi i/3}$: answer (b). Direct check: $\left(2e^{i(\pi/5 + 2\pi/3)}\right)^3 = 8e^{i(3\pi/5 + 2\pi)} = 8e^{3\pi i/5}$. Answer (d) has the angle not divided by $3$: its cube is $8e^{9\pi i/5}$; the cube of (e) is $8e^{9\pi i/5 + \pi i} = 8e^{4\pi i/5}$.
+
+> [!METHOD] Questions on complex numbers in polar form
+> 1. Bring **everything** into polar form: $z$, and also factors like $-3i$, $-1$, $2i$.
+> 2. Apply the rules: product (moduli times, angles plus), inverse (inverse modulus, opposite angle), power ($r^n$, $n\vartheta$), roots ($\sqrt[n]{r_0}$, $\frac{\vartheta_0 + 2k\pi}n$).
+> 3. Reduce the angles by taking away multiples of $2\pi$.
+> 4. Discard at once the answers with the wrong modulus: it is the fastest check.
+> 5. For "which one is a root", raise the candidate answer to the $n$: you must get $z_0$ back.
+
+**Mistakes to avoid.** Writing a negative modulus in a polar form; raising the modulus to the $n$ but not multiplying the angle (or vice versa); taking $\vartheta_0$ instead of $\frac{\vartheta_0}n$ as the first angle of the roots; forgetting that a negative real number has argument $\pi$; getting the quadrant wrong by looking only at the cosine; finding only one root instead of $n$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the table of sine and cosine at the special angles; $x = r\cos\vartheta$, $y = r\sin\vartheta$; $e^{i\vartheta} = \cos\vartheta + i\sin\vartheta$; $e^{i\pi} = -1$, $e^{i\pi/2} = i$; product, inverse and power in polar form; the formula for the roots $z_k = \sqrt[n]{r_0}\,e^{i(\vartheta_0 + 2k\pi)/n}$; the method for reducing an angle.
+
+## Quiz
+
+```quiz
+Q: Given $z = 1 + i$, then $z^{10}$ is equal to:
++ $32i$
+- $-32i$
+- $32$
+- $1024\,i$
+- $10 + 10i$
+= $1 + i = \sqrt 2\,e^{i\pi/4}$, so $z^{10} = (\sqrt 2)^{10}e^{10\pi i/4} = 32\,e^{5\pi i/2} = 32\,e^{i\pi/2} = 32i$ (you take away a turn, $2\pi$). Check: $(1 + i)^2 = 2i$ and $(2i)^5 = 32i^5 = 32i$. $1024 = 2^{10}$ comes from raising the modulus $2$ to the tenth power instead of $\sqrt 2$. Similar to the exams of 10/07/2024 and 24/01/2024.
+
+Q: Given $z = 2\cos\frac{\pi}{12} + 2i\sin\frac{\pi}{12}$, then $z^6$ is equal to:
++ $64i$
+- $2i$
+- $64$
+- $-64$
+- $12i$
+= $z = 2e^{i\pi/12}$, so $z^6 = 2^6e^{6\pi i/12} = 64\,e^{i\pi/2} = 64i$. $2i$ forgets to raise the modulus to the power; $12i$ multiplies the modulus by $6$ instead of raising it to the sixth power. Similar to the exam of 06/09/2024, question 1.
+
+Q: Given $z = 3e^{i\pi/3}$, the number $-2iz$ written in polar form $re^{i\vartheta}$ with $r > 0$ and $0 \le \vartheta < 2\pi$ is:
++ $6e^{11\pi i/6}$
+- $-6e^{5\pi i/6}$
+- $6e^{5\pi i/6}$
+- $5e^{11\pi i/6}$
+- $6e^{4\pi i/3}$
+= $-2i = 2e^{3\pi i/2}$, so $-2iz = 6\,e^{i(\pi/3 + 3\pi/2)} = 6\,e^{11\pi i/6}$. $-6e^{5\pi i/6}$ is the same number but it is not a polar form ($r$ negative); $6e^{5\pi i/6}$ comes from taking $-2i = 2e^{i\pi/2}$ (wrong angle); $5$ adds the moduli instead of multiplying them; $6e^{4\pi i/3}$ uses the angle $\pi$ for $-i$. Similar to the exam of 16/01/2025, question 1.
+
+Q: Which of the following numbers is a cube root of $8i$?
++ $-2i$
+- $2i$
+- $2e^{i\pi/3}$
+- $8e^{i\pi/6}$
+- $\frac 83\,i$
+= $8i = 8e^{i\pi/2}$: the cube roots have modulus $2$ and arguments $\frac\pi6 + \frac{2k\pi}3$, that is $\frac\pi6$, $\frac{5\pi}6$, $\frac{3\pi}2$. The last one is $2e^{3\pi i/2} = -2i$. Check: $(-2i)^3 = -8i^3 = 8i$. Instead $(2i)^3 = -8i$, $\left(2e^{i\pi/3}\right)^3 = 8e^{i\pi} = -8$; $8e^{i\pi/6}$ and $\frac 83 i$ have the wrong modulus. Similar to the exam of 02/09/2025, question 2.
+
+Q: Which of the following numbers is **not** a solution of $z^6 = 1$?
++ $e^{i\pi/6}$
+- $1$
+- $-1$
+- $e^{i\pi/3}$
+- $e^{2\pi i/3}$
+= The solutions are the sixth roots of unity $e^{2k\pi i/6} = e^{k\pi i/3}$: they include $1$ ($k = 0$), $e^{i\pi/3}$ ($k = 1$), $e^{2\pi i/3}$ ($k = 2$), $-1 = e^{i\pi}$ ($k = 3$). Instead $\left(e^{i\pi/6}\right)^6 = e^{i\pi} = -1 \neq 1$. Similar to the exam of 05/02/2026, question 1.
+
+Q: Given $z = \frac{\sqrt 2}2(1 + i)$, then $z^{2027}$ is equal to:
++ $\frac{\sqrt 2}2(-1 + i)$
+- $\frac{\sqrt 2}2(1 + i)$
+- $2027(1 + i)$
+- $-1$
+- $i$
+= $z = e^{i\pi/4}$ (modulus $1$). $z^{2027} = e^{2027\pi i/4}$; a turn equals $\frac 84\pi$ and $2027 = 8 \cdot 253 + 3$, so $z^{2027} = e^{3\pi i/4} = -\frac{\sqrt 2}2 + \frac{\sqrt 2}2 i$. The answer $2027(1 + i)$ multiplies instead of raising to the power. Similar to the exam of 07/02/2025, question 1.
+
+Q: If $z = 3e^{2\pi i/5}$, the conjugate $\bar z$ is:
++ $3e^{8\pi i/5}$
+- $-3e^{2\pi i/5}$
+- $3e^{3\pi i/5}$
+- $\frac 13e^{-2\pi i/5}$
+- $3e^{-8\pi i/5}$
+= The conjugate has the same modulus and the opposite argument: $\bar z = 3e^{-2\pi i/5} = 3e^{8\pi i/5}$ (adding $2\pi$). $-3e^{2\pi i/5}$ is $-z$; $3e^{3\pi i/5}$ is the mirror image with respect to the imaginary axis; $\frac 13e^{-2\pi i/5}$ is the inverse $z^{-1}$; $3e^{-8\pi i/5} = 3e^{2\pi i/5}$ is $z$ itself.
+
+Q: If $z = 2e^{i\pi/3}$, the inverse $z^{-1}$ is:
++ $\frac 14 - \frac{\sqrt 3}4 i$
+- $\frac 14 + \frac{\sqrt 3}4 i$
+- $1 - \sqrt 3 i$
+- $\frac 12 - \frac{\sqrt 3}2 i$
+- $-\frac 14 + \frac{\sqrt 3}4 i$
+= $z^{-1} = \frac 12e^{-i\pi/3} = \frac 12\left(\frac 12 - \frac{\sqrt 3}2 i\right) = \frac 14 - \frac{\sqrt 3}4 i$. $1 - \sqrt 3 i = \bar z$ (modulus not inverted); $\frac 12 - \frac{\sqrt 3}2 i = e^{-i\pi/3}$ forgets the modulus.
+
+Q: What is the real part of $(1 + i\sqrt 3)^5$? Write a number.
+N: 16
+= $1 + i\sqrt 3 = 2e^{i\pi/3}$, so $(1 + i\sqrt 3)^5 = 32\,e^{5\pi i/3} = 32\left(\frac 12 - \frac{\sqrt 3}2 i\right) = 16 - 16\sqrt 3\,i$. The real part is $16$.
+
+Q: The four solutions of $z^4 = -16$, in the complex plane, are:
++ the vertices of a square centred at the origin with a vertex at $\sqrt 2 + \sqrt 2\,i$
+- the vertices of a square centred at the origin with a vertex at $2$
+- the vertices of a square centred at the origin with a vertex at $4$
+- the vertices of an equilateral triangle centred at the origin
+- two real numbers and two complex conjugate numbers
+= $-16 = 16e^{i\pi}$: the roots have modulus $\sqrt[4]{16} = 2$ and arguments $\frac\pi4 + \frac{k\pi}2$, that is $\frac\pi4, \frac{3\pi}4, \frac{5\pi}4, \frac{7\pi}4$: they are $\pm\sqrt 2 \pm \sqrt 2\,i$. The square with vertices $\pm 2, \pm 2i$ is the one of the solutions of $z^4 = 16$; the one with vertices $\pm 4, \pm 4i$ comes from taking $\sqrt{16} = 4$ instead of $\sqrt[4]{16} = 2$; the solutions are four, not three. No solution is real: $x^4 \ge 0$ for every real $x$.
+```
+
+## Exercises
+
+::: exercise basic Conversions
+(a) Write in polar form: $-\sqrt 3 + i$, $-4$, $3i$, $-1 - i$. (b) Write in the form $a + bi$: $4e^{2\pi i/3}$, $\sqrt 2\,e^{-3\pi i/4}$, $5e^{i\pi}$.
+::: solution
+(a)
+- $-\sqrt 3 + i$: $r = \sqrt{3 + 1} = 2$; $\cos\vartheta = -\frac{\sqrt 3}2$, $\sin\vartheta = \frac 12$, second quadrant: $\vartheta = \pi - \frac\pi6 = \frac{5\pi}6$. So $2e^{5\pi i/6}$.
+- $-4$: negative real, $r = 4$, $\vartheta = \pi$: $4e^{i\pi}$.
+- $3i$: on the positive imaginary half-axis, $r = 3$, $\vartheta = \frac\pi2$: $3e^{i\pi/2}$.
+- $-1 - i$: $r = \sqrt 2$; $\cos\vartheta = \sin\vartheta = -\frac{\sqrt 2}2$, third quadrant: $\vartheta = \pi + \frac\pi4 = \frac{5\pi}4$. So $\sqrt 2\,e^{5\pi i/4}$.
+
+(b)
+- $4e^{2\pi i/3} = 4\left(-\frac 12 + \frac{\sqrt 3}2 i\right) = -2 + 2\sqrt 3\,i$.
+- $\sqrt 2\,e^{-3\pi i/4} = \sqrt 2\left(-\frac{\sqrt 2}2 - \frac{\sqrt 2}2 i\right) = -1 - i$.
+- $5e^{i\pi} = 5 \cdot (-1) = -5$.
+:::
+
+::: exercise intermediate Exercise 3.5 of the handouts: $z^4 = i$
+Compute the solutions of the equation $z^4 = i$ and draw them in the complex plane.
+::: solution
+1. $i = 1 \cdot e^{i\pi/2}$: $r_0 = 1$, $\vartheta_0 = \frac\pi2$.
+2. Modulus of the roots: $\sqrt[4]1 = 1$. They all lie on the unit circle.
+3. Arguments: $\frac{\pi/2}4 + \frac{2k\pi}4 = \frac\pi8 + \frac{k\pi}2$ for $k = 0, 1, 2, 3$:
+   $$\frac\pi8, \qquad \frac{5\pi}8, \qquad \frac{9\pi}8, \qquad \frac{13\pi}8.$$
+4. The solutions are $z_k = e^{i(\pi/8 + k\pi/2)}$: in degrees, the angles $22.5°$, $112.5°$, $202.5°$ and $292.5°$. They form a square inscribed in the unit circle.
+
+Check: $z_0^4 = e^{4\pi i/8} = e^{i\pi/2} = i$. Note that going from one root to the next means rotating by $\frac\pi2$, that is multiplying by $i$: the four roots are $w$, $iw$, $-w$, $-iw$ with $w = z_0$.
+
+```graph
+title: The four solutions of $z^4 = i$: a square on the unit circle, with a vertex at angle $\frac\pi8$
+x: -1.6 1.6
+y: -1.3 1.3
+names: $\operatorname{Re}$ $\operatorname{Im}$
+circle: 0 0 1 | grey | thin
+polygon: 0.9239 0.3827 -0.3827 0.9239 -0.9239 -0.3827 0.3827 -0.9239 | amber | dashed
+point: 0 1 | pink | $i$ | ne
+point: 0.9239 0.3827 | amber | $z_0$ | e
+point: -0.3827 0.9239 | amber | $z_1$ | nw
+point: -0.9239 -0.3827 | amber | $z_2$ | w
+point: 0.3827 -0.9239 | amber | $z_3$ | se
+arc: 0 0 0.35 0 pi/8 | accent
+```
+
+> [!BEYOND] · the form $a + bi$
+> The angles $\frac\pi8$ are not in the table, but with the half-angle formula $\cos^2\alpha = \frac{1 + \cos 2\alpha}2$ you find $\cos\frac\pi8 = \frac{\sqrt{2 + \sqrt 2}}2 \approx 0.924$ and $\sin\frac\pi8 = \frac{\sqrt{2 - \sqrt 2}}2 \approx 0.383$. So $z_0 = \frac{\sqrt{2 + \sqrt 2}}2 + \frac{\sqrt{2 - \sqrt 2}}2 i$, and the other roots are obtained by multiplying by $i$, $-1$, $-i$. The exercise does not ask for it: the polar form is already a complete answer.
+:::
+
+::: exercise intermediate Exercise 3.6 of the handouts: polar coordinates
+Determine polar coordinates for the following complex numbers:
+$$\sin(2), \qquad \cos(2) + i\sin(2), \qquad \cos(2) - i\sin(2), \qquad \frac{1 + i}2, \qquad 1 - i\sqrt 3.$$
+::: solution
+Here "$2$" is an angle of $2$ radians, about $114.6°$: it lies in the second quadrant, where the sine is positive and the cosine negative.
+
+- **$\sin(2)$** is a **real** number, about $0.909$, and positive. A positive real lies on the positive real half-axis: $r = \sin 2$ and $\vartheta = 0$. So $\sin 2 = (\sin 2)\,e^{i \cdot 0}$. (Had it been negative, the argument would have been $\pi$ and the modulus $-\sin 2$.)
+- **$\cos(2) + i\sin(2)$** is by definition $e^{2i}$: $r = 1$, $\vartheta = 2$. No computation: the form is already the polar one.
+- **$\cos(2) - i\sin(2)$**: since $\cos(-2) = \cos 2$ and $\sin(-2) = -\sin 2$, it is $\cos(-2) + i\sin(-2) = e^{-2i}$. So $r = 1$, $\vartheta = -2$ (or $2\pi - 2$). It is the conjugate of the previous number.
+- **$\frac{1 + i}2$**: $r = \sqrt{\frac 14 + \frac 14} = \frac{\sqrt 2}2$; $\cos\vartheta = \frac{1/2}{\sqrt 2/2} = \frac 1{\sqrt 2} = \frac{\sqrt 2}2$ and also $\sin\vartheta = \frac{\sqrt 2}2$, so $\vartheta = \frac\pi4$. In short $\frac{1 + i}2 = \frac{\sqrt 2}2\,e^{i\pi/4}$.
+- **$1 - i\sqrt 3$**: $r = \sqrt{1 + 3} = 2$; $\cos\vartheta = \frac 12$, $\sin\vartheta = -\frac{\sqrt 3}2$, fourth quadrant: $\vartheta = -\frac\pi3$ (or $\frac{5\pi}3$). So $1 - i\sqrt 3 = 2e^{-i\pi/3}$.
+:::
+
+::: exercise basic Exercise 3.7 of the handouts: three sets in polar coordinates
+Draw the following subsets in the complex plane:
+1. $A = \{z = re^{i\vartheta} \in \C \text{ such that } \vartheta = \frac\pi2\}$;
+2. $B = \{z = re^{i\vartheta} \in \C \text{ such that } \vartheta = (2k + 1)\pi,\ k \in \Z\}$;
+3. $C = \{z = re^{i\vartheta} \in \C \text{ such that } r = 1 \text{ and } 0 \le \vartheta \le \pi\}$.
+::: solution
+In all three sets $z$ is written in polar form, so $z \neq 0$ and $r > 0$.
+
+1. **$A$**: the numbers $re^{i\pi/2} = ri$ with $r > 0$, that is the **positive imaginary half-axis**, origin excluded.
+2. **$B$**: the angles $(2k + 1)\pi$ are the **odd** multiples of $\pi$: $\pi, 3\pi, -\pi, \dots$ They all differ from $\pi$ by a multiple of $2\pi$, so they all indicate the direction of $-1$: $B$ is the **negative real half-axis**, origin excluded, that is the negative real numbers.
+3. **$C$**: modulus $1$ means unit circle; the angle from $0$ to $\pi$ (endpoints included) selects its **upper half**, from $1$ to $-1$, with the two endpoints $1$ and $-1$ included.
+
+```graph
+title: $A$ (positive imaginary half-axis), $B$ (negative real half-axis), $C$ (upper half of the circle); the origin belongs neither to $A$ nor to $B$
+x: -2.5 2.5
+y: -1 2
+names: $\operatorname{Re}$ $\operatorname{Im}$
+segment: 0 0 0 2 | blue | thick
+segment: 0 0 -2.5 0 | amber | thick
+arc: 0 0 1 0 pi | violet | thick
+point: 1 0 | violet | $1$ | s
+point: -1 0 | violet | $-1$ | s
+point: 0 0 | grey | hollow
+text: 0.25 1.7 | blue | $A$
+text: -2 0.25 | amber | $B$
+text: 0.85 0.85 | violet | $C$
+```
+:::
+
+::: exercise basic Exercise 3.8 of the handouts: $(1 - i)^3$ in two ways
+Compute $(1 - i)^3$ using polar coordinates, and check the result with Cartesian coordinates.
+::: solution
+**In polar coordinates.** $|1 - i| = \sqrt 2$; $\cos\vartheta = \frac{\sqrt 2}2$ and $\sin\vartheta = -\frac{\sqrt 2}2$, so $\vartheta = -\frac\pi4$ and $1 - i = \sqrt 2\,e^{-i\pi/4}$. Then
+$$(1 - i)^3 = (\sqrt 2)^3e^{-3\pi i/4} = 2\sqrt 2\left(\cos\frac{3\pi}4 - i\sin\frac{3\pi}4\right),$$
+and since $\cos\frac{3\pi}4 = -\frac{\sqrt 2}2$ and $\sin\frac{3\pi}4 = \frac{\sqrt 2}2$,
+$$(1 - i)^3 = 2\sqrt 2\left(-\frac{\sqrt 2}2 - \frac{\sqrt 2}2 i\right) = -2 - 2i.$$
+Here $(\sqrt 2)^3 = \sqrt 2 \cdot \sqrt 2 \cdot \sqrt 2 = 2\sqrt 2$, and $2\sqrt 2 \cdot \frac{\sqrt 2}2 = \frac{2 \cdot 2}2 = 2$.
+
+**In Cartesian coordinates.** $(1 - i)^2 = 1 - 2i + i^2 = -2i$, and then $(1 - i)^3 = (-2i)(1 - i) = -2i + 2i^2 = -2 - 2i$. The two methods give the same result.
+:::
+
+::: exercise intermediate Product and quotient in polar form
+Let $z = 2e^{i\pi/3}$ and $w = 4e^{3\pi i/4}$. Compute in polar form $zw$, $\frac zw$, $w^{-1}$ and $\bar z\,w$.
+::: solution
+- $zw = 2 \cdot 4\,e^{i(\pi/3 + 3\pi/4)} = 8e^{13\pi i/12}$, because $\frac\pi3 + \frac{3\pi}4 = \frac{4\pi + 9\pi}{12} = \frac{13\pi}{12}$.
+- $\frac zw = \frac 24\,e^{i(\pi/3 - 3\pi/4)} = \frac 12\,e^{-5\pi i/12}$, because $\frac{4\pi - 9\pi}{12} = -\frac{5\pi}{12}$. Adding a turn: $\frac 12\,e^{19\pi i/12}$.
+- $w^{-1} = \frac 14\,e^{-3\pi i/4} = \frac 14\,e^{5\pi i/4}$.
+- $\bar z = 2e^{-i\pi/3}$, so $\bar z\,w = 8\,e^{i(-\pi/3 + 3\pi/4)} = 8e^{5\pi i/12}$, because $\frac{-4\pi + 9\pi}{12} = \frac{5\pi}{12}$.
+:::
+
+::: exercise intermediate From tutoring sheet 1: $z^{10}\bar z$
+Write $z = \frac 12(-\sqrt 3 + i)$ in polar coordinates and compute $z^{10}\bar z$ in the form $a + bi$.
+::: solution
+1. $z = -\frac{\sqrt 3}2 + \frac 12 i$: $|z| = \sqrt{\frac 34 + \frac 14} = 1$; $\cos\vartheta = -\frac{\sqrt 3}2$, $\sin\vartheta = \frac 12$, second quadrant: $\vartheta = \frac{5\pi}6$. So $z = e^{5\pi i/6}$.
+2. $z^{10} = e^{50\pi i/6}$ and $\bar z = e^{-5\pi i/6}$, so $z^{10}\bar z = e^{(50 - 5)\pi i/6} = e^{45\pi i/6} = e^{15\pi i/2}$.
+3. I reduce: a turn equals $\frac 42\pi$ and $15 = 4 \cdot 3 + 3$, so $\frac{15\pi}2 = 3 \cdot 2\pi + \frac{3\pi}2$.
+4. $z^{10}\bar z = e^{3\pi i/2} = -i$.
+
+A shortcut: since $|z| = 1$, $\bar z = z^{-1}$ (exercise 8 of lesson L02), so $z^{10}\bar z = z^9 = e^{45\pi i/6}$, the same computation.
+:::
+
+::: exercise intermediate From tutoring sheet 1: three root computations
+Compute: (a) the fourth roots of $-i$; (b) the cube roots of $8$; (c) the fifth roots of $\frac 12(-\sqrt 3 + i)$.
+::: solution
+(a) $-i = e^{3\pi i/2}$. Modulus of the roots $1$; arguments $\frac{3\pi}8 + \frac{k\pi}2$: $\frac{3\pi}8$, $\frac{7\pi}8$, $\frac{11\pi}8$, $\frac{15\pi}8$. The roots are $e^{3\pi i/8}$, $e^{7\pi i/8}$, $e^{11\pi i/8}$, $e^{15\pi i/8}$.
+
+(b) $8 = 8e^{i \cdot 0}$. Modulus $\sqrt[3]8 = 2$; arguments $0$, $\frac{2\pi}3$, $\frac{4\pi}3$. The roots are
+$$2, \qquad 2e^{2\pi i/3} = -1 + i\sqrt 3, \qquad 2e^{4\pi i/3} = -1 - i\sqrt 3.$$
+Among the reals there was only $2$; the other two are complex conjugates.
+
+(c) From the previous exercise $\frac 12(-\sqrt 3 + i) = e^{5\pi i/6}$. Modulus $1$; arguments $\frac{5\pi/6}5 + \frac{2k\pi}5 = \frac\pi6 + \frac{2k\pi}5$. In thirtieths of $\pi$: $\frac\pi6 = \frac{5\pi}{30}$ and the step is $\frac{2\pi}5 = \frac{12\pi}{30}$. The arguments are
+$$\frac{5\pi}{30} = \frac\pi6, \qquad \frac{17\pi}{30}, \qquad \frac{29\pi}{30}, \qquad \frac{41\pi}{30}, \qquad \frac{53\pi}{30},$$
+and the roots are $e^{i\pi/6} = \frac{\sqrt 3}2 + \frac 12 i$ and the other four $e^{17\pi i/30}$, $e^{29\pi i/30}$, $e^{41\pi i/30}$, $e^{53\pi i/30}$, vertices of a regular pentagon.
+:::
+
+::: exercise intermediate From Martelli's book (Exercise 1.13): $z^4 = -16$
+Determine all the solutions of $z^4 = -16$ and draw them.
+::: solution
+$-16 = 16e^{i\pi}$. Modulus of the solutions: $\sqrt[4]{16} = 2$. Arguments: $\frac\pi4 + \frac{k\pi}2$, that is $\frac\pi4$, $\frac{3\pi}4$, $\frac{5\pi}4$, $\frac{7\pi}4$. In the form $a + bi$, with $2\cos\frac\pi4 = 2 \cdot \frac{\sqrt 2}2 = \sqrt 2$:
+$$\sqrt 2 + \sqrt 2\,i, \qquad -\sqrt 2 + \sqrt 2\,i, \qquad -\sqrt 2 - \sqrt 2\,i, \qquad \sqrt 2 - \sqrt 2\,i.$$
+They are the vertices of a square of radius $2$, rotated by $45°$ with respect to the axes. Check: $(\sqrt 2 + \sqrt 2\,i)^2 = 2 + 4i + 2i^2 = 4i$, and $(4i)^2 = -16$.
+
+```graph
+title: The solutions of $z^4 = -16$: a square of radius $2$ with its vertices on the bisectors
+x: -3 3
+y: -2.5 2.5
+names: $\operatorname{Re}$ $\operatorname{Im}$
+circle: 0 0 2 | grey | thin
+polygon: sqrt(2) sqrt(2) -sqrt(2) sqrt(2) -sqrt(2) -sqrt(2) sqrt(2) -sqrt(2) | amber | dashed
+point: sqrt(2) sqrt(2) | amber | $\sqrt 2 + \sqrt 2 i$ | ne
+point: -sqrt(2) sqrt(2) | amber | $-\sqrt 2 + \sqrt 2 i$ | nw
+point: -sqrt(2) -sqrt(2) | amber | $-\sqrt 2 - \sqrt 2 i$ | sw
+point: sqrt(2) -sqrt(2) | amber | $\sqrt 2 - \sqrt 2 i$ | se
+```
+:::
+
+::: exercise hard From Martelli's book (Exercise 1.14): $z^4 = \bar z^3$
+Determine all the complex numbers $z$ such that $z^4 = \bar z^3$.
+::: solution
+**The case $z = 0$.** $0^4 = 0 = \bar 0^3$: zero is a solution.
+
+**The case $z \neq 0$.** I write $z = re^{i\vartheta}$ with $r > 0$. Then $\bar z = re^{-i\vartheta}$ and
+$$z^4 = r^4e^{4i\vartheta}, \qquad \bar z^3 = r^3e^{-3i\vartheta}.$$
+Two polar forms are equal if and only if:
+1. the moduli are equal: $r^4 = r^3$, that is (dividing by $r^3 > 0$) $r = 1$;
+2. the angles differ by a multiple of $2\pi$: $4\vartheta = -3\vartheta + 2k\pi$, that is $7\vartheta = 2k\pi$, that is $\vartheta = \frac{2k\pi}7$.
+
+For $k = 0, 1, \dots, 6$ you get seven different points; the other $k$ repeat the same ones. The non-zero solutions are therefore the **seventh roots of unity** $e^{2k\pi i/7}$, vertices of a regular heptagon inscribed in the unit circle.
+
+**8 solutions in total**: $0$ and the seven seventh roots of $1$. Check on one of them, $z = e^{2\pi i/7}$: $z^4 = e^{8\pi i/7}$ and $\bar z^3 = e^{-6\pi i/7}$; the angles differ by $\frac{8\pi}7 + \frac{6\pi}7 = 2\pi$, so they are the same number.
+:::
+
+::: exercise exam As at the exam: a very high power
+Given $z = -\frac 12 + \frac{\sqrt 3}2 i$, then $z^{2026}$ is equal to: (a) $z$; (b) $1$; (c) $-1$; (d) $\bar z$; (e) $2026\,z$.
+::: solution
+1. **Polar form.** $|z| = \sqrt{\frac 14 + \frac 34} = 1$; $\cos\vartheta = -\frac 12$, $\sin\vartheta = \frac{\sqrt 3}2$, second quadrant: $\vartheta = \frac{2\pi}3$. So $z = e^{2\pi i/3}$.
+2. **Power.** $z^{2026} = e^{2026 \cdot 2\pi i/3} = e^{4052\pi i/3}$.
+3. **Reduction.** A turn equals $\frac 63\pi$; $4052 = 6 \cdot 675 + 2$, so $\frac{4052\pi}3 = 675 \cdot 2\pi + \frac{2\pi}3$.
+4. $z^{2026} = e^{2\pi i/3} = z$: answer (a).
+
+Shortcut: $z$ is a cube root of unity ($z^3 = e^{2\pi i} = 1$), so only the remainder of $2026$ divided by $3$ matters: $2026 = 3 \cdot 675 + 1$, and $z^{2026} = (z^3)^{675} \cdot z = z$. Answer (e) is the mistake of those who multiply instead of raising to the power.
+:::
+
+::: exercise exam As at the exam: which one is a root
+Which of the following numbers is a fourth root of $-4$? (a) $1 + i$; (b) $\sqrt 2$; (c) $2i$; (d) $\sqrt 2\,i$; (e) $1 + 2i$.
+::: solution
+**With the formula.** $-4 = 4e^{i\pi}$: the fourth roots have modulus $\sqrt[4]4 = \sqrt 2$ and arguments $\frac\pi4 + \frac{k\pi}2$. For $k = 0$: $\sqrt 2\,e^{i\pi/4} = \sqrt 2\left(\frac{\sqrt 2}2 + \frac{\sqrt 2}2 i\right) = 1 + i$. Answer (a); the other roots are $-1 + i$, $-1 - i$, $1 - i$.
+
+**Discarding answers.** $|2i| = 2$ and $|1 + 2i| = \sqrt 5$ have the wrong modulus (it must be $\sqrt 2$). $\sqrt 2$ and $\sqrt 2\,i$ have the right modulus but arguments $0$ and $\frac\pi2$, which are not of the form $\frac\pi4 + \frac{k\pi}2$: indeed $(\sqrt 2)^4 = 4$ and $(\sqrt 2\,i)^4 = 4i^4 = 4$, not $-4$. Check of (a): $(1 + i)^2 = 2i$ and $(2i)^2 = -4$.
+:::
+
+## Review questions
+
+::: question What are the polar coordinates of a point $(x, y) \neq (0, 0)$? How do you go from the Cartesian ones and back?
+The pair $(r, \vartheta)$: $r$ is the distance from the origin, $\vartheta$ the angle with the positive real half-axis. From polar to Cartesian: $x = r\cos\vartheta$, $y = r\sin\vartheta$. Conversely: $r = \sqrt{x^2 + y^2}$, $\cos\vartheta = \frac xr$, $\sin\vartheta = \frac yr$ (Definition 3.1).
+:::
+
+::: question Why do you need both the cosine and the sine to find the angle?
+Because a value of the cosine (or of the tangent) corresponds to two different angles: $(1, \sqrt 3)$ and $(1, -\sqrt 3)$ have the same cosine $\frac 12$, but angles $\frac\pi3$ and $-\frac\pi3$. The signs of cosine and sine together determine the quadrant.
+:::
+
+::: question What does $e^{i\vartheta}$ mean, and what are the modulus and argument of $z = re^{i\vartheta}$?
+$e^{i\vartheta}$ is a symbol for $\cos\vartheta + i\sin\vartheta$, a point of the unit circle. In $z = re^{i\vartheta}$ the number $r = |z| > 0$ is the modulus and the angle $\vartheta$ is the argument (or phase).
+:::
+
+::: question What does Proposition 3.2 say and why is it true?
+$e^{i(\vartheta + \varphi)} = e^{i\vartheta}e^{i\varphi}$. Carrying out the product $(\cos\vartheta + i\sin\vartheta)(\cos\varphi + i\sin\varphi)$ you find as real part and imaginary part the addition formulas of $\cos(\vartheta + \varphi)$ and $\sin(\vartheta + \varphi)$.
+:::
+
+::: question How do you multiply two complex numbers in polar form? What does it mean geometrically?
+$r_1e^{i\vartheta_1} \cdot r_2e^{i\vartheta_2} = r_1r_2e^{i(\vartheta_1 + \vartheta_2)}$: the moduli multiply, the arguments add up. Multiplying by $r_2e^{i\vartheta_2}$ rotates by $\vartheta_2$ and stretches by a factor $r_2$.
+:::
+
+::: question What are the inverse and the conjugate of $z = re^{i\vartheta}$?
+$z^{-1} = r^{-1}e^{-i\vartheta}$ (inverse modulus, opposite angle) and $\bar z = re^{-i\vartheta}$ (same modulus, opposite angle: reflection with respect to the real axis).
+:::
+
+::: question When do two polar forms represent the same number?
+$r_0e^{i\vartheta_0} = r_1e^{i\vartheta_1}$ if and only if $r_0 = r_1$ and $\vartheta_1 = \vartheta_0 + 2k\pi$ for some $k \in \Z$.
+:::
+
+::: question What is Euler's identity? What are $e^{i\pi/2}$ and $e^{2\pi i}$?
+$e^{i\pi} = -1$, that is $\cos\pi + i\sin\pi$. Moreover $e^{i\pi/2} = i$ and $e^{2\pi i} = 1$.
+:::
+
+::: question How do you compute $z^n$ in polar form? Give an example.
+$\left(re^{i\vartheta}\right)^n = r^ne^{in\vartheta}$. For example $(1 + i)^8 = (\sqrt 2)^8e^{2\pi i} = 16$.
+:::
+
+::: question How many solutions does $z^n = z_0$ have with $z_0 \neq 0$, and how do you find them?
+Exactly $n$. If $z_0 = r_0e^{i\vartheta_0}$, they are $\sqrt[n]{r_0}\,e^{i(\vartheta_0/n + 2k\pi/n)}$ for $k = 0, \dots, n - 1$.
+:::
+
+::: question What figure do the $n$-th roots of a complex number form?
+The vertices of a regular polygon with $n$ sides, centred at the origin, of radius $\sqrt[n]{r_0}$. For the roots of unity one of the vertices is $1$.
+:::
+
+::: question What are the cube roots of $-8$? Why is the first angle $\frac\pi3$?
+$1 + \sqrt 3 i$, $-2$, $1 - \sqrt 3 i$ (Example 3.4). Because $-8 = 8e^{i\pi}$ and the first angle is $\frac\pi3$, a third of the argument $\pi$; then you add $\frac{2\pi}3$ twice.
+:::
+
+::: question Why is $-6e^{3\pi i/4}$ not a polar form? How do you fix it?
+Because the modulus must be positive. With $-1 = e^{i\pi}$: $-6e^{3\pi i/4} = 6e^{7\pi i/4}$.
+:::
+
+## Glossary
+
+```glossary
+Radian | Unit of measure of angles: the angle measures as much as the arc it cuts on the circle of radius $1$. A turn equals $2\pi$.
+Unit circle | The circle with centre $0$ and radius $1$; its points are $(\cos\vartheta, \sin\vartheta)$, that is the numbers $e^{i\vartheta}$.
+Polar coordinates | The pair $(r, \vartheta)$ that locates a point other than the origin: distance from the origin and angle with the positive real half-axis (Definition 3.1).
+Trigonometric form | The expression $z = r(\cos\vartheta + i\sin\vartheta)$.
+Complex exponential $e^{i\vartheta}$ | Symbol for $\cos\vartheta + i\sin\vartheta$; it satisfies $e^{i(\vartheta + \varphi)} = e^{i\vartheta}e^{i\varphi}$.
+Polar form | The expression $z = re^{i\vartheta}$ with $r > 0$, for $z \neq 0$.
+Modulus | $r = \lvert z \rvert$, the length of the vector that describes $z$.
+Argument (phase) | The angle $\vartheta$ of $z = re^{i\vartheta}$; it is determined up to multiples of $2\pi$.
+Principal argument | The argument chosen in a fixed interval, usually $(-\pi, \pi]$ or $[0, 2\pi)$.
+Addition formulas | $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$ and $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$.
+Product rule | In the product of two complex numbers the moduli multiply and the arguments add up.
+Euler's identity | $e^{i\pi} = -1$.
+De Moivre's formula | $\left(re^{i\vartheta}\right)^n = r^ne^{in\vartheta}$.
+$n$-th roots | The $n$ solutions of $z^n = z_0$ ($z_0 \neq 0$): $\sqrt[n]{r_0}\,e^{i(\vartheta_0 + 2k\pi)/n}$, $k = 0, \dots, n - 1$.
+$n$-th roots of unity | The solutions of $z^n = 1$: $e^{2k\pi i/n}$, vertices of a regular polygon with a vertex at $1$.
+Regular polygon | Polygon with all sides and all angles equal; the $n$-th roots are its vertices.
+```
+
+## Checklist
+
+```checklist
+- I can convert between degrees and radians and I know the table of sine and cosine at the special angles, with the signs in the four quadrants.
+- I can go from Cartesian to polar coordinates and back, choosing the angle with cosine and sine together.
+- I can write a complex number in trigonometric form and in polar form $re^{i\vartheta}$, with $r > 0$.
+- I can prove Proposition 3.2 with the addition formulas.
+- I can multiply, invert and divide in polar form, and I know what happens in the drawing.
+- I can recognise when two polar forms indicate the same number and I can reduce a large angle.
+- I know that $e^{i\pi} = -1$, $e^{i\pi/2} = i$, $e^{2\pi i} = 1$ and I can use them to bring a minus sign inside the angle.
+- I can compute high powers like $(1 + i)^{10}$ without a calculator.
+- I can find all the $n$ $n$-th roots of a complex number and draw them as a regular polygon.
+- I can solve the exam questions on powers and roots by first discarding the answers with the wrong modulus.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 3 "Numeri complessi II", pp. 10–14: sections 3.A–3.C are followed in order, with the page next to each heading; Definition 3.1, Proposition 3.2 and Examples 3.3 and 3.4 keep their numbering; exercises 3.5, 3.6, 3.7 and 3.8 are solved in the "Exercises" section (exercises 2, 3, 4 and 5); Figures 3, 4 and 5 are redrawn with the graphs.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.4.4–1.4.6 (pp. 27–31) and Exercises 1.13 and 1.14 (p. 37).
+- **Tutoring exercise sheet 1** (Buzano, Radeschi, 27/10/2025, Moodle 2025/26): exercises 2 and 3, solved as exercises 7 and 8.
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): question 1 of 16/01/2025, question 5 of 15/01/2026 and question 2 of 02/09/2025, reported with solutions written for these notes; the table of the other exam sessions only indicates their type. Exam rules 2025/26 and dates 2026/27 as in lesson L01.
+- The **"Beyond the handouts"** parts (the trigonometry review, the power series, the principal argument, the method for reducing angles, De Moivre's formula, the pitfall on square roots, the exercises that do not come from the handouts) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L04_polynomials.md -->
+> File: `ai_context/MDAG/lessons/L04_polynomials.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L04
+title: Polynomials
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L04
+description: >-
+  Notes on lesson L04 of Linear Algebra and Geometry (MDAG, part 2): polynomials and degree, division with remainder
+  and Ruffini's rule, roots and multiplicity, how many roots a polynomial can have, the fundamental theorem of
+  algebra, second-degree equations in the complex numbers and polynomials with real coefficients, with exam-style
+  quizzes and worked exercises.
+lede: >-
+  Polynomials like $x^3 - 2x + 5$ can be added, multiplied and divided with remainder, just like integers. Their
+  roots correspond to the factors $x - a$ and are counted with multiplicity: a polynomial of degree $n$ has at most
+  $n$ of them, and in the complex numbers exactly $n$ (fundamental theorem of algebra). They are needed throughout the
+  course: eigenvalues, determinants with a parameter and spaces of polynomials $\R_k[x]$ all start from here.
+material: handouts
+facts:
+  Handouts: lesson 4 · pp. 15–19
+  Book: Martelli, §1.3 (pp. 21–25) and §1.4.7–1.4.8 (pp. 31–33)
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 4 "Polinomi"; B. Martelli, Geometria e algebra lineare, §1.3 and §1.4.7–1.4.8
+italian_file: L04_polinomi.html
+html_notes: notes/MDAG/L04_polynomials.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L04_polinomi.md
+```
+
+## In brief
+
+- A **polynomial** in one variable, written in normal form, is $p(x) = a_nx^n + \dots + a_1x + a_0$ with $a_n \neq 0$; the number $n$ is its **degree**. $\R[x]$ and $\C[x]$ are the polynomials with real and complex coefficients, $\R_k[x]$ the real ones of degree at most $k$.
+- As among the integers, you can **divide with remainder**: given $p(x)$ and $d(x) \neq 0$ there exist unique $q(x)$ and $r(x)$ with $p(x) = q(x)d(x) + r(x)$ and the degree of $r$ smaller than the degree of $d$. If $r = 0$ we say that $d(x)$ **divides** $p(x)$.
+- A number $a$ is a **root** of $p(x)$ if $p(a) = 0$. Proposition 4.2: $a$ is a root if and only if $(x - a)$ divides $p(x)$. Moreover the remainder of the division by $x - a$ is exactly $p(a)$.
+- The **multiplicity** of a root $a$ is the largest $k$ for which $(x - a)^k$ divides $p(x)$: in $(x - 1)^3(x + 1)$ the root $1$ has multiplicity $3$.
+- Theorem 4.6: a polynomial of degree $n \ge 1$ has **at most $n$ roots**, counted with multiplicity. Among the reals there may be fewer: $x^2 + 1$ has none.
+- **Fundamental theorem of algebra** (4.8): a polynomial with complex coefficients of degree $n$ has **exactly $n$ roots** in the complex numbers, counted with multiplicity.
+- The formula $x_\pm = \frac{-b \pm \sqrt\Delta}{2a}$ also works in $\C$, with $\pm\sqrt\Delta$ the two complex square roots of $\Delta$.
+- Proposition 4.11: if the coefficients are **real** and $z$ is a root, so is $\bar z$. At the exam: "which of these numbers is a root of $p(z)$?" was the question on complex numbers in three exam sessions.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Monomials and polynomials (p. 15)
+
+The handouts describe polynomials as particularly simple functions, obtained by combining numbers and variables with only the operations $+$, $-$ and $\cdot$. No divisions by a variable, no roots of variables, no negative exponents: $x^2 + 3$ is a polynomial, $\frac 1x$ and $\sqrt x$ are not.
+
+### Monomials
+
+A **monomial** is an expression with a **numerical part**, the **coefficient**, and a **literal part**, made of variables raised to natural exponents. The **degree** of a monomial is the sum of the exponents of the variables.
+
+| Monomial | Coefficient | Literal part | Degree |
+|---|---|---|--:|
+| $4x$ | $4$ | $x$ | $1$ |
+| $-2xy$ | $-2$ | $xy$ | $1 + 1 = 2$ |
+| $\sqrt 5\,x^3$ | $\sqrt 5$ | $x^3$ | $3$ |
+| $7$ | $7$ | none | $0$ |
+
+These are the three examples of the handouts, plus the last row: a monomial of degree zero is simply a number.
+
+### Polynomials and normal form
+
+A **polynomial** is a sum of monomials, for example $7 + 3x^2 - \sqrt 2\,y^3$ (here there are two variables, $x$ and $y$). The same polynomial can be written in many ways; to compare them a standard way of writing is used.
+
+> [!DEF] Normal form and degree (p. 15)
+> A polynomial is **reduced to normal form** if it is written as a sum of monomials with different literal parts and non-zero coefficients, or it is the polynomial $0$. To reduce it to normal form it is enough to collect the monomials with the same literal part and then eliminate those with zero coefficient.
+>
+> The **degree** of a polynomial written in normal form is the largest degree of its monomials.
+
+> [!EXAMPLE] · Reduce, then read the degree
+> $3x^2 + 2x - x^2 + 5 - 2x$: collect the similar monomials, $(3 - 1)x^2 + (2 - 2)x + 5 = 2x^2 + 0x + 5$, and eliminate the one with zero coefficient. Normal form: $2x^2 + 5$, degree $2$.
+>
+> $7 + 3x^2 - \sqrt 2\,y^3$ is already in normal form: the monomials have degrees $0$, $2$ and $3$, so the polynomial has degree $3$.
+
+> [!PITFALL] The degree is read after reducing
+> $(x + 1)^2 - x^2$ looks like a second-degree polynomial, but expanding you get $x^2 + 2x + 1 - x^2 = 2x + 1$: the degree is $1$. First reduce to normal form, then look at the degree.
+
+### Polynomials in one variable
+
+In the course we are interested above all in polynomials with a single variable $x$, denoted by $p(x)$ or simply by $p$. Ordering the monomials from the highest degree to the lowest you get the expression
+
+$$p(x) = a_nx^n + \dots + a_1x + a_0, \qquad a_n \neq 0,$$
+
+where $n$ is the degree of $p(x)$. The numbers $a_n, \dots, a_1, a_0$ are the **coefficients**; $a_0$ is called the **constant term**. Two examples from the handouts:
+
+- $x^3 - 2x + 5$ has degree $3$, with $a_3 = 1$, $a_2 = 0$ (the term in $x^2$ is missing), $a_1 = -2$, $a_0 = 5$;
+- $4x^2 - 7$ has degree $2$, with $a_2 = 4$, $a_1 = 0$, $a_0 = -7$.
+
+A polynomial of degree zero is simply a number $a_0 \neq 0$.
+
+> [!DEF] The sets of polynomials (p. 15)
+> $\R[x]$ is the set of polynomials with coefficients in $\R$ in which a single variable $x$ appears, and $\C[x]$ the set of polynomials with coefficients in $\C$ in which a single variable $x$ appears. $\R_k[x]$ denotes the polynomials in $\R[x]$ that have degree $\le k$ (similarly $\C_k[x]$).
+
+Piece by piece:
+
+- $\R[x] \subset \C[x]$, because real numbers are complex. For example $x^2 + 1$ belongs to both, while $ix + 1$ belongs to $\C[x]$ but not to $\R[x]$.
+- $\R_k[x]$ contains **all** the real polynomials of degree at most $k$, including those of lower degree and the zero polynomial. For example $\R_2[x] = \{ax^2 + bx + c \mid a, b, c \in \R\}$ contains $x^2 - 3$, $5x$, $7$ and $0$ (with $a = 0$ the degree drops), but not $x^3$.
+- From lesson L05 on, $\R_k[x]$ will be one of the main examples of a **vector space**: in the exam papers there are often questions on sets like $\{p(x) \in \R_3[x] \mid p(6) = 0\}$.
+
+> [!BEYOND] · the zero polynomial and the degree of products
+> The polynomial $0$ has no monomials, so its degree is not defined (some books give it degree $-\infty$). For two non-zero polynomials two useful rules hold:
+> - $\deg(pq) = \deg p + \deg q$: the terms of highest degree multiply, $a_nx^n \cdot b_mx^m = a_nb_m\,x^{n + m}$, and $a_nb_m \neq 0$. For example $(x^2 + 1)(x^3 - x)$ has degree $5$.
+> - $\deg(p + q) \le$ the larger of $\deg p$ and $\deg q$, and it can be smaller if the highest terms cancel out, as in the pitfall above.
+>
+> Martelli also calls a polynomial with $a_n = 1$ **monic**.
+
+## Division with remainder (pp. 15–16)
+
+Polynomials resemble integers: they can be added and multiplied, and **divisions with remainder** can be done. Among the integers, dividing $44$ by $6$ you find quotient $7$ and remainder $2$:
+
+$$44 = 7 \cdot 6 + 2,$$
+
+and the remainder $2$ is smaller than the divisor $6$. For polynomials "smaller" means "of lower degree".
+
+> [!PROP] · Division with remainder (p. 16)
+> Given two polynomials $p(x)$ (the **dividend**) and $d(x) \neq 0$ (the **divisor**), there always exist, and they are unique, two polynomials $q(x)$ (the **quotient**) and $r(x)$ (the **remainder**) such that
+> $$p(x) = q(x)d(x) + r(x),$$
+> with the property that the remainder $r(x)$ has degree strictly smaller than the divisor $d(x)$.
+
+Piece by piece:
+
+- $d(x) \neq 0$: as among numbers, you do not divide by zero.
+- The condition on the degree is what makes quotient and remainder **unique**. Without it you could write infinitely many equalities of the form $p = qd + r$ (you find an example in the quiz).
+- The remainder can be the polynomial $0$: it is the important case, the one of divisibility.
+
+The handouts say that divisions are done with pen and paper using the same procedure as for integers. Here it is, step by step.
+
+> [!METHOD] Long division
+> 1. Write dividend and divisor in order of decreasing degree; in the dividend put $0$ in place of the missing degrees.
+> 2. Divide the highest-degree term of the dividend by the highest-degree term of the divisor: it is the first term of the quotient.
+> 3. Multiply the divisor by this term and **subtract** the result from the dividend: the highest term cancels out.
+> 4. Repeat steps 2 and 3 with the polynomial obtained, until its degree becomes **smaller** than the degree of the divisor. What is left is the remainder.
+> 5. Check: $q(x)d(x) + r(x)$ must give back $p(x)$.
+
+> [!EXAMPLE] · The handouts' example: $x^3 + 1$ divided by $x^2 - 1$
+> 1. $x^3 : x^2 = x$: the quotient starts with $x$.
+> 2. $x \cdot (x^2 - 1) = x^3 - x$, and $(x^3 + 1) - (x^3 - x) = x + 1$.
+> 3. $x + 1$ has degree $1$, smaller than the degree $2$ of the divisor: we stop.
+>
+> Quotient $q(x) = x$, remainder $r(x) = x + 1$:
+> $$x^3 + 1 = x\left(x^2 - 1\right) + (x + 1).$$
+> Check: $x^3 - x + x + 1 = x^3 + 1$.
+
+> [!EXAMPLE] · A division in two steps: $2x^3 + 3x^2 - x + 5$ divided by $x^2 - x + 1$
+> 1. $2x^3 : x^2 = 2x$. Then $2x(x^2 - x + 1) = 2x^3 - 2x^2 + 2x$, and subtracting:
+>    $$(2x^3 + 3x^2 - x + 5) - (2x^3 - 2x^2 + 2x) = 5x^2 - 3x + 5.$$
+> 2. The degree is still $2$, so we continue: $5x^2 : x^2 = 5$. Then $5(x^2 - x + 1) = 5x^2 - 5x + 5$, and subtracting:
+>    $$(5x^2 - 3x + 5) - (5x^2 - 5x + 5) = 2x.$$
+> 3. $2x$ has degree $1 < 2$: end.
+>
+> Quotient $q(x) = 2x + 5$, remainder $r(x) = 2x$. Check: $(2x + 5)(x^2 - x + 1) + 2x = 2x^3 - 2x^2 + 2x + 5x^2 - 5x + 5 + 2x = 2x^3 + 3x^2 - x + 5$.
+
+### When a polynomial divides another
+
+Among the integers, $7$ divides $14$ but not $15$: the division of $14$ by $7$ has zero remainder, that of $15$ by $7$ does not. For polynomials the same word is used.
+
+> [!DEF] Divisibility (p. 16)
+> If the division between two polynomials $p(x)$ and $d(x)$ has zero remainder, then $p(x) = q(x)d(x)$ for some quotient $q(x)$, and we say that $d(x)$ **divides** $p(x)$. The vertical bar $\mid$ is used as a synonym of "divides":
+> $$9 \mid 18, \qquad (x + 1) \mid \left(x^3 + 1\right).$$
+
+Let us check the second example with the long division of $x^3 + 0x^2 + 0x + 1$ by $x + 1$:
+
+1. $x^3 : x = x^2$; $x^2(x + 1) = x^3 + x^2$; subtracting, what is left is $-x^2 + 0x + 1$.
+2. $-x^2 : x = -x$; $-x(x + 1) = -x^2 - x$; subtracting, what is left is $x + 1$.
+3. $x : x = 1$; $1 \cdot (x + 1) = x + 1$; subtracting, what is left is $0$.
+
+The remainder is zero, and the quotient is $x^2 - x + 1$: indeed, as the handouts note, $\left(x^3 + 1\right) = \left(x^2 - x + 1\right)(x + 1)$.
+
+> [!PITFALL] The zeros and the stopping condition
+> If some degrees are missing in the dividend, as in $x^3 + 1$, you must write the zeros ($x^3 + 0x^2 + 0x + 1$), otherwise you subtract terms of different degrees. And you stop when the degree of what is left is **smaller** than that of the divisor, not when "a number is left": dividing by $x^2 - x + 1$, the remainder $2x$ is perfectly fine.
+
+## Ruffini's rule (beyond the handouts)
+
+When the divisor has the form $x - a$ (degree $1$), the long division can be written in a table that contains only the coefficients: it is **Ruffini's rule** (synthetic division). It is the fastest way to use Proposition 4.2 of the next section.
+
+> [!METHOD] Dividing $p(x)$ by $x - a$ with Ruffini
+> 1. Write the coefficients of $p(x)$ in a row, from the highest degree to the constant term, with **zeros** for the missing degrees. Write $a$ on the left. Watch out for the sign: to divide by $x + 2$ you use $a = -2$.
+> 2. Bring the first coefficient down to the last row.
+> 3. Multiply by $a$ the last number written at the bottom, write the product in the next column (middle row) and add: the result goes at the bottom.
+> 4. Repeat until the last column. The last number at the bottom is the **remainder**; the others are the coefficients of the **quotient**, which has degree one less.
+
+> [!EXAMPLE] · $2x^3 - 3x^2 + 4x - 5$ divided by $x - 2$
+> Coefficients $2, -3, 4, -5$ and $a = 2$:
+>
+> | | $2$ | $-3$ | $4$ | $-5$ |
+> |---|--:|--:|--:|--:|
+> | $a = 2$ | | $4$ | $2$ | $12$ |
+> | | $2$ | $1$ | $6$ | $7$ |
+>
+> Column by column: bring down the $2$; $2 \cdot 2 = 4$ and $-3 + 4 = 1$; $1 \cdot 2 = 2$ and $4 + 2 = 6$; $6 \cdot 2 = 12$ and $-5 + 12 = 7$. So quotient $q(x) = 2x^2 + x + 6$ and remainder $7$:
+> $$2x^3 - 3x^2 + 4x - 5 = (2x^2 + x + 6)(x - 2) + 7.$$
+> Note: $p(2) = 16 - 12 + 8 - 5 = 7$, exactly the remainder. It is not a coincidence: the next section explains it.
+
+With the tool below you can repeat the division with other polynomials and other values of $a$ (the coefficients are written from the highest degree, separated by spaces). The button **Factor with the rational roots** tries all the candidates $\pm\frac{\text{divisors of the constant term}}{\text{divisors of the leading coefficient}}$ and factors the polynomial: try it with `1 -6 11 -6` and with `1 -1 -3 5 -2`.
+
+```widget ruffini
+title: Division by $x - a$ with Ruffini's table
+coefficienti: 2 -3 4 -5
+a: 2
+```
+
+## Roots of a polynomial (p. 16)
+
+If $p(x)$ is a polynomial and $a$ is a number, $p(a)$ is the number you get by **substituting** $a$ in place of $x$. For example, if $p(x) = x^2 - 3$, then $p(-2) = (-2)^2 - 3 = 4 - 3 = 1$, $p(0) = -3$ and $p(\sqrt 3) = 3 - 3 = 0$.
+
+> [!DEF] 4.1
+> A number $a$ is a **root** of a polynomial $p(x)$ if $p(a) = 0$.
+
+In other words, the roots of $p(x)$ are the **solutions of the equation** $p(x) = 0$. Some examples:
+
+- $-1$ is a root of $p(x) = x^3 + 1$, because $p(-1) = (-1)^3 + 1 = 0$ (example from the handouts); instead $2$ is not, because $p(2) = 9$;
+- $\sqrt 3$ and $-\sqrt 3$ are roots of $x^2 - 3$;
+- $i$ is a root of $x^2 + 1$, because $i^2 + 1 = -1 + 1 = 0$: roots can be complex numbers, and to check them you need the computations of lessons L02 and L03.
+
+The handouts recall that finding the roots of a polynomial is one of the most classical problems of algebra. The criterion that follows links the roots to division.
+
+## Roots and factors: Proposition 4.2 (pp. 16–17)
+
+> [!PROP] 4.2
+> The number $a$ is a root of $p(x)$ if and only if $(x - a) \mid p(x)$.
+
+**Proof** (from the handouts, with every step explained).
+
+1. Divide $p(x)$ by $(x - a)$: by division with remainder, $p(x) = q(x)(x - a) + r(x)$, with $q(x)$ the quotient and $r(x)$ the remainder.
+2. The degree of $r(x)$ is strictly smaller than that of $x - a$, which is $1$. So $r(x)$ has degree zero (or it is the zero polynomial): it is a **constant**, which we write $r_0$. Then
+   $$p(x) = q(x)(x - a) + r_0.$$
+3. Substitute $a$ in place of $x$: the factor $a - a$ vanishes, and what is left is
+   $$p(a) = q(a)(a - a) + r_0 = 0 + r_0 = r_0.$$
+4. So $a$ is a root of $p(x)$ (that is $p(a) = 0$) if and only if $r_0 = 0$.
+5. On the other hand $r_0 = 0$ if and only if the division by $x - a$ has zero remainder, that is if and only if $(x - a)$ divides $p(x)$. $\square$
+
+> [!IDEA] · the remainder is the value
+> Step 3 says something more than the statement: **the remainder of the division of $p(x)$ by $x - a$ is $p(a)$**. It is what you saw with Ruffini: dividing by $x - 2$ the remainder was $7 = p(2)$. So to know whether $a$ is a root it is enough to compute $p(a)$; and to know the remainder of the division by $x - a$ you do not need to do the division.
+
+> [!METHOD] Factoring a polynomial starting from a root
+> 1. Look for a root $a$ by trying simple numbers: $0$, $\pm 1$, $\pm 2$, … If the coefficients are integers, an integer root divides the constant term (see the box below).
+> 2. Divide by $x - a$ with Ruffini: $p(x) = (x - a)q(x)$, with $q(x)$ of degree one less.
+> 3. Repeat with $q(x)$. When you reach degree two use the formula with $\Delta$.
+
+> [!EXAMPLE] · $x^3 - 6x^2 + 11x - 6$
+> 1. I try $x = 1$: $1 - 6 + 11 - 6 = 0$. So $1$ is a root and $(x - 1)$ divides the polynomial.
+> 2. Ruffini with $a = 1$ on the coefficients $1, -6, 11, -6$: bring down $1$; $1 - 6 = -5$; $-5 + 11 = 6$; $6 - 6 = 0$. Quotient $x^2 - 5x + 6$, remainder $0$.
+> 3. $x^2 - 5x + 6 = (x - 2)(x - 3)$: two numbers with sum $5$ and product $6$.
+>
+> So $x^3 - 6x^2 + 11x - 6 = (x - 1)(x - 2)(x - 3)$, with roots $1$, $2$, $3$.
+
+> [!BEYOND] · rational roots
+> If $p(x)$ has **integer** coefficients and $\frac uv$ is a rational root in lowest terms, then $u$ divides the constant term $a_0$ and $v$ divides the leading coefficient $a_n$. In particular, if $a_n = 1$, every rational root is an **integer that divides $a_0$**. For $x^3 - 6x^2 + 11x - 6$ the candidates were only $\pm 1, \pm 2, \pm 3, \pm 6$. The reason: from $p\left(\frac uv\right) = 0$, multiplying by $v^n$, you get $a_nu^n + a_{n-1}u^{n-1}v + \dots + a_0v^n = 0$; all the terms except the last are multiples of $u$, so $a_0v^n$ is one too, and since $u$ and $v$ have no common factors, $u$ divides $a_0$. In the same way $v$ divides $a_n$.
+
+## Multiplicity (p. 17)
+
+A root can appear "several times". In $(x - 2)^2 = (x - 2)(x - 2)$ the factor $x - 2$ is there twice.
+
+> [!DEF] 4.3
+> The **multiplicity** of a root $a$ of a polynomial $p(x)$ is the largest number $k$ such that $(x - a)^k$ divides $p(x)$.
+
+Informally, the handouts say, the multiplicity of $a$ measures "how many times" $a$ is a root of $p(x)$. A root of multiplicity $1$ is called **simple**, of multiplicity $2$ **double**, of multiplicity $3$ **triple**.
+
+> [!EXAMPLE] 4.4 · Multiplicity $1$ and $2$
+> The polynomial $x^3 - 1$ has the root $1$ with multiplicity $1$, because
+> $$x^3 - 1 = (x - 1)\left(x^2 + x + 1\right)$$
+> and $(x - 1)$ does not divide $x^2 + x + 1$, simply because $1$ is not a root of $x^2 + x + 1$: indeed $1 + 1 + 1 = 3 \neq 0$.
+>
+> Similarly the polynomial $x^3 - 2x^2 + x = x\left(x^2 - 2x + 1\right) = (x - 1)^2x$ has the root $1$ with multiplicity $2$ and the root $0$ with multiplicity $1$.
+
+> [!EXAMPLE] 4.5 · In the product the multiplicities add up
+> The polynomials $q_1(x) = x^2 - 2x + 1$ and $q_2(x) = x^2 - 1$ can be written
+> $$q_1(x) = (x - 1)^2, \qquad q_2(x) = (x + 1)(x - 1).$$
+> The first has the root $1$ with multiplicity $2$; the second has the roots $-1$ and $1$, both with multiplicity $1$. The product
+> $$p(x) = q_1(x)q_2(x) = (x - 1)^3(x + 1)$$
+> has the root $1$ with multiplicity $2 + 1 = 3$ and the root $-1$ with multiplicity $1$.
+
+When the polynomial is not already factored, the multiplicity is found by dividing several times.
+
+> [!METHOD] Computing the multiplicity of a root $a$
+> Divide $p(x)$ by $x - a$ (with Ruffini). If the quotient still has $a$ as a root, divide again. Continue until $a$ is no longer a root of the quotient: the number of divisions done is the multiplicity.
+
+> [!EXAMPLE] · $p(x) = x^4 - x^3 - 3x^2 + 5x - 2$ and the root $1$
+> $p(1) = 1 - 1 - 3 + 5 - 2 = 0$, so $1$ is a root.
+> 1. Ruffini with $a = 1$ on $1, -1, -3, 5, -2$: at the bottom $1, 0, -3, 2$ and remainder $0$. Quotient $x^3 - 3x + 2$.
+> 2. $1 - 3 + 2 = 0$: $1$ is still a root. Ruffini on $1, 0, -3, 2$: at the bottom $1, 1, -2$ and remainder $0$. Quotient $x^2 + x - 2$.
+> 3. $1 + 1 - 2 = 0$: still a root. Ruffini on $1, 1, -2$: at the bottom $1, 2$ and remainder $0$. Quotient $x + 2$.
+> 4. $1 + 2 = 3 \neq 0$: $1$ is not a root of $x + 2$. Stop.
+>
+> Three divisions: the root $1$ has multiplicity $3$, and $p(x) = (x - 1)^3(x + 2)$.
+
+### What you see in the graph (beyond the handouts)
+
+For a real polynomial, the real roots are the points where the graph of $y = p(x)$ touches the $x$ axis. The multiplicity can be seen from the shape: at a root of **odd** multiplicity the graph **crosses** the axis, at a root of **even** multiplicity it **touches** it and turns back, because the factor $(x - a)^2$ does not change sign.
+
+```graph
+title: $y = (x - 1)^2(x + 2) = x^3 - 3x + 2$: at $-2$ (simple root) the graph crosses the axis, at $1$ (double root) it only touches it
+proportions: free
+x: -3 3
+y: -2 6
+segment: -2.4 -4.624 -2.2 -2.048 | accent | thick
+segment: -2.2 -2.048 -2.0 0 | accent | thick
+segment: -2.0 0 -1.8 1.568 | accent | thick
+segment: -1.8 1.568 -1.6 2.704 | accent | thick
+segment: -1.6 2.704 -1.4 3.456 | accent | thick
+segment: -1.4 3.456 -1.2 3.872 | accent | thick
+segment: -1.2 3.872 -1.0 4.0 | accent | thick
+segment: -1.0 4.0 -0.8 3.888 | accent | thick
+segment: -0.8 3.888 -0.6 3.584 | accent | thick
+segment: -0.6 3.584 -0.4 3.136 | accent | thick
+segment: -0.4 3.136 -0.2 2.592 | accent | thick
+segment: -0.2 2.592 0 2 | accent | thick
+segment: 0 2 0.2 1.408 | accent | thick
+segment: 0.2 1.408 0.4 0.864 | accent | thick
+segment: 0.4 0.864 0.6 0.416 | accent | thick
+segment: 0.6 0.416 0.8 0.112 | accent | thick
+segment: 0.8 0.112 1.0 0 | accent | thick
+segment: 1.0 0 1.2 0.128 | accent | thick
+segment: 1.2 0.128 1.4 0.544 | accent | thick
+segment: 1.4 0.544 1.6 1.296 | accent | thick
+segment: 1.6 1.296 1.8 2.432 | accent | thick
+segment: 1.8 2.432 2.0 4.0 | accent | thick
+segment: 2.0 4.0 2.2 6.048 | accent | thick
+point: -2 0 | pink
+point: 1 0 | amber
+```
+
+## How many roots: Theorem 4.6 (p. 18)
+
+> [!THEOREM] 4.6
+> A polynomial $p(x)$ of degree $n \ge 1$ has at most $n$ roots, counted with multiplicity.
+
+"Counted with multiplicity" means that you add up, for each root, its multiplicity: $(x - 1)^3(x + 1)$ has two different roots, but counted with multiplicity they are $3 + 1 = 4$, as many as the degree. The theorem says that this sum never exceeds the degree.
+
+The proof uses **induction** on the degree $n$, which you will see in detail in Discrete Mathematics: you prove the statement for $n = 1$ (**base case**), then you show that, if it holds for degree $n - 1$, it also holds for degree $n$ (**inductive step**). So it holds for $n = 1$, hence for $n = 2$, hence for $n = 3$, and so on.
+
+> [!PROOF] of Theorem 4.6
+> **Base case, $n = 1$.** The polynomial is $p(x) = a_1x + a_0$ with $a_1 \neq 0$, and $p(x) = 0$ means $x = -\frac{a_0}{a_1}$: there is a single root, of multiplicity $1$. The statement holds.
+>
+> **Inductive step.** Suppose the statement is true for polynomials of degree $n - 1$ and take $p(x)$ of degree $n$.
+> 1. If $p(x)$ has no roots, there is nothing to prove: $0 \le n$.
+> 2. If it has at least one root $a$, by Proposition 4.2 we can write $p(x) = (x - a)q(x)$, and $q(x)$ has degree $n - 1$ (the degrees of the factors add up).
+> 3. By the inductive hypothesis $q(x)$ has at most $n - 1$ roots counted with multiplicity.
+> 4. The roots of $p(x)$, counted with multiplicity, are exactly those of $q(x)$ plus $a$. Indeed for $b \neq a$ we have $p(b) = (b - a)q(b)$ with $b - a \neq 0$, so $p(b) = 0$ if and only if $q(b) = 0$; and the multiplicity of $a$ in $p$ is the one in $q$ plus one, as in Example 4.5.
+> 5. So $p(x)$ has at most $(n - 1) + 1 = n$ roots, counted with multiplicity. $\square$
+
+> [!EXAMPLE] 4.7 · Polynomials of the first and second degree
+> A polynomial of degree $1$ is always of the form $p(x) = ax + b$ with $a \neq 0$, and always has a single root $x = -\frac ba$.
+>
+> A polynomial of degree $2$ is of the form $p(x) = ax^2 + bx + c$ with $a \neq 0$, and its roots depend on the **discriminant** $\Delta = b^2 - 4ac$ in the following way.
+> - If $\Delta > 0$, the polynomial $p(x)$ has two distinct roots $x_\pm = \frac{-b \pm \sqrt\Delta}{2a}$, both of multiplicity one.
+> - If $\Delta = 0$, the polynomial $p(x)$ has a single root $x = -\frac b{2a}$, with multiplicity two.
+> - If $\Delta < 0$, the polynomial $p(x)$ has no real roots.
+>
+> In particular, there are polynomials that have no real roots.
+
+Three examples, one per case:
+
+| Polynomial | $\Delta = b^2 - 4ac$ | Real roots | Factorisation |
+|---|---|---|---|
+| $x^2 - 5x + 6$ | $25 - 24 = 1 > 0$ | $\frac{5 \pm 1}2$, that is $3$ and $2$ | $(x - 2)(x - 3)$ |
+| $x^2 - 4x + 4$ | $16 - 16 = 0$ | $\frac 42 = 2$, double | $(x - 2)^2$ |
+| $x^2 + x + 1$ | $1 - 4 = -3 < 0$ | none | does not factor in $\R$ |
+
+> [!BEYOND] · where the formula comes from
+> You "complete the square". For $a \neq 0$:
+> $$ax^2 + bx + c = a\left(x + \frac b{2a}\right)^2 - \frac{\Delta}{4a}.$$
+> (To check it, expand the square: $a\left(x^2 + \frac bax + \frac{b^2}{4a^2}\right) - \frac{b^2 - 4ac}{4a} = ax^2 + bx + c$.) So $p(x) = 0$ is equivalent to $\left(x + \frac b{2a}\right)^2 = \frac\Delta{4a^2}$. If $\Delta > 0$ you take the square root of both sides, with both signs; if $\Delta = 0$ what is left is $x = -\frac b{2a}$; if $\Delta < 0$ a real square would have to be negative, which is impossible. It is the proof of Proposition 1.3.8 of Martelli's book.
+
+## The fundamental theorem of algebra (p. 18)
+
+The handouts thus arrive "at the real reason why we introduced complex numbers in this course".
+
+> [!THEOREM] 4.8 · Fundamental theorem of algebra
+> A polynomial $p(x)$ with complex coefficients of degree $n$ has exactly $n$ roots, counted with multiplicity.
+
+Piece by piece:
+
+- Theorem 4.6 said "**at most** $n$". In the complex numbers the inequality becomes an **equality**: the roots are always all there.
+- It also holds for polynomials with real coefficients, which are particular polynomials with complex coefficients: $x^2 + 1$ has no real roots, but it has the two complex roots $i$ and $-i$.
+- The handouts do not prove it: the most accessible proofs use tools from calculus that are far from the course.
+
+> [!BEYOND] · another form of the same theorem
+> In Martelli's book the fundamental theorem (Theorem 1.4.7) says that **every non-constant polynomial with complex coefficients has at least one root**; from this you obtain the handouts' version (Corollary 1.4.8) with the same induction as Theorem 4.6: once a root $z_1$ is found, you write $p(x) = (x - z_1)q(x)$ and repeat on $q(x)$. The final result can also be written as a **factorisation into factors of degree one** (Corollary 1.4.10):
+> $$p(x) = a_n(x - z_1)(x - z_2)\cdots(x - z_n),$$
+> where $z_1, \dots, z_n$ are the roots repeated according to their multiplicity. For example $x^4 - 1 = (x - 1)(x + 1)(x - i)(x + i)$.
+
+## Second-degree equations in C (p. 19)
+
+> [!EXAMPLE] 4.9 · The usual formula, in the complex numbers
+> For a second-degree polynomial $p(x) = ax^2 + bx + c$ the two complex roots are found using the usual formula
+> $$x_\pm = \frac{-b \pm \sqrt\Delta}{2a}.$$
+> This time, $\pm\sqrt\Delta$ denotes the **two complex square roots** of $\Delta$, which always exist, as seen in lesson L03.
+
+Here $a$, $b$, $c$ can be complex, and then $\Delta$ too can be a complex number: the distinction "$\Delta > 0$, $\Delta = 0$, $\Delta < 0$" only makes sense if $\Delta$ is real.
+
+> [!METHOD] A second-degree equation in $\C$
+> 1. Read off $a$, $b$, $c$ and compute $\Delta = b^2 - 4ac$.
+> 2. Find the two square roots $\pm w$ of $\Delta$: if $\Delta$ is a negative real number, $\pm w = \pm i\sqrt{|\Delta|}$; if $\Delta$ is complex, use the polar form or the method $w = u + vi$ (lessons L02 and L03).
+> 3. The roots are $x_\pm = \frac{-b \pm w}{2a}$.
+> 4. Check by substituting, or with sum and product: $x_+ + x_- = -\frac ba$ and $x_+x_- = \frac ca$.
+
+> [!EXAMPLE] 4.10 · Two examples from the handouts
+> **$x^2 + 1$.** $a = 1$, $b = 0$, $c = 1$, so $\Delta = -4$, whose square roots are $\pm 2i$. The roots are $x_\pm = \frac{\pm 2i}2 = \pm i$.
+>
+> **$x^2 + (1 - i)x - i$.** Here $a = 1$, $b = 1 - i$, $c = -i$, and
+> $$\Delta = (1 - i)^2 - 4 \cdot 1 \cdot (-i) = (1 - 2i + i^2) + 4i = -2i + 4i = 2i.$$
+> The square roots of $2i$ are $\pm(1 + i)$ (lesson L03: $2i = 2e^{i\pi/2}$ and $\sqrt 2\,e^{i\pi/4} = 1 + i$). So
+> $$x_\pm = \frac{-1 + i \pm \sqrt{2i}}{2} = \frac{-1 + i \pm (1 + i)}{2} \implies x_+ = \frac{2i}2 = i, \quad x_- = \frac{-2}2 = -1.$$
+> Check: $i^2 + (1 - i)i - i = -1 + i + 1 - i = 0$ and $(-1)^2 + (1 - i)(-1) - i = 1 - 1 + i - i = 0$.
+
+Two more examples with the same method:
+
+- $x^2 + 2x + 5$: $\Delta = 4 - 20 = -16$, square roots $\pm 4i$, so $x_\pm = \frac{-2 \pm 4i}2 = -1 \pm 2i$. Check with the product: $(-1 + 2i)(-1 - 2i) = 1 + 4 = 5 = \frac ca$.
+- $x^2 - 2ix - 2$: $\Delta = (-2i)^2 - 4 \cdot (-2) = -4 + 8 = 4$, square roots $\pm 2$, so $x_\pm = \frac{2i \pm 2}2 = \pm 1 + i$. Here the roots $1 + i$ and $-1 + i$ are **not** conjugate: the coefficients are not real (see the next section).
+
+## Polynomials with real coefficients (p. 19)
+
+A polynomial of degree $n$ has exactly $n$ complex roots counted with multiplicity. If its coefficients are **real**, something more can be said.
+
+> [!PROP] 4.11
+> Let $p(x)$ be a polynomial with real coefficients. If $z$ is a complex root of $p(x)$, then $\bar z$ is also a root of $p(x)$.
+
+**Proof** (from the handouts, with the rules used).
+
+1. The polynomial is $p(x) = a_nx^n + \dots + a_1x + a_0$, and by hypothesis the coefficients $a_n, \dots, a_0$ are all real.
+2. If $z$ is a root, then $p(z) = a_nz^n + \dots + a_1z + a_0 = 0$.
+3. Apply conjugation to both sides. The conjugate of a sum is the sum of the conjugates and the conjugate of a product is the product of the conjugates (exercise 2.5, lesson L02); in particular $\overline{z^k} = \bar z^k$. So
+   $$\overline{a_n}\,\bar z^n + \dots + \overline{a_1}\,\bar z + \overline{a_0} = \bar 0 = 0.$$
+4. Since the coefficients are real, the conjugate of $a_i$ is always $a_i$ (lesson L02: $z \in \R \iff z = \bar z$). So
+   $$a_n\bar z^n + \dots + a_1\bar z + a_0 = 0,$$
+   that is $p(\bar z) = 0$: $\bar z$ too is a root of $p(x)$. $\square$
+
+> [!EXAMPLE] · $x^3 - 1$ and the cube roots of unity
+> $x^3 - 1 = (x - 1)(x^2 + x + 1)$ (Example 4.4). The factor $x^2 + x + 1$ has $\Delta = -3$, square roots $\pm i\sqrt 3$, so roots $\frac{-1 \pm i\sqrt 3}2$. The three roots of $x^3 - 1$ are $1$ and the conjugate pair $-\frac 12 \pm \frac{\sqrt 3}2 i$: they are the three cube roots of unity of lesson L03, and the triangle they form is symmetric with respect to the real axis.
+
+> [!PITFALL] The coefficients need to be real
+> In Example 4.10 the polynomial $x^2 + (1 - i)x - i$ has the root $i$, but $-i$ is **not** a root: the roots are $i$ and $-1$. Proposition 4.11 does not apply, because the coefficient $1 - i$ is not real. In the same way, in problem 11 of the exam of 03/06/2026 a characteristic polynomial with complex coefficients had the root $i$ double and the root $-i$ simple.
+
+> [!BEYOND] · three consequences
+> - The **non-real** roots of a polynomial with real coefficients come in **pairs** $z, \bar z$ (with the same multiplicity, even though Proposition 4.11 alone does not say so). So there is an even number of them.
+> - A polynomial with real coefficients of **odd degree** always has at least one **real** root: the $n$ complex roots are an odd number, and the non-real ones an even number (Proposition 1.4.13 of Martelli's book).
+> - For $z = u + vi$ with $v \neq 0$: $(x - z)(x - \bar z) = x^2 - 2ux + (u^2 + v^2)$, a **real** polynomial of degree two with $\Delta = -4v^2 < 0$. This is why every real polynomial factors into real factors of degree one and of degree two with $\Delta < 0$ (Corollary 1.4.12). For example $x^3 - 1 = (x - 1)(x^2 + x + 1)$ and $x^4 - 1 = (x - 1)(x + 1)(x^2 + 1)$.
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book this lesson corresponds to §1.3 "Polinomi" (pp. 21–25: definition, division with remainder, roots, Proposition 1.3.2 = 4.2, multiplicity, Theorem 1.3.7 = 4.6, the second-degree formula with proof) and to parts 1.4.7 "Teorema fondamentale dell'algebra" and 1.4.8 "Polinomi a coefficienti reali" of §1.4 (pp. 31–33). The examples are the same as in the handouts (in Martelli the first division between integers is $26 = 2 \cdot 11 + 4$). Exercise 1.12 (p. 37) links multiplicity to the derivative, which you will see in Calculus.
+
+## Towards the exam
+
+**The test in two lines.** 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; 2 hours, no calculator, only 4 handwritten pages of notes. 2026/27 Linear Algebra exam sessions: 22/01/2027 and 05/02/2027 at 14:00. Complete rules and sources in lesson L01.
+
+**Where polynomials appear in the exam sessions from 2023/24 to 2025/26.**
+
+| Use | Examples in the exam sessions | Lessons |
+|---|---|---|
+| "which of these numbers is a root of $p(z)$?" | 10/07/2025 (question 1), 03/07/2026 (question 7), 07/09/2026 (question 1) | this one |
+| roots of the characteristic polynomial, often of degree three, to be factored by finding a root and dividing | 02/09/2025 (question 4, with $-t^3 + 8$), problems on eigenvalues in almost every exam session | L17, L18 |
+| a determinant that depends on a parameter $k$ is a polynomial in $k$: you find a root and divide | 15/01/2026 (problem 11: a double root) | L09, L10 |
+| spaces of polynomials: $\{p \in \R_3[x] \mid p(a) = 0\}$ is made of the polynomials $(x - a)q(x)$ (Proposition 4.2) | 24/01/2024 (question 1), 10/07/2025 (question 2), 03/07/2026 (question 1) | L05–L07 |
+
+Here are the three questions of the first type, with the solution.
+
+> [!EXAMPLE] · Exam of 10/07/2025, question 1
+> Which of the following is a root of $p(z) = z^4 + 7z^2 + 12$? (a) $z = -2i$; (b) $z = -2$; (c) the polynomial has no roots; (d) $z = 3 + 4i$; (e) $z = 4$.
+>
+> **Solution.** Only even powers appear: I set $w = z^2$ and get $w^2 + 7w + 12 = (w + 3)(w + 4)$, with roots $w = -3$ and $w = -4$. So $z^2 = -3$ or $z^2 = -4$, that is $z = \pm i\sqrt 3$ or $z = \pm 2i$. Answer (a). Answer (c) is false by the fundamental theorem (there are four roots); (b) and (e) are real, and for real $z$ $z^4 + 7z^2 + 12 \ge 12 > 0$.
+
+> [!EXAMPLE] · Exam of 03/07/2026, question 7
+> Which of the following is a root of the polynomial $p(z) = z^3 + 2z^2 + z + 2$? (a) $z = 0$; (b) $z = i$; (c) $z = 1 + i$; (d) $z = 1$; (e) $z^3 + 2z^2 + z + 2 = 0$.
+>
+> **Solution.** Factoring by grouping: $p(z) = z^2(z + 2) + (z + 2) = (z^2 + 1)(z + 2)$. The roots are $-2$, $i$, $-i$: answer (b). Without factoring, it is enough to substitute: $p(i) = i^3 + 2i^2 + i + 2 = -i - 2 + i + 2 = 0$, while $p(0) = 2$ and $p(1) = 6$. Answer (e) is not a number but the equation itself.
+
+> [!EXAMPLE] · Exam of 07/09/2026, question 1
+> Which of the following is a root of the polynomial $p(z) = z^4 + 5z^2 + 4$? (a) $z = -3 + i$; (b) $z = 1 - i$; (c) $z = -1$; (d) $z = -2i$; (e) the polynomial has no roots.
+>
+> **Solution.** With $t = z^2$: $t^2 + 5t + 4 = (t + 1)(t + 4)$, roots $t = -1$ and $t = -4$. So $z^2 = -1$ or $z^2 = -4$: $z = \pm i$ and $z = \pm 2i$. Answer (d). Direct check: $(-2i)^2 = -4$ and $(-2i)^4 = 16$, so $p(-2i) = 16 - 20 + 4 = 0$.
+
+> [!METHOD] Finding the roots of a polynomial of degree 3 or 4 without a calculator
+> 1. **In the quiz, substitute the answers**: with $p(i)$, $p(2i)$, $p(-1)$… you find the right answer in a few computations.
+> 2. **Only even powers** ($z^4$, $z^2$, constant term): set $t = z^2$, solve the second-degree equation, then $z = \pm\sqrt t$ (with $t$ negative, $\pm i\sqrt{|t|}$).
+> 3. **Factoring by grouping**: $z^3 + 2z^2 + z + 2 = z^2(z + 2) + 1 \cdot (z + 2)$.
+> 4. **Try the integer roots** among the divisors of the constant term, then divide with Ruffini.
+> 5. **A second-degree factor is left**: formula with $\Delta$; if the coefficients are real and $\Delta < 0$, the two roots are conjugate.
+
+**Mistakes to avoid.** Forgetting the zeros in Ruffini's table; getting the sign of $a$ wrong (for $x + 2$ you use $a = -2$); stopping the division too early or too late; confusing the number of distinct roots with the number of roots counted with multiplicity; applying Proposition 4.11 to polynomials with complex coefficients; in biquadratic equations, forgetting the two opposite roots of each $t$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the scheme of long division and of Ruffini; "$a$ is a root $\iff (x - a) \mid p(x)$, and the remainder of the division by $x - a$ is $p(a)$"; multiplicity and the method of repeated divisions; $\Delta$ and the second-degree formula with complex $\pm\sqrt\Delta$; "real coefficients $\Rightarrow$ non-real roots in conjugate pairs"; the substitution $t = z^2$ and factoring by grouping.
+
+## Quiz
+
+```quiz
+Q: Which of the following is a root of $p(z) = z^4 + 10z^2 + 9$?
++ $z = 3i$
+- $z = 3$
+- $z = -1$
+- $z = 1 + i$
+- The polynomial has no roots.
+= With $t = z^2$: $t^2 + 10t + 9 = (t + 1)(t + 9)$, so $z^2 = -1$ or $z^2 = -9$, that is $z = \pm i$ or $z = \pm 3i$. Check: $(3i)^2 = -9$, $(3i)^4 = 81$, and $81 - 90 + 9 = 0$. For real $z$ $p(z) \ge 9$; $p(1 + i) = 5 + 20i$. By the fundamental theorem the roots always exist. Similar to the exams of 07/09/2026 and 10/07/2025, question 1.
+
+Q: Which of the following is a root of $p(z) = z^3 - 2z^2 + 4z - 8$?
++ $z = -2i$
+- $z = -2$
+- $z = 2 + 2i$
+- $z = 4$
+- $z = 1 - i$
+= Factoring by grouping: $p(z) = z^2(z - 2) + 4(z - 2) = (z^2 + 4)(z - 2)$, roots $2$ and $\pm 2i$. Check: $(-2i)^3 = 8i$ and $(-2i)^2 = -4$, so $p(-2i) = 8i + 8 - 8i - 8 = 0$. Instead $p(-2) = -32$, $p(4) = 40$, $p(2 + 2i) = -16 + 8i$, $p(1 - i) = -6 - 2i$. Similar to the exam of 03/07/2026, question 7.
+
+Q: What is the remainder of the division of $x^4 - 3x^2 + 2x - 1$ by $x + 1$? Write a number.
+N: -5
+= The remainder of the division by $x - a$ is $p(a)$; here $x + 1 = x - (-1)$, so $a = -1$ and the remainder is $p(-1) = 1 - 3 - 2 - 1 = -5$. With Ruffini on the coefficients $1, 0, -3, 2, -1$ and $a = -1$ you get at the bottom $1, -1, -2, 4$ and remainder $-5$.
+
+Q: What is the multiplicity of the root $1$ in the polynomial $x^4 - x^3 - 3x^2 + 5x - 2$?
+- $1$
+- $2$
++ $3$
+- $4$
+- $0$
+= Dividing several times by $x - 1$ with Ruffini you get the quotients $x^3 - 3x + 2$, then $x^2 + x - 2$, then $x + 2$, which at $1$ equals $3 \neq 0$. Three divisions: $x^4 - x^3 - 3x^2 + 5x - 2 = (x - 1)^3(x + 2)$. Recognising a multiple root was also needed in problem 11 of the exam of 15/01/2026, where a determinant with a parameter had a double root.
+
+Q: The quotient and remainder of the division of $x^3 + 2x^2 - x + 3$ by $x^2 + 1$ are:
++ $q(x) = x + 2$ and $r(x) = -2x + 1$
+- $q(x) = x + 2$ and $r(x) = 1$
+- $q(x) = x + 2$ and $r(x) = -2x + 5$
+- $q(x) = x$ and $r(x) = 2x^2 - 2x + 3$
+- $q(x) = x + 2$ and $r(x) = -2x - 1$
+= $x^3 : x^2 = x$, and $(x^3 + 2x^2 - x + 3) - x(x^2 + 1) = 2x^2 - 2x + 3$; then $2x^2 : x^2 = 2$, and $(2x^2 - 2x + 3) - 2(x^2 + 1) = -2x + 1$, of degree $1 < 2$. Watch out for the fourth answer: $x \cdot (x^2 + 1) + (2x^2 - 2x + 3)$ really gives back the dividend, but the "remainder" has degree $2$, not smaller than the divisor, so the division is not finished.
+
+Q: A polynomial with **real** coefficients of degree $4$ has the roots $1 + i$ and $2i$. What are the other two roots?
++ $1 - i$ and $-2i$
+- $-1 - i$ and $-2i$
+- $-1 + i$ and $2$
+- $1 - i$ and $2$
+- Nothing can be said without knowing the coefficients.
+= By Proposition 4.11 the conjugates $\overline{1 + i} = 1 - i$ and $\overline{2i} = -2i$ are roots too. They are four distinct roots, and by the fundamental theorem a polynomial of degree $4$ has no others. The monic polynomial is $(x^2 - 2x + 2)(x^2 + 4) = x^4 - 2x^3 + 6x^2 - 8x + 8$.
+
+Q: In which of these polynomials is the number $2$ a root with multiplicity **exactly** $2$?
++ $(x - 2)^2(x + 2)$
+- $(x^2 - 4)(x + 2)$
+- $(x - 2)^3$
+- $x^2 + 4$
+- $x^2(x - 2)$
+= $(x^2 - 4)(x + 2) = (x - 2)(x + 2)^2$: there $2$ is simple (it is $-2$ that is double). In $(x - 2)^3$ the multiplicity is $3$, in $x^2(x - 2)$ it is $1$; $x^2 + 4$ at $2$ equals $8$, so $2$ is not even a root.
+
+Q: Which of these polynomials belongs to $\R_2[x]$?
++ $(x + 1)^2 - x^2$
+- $x^3 - 1$
+- $ix + 1$
+- $(x - 1)(x^2 + 1)$
+- $\frac 1x + x$
+= $(x + 1)^2 - x^2 = 2x + 1$ has degree $1 \le 2$ and real coefficients. $x^3 - 1$ and $(x - 1)(x^2 + 1)$ have degree $3$; $ix + 1$ has a non-real coefficient (it belongs to $\C_1[x]$); $\frac 1x + x$ is not a polynomial. The space $\R_2[x]$ appears in many questions on subspaces, for example in the exams of 08/02/2024 and 05/02/2026 (question 2).
+
+Q: The complex roots of $z^2 - 2z + 5$ are:
++ $1 \pm 2i$
+- $-1 \pm 2i$
+- $1 \pm 4i$
+- $2 \pm 4i$
+- there are none: $\Delta < 0$
+= $\Delta = 4 - 20 = -16$, with square roots $\pm 4i$; so $z_\pm = \frac{2 \pm 4i}2 = 1 \pm 2i$. $\Delta < 0$ only means that there are no **real** roots; the complex roots are conjugate because the coefficients are real. Similar to the exam of 02/09/2025 (question 4), where two eigenvalues were the complex conjugate roots of $t^2 + 2t + 4$.
+
+Q: The polynomial $x^2 - (1 + i)x + i$ has the root $i$. Which statement is true?
++ The other root is $1$, and $-i$ is not a root.
+- $-i$ is also a root, by Proposition 4.11.
+- $i$ is a double root.
+- It has three roots, counted with multiplicity.
+- It has no other roots besides $i$.
+= Dividing by $x - i$ (or noting that the sum and product of the roots are $1 + i$ and $i$) you find $x^2 - (1 + i)x + i = (x - i)(x - 1)$. Proposition 4.11 does not apply, because the coefficients are not all real: indeed at $-i$ the polynomial equals $-2 + 2i \neq 0$. The degree is $2$, so the roots counted with multiplicity are exactly two. In problem 11 of the exam of 03/06/2026 too, a polynomial with complex coefficients had $i$ and $-i$ as roots with different multiplicities.
+```
+
+## Exercises
+
+> [!NOTE] The exercises of this lesson
+> The handouts have no exercise section for lesson 4: the exercises below were written for these notes, the last two modelled on the exam papers.
+
+::: exercise basic Normal form, degree and sets of polynomials
+Reduce to normal form and find the degree: (a) $(x + 1)^2 - (x - 1)^2$; (b) $(x^2 + 1)(x - 1) - x^3$; (c) $3x^2y - 2x^2y + xy - x^2y$. Then say whether polynomials (a) and (b) belong to $\R_1[x]$, to $\R_2[x]$, to $\C_2[x]$.
+::: solution
+(a) $(x^2 + 2x + 1) - (x^2 - 2x + 1) = 4x$: degree $1$.
+
+(b) $(x^2 + 1)(x - 1) = x^3 - x^2 + x - 1$, so the polynomial is $-x^2 + x - 1$: degree $2$.
+
+(c) The three monomials with literal part $x^2y$ have coefficients $3 - 2 - 1 = 0$ and disappear: what is left is $xy$, of degree $1 + 1 = 2$.
+
+Membership: (a) has degree $1$, so it belongs to $\R_1[x]$, to $\R_2[x]$ and to $\C_2[x]$. (b) has degree $2$: it belongs to $\R_2[x]$ and to $\C_2[x]$, but not to $\R_1[x]$. (Every $\R_k[x]$ is contained in $\C_k[x]$ and in $\R_{k+1}[x]$.)
+:::
+
+::: exercise basic A long division
+Divide $x^4 - 1$ by $x^2 + x + 1$ and check the result.
+::: solution
+Dividend with the zeros: $x^4 + 0x^3 + 0x^2 + 0x - 1$.
+
+1. $x^4 : x^2 = x^2$. $x^2(x^2 + x + 1) = x^4 + x^3 + x^2$; subtracting, what is left is $-x^3 - x^2 + 0x - 1$.
+2. $-x^3 : x^2 = -x$. $-x(x^2 + x + 1) = -x^3 - x^2 - x$; subtracting, what is left is $x - 1$.
+3. $x - 1$ has degree $1 < 2$: stop.
+
+Quotient $q(x) = x^2 - x$, remainder $r(x) = x - 1$. Check: $(x^2 - x)(x^2 + x + 1) = x^4 + x^3 + x^2 - x^3 - x^2 - x = x^4 - x$, and $x^4 - x + (x - 1) = x^4 - 1$.
+:::
+
+::: exercise basic Ruffini and complete factorisation
+Check that $2$ is a root of $p(x) = x^4 - 5x^2 + 4$, divide by $x - 2$ with Ruffini and factor $p(x)$ into factors of degree one.
+::: solution
+$p(2) = 16 - 20 + 4 = 0$. Ruffini on the coefficients $1, 0, -5, 0, 4$ (watch out for the two zeros) with $a = 2$:
+
+| | $1$ | $0$ | $-5$ | $0$ | $4$ |
+|---|--:|--:|--:|--:|--:|
+| $a = 2$ | | $2$ | $4$ | $-2$ | $-4$ |
+| | $1$ | $2$ | $-1$ | $-2$ | $0$ |
+
+Quotient $x^3 + 2x^2 - x - 2$, remainder $0$. Factoring by grouping: $x^2(x + 2) - (x + 2) = (x + 2)(x^2 - 1) = (x + 2)(x - 1)(x + 1)$. So
+$$x^4 - 5x^2 + 4 = (x - 2)(x + 2)(x - 1)(x + 1).$$
+You could also start from $t = x^2$: $t^2 - 5t + 4 = (t - 1)(t - 4)$, and then $x^2 - 1$ and $x^2 - 4$ factor as differences of squares.
+:::
+
+::: exercise intermediate Roots and multiplicity
+Find all the roots of $p(x) = x^3 - 3x + 2$ with their multiplicity.
+::: solution
+Integer candidates: the divisors of $2$, that is $\pm 1, \pm 2$. $p(1) = 1 - 3 + 2 = 0$: a root. Ruffini on $1, 0, -3, 2$ with $a = 1$: at the bottom $1, 1, -2$ and remainder $0$, quotient $x^2 + x - 2$. This equals $0$ at $1$ ($1 + 1 - 2 = 0$): Ruffini again, at the bottom $1, 2$ and remainder $0$, quotient $x + 2$, which at $1$ equals $3 \neq 0$.
+
+So $p(x) = (x - 1)^2(x + 2)$: the root $1$ has multiplicity $2$ and the root $-2$ has multiplicity $1$. Counted with multiplicity there are $2 + 1 = 3$ roots, as many as the degree. It is the polynomial of the graph in the section on multiplicity.
+:::
+
+::: exercise intermediate Imposing a double root
+Find the real numbers $a$ and $b$ for which $(x - 1)^2$ divides $x^3 + ax + b$.
+::: solution
+$(x - 1)^2$ divides the polynomial if and only if $1$ is a root with multiplicity at least $2$: the polynomial is divisible by $x - 1$ and the quotient still has the root $1$.
+
+1. Ruffini on $1, 0, a, b$ with $1$: at the bottom $1$, $1$, $1 + a$ and remainder $1 + a + b$. The remainder must be $0$: $a + b = -1$.
+2. The quotient is $x^2 + x + (1 + a)$, and it must equal $0$ at $1$: $1 + 1 + 1 + a = 0$, that is $a = -3$.
+3. Then $b = -1 - a = 2$.
+
+The polynomial is $x^3 - 3x + 2 = (x - 1)^2(x + 2)$, the one of the previous exercise.
+:::
+
+::: exercise intermediate A second-degree equation with complex coefficients
+Find the roots of $z^2 + (2 - i)z - 2i$.
+::: solution
+$a = 1$, $b = 2 - i$, $c = -2i$.
+1. $\Delta = (2 - i)^2 - 4(-2i) = (4 - 4i + i^2) + 8i = 3 - 4i + 8i = 3 + 4i$.
+2. Square roots of $3 + 4i$: I look for $w = u + vi$ with $w^2 = u^2 - v^2 + 2uvi = 3 + 4i$, that is $u^2 - v^2 = 3$ and $uv = 2$. With $u = 2$, $v = 1$ it works: $(2 + i)^2 = 4 + 4i - 1 = 3 + 4i$. So $\pm w = \pm(2 + i)$.
+3. $z_\pm = \frac{-(2 - i) \pm (2 + i)}2$: with the plus, $\frac{-2 + i + 2 + i}2 = i$; with the minus, $\frac{-2 + i - 2 - i}2 = -2$.
+
+The roots are $i$ and $-2$: indeed $(z - i)(z + 2) = z^2 + 2z - iz - 2i = z^2 + (2 - i)z - 2i$. Here too $-i$ is not a root: the coefficients are not real.
+:::
+
+::: exercise intermediate A biquadratic, factored in R and in C
+Find the roots of $z^4 + 3z^2 - 4$ and factor the polynomial into factors with real coefficients and then into factors of degree one with complex coefficients.
+::: solution
+With $t = z^2$: $t^2 + 3t - 4 = (t + 4)(t - 1)$, roots $t = -4$ and $t = 1$. So $z^2 = 1$ (that is $z = \pm 1$) or $z^2 = -4$ (that is $z = \pm 2i$).
+
+- In $\R$: $z^4 + 3z^2 - 4 = (z^2 - 1)(z^2 + 4) = (z - 1)(z + 1)(z^2 + 4)$, where $z^2 + 4$ has $\Delta = -16 < 0$ and does not factor further in $\R$.
+- In $\C$: $(z - 1)(z + 1)(z - 2i)(z + 2i)$.
+
+Four roots, as many as the degree; the two non-real ones are conjugate, as Proposition 4.11 requires.
+:::
+
+::: exercise hard All the roots, knowing one of them
+Knowing that $i$ is a root of $p(x) = x^4 - 2x^3 + 6x^2 - 2x + 5$, find all the roots.
+::: solution
+1. The coefficients are real, so by Proposition 4.11 $-i$ is a root too. Then $(x - i)(x + i) = x^2 + 1$ divides $p(x)$.
+2. I divide by $x^2 + 1$: $x^4 : x^2 = x^2$, and $p(x) - x^2(x^2 + 1) = -2x^3 + 5x^2 - 2x + 5$; then $-2x^3 : x^2 = -2x$, and what is left is $5x^2 + 5$; then $5x^2 : x^2 = 5$, and what is left is $0$. Quotient $x^2 - 2x + 5$.
+3. $x^2 - 2x + 5$: $\Delta = 4 - 20 = -16$, roots $\frac{2 \pm 4i}2 = 1 \pm 2i$.
+
+The roots are $i$, $-i$, $1 + 2i$, $1 - 2i$, and $p(x) = (x^2 + 1)(x^2 - 2x + 5)$.
+:::
+
+::: exercise hard Building a polynomial from its roots
+Find the **monic** polynomial with real coefficients of degree $3$ that has the roots $2$ and $1 + i$. Is it unique?
+::: solution
+Real coefficients, so $1 - i$ is a root too. A polynomial of degree $3$ has exactly three roots counted with multiplicity (fundamental theorem), so they are $2$, $1 + i$, $1 - i$, and the monic polynomial is
+$$(x - 2)(x - 1 - i)(x - 1 + i) = (x - 2)(x^2 - 2x + 2) = x^3 - 4x^2 + 6x - 4.$$
+Here $(x - 1 - i)(x - 1 + i) = (x - 1)^2 - i^2 = (x - 1)^2 + 1 = x^2 - 2x + 2$, as for every conjugate pair. It is unique: the three roots are forced, and a monic polynomial is determined by its roots (it is the product of the factors $x - z_k$).
+:::
+
+::: exercise hard A remainder without doing the division
+Find the remainder of the division of $p(x) = x^{100} + 1$ by $x^2 - 1$.
+::: solution
+The divisor has degree $2$, so the remainder has degree at most $1$: $r(x) = ax + b$, and
+$$x^{100} + 1 = q(x)(x^2 - 1) + ax + b.$$
+I substitute the roots of the divisor, where $x^2 - 1$ vanishes:
+- $x = 1$: $1 + 1 = 0 + a + b$, that is $a + b = 2$;
+- $x = -1$: $(-1)^{100} + 1 = 2 = -a + b$.
+
+Adding, $2b = 4$, so $b = 2$ and $a = 0$. The remainder is the constant $r(x) = 2$. It is the same idea as in the proof of Proposition 4.2: you substitute a value that makes the divisor vanish.
+:::
+
+::: exercise exam As at the exam: a determinant with a parameter
+In an exam problem the determinant of a matrix that depends on a real parameter $k$ equals $-k^3 + 3k + 2$. For which values of $k$ is the determinant non-zero? Which value of $k$ is a double root?
+::: solution
+1. **I look for a root** among the divisors of the constant term $2$: $\pm 1, \pm 2$. With $k = 2$: $-8 + 6 + 2 = 0$. So $(k - 2)$ divides the polynomial.
+2. **Ruffini** on the coefficients $-1, 0, 3, 2$ with $a = 2$: bring down $-1$; $-1 \cdot 2 = -2$ and $0 - 2 = -2$; $-2 \cdot 2 = -4$ and $3 - 4 = -1$; $-1 \cdot 2 = -2$ and $2 - 2 = 0$. Quotient $-k^2 - 2k - 1 = -(k + 1)^2$.
+3. **Factorisation**: $-k^3 + 3k + 2 = -(k - 2)(k + 1)^2$.
+4. **Conclusion**: the determinant vanishes only for $k = 2$ and $k = -1$, and it is non-zero for every $k \neq 2, -1$. The root $-1$ is double.
+
+It is the scheme of problem 11 of the exam of 15/01/2026, where the determinant was another polynomial of degree three in $k$ with a double root: you find a root by eye, divide, and factor the second-degree part.
+:::
+
+::: exercise exam As at the exam: which one is a root
+Which of the following is a root of $p(z) = z^4 - 2z^2 - 8$? (a) $z = i\sqrt 2$; (b) $z = 2i$; (c) $z = \sqrt 2$; (d) $z = 1 + i$; (e) the polynomial has no roots.
+::: solution
+**By factoring.** With $t = z^2$: $t^2 - 2t - 8 = (t - 4)(t + 2)$, so $z^2 = 4$ or $z^2 = -2$: the roots are $\pm 2$ and $\pm i\sqrt 2$. Answer (a).
+
+**By substituting the answers.** (a) $(i\sqrt 2)^2 = -2$ and $(i\sqrt 2)^4 = 4$: $p = 4 + 4 - 8 = 0$. (b) $(2i)^2 = -4$ and $(2i)^4 = 16$: $p = 16 + 8 - 8 = 16$. (c) $p(\sqrt 2) = 4 - 4 - 8 = -8$. (d) $(1 + i)^2 = 2i$ and $(1 + i)^4 = -4$: $p = -4 - 4i - 8 = -12 - 4i$. (e) is false by the fundamental theorem. Here too the answer is (a).
+:::
+
+## Review questions
+
+::: question What is the degree of a polynomial? Why must you first reduce it to normal form?
+It is the largest degree of its monomials, once it is written in normal form (monomials with different literal parts and non-zero coefficients). You must reduce first because some terms can cancel out: $(x + 1)^2 - x^2 = 2x + 1$ has degree $1$.
+:::
+
+::: question What are $\R[x]$, $\C[x]$ and $\R_k[x]$?
+The polynomials in one variable $x$ with real coefficients, with complex coefficients, and with real coefficients of degree $\le k$. $\R_2[x]$ also contains the constants and the zero polynomial.
+:::
+
+::: question What does division with remainder between polynomials say?
+Given $p(x)$ and $d(x) \neq 0$, there exist unique $q(x)$ and $r(x)$ with $p(x) = q(x)d(x) + r(x)$ and the degree of $r$ strictly smaller than the degree of $d$.
+:::
+
+::: question When does a polynomial $d(x)$ divide $p(x)$? Give an example.
+When the division of $p(x)$ by $d(x)$ has zero remainder, that is $p(x) = q(x)d(x)$. For example $(x + 1) \mid (x^3 + 1)$, because $x^3 + 1 = (x^2 - x + 1)(x + 1)$.
+:::
+
+::: question What is a root of a polynomial?
+A number $a$ such that $p(a) = 0$, that is a solution of the equation $p(x) = 0$ (Definition 4.1). It can be real or complex.
+:::
+
+::: question What does Proposition 4.2 say and how is it proved?
+$a$ is a root of $p(x)$ if and only if $(x - a) \mid p(x)$. You divide: $p(x) = q(x)(x - a) + r_0$ with $r_0$ constant (the remainder has degree smaller than $1$); substituting $x = a$ you get $p(a) = r_0$. So $p(a) = 0$ if and only if the remainder is zero.
+:::
+
+::: question What is the remainder of the division of $p(x)$ by $x - a$?
+It is $p(a)$: it is the central step of the proof of Proposition 4.2. For example the remainder of $2x^3 - 3x^2 + 4x - 5$ divided by $x - 2$ is $p(2) = 7$.
+:::
+
+::: question What is the multiplicity of a root and how is it computed?
+It is the largest $k$ for which $(x - a)^k$ divides $p(x)$ (Definition 4.3). It is computed by dividing by $x - a$ several times, until $a$ is no longer a root of the quotient.
+:::
+
+::: question How many roots can a polynomial of degree $n \ge 1$ have? And in the complex numbers?
+At most $n$, counted with multiplicity (Theorem 4.6). In the complex numbers exactly $n$, counted with multiplicity (Theorem 4.8, fundamental theorem of algebra).
+:::
+
+::: question How do you solve $ax^2 + bx + c = 0$ in the complex numbers?
+With the formula $x_\pm = \frac{-b \pm \sqrt\Delta}{2a}$, $\Delta = b^2 - 4ac$, where $\pm\sqrt\Delta$ are the two complex square roots of $\Delta$ (Example 4.9). For example the roots of $x^2 + 2x + 5$ are $-1 \pm 2i$.
+:::
+
+::: question What does Proposition 4.11 say? Why are real coefficients needed?
+If $p(x)$ has real coefficients and $p(z) = 0$, then also $p(\bar z) = 0$. In the proof you conjugate $p(z) = 0$ and use $\bar a_i = a_i$, which holds only for real coefficients: $x^2 + (1 - i)x - i$ has the root $i$ but not $-i$.
+:::
+
+::: question Why does a real polynomial of odd degree have at least one real root?
+Because it has $n$ complex roots (an odd number) and the non-real ones come in conjugate pairs (an even number): at least one must be real.
+:::
+
+## Glossary
+
+```glossary
+Monomial | Product of a numerical coefficient and a literal part, like $-2xy$; the degree is the sum of the exponents.
+Polynomial | Sum of monomials, like $7 + 3x^2 - \sqrt 2\,y^3$.
+Normal form | Way of writing a polynomial as a sum of monomials with different literal parts and non-zero coefficients (or the polynomial $0$).
+Degree | The largest degree of the monomials of a polynomial in normal form.
+Constant term | The coefficient $a_0$, the monomial of degree zero.
+Monic polynomial | Polynomial whose highest-degree term has coefficient $1$.
+$\R[x]$, $\C[x]$ | Polynomials in one variable with real, complex coefficients.
+$\R_k[x]$ | Real polynomials of degree at most $k$ (including the zero polynomial).
+Division with remainder | $p(x) = q(x)d(x) + r(x)$ with $\deg r < \deg d$: $q$ quotient, $r$ remainder.
+Divisibility | $d(x) \mid p(x)$: the division has zero remainder, that is $p(x) = q(x)d(x)$.
+Ruffini's rule | Scheme with only the coefficients for dividing by $x - a$; the last number is the remainder, equal to $p(a)$.
+Root | A number $a$ with $p(a) = 0$ (Definition 4.1).
+Multiplicity | The largest $k$ for which $(x - a)^k$ divides $p(x)$ (Definition 4.3); simple, double, triple root.
+Discriminant | $\Delta = b^2 - 4ac$ for $ax^2 + bx + c$; among the reals it decides how many roots there are.
+Fundamental theorem of algebra | Every polynomial with complex coefficients of degree $n$ has exactly $n$ complex roots, counted with multiplicity (Theorem 4.8).
+Conjugate roots | If the coefficients are real and $z$ is a root, so is $\bar z$ (Proposition 4.11).
+Biquadratic equation | Equation with only even powers, like $z^4 + 5z^2 + 4 = 0$: it is solved with $t = z^2$.
+```
+
+## Checklist
+
+```checklist
+- I can reduce a polynomial to normal form, read its degree and say whether it belongs to $\R_k[x]$ or to $\C_k[x]$.
+- I can carry out long division between polynomials, with the zeros in the right place, and check it.
+- I can use Ruffini's rule, also to divide by $x + a$.
+- I can state and prove Proposition 4.2, and I know that the remainder of the division by $x - a$ is $p(a)$.
+- I can factor a polynomial by finding a root among the divisors of the constant term and dividing.
+- I can compute the multiplicity of a root with repeated divisions.
+- I can state Theorem 4.6 and the fundamental theorem of algebra, and explain the difference between "at most $n$" and "exactly $n$".
+- I can solve a second-degree equation in $\C$, even with a complex $\Delta$.
+- I can use Proposition 4.11 and I know that it holds only with real coefficients.
+- I can answer the "which one is a root" questions by substituting or with the substitution $t = z^2$.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 4 "Polinomi", pp. 15–19: sections 4.A–4.E are followed in order, with the page next to each heading; Definitions 4.1 and 4.3, Propositions 4.2 and 4.11, Theorems 4.6 and 4.8 and Examples 4.4, 4.5, 4.7, 4.9 and 4.10 keep their numbering. The handouts have no exercises for this lesson.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.3 (pp. 21–25, with Proposition 1.3.8 on the second-degree formula) and §1.4.7–1.4.8 (pp. 31–33: Theorem 1.4.7, Corollaries 1.4.8, 1.4.10 and 1.4.12, Proposition 1.4.13).
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): question 1 of 10/07/2025, question 7 of 03/07/2026 and question 1 of 07/09/2026, reported with solutions written for these notes; the table of the other uses of polynomials in the exam papers only indicates their type. Exam rules 2025/26 and dates 2026/27 as in lesson L01.
+- The **"Beyond the handouts"** parts (Ruffini's rule, the degree of products, rational roots, the graph and multiplicity, the proof of the second-degree formula, the consequences of Proposition 4.11, all the exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
 <!-- FILE: ai_context/MDAG/lessons/L05_vector_spaces_1.md -->
 > File: `ai_context/MDAG/lessons/L05_vector_spaces_1.md`
 
@@ -3594,7 +6299,7 @@ $$x = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}.$$
 This way of writing is called a **column vector**, and the numbers $x_1, \dots, x_n$ are the **coordinates** of $x$. The reason for writing it vertically will become clear with the product of matrices (lesson L08). To save space, in these notes vectors often appear as rows too, like $(1, 2, 3)$: it is the same vector.
 
 > [!NOTE] How the exam papers write it
-> In the exam papers a column vector written as a row often appears as ${}^t(1, 2, 3)$ or $t(1, 2, 3)$: the $t$ stands for "transpose" and means "this row, put vertically". The transpose is covered in lesson L08.
+> In the exam papers a column vector written as a row often appears as ${}^t(1, 2, 3)$, with a small $t$ at the top left: the $t$ stands for "transpose" and means "this row, put vertically". The transpose is covered in lesson L08.
 
 ### The sum of vectors (pp. 20–21)
 
@@ -3999,7 +6704,7 @@ The Linear Algebra and Geometry written test has 10 multiple-choice questions wi
 > **Solution.** It is (e). The vectors are the complex numbers and the scalars the real ones; the sum is that of $\C$ and the product by a scalar $\lambda z$ is the product in $\C$ of a real by a complex number, which is still complex: $\lambda(a + bi) = \lambda a + (\lambda b)i$. Axioms 1–5 hold because they are special cases of the properties of the field $\C$, as for "$\K$ over itself" (Exercise 5.8). The others: (a) and (d) say true things, but they do not rule out the structure over $\R$; (b) is false, for example $\Q$ is not a vector space over $\R$ because $\sqrt 2 \cdot 1 \notin \Q$; (c) is false, because $i \cdot 1 = i \notin \R$.
 
 2. **Ruling out the option "it is not a vector space".** In the questions on dimension a trap answer of this kind often appears: "$T^s(3)$ has no dimension because it is not a vector space" (24/01/2024, question 5), "$S(3)$ has no dimension because it is not a vector space" and "$X$ is not necessarily a vector space", with $X = \Span(v_1, v_2, v_3)$ (15/01/2026, questions 4 and 3). To rule them out you need to know which sets are vector spaces: triangular or symmetric matrices and Spans always are (lesson L06).
-3. **Subspaces.** The most frequent question of this part is "which of these sets is (or is not) a subspace?": exams of 08/02/2024 (question 2), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 3). You solve it with the checks of this lesson (is the zero there? do the sum and the multiples stay inside?) and with the definition of subspace of lesson L06.
+3. **Subspaces.** The most frequent question of this part is "which of these sets is (or is not) a subspace?": exams of 08/02/2024 (question 2), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 6). You solve it with the checks of this lesson (is the zero there? do the sum and the multiples stay inside?) and with the definition of subspace of lesson L06.
 4. **Calculations component by component** in $\K^n$, including those with complex numbers in $\C^n$, and with polynomials: you need them in almost all the exercises of the course.
 
 > [!METHOD] · "Is it a vector space?" in four checks
@@ -4077,7 +6782,7 @@ Q: With the usual sum and product by a scalar, which of these sets of polynomial
 + The polynomials of degree less than or equal to $2$, that is $\R_2[x]$.
 - The polynomials with all coefficients greater than or equal to $0$.
 - The polynomials of the form $x^2 + bx + c$, with $b, c \in \R$.
-= $\R_2[x]$ is the space of Exercise 5.7. The others fail: $x^2 + (-x^2 + x) = x$ does not have degree $2$; the zero polynomial has $p(0) = 0 \neq 1$; $(-1) \cdot x = -x$ has a negative coefficient; $(x^2 + 1) + (x^2 + 1) = 2x^2 + 2$ does not have the form $x^2 + bx + c$. Similar to the exams of 08/02/2024 (question 2) and 07/09/2026 (question 3), which ask which set of polynomials is (or is not) a subspace.
+= $\R_2[x]$ is the space of Exercise 5.7. The others fail: $x^2 + (-x^2 + x) = x$ does not have degree $2$; the zero polynomial has $p(0) = 0 \neq 1$; $(-1) \cdot x = -x$ has a negative coefficient; $(x^2 + 1) + (x^2 + 1) = 2x^2 + 2$ does not have the form $x^2 + bx + c$. Similar to the exams of 08/02/2024 (question 2) and 07/09/2026 (question 6), which ask which set of polynomials is (or is not) a subspace.
 
 Q: With the operations of $\R^2$, which of these subsets is a vector space over $\R$?
 + $\{(x, y) \in \R^2 \mid x + y = 0\}$
@@ -4428,7 +7133,7 @@ Operations point by point | For functions: $(f + g)(x) = f(x) + g(x)$ and $(\lam
 
 - **2026 course handouts** (Buzano, Radeschi), lesson 5 "Spazi vettoriali I", pp. 20–25: sections 5.A–5.D are followed in order, with the page next to each heading; definitions, propositions and exercises keep their numbering (Definitions 5.1–5.4, Proposition 5.5, Exercises 5.6–5.10).
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.5 (groups, uniqueness of the inverse, cancellation, rings and fields), §2.1 (Euclidean space, sum, product by a scalar and their properties), §2.2.1–2.2.4 (definition of vector space, Proposition 2.2.1, the spaces $\K^n$, $\K[x]$ and $F(X, \K)$).
-- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (question 5), 08/02/2024 (question 2), 10/07/2024 (question 2), 07/02/2025 (question 2, reported with a solution written for these notes), 03/06/2025 (question 2), 15/01/2026 (questions 3 and 4), 05/02/2026 (question 2), 07/09/2026 (question 3).
+- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (question 5), 08/02/2024 (question 2), 10/07/2024 (question 2), 07/02/2025 (question 2, reported with a solution written for these notes), 03/06/2025 (question 2), 15/01/2026 (questions 3 and 4), 05/02/2026 (question 2), 07/09/2026 (question 6).
 - The **"Beyond the handouts"** parts (uniqueness of the inverse and cancellation, why axiom 5 is needed, more consequences of the axioms, the space $F(X, \K)$, the method for the exam and exercises 6–10) are additions in these notes to connect the lesson to the rest of the course and to the exam.
 
 
@@ -4826,7 +7531,7 @@ The Linear Algebra and Geometry written test has 10 multiple-choice questions wi
 
 **What you need from this lesson for the exam**
 
-1. **"Is it a subspace?"** It is the most frequent question of this part of the course: exams of 08/02/2024 (question 2), 10/07/2024 (question 2, the set $O(2)$ of orthogonal matrices, which does not contain the zero matrix), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 3). Two examples, with the solution.
+1. **"Is it a subspace?"** It is the most frequent question of this part of the course: exams of 08/02/2024 (question 2), 10/07/2024 (question 2, the set $O(2)$ of orthogonal matrices, which does not contain the zero matrix), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 6). Two examples, with the solution.
 
 > [!EXAM] Exam of 08/02/2024, question 2
 > **Text.** Which of the following sets is **not** a subspace of $\R_2[x]$? (a) $\{p(x) \in \R_2[x] \mid p(0) = 0\}$; (b) $\{(t + s)x^2 - tx - s \mid s, t \in \R\}$; (c) $\{p(x) = ax^2 + bx + c \mid a = 2c,\ b = 0\}$; (d) $\{(1 + t)x^2 + tx \mid t \in \R\}$; (e) $\{p(x) \in \R_2[x] \mid p(1) = 0 = p(2)\}$.
@@ -5253,7 +7958,7 @@ Parametric and Cartesian form | A subspace of $\K^n$ described as a Span or with
 
 - **2026 course handouts** (Buzano, Radeschi), lesson 6 "Spazi vettoriali II", pp. 26–30: the space of matrices and sections 6.A–6.D followed in order, with the page next to each heading; definitions, propositions, examples and exercises keep their numbering (Definitions 6.1, 6.2, 6.3 and 6.6, Examples 6.4 and 6.8, Propositions 6.5 and 6.7, Exercises 6.9 and 6.10).
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.2.5–2.2.16 (matrices, subspaces, homogeneous systems, linear combinations and Span, parametric and Cartesian form, polynomials with restrictions, special matrices, intersection and union of subspaces, Exercise 2.2.15).
-- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (questions 1 and 5, problem 12), 08/02/2024 (questions 2 and 6), 10/07/2024 (question 2), 03/06/2025 (question 2), 15/01/2026 (questions 4 and 7), 05/02/2026 (question 2), 07/09/2026 (question 3). The questions of 24/01/2024 (1), 08/02/2024 (2) and 03/06/2025 (2) are reported with solutions written for these notes. Tutoring exercise sheet 2, 2025 (Buzano, Radeschi), exercises 1 and 2, as a model for two exercises.
+- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (questions 1 and 5, problem 12), 08/02/2024 (questions 2 and 6), 10/07/2024 (question 2), 03/06/2025 (question 2), 15/01/2026 (questions 4 and 7), 05/02/2026 (question 2), 07/09/2026 (question 6). The questions of 24/01/2024 (1), 08/02/2024 (2) and 03/06/2025 (2) are reported with solutions written for these notes. Tutoring exercise sheet 2, 2025 (Buzano, Radeschi), exercises 1 and 2, as a model for two exercises.
 - The **"Beyond the handouts"** parts (homogeneous systems, polynomials that vanish at a point, intersection and union, relations between the classes of matrices, the Span as the smallest subspace, parametric and Cartesian form, the method for the exam and exercises 3–12) are additions in these notes to connect the lesson to the rest of the course and to the exam.
 
 
@@ -5865,7 +8570,7 @@ two polynomials of different degrees, independent: **$\dim W_2 = 2$**. It is the
 $$p(x) = ax^2 - ax + c = a(x^2 - x) + c \cdot 1, \qquad W_3 = \Span(x^2 - x,\ 1).$$
 Two polynomials of different degrees, independent: **$\dim W_3 = 2$**.
 
-In all three cases the dimension is $\dim V$ minus the number of independent conditions: $4 - 1 = 3$, $4 - 2 = 2$, $3 - 1 = 2$. It is a preview of the rank–nullity theorem (lesson L15).
+In all three cases the dimension is $\dim V$ minus the number of independent conditions: $4 - 1 = 3$, $4 - 2 = 2$, $3 - 1 = 2$. It is a preview of the rank–nullity theorem (lesson L14).
 :::
 
 ::: exercise intermediate A basis with a parameter
@@ -6015,7 +8720,7 @@ Rank (preview) | The maximum number of independent vectors among the rows, or th
 - **2026 course handouts** (Buzano, Radeschi), lesson 7 "Spazi vettoriali III", pp. 31–35: sections 7.A–7.D are followed in order, with the page next to each heading; definitions, propositions, theorems, examples and exercises keep their numbering (Definitions 7.1, 7.7 and 7.11, Propositions 7.2 and 7.6, Examples 7.3–7.5, 7.8 and 7.9, Theorems 7.10 and 7.12, Exercises 7.13–7.15).
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.3.1–2.3.7 (linear independence and Example 2.3.2, standard bases, coordinates and Proposition 2.3.11, exchange lemma and proof of Theorem 2.3.16, infinite dimension of $\K[x]$, completion and extraction algorithms and Example 2.3.21, Propositions 2.3.20, 2.3.23 and 2.3.25).
 - **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (questions 1 and 5), 10/06/2024 (question 3), 10/07/2024 (question 2), 06/09/2024 (question 2), 16/01/2025 (question 2), 10/07/2025 (question 2), 02/09/2025 (question 10 and problem 11), 15/01/2026 (questions 3 and 4), 03/07/2026 (question 1), 07/09/2026 (question 2). The questions of 16/01/2025 (2), 15/01/2026 (4) and 07/09/2026 (2) are reported with solutions written for these notes. Tutoring exercise sheet 2, 2025 (Buzano, Radeschi), exercises 1, 3 and 4, as a model for some exercises.
-- The **"Beyond the handouts"** parts (Gauss's method to count independent vectors, coordinates, the proofs of Theorems 7.10 and 7.12, the consequences for the quizzes, the methods for the exam and exercises 4–12) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+- The **"Beyond the handouts"** parts (Gauss's method to count independent vectors, coordinates, the proofs of Theorems 7.10 and 7.12, the consequences for the quizzes, the methods for the exam and exercises 4–11) are additions in these notes to connect the lesson to the rest of the course and to the exam.
 
 
 ---
@@ -6161,7 +8866,7 @@ A column vector takes up three lines of text. To save space it is written as the
 
 $${}^t(1, 2, 3) = {}^t\begin{pmatrix} 1 & 2 & 3 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}.$$
 
-In the exam papers it is everywhere: "$v_1 = {}^t(1, 0, -1)$", "$T({}^t(x, y, z)) = {}^t(x + 2y, \dots)$"; in scanned texts the $t$ can appear detached, as $t(1, 2)$. It always means: the **column** vector with those coordinates.
+In the exam papers it is everywhere: "$v_1 = {}^t(1, 0, -1)$", "$T({}^t(x, y, z)) = {}^t(x + 2y, \dots)$", always with the small $t$ at the top left. It always means: the **column** vector with those coordinates.
 
 ## The rank of a matrix (p. 37)
 
@@ -7047,7 +9752,7 @@ Another property that, the handouts say, follows directly from the definition:
 > [!PROP] 9.5
 > $\det({}^tA) = \det A$ holds.
 
-For a $2 \times 2$ matrix you see it straight away: ${}^tA = \begin{pmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{pmatrix}$ has determinant $a_{11}a_{22} - a_{21}a_{12}$, the same as $A$. For the $3 \times 3$ matrix of Example 9.2, the transpose $\begin{pmatrix} 1 & 2 & -1 \\ 2 & 1 & 0 \\ 1 & 2 & 1 \end{pmatrix}$ again has determinant $-6$ (try it with Sarrus).
+For a $2 \times 2$ matrix one computation is enough: ${}^tA = \begin{pmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{pmatrix}$ has determinant $a_{11}a_{22} - a_{21}a_{12}$, the same as $A$. For the $3 \times 3$ matrix of Example 9.2, the transpose $\begin{pmatrix} 1 & 2 & -1 \\ 2 & 1 & 0 \\ 1 & 2 & 1 \end{pmatrix}$ again has determinant $-6$ (try it with Sarrus).
 
 > [!PROOF] of Proposition 9.5
 > When you transpose, entry $(i, j)$ goes to $(j, i)$. A term of $\det({}^tA)$ is $({}^tA)_{1\sigma(1)} \cdots ({}^tA)_{n\sigma(n)} = a_{\sigma(1)1} \cdots a_{\sigma(n)n}$: it still takes one number from each row and from each column of $A$. Reordering the factors by row, it is the term of $\det A$ of the inverse permutation $\sigma^{-1}$, the one that "undoes" $\sigma$. And $\sigma^{-1}$ has the same sign as $\sigma$: if $\sigma$ is obtained with $k$ swaps, $\sigma^{-1}$ is obtained with the same $k$ swaps done in reverse order. So $\det({}^tA)$ and $\det A$ are sums of the same terms with the same signs (Martelli, Proposition 3.3.2).
@@ -7202,7 +9907,7 @@ raggio: 5
 ```
 
 > [!BEYOND] · where to find it in the book
-> In Martelli's book the determinant is in §3.3 (pp. 93–103): the definition and the cases $n = 1, 2, 3$ in §3.3.1 (pp. 93–94, with the representation with "colourings" and Proposition 3.3.2 on $\det({}^tA)$), triangular matrices in §3.3.2 (Proposition 3.3.3), the identity matrix in §3.3.3 (Definition 3.3.4), the Laplace expansion in §3.3.4 (pp. 96–97, Theorem 3.3.5), the geometric meaning in §3.3.10 (pp. 101–103). Permutations and their sign are in §1.2.5; the determinant of $\lambda A$ is Exercise 3.10.
+> In Martelli's book the determinant is in §3.3 (pp. 93–103): the definition and the cases $n = 1, 2, 3$ in §3.3.1 (pp. 93–95, with the representation with "colourings" and Proposition 3.3.2 on $\det({}^tA)$), triangular matrices in §3.3.2 (Proposition 3.3.3), the identity matrix in §3.3.3 (Definition 3.3.4), the Laplace expansion in §3.3.4 (pp. 96–97, Theorem 3.3.5), the geometric meaning in §3.3.10 (pp. 101–103). Permutations and their sign are in §1.2.5; the determinant of $\lambda A$ is Exercise 3.10.
 
 ## Towards the exam
 
@@ -10989,7 +13694,7 @@ Here, as in the theorem, the dimensions are finite.
 >
 > For matrices: $L_A: \K^n \to \K^m$ is injective if and only if $\rk(A) = n$, surjective if and only if $\rk(A) = m$ (Martelli, Example 4.2.16).
 
-> [!EXAMPLE] The rank–nullity theorem instead of calculations (from Martelli's book, Example 4.2.12)
+> [!EXAMPLE] The rank–nullity theorem instead of calculations (modelled on Martelli's book, Example 4.2.12, which uses the point $2$)
 > What is the dimension of $W = \{p \in \R_2[x] \mid p(1) = 0\}$? $W$ is the kernel of the evaluation $f: \R_2[x] \to \R$, $f(p) = p(1)$, which is linear. $f$ is surjective: the constant polynomial $\lambda$ goes to $\lambda$. So $\dim \Imm f = 1$ and
 > $$\dim W = \dim \Ker f = \dim \R_2[x] - \dim \Imm f = 3 - 1 = 2.$$
 > The polynomials $x - 1$ and $x^2 - 1$ lie in $W$ (they are $0$ at $1$) and are independent (neither is a multiple of the other): two independent vectors in a space of dimension 2 are a basis (Theorem 7.12). So $W = \Span(x - 1,\ x^2 - 1)$.
@@ -12186,7 +14891,7 @@ italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/cont
 > [!CHANNELS]
 > The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
 
-## The change-of-basis matrix (p. 79)
+## The change-of-basis matrix (pp. 79–80)
 
 In lesson L15 you saw the associated matrix $[f]^{\mathcal B}_{\mathcal C}$: column $j$ contains the coordinates of $f(v_j)$ with respect to the target basis. Now we take as $f$ the simplest map of all, the identity $\id(v) = v$, but with **two different bases**. The result is a tool to translate coordinates from one basis to the other.
 
@@ -12572,7 +15277,7 @@ Q: Let $\mathcal B = \{(1, 1), (0, 1)\}$ and let $A \in M(2, \R)$ be such that $
 - $\begin{pmatrix} 3 & 2 \\ -2 & -1 \end{pmatrix}$
 - $\begin{pmatrix} -1 & -2 \\ 2 & 3 \end{pmatrix}$
 - $\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}$
-= With $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ we have $[L_A]^{\mathcal B}_{\mathcal B} = M^{-1}AM$, so $A = M\,[L_A]^{\mathcal B}_{\mathcal B}\,M^{-1} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -2 & 3 \end{pmatrix}$. Check: $A(1, 1) = (1, 1)$, with coordinates $(1, 0)$ with respect to $\mathcal B$: it is the first given column. The third answer uses the formula the wrong way round ($M^{-1}\cdot{}\cdot M$). Similar to the exam of 03/06/2025, question 5.
+= With $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ we have $[L_A]^{\mathcal B}_{\mathcal B} = M^{-1}AM$, so $A = M\,[L_A]^{\mathcal B}_{\mathcal B}\,M^{-1} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -2 & 3 \end{pmatrix}$. Check: $A(1, 1) = (1, 1)$, with coordinates $(1, 0)$ with respect to $\mathcal B$: it is the first given column. The third answer uses the formula the wrong way round, $M^{-1}\,[L_A]^{\mathcal B}_{\mathcal B}\,M$. Similar to the exam of 03/06/2025, question 5.
 
 Q: If $A, B \in M(2, \R)$ are similar, which statement is necessarily true?
 + $\det A = \det B$
@@ -13559,6 +16264,7109 @@ Trace and eigenvalues | If $p_A$ has all its roots in $\K$: sum of the eigenvalu
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §5.1.1–5.1.8 (eigenvectors, diagonalisability, diagonal and diagonalisable matrices, characteristic polynomial, $2 \times 2$ examples over $\R$ and $\C$, triangular matrices) and Proposition 5.2.15 (trace, determinant and eigenvalues).
 - **Exam**: exam sessions of 10/07/2024 (problem 11), 06/09/2024 (question 10), 07/02/2025 (question 8), 03/06/2025 (question 8), 02/09/2025 (question 4), 05/02/2026 (question 8), 03/06/2026 (question 6), 03/07/2026 (questions 2 and 3), 07/09/2026 (problem 11). Official papers and solutions on the 2025/26 Moodle ([id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); the solutions reported here are written from scratch.
 - The **"Beyond the handouts"** parts (eigenvalues 0 and 1, the rotation matrix, the $2 \times 2$ formula, triangular matrices, the checks with trace and determinant, the rotation over $\C$, the added examples and exercises) serve to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L18_eigenvalues_eigenvectors_2.md -->
+> File: `ai_context/MDAG/lessons/L18_eigenvalues_eigenvectors_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L18
+title: Eigenvalues and eigenvectors II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L18
+description: >-
+  Notes on lesson L18 of Linear Algebra and Geometry (MDAG, part 2): independence of eigenvectors with distinct
+  eigenvalues, eigenspaces and direct sum, algebraic and geometric multiplicity, the diagonalisability theorem and
+  matrices with a parameter, with exam-style quizzes and worked exercises.
+lede: >-
+  When is a matrix diagonalisable? Eigenvectors with different eigenvalues are always independent, and the
+  eigenvectors of one and the same eigenvalue form a subspace, the eigenspace $V_\lambda$. Comparing the algebraic
+  multiplicity (how many times $\lambda$ is a root of $p_A$) with the geometric one ($\dim V_\lambda$) gives the
+  diagonalisability theorem, which solves the most frequent open problem of the exam: matrices with a parameter $k$.
+material: handouts
+facts:
+  Handouts: lesson 18 · pp. 90–95
+  Book: Martelli, §5.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 18 "Autovalori e autovettori II"; B. Martelli, Geometria e algebra lineare, §5.1 and §5.2
+italian_file: L18_autovalori_autovettori_2.html
+html_notes: notes/MDAG/L18_eigenvalues_eigenvectors_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L18_autovalori_autovettori_2.md
+```
+
+## In brief
+
+- **Eigenvectors with distinct eigenvalues are linearly independent** (Proposition 18.1). So if $p_T$ has $n$ **distinct** roots in $\K$, $T$ is diagonalisable. The converse does not hold: $I_n$ is diagonal with a single eigenvalue.
+- The **eigenspace** of an eigenvalue $\lambda$ is $V_\lambda = \{v \in V \mid T(v) = \lambda v\} = \Ker(T - \lambda\,\id)$: all the eigenvectors of $\lambda$ plus the zero vector. It is a subspace.
+- The eigenspaces are always in **direct sum**; $T$ is diagonalisable if and only if their sum is the whole of $V$.
+- **Algebraic multiplicity** $m_a(\lambda)$: how many times $\lambda$ is a root of $p_T$. **Geometric multiplicity** $m_g(\lambda) = \dim V_\lambda = n - \rk(A - \lambda I_n)$.
+- $1 \le m_g(\lambda) \le m_a(\lambda)$ always holds: a simple eigenvalue ($m_a = 1$) always has $m_g = 1$ and causes no problems.
+- **Diagonalisability theorem**: $T$ is diagonalisable if and only if (1) $p_T$ has $n$ roots in $\K$ counted with multiplicity and (2) $m_a(\lambda) = m_g(\lambda)$ for every eigenvalue.
+- The field matters: the $90°$ rotation is diagonalisable over $\C$ but not over $\R$; $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ is not diagonalisable over either.
+- With a parameter $k$: find the eigenvalues as functions of $k$; where they are distinct the matrix is diagonalisable; at the values of $k$ where two eigenvalues coincide, compute the rank of $A - \lambda I_n$.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Eigenvectors with distinct eigenvalues (p. 90)
+
+In lesson L17 you saw that an endomorphism $T : V \to V$ is diagonalisable if $V$ has a basis $\mathcal B = \{v_1, \dots, v_n\}$ made of eigenvectors for $T$. To find such a basis you need to know when some eigenvectors are **independent**.
+
+As in the handouts, the vectors of $\K^n$ are columns; in the text we write them as rows, $(1, 2)$, to save space.
+
+A first example: for $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$ from lesson L17, the eigenvectors $(1, 0)$ (eigenvalue 3) and $(-4, 1)$ (eigenvalue 2) are independent. It is not a coincidence.
+
+> [!PROP] 18.1
+> If $v_1, \dots, v_k \in V$ are eigenvectors for $T$ with distinct eigenvalues $\lambda_1, \dots, \lambda_k$, then they are linearly independent.
+
+Let us first look at the case of **two** eigenvectors, which already contains the whole idea. Let $T(v_1) = \lambda_1 v_1$ and $T(v_2) = \lambda_2 v_2$ with $\lambda_1 \neq \lambda_2$, and suppose
+$$\alpha_1 v_1 + \alpha_2 v_2 = 0.$$
+1. We apply $T$ (which is linear and sends $0$ to $0$): $\alpha_1 \lambda_1 v_1 + \alpha_2 \lambda_2 v_2 = 0$.
+2. Instead, we multiply the first equation by $\lambda_2$: $\alpha_1 \lambda_2 v_1 + \alpha_2 \lambda_2 v_2 = 0$.
+3. We subtract: the term with $v_2$ disappears and what remains is $\alpha_1(\lambda_1 - \lambda_2)v_1 = 0$.
+4. $v_1 \neq 0$ (it is an eigenvector) and $\lambda_1 - \lambda_2 \neq 0$, so $\alpha_1 = 0$. Then $\alpha_2 v_2 = 0$ and, since $v_2 \neq 0$, also $\alpha_2 = 0$.
+
+The zero combination has only zero coefficients: $v_1$ and $v_2$ are independent. With more vectors you repeat the same trick, eliminating one vector at a time: it is the proof by induction in the handouts.
+
+> [!PROOF] of Proposition 18.1 (from the handouts)
+> We proceed by induction on $k$. If $k = 1$, the vector $v_1$ is independent simply because it is not zero (by definition, an eigenvector is never zero).
+>
+> We take the case $k - 1$ for granted and prove the case $k$. Suppose we have a zero linear combination
+> $$\alpha_1 v_1 + \dots + \alpha_k v_k = 0.$$
+> We must prove that $\alpha_i = 0$ for every $i$. Applying $T$ we get
+> $$\alpha_1 T(v_1) + \dots + \alpha_k T(v_k) = \alpha_1 \lambda_1 v_1 + \dots + \alpha_k \lambda_k v_k = T(0) = 0.$$
+> Multiplying the first equation by $\lambda_k$ we find
+> $$\alpha_1 \lambda_k v_1 + \dots + \alpha_k \lambda_k v_k = 0$$
+> and taking the difference between these two equations we deduce that
+> $$\alpha_1(\lambda_1 - \lambda_k)v_1 + \dots + \alpha_{k-1}(\lambda_{k-1} - \lambda_k)v_{k-1} = 0.$$
+> This is a zero linear combination of $k - 1$ eigenvectors with distinct eigenvalues: by the inductive hypothesis all the coefficients $\alpha_i(\lambda_i - \lambda_k)$ must be zero. Since $\lambda_i \neq \lambda_k$, we deduce that $\alpha_i = 0$ for every $i = 1, \dots, k - 1$, and with the first equation also $\alpha_k = 0$ (what remains is $\alpha_k v_k = 0$ with $v_k \neq 0$).
+
+> [!COROLLARY] 18.2
+> If the characteristic polynomial $p_T(\lambda)$ has $n$ distinct roots in $\K$, the endomorphism $T$ is diagonalisable.
+
+Why (it is the proof in Martelli's book, Corollary 5.2.2): the $n$ roots $\lambda_1, \dots, \lambda_n$ are eigenvalues (Proposition 17.13), so each one has an eigenvector $v_i$. By Proposition 18.1 the vectors $v_1, \dots, v_n$ are independent; there are $n$ of them in a space of dimension $n$, so they form a basis (Theorem 7.12). It is a basis of eigenvectors.
+
+> [!EXAMPLE] · diagonalisable without looking for the eigenvectors
+> $A = \begin{pmatrix} 1 & 7 & -1 \\ 0 & 2 & 8 \\ 0 & 0 & 3 \end{pmatrix}$ is triangular, so its eigenvalues are $1, 2, 3$ (lesson L17). They are three, distinct, in $\R^3$: by Corollary 18.2, $A$ is diagonalisable. You do not need to compute the eigenvectors to know it (if you need them: $(1, 0, 0)$, $(7, 1, 0)$ and $(55, 16, 2)$).
+
+> [!PITFALL] Corollary 18.2 goes in one direction only
+> "$n$ distinct eigenvalues" is a **sufficient** condition, not a necessary one. $I_3$ has a single eigenvalue (1, counted three times) and is diagonal. When some eigenvalue repeats you cannot conclude anything: you need the diagonalisability theorem of a later section.
+
+## Eigenspaces and direct sum (pp. 90–91)
+
+Eigenvectors with the **same** eigenvalue behave well: if $T(v) = \lambda v$ and $T(w) = \lambda w$, then $T(v + w) = \lambda(v + w)$ and $T(\mu v) = \lambda(\mu v)$. Put together, with the zero vector added, they form a subspace.
+
+> [!DEF] 18.3 · Eigenspace
+> Let $T : V \to V$ be an endomorphism. For every eigenvalue $\lambda$ of $T$ we define the **eigenspace**
+> $$V_\lambda = \{v \in V \mid T(v) = \lambda v\} = \Ker(T - \lambda\,\id)$$
+> as the set of all the eigenvectors $v$ with eigenvalue $\lambda$, plus the origin $0 \in V$ (recall that $0 \in V$ is not an eigenvector by definition).
+
+Piece by piece:
+
+- **$T - \lambda\,\id$** is the endomorphism $v \mapsto T(v) - \lambda v$. Its kernel is made of the $v$ with $T(v) - \lambda v = 0$, that is $T(v) = \lambda v$: this is why the two ways of writing $V_\lambda$ coincide.
+- **It is a subspace**: for every endomorphism $S : V \to V$ the kernel $\Ker(S)$ is a subspace of $V$ (Proposition 14.10), and $V_\lambda$ is the kernel of $S = T - \lambda\,\id$.
+- **In coordinates**: with $A = [T]^{\mathcal B}_{\mathcal B}$, the eigenspace corresponds to the solutions of the homogeneous system $(A - \lambda I_n)x = 0$. A basis of $V_\lambda$ is found with Gauss, as for every kernel.
+- **It is never $\{0\}$**, because $\lambda$ is an eigenvalue: it contains at least one eigenvector.
+
+> [!EXAMPLE] · the eigenspaces of a $3 \times 3$ matrix
+> Let $A = \begin{pmatrix} 3 & 0 & 0 \\ -4 & -1 & -8 \\ 0 & 0 & 3 \end{pmatrix}$ (the matrix of Example 18.11, further on). Its eigenvalues are $3$ and $-1$.
+> - $V_3 = \Ker(A - 3I_3)$ with $A - 3I_3 = \begin{pmatrix} 0 & 0 & 0 \\ -4 & -4 & -8 \\ 0 & 0 & 0 \end{pmatrix}$: a single equation, $-4x - 4y - 8z = 0$, that is $x = -y - 2z$. With $y = 1, z = 0$ and with $y = 0, z = 1$: $V_3 = \Span\big((-1, 1, 0),\ (-2, 0, 1)\big)$, a plane.
+> - $V_{-1} = \Ker(A + I_3)$ with $A + I_3 = \begin{pmatrix} 4 & 0 & 0 \\ -4 & 0 & -8 \\ 0 & 0 & 4 \end{pmatrix}$: from the first row $x = 0$, from the third $z = 0$, and $y$ is free. $V_{-1} = \Span\big((0, 1, 0)\big)$, a line.
+
+For the next definition you need the **sum** of subspaces: $V_1 + \dots + V_k$ is the set of all the vectors that can be written as $v_1 + \dots + v_k$ with $v_i \in V_i$. It is the smallest subspace that contains all of them.
+
+> [!DEF] 18.4 · Direct sum
+> Let $V_1, \dots, V_k$ be subspaces of a vector space $V$. We say that their sum is **direct** if every vector
+> $$v \in V_1 + \dots + V_k$$
+> can be written in a unique way in the form
+> $$v = v_1 + \dots + v_k, \qquad v_i \in V_i.$$
+> In this case we write $V_1 \oplus \dots \oplus V_k$.
+>
+> Equivalently, the only relation $v_1 + \dots + v_k = 0$ with $v_i \in V_i$ is the one in which $v_1 = \dots = v_k = 0$.
+
+> [!EXAMPLE] · lines in direct sum, and not
+> In $\R^3$ the three lines $\Span(e_1)$, $\Span(e_2)$, $\Span(e_3)$ are in direct sum: if $a e_1 + b e_2 + c e_3 = 0$ then $(a, b, c) = 0$, so the three summands are zero. Instead $\Span(e_1)$, $\Span(e_2)$ and $\Span(e_1 + e_2)$ are **not**: $e_1 + e_2 + \big(-(e_1 + e_2)\big) = 0$ is a relation with non-zero summands. The vector $e_1 + e_2$ can be written in two ways: $e_1 + e_2 + 0$ or $0 + 0 + (e_1 + e_2)$.
+
+> [!PROP] 18.5
+> Let $T : V \to V$ be an endomorphism and let $\lambda_1, \dots, \lambda_k$ be its eigenvalues. The corresponding eigenspaces are always in direct sum:
+> $$V_{\lambda_1} \oplus \dots \oplus V_{\lambda_k}.$$
+
+The handouts' explanation, made explicit: take a relation $v_1 + \dots + v_k = 0$ with $v_i \in V_{\lambda_i}$ and suppose that some $v_i$ is not zero. The non-zero $v_i$ are eigenvectors with distinct eigenvalues, and the relation says that their sum (with all coefficients equal to 1) is zero: they are dependent. This contradicts Proposition 18.1. So all the $v_i$ are zero, which is the equivalent form of Definition 18.4.
+
+> [!COROLLARY] 18.6
+> The endomorphism $T$ is diagonalisable if and only if
+> $$V = V_{\lambda_1} \oplus \dots \oplus V_{\lambda_k}.$$
+
+The handouts' proof, step by step: we already know that the eigenspaces are in direct sum, so we need to show that $V = V_{\lambda_1} + \dots + V_{\lambda_k}$ if and only if there is a basis of eigenvectors.
+
+1. **($\Rightarrow$)** Take a basis of each $V_{\lambda_i}$ and put them together. They are all eigenvectors. They span the sum, which is $V$; and they are independent, because a zero combination splits into one piece for each eigenspace, the direct sum forces every piece to be zero, and inside each $V_{\lambda_i}$ the chosen vectors are a basis. So it is a basis of $V$ made of eigenvectors.
+2. **($\Leftarrow$)** If there is a basis of eigenvectors, each vector $v$ is a linear combination of eigenvectors, and grouping those with the same eigenvalue you get $v \in V_{\lambda_1} + \dots + V_{\lambda_k}$.
+
+In practice: **$T$ is diagonalisable if and only if $\dim V_{\lambda_1} + \dots + \dim V_{\lambda_k} = n$**. In the example above: $\dim V_3 + \dim V_{-1} = 2 + 1 = 3$, so that matrix is diagonalisable.
+
+## Algebraic and geometric multiplicity (pp. 91–92)
+
+Recall from lesson L04 (Definition 4.3) that the **multiplicity** of a root $a$ of a polynomial $p$ is the largest $k$ such that $(x - a)^k$ divides $p$: for example $(x - 1)^3(x + 1)$ has the root 1 with multiplicity 3.
+
+> [!DEF] 18.7 · Algebraic and geometric multiplicity
+> Let $T : V \to V$ be an endomorphism and let $\lambda$ be an eigenvalue for $T$. The **algebraic multiplicity** $m_a(\lambda)$ is the multiplicity of $\lambda$ as a root of the characteristic polynomial $p_T$. The **geometric multiplicity** $m_g(\lambda)$ is the dimension of the eigenspace associated with $\lambda$, that is
+> $$m_g(\lambda) = \dim V_\lambda.$$
+
+Piece by piece:
+
+- **$m_a$ is read from the factorised polynomial**: in $p_A(\lambda) = (3 - \lambda)^2(-1 - \lambda)$ the eigenvalue 3 has $m_a = 2$ and the eigenvalue $-1$ has $m_a = 1$.
+- **$m_g$ is computed with the rank**: by the rank–nullity theorem (lesson L14, which for systems is the Rouché–Capelli theorem)
+$$m_g(\lambda) = \dim \Ker(A - \lambda I_n) = n - \rk(A - \lambda I_n).$$
+- **Names**: "algebraic" because it comes from the polynomial, "geometric" because it measures the space of the eigenvectors (a line, a plane, …).
+
+> [!EXAMPLE] 18.8 · The two multiplicities can be different
+> Let $L_A : \R^2 \to \R^2$ be the endomorphism given by
+> $$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}.$$
+> The characteristic polynomial is $p_A(\lambda) = (1 - \lambda)^2 = \lambda^2 - 2\lambda + 1 = (\lambda - 1)^2$. We find a single eigenvalue $\lambda_1 = 1$, with algebraic multiplicity $m_a(1) = 2$. On the other hand,
+> $$m_g(1) = \dim V_1 = \dim \Ker(A - I_2) = 2 - \rk(A - I_2) = 2 - \rk\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = 2 - 1 = 1.$$
+> So in this case we have found $m_a(1) = 2$ and $m_g(1) = 1$.
+
+In this example the eigenvectors are only the non-zero multiples of $e_1$ (the system $(A - I_2)x = 0$ says $y = 0$): a single line of eigenvectors in $\R^2$, so no basis of eigenvectors. $L_A$ is a **shear**: it moves every point horizontally by an amount equal to its height. In the tool below drag $x$: only on the horizontal axis does $Ax$ stay on the same line.
+
+```widget matrice
+title: The shear $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ has a single line of eigenvectors
+a: 1 1; 0 1
+x: 1 1
+raggio: 3
+```
+
+The example shows that the two multiplicities can be different. In general, the geometric multiplicity always lies between 1 and the algebraic multiplicity:
+
+> [!THEOREM] 18.9
+> Let $T : V \to V$ be an endomorphism. For every eigenvalue $\lambda_0$ of $T$ the following inequalities hold
+> $$1 \le m_g(\lambda_0) \le m_a(\lambda_0).$$
+
+The idea of the proof, from the handouts:
+
+1. **The first inequality** follows from the existence of a non-zero eigenvector: $V_{\lambda_0}$ contains at least one vector $v \neq 0$, so it has dimension at least 1.
+2. **For the second**, we choose a basis of $V_{\lambda_0}$ and complete it to a basis of $V$. A diagonal block $\lambda_0 I_{m_g(\lambda_0)}$ then appears in the matrix of $T$, so $p_T(\lambda)$ contains the factor $(\lambda_0 - \lambda)^{m_g(\lambda_0)}$, and $m_g(\lambda_0) \le m_a(\lambda_0)$.
+
+> [!PROOF] of Theorem 18.9, second part, with the details (from Martelli's book, Proposition 5.2.10)
+> Let $k = m_g(\lambda_0)$ and let $\{v_1, \dots, v_k\}$ be a basis of $V_{\lambda_0}$, completed to a basis $\mathcal B = \{v_1, \dots, v_n\}$ of $V$. For $i \le k$ we have $T(v_i) = \lambda_0 v_i$, so the first $k$ columns of $[T]^{\mathcal B}_{\mathcal B}$ are $\lambda_0 e_1, \dots, \lambda_0 e_k$ and the matrix has the block form
+> $$[T]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} \lambda_0 I_k & C \\ 0 & D \end{pmatrix}, \qquad D \in M(n - k).$$
+> The determinant of a block matrix of this kind (with the bottom-left block zero) is the product of the determinants of the diagonal blocks. So
+> $$p_T(\lambda) = \det(\lambda_0 I_k - \lambda I_k) \cdot \det(D - \lambda I_{n-k}) = (\lambda_0 - \lambda)^k \, p_D(\lambda).$$
+> The factor $(\lambda_0 - \lambda)^k$ divides $p_T$, so $\lambda_0$ has multiplicity at least $k$: $m_a(\lambda_0) \ge k = m_g(\lambda_0)$.
+
+> [!IDEA] Simple eigenvalues never cause problems
+> If $m_a(\lambda) = 1$, Theorem 18.9 gives $1 \le m_g(\lambda) \le 1$, so $m_g(\lambda) = 1$ without any computation. In the exercises the rank $\rk(A - \lambda I_n)$ must be computed **only** for the eigenvalues with $m_a \ge 2$.
+
+## The diagonalisability theorem (pp. 92–93)
+
+We can finally state the main theorem. Let $V$ be a vector space of dimension $n$ over $\K$.
+
+> [!THEOREM] 18.10 · Diagonalisability theorem
+> An endomorphism $T : V \to V$ is diagonalisable if and only if both of the following facts hold:
+> 1. $p_T(\lambda)$ has $n$ roots in $\K$, counted with multiplicity.
+> 2. $m_a(\lambda) = m_g(\lambda)$ for every eigenvalue $\lambda$ of $T$.
+
+Piece by piece:
+
+- **Condition (1)**: the polynomial splits completely into factors of degree one **in the field $\K$**. Over $\C$ it always holds (fundamental theorem of algebra, lesson L04); over $\R$ it fails if there is a factor of degree two with negative discriminant, such as $\lambda^2 + 1$.
+- **Condition (2)**: for every eigenvalue the eigenspace is "as big as it should be". For simple eigenvalues it is automatic (previous box).
+- The two conditions together say that the dimensions of the eigenspaces add up to $n$.
+
+The handouts' proof, step by step:
+
+1. The eigenspaces are in direct sum (Proposition 18.5); we call $W \subseteq V$ their sum, $W = V_{\lambda_1} \oplus \dots \oplus V_{\lambda_k}$.
+2. $T$ is diagonalisable $\iff W = V$ (Corollary 18.6) $\iff \dim W = n$.
+3. In a direct sum the dimensions add up, so
+$$\dim W = \dim V_{\lambda_1} + \dots + \dim V_{\lambda_k} = m_g(\lambda_1) + \dots + m_g(\lambda_k) \le m_a(\lambda_1) + \dots + m_a(\lambda_k) \le n.$$
+The first inequality uses $m_g(\lambda_i) \le m_a(\lambda_i)$ (Theorem 18.9); the second uses the fact that $\lambda_1, \dots, \lambda_k$ are roots of the characteristic polynomial, which has degree $n$ and so has at most $n$ roots counted with multiplicity.
+4. $\dim W = n$ if and only if both inequalities are equalities. The first one is an equality precisely when $m_g(\lambda_i) = m_a(\lambda_i)$ for every $i$ (condition 2); the second precisely when $p_T(\lambda)$ has $n$ roots in $\K$, counted with multiplicity (condition 1). $\square$
+
+The four possible behaviours, with $2 \times 2$ matrices (from the summary in Martelli's book, §5.1.7):
+
+| Matrix | Eigenvalues | Diagonalisable over $\R$? | Over $\C$? | Why |
+|---|---|---|---|---|
+| $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ | 1 ($m_a = m_g = 2$) | yes | yes | it is already diagonal |
+| $\begin{pmatrix} -1 & 2 \\ -4 & 5 \end{pmatrix}$ | 1 and 3 | yes | yes | two distinct eigenvalues |
+| $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ | $\pm i$ | **no** | yes | over $\R$ condition (1) fails |
+| $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ | 1 ($m_a = 2$, $m_g = 1$) | **no** | **no** | condition (2) fails |
+
+> [!METHOD] Deciding whether a matrix is diagonalisable
+> 1. **Factorised characteristic polynomial**: $p_A(\lambda) = \det(A - \lambda I_n)$, expanded along the row or column with the most zeros.
+> 2. **Condition (1)**: do all the roots lie in $\K$? Over $\R$, a factor $\lambda^2 + b\lambda + c$ with $b^2 - 4c < 0$ is enough to answer **no**.
+> 3. **Algebraic multiplicities** from the factorised polynomial. If they are all 1 (distinct eigenvalues): **yes**, by Corollary 18.2.
+> 4. **Condition (2)**, only for the eigenvalues with $m_a \ge 2$: $m_g(\lambda) = n - \rk(A - \lambda I_n)$. If for one of them $m_g < m_a$: **no**. Otherwise: **yes**.
+> 5. **If a basis of eigenvectors is needed**: a basis of each $V_\lambda$ (Gauss on $A - \lambda I_n$), put together. $M$ has these vectors as columns, $D$ the corresponding eigenvalues in the same order; check $AM = MD$.
+
+> [!EXAMPLE] 18.11 · A double eigenvalue that causes no problems
+> Let us study the diagonalisability over $\R$ of the matrix
+> $$A = \begin{pmatrix} 3 & 0 & 0 \\ -4 & -1 & -8 \\ 0 & 0 & 3 \end{pmatrix}.$$
+> The characteristic polynomial is computed by expanding $\det(A - \lambda I_3)$ along the first row, which has a single non-zero entry, $3 - \lambda$; what remains is the minor $\begin{pmatrix} -1 - \lambda & -8 \\ 0 & 3 - \lambda \end{pmatrix}$, which is triangular:
+> $$p_A(\lambda) = (3 - \lambda)(-1 - \lambda)(3 - \lambda),$$
+> so it has roots $\lambda_1 = 3$ with $m_a(\lambda_1) = 2$ and $\lambda_2 = -1$ with $m_a(\lambda_2) = 1$. All the roots of $p_A(\lambda)$ are real, so $A$ is diagonalisable if and only if the algebraic and geometric multiplicities of each eigenvalue coincide. For the second eigenvalue $\lambda_2$ Theorem 18.9 implies that $m_g(\lambda_2) = m_a(\lambda_2) = 1$, and so we are fine.
+>
+> We only need to concentrate on the eigenvalue $\lambda_1$, which has $m_a(\lambda_1) = 2$. Theorem 18.9 tells us that $m_g(\lambda_1)$ can be 1 or 2: in the first case $A$ is not diagonalisable, in the second it is. Let us do the computation:
+> $$m_g(3) = \dim V_3 = \dim \Ker(A - 3I_3) = 3 - \rk(A - 3I_3),$$
+> where the last equality uses the rank–nullity theorem (or Rouché–Capelli). So
+> $$m_g(3) = 3 - \rk\begin{pmatrix} 0 & 0 & 0 \\ -4 & -4 & -8 \\ 0 & 0 & 0 \end{pmatrix} = 3 - 1 = 2.$$
+> We have found that $m_a(\lambda_1) = m_g(\lambda_1) = 2$, and so $A$ is diagonalisable.
+
+The handouts stop here. With the eigenspaces computed in the previous section the diagonalisation can be completed: $V_3 = \Span\big((-1, 1, 0), (-2, 0, 1)\big)$ and $V_{-1} = \Span\big((0, 1, 0)\big)$, so
+$$M = \begin{pmatrix} -1 & -2 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}, \qquad D = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & -1 \end{pmatrix}.$$
+Check: $\det M = 1 \neq 0$, and $AM = MD$ column by column: $A(-1, 1, 0) = (-3, 3, 0)$, $A(-2, 0, 1) = (-6, 0, 3)$, $A(0, 1, 0) = (0, -1, 0)$.
+
+## Diagonalisability with a parameter (pp. 94–95)
+
+It is the most frequent kind of exercise in the open problems of the exam.
+
+> [!EXAMPLE] 18.12 · A matrix with a parameter $k$
+> Let us study the diagonalisability over $\R$ of the matrix
+> $$A = \begin{pmatrix} 3 & k + 4 & 1 \\ -1 & -3 & -1 \\ 0 & 0 & 2 \end{pmatrix}$$
+> as the parameter $k \in \R$ varies.
+>
+> **The characteristic polynomial.** The third row of $A - \lambda I_3$ is $(0, 0, 2 - \lambda)$: expanding along it,
+> $$p_A(\lambda) = (2 - \lambda)\det\begin{pmatrix} 3 - \lambda & k + 4 \\ -1 & -3 - \lambda \end{pmatrix} = (2 - \lambda)\big((3 - \lambda)(-3 - \lambda) + (k + 4)\big) = (2 - \lambda)(\lambda^2 + k - 5),$$
+> because $(3 - \lambda)(-3 - \lambda) = \lambda^2 - 9$ and $-9 + k + 4 = k - 5$.
+>
+> **If $k > 5$**, the factor $\lambda^2 + k - 5$ has no real roots ($\lambda^2 = 5 - k < 0$): so $p_A(\lambda)$ has only one root in $\R$ and $A$ is not diagonalisable (condition 1 fails).
+>
+> **If $k \le 5$**, the polynomial has three real roots
+> $$\lambda_1 = 2, \qquad \lambda_2 = \sqrt{5 - k}, \qquad \lambda_3 = -\sqrt{5 - k}.$$
+> If the three roots are distinct, the matrix $A$ is diagonalisable (Corollary 18.2). It remains to consider the cases in which the three roots are **not** distinct:
+> - $\lambda_2 = \lambda_3$ when $\sqrt{5 - k} = 0$, that is $k = 5$;
+> - $\lambda_2 = \lambda_1$ when $\sqrt{5 - k} = 2$, that is $5 - k = 4$, $k = 1$ (whereas $\lambda_3 = -\sqrt{5 - k}$ is never equal to 2).
+>
+> These two cases must be analysed separately with the techniques of the previous example.
+>
+> **If $k = 1$**, the eigenvalues are $\lambda_1 = 2$, $\lambda_2 = 2$ and $\lambda_3 = -2$, and the matrix is
+> $$A = \begin{pmatrix} 3 & 5 & 1 \\ -1 & -3 & -1 \\ 0 & 0 & 2 \end{pmatrix}.$$
+> We compute the geometric multiplicity of the eigenvalue 2:
+> $$m_g(2) = 3 - \rk\begin{pmatrix} 1 & 5 & 1 \\ -1 & -5 & -1 \\ 0 & 0 & 0 \end{pmatrix} = 3 - 1 = 2$$
+> (the second row is the opposite of the first). We get $m_g(2) = 2 = m_a(2)$, and so $A$ is diagonalisable.
+>
+> **If $k = 5$**, the eigenvalues are $\lambda_1 = 2$, $\lambda_2 = 0$ and $\lambda_3 = 0$, and the matrix is
+> $$A = \begin{pmatrix} 3 & 9 & 1 \\ -1 & -3 & -1 \\ 0 & 0 & 2 \end{pmatrix}.$$
+> The geometric multiplicity of the eigenvalue 0 is $m_g(0) = 3 - \rk(A) = 3 - 2 = 1 \neq 2 = m_a(0)$: the first two columns are proportional ($(9, -3, 0) = 3 \cdot (3, -1, 0)$) but the third is not a combination of them, so the rank is 2. So $A$ is not diagonalisable.
+>
+> Summing up, the matrix $A$ is diagonalisable if and only if $k < 5$.
+
+> [!PITFALL] A special value does not mean "not diagonalisable"
+> At $k = 1$ two eigenvalues coincide, and yet the matrix is diagonalisable; at $k = 5$ it is not. At the special values **always compute** the rank, do not guess. And the rank must be computed **after** substituting the value of $k$.
+
+> [!BEYOND] the same matrix over $\C$
+> If you study the same matrix over $\C$ (with $k$ real), for $k > 5$ the roots $\pm i\sqrt{k - 5}$ exist and are distinct from each other and from 2: the matrix is diagonalisable over $\C$. The answer would become "diagonalisable over $\C$ if and only if $k \neq 5$". This is why the text of an exercise always says which field to work over (in the 2023–2026 exam sessions both $k \in \R$ and $k \in \C$ appear).
+
+The tool below computes eigenvalues, multiplicities and eigenspaces. It is set to Example 18.12 with $k = 1$: look at $m_g(2) = 2$. Then type in the matrix with $k = 5$, that is $3\ 9\ 1;\ -1\ -3\ -1;\ 0\ 0\ 2$, and watch $m_g(0) = 1 < 2$ appear.
+
+```widget gauss
+title: Multiplicities and eigenspaces: Example 18.12 with $k = 1$
+matrice: 3 5 1; -1 -3 -1; 0 0 2
+modo: autovalori
+modi: autovalori, rango, nucleo
+```
+
+> [!BEYOND] where to find it in the book
+> In Martelli's book: §5.2.1 "Autovettori con autovalori distinti" (pp. 163–165), §5.2.2 "Autospazio" (pp. 165–166), §5.2.3 "Molteplicità algebrica e geometrica" (pp. 166–167, with the complete proof of Theorem 18.9), §5.2.4 "Matrici simili" (p. 167: similar matrices also have the same geometric multiplicities), §5.2.5–5.2.6 "Teorema di diagonalizzabilità" and "Esempi" (pp. 167–169; the parameter there is called $t$). The end-of-chapter exercises (p. 170) are good practice.
+
+## Towards the exam
+
+The Linear Algebra and Geometry test has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, which are marked only with at least 6 correct answers; it lasts 2 hours, with no calculator, and you may bring only a 4-page handwritten sheet. The 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam.** Diagonalisability is **the** most frequent open problem: in the 2023–2026 exam sessions it appears as problem 11 in at least eight sessions out of fifteen.
+
+| Exam session | What problem 11 asks |
+|---|---|
+| 24/01/2024 | for $k = 1$: eigenvalues with $m_a$ and $m_g$, diagonalisable? |
+| 08/02/2024 | $k \in \C$: eigenvalues as $k$ varies, for which $k$ it is diagonalisable, basis of eigenvectors for $k = i$ |
+| 10/06/2024 | $k = i$: eigenvalues with $m_a$, $m_g$; for which $k \in \C$ it is diagonalisable |
+| 06/09/2024 | $k \in \R$: invertibility, basis of $\Ker A$, for which $k$ it is diagonalisable |
+| 16/01/2025 | basis of $\Ker(A - kI)$, for which $k$ it is diagonalisable, $P$ and $D$ for $k = 0$ |
+| 03/06/2025 | eigenvalues $1, k, k^2$; basis of the eigenspace of 1; multiplicities; for which $k$ |
+| 10/07/2025 | triangular matrix with $k$: multiplicities, diagonalisability, $P$ and $D$ for $k = 1$ |
+| 03/06/2026 | $k = i$: eigenvalues, multiplicities, bases of the eigenspaces; for which $k \in \C$ |
+
+In the quiz: the eigenspace of a given eigenvalue (24/01/2024 q. 9; 10/06/2024 q. 6; 07/02/2025 q. 9; 05/02/2026 q. 9, the last three for endomorphisms of $\R_2[x]$), what follows from the characteristic polynomial (10/07/2024 q. 8), for which $k$ a triangular matrix is diagonalisable (02/09/2025 q. 6). Tutoring sheet 3 (exercises 7–10) is entirely on this.
+
+> [!METHOD] The problem with the parameter, step by step
+> 1. **$p_A(\lambda)$ as a function of $k$, factorised.** Expand along the row or column with the most zeros; often a factor $(a - \lambda)$ can be collected right away.
+> 2. **Eigenvalues as functions of $k$.** Over $\R$, if a factor of degree two has negative discriminant for certain $k$, for those $k$ the answer is "not diagonalisable".
+> 3. **Special values**: solve $\lambda_i(k) = \lambda_j(k)$ for every pair of eigenvalues. For all the other $k$ the eigenvalues are distinct and the matrix is diagonalisable.
+> 4. **For every special value**: substitute $k$, find the multiple eigenvalue and compute $m_g = n - \rk(A - \lambda I_n)$.
+> 5. **Conclusion in one sentence**: "$A$ is diagonalisable if and only if $k \neq \dots$" (or "$k < \dots$").
+> 6. **If asked**, bases of the eigenspaces, $P$ (or $M$) and $D$, with the check $AP = PD$.
+
+### Three real exam questions, solved
+
+> [!EXAM] Exam of 24/01/2024, question 9
+> *The matrix $A = \begin{pmatrix} 3 & -4 & 4 \\ 2 & -3 & 2 \\ 0 & 0 & -1 \end{pmatrix}$ has eigenvalue $\lambda = -1$. What is the eigenspace?* Among the answers: $\Span\big((2, 1, -1), (2, 1, 0)\big)$, $\Span\big((2, 1, -1)\big)$, $\Span\big((1, 0, -1), (1, 1, 0)\big)$ and others.
+>
+> Solution. $A + I_3 = \begin{pmatrix} 4 & -4 & 4 \\ 2 & -2 & 2 \\ 0 & 0 & 0 \end{pmatrix}$ has rank 1, so $V_{-1}$ has dimension $3 - 1 = 2$: the answer is the Span of **two** independent vectors that satisfy $x - y + z = 0$. $(1, 0, -1)$: $1 - 0 - 1 = 0$, yes; $(1, 1, 0)$: $1 - 1 + 0 = 0$, yes. Instead $(2, 1, 0)$ gives $2 - 1 = 1 \neq 0$. The right answer is $\Span\big((1, 0, -1), (1, 1, 0)\big)$.
+
+> [!EXAM] Exam of 10/07/2024, question 8
+> *Let $A$ be a square matrix with characteristic polynomial $t(t - 1)^2(t - 2)$. Which of the following is not automatically true?* ($A$ is not invertible; $A$ has eigenvalues $0, 1, 2$; $A$ has an eigenvalue with algebraic multiplicity 2; $A$ has a basis of eigenvectors; $A$ is $4 \times 4$.)
+>
+> Solution. From the polynomial: degree 4, so $A$ is $4 \times 4$; roots $0, 1, 2$ with $m_a(1) = 2$; $0$ is an eigenvalue, so $\det A = 0$ and $A$ is not invertible. But for the eigenvalue 1 we may have $m_g(1) = 1 < 2$, and then there is no basis of eigenvectors: **"$A$ has a basis of eigenvectors" is not automatic**.
+
+> [!EXAM] Exam of 02/09/2025, question 6
+> *For which value of $k$ is the matrix $\begin{pmatrix} 4 & k - 1 & k - 3 \\ 0 & 4 & 1 \\ 0 & 0 & 2 \end{pmatrix}$ diagonalisable?* (Answers: $k = 1, 2, 4, 0, 3$.)
+>
+> Solution. Triangular: eigenvalues $4$ ($m_a = 2$) and $2$ (simple). We need $m_g(4) = 2$, that is $\rk(A - 4I_3) = 1$, with $A - 4I_3 = \begin{pmatrix} 0 & k - 1 & k - 3 \\ 0 & 0 & 1 \\ 0 & 0 & -2 \end{pmatrix}$. If $k \neq 1$ the first two rows are independent (the first has a non-zero entry in the second column, the second does not) and the rank is 2. If $k = 1$ the first row is $(0, 0, -2)$, proportional to the other two: rank 1. Answer: $k = 1$.
+
+### Mistakes to avoid
+
+- Concluding "not diagonalisable" as soon as two eigenvalues coincide: you have to compute $m_g$.
+- Computing $m_g$ for the simple eigenvalues (time wasted: it is 1) and forgetting it for the multiple ones.
+- Computing the rank of $A - \lambda I$ with $k$ still generic instead of substituting the special value.
+- Swapping the conditions of the theorem, or forgetting condition (1) over $\R$: with a factor $\lambda^2 + 1$ the matrix is not diagonalisable over $\R$, even if everything else is fine.
+- Writing an eigenspace with the wrong number of generators: $\dim V_\lambda = n - \rk(A - \lambda I)$ tells you how many vectors you need.
+- In problems over $\C$, making mistakes in the computations with $i$: remember $i^2 = -1$ and $\frac 1i = -i$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: "distinct eigenvalues $\Rightarrow$ independent eigenvectors; $n$ distinct $\Rightarrow$ diagonalisable"; "$V_\lambda = \Ker(A - \lambda I)$, $m_g = n - \rk(A - \lambda I)$"; "$1 \le m_g \le m_a$"; "diagonalisable $\iff$ (1) $n$ roots in $\K$ and (2) $m_a = m_g$ for every $\lambda$"; the recipe for the problem with a parameter in six lines.
+
+## Quiz
+
+```quiz
+Q: The matrix $A = \begin{pmatrix} 1 & 2 & -2 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}$ has eigenvalue $\lambda = 3$. What is the eigenspace $V_3$?
++ $\Span\big((1, 1, 0), (-1, 0, 1)\big)$
+- $\Span\big((1, 1, 0)\big)$
+- $\Span\big((1, 0, 0)\big)$
+- $\Span\big((1, 1, 0), (1, 0, 1)\big)$
+- $\Span\big((1, 0, 0), (0, 1, 1)\big)$
+= $A - 3I_3 = \begin{pmatrix} -2 & 2 & -2 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ has rank 1, so $\dim V_3 = 2$ and the equation is $x = y - z$. $(1, 1, 0)$ and $(-1, 0, 1)$ satisfy it and are independent. A line is not enough; $(1, 0, 1)$ and $(1, 0, 0)$ do not satisfy $x = y - z$ ($(1, 0, 0)$ is an eigenvector, but with eigenvalue 1; $(1, 0, 1)$ is not an eigenvector). Similar to the exam of 24/01/2024, question 9.
+
+Q: The endomorphism $T : \R_2[x] \to \R_2[x]$, $T(a + bx + cx^2) = (a + c) + 2bx + (a + c)x^2$, has eigenvalue $2$. What is the eigenspace $V_2$?
++ $\Span(x,\ 1 + x^2)$
+- $\Span(1 + x^2)$
+- $\Span(x,\ 1 - x^2)$
+- $\Span(1,\ x^2)$
+- $\Span(x)$
+= In the basis $\{1, x, x^2\}$ the matrix is $\begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 0 \\ 1 & 0 & 1 \end{pmatrix}$ and $A - 2I_3 = \begin{pmatrix} -1 & 0 & 1 \\ 0 & 0 & 0 \\ 1 & 0 & -1 \end{pmatrix}$: equation $a = c$, with $b$ free. Solutions: $(0, 1, 0) \to x$ and $(1, 0, 1) \to 1 + x^2$. Check: $T(x) = 2x$ and $T(1 + x^2) = 2 + 2x^2$. Instead $T(1 - x^2) = 0$: eigenvalue 0. Similar to the exams of 10/06/2024 (question 6), 07/02/2025 (question 9) and 05/02/2026 (question 9).
+
+Q: A matrix $A$ has characteristic polynomial $p_A(\lambda) = (\lambda - 2)^2(\lambda + 1)(\lambda - 3)$. Which statement is **not** necessarily true?
++ $A$ is diagonalisable.
+- $A$ is a $4 \times 4$ matrix.
+- $A$ is invertible.
+- $A$ has an eigenvalue with algebraic multiplicity 2.
+- $\det A = -12$.
+= The degree is 4, so $A$ is $4 \times 4$; $\det A = p_A(0) = 4 \cdot 1 \cdot (-3) = -12 \neq 0$, so $A$ is invertible; $m_a(2) = 2$. But $m_g(2)$ can be 1: for example with a block $\begin{pmatrix} 2 & 1 \\ 0 & 2 \end{pmatrix}$ on the diagonal the matrix is not diagonalisable. Similar to the exam of 10/07/2024, question 8.
+
+Q: For which value of $k$ is the matrix $\begin{pmatrix} 3 & k - 2 & k \\ 0 & 3 & 1 \\ 0 & 0 & 1 \end{pmatrix}$ diagonalisable?
++ $k = 2$
+- $k = 0$
+- $k = 3$
+- $k = 1$
+- $k = -2$
+= Eigenvalues $3$ ($m_a = 2$) and $1$. We need $\rk(A - 3I_3) = 1$ with $A - 3I_3 = \begin{pmatrix} 0 & k - 2 & k \\ 0 & 0 & 1 \\ 0 & 0 & -2 \end{pmatrix}$: if $k \neq 2$ the first two rows are independent and the rank is 2 ($m_g(3) = 1$); if $k = 2$ all the rows are proportional to $(0, 0, 1)$, rank 1, $m_g(3) = 2$. Similar to the exam of 02/09/2025, question 6.
+
+Q: For $A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 2 \end{pmatrix}$, the multiplicities of the eigenvalue 2 are:
++ $m_a(2) = 3$, $m_g(2) = 2$
+- $m_a(2) = 3$, $m_g(2) = 3$
+- $m_a(2) = 3$, $m_g(2) = 1$
+- $m_a(2) = 2$, $m_g(2) = 2$
+- $m_a(2) = 1$, $m_g(2) = 1$
+= $p_A(\lambda) = (2 - \lambda)^3$, so $m_a(2) = 3$. $A - 2I_3 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ has rank 1, so $m_g(2) = 3 - 1 = 2$. Since $2 < 3$, $A$ is not diagonalisable.
+
+Q: Let $A = \begin{pmatrix} 5 & 1 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 5 \end{pmatrix}$. What is $\dim \Ker(A - 5I_3)$?
+N: 2
+= $A - 5I_3 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$ has rank 1, so $\dim \Ker = 3 - 1 = 2$ (it is $m_g(5)$; a basis is $e_1, e_3$). Similar to part (1) of problem 11 of the exam of 16/01/2025 (a basis of $\Ker(A - kI)$).
+
+Q: Which of these statements is true?
++ If $A \in M(3, \R)$ has three distinct real eigenvalues, then $A$ is diagonalisable.
+- If $A \in M(n, \R)$ is diagonalisable, then it has $n$ distinct eigenvalues.
+- The geometric multiplicity of an eigenvalue can be 0.
+- It can happen that $m_g(\lambda) > m_a(\lambda)$.
+- The eigenspaces of an endomorphism $T : V \to V$ always have sum equal to $V$.
+= The first is Corollary 18.2. Counterexamples to the others: $I_n$ is diagonal with a single eigenvalue; $m_g(\lambda) \ge 1$ because an eigenvalue has at least one eigenvector, and $m_g \le m_a$ by Theorem 18.9; for $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ the only eigenspace is a line of $\R^2$.
+
+Q: Which of these matrices is diagonalisable over $\C$ but **not** over $\R$?
++ $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$
+= $\lambda^2 + 1$ has distinct roots $\pm i$: diagonalisable over $\C$, and over $\R$ condition (1) fails. The second and the fourth have a double eigenvalue with $m_g = 1$ (not diagonalisable over any field); the third (eigenvalues 1, 2) and the fifth (eigenvalues 1, 3) have two distinct real eigenvalues and are diagonalisable over both.
+
+Q: Let $A = \begin{pmatrix} k & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix}$ with $k \in \C$. For which $k$ is the matrix diagonalisable over $\C$?
++ For every $k \in \C$.
+- For every $k \neq \pm i$.
+- For no $k$.
+- Only for $k \in \R$.
+- Only for $k = 0$.
+= $p_A(\lambda) = (k - \lambda)(\lambda^2 + 1)$: eigenvalues $k$, $i$, $-i$. If $k \neq \pm i$ they are distinct. If $k = i$: $m_a(i) = 2$ and $A - iI_3 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & -i & -1 \\ 0 & 1 & -i \end{pmatrix}$ has rank 1 (the second row is the third multiplied by $-i$), so $m_g(i) = 2$: diagonalisable; the same for $k = -i$. Similar to problems 11 of the exams of 10/06/2024 and 03/06/2026, where however for $k = i$ the rank was 2 and the matrix was not diagonalisable: at the special values you must always compute.
+
+Q: Let $A \in M(4, \R)$ with $\rk(A - 3I_4) = 1$. Which statement is necessarily true?
++ $3$ is an eigenvalue with $m_a(3) \ge 3$.
+- $A$ is diagonalisable.
+- $A$ is not invertible.
+- $m_g(3) = 1$.
+- $3$ is not an eigenvalue.
+= $m_g(3) = 4 - 1 = 3$, and $m_a(3) \ge m_g(3) = 3$ (Theorem 18.9). Nothing else follows: $\mathrm{diag}(3, 3, 3, 5)$ is diagonalisable and invertible; instead $3I_4$ with a 1 in position $(3, 4)$ (that is, with the block $\begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}$ in the last two places of the diagonal) still has $\rk(A - 3I_4) = 1$, but $m_a(3) = 4 > 3 = m_g(3)$: not diagonalisable.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 18.13 of the handouts: eigenspaces and a basis of eigenvectors
+Consider the matrix $A = \begin{pmatrix} 2 & 1 & 1 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}$.
+(1) Compute the characteristic polynomial of $A$ and determine the eigenvalues.
+(2) Find the corresponding eigenspaces.
+(3) Compute the algebraic and geometric multiplicity of each eigenvalue.
+(4) Decide whether $A$ is diagonalisable.
+(5) If so, find a basis of $\R^3$ made of eigenvectors.
+::: solution
+(1) $A$ is upper triangular, so $p_A(\lambda) = (2 - \lambda)(3 - \lambda)^2$. Eigenvalues: $2$ and $3$.
+
+(2) $V_2 = \Ker(A - 2I_3)$ with $A - 2I_3 = \begin{pmatrix} 0 & 1 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$: from the third row $z = 0$, from the second $y = 0$; $x$ free. $V_2 = \Span\big((1, 0, 0)\big)$.
+
+$V_3 = \Ker(A - 3I_3)$ with $A - 3I_3 = \begin{pmatrix} -1 & 1 & 1 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$: a single equation $-x + y + z = 0$, that is $x = y + z$. With $(y, z) = (1, 0)$ and $(0, 1)$: $V_3 = \Span\big((1, 1, 0), (1, 0, 1)\big)$.
+
+(3) $m_a(2) = 1 = m_g(2)$; $m_a(3) = 2$ and $m_g(3) = \dim V_3 = 3 - \rk(A - 3I_3) = 3 - 1 = 2$.
+
+(4) All the roots are real and $m_a = m_g$ for both eigenvalues: by Theorem 18.10 $A$ is diagonalisable.
+
+(5) $\mathcal B = \{(1, 0, 0), (1, 1, 0), (1, 0, 1)\}$. Check: $A(1, 1, 0) = (3, 3, 0)$ and $A(1, 0, 1) = (3, 0, 3)$. With $M$ = these vectors as columns ($\det M = 1$) and $D = \mathrm{diag}(2, 3, 3)$ we have $AM = MD$.
+:::
+
+::: exercise intermediate Exercise 18.14 of the handouts: same polynomial, different behaviour
+Consider the two matrices $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}$.
+(1) Check that $A$ and $B$ have the same characteristic polynomial.
+(2) Compute the geometric multiplicity of the eigenvalue 1 for both matrices.
+(3) Decide which of the two matrices is diagonalisable.
+::: solution
+(1) Both are triangular with diagonal $1, 1, 2$: $p_A(\lambda) = p_B(\lambda) = (1 - \lambda)^2(2 - \lambda)$.
+
+(2) $A - I_3 = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$ has rank 1: $m_g^A(1) = 3 - 1 = 2$. $B - I_3 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}$ has rank 2: $m_g^B(1) = 3 - 2 = 1$.
+
+(3) In both $m_a(1) = 2$. For $A$: $m_g = 2 = m_a$ ($A$ is already diagonal). For $B$: $m_g = 1 < 2$, so $B$ is **not** diagonalisable.
+
+Consequence: $A$ and $B$ **are not similar**, even though they have the same characteristic polynomial (so the same eigenvalues, trace and determinant). If they were, $B$ would be similar to a diagonal matrix, that is diagonalisable. The characteristic polynomial is not enough to recognise similar matrices.
+:::
+
+::: exercise basic A double eigenvalue with a single line of eigenvectors
+Decide whether $A = \begin{pmatrix} 5 & -1 \\ 1 & 3 \end{pmatrix}$ is diagonalisable.
+::: solution
+$\tr A = 8$, $\det A = 15 + 1 = 16$, so $p_A(\lambda) = \lambda^2 - 8\lambda + 16 = (\lambda - 4)^2$: a single eigenvalue, $4$, with $m_a(4) = 2$.
+
+$A - 4I_2 = \begin{pmatrix} 1 & -1 \\ 1 & -1 \end{pmatrix}$ has rank 1 (equal rows), so $m_g(4) = 2 - 1 = 1 < 2$. It is not diagonalisable. The eigenvectors are the non-zero multiples of $(1, 1)$.
+
+Another way: if it were diagonalisable with the only eigenvalue 4, it would be similar to $4I_2$, and so equal to $4I_2$ (exercise 8). But $A \neq 4I_2$.
+:::
+
+::: exercise intermediate A double eigenvalue that works: find $M$ and $D$
+Let $A = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 3 & 0 \\ -2 & 0 & 3 \end{pmatrix}$. Show that it is diagonalisable and find $M$ and $D$ with $D = M^{-1}AM$.
+::: solution
+$A$ is lower triangular: $p_A(\lambda) = (1 - \lambda)(3 - \lambda)^2$. Eigenvalues $1$ ($m_a = 1$) and $3$ ($m_a = 2$).
+
+$A - 3I_3 = \begin{pmatrix} -2 & 0 & 0 \\ 2 & 0 & 0 \\ -2 & 0 & 0 \end{pmatrix}$: all the rows are multiples of $(1, 0, 0)$, rank 1, so $m_g(3) = 2 = m_a(3)$. $A$ is diagonalisable. The only equation is $x = 0$: $V_3 = \Span(e_2, e_3)$.
+
+$A - I_3 = \begin{pmatrix} 0 & 0 & 0 \\ 2 & 2 & 0 \\ -2 & 0 & 2 \end{pmatrix}$: $x + y = 0$ and $-x + z = 0$, that is $y = -x$, $z = x$. $V_1 = \Span\big((1, -1, 1)\big)$.
+
+$$M = \begin{pmatrix} 1 & 0 & 0 \\ -1 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}, \qquad D = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 3 \end{pmatrix}.$$
+$\det M = 1$. Check $AM = MD$: $A(1, -1, 1) = (1,\ 2 - 3,\ -2 + 3) = (1, -1, 1)$, $Ae_2 = (0, 3, 0)$, $Ae_3 = (0, 0, 3)$.
+:::
+
+::: exercise intermediate A parameter off the diagonal (tutoring sheet 3, exercise 7)
+Determine for which $k \in \R$ the matrix $A = \begin{pmatrix} 1 & 1 & k \\ 0 & 1 & 0 \\ 0 & 1 & 2 \end{pmatrix}$ is diagonalisable.
+::: solution
+Expanding $\det(A - \lambda I_3)$ along the first column $(1 - \lambda, 0, 0)$:
+$$p_A(\lambda) = (1 - \lambda)\det\begin{pmatrix} 1 - \lambda & 0 \\ 1 & 2 - \lambda \end{pmatrix} = (1 - \lambda)^2(2 - \lambda).$$
+The eigenvalues do not depend on $k$: $1$ with $m_a = 2$ and $2$ simple. Everything is decided by $m_g(1)$:
+$$A - I_3 = \begin{pmatrix} 0 & 1 & k \\ 0 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix}.$$
+The non-zero rows are $(0, 1, k)$ and $(0, 1, 1)$: they are proportional (in fact equal) only if $k = 1$. So $\rk(A - I_3) = 1$ if $k = 1$ and $= 2$ if $k \neq 1$.
+
+- $k = 1$: $m_g(1) = 2 = m_a(1)$, **diagonalisable**. ($V_1 = \Span\big((1, 0, 0), (0, -1, 1)\big)$, $V_2 = \Span\big((1, 0, 1)\big)$.)
+- $k \neq 1$: $m_g(1) = 1 < 2$, not diagonalisable.
+
+$A$ is diagonalisable if and only if $k = 1$.
+:::
+
+::: exercise intermediate Transposition as an endomorphism (tutoring sheet 3, exercise 8.1)
+Let $T : M(2, \R) \to M(2, \R)$, $T(A) = {}^tA$. Find eigenvalues and eigenspaces and decide whether $T$ is diagonalisable.
+::: solution
+In the basis $E_{11}, E_{12}, E_{21}, E_{22}$ (a 1 in the indicated position, zeros elsewhere): $T(E_{11}) = E_{11}$, $T(E_{12}) = E_{21}$, $T(E_{21}) = E_{12}$, $T(E_{22}) = E_{22}$, so
+$$[T] = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}, \qquad p_T(\lambda) = (1 - \lambda)^2(\lambda^2 - 1) = (\lambda - 1)^3(\lambda + 1)$$
+(the central block $\begin{pmatrix} -\lambda & 1 \\ 1 & -\lambda \end{pmatrix}$ has determinant $\lambda^2 - 1$).
+
+Without computations, from the equation ${}^tA = \lambda A$:
+- $\lambda = 1$: ${}^tA = A$, the **symmetric** matrices. $V_1 = \Span\left(\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\right)$, dimension 3.
+- $\lambda = -1$: ${}^tA = -A$, the **skew-symmetric** matrices. $V_{-1} = \Span\left(\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\right)$, dimension 1.
+
+$m_g(1) = 3 = m_a(1)$ and $m_g(-1) = 1 = m_a(-1)$: $T$ is diagonalisable, and in the basis formed by these four matrices $[T] = \mathrm{diag}(1, 1, 1, -1)$ (it is Example 5.1.14 of Martelli's book). In particular every $2 \times 2$ matrix is in a unique way the sum of a symmetric and a skew-symmetric one: $M(2, \R) = V_1 \oplus V_{-1}$.
+:::
+
+::: exercise intermediate An endomorphism of $\R_2[x]$ with complex eigenvalues (tutoring sheet 3, exercise 8.2)
+Let $T : \R_2[x] \to \R_2[x]$, $T(p) = p(0) + p(1)\,x + p(-1)\,x^2$. Find the real eigenvalues and the corresponding eigenvectors. Is $T$ diagonalisable?
+::: solution
+In the basis $\{1, x, x^2\}$: $T(1) = 1 + x + x^2$, $T(x) = 0 + x - x^2$, $T(x^2) = 0 + x + x^2$, so
+$$[T] = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 1 \\ 1 & -1 & 1 \end{pmatrix}.$$
+Expanding along the first row $(1 - \lambda, 0, 0)$:
+$$p_T(\lambda) = (1 - \lambda)\det\begin{pmatrix} 1 - \lambda & 1 \\ -1 & 1 - \lambda \end{pmatrix} = (1 - \lambda)\big((1 - \lambda)^2 + 1\big).$$
+The second factor never vanishes over $\R$ ($(1 - \lambda)^2 + 1 \ge 1$): the other roots are $1 \pm i$. The only real eigenvalue is $1$.
+
+$[T] - I_3 = \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 1 \\ 1 & -1 & 0 \end{pmatrix}$: $x + z = 0$ and $x - y = 0$ (here $x, y, z$ are the coordinates), so $(1, 1, -1)$: the polynomial $1 + x - x^2$. Check: with $p = 1 + x - x^2$, $p(0) = 1$, $p(1) = 1$, $p(-1) = 1 - 1 - 1 = -1$, and $T(p) = 1 + x - x^2 = p$.
+
+$T$ is **not** diagonalisable over $\R$: condition (1) of Theorem 18.10 fails.
+:::
+
+::: exercise hard A single eigenvalue and diagonalisable: then it is $\lambda I$
+(a) Prove that if $A \in M(n, \K)$ has a single eigenvalue $\lambda$ and is diagonalisable, then $A = \lambda I_n$. (b) Deduce in one line that $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ is not diagonalisable.
+::: solution
+(a) If $A$ is diagonalisable, $M^{-1}AM = D$ with $D$ diagonal, and on the diagonal of $D$ there are the eigenvalues, so only $\lambda$: $D = \lambda I_n$. Then
+$$A = MDM^{-1} = M(\lambda I_n)M^{-1} = \lambda MM^{-1} = \lambda I_n.$$
+(Another way: $m_g(\lambda) = m_a(\lambda) = n$, so $V_\lambda = V$ and $Av = \lambda v$ for every $v$.)
+
+(b) It has the only eigenvalue 1 and is not $I_2$: if it were diagonalisable it would be $I_2$.
+:::
+
+::: exercise hard Two eigenspaces have zero intersection
+Let $\lambda \neq \mu$ be two eigenvalues of $T$. (a) Prove directly that $V_\lambda \cap V_\mu = \{0\}$. (b) Deduce that $V_\lambda$ and $V_\mu$ are in direct sum. (c) Why, with three eigenspaces, is it not enough to check the intersections two at a time?
+::: solution
+(a) If $v \in V_\lambda \cap V_\mu$, then $T(v) = \lambda v$ and $T(v) = \mu v$. Subtracting, $(\lambda - \mu)v = 0$, and since $\lambda - \mu \neq 0$ we get $v = 0$.
+
+(b) If $v_1 + v_2 = 0$ with $v_1 \in V_\lambda$ and $v_2 \in V_\mu$, then $v_1 = -v_2$ lies in both eigenspaces (an eigenspace contains the opposites of its vectors), so $v_1 = 0$ by part (a), and then $v_2 = 0$. It is the equivalent form of Definition 18.4.
+
+(c) For three subspaces the pairwise intersections can be zero without the sum being direct: the lines $\Span(e_1)$, $\Span(e_2)$, $\Span(e_1 + e_2)$ of $\R^3$ meet two at a time only in $0$, but $e_1 + e_2 - (e_1 + e_2) = 0$. For eigenspaces the sum is direct anyway, but you need Proposition 18.1 (proof by induction), not just part (a).
+:::
+
+::: exercise exam As at the exam: a real parameter
+Consider the matrix $A = \begin{pmatrix} k & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 1 & 2 \end{pmatrix}$ with $k \in \R$.
+(1) Compute the eigenvalues of $A$ as $k$ varies.
+(2) Determine for which values of $k$ the matrix is diagonalisable.
+(3) For $k = 0$, find $M$ invertible and $D$ diagonal with $D = M^{-1}AM$.
+::: solution
+(1) Expanding $\det(A - \lambda I_3)$ along the first column $(k - \lambda, 0, 0)$:
+$$p_A(\lambda) = (k - \lambda)\det\begin{pmatrix} 1 - \lambda & 0 \\ 1 & 2 - \lambda \end{pmatrix} = (k - \lambda)(1 - \lambda)(2 - \lambda).$$
+Eigenvalues: $k$, $1$, $2$.
+
+(2) They are all real. If $k \neq 1$ and $k \neq 2$ they are distinct: diagonalisable. Special values:
+- $k = 1$: eigenvalue $1$ with $m_a = 2$. $A - I_3 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix}$ has non-zero rows $(0, 1, 0)$ and $(0, 1, 1)$, independent: rank 2, $m_g(1) = 1 < 2$. **Not** diagonalisable.
+- $k = 2$: eigenvalue $2$ with $m_a = 2$. $A - 2I_3 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & -1 & 0 \\ 0 & 1 & 0 \end{pmatrix}$ has all its rows multiples of $(0, 1, 0)$: rank 1, $m_g(2) = 2 = m_a(2)$. Diagonalisable.
+
+Conclusion: $A$ is diagonalisable if and only if $k \neq 1$.
+
+(3) With $k = 0$ the eigenvalues are $0, 1, 2$.
+- $\lambda = 0$: $A = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 1 & 2 \end{pmatrix}$: $y = 0$, then $2z = 0$; $x$ free. Eigenvector $(1, 0, 0)$.
+- $\lambda = 1$: $A - I_3 = \begin{pmatrix} -1 & 1 & 0 \\ 0 & 0 & 0 \\ 0 & 1 & 1 \end{pmatrix}$: $y = x$ and $z = -y$. Eigenvector $(1, 1, -1)$.
+- $\lambda = 2$: $A - 2I_3 = \begin{pmatrix} -2 & 1 & 0 \\ 0 & -1 & 0 \\ 0 & 1 & 0 \end{pmatrix}$: $y = 0$, then $x = 0$; $z$ free. Eigenvector $(0, 0, 1)$.
+$$M = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & -1 & 1 \end{pmatrix}, \qquad D = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}.$$
+$\det M = 1$ (block triangular). Check $AM = MD$: $A(1, 0, 0) = (0, 0, 0)$, $A(1, 1, -1) = (1, 1, -1)$, $A(0, 0, 1) = (0, 0, 2)$.
+:::
+
+::: exercise exam As at the exam: a complex parameter
+Consider $A = \begin{pmatrix} k & 0 & 0 \\ 1 & 0 & -4 \\ 0 & 1 & 0 \end{pmatrix} \in M(3, \C)$ with $k \in \C$.
+(1) Setting $k = 2i$, compute the eigenvalues with algebraic and geometric multiplicity and a basis of each eigenspace. Is $A$ diagonalisable?
+(2) Determine for which $k \in \C$ the matrix is diagonalisable over $\C$. And over $\R$, for real $k$?
+::: solution
+Characteristic polynomial, expanding along the first row $(k - \lambda, 0, 0)$:
+$$p_A(\lambda) = (k - \lambda)\det\begin{pmatrix} -\lambda & -4 \\ 1 & -\lambda \end{pmatrix} = (k - \lambda)(\lambda^2 + 4).$$
+From $\lambda^2 = -4$: $\lambda = \pm 2i$. Eigenvalues: $k$, $2i$, $-2i$.
+
+(1) With $k = 2i$: $\lambda = 2i$ with $m_a = 2$, and $\lambda = -2i$ with $m_a = 1$ (so $m_g(-2i) = 1$).
+$$A - 2iI_3 = \begin{pmatrix} 0 & 0 & 0 \\ 1 & -2i & -4 \\ 0 & 1 & -2i \end{pmatrix}.$$
+The rows $(1, -2i, -4)$ and $(0, 1, -2i)$ are independent (the second has 0 in the first position, the first does not): rank 2, $m_g(2i) = 3 - 2 = 1 < 2$. **Not** diagonalisable.
+
+Bases: from the third row $y = 2iz$; from the second $x = 2iy + 4z = 2i \cdot 2iz + 4z = -4z + 4z = 0$. With $z = 1$: $V_{2i} = \Span\big((0, 2i, 1)\big)$. For $-2i$: $A + 2iI_3 = \begin{pmatrix} 4i & 0 & 0 \\ 1 & 2i & -4 \\ 0 & 1 & 2i \end{pmatrix}$ gives $x = 0$, $y = -2iz$ (and the second row checks out: $2i \cdot (-2i) - 4 = 4 - 4 = 0$). $V_{-2i} = \Span\big((0, -2i, 1)\big)$. Check: $A(0, 2i, 1) = (0,\ -4,\ 2i) = 2i\,(0, 2i, 1)$.
+
+(2) Over $\C$ condition (1) always holds. If $k \neq \pm 2i$ the eigenvalues are distinct: diagonalisable. For $k = 2i$ no (part 1); for $k = -2i$, with the same computation, $A + 2iI_3 = \begin{pmatrix} 0 & 0 & 0 \\ 1 & 2i & -4 \\ 0 & 1 & 2i \end{pmatrix}$ has rank 2 and $m_g(-2i) = 1 < 2$: no. So: diagonalisable over $\C$ if and only if $k \neq \pm 2i$.
+
+Over $\R$ (with real $k$) **never**: the factor $\lambda^2 + 4$ has no real roots. Compare with question 9 of the quiz: there, at the special value, the matrix was diagonalisable. The difference that matters is the 1 in position $(2, 1)$, which is there here and not in the quiz: without it the second row of $A - 2iI_3$ would be $(0, -2i, -4) = -2i \cdot (0, 1, -2i)$, the rank would drop to 1 and $m_g(2i)$ would rise to 2.
+:::
+
+## Review questions
+
+::: question Why are eigenvectors with distinct eigenvalues independent?
+From a zero combination $\sum \alpha_i v_i = 0$ you apply $T$ and subtract $\lambda_k$ times the combination: $v_k$ disappears and coefficients $\alpha_i(\lambda_i - \lambda_k)$ remain on $k - 1$ eigenvectors. By induction they are zero, and since $\lambda_i \neq \lambda_k$ you get $\alpha_i = 0$ (Proposition 18.1).
+:::
+
+::: question What does Corollary 18.2 say, and does the converse hold?
+If $p_T$ has $n$ distinct roots in $\K$, $T$ is diagonalisable. The converse is false: $I_n$ is diagonal and has a single eigenvalue.
+:::
+
+::: question What is the eigenspace $V_\lambda$? Why is it a subspace?
+$V_\lambda = \{v \mid T(v) = \lambda v\} = \Ker(T - \lambda\,\id)$: the eigenvectors of $\lambda$ plus the zero vector. It is the kernel of a linear map, so a subspace.
+:::
+
+::: question When is a sum of subspaces called direct?
+When every vector of the sum can be written in only one way as $v_1 + \dots + v_k$ with $v_i \in V_i$; equivalently, when $v_1 + \dots + v_k = 0$ implies $v_1 = \dots = v_k = 0$.
+:::
+
+::: question What is the link between eigenspaces and diagonalisability?
+The eigenspaces are always in direct sum (Proposition 18.5), and $T$ is diagonalisable if and only if their sum is $V$, that is if their dimensions add up to $n$ (Corollary 18.6).
+:::
+
+::: question What is the difference between algebraic and geometric multiplicity? How are they computed?
+$m_a(\lambda)$ is the multiplicity of $\lambda$ as a root of $p_T$ (read from the factorised polynomial); $m_g(\lambda) = \dim V_\lambda = n - \rk(A - \lambda I_n)$.
+:::
+
+::: question What does Theorem 18.9 say? What practical consequence does it have?
+$1 \le m_g(\lambda) \le m_a(\lambda)$. So for a simple eigenvalue ($m_a = 1$) you immediately have $m_g = 1$: the rank needs to be computed only for the multiple eigenvalues.
+:::
+
+::: question State the diagonalisability theorem.
+$T : V \to V$, with $\dim V = n$, is diagonalisable if and only if (1) $p_T$ has $n$ roots in $\K$ counted with multiplicity and (2) $m_a(\lambda) = m_g(\lambda)$ for every eigenvalue $\lambda$.
+:::
+
+::: question Why can the same matrix be diagonalisable over $\C$ and not over $\R$?
+Because condition (1) depends on the field: $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ has $p(\lambda) = \lambda^2 + 1$, with no real roots but with two distinct complex roots $\pm i$.
+:::
+
+::: question How do you tackle a matrix with a parameter $k$?
+You compute $p_A$ factorised as a function of $k$, find the eigenvalues, and identify the $k$ at which two eigenvalues coincide (and, over $\R$, those at which real roots are missing). For the other $k$ the matrix is diagonalisable; at the special values you substitute $k$ and compute $m_g = n - \rk(A - \lambda I_n)$.
+:::
+
+::: question In Example 18.12, why is the matrix diagonalisable for $k = 1$ and not for $k = 5$?
+For $k = 1$ the eigenvalue 2 is double and $\rk(A - 2I_3) = 1$, so $m_g(2) = 2 = m_a(2)$. For $k = 5$ the eigenvalue 0 is double but $\rk(A) = 2$, so $m_g(0) = 1 < 2$.
+:::
+
+::: question Are two matrices with the same characteristic polynomial similar?
+Not always: $\mathrm{diag}(1, 1, 2)$ and $\begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}$ have the same polynomial, but the first is diagonalisable and the second is not (Exercise 18.14).
+:::
+
+## Glossary
+
+```glossary
+Independent eigenvectors | Eigenvectors with distinct eigenvalues are always linearly independent (Proposition 18.1).
+Distinct-eigenvalue criterion | If $p_T$ has $n$ distinct roots in $\K$, $T$ is diagonalisable (Corollary 18.2); the converse does not hold.
+Eigenspace $V_\lambda$ | $\{v \mid T(v) = \lambda v\} = \Ker(T - \lambda\,\id)$: eigenvectors of $\lambda$ plus zero (Definition 18.3).
+Sum of subspaces | $V_1 + \dots + V_k$: all the vectors $v_1 + \dots + v_k$ with $v_i \in V_i$.
+Direct sum $\oplus$ | Sum in which every vector can be written in a unique way; equivalently $v_1 + \dots + v_k = 0$ only with all the summands zero (Definition 18.4).
+Multiplicity of a root | The largest $k$ such that $(x - a)^k$ divides the polynomial (Definition 4.3).
+Algebraic multiplicity $m_a(\lambda)$ | Multiplicity of $\lambda$ as a root of the characteristic polynomial.
+Geometric multiplicity $m_g(\lambda)$ | $\dim V_\lambda = n - \rk(A - \lambda I_n)$.
+Simple eigenvalue | Eigenvalue with $m_a = 1$; then also $m_g = 1$.
+Multiplicity inequalities | $1 \le m_g(\lambda) \le m_a(\lambda)$ (Theorem 18.9).
+Diagonalisability theorem | Diagonalisable $\iff$ $n$ roots in $\K$ with multiplicity and $m_a = m_g$ for every eigenvalue (Theorem 18.10).
+Shear | $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$: a double eigenvalue with a single line of eigenvectors; not diagonalisable.
+Special value of the parameter | Value of $k$ at which two eigenvalues coincide: there the answer is decided by computing a rank.
+Field of scalars | $\R$ or $\C$: diagonalisability depends on the field, because over $\R$ roots can be missing.
+Basis of eigenvectors | Union of the bases of the eigenspaces; it exists if and only if $T$ is diagonalisable.
+```
+
+## Checklist
+
+```checklist
+- I can prove that two eigenvectors with distinct eigenvalues are independent, and I can state the general case.
+- I can use the criterion "$n$ distinct eigenvalues $\Rightarrow$ diagonalisable" and I know that the converse is false.
+- I can define the eigenspace $V_\lambda$ and I find a basis of it by solving $(A - \lambda I)x = 0$.
+- I know what a direct sum of several subspaces is and why the eigenspaces are in direct sum.
+- I can compute $m_a(\lambda)$ from the factorised polynomial and $m_g(\lambda) = n - \rk(A - \lambda I)$.
+- I know that $1 \le m_g \le m_a$ and so I compute the rank only for the multiple eigenvalues.
+- I can state the diagonalisability theorem and apply it step by step, over $\R$ and over $\C$.
+- I can solve a problem with a parameter: eigenvalues as functions of $k$, special values, ranks, conclusion.
+- I can build a basis of eigenvectors, $M$ and $D$, and check with $AM = MD$.
+- I can explain why matrices with the same characteristic polynomial may not be similar.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 18 "Autovalori e autovettori II", pp. 90–95: sections 18.A (eigenvectors with distinct eigenvalues), 18.B (eigenspace), 18.C (multiplicity) and 18.D (diagonalisability theorem) are followed in order, with the page next to each heading; definitions, propositions and examples keep their numbering (Propositions 18.1, 18.5; Corollaries 18.2, 18.6; Definitions 18.3, 18.4, 18.7; Theorems 18.9, 18.10; Examples 18.8, 18.11, 18.12); Exercises 18.13 and 18.14 of section 18.E are solved in the exercises.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §5.1.7 (summary of the $2 \times 2$ examples over $\R$ and $\C$), §5.2.1–5.2.6 (eigenvectors with distinct eigenvalues, eigenspaces, multiplicities with the complete proof of Theorem 18.9, diagonalisability theorem and examples), Example 5.1.14 (transposition).
+- **Exam**: problems 11 of the exam sessions of 24/01/2024, 08/02/2024, 10/06/2024, 06/09/2024, 16/01/2025, 03/06/2025, 10/07/2025, 03/06/2026; questions 9 of 24/01/2024, 6 of 10/06/2024, 8 of 10/07/2024, 9 of 07/02/2025, 6 of 02/09/2025, 9 of 05/02/2026; tutoring sheet 3, 2025/26 (exercises 7–10). Official papers and solutions on the 2025/26 Moodle ([id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); the solutions reported here are written from scratch.
+- The **"Beyond the handouts"** parts (the complete proof of Theorem 18.9, the table of the four behaviours, the matrix over $\C$, the added examples and exercises) serve to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L19_scalar_products_1.md -->
+> File: `ai_context/MDAG/lessons/L19_scalar_products_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L19
+title: Scalar products I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L19
+description: >-
+  Notes on lesson L19 of Linear Algebra and Geometry (MDAG, part 2): what a scalar product is, degenerate and
+  positive definite products, the Euclidean scalar product, symmetric matrices and the matrix associated with a
+  scalar product in a basis, with exam-style quizzes and worked exercises.
+lede: >-
+  So far you could add vectors and multiply them by a number. In this lesson you learn to "multiply" two vectors and
+  get a number: the scalar product, from which lengths, angles and perpendicularity will come. You will see the
+  Euclidean scalar product $\langle x, y\rangle = x_1y_1 + \dots + x_ny_n$, the products that come from a symmetric
+  matrix, $g_S(x, y) = {}^tx\,S\,y$, and how every scalar product becomes a matrix as soon as you fix a basis.
+material: handouts
+facts:
+  Handouts: lesson 19 · pp. 96–99
+  Book: Martelli, §7.1 and §7.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 19 "Prodotti scalari I"; B. Martelli, Geometria e algebra
+  lineare, §7.1 and §7.2
+italian_file: L19_prodotti_scalari_1.html
+html_notes: notes/MDAG/L19_scalar_products_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L19_prodotti_scalari_1.md
+```
+
+## In brief
+
+- In the lessons on scalar products the field is always $\K = \R$: you need the **order** (knowing whether a number is positive) and the **square roots** of positive numbers.
+- A **scalar product** takes two vectors $v, w$ and returns a **real number** $\langle v, w\rangle$. It must be **bilinear** (linear in the first slot and in the second) and **symmetric** ($\langle v, w\rangle = \langle w, v\rangle$). As a consequence $\langle v, 0\rangle = 0$ for every $v$.
+- A scalar product is **positive definite** if $\langle v, v\rangle > 0$ for every $v \neq 0$; it is **degenerate** if there is a $v \neq 0$ with $\langle v, w\rangle = 0$ for **every** $w$. Positive definite implies non-degenerate, but not the other way round.
+- The model for everything is the **Euclidean scalar product** of $\R^n$: $\langle x, y\rangle = {}^tx\,y = x_1y_1 + \dots + x_ny_n$. For example $\langle (1, 3), (-2, 1)\rangle = -2 + 3 = 1$. It is positive definite.
+- Every **symmetric matrix** $S$ gives a scalar product on $\R^n$: $g_S(x, y) = {}^tx\,S\,y = \sum_{i,j} x_iS_{ij}y_j$. The entry $S_{ij}$ is the coefficient of $x_iy_j$, and $g_S(e_i, e_j) = S_{ij}$.
+- Once a basis $\mathcal B = \{v_1, \dots, v_n\}$ is fixed, every scalar product $g$ has an **associated matrix** $[g]_{\mathcal B}$, symmetric, with entries $g(v_i, v_j)$.
+- With the associated matrix everything is computed in coordinates: $g(v, w) = {}^t[v]_{\mathcal B}\,[g]_{\mathcal B}\,[w]_{\mathcal B}$.
+- At the exam the typical question is: "given the scalar product $g$ and the basis $\mathcal B$, what is $[g]_{\mathcal B}$?", also on spaces of polynomials. It is solved entry by entry.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Why a product between vectors is needed (p. 96)
+
+With what you know from lessons L05–L18 you can add vectors and multiply them by a number. But you cannot yet say **how long** a vector is, nor whether two vectors are **perpendicular**, nor what **angle** they form. These are the questions of geometry, and to answer them you need a new operation.
+
+At school (or in physics) you may have seen the "scalar product" of two vectors of the plane: you multiply the corresponding coordinates and add the results. With $u = (1, 3)$ and $v = (-2, 1)$:
+
+$$u \cdot v = 1 \cdot (-2) + 3 \cdot 1 = -2 + 3 = 1.$$
+
+**Two vectors** go in, **a number** comes out. Now fix $u = (2, 1)$ and look at what happens when you change the second vector:
+
+| $v$ | $\langle u, v\rangle$ | What you see in the drawing |
+|---|--:|---|
+| $a = (1, 2)$ | $2 \cdot 1 + 1 \cdot 2 = 4$ | $a$ forms an **acute** angle with $u$ |
+| $b = (-1, 2)$ | $2 \cdot (-1) + 1 \cdot 2 = 0$ | $b$ is **perpendicular** to $u$ |
+| $c = (-2, 1)$ | $2 \cdot (-2) + 1 \cdot 1 = -3$ | $c$ forms an **obtuse** angle with $u$ |
+
+```graph
+title: With $u = (2, 1)$: $\langle u, a\rangle = 4 > 0$, $\langle u, b\rangle = 0$, $\langle u, c\rangle = -3 < 0$
+x: -3 3
+y: -1 3
+vector: 2 1 | accent | thick | $u$ | se
+vector: 1 2 | green | $a$ | ne
+vector: -1 2 | blue | $b$ | n
+vector: -2 1 | pink | $c$ | nw
+```
+
+The sign of this number already "knows" something about the angle between the two vectors: positive, zero, negative for acute, right, obtuse. In lesson L20 you will make it precise with the formula for the angle; here you build the foundation: what an operation must satisfy to deserve the name of scalar product.
+
+> [!NOTE] Why the field is $\R$ for scalar products
+> The handouts warn that in this chapter, unlike the previous ones, the field is always $\K = \R$, for two reasons:
+>
+> - you need the **order**: saying that a number is positive ($\langle v, v\rangle > 0$). In $\C$ there is no order (lesson L02);
+> - you need the **square root** of a positive number, to define the length $\sqrt{\langle v, v\rangle}$ in lesson L20. In $\Q$, for example, $\sqrt 2$ is missing (lesson L01).
+>
+> So all the vector spaces of these lessons are **real**. (In lesson L25 you will see the complex version, the Hermitian product.)
+
+## The definition of scalar product (p. 96)
+
+> [!DEF] 19.1 · Scalar product
+> Let $V$ be a real vector space. A **scalar product** on $V$ is a map
+> $$V \times V \longrightarrow \R, \qquad (v, w) \longmapsto \langle v, w\rangle$$
+> that satisfies the following axioms:
+> 1. $\langle v + v', w\rangle = \langle v, w\rangle + \langle v', w\rangle$,
+> 2. $\langle \lambda v, w\rangle = \lambda\langle v, w\rangle$,
+> 3. $\langle v, w\rangle = \langle w, v\rangle$,
+>
+> for every $v, v', w, w' \in V$ and every $\lambda \in \R$.
+
+Piece by piece:
+
+- $V \times V$ is the set of **ordered pairs** $(v, w)$ of vectors of $V$: the scalar product receives **two** vectors.
+- The arrow towards $\R$ says that the result is **a real number**, not a vector. The symbol $\langle v, w\rangle$ (angle brackets) is read "scalar product of $v$ and $w$".
+- Axiom (1) says that you can **split a sum** in the first slot: adding and then multiplying gives the same result as multiplying and then adding.
+- Axiom (2) says that **a number in the first slot comes out**: $\langle 3v, w\rangle = 3\langle v, w\rangle$.
+- Axiom (3), **symmetry**, says that the order of the two vectors does not matter.
+- "For every $v, v', w, w'$ and every $\lambda$": the rules must hold **always**, for all vectors and all real numbers, not only in some lucky case.
+
+> [!PITFALL] Scalar product and multiplication by a scalar
+> They are two different things. **Multiplication by a scalar** (lesson L05) takes a number and a vector and returns a **vector**: $3 \cdot (1, 2) = (3, 6)$. The **scalar product** takes two vectors and returns a **number**: $\langle (1, 2), (3, 6)\rangle = 3 + 12 = 15$.
+
+### The consequences of the axioms
+
+The handouts observe that the rules "on the right" also follow from the three axioms:
+
+4. $\langle v, w + w'\rangle = \langle v, w\rangle + \langle v, w'\rangle$,
+5. $\langle v, \lambda w\rangle = \lambda\langle v, w\rangle$.
+
+Here is why, one step at a time (above the equals sign there is the axiom used):
+
+$$\begin{aligned} \langle v, w + w'\rangle &\overset{(3)}{=} \langle w + w', v\rangle \overset{(1)}{=} \langle w, v\rangle + \langle w', v\rangle \\ &\overset{(3)}{=} \langle v, w\rangle + \langle v, w'\rangle, \end{aligned}$$
+
+$$\langle v, \lambda w\rangle \overset{(3)}{=} \langle \lambda w, v\rangle \overset{(2)}{=} \lambda\langle w, v\rangle \overset{(3)}{=} \lambda\langle v, w\rangle.$$
+
+Symmetry lets you "turn round" the vectors, use the rule on the first slot and then turn them round again.
+
+Two words to remember:
+
+- axioms (1), (2), (4), (5) say that the product is **bilinear**: with the second vector fixed, it is linear in the first; with the first fixed, it is linear in the second;
+- axiom (3) says that it is **symmetric**.
+
+**The product with the zero vector is zero.** For every $v \in V$ we have $\langle v, 0\rangle = 0$. Indeed, since $0 = 0 + 0$, by axiom (4)
+
+$$\langle v, 0\rangle = \langle v, 0 + 0\rangle = \langle v, 0\rangle + \langle v, 0\rangle.$$
+
+Call $a = \langle v, 0\rangle$: you have found that $a = a + a$. Taking $a$ away from both sides, what is left is $0 = a$. By symmetry $\langle 0, v\rangle = 0$ holds too.
+
+**A name for the product.** When you want to give the scalar product a name, you denote it with a letter, $g : V \times V \to \R$, and write $g(v, w)$ instead of $\langle v, w\rangle$. It is useful when **several** different scalar products appear in the same discussion.
+
+> [!BEYOND] A computation you will use often
+> With bilinearity and symmetry you expand the "square of a sum" as with numbers:
+> $$\begin{aligned} \langle v + w, v + w\rangle &= \langle v, v + w\rangle + \langle w, v + w\rangle \\ &= \langle v, v\rangle + \langle v, w\rangle + \langle w, v\rangle + \langle w, w\rangle \\ &= \langle v, v\rangle + 2\langle v, w\rangle + \langle w, w\rangle. \end{aligned}$$
+> The first step uses axiom (1), the second axiom (4) twice, the last one symmetry. It is the vector version of $(a + b)^2 = a^2 + 2ab + b^2$, and in lesson L20 it is needed to prove the triangle inequality.
+
+### Formulas that are (and are not) scalar products
+
+To decide whether a formula is a scalar product you check bilinearity and symmetry. To say **no**, a single numerical example in which a rule fails is enough.
+
+> [!EXAMPLE] A formula that works: $g(x, y) = 2x_1y_1 + 3x_2y_2$ on $\R^2$
+> Here $x = (x_1, x_2)$ and $y = (y_1, y_2)$.
+>
+> - **Axiom (1).** With $x' = (x_1', x_2')$: $g(x + x', y) = 2(x_1 + x_1')y_1 + 3(x_2 + x_2')y_2 = (2x_1y_1 + 3x_2y_2) + (2x_1'y_1 + 3x_2'y_2) = g(x, y) + g(x', y)$.
+> - **Axiom (2).** $g(\lambda x, y) = 2\lambda x_1y_1 + 3\lambda x_2y_2 = \lambda(2x_1y_1 + 3x_2y_2) = \lambda g(x, y)$.
+> - **Axiom (3).** $g(y, x) = 2y_1x_1 + 3y_2x_2 = g(x, y)$, because the product of numbers is commutative.
+>
+> So $g$ is a scalar product. For example $g((1, 1), (1, -1)) = 2 \cdot 1 \cdot 1 + 3 \cdot 1 \cdot (-1) = -1$.
+
+> [!EXAMPLE] Three formulas that do not work
+> - $g(x, y) = x_1y_2$ **is not symmetric**: $g(e_1, e_2) = 1 \cdot 1 = 1$, but $g(e_2, e_1) = 0 \cdot 0 = 0$. (Here $e_1 = (1, 0)$ and $e_2 = (0, 1)$ are the vectors of the canonical basis.)
+> - $g(x, y) = x_1y_1 + x_2y_2 + 1$ **is not bilinear**: $g(0, 0) = 1$, while a scalar product always gives $\langle v, 0\rangle = 0$.
+> - $g(x, y) = x_1^2y_1^2$ **is not linear** in the first slot: $g(2e_1, e_1) = 4$, while $2\,g(e_1, e_1) = 2$.
+
+## Degenerate and positive definite products (p. 96)
+
+Not all scalar products behave well. Take on $\R^2$ the formula $g(x, y) = x_1y_1$: it is bilinear and symmetric, so it is a scalar product. But it **ignores the second coordinate**: the vector $e_2 = (0, 1)$ gives
+
+$$g(e_2, w) = 0 \cdot w_1 = 0 \quad \text{for every } w \in \R^2.$$
+
+A non-zero vector that gives zero with **everything**: it is a serious defect, because this product "does not see" $e_2$. The handouts give a name to this defect and to the opposite property.
+
+> [!DEF] 19.2 · Degenerate, positive definite
+> A scalar product on $V$ is:
+> - **degenerate** if there exists $v \neq 0$ such that $\langle v, w\rangle = 0$ for every $w \in V$;
+> - **positive definite** if $\langle v, v\rangle > 0$ for every non-zero $v \in V$.
+
+Piece by piece:
+
+- **Degenerate** is about $\langle v, w\rangle$ with **any** $w$: there is a non-zero vector that gives zero with all the vectors of the space, itself included. A product that is not degenerate is called **non-degenerate**: for every $v \neq 0$ there is at least one $w$ with $\langle v, w\rangle \neq 0$.
+- **Positive definite** is only about $\langle v, v\rangle$, the product of a vector **with itself**: it must be strictly positive for every non-zero vector. (For $v = 0$ we always have $\langle 0, 0\rangle = 0$.)
+
+> [!PROP] 19.3
+> A positive definite scalar product is not degenerate.
+
+The handouts' explanation, step by step:
+
+1. Suppose by contradiction that the product is positive definite **and** degenerate.
+2. Since it is degenerate, there exists $v \neq 0$ with $\langle v, w\rangle = 0$ for **every** $w$.
+3. In particular you can choose $w = v$: you get $\langle v, v\rangle = 0$.
+4. But $v \neq 0$ and the product is positive definite, so $\langle v, v\rangle > 0$. Contradiction: the product cannot be degenerate. $\square$
+
+> [!EXAMPLE] Three scalar products on $\R^2$ compared
+> - $g(x, y) = x_1y_1 + x_2y_2$ is **positive definite**: $g(x, x) = x_1^2 + x_2^2 > 0$ as soon as one coordinate is not zero.
+> - $g(x, y) = x_1y_1$ is **degenerate**: $e_2 \neq 0$ and $g(e_2, w) = 0$ for every $w$.
+> - $g(x, y) = x_1y_1 - x_2y_2$ is **not degenerate**, but it is **not positive definite**. It is not positive definite because $g(e_2, e_2) = 0 - 1 = -1 < 0$. It is not degenerate because, given $v = (a, b) \neq 0$, the vector $w = (a, -b)$ gives
+>   $$g(v, w) = a \cdot a - b \cdot (-b) = a^2 + b^2 > 0.$$
+
+> [!PITFALL] The converse of Proposition 19.3 is false
+> "Non-degenerate" does **not** imply "positive definite": the last example, $x_1y_1 - x_2y_2$, shows it. Watch out for a second mistake too: in that product the vector $v = (1, 1)$ has $g(v, v) = 1 - 1 = 0$ even though it is non-zero, and yet the product is **not** degenerate. To be degenerate you need a vector that gives zero with **all** vectors, not only with itself ($g((1, 1), (1, 0)) = 1 \neq 0$). Martelli's book calls a vector with $\langle v, v\rangle = 0$ **isotropic**.
+
+| Product on $\R^2$ | Degenerate? | Positive definite? | Reason in one line |
+|---|---|---|---|
+| $x_1y_1 + x_2y_2$ | no | yes | $g(x, x) = x_1^2 + x_2^2$ |
+| $2x_1y_1 + 3x_2y_2$ | no | yes | $g(x, x) = 2x_1^2 + 3x_2^2$ |
+| $x_1y_1$ | yes | no | $e_2$ gives zero with everything |
+| $x_1y_1 - x_2y_2$ | no | no | $g(e_2, e_2) = -1$ |
+
+## Three scalar products on polynomials (p. 97)
+
+A scalar product does not live only on $\R^n$. The handouts show an example on the space $\R_2[x]$ of polynomials with real coefficients of degree $\le 2$, that is the polynomials $a + bx + cx^2$ (lessons L05–L07: it has dimension 3 and canonical basis $\{1, x, x^2\}$). The idea is to **evaluate** the polynomials at some points and multiply the values.
+
+> [!EXAMPLE] 19.4 · Three scalar products on $\R_2[x]$
+> On the space $\R_2[x]$ of polynomials with real coefficients of degree $\le 2$ consider the scalar product
+> $$\langle p, q\rangle = p(0)q(0) + p(1)q(1) + p(2)q(2).$$
+> This scalar product is **positive definite**: $\langle p, p\rangle = p(0)^2 + p(1)^2 + p(2)^2 > 0$ for every non-zero polynomial $p$ of degree $\le 2$, because such a polynomial cannot vanish at the three distinct values $0, 1, 2$.
+>
+> The scalar product $\langle p, q\rangle = p(0)q(0) + p(1)q(1)$ is instead **degenerate**: for $p(x) = x(1 - x)$ we have $\langle p, q\rangle = 0$ for every $q \in \R_2[x]$.
+>
+> Finally $\langle p, q\rangle = p(0)q(0) + p(1)q(1) - p(2)q(2)$ **is not degenerate, but it is not positive definite**: for $p(x) = x - 1$ we have $\langle p, p\rangle = (-1)^2 - 1^2 = 0$.
+
+Let us look at the three products one by one.
+
+**The first product: how it is computed.** With $p = x$ and $q = x^2$: the values of $p$ at $0, 1, 2$ are $0, 1, 2$; those of $q$ are $0, 1, 4$. So
+
+$$\langle x, x^2\rangle = 0 \cdot 0 + 1 \cdot 1 + 2 \cdot 4 = 9.$$
+
+With $p = q = 1 + x$ (values $1, 2, 3$): $\langle 1 + x, 1 + x\rangle = 1 + 4 + 9 = 14$.
+
+**Why it is a scalar product.** It is symmetric, because $p(t)q(t) = q(t)p(t)$. It is bilinear because evaluating is linear: $(p + p')(t) = p(t) + p'(t)$ and $(\lambda p)(t) = \lambda p(t)$. For example, for axiom (1):
+
+$$\begin{aligned} \langle p + p', q\rangle &= \sum_{t = 0, 1, 2} \big(p(t) + p'(t)\big)q(t) \\ &= \sum_{t = 0, 1, 2} p(t)q(t) + \sum_{t = 0, 1, 2} p'(t)q(t) \\ &= \langle p, q\rangle + \langle p', q\rangle. \end{aligned}$$
+
+**Why it is positive definite.** $\langle p, p\rangle$ is a sum of three squares, so it is $\ge 0$. It is $0$ only if $p(0) = p(1) = p(2) = 0$, that is if $p$ has **three** distinct **roots**. But by Theorem 4.6 (lesson L04) a non-zero polynomial of degree $n \ge 1$ has at most $n$ roots, and a non-zero constant polynomial has none: a non-zero polynomial of degree $\le 2$ has at most two roots. So $\langle p, p\rangle = 0$ only for $p = 0$.
+
+**The second product is degenerate.** With only two points the reasoning breaks down: $p(x) = x(1 - x) = x - x^2$ is a non-zero polynomial of degree 2 that vanishes both at 0 and at 1. Then for **every** $q$:
+
+$$\langle p, q\rangle = p(0)q(0) + p(1)q(1) = 0 \cdot q(0) + 0 \cdot q(1) = 0.$$
+
+**The third product is not positive definite.** $p(x) = x - 1$ equals $-1$ at 0, $0$ at 1 and $1$ at 2, so
+
+$$\langle p, p\rangle = (-1)^2 + 0^2 - 1^2 = 0$$
+
+with $p \neq 0$. (The handouts write $(-1)^2 - 1^2$ because the term $p(1)^2 = 0$ disappears.) Moreover: $\langle 1, 1\rangle = 1 + 1 - 1 = 1 > 0$ and $\langle x, x\rangle = 0 + 1 - 4 = -3 < 0$, so the values of $\langle p, p\rangle$ can have both signs.
+
+> [!BEYOND] Why the third product is not degenerate
+> The handouts state it without proof. Here is one way. Consider the three polynomials
+> $$q_0 = \frac{(x - 1)(x - 2)}{2}, \quad q_1 = 2x - x^2, \quad q_2 = \frac{x(x - 1)}{2}.$$
+> Check the values: $q_0$ equals $1, 0, 0$ at $0, 1, 2$; $q_1$ equals $0, 1, 0$; $q_2$ equals $0, 0, 1$. Then, for every $p$:
+> $$\langle p, q_0\rangle = p(0), \quad \langle p, q_1\rangle = p(1), \quad \langle p, q_2\rangle = -p(2).$$
+> If $\langle p, q\rangle = 0$ for **every** $q$, in particular for $q_0, q_1, q_2$, then $p(0) = p(1) = p(2) = 0$ and, as above, $p = 0$. So no non-zero polynomial gives zero with everything: the product is not degenerate.
+
+## The Euclidean scalar product (p. 97)
+
+The "school" product of the first section has a precise name.
+
+> [!DEF] 19.5 · Euclidean scalar product
+> The **Euclidean scalar product** on $\R^n$ is defined as
+> $$\langle x, y\rangle = {}^tx\,y = \sum_{i=1}^n x_iy_i.$$
+
+Piece by piece:
+
+- $x$ and $y$ are **column** vectors of $\R^n$, that is $n \times 1$ matrices.
+- ${}^tx$ is the **transpose** of $x$ (lesson L08): the same vector written as a **row**, a $1 \times n$ matrix.
+- ${}^tx\,y$ is a row-by-column product between a $1 \times n$ matrix and an $n \times 1$ one: the result is a $1 \times 1$ matrix, that is **a number**:
+  $${}^tx\,y = (x_1, \dots, x_n)\begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = x_1y_1 + x_2y_2 + \dots + x_ny_n.$$
+- The symbol $\sum_{i=1}^n x_iy_i$ means "sum of the products $x_iy_i$ for $i$ going from 1 to $n$".
+
+Examples:
+
+- in $\R^2$, as in the handouts: $\left\langle \begin{pmatrix} 1 \\ 3 \end{pmatrix}, \begin{pmatrix} -2 \\ 1 \end{pmatrix}\right\rangle = 1 \cdot (-2) + 3 \cdot 1 = 1$;
+- in $\R^3$: $\langle (1, 2, 3), (4, -5, 6)\rangle = 4 - 10 + 18 = 12$;
+- in $\R^4$: $\langle (1, 0, -1, 2), (3, 5, 1, 1)\rangle = 3 + 0 - 1 + 2 = 4$.
+
+> [!PROP] 19.6
+> The Euclidean scalar product is a positive definite scalar product on $\R^n$.
+
+The handouts do not give the proof; here it is, from Martelli's book (Proposition 7.1.5).
+
+1. **Bilinearity.** It comes from the properties of the matrix product. For axiom (1): ${}^t(x + x')\,y = ({}^tx + {}^tx')\,y = {}^tx\,y + {}^tx'\,y$. The other linearity axioms are checked in the same way.
+2. **Symmetry.** $x_1y_1 + \dots + x_ny_n = y_1x_1 + \dots + y_nx_n$, because the product of real numbers is commutative.
+3. **Positive definite.** $\langle x, x\rangle = x_1^2 + \dots + x_n^2$ is a sum of squares. If $x \neq 0$, at least one coordinate $x_i$ is not zero, and then $x_i^2 > 0$ makes the whole sum positive. $\square$
+
+Try it yourself with the tool: drag $u$ and $v$ and look at the number $u \cdot v$. Look for a position in which it is zero (the vectors are perpendicular) and one in which it is negative (obtuse angle). The tool also already shows the angle and the projection, which you will see in lessons L20 and L21.
+
+```widget vettori
+title: The Euclidean scalar product in the plane
+u: 1 3
+v: -2 1
+modo: scalare
+modi: scalare
+raggio: 5
+```
+
+> [!BEYOND] The scalar product of physics
+> In physics the scalar product of two vectors of the plane or of space is defined with lengths and angles: $\langle v, w\rangle = \|v\|\,\|w\|\cos\vartheta$. The course goes the opposite way: first the scalar product, then (lesson L20) length $\|v\| = \sqrt{\langle v, v\rangle}$ and angle. The advantage is that the same construction works for very different spaces, like that of polynomials.
+
+## Symmetric matrices and scalar products on $\R^n$ (pp. 97–98)
+
+In lesson L14 you saw that a square matrix $A$ determines an endomorphism $L_A(x) = Ax$ of $\R^n$. In the same way, a **symmetric** matrix determines a scalar product on $\R^n$. Two reminders from lesson L08:
+
+- a matrix $S$ is **symmetric** if it equals its transpose, ${}^tS = S$, that is $S_{ij} = S_{ji}$ for every $i, j$: the part above the diagonal is the mirror image of the part below;
+- the **transpose of a product** is the product of the transposes in reverse order: ${}^t(AB) = {}^tB\,{}^tA$.
+
+> [!PROP] 19.7
+> A symmetric matrix $S$ defines a scalar product $g_S$ on $\R^n$ by setting
+> $$g_S(x, y) = {}^tx\,S\,y.$$
+
+The proof, with all the steps:
+
+1. **It is a number.** ${}^tx$ is $1 \times n$, $S$ is $n \times n$, $y$ is $n \times 1$: the product can be done and gives a $1 \times 1$ matrix, a number.
+2. **Bilinearity.** It comes from the properties of the matrix product (distributivity, and scalars come out). For example ${}^t(x + x')\,S\,y = {}^tx\,S\,y + {}^tx'\,S\,y$.
+3. **Symmetry.** This is the chain of the handouts:
+   $$\begin{aligned} g_S(x, y) = {}^tx\,S\,y &= {}^t\big({}^tx\,S\,y\big) \\ &= {}^ty\,{}^tS\,x = {}^ty\,S\,x = g_S(y, x). \end{aligned}$$
+   - the second equals sign holds because ${}^tx\,S\,y$ is a $1 \times 1$ matrix, and a $1 \times 1$ matrix is equal to its transpose;
+   - the third uses ${}^t(ABC) = {}^tC\,{}^tB\,{}^tA$ (the rule ${}^t(AB) = {}^tB\,{}^tA$ applied twice) and ${}^t({}^tx) = x$;
+   - the fourth uses **precisely** the hypothesis ${}^tS = S$. Without symmetry of $S$ the chain stops there. $\square$
+
+To do the computations it is convenient to expand the matrix product.
+
+> [!PROP] 19.8
+> We have
+> $$g_S(x, y) = {}^tx\,S\,y = \sum_{i,j=1}^n x_iS_{ij}y_j.$$
+
+Indeed coordinate $i$ of the vector $Sy$ is $(Sy)_i = \sum_{j} S_{ij}y_j$ (row $i$ of $S$ times the column $y$), and then ${}^tx\,(Sy) = \sum_i x_i(Sy)_i = \sum_{i,j} x_iS_{ij}y_j$.
+
+The double sum $\sum_{i,j=1}^n$ has one term for **each pair** $(i, j)$: $n^2$ terms. For $n = 2$ and $S = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$:
+
+$$g_S(x, y) = a\,x_1y_1 + b\,x_1y_2 + b\,x_2y_1 + c\,x_2y_2.$$
+
+The rule to remember: **the entry $S_{ij}$ is the coefficient of $x_iy_j$**.
+
+> [!COROLLARY] 19.9
+> For the vectors of the canonical basis we have
+> $$g_S(e_i, e_j) = S_{ij}.$$
+
+The reason: $e_i$ has a 1 in position $i$ and zeros elsewhere. In the sum of Proposition 19.8 with $x = e_i$ and $y = e_j$ only one term survives, the one with $x_i = 1$ and $y_j = 1$, which equals $S_{ij}$. In words: ${}^te_i$ **picks row** $i$ of $S$, and $e_j$ **picks column** $j$.
+
+> [!EXAMPLE] 19.10 · The identity matrix
+> For $S = I_n$ you get the Euclidean scalar product:
+> $$g_{I_n}(x, y) = {}^tx\,y = x_1y_1 + \dots + x_ny_n.$$
+> Indeed $I_n$ has 1 on the diagonal and 0 elsewhere: only the terms $x_iy_i$ survive.
+
+> [!EXAMPLE] 19.11 · A non-diagonal matrix
+> The matrix
+> $$S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$$
+> defines on $\R^2$ the scalar product
+> $$g_S(x, y) = 2x_1y_1 + x_1y_2 + x_2y_1 + x_2y_2.$$
+> Two computations: $g_S(e_1, e_2) = S_{12} = 1$ (so $e_1$ and $e_2$ do **not** give zero, unlike in the Euclidean product); with $x = y = (1, -1)$: $g_S = 2 \cdot 1 + 1 \cdot (-1) + (-1) \cdot 1 + (-1) \cdot (-1) = 2 - 1 - 1 + 1 = 1$.
+>
+> Is it positive definite? With $y = x$ you get $g_S(x, x) = 2x_1^2 + 2x_1x_2 + x_2^2 = x_1^2 + (x_1 + x_2)^2$. A sum of two squares is $\ge 0$ and it is 0 only if $x_1 = 0$ and $x_1 + x_2 = 0$, that is if $x = 0$. So yes.
+
+### From the formula to the matrix and back
+
+> [!METHOD] Between $S$ and the formula of $g_S$
+> **From the matrix to the formula.** For each entry $S_{ij}$ write the term $S_{ij}\,x_iy_j$ and add everything up. Zero entries give no terms.
+>
+> **From the formula to the matrix.**
+> 1. Check that every term is of the form (number) $\cdot\, x_iy_j$, with **one** $x$ and **one** $y$. Terms like $x_1$, $1$, $x_1x_2$, $x_1^2y_1$ mean that the formula is not bilinear.
+> 2. Put the coefficient of $x_iy_j$ in position $(i, j)$.
+> 3. Check that the matrix is symmetric: the coefficient of $x_iy_j$ must be equal to that of $x_jy_i$. If it is not, the formula is not a scalar product.
+
+> [!EXAMPLE] There and back
+> - $g(x, y) = 3x_1y_1 - 2x_1y_2 - 2x_2y_1 + 5x_2y_2$ has matrix $S = \begin{pmatrix} 3 & -2 \\ -2 & 5 \end{pmatrix}$: the coefficient of $x_1y_2$ goes in position $(1, 2)$, that of $x_2y_1$ in position $(2, 1)$, and they are equal.
+> - The matrix $S = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 0 & -1 \\ 0 & -1 & 3 \end{pmatrix}$ gives on $\R^3$
+>   $$\begin{aligned} g_S(x, y) = {} & x_1y_1 + 2x_1y_2 + 2x_2y_1 \\ & - x_2y_3 - x_3y_2 + 3x_3y_3. \end{aligned}$$
+> - $g(x, y) = x_1y_2 + 2x_2y_1$ is **not** a scalar product: it would put 1 in position $(1, 2)$ and 2 in position $(2, 1)$, and the matrix would not be symmetric.
+
+> [!PITFALL] Do not divide by two
+> In the scalar product $g_S(x, y)$ the terms $x_1y_2$ and $x_2y_1$ are **different** and each one has its own position: the coefficient goes into the matrix **as it is**. Dividing by two is needed for the **quadratic forms** of lesson L20, where $x_1x_2$ and $x_2x_1$ are the same monomial.
+
+### When $g_S$ is degenerate or positive definite (beyond the handouts)
+
+> [!BEYOND] Three convenient criteria
+> **1. Degenerate if and only if $\det S = 0$** (Martelli, Proposition 7.1.23). If $Sv = 0$ with $v \neq 0$, then for every $w$
+> $$g_S(v, w) = {}^tv\,S\,w = {}^t(Sv)\,w = 0,$$
+> because ${}^t(Sv) = {}^tv\,{}^tS = {}^tv\,S$. So $g_S$ is degenerate. Conversely, if $g_S(v, w) = 0$ for every $w$, take $w = Sv$: you get ${}^t(Sv)(Sv) = 0$, that is $\langle Sv, Sv\rangle = 0$ in the Euclidean product, so $Sv = 0$. In short: $g_S$ is degenerate $\iff$ there is $v \neq 0$ with $Sv = 0$ $\iff$ $\det S = 0$ (lesson L10). The vectors that give zero with everything are those of the kernel of $S$.
+>
+> **2. Diagonal matrices** (Martelli, §7.1.6). If $S$ is diagonal with $d_1, \dots, d_n$ on the diagonal, then $g_S(x, x) = d_1x_1^2 + \dots + d_nx_n^2$: $g_S$ is positive definite $\iff$ all the $d_i > 0$, and it is non-degenerate $\iff$ all the $d_i \neq 0$. For example $\operatorname{diag}(1, -3)$ is non-degenerate but not positive definite, $\operatorname{diag}(0, 1)$ is degenerate, $\operatorname{diag}(5, 1)$ is positive definite.
+>
+> **3. $2 \times 2$ matrices.** $S = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$ is positive definite $\iff$ $a > 0$ and $\det S = ac - b^2 > 0$. If $a \neq 0$ you "complete the square":
+> $$a x_1^2 + 2b\,x_1x_2 + c\,x_2^2 = a\left(x_1 + \frac ba x_2\right)^2 + \frac{ac - b^2}{a}\,x_2^2.$$
+> If $a > 0$ and $ac - b^2 > 0$ the two summands are $\ge 0$ and they vanish together only for $x_2 = 0$ and $x_1 = 0$. Conversely, if $g_S$ is positive definite, then $a = g_S(e_1, e_1) > 0$, and with $x = (-b, a) \neq 0$ you find $g_S(x, x) = a(ac - b^2) > 0$, so $ac - b^2 > 0$. For $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$: $a = 2 > 0$ and $\det S = 1 > 0$, positive definite as already seen.
+
+## The matrix associated with a scalar product (pp. 98–99)
+
+For linear maps (lesson L15), once a basis is fixed, every map becomes a matrix. With scalar products the same happens.
+
+> [!DEF] 19.12 · Associated matrix
+> Let $V$ be a real vector space, let $g : V \times V \to \R$ be a scalar product and let $\mathcal B = \{v_1, \dots, v_n\}$ be a basis of $V$. The **matrix associated** with $g$ in the basis $\mathcal B$ is the symmetric matrix
+> $$S = [g]_{\mathcal B}, \qquad S_{ij} = g(v_i, v_j).$$
+
+Piece by piece:
+
+- the matrix is $n \times n$, with $n = \dim V$: one row and one column for each vector of the basis;
+- in position $(i, j)$ there is the **scalar product** between the $i$-th and the $j$-th vector of the basis;
+- on the diagonal there are the products $g(v_i, v_i)$ of each vector with itself;
+- it is **symmetric** because $g(v_i, v_j) = g(v_j, v_i)$ (axiom 3);
+- it **depends on the basis**: same product, different basis, different matrix. How it changes you will see in lesson L20.
+
+> [!EXAMPLE] 19.13 · The canonical basis
+> If $S \in M(n, \R)$ is symmetric, the matrix associated with $g_S$ with respect to the canonical basis $\mathcal C$ is $S$ itself:
+> $$[g_S]_{\mathcal C} = S.$$
+> It is Corollary 19.9: the entry $(i, j)$ of $[g_S]_{\mathcal C}$ is $g_S(e_i, e_j) = S_{ij}$.
+
+> [!EXAMPLE] 19.14 · The Euclidean product in another basis
+> Consider the Euclidean scalar product on $\R^2$ and the basis
+> $$\mathcal B = \left\{ v_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, v_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \right\}.$$
+> The associated matrix is
+> $$[g]_{\mathcal B} = \begin{pmatrix} g(v_1, v_1) & g(v_1, v_2) \\ g(v_2, v_1) & g(v_2, v_2) \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}.$$
+> The computations: $g(v_1, v_1) = 1 + 0 = 1$, $g(v_1, v_2) = 1 \cdot 1 + 0 \cdot 1 = 1$, $g(v_2, v_2) = 1 + 1 = 2$. In the canonical basis the same product has matrix $I_2$.
+
+Why is the associated matrix useful? Because it contains **all** the information about the product: knowing the products between the vectors of the basis, you can compute the product of any two vectors.
+
+> [!PROP] 19.15
+> If
+> $$v = \lambda_1v_1 + \dots + \lambda_nv_n, \qquad w = \mu_1v_1 + \dots + \mu_nv_n,$$
+> then
+> $$g(v, w) = \sum_{i,j=1}^n \lambda_i\mu_j\,g(v_i, v_j).$$
+
+The formula follows from bilinearity: you "expand" it like a product of two sums. With $n = 2$, one step at a time. First linearity in the first slot (axioms 1 and 2), keeping $w = \mu_1v_1 + \mu_2v_2$ fixed:
+
+$$g(\lambda_1v_1 + \lambda_2v_2,\ w) = \lambda_1\,g(v_1, w) + \lambda_2\,g(v_2, w).$$
+
+Then linearity in the second slot (axioms 4 and 5) inside each term:
+
+$$\begin{aligned} g(v_1, w) &= \mu_1\,g(v_1, v_1) + \mu_2\,g(v_1, v_2), \\ g(v_2, w) &= \mu_1\,g(v_2, v_1) + \mu_2\,g(v_2, v_2). \end{aligned}$$
+
+Putting it together:
+
+$$\begin{aligned} g(v, w) = {} & \lambda_1\mu_1\,g(v_1, v_1) + \lambda_1\mu_2\,g(v_1, v_2) \\ & + \lambda_2\mu_1\,g(v_2, v_1) + \lambda_2\mu_2\,g(v_2, v_2). \end{aligned}$$
+
+There are four terms, one for each pair $(i, j)$.
+
+> [!COROLLARY] 19.16
+> For every $v, w \in V$ we have
+> $$g(v, w) = {}^t[v]_{\mathcal B}\,[g]_{\mathcal B}\,[w]_{\mathcal B}.$$
+
+Here $[v]_{\mathcal B} = (\lambda_1, \dots, \lambda_n)$ is the column vector of the **coordinates** of $v$ in the basis $\mathcal B$ (lesson L15). The row-matrix-column product, expanded with Proposition 19.8, gives exactly the sum of Proposition 19.15. In words: **in coordinates, every scalar product becomes a $g_S$**, with $S$ the associated matrix.
+
+### Computing with coordinates
+
+> [!EXAMPLE] Corollary 19.16 at work
+> Euclidean product on $\R^2$, basis $\mathcal B = \{(1, 0), (1, 1)\}$ and $[g]_{\mathcal B} = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$ (Example 19.14). Take $v = (3, 2)$ and $w = (1, -1)$.
+>
+> 1. **Coordinates of $v$.** I look for $a, b$ with $a(1, 0) + b(1, 1) = (3, 2)$: the second coordinate gives $b = 2$, the first $a + b = 3$, so $a = 1$. $[v]_{\mathcal B} = (1, 2)$.
+> 2. **Coordinates of $w$.** $a(1, 0) + b(1, 1) = (1, -1)$: $b = -1$, $a = 2$. $[w]_{\mathcal B} = (2, -1)$.
+> 3. **Product.** First $[g]_{\mathcal B}[w]_{\mathcal B} = \begin{pmatrix} 1 \cdot 2 + 1 \cdot (-1) \\ 1 \cdot 2 + 2 \cdot (-1) \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$, then ${}^t(1, 2)\begin{pmatrix} 1 \\ 0 \end{pmatrix} = 1$.
+> 4. **Direct check.** $\langle (3, 2), (1, -1)\rangle = 3 - 2 = 1$. ✓
+
+> [!EXAMPLE] The matrix of a product on polynomials
+> Take on $\R_2[x]$ the product $\langle p, q\rangle = p(0)q(0) + p(1)q(1) + p(2)q(2)$ and the canonical basis $\{1, x, x^2\}$. First the values at the points $0, 1, 2$: $1 \to (1, 1, 1)$, $x \to (0, 1, 2)$, $x^2 \to (0, 1, 4)$. Then the products (six are enough, the others follow by symmetry):
+>
+> | Pair | Computation | Value |
+> |---|---|--:|
+> | $\langle 1, 1\rangle$ | $1 + 1 + 1$ | 3 |
+> | $\langle 1, x\rangle$ | $0 + 1 + 2$ | 3 |
+> | $\langle 1, x^2\rangle$ | $0 + 1 + 4$ | 5 |
+> | $\langle x, x\rangle$ | $0 + 1 + 4$ | 5 |
+> | $\langle x, x^2\rangle$ | $0 + 1 + 8$ | 9 |
+> | $\langle x^2, x^2\rangle$ | $0 + 1 + 16$ | 17 |
+>
+> $$[\,\langle\ ,\ \rangle\,]_{\{1, x, x^2\}} = \begin{pmatrix} 3 & 3 & 5 \\ 3 & 5 & 9 \\ 5 & 9 & 17 \end{pmatrix}.$$
+> Check with Corollary 19.16: $[1 + x] = (1, 1, 0)$ and $[x^2] = (0, 0, 1)$, so $\langle 1 + x, x^2\rangle = {}^t(1, 1, 0)\,S\,(0, 0, 1) = S_{13} + S_{23} = 5 + 9 = 14$. Directly: $1 + x$ takes the values $1, 2, 3$ and $x^2$ the values $0, 1, 4$, so $0 + 2 + 12 = 14$. ✓
+
+> [!METHOD] Computing $[g]_{\mathcal B}$
+> 1. Write the vectors of the basis **in the given order**: the order decides rows and columns.
+> 2. If $g$ is defined on polynomials by evaluating at some points, first compute the table of the values of each $v_i$ at those points.
+> 3. Compute $g(v_i, v_j)$ for $i \le j$: that is $\frac{n(n+1)}2$ computations (3 for $n = 2$, 6 for $n = 3$).
+> 4. Fill in the matrix and copy the entries above the diagonal into those below.
+> 5. Check: if $g = g_S$ on $\R^n$, the entry $(i, j)$ is ${}^tv_i\,S\,v_j$; compute the columns $Sv_j$ only once and reuse them.
+
+> [!BEYOND] Where to find it in the book
+> Martelli, chapter 7 "Prodotti scalari": §7.1.1–7.1.3 (definition, degenerate and positive definite, Euclidean product, pp. 199–201), §7.1.4 (symmetric matrices, pp. 201–203), §7.1.6 (diagonal matrices, pp. 204–205), §7.1.10 (the products on polynomials of Example 19.4, p. 209), §7.2.1 (associated matrix, pp. 210–212). In the book you also find the words **isotropic vector** (§7.1.8) and **radical** (§7.1.9), which the handouts do not use.
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; it lasts 2 hours, with no calculator, and only 4 handwritten pages of notes. 2026/27 exam sessions: 22/01 and 05/02/2027, at 14:00. The details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions**
+
+1. **The associated matrix in a basis (quiz).** It is the most frequent question: in the exam sessions of 24/01/2024 (question 7), 10/07/2024 (question 9) and 15/01/2026 (question 9) the product is given by an unusual formula on $\R_1[x]$ or on $\R^2$, and you must find $[g]_{\mathcal B}$ among five matrices. In the exam sessions of 10/06/2024 (question 4) and 03/06/2026 (question 4) you are given $g_S$ with $S$ of order 3 and a new basis: you work entry by entry or with the formula ${}^tMSM$ of lesson L20.
+2. **The first part of the problems.** In problems 12 of 16/01/2025, 07/02/2025 and 05/02/2026 part (1) asks for the associated matrix (in the canonical basis of $\R_2[x]$ or in a basis of $\R^3$); the following parts use norms, angles, Gram–Schmidt and projections (lessons L20 and L21).
+3. **Theory.** Telling apart degenerate, non-degenerate and positive definite; knowing that $g_S$ is a scalar product only if $S$ is symmetric.
+
+**Three real exam questions, solved**
+
+> [!EXAMPLE] Exam of 15/01/2026, question 9
+> Given $x = {}^t(x_1, x_2)$ and $y = {}^t(y_1, y_2)$, let $g(x, y) = x_1y_2 + x_2y_1 - x_2y_2$. Given the basis $\mathcal B = \{{}^t(1, 1), {}^t(0, 1)\}$, what is $[g]_{\mathcal B}$?
+>
+> **Solution.** $v_1 = (1, 1)$, $v_2 = (0, 1)$.
+> - $g(v_1, v_1) = 1 \cdot 1 + 1 \cdot 1 - 1 \cdot 1 = 1$;
+> - $g(v_1, v_2)$ with $x = (1, 1)$, $y = (0, 1)$: $1 \cdot 1 + 1 \cdot 0 - 1 \cdot 1 = 0$;
+> - $g(v_2, v_2)$ with $x = y = (0, 1)$: $0 + 0 - 1 = -1$.
+>
+> So $[g]_{\mathcal B} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ (answer (a)). Note: the product is non-degenerate but not positive definite, because $g(v_2, v_2) = -1$.
+
+> [!EXAMPLE] Exam of 24/01/2024, question 7
+> On $\R_1[x]$ you are given the scalar product $g(p, q) = q(1)p(1) - q(0)p(0)$ and the basis $\mathcal B = \{x + 1, 2\}$. What is $[g]_{\mathcal B}$?
+>
+> **Solution.** Table of values: $x + 1$ equals $2$ at 1 and $1$ at 0; the constant polynomial $2$ equals $2$ at both points.
+> - $g(x + 1, x + 1) = 2 \cdot 2 - 1 \cdot 1 = 3$;
+> - $g(x + 1, 2) = 2 \cdot 2 - 1 \cdot 2 = 2$;
+> - $g(2, 2) = 2 \cdot 2 - 2 \cdot 2 = 0$.
+>
+> So $[g]_{\mathcal B} = \begin{pmatrix} 3 & 2 \\ 2 & 0 \end{pmatrix}$ (answer (a)). Answer (e), $\begin{pmatrix} 3 & 1 \\ 1 & 0 \end{pmatrix}$, is the one you get by mistakenly using the polynomial $1$ instead of $2$: the second vector of the basis equals 2, not 1.
+
+> [!EXAMPLE] Exam of 07/02/2025, problem 12, part (1)
+> On $\R_2[x]$ we define $g(p, q) = p(1)q(1) + p(-1)q(-1) + p(1)q(0) + p(0)q(1) + 2p(0)q(0)$. Find the matrix associated with $g$ in the canonical basis $\{1, x, x^2\}$.
+>
+> **Solution.** Values at $1, -1, 0$: $1 \to (1, 1, 1)$, $x \to (1, -1, 0)$, $x^2 \to (1, 1, 0)$. Then, term by term in the order of the formula:
+> - $g(1, 1) = 1 + 1 + 1 + 1 + 2 = 6$;
+> - $g(1, x) = 1 \cdot 1 + 1 \cdot (-1) + 1 \cdot 0 + 1 \cdot 1 + 2 \cdot 1 \cdot 0 = 1$;
+> - $g(1, x^2) = 1 + 1 + 0 + 1 + 0 = 3$;
+> - $g(x, x) = 1 + 1 + 0 + 0 + 0 = 2$;
+> - $g(x, x^2) = 1 \cdot 1 + (-1) \cdot 1 + 1 \cdot 0 + 0 \cdot 1 + 0 = 0$;
+> - $g(x^2, x^2) = 1 + 1 + 0 + 0 + 0 = 2$.
+>
+> $$[g]_{\{1, x, x^2\}} = \begin{pmatrix} 6 & 1 & 3 \\ 1 & 2 & 0 \\ 3 & 0 & 2 \end{pmatrix}.$$
+> Check of the symmetry on one pair: $g(x, 1) = 1 \cdot 1 + (-1) \cdot 1 + 1 \cdot 1 + 0 \cdot 1 + 0 = 1 = g(1, x)$. ✓ Parts (2) and (3) of the problem continue in lessons L20 and L21.
+
+**Mistakes to avoid**
+
+- Mixing up the **order of the vectors** of the basis: $[g]_{\{v_1, v_2\}}$ and $[g]_{\{v_2, v_1\}}$ have the diagonal entries swapped.
+- In products on polynomials, getting a value wrong: write the table of values **first**, then do the products.
+- Forgetting that the associated matrix is **always symmetric**: in the quiz discard the non-symmetric matrices at once.
+- Dividing the mixed coefficients of $g(x, y)$ by two: you divide only for quadratic forms (lesson L20).
+
+> [!EXAM] On the 4-page sheet
+> - $g_S(x, y) = {}^tx\,S\,y = \sum_{i,j} x_iS_{ij}y_j$; $S_{ij}$ = coefficient of $x_iy_j$; $g_S(e_i, e_j) = S_{ij}$.
+> - $[g]_{\mathcal B}$: entry $(i, j) = g(v_i, v_j)$, always symmetric; $g(v, w) = {}^t[v]_{\mathcal B}[g]_{\mathcal B}[w]_{\mathcal B}$.
+> - Degenerate: $\exists\, v \neq 0$ with $\langle v, w\rangle = 0\ \forall w$ ($\iff \det S = 0$). Positive definite: $\langle v, v\rangle > 0\ \forall v \neq 0$. Positive definite $\Rightarrow$ non-degenerate, not vice versa.
+> - $2 \times 2$ criterion: $\begin{pmatrix} a & b \\ b & c \end{pmatrix}$ positive definite $\iff a > 0$ and $ac - b^2 > 0$.
+
+## Quiz
+
+```quiz
+Q: Which of these formulas defines a scalar product on $\R^2$? (Here $x = (x_1, x_2)$ and $y = (y_1, y_2)$.)
++ $g(x, y) = x_1y_1 + x_1y_2 + x_2y_1$
+- $g(x, y) = x_1y_2 - x_2y_1$
+- $g(x, y) = x_1y_1 + x_2$
+- $g(x, y) = x_1x_2y_1y_2$
+- $g(x, y) = x_1y_1 + x_2y_2 + 1$
+= The first is $g_S$ with $S = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}$, which is symmetric: it is bilinear and symmetric. The second is not symmetric ($g(e_1, e_2) = 1$, $g(e_2, e_1) = -1$). The third and the fifth do not give zero with the zero vector ($g(e_2, 0) = 1$, $g(0, 0) = 1$). The fourth is not linear: doubling $x$ multiplies the result by 4.
+
+Q: On $\R_1[x]$ let $g(p, q) = p(1)q(2) + p(2)q(1)$ and let $\mathcal B = \{x - 1, x - 2\}$. Then $[g]_{\mathcal B}$ is:
++ $\begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 0 & -2 \\ -2 & 0 \end{pmatrix}$
+- $\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}$
+= Values at 1 and at 2: $x - 1 \to (0, 1)$, $x - 2 \to (-1, 0)$. Then $g(x - 1, x - 1) = 0 \cdot 1 + 1 \cdot 0 = 0$, $g(x - 1, x - 2) = 0 \cdot 0 + 1 \cdot (-1) = -1$, $g(x - 2, x - 2) = (-1) \cdot 0 + 0 \cdot (-1) = 0$. Similar to the exam of 10/07/2024, question 9.
+
+Q: What is the matrix $S$ such that $g(x, y) = x_1y_2 + x_2y_1 + 3x_2y_2$ equals $g_S(x, y) = {}^tx\,S\,y$?
++ $\begin{pmatrix} 0 & 1 \\ 1 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 2 \\ 0 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 1 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1/2 \\ 1/2 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 3 & 1 \\ 1 & 0 \end{pmatrix}$
+= $S_{ij}$ is the coefficient of $x_iy_j$: $S_{11} = 0$ (there is no $x_1y_1$), $S_{12} = S_{21} = 1$, $S_{22} = 3$. You do not divide by two: $x_1y_2$ and $x_2y_1$ are two distinct terms. The matrix with 3 in the top left has swapped the order of the coordinates. Compare with the exam of 08/02/2024, question 7, where a **quadratic form** was given: there the coefficient of the mixed monomial must be divided by two (lesson L20).
+
+Q: On $\R_1[x]$ consider the scalar product $\langle p, q\rangle = p(0)q(0) + p(1)q(1)$ and the basis $\mathcal B = \{x, x + 1\}$. Then $[\,\langle\ ,\ \rangle\,]_{\mathcal B}$ is:
++ $\begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 1 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 1 & 5 \end{pmatrix}$
+- $\begin{pmatrix} 5 & 2 \\ 2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$
+= Values at $0, 1$: $x \to (0, 1)$, $x + 1 \to (1, 2)$. Then $\langle x, x\rangle = 0 + 1 = 1$, $\langle x, x + 1\rangle = 0 \cdot 1 + 1 \cdot 2 = 2$, $\langle x + 1, x + 1\rangle = 1 + 4 = 5$. The matrix with 5 in the top left uses the basis in reverse order. Similar to the exam of 24/01/2024, question 7.
+
+Q: On $\R^2$ let $g(x, y) = x_1y_1 + x_1y_2 + x_2y_1$ and let $\mathcal B = \{{}^t(1, 0), {}^t(1, -1)\}$. Then $[g]_{\mathcal B}$ is:
++ $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix}$
+= With $v_1 = (1, 0)$ and $v_2 = (1, -1)$: $g(v_1, v_1) = 1$; $g(v_1, v_2) = 1 \cdot 1 + 1 \cdot (-1) + 0 = 0$; $g(v_2, v_2) = 1 + 1 \cdot (-1) + (-1) \cdot 1 = -1$. The second matrix is the one in the canonical basis; the last one is not symmetric, so it cannot be an associated matrix. Similar to the exam of 15/01/2026, question 9.
+
+Q: Which symmetric matrix defines a **degenerate** scalar product on $\R^2$?
++ $\begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$
+= $g_S$ is degenerate exactly when $\det S = 0$. Only the first has determinant $1 \cdot 4 - 2 \cdot 2 = 0$: with $v = (2, -1)$ we have $Sv = 0$, so $g_S(v, w) = {}^t(Sv)\,w = 0$ for every $w$. The others have determinant $-1$, $1$, $-1$, $6$.
+
+Q: Which statement is true for every scalar product on a real vector space?
++ If it is positive definite, then it is not degenerate.
+- If it is not degenerate, then it is positive definite.
+- If $\langle v, v\rangle = 0$ for some $v \neq 0$, then it is degenerate.
+- Every symmetric matrix $S$ defines a positive definite scalar product.
+- It can happen that $\langle v, 0\rangle \neq 0$.
+= It is Proposition 19.3: the vector that gives zero with everything would give zero with itself too. The product $x_1y_1 - x_2y_2$ disproves the second and the third (non-degenerate, not positive definite, and $(1, 1)$ gives zero with itself); $S = -I_2$ disproves the fourth; bilinearity always gives $\langle v, 0\rangle = 0$.
+
+Q: Let $S = \begin{pmatrix} 4 & 1 & -2 \\ 1 & 0 & 5 \\ -2 & 5 & 3 \end{pmatrix}$. What is $g_S(e_1 + e_2, e_3)$?
+N: 3
+= By bilinearity $g_S(e_1 + e_2, e_3) = g_S(e_1, e_3) + g_S(e_2, e_3) = S_{13} + S_{23} = -2 + 5 = 3$ (Corollary 19.9).
+
+Q: Let $S = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 1 & 1 \\ 0 & 1 & 3 \end{pmatrix}$ and $\mathcal B = \{{}^t(2, 0, 0), {}^t(0, 1, 0), {}^t(0, 0, -1)\}$. The matrix associated with $g_S$ in the basis $\mathcal B$ is:
++ $\begin{pmatrix} 4 & 4 & 0 \\ 4 & 1 & -1 \\ 0 & -1 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 & 0 \\ 2 & 1 & 1 \\ 0 & 1 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 4 & 2 & 0 \\ 2 & 1 & 1 \\ 0 & 1 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 4 & 0 \\ 2 & 1 & -1 \\ 0 & 1 & -3 \end{pmatrix}$
+- $\begin{pmatrix} 4 & 4 & 0 \\ 4 & 1 & 1 \\ 0 & 1 & 3 \end{pmatrix}$
+= With $v_1 = 2e_1$, $v_2 = e_2$, $v_3 = -e_3$ bilinearity gives $g_S(v_i, v_j) = d_id_jS_{ij}$ with $d = (2, 1, -1)$: $g(v_1, v_1) = 4 \cdot 1 = 4$, $g(v_1, v_2) = 2 \cdot 2 = 4$, $g(v_1, v_3) = 0$, $g(v_2, v_2) = 1$, $g(v_2, v_3) = 1 \cdot (-1) \cdot 1 = -1$, $g(v_3, v_3) = (-1)^2 \cdot 3 = 3$. The fourth is not symmetric. Similar to the exams of 10/06/2024 and 03/06/2026, question 4.
+
+Q: On $\R_2[x]$, which of these scalar products is **positive definite**?
++ $\langle p, q\rangle = p(0)q(0) + p(1)q(1) + p(2)q(2)$
+- $\langle p, q\rangle = p(0)q(0) + p(1)q(1)$
+- $\langle p, q\rangle = p(0)q(0) + p(1)q(1) - p(2)q(2)$
+- $\langle p, q\rangle = p(0)q(1) + p(1)q(0)$
+- $\langle p, q\rangle = p(1)q(1)$
+= In the first $\langle p, p\rangle$ is a sum of three squares, zero only if $p$ has three distinct roots, that is $p = 0$ (Example 19.4). The second and the last are degenerate ($x - x^2$ and $x - 1$ give zero with everything); the third gives $\langle x - 1, x - 1\rangle = 0$; the fourth gives $\langle p, p\rangle = 2p(0)p(1)$, which is $-2$ for $p = 1 - 2x$.
+```
+
+## Exercises
+
+The handouts have no exercises for this lesson: these are all built for the notes; the last two are modelled on the exam papers.
+
+::: exercise basic Scalar product or not?
+For each formula on $\R^2$ say whether it is a scalar product; if it is not, indicate a rule that fails with a numerical example.
+(a) $2x_1y_1 + 3x_2y_2$; (b) $x_1y_2$; (c) $x_1y_1 + x_2y_2 + 1$; (d) $x_1y_1 - 4x_1y_2 - 4x_2y_1 + x_2y_2$; (e) $x_1^2y_1^2$.
+::: solution
+(a) **Yes.** It is $g_S$ with $S = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$, which is symmetric (Proposition 19.7). The axioms are checked one by one in the example of the section on the definition.
+
+(b) **No**, it is not symmetric: $g(e_1, e_2) = 1 \cdot 1 = 1$ but $g(e_2, e_1) = 0 \cdot 0 = 0$.
+
+(c) **No**, it is not bilinear: $g(0, 0) = 1$, while $\langle v, 0\rangle = 0$ must hold.
+
+(d) **Yes.** Every term has one $x$ and one $y$, and the coefficients of $x_1y_2$ and $x_2y_1$ are equal: it is $g_S$ with $S = \begin{pmatrix} 1 & -4 \\ -4 & 1 \end{pmatrix}$, which is symmetric. (It is not positive definite: $g((1, 1), (1, 1)) = 1 - 4 - 4 + 1 = -6$.)
+
+(e) **No**, it is not linear in the first slot: $g(2e_1, e_1) = 4 \cdot 1 = 4$, while $2\,g(e_1, e_1) = 2$.
+:::
+
+::: exercise basic Computations with the Euclidean product
+(a) Compute $\langle (2, -1, 3), (1, 4, 1)\rangle$. (b) Compute $\langle (1, 1, 1, 1), (1, -1, 1, -1)\rangle$. (c) Find $k \in \R$ such that $\langle (1, k, 2), (3, 1, -k)\rangle = 0$.
+::: solution
+(a) $2 \cdot 1 + (-1) \cdot 4 + 3 \cdot 1 = 2 - 4 + 3 = 1$.
+
+(b) $1 - 1 + 1 - 1 = 0$: the two vectors of $\R^4$ are perpendicular.
+
+(c) $\langle (1, k, 2), (3, 1, -k)\rangle = 1 \cdot 3 + k \cdot 1 + 2 \cdot (-k) = 3 + k - 2k = 3 - k$. It is zero for $k = 3$. Check: $\langle (1, 3, 2), (3, 1, -3)\rangle = 3 + 3 - 6 = 0$. ✓
+:::
+
+::: exercise basic From the matrix to the formula and back
+(a) Write $g_S(x, y)$ for $S = \begin{pmatrix} 1 & -2 & 0 \\ -2 & 3 & 4 \\ 0 & 4 & -1 \end{pmatrix}$. (b) Find the matrix of $g(x, y) = x_1y_1 + 3x_1y_2 + 3x_2y_1 - x_2y_2 + 2x_1y_3 + 2x_3y_1$ on $\R^3$. (c) Compute $g_S(e_2, e_3)$ for the matrix of part (a).
+::: solution
+(a) One term $S_{ij}x_iy_j$ for each non-zero entry:
+$$\begin{aligned} g_S(x, y) = {} & x_1y_1 - 2x_1y_2 - 2x_2y_1 + 3x_2y_2 \\ & + 4x_2y_3 + 4x_3y_2 - x_3y_3. \end{aligned}$$
+
+(b) The coefficient of $x_iy_j$ goes in position $(i, j)$; the terms with $x_2y_3$, $x_3y_2$, $x_3y_3$ are missing, so those entries are 0:
+$$S = \begin{pmatrix} 1 & 3 & 2 \\ 3 & -1 & 0 \\ 2 & 0 & 0 \end{pmatrix}.$$
+It is symmetric, so the formula really is a scalar product.
+
+(c) By Corollary 19.9, $g_S(e_2, e_3) = S_{23} = 4$.
+:::
+
+::: exercise intermediate Degenerate, positive definite or neither?
+For each matrix say whether $g_S$ on $\R^2$ is degenerate, positive definite, or non-degenerate but not positive definite:
+$$S_1 = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}, \qquad S_2 = \begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}, \qquad S_3 = \begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix}.$$
+::: solution
+**$S_1$: degenerate.** I look for $v \neq 0$ with $S_1v = 0$: $x_1 + 2x_2 = 0$ (the second row is twice the first), for example $v = (2, -1)$: $S_1v = (2 - 2, 4 - 4) = (0, 0)$. Then for every $w$: $g_{S_1}(v, w) = {}^t(S_1v)\,w = 0$.
+
+**$S_2$: positive definite.** I complete the square:
+$$\begin{aligned} g_{S_2}(x, x) &= x_1^2 + 4x_1x_2 + 5x_2^2 \\ &= (x_1^2 + 4x_1x_2 + 4x_2^2) + x_2^2 = (x_1 + 2x_2)^2 + x_2^2. \end{aligned}$$
+It is $\ge 0$ and it is 0 only if $x_2 = 0$ and $x_1 + 2x_2 = 0$, that is $x = 0$. (With the $2 \times 2$ criterion: $a = 1 > 0$, $\det S_2 = 1 > 0$.)
+
+**$S_3$: non-degenerate, not positive definite.** $\det S_3 = 3 - 4 = -1 \neq 0$, so it is not degenerate (determinant criterion). But with $x = (2, -1)$:
+$$g_{S_3}(x, x) = x_1^2 + 4x_1x_2 + 3x_2^2 = 4 - 8 + 3 = -1 < 0.$$
+:::
+
+::: exercise intermediate A basis in which $g_S$ looks Euclidean
+Let $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ (Example 19.11) and let $\mathcal B = \{v_1 = (1, -1),\ v_2 = (0, 1)\}$. Compute $[g_S]_{\mathcal B}$. What do you notice?
+::: solution
+I use $g_S(x, y) = 2x_1y_1 + x_1y_2 + x_2y_1 + x_2y_2$.
+
+- $g_S(v_1, v_1)$ with $x = y = (1, -1)$: $2 \cdot 1 + 1 \cdot (-1) + (-1) \cdot 1 + (-1) \cdot (-1) = 2 - 1 - 1 + 1 = 1$.
+- $g_S(v_1, v_2)$ with $x = (1, -1)$, $y = (0, 1)$: $2 \cdot 1 \cdot 0 + 1 \cdot 1 + (-1) \cdot 0 + (-1) \cdot 1 = 0 + 1 + 0 - 1 = 0$.
+- $g_S(v_2, v_2)$ with $x = y = (0, 1)$: $0 + 0 + 0 + 1 = 1$.
+
+$$[g_S]_{\mathcal B} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = I_2.$$
+In this basis the product $g_S$ has the same matrix as the Euclidean product in the canonical basis: in coordinates, $g_S(v, w) = \lambda_1\mu_1 + \lambda_2\mu_2$. Bases of this kind (vectors of norm 1, pairwise orthogonal) are called **orthonormal**; in lesson L21 you will learn to build them with the Gram–Schmidt algorithm.
+:::
+
+::: exercise intermediate A product on polynomials at three symmetric points
+On $\R_2[x]$ let $\langle p, q\rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)$. (a) Find the associated matrix in the basis $\{1, x, x^2\}$. (b) Is it positive definite? (c) What is $\langle x, x^2\rangle$?
+::: solution
+(a) Values at $-1, 0, 1$: $1 \to (1, 1, 1)$, $x \to (-1, 0, 1)$, $x^2 \to (1, 0, 1)$.
+- $\langle 1, 1\rangle = 3$; $\langle 1, x\rangle = -1 + 0 + 1 = 0$; $\langle 1, x^2\rangle = 1 + 0 + 1 = 2$;
+- $\langle x, x\rangle = 1 + 0 + 1 = 2$; $\langle x, x^2\rangle = -1 + 0 + 1 = 0$; $\langle x^2, x^2\rangle = 1 + 0 + 1 = 2$.
+$$S = \begin{pmatrix} 3 & 0 & 2 \\ 0 & 2 & 0 \\ 2 & 0 & 2 \end{pmatrix}.$$
+
+(b) Yes, with the same reasoning as in Example 19.4: $\langle p, p\rangle = p(-1)^2 + p(0)^2 + p(1)^2$ is 0 only if $p$ has the three distinct roots $-1, 0, 1$, that is only if $p = 0$ (Theorem 4.6).
+
+(c) $\langle x, x^2\rangle = S_{23} = 0$: the polynomials $x$ and $x^2$ are "perpendicular" for this product. It is the computation needed in the exam of 08/02/2024 (question 8), which asked for the angle between $x$ and $x^2$: you will see in lesson L20 that it is $\frac\pi2$.
+:::
+
+::: exercise intermediate Corollary 19.16 with polynomials
+With the product and the matrix $S$ of the previous exercise, compute $\langle 1 + 2x,\ x - x^2\rangle$ in two ways: with coordinates and directly.
+::: solution
+**With coordinates.** $[1 + 2x] = (1, 2, 0)$ and $[x - x^2] = (0, 1, -1)$. First
+$$S\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 3 \cdot 0 + 0 \cdot 1 + 2 \cdot (-1) \\ 0 \cdot 0 + 2 \cdot 1 + 0 \cdot (-1) \\ 2 \cdot 0 + 0 \cdot 1 + 2 \cdot (-1) \end{pmatrix} = \begin{pmatrix} -2 \\ 2 \\ -2 \end{pmatrix},$$
+then ${}^t(1, 2, 0)\,(-2, 2, -2) = -2 + 4 + 0 = 2$.
+
+**Directly.** $p = 1 + 2x$ takes the values $-1, 1, 3$ at $-1, 0, 1$; $q = x - x^2$ takes $-2, 0, 0$. So $\langle p, q\rangle = (-1)(-2) + 1 \cdot 0 + 3 \cdot 0 = 2$. ✓
+:::
+
+::: exercise hard Two points are enough for $\R_1[x]$, not for $\R_2[x]$
+Let $\langle p, q\rangle = p(0)q(0) + p(1)q(1)$. (a) Prove that on $\R_1[x]$ it is positive definite. (b) On $\R_2[x]$ find the associated matrix in the basis $\{1, x, x^2\}$ and all the polynomials $p$ such that $\langle p, q\rangle = 0$ for every $q$.
+::: solution
+(a) $\langle p, p\rangle = p(0)^2 + p(1)^2 \ge 0$, and it is 0 only if $p(0) = p(1) = 0$. A polynomial of degree $\le 1$ with two distinct roots is the zero polynomial: if it were non-zero of degree 1 it would have at most one root (Theorem 4.6), if it were a non-zero constant it would have none. So $\langle p, p\rangle > 0$ for every $p \neq 0$.
+
+(b) Values at $0, 1$: $1 \to (1, 1)$, $x \to (0, 1)$, $x^2 \to (0, 1)$. Products: $\langle 1, 1\rangle = 2$, $\langle 1, x\rangle = 1$, $\langle 1, x^2\rangle = 1$, $\langle x, x\rangle = 1$, $\langle x, x^2\rangle = 1$, $\langle x^2, x^2\rangle = 1$:
+$$S = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}, \qquad \det S = 0$$
+(two equal rows). The product is therefore degenerate. A polynomial $p$ with coordinates $(a, b, c)$ gives zero with everything if and only if ${}^t[p]\,S = 0$, that is $S[p] = 0$ ($S$ is symmetric):
+$$\begin{cases} 2a + b + c = 0 \\ a + b + c = 0 \end{cases}$$
+(the third equation is equal to the second). Subtracting: $a = 0$, then $c = -b$. So $p = bx - bx^2 = b(x - x^2)$: they are the multiples of $x - x^2 = x(1 - x)$, the polynomial of the handouts.
+:::
+
+::: exercise hard A scalar product on matrices
+On $M(2, \R)$ let $g(A, B) = \operatorname{tr}({}^tA\,B)$ (the trace is the sum of the entries on the diagonal). (a) Write $g(A, B)$ in terms of the entries. (b) Prove that it is a positive definite scalar product. (c) Find the associated matrix in the basis $\{E_{11}, E_{12}, E_{21}, E_{22}\}$ of the matrices with a single 1. (d) Compute $g(A, B)$ for $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$, $B = \begin{pmatrix} 3 & 0 \\ 1 & -1 \end{pmatrix}$.
+::: solution
+(a) With $A = \begin{pmatrix} a_1 & a_2 \\ a_3 & a_4 \end{pmatrix}$ and $B = \begin{pmatrix} b_1 & b_2 \\ b_3 & b_4 \end{pmatrix}$:
+$${}^tA\,B = \begin{pmatrix} a_1 & a_3 \\ a_2 & a_4 \end{pmatrix}\begin{pmatrix} b_1 & b_2 \\ b_3 & b_4 \end{pmatrix} = \begin{pmatrix} a_1b_1 + a_3b_3 & \ast \\ \ast & a_2b_2 + a_4b_4 \end{pmatrix},$$
+so $g(A, B) = a_1b_1 + a_2b_2 + a_3b_3 + a_4b_4$ (the off-diagonal entries $\ast$ are not needed).
+
+(b) It is the Euclidean product of $\R^4$ written on the four entries: bilinear, symmetric and positive definite by Proposition 19.6, because $g(A, A) = a_1^2 + a_2^2 + a_3^2 + a_4^2 > 0$ if $A \neq 0$.
+
+(c) $g(E_{ij}, E_{kl})$ equals 1 if the two matrices are equal and 0 otherwise: the associated matrix is $I_4$.
+
+(d) $g(A, B) = 1 \cdot 3 + 2 \cdot 0 + 0 \cdot 1 + 1 \cdot (-1) = 2$.
+:::
+
+::: exercise exam Associated matrix on $\R_1[x]$
+On $\R_1[x]$ let $g(p, q) = p(2)q(2) - p(0)q(0)$ and let $\mathcal B = \{x + 1, 1\}$. (a) Compute $[g]_{\mathcal B}$. (b) Is $g$ degenerate? (c) Is $g$ positive definite?
+::: solution
+(a) Values at $2$ and at $0$: $x + 1 \to (3, 1)$, $1 \to (1, 1)$.
+- $g(x + 1, x + 1) = 3 \cdot 3 - 1 \cdot 1 = 8$;
+- $g(x + 1, 1) = 3 \cdot 1 - 1 \cdot 1 = 2$;
+- $g(1, 1) = 1 - 1 = 0$.
+$$[g]_{\mathcal B} = \begin{pmatrix} 8 & 2 \\ 2 & 0 \end{pmatrix}.$$
+
+(b) No. With the determinant criterion: $\det [g]_{\mathcal B} = 0 - 4 = -4 \neq 0$ (the criterion holds for the associated matrix in any basis, because in coordinates $g$ becomes a $g_S$, Corollary 19.16). Or directly: if $p$ gives zero with everything, with $q = 1$ you get $p(2) - p(0) = 0$ and with $q = x$ you get $2p(2) = 0$; so $p(2) = p(0) = 0$ and $p$, of degree $\le 1$ with two roots, is zero.
+
+(c) No: $g(1, 1) = 0$ with $1 \neq 0$. (Also $g(x, x) = 4 - 0 = 4 > 0$ and $g(x - 2, x - 2) = 0 - 4 = -4 < 0$: the signs change.)
+:::
+
+::: exercise exam Matrix associated with $g_S$ in a basis of $\R^3$
+Let $S = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$. (a) Prove that $g_S$ is positive definite. (b) Compute $[g_S]_{\mathcal B}$ for $\mathcal B = \{v_1 = (1, 0, 1),\ v_2 = (0, 1, 1),\ v_3 = (1, 1, 0)\}$. (c) Compute $g_S(v_1 + v_2, v_3)$ in two ways.
+::: solution
+(a) $g_S(x, x) = x_1^2 + 2x_1x_2 + 2x_2^2 + 3x_3^2 = (x_1 + x_2)^2 + x_2^2 + 3x_3^2$. It is a sum of terms $\ge 0$ that all vanish only for $x_3 = 0$, $x_2 = 0$ and $x_1 + x_2 = 0$, that is $x = 0$.
+
+(b) I compute the columns $Sv_j$ once:
+$$Sv_1 = (1, 1, 3), \quad Sv_2 = (1, 2, 3), \quad Sv_3 = (2, 3, 0).$$
+Then $g_S(v_i, v_j) = {}^tv_i\,(Sv_j)$:
+- $g(v_1, v_1) = (1, 0, 1) \cdot (1, 1, 3) = 4$; $g(v_1, v_2) = (1, 0, 1) \cdot (1, 2, 3) = 4$; $g(v_1, v_3) = (1, 0, 1) \cdot (2, 3, 0) = 2$;
+- $g(v_2, v_2) = (0, 1, 1) \cdot (1, 2, 3) = 5$; $g(v_2, v_3) = (0, 1, 1) \cdot (2, 3, 0) = 3$;
+- $g(v_3, v_3) = (1, 1, 0) \cdot (2, 3, 0) = 5$.
+$$[g_S]_{\mathcal B} = \begin{pmatrix} 4 & 4 & 2 \\ 4 & 5 & 3 \\ 2 & 3 & 5 \end{pmatrix}.$$
+
+(c) **With the matrix:** $[v_1 + v_2]_{\mathcal B} = (1, 1, 0)$ and $[v_3]_{\mathcal B} = (0, 0, 1)$, so the product is the sum of the entries $(1, 3)$ and $(2, 3)$ of $[g_S]_{\mathcal B}$: $2 + 3 = 5$. **Directly:** $v_1 + v_2 = (1, 1, 2)$ and $Sv_3 = (2, 3, 0)$, so $(1, 1, 2) \cdot (2, 3, 0) = 2 + 3 + 0 = 5$. ✓
+:::
+
+## Review questions
+
+::: question What is a scalar product on a real vector space $V$?
+A map $V \times V \to \R$, $(v, w) \mapsto \langle v, w\rangle$, which is linear in the first slot ($\langle v + v', w\rangle = \langle v, w\rangle + \langle v', w\rangle$ and $\langle \lambda v, w\rangle = \lambda\langle v, w\rangle$) and symmetric ($\langle v, w\rangle = \langle w, v\rangle$). Linearity in the second slot follows from this: the product is bilinear.
+:::
+
+::: question Why is the field $\R$, and not $\C$ or $\Q$, in the lessons on scalar products?
+Because you need positive numbers (to say $\langle v, v\rangle > 0$), which make no sense in $\C$, and the square roots of positive numbers (for the length $\sqrt{\langle v, v\rangle}$), which are missing in $\Q$.
+:::
+
+::: question How do you derive $\langle v, \lambda w\rangle = \lambda\langle v, w\rangle$ from the axioms?
+You turn round with symmetry, use the axiom on the first slot and turn round again: $\langle v, \lambda w\rangle = \langle \lambda w, v\rangle = \lambda\langle w, v\rangle = \lambda\langle v, w\rangle$.
+:::
+
+::: question Why is $\langle v, 0\rangle = 0$ for every $v$?
+Because $\langle v, 0\rangle = \langle v, 0 + 0\rangle = \langle v, 0\rangle + \langle v, 0\rangle$; taking $\langle v, 0\rangle$ away from both sides, what is left is $0 = \langle v, 0\rangle$.
+:::
+
+::: question What is the difference between "degenerate" and "positive definite"? Give an example of each.
+Degenerate: there is $v \neq 0$ with $\langle v, w\rangle = 0$ for every $w$ (example: $x_1y_1$ on $\R^2$, with $v = e_2$). Positive definite: $\langle v, v\rangle > 0$ for every $v \neq 0$ (example: the Euclidean product). The first condition is about the product with all vectors, the second about the product of each vector with itself.
+:::
+
+::: question Why is a positive definite product not degenerate? Does the converse hold?
+If there were $v \neq 0$ with $\langle v, w\rangle = 0$ for every $w$, with $w = v$ you would have $\langle v, v\rangle = 0$, against positive definiteness. The converse is false: $x_1y_1 - x_2y_2$ is non-degenerate but $\langle e_2, e_2\rangle = -1$.
+:::
+
+::: question What is the Euclidean scalar product and why is it positive definite?
+It is $\langle x, y\rangle = {}^tx\,y = x_1y_1 + \dots + x_ny_n$ on $\R^n$. It is positive definite because $\langle x, x\rangle = x_1^2 + \dots + x_n^2$ is a sum of squares, positive as soon as one coordinate is not zero.
+:::
+
+::: question How do you get a scalar product from a matrix? Why must the matrix be symmetric?
+With $g_S(x, y) = {}^tx\,S\,y = \sum_{i,j} x_iS_{ij}y_j$. Bilinearity comes from the matrix product; the symmetry $g_S(x, y) = g_S(y, x)$ requires ${}^tS = S$, because ${}^tx\,S\,y = {}^ty\,{}^tS\,x$.
+:::
+
+::: question What is $g_S(e_i, e_j)$? And how do you read the matrix off the formula of $g_S$?
+$g_S(e_i, e_j) = S_{ij}$: ${}^te_i$ picks row $i$, $e_j$ column $j$. As a consequence $S_{ij}$ is the coefficient of $x_iy_j$ in the formula, without dividing by two.
+:::
+
+::: question What is the associated matrix $[g]_{\mathcal B}$? Why is it symmetric?
+Once the basis $\mathcal B = \{v_1, \dots, v_n\}$ is fixed, it is the $n \times n$ matrix with entry $(i, j)$ equal to $g(v_i, v_j)$. It is symmetric because $g(v_i, v_j) = g(v_j, v_i)$.
+:::
+
+::: question How do you compute $g(v, w)$ knowing $[g]_{\mathcal B}$?
+With coordinates: $g(v, w) = {}^t[v]_{\mathcal B}\,[g]_{\mathcal B}\,[w]_{\mathcal B}$ (Corollary 19.16). It comes from bilinearity: if $v = \sum \lambda_iv_i$ and $w = \sum \mu_jv_j$, then $g(v, w) = \sum_{i,j} \lambda_i\mu_j\,g(v_i, v_j)$.
+:::
+
+::: question Why is $p(0)q(0) + p(1)q(1) + p(2)q(2)$ positive definite on $\R_2[x]$, while $p(0)q(0) + p(1)q(1)$ is degenerate?
+In the first, $\langle p, p\rangle = 0$ forces $p$ to have three distinct roots, impossible for a non-zero polynomial of degree $\le 2$. In the second two roots are enough: $p = x(1 - x)$ is non-zero, vanishes at 0 and at 1, and so gives zero with every $q$.
+:::
+
+## Glossary
+
+```glossary
+Scalar product | Bilinear and symmetric map $V \times V \to \R$; it is written $\langle v, w\rangle$ or $g(v, w)$.
+Bilinear | Linear in the first slot when the second is fixed, and linear in the second when the first is fixed.
+Symmetric | $\langle v, w\rangle = \langle w, v\rangle$ for every $v, w$.
+Degenerate | There is $v \neq 0$ with $\langle v, w\rangle = 0$ for every $w \in V$. For $g_S$: it happens if and only if $\det S = 0$.
+Non-degenerate | For every $v \neq 0$ there is $w$ with $\langle v, w\rangle \neq 0$.
+Positive definite | $\langle v, v\rangle > 0$ for every $v \neq 0$. It implies non-degenerate.
+Euclidean scalar product | On $\R^n$: $\langle x, y\rangle = {}^tx\,y = x_1y_1 + \dots + x_ny_n$. It is positive definite.
+Transpose ${}^tx$ | The column vector $x$ written as a row; ${}^tx\,y$ is a row-by-column product that gives a number.
+Symmetric matrix | Square matrix with ${}^tS = S$, that is $S_{ij} = S_{ji}$.
+$g_S$ | The scalar product $g_S(x, y) = {}^tx\,S\,y = \sum_{i,j} x_iS_{ij}y_j$ defined by a symmetric matrix $S$.
+Canonical basis | $e_1, \dots, e_n$, with $e_i$ having 1 in position $i$ and 0 elsewhere; $g_S(e_i, e_j) = S_{ij}$.
+Associated matrix $[g]_{\mathcal B}$ | Symmetric matrix with entry $(i, j)$ equal to $g(v_i, v_j)$, where $\mathcal B = \{v_1, \dots, v_n\}$.
+Coordinates $[v]_{\mathcal B}$ | The coefficients $\lambda_1, \dots, \lambda_n$ with $v = \lambda_1v_1 + \dots + \lambda_nv_n$, written as a column.
+$\R_k[x]$ | The space of polynomials with real coefficients of degree $\le k$; it has dimension $k + 1$ and canonical basis $\{1, x, \dots, x^k\}$.
+Isotropic vector | (Martelli's term.) Vector $v$ with $\langle v, v\rangle = 0$; if the product is positive definite the only one is $v = 0$.
+Radical | (Martelli's term.) The set of vectors that give zero with everything; for $g_S$ it is the kernel of $S$. It is $\{0\}$ exactly when the product is non-degenerate.
+```
+
+## Checklist
+
+```checklist
+- I can state the three axioms of the scalar product and derive from them linearity in the second slot.
+- I can prove that $\langle v, 0\rangle = 0$.
+- I can recognise whether a formula on $\R^2$ or $\R^3$ is a scalar product, and show with a numerical example when it is not.
+- I can tell apart degenerate, non-degenerate and positive definite, with an example for each case.
+- I can prove that positive definite implies non-degenerate, and why the converse is false.
+- I can compute the Euclidean scalar product in $\R^n$ and write it as ${}^tx\,y$.
+- I can go from a symmetric matrix $S$ to the formula of $g_S$ and back, without dividing by two.
+- I can compute the associated matrix $[g]_{\mathcal B}$ in any basis, also for products on polynomials.
+- I can use the formula $g(v, w) = {}^t[v]_{\mathcal B}\,[g]_{\mathcal B}\,[w]_{\mathcal B}$.
+- I can decide whether $g_S$ is degenerate with the determinant, and whether a $2 \times 2$ matrix is positive definite.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 19 "Prodotti scalari I", pp. 96–99: sections 19.A (definitions), 19.B (symmetric matrices) and 19.C (associated matrix) are followed in order, with the same numbering (Definitions 19.1, 19.2, 19.5, 19.12; Propositions 19.3, 19.6, 19.7, 19.8, 19.15; Corollaries 19.9, 19.16; Examples 19.4, 19.10, 19.11, 19.13, 19.14). The handouts have no exercises for this lesson. Reminders from other lessons: Theorem 4.6 (roots of a polynomial), lessons L08 (transpose), L10 (determinant), L15 (coordinates).
+- **B. Martelli, *Geometria e algebra lineare***, chapter 7: §7.1 (in particular the proof of Proposition 7.1.5, the criteria for diagonal matrices of §7.1.6, Proposition 7.1.23 on the radical and the words "isotropo" and "radicale") and §7.2.1 (associated matrix). The book is free: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf).
+- **Exam papers** (Moodle 2025/26): texts of the exam sessions of 24/01/2024 (question 7), 10/06/2024 (question 4), 10/07/2024 (question 9), 16/01/2025 and 07/02/2025 (problem 12), 15/01/2026 (question 9), 05/02/2026 (problem 12), 03/06/2026 (question 4). The three questions reported are solved in these notes.
+- The **"Beyond the handouts"** parts (the square of a sum, the non-degeneracy of the third product of Example 19.4, the product of physics, the criteria with the determinant, diagonal matrices and the $2 \times 2$ criterion) and all the exercises are additions in these notes, to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L20_scalar_products_2.md -->
+> File: `ai_context/MDAG/lessons/L20_scalar_products_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L20
+title: Scalar products II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L20
+description: >-
+  Notes on lesson L20 of Linear Algebra and Geometry (MDAG, part 2): how the matrix of a scalar product changes when
+  the basis changes, quadratic forms, norm, the Cauchy–Schwarz and triangle inequalities, distances and angles between
+  vectors, with exam-style quizzes and worked exercises.
+lede: >-
+  The scalar product of lesson L19 becomes geometry. You will see how its matrix changes when you change basis
+  (${}^tMSM$), what quadratic forms are, and above all how lengths
+  $\|v\| = \sqrt{\langle v, v\rangle}$, distances and angles are measured, thanks to the Cauchy–Schwarz inequality.
+  With the same method you will also measure polynomials and vectors with scalar products other than the Euclidean one.
+material: handouts
+facts:
+  Handouts: lesson 20 · pp. 100–104
+  Book: Martelli, §7.1.5, §7.2.2 and §8.1
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 20 "Prodotti scalari II"; B. Martelli, Geometria e algebra
+  lineare, §7.1.5, §7.2.2, §8.1.1–8.1.4
+italian_file: L20_prodotti_scalari_2.html
+html_notes: notes/MDAG/L20_scalar_products_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L20_prodotti_scalari_2.md
+```
+
+## In brief
+
+- The same scalar product has different matrices in different bases. If $M = [\id]^{\mathcal B'}_{\mathcal B}$ is the change-of-basis matrix, then $S' = {}^tM\,S\,M$: with the **transpose**, not with the inverse as for endomorphisms.
+- A **quadratic form** is a homogeneous polynomial of degree 2, like $x_1^2 - 6x_1x_2$. Every quadratic form is $q_S(x) = {}^tx\,S\,x$ for a unique symmetric matrix $S$: on the diagonal the coefficients of the squares, off the diagonal **half** the coefficient of $x_ix_j$.
+- $g_S$ is positive definite if and only if $q_S(x) > 0$ for every $x \neq 0$. For the rest of the lesson, and in lessons L21–L22, the scalar product is always **positive definite**.
+- The **norm** $\|v\| = \sqrt{\langle v, v\rangle}$ is the length of $v$. In the Euclidean product it is Pythagoras' theorem: $\|(3, 4)\| = 5$.
+- Four properties: $\|v\| > 0$ if $v \neq 0$; $\|\lambda v\| = |\lambda|\,\|v\|$; **Cauchy–Schwarz** $|\langle v, w\rangle| \le \|v\|\,\|w\|$; **triangle inequality** $\|v + w\| \le \|v\| + \|w\|$.
+- The **distance** between two points is $d(P, Q) = \|Q - P\|$; it is positive, symmetric and satisfies the triangle inequality.
+- The **angle** between two non-zero vectors is the $\vartheta \in [0, \pi]$ with $\cos\vartheta = \frac{\langle v, w\rangle}{\|v\|\,\|w\|}$. The sign of $\langle v, w\rangle$ tells you whether it is acute, right or obtuse.
+- At the exam: norms and angles with a given $g_S$ (quiz and first part of the problems), matrix of a quadratic form, change of basis. All without a calculator: you need the cosines of the special angles.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Change of basis (p. 100)
+
+In lesson L19 you saw two matrices for the **same** scalar product, the Euclidean one of $\R^2$: in the canonical basis it is $I_2$, in the basis $\mathcal B = \{(1, 0), (1, 1)\}$ it is $\begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$ (Example 19.14). What is the link between the two? You need a formula, like the one of lesson L16 for endomorphisms.
+
+**The reminder from lesson L16.** If $\mathcal B = \{v_1, \dots, v_n\}$ and $\mathcal B' = \{v_1', \dots, v_n'\}$ are two bases of $V$, the **change-of-basis matrix** from $\mathcal B'$ to $\mathcal B$ is
+
+$$M = [\id]^{\mathcal B'}_{\mathcal B}.$$
+
+Its $i$-th column, which the handouts denote by $M^i$, contains the **coordinates of the new vector $v_i'$ in the old basis** $\mathcal B$: $M^i = [v_i']_{\mathcal B}$.
+
+**The computation.** Let $S = [g]_{\mathcal B}$ and $S' = [g]_{\mathcal B'}$ be the matrices of the same scalar product $g$ in the two bases. By definition and by Corollary 19.16 (computation in coordinates in the basis $\mathcal B$):
+
+$$S'_{ij} = g(v_i', v_j') = {}^t[v_i']_{\mathcal B}\,S\,[v_j']_{\mathcal B} = {}^t(M^i)\,S\,M^j.$$
+
+On the right there is the row ${}^t(M^i)$, that is row $i$ of the matrix ${}^tM$, times $S$, times column $j$ of $M$: it is exactly the entry $(i, j)$ of the product ${}^tM\,S\,M$.
+
+> [!PROP] 20.1
+> We have
+> $$S' = {}^tM\,S\,M.$$
+
+> [!EXAMPLE] 20.2 · The Euclidean product in the basis $\{(1, 0), (1, 1)\}$
+> For the Euclidean scalar product of $\R^2$, with respect to the basis $\mathcal B = \{(1, 0), (1, 1)\}$ we have already found $\begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$. Here the "old" basis is the canonical one $\mathcal C$, where the matrix is $I_2$. The change-of-basis matrix is
+> $$M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$$
+> (columns: the vectors of $\mathcal B$ written in the canonical basis), and indeed
+> $$\begin{aligned} {}^tM\,I_2\,M &= \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \\ &= \begin{pmatrix} 1 \cdot 1 + 0 \cdot 0 & 1 \cdot 1 + 0 \cdot 1 \\ 1 \cdot 1 + 1 \cdot 0 & 1 \cdot 1 + 1 \cdot 1 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}. \end{aligned}$$
+
+In the handouts, in this example, the matrix in the new basis is called $S$ and the old one is $I_2$: the names change, the rule does not. **Old** matrix in the middle, $M$ on the right, ${}^tM$ on the left.
+
+> [!EXAMPLE] A basis in which $g_S$ becomes the identity
+> Take $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ (Example 19.11) and the new basis $\mathcal B' = \{(1, -1), (0, 1)\}$. The old basis is the canonical one, so $M = \begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix}$. One product at a time:
+> $$SM = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix},$$
+> $${}^tM(SM) = \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.$$
+> It is the same result that in lesson L19 (exercise 5) was obtained entry by entry: in the basis $\mathcal B'$ the product $g_S$ has matrix $I_2$.
+
+> [!PITFALL] Transpose for scalar products, inverse for endomorphisms
+> With the same $M = [\id]^{\mathcal B'}_{\mathcal B}$:
+> - an **endomorphism** changes as $A' = M^{-1}A\,M$ (lesson L16);
+> - a **scalar product** changes as $S' = {}^tM\,S\,M$.
+>
+> The two formulas give different results. With $M = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ and $I_2$: as an endomorphism (the identity) it stays $M^{-1}I_2M = I_2$; as a scalar product it becomes ${}^tMI_2M = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$. The two formulas give the same result for every matrix when ${}^tM = M^{-1}$: these are the orthogonal matrices of lesson L22.
+
+> [!METHOD] Two ways of finding $[g]_{\mathcal B'}$
+> 1. **Entry by entry** (lesson L19): $S'_{ij} = g(v_i', v_j')$. Convenient if $n = 2$ or if $g$ is given by a formula.
+> 2. **With the formula** $S' = {}^tM\,S\,M$: put in the columns of $M$ the coordinates of the new vectors in the basis in which you know $S$; compute $SM$ first, then ${}^tM(SM)$.
+>
+> In both cases check at the end that $S'$ is **symmetric**: if it is not, there is a computation mistake.
+
+> [!BEYOND] The sign of the determinant does not change
+> By Binet's theorem (Theorem 10.4) and $\det({}^tM) = \det M$:
+> $$\det S' = \det({}^tM)\det S\det M = (\det M)^2\det S.$$
+> Since $M$ is invertible, $(\det M)^2 > 0$: $\det S'$ has **the same sign** as $\det S$. In particular $S'$ is degenerate if and only if $S$ is (it is the same scalar product). It is a good quick check at the exam. Martelli calls two symmetric matrices linked by $S' = {}^tM\,S\,M$ with $M$ invertible **congruent** (§7.2.3).
+
+## Quadratic forms (pp. 100–102)
+
+If in a scalar product you put the **same** vector in both slots, you get a second-degree polynomial in the coordinates. For example with $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$:
+
+$$\begin{aligned} g_S(x, x) &= 2x_1x_1 + x_1x_2 + x_2x_1 + x_2x_2 \\ &= 2x_1^2 + 2x_1x_2 + x_2^2. \end{aligned}$$
+
+The two mixed terms $x_1x_2$ and $x_2x_1$ are now **the same monomial** and add up. These polynomials have a name.
+
+**Homogeneous polynomials.** A polynomial in the variables $x_1, \dots, x_n$ is **homogeneous** if all its monomials have the same degree. The handouts' examples:
+
+| Polynomial | Monomials and degrees | Homogeneous of degree |
+|---|---|--:|
+| $x_1 + x_2 - 3x_3$ | three monomials of degree 1 | 1 |
+| $2x_1x_2 - x_3^2 + x_1x_3$ | three monomials of degree 2 | 2 |
+| $x_1^3 - x_2x_3^2$ | two monomials of degree 3 | 3 |
+
+Instead $x_1^2 + x_2$ is not homogeneous (a monomial of degree 2 and one of degree 1), and neither is $x_1x_2 + 1$ (the constant has degree 0).
+
+> [!DEF] 20.3 · Quadratic form
+> A **quadratic form** is a homogeneous polynomial of degree 2 in the variables $x_1, \dots, x_n$.
+
+In practice a quadratic form is a sum of terms of the form (number) $\cdot\, x_i^2$ and (number) $\cdot\, x_ix_j$, with no terms of degree 1 and no constants.
+
+> [!PROP] 20.4
+> Every quadratic form can be written in a unique way as
+> $$q(x) = g_S(x, x) = \sum_{i,j=1}^n x_iS_{ij}x_j$$
+> for a suitable symmetric matrix $S$.
+
+The handouts' proof, with the steps explained.
+
+1. A quadratic form is written $q(x) = \sum_{1 \le i \le j \le n} a_{ij}x_ix_j$. The condition $i \le j$ is there so as not to count the same monomial twice: $x_1x_2$ and $x_2x_1$ are the same, and it appears only once, with coefficient $a_{12}$.
+2. Define $S_{ii} = a_{ii}$ on the diagonal and $S_{ij} = S_{ji} = \frac12 a_{ij}$ for $i < j$: the coefficient of the mixed monomial is **split in half** between the two symmetric positions.
+3. In the sum $\sum_{i,j} S_{ij}x_ix_j$ the monomial $x_ix_j$ with $i < j$ appears twice, as $S_{ij}x_ix_j$ and as $S_{ji}x_jx_i$: in total $\frac12 a_{ij} + \frac12 a_{ij} = a_{ij}$, the right coefficient. The squares appear only once, with $S_{ii} = a_{ii}$. So $\sum_{i,j} S_{ij}x_ix_j = q(x)$.
+4. The construction determines $S$ in a unique way: a **symmetric** matrix with $g_S(x, x) = q(x)$ must have the coefficients of the squares on the diagonal, and in each pair of positions $(i, j)$, $(j, i)$ two equal numbers with sum $a_{ij}$, so both are $\frac12 a_{ij}$. $\square$
+
+> [!METHOD] From the form to the matrix and back
+> - **Form → matrix.** The coefficient of $x_i^2$ goes in position $(i, i)$. The coefficient of $x_ix_j$ ($i \ne j$) is **divided by 2** and goes both in position $(i, j)$ and in position $(j, i)$. The variables that do not appear give rows and columns of zeros.
+> - **Matrix → form.** $q_S(x) = \sum_i S_{ii}x_i^2 + \sum_{i < j} 2S_{ij}\,x_ix_j$: the squares with the diagonal coefficient, the mixed terms with **twice** the off-diagonal entry.
+
+> [!EXAMPLE] 20.5 · There and back
+> The symmetric matrices
+> $$\begin{pmatrix} 1 & -3 \\ -3 & 0 \end{pmatrix}, \qquad \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{pmatrix}, \qquad \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{pmatrix}$$
+> define respectively the quadratic forms
+> $$x_1^2 - 6x_1x_2, \quad x_1^2 + x_2^2 - x_3^2, \quad 2x_1x_2 + 2x_2x_3 + 2x_3x_1.$$
+> Conversely, $q(x) = x_1^2 + 4x_1x_2 - x_2^2 + 4x_3^2$ is described by the matrix
+> $$S = \begin{pmatrix} 1 & 2 & 0 \\ 2 & -1 & 0 \\ 0 & 0 & 4 \end{pmatrix}.$$
+
+Check the steps. In the first matrix $S_{12} = -3$, so the mixed term is $2 \cdot (-3)\,x_1x_2 = -6x_1x_2$; $S_{22} = 0$, so $x_2^2$ does not appear. In the third, every off-diagonal entry equals 1 and gives $2x_ix_j$. In the last, the coefficient 4 of $x_1x_2$ is split into $2 + 2$ in positions $(1, 2)$ and $(2, 1)$, while $4x_3^2$ goes on the diagonal **whole**; $x_3$ does not appear in mixed terms, so row and column 3 have zeros off the diagonal.
+
+> [!PITFALL] Half yes, half no
+> You divide by two **only the coefficient of the mixed terms**, and only for **quadratic forms**. In the formula of a scalar product $g(x, y)$ the terms $x_1y_2$ and $x_2y_1$ are different and go into the matrix without halving (lesson L19). In the exam of 08/02/2024 (question 7) the wrong answers included precisely the matrices with the mixed coefficient not halved.
+
+**The form of a matrix and positive definiteness.** The handouts denote by
+
+$$q_S(x) = g_S(x, x)$$
+
+the quadratic form defined by the symmetric matrix $S$. By the definition of positive definite product (Definition 19.2), with $v = x$:
+
+$$g_S \text{ positive definite} \iff q_S(x) > 0 \quad \forall\, x \neq 0.$$
+
+So to decide whether $g_S$ is positive definite it is enough to study the **sign** of a second-degree polynomial.
+
+> [!BEYOND] Completing the squares, and going back from the form to the product
+> **Completing the squares.** To see that a form is positive you rewrite it as a sum of squares with positive coefficients. For $q = 2x_1^2 + 2x_1x_2 + 2x_2^2$:
+> $$q = 2\left(x_1 + \frac{x_2}2\right)^2 + \frac32 x_2^2,$$
+> or
+> $$q = x_1^2 + x_2^2 + (x_1 + x_2)^2.$$
+> In both expressions $q \ge 0$, and $q = 0$ only if $x_2 = 0$ and $x_1 = 0$. For $2 \times 2$ matrices there is also the criterion of lesson L19: $\begin{pmatrix} a & b \\ b & c \end{pmatrix}$ is positive definite if and only if $a > 0$ and $ac - b^2 > 0$.
+>
+> **From the form to the product (polarisation).** The quadratic form contains all the information about the scalar product. Expanding $q(x + y) = g(x + y, x + y) = q(x) + 2g(x, y) + q(y)$ (lesson L19) you get
+> $$g(x, y) = \frac12\big(q(x + y) - q(x) - q(y)\big).$$
+
+The handouts say it explicitly: **for the rest of the lesson the scalar product is always positive definite**. It is needed for the square roots of the next section.
+
+## The norm: the length of a vector (pp. 102–103)
+
+In the plane, the vector $v = (3, 4)$ is the hypotenuse of a right triangle with legs 3 and 4. By Pythagoras' theorem its length is
+
+$$\sqrt{3^2 + 4^2} = \sqrt{25} = 5.$$
+
+Under the root there is exactly $\langle v, v\rangle = 3 \cdot 3 + 4 \cdot 4$. The idea of the norm is this: **the length is the root of the scalar product of a vector with itself**, whatever the scalar product.
+
+```graph
+title: $\|(3, 4)\| = \sqrt{3^2 + 4^2} = 5$: the Euclidean norm is Pythagoras' theorem
+x: -1 5
+y: -1 5
+polygon: 0 0 3 0 3 4 | faint
+vector: 3 4 | accent | thick | $v = (3, 4)$ | nw
+segment: 0 0 3 0 | blue | $3$ | s
+segment: 3 0 3 4 | amber | $4$ | e
+```
+
+> [!DEF] 20.6 · Norm
+> Let $V$ be a vector space equipped with a positive definite scalar product. The **norm** of $v \in V$ is
+> $$\|v\| = \sqrt{\langle v, v\rangle}.$$
+
+Piece by piece:
+
+- the norm is to be interpreted as the **length** of the vector;
+- the product must be **positive definite**: this way $\langle v, v\rangle \ge 0$ and the square root makes sense in $\R$ (this is why the field is $\R$);
+- the symbol $\|v\|$ has two bars so as not to confuse it with the absolute value $|x|$ of a number;
+- the norm **depends on the scalar product**: the same vector can have different lengths with different products.
+
+> [!EXAMPLE] 20.8 · The Euclidean norm
+> For the Euclidean scalar product on $\R^n$:
+> $$\|x\| = \sqrt{x_1^2 + \dots + x_n^2}.$$
+> For example $\|(3, 4)\| = 5$, $\|(1, 2, 2)\| = \sqrt{1 + 4 + 4} = 3$, $\|(1, 1, 1, 1)\| = \sqrt 4 = 2$.
+
+> [!EXAMPLE] 20.9 · A different norm
+> Consider the scalar product $g_S$ on $\R^2$ defined by $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$. The norm of $x$ is
+> $$\|x\| = \sqrt{2x_1^2 + 2x_1x_2 + x_2^2}.$$
+> Under the root there is the quadratic form $q_S(x)$. Some values:
+>
+> | $x$ | $q_S(x) = 2x_1^2 + 2x_1x_2 + x_2^2$ | $\|x\|$ with $g_S$ | Euclidean $\|x\|$ |
+> |---|---|---|---|
+> | $(1, 0)$ | $2$ | $\sqrt 2$ | $1$ |
+> | $(0, 1)$ | $1$ | $1$ | $1$ |
+> | $(1, -1)$ | $2 - 2 + 1 = 1$ | $1$ | $\sqrt 2$ |
+> | $(1, 1)$ | $2 + 2 + 1 = 5$ | $\sqrt 5$ | $\sqrt 2$ |
+
+The properties that make the norm a good "length" are four.
+
+> [!PROP] 20.7
+> For every $v, w \in V$ and $\lambda \in \R$ the following hold:
+> 1. $\|v\| > 0$ if $v \neq 0$ and $\|0\| = 0$,
+> 2. $\|\lambda v\| = |\lambda|\,\|v\|$,
+> 3. $|\langle v, w\rangle| \le \|v\|\,\|w\|$,
+> 4. $\|v + w\| \le \|v\| + \|w\|$.
+>
+> (3) is the **Cauchy–Schwarz inequality** and (4) is the **triangle inequality**.
+
+Piece by piece, with numbers:
+
+- **(1)** only the zero vector has length zero. It is positive definiteness.
+- **(2)** multiplying a vector by $\lambda$ multiplies the length by $|\lambda|$: $\|-3v\| = 3\|v\|$. The absolute value is needed because lengths are never negative.
+- **(3)** the scalar product never exceeds, in absolute value, the product of the lengths. With $v = (1, 2)$ and $w = (3, 1)$: $|\langle v, w\rangle| = 5$ and $\|v\|\,\|w\| = \sqrt 5\sqrt{10} = \sqrt{50} \approx 7.07$. With $w = (2, 4) = 2v$ equality holds: $\langle v, w\rangle = 10 = \sqrt 5 \cdot \sqrt{20}$.
+- **(4)** in a triangle one side does not exceed the sum of the other two. With $v = (3, 0)$ and $w = (0, 4)$: $\|v + w\| = \|(3, 4)\| = 5 \le 3 + 4 = 7$.
+
+**Proof of points (1) and (2).** Point (1) comes from positive definiteness: if $v \ne 0$, then $\langle v, v\rangle > 0$ and its root is positive; $\langle 0, 0\rangle = 0$. For point (2), with axioms (2) and (5) of lesson L19:
+
+$$\|\lambda v\| = \sqrt{\langle \lambda v, \lambda v\rangle} = \sqrt{\lambda^2\langle v, v\rangle} = \sqrt{\lambda^2}\,\sqrt{\langle v, v\rangle} = |\lambda|\,\|v\|,$$
+
+because $\sqrt{\lambda^2} = |\lambda|$ (for example $\sqrt{(-3)^2} = 3$).
+
+**Proof of Cauchy–Schwarz.** If $w = 0$ both sides equal 0. So let $w \neq 0$ and call $c = \frac{\langle v, w\rangle}{\langle w, w\rangle}$. The idea: the vector $v - cw$ is "what is left of $v$ after taking away the part in the direction of $w$" (in lesson L21 $cw$ will be called the **projection** of $v$ onto $w$). Its squared norm is $\ge 0$:
+
+1. expand with bilinearity (like $(a - b)^2$):
+   $$0 \le \|v - cw\|^2 = \langle v, v\rangle - 2c\langle v, w\rangle + c^2\langle w, w\rangle;$$
+2. substitute $c = \frac{\langle v, w\rangle}{\|w\|^2}$:
+   $$0 \le \|v\|^2 - 2\,\frac{\langle v, w\rangle^2}{\|w\|^2} + \frac{\langle v, w\rangle^2}{\|w\|^4}\,\|w\|^2 = \|v\|^2 - \frac{\langle v, w\rangle^2}{\|w\|^2};$$
+3. multiply by $\|w\|^2 > 0$: $\langle v, w\rangle^2 \le \|v\|^2\|w\|^2$;
+4. take the square root of both sides (they are $\ge 0$): $\sqrt{\langle v, w\rangle^2} = |\langle v, w\rangle|$, so $|\langle v, w\rangle| \le \|v\|\,\|w\|$. $\square$
+
+**Proof of the triangle inequality.** Expand the square (lesson L19) and use Cauchy–Schwarz:
+
+$$\begin{aligned} \|v + w\|^2 &= \|v\|^2 + \|w\|^2 + 2\langle v, w\rangle \\ &\le \|v\|^2 + \|w\|^2 + 2\|v\|\,\|w\| = \big(\|v\| + \|w\|\big)^2. \end{aligned}$$
+
+The step with $\le$ uses $\langle v, w\rangle \le |\langle v, w\rangle| \le \|v\|\,\|w\|$. Finally you take the root of both sides, both $\ge 0$. $\square$
+
+> [!BEYOND] When equality holds
+> In Cauchy–Schwarz $=$ holds exactly when $v$ and $w$ are **parallel** (one is a multiple of the other): in step 1 equality means $\|v - cw\| = 0$, that is $v = cw$. In the triangle inequality $=$ holds when in addition they point in the **same direction** (you need $\langle v, w\rangle = \|v\|\,\|w\|$, not with the minus sign).
+
+**Unit vectors.** A vector of norm 1 is called a **unit** vector. By property (2), if $v \neq 0$ the vector $\frac{v}{\|v\|}$ has norm $\frac{1}{\|v\|}\,\|v\| = 1$: dividing by the norm is called **normalising**. For example $\frac{(3, 4)}{5} = \left(\frac35, \frac45\right)$. The handouts use normalised vectors in the next section and orthonormal bases in lesson L21.
+
+## Distances (p. 103)
+
+With a length you immediately measure a distance: the distance between two points is the length of the vector that goes from one to the other. If $P, Q \in V$, we set
+
+$$\overrightarrow{PQ} = Q - P.$$
+
+The vector $\overrightarrow{PQ}$ starts at $P$ and ends at $Q$: it is computed as "end minus start".
+
+> [!DEF] 20.10 · Distance
+> The **distance** between $P$ and $Q$ is
+> $$d(P, Q) = \|Q - P\|.$$
+
+Examples with the Euclidean product:
+
+- $P = (1, 2)$, $Q = (4, 6)$: $Q - P = (3, 4)$ and $d(P, Q) = 5$;
+- $P = (1, 0, 2)$, $Q = (3, 1, 0)$: $Q - P = (2, 1, -2)$ and $d(P, Q) = \sqrt{4 + 1 + 4} = 3$.
+
+With another product the distances change too. With $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ the distance between $P = (0, 0)$ and $Q = (1, -1)$ is $\|(1, -1)\|_S = 1$ (table of Example 20.9), while the Euclidean one is $\sqrt 2$.
+
+> [!PROP] 20.11
+> For every $P, Q, R \in V$:
+> 1. $d(P, Q) > 0$ if $P \neq Q$ and $d(P, P) = 0$,
+> 2. $d(P, Q) = d(Q, P)$,
+> 3. $d(P, R) \le d(P, Q) + d(Q, R)$.
+
+The explanation, point by point:
+
+1. if $P \neq Q$ the vector $Q - P$ is not zero, so it has positive norm (Proposition 20.7, point 1); $d(P, P) = \|0\| = 0$;
+2. $P - Q = (-1)(Q - P)$, so $\|P - Q\| = |-1|\,\|Q - P\| = \|Q - P\|$ (point 2 of the norm);
+3. you split the path from $P$ to $R$ by going through $Q$: $R - P = (Q - P) + (R - Q)$. By the triangle inequality of the norm
+   $$\begin{aligned} d(P, R) &= \|(Q - P) + (R - Q)\| \\ &\le \|Q - P\| + \|R - Q\| = d(P, Q) + d(Q, R). \end{aligned}$$
+
+```graph
+title: $d(P, R) = 5 \le d(P, Q) + d(Q, R) = 3 + 4$
+x: 0 6
+y: 0 6
+point: 1 1 | accent | $P$ | sw
+point: 4 1 | accent | $Q$ | se
+point: 4 5 | accent | $R$ | ne
+segment: 1 1 4 1 | blue | $3$ | s
+segment: 4 1 4 5 | amber | $4$ | e
+segment: 1 1 4 5 | green | thick | $5$ | nw
+```
+
+## Angles (p. 104)
+
+In physics you learn the formula $\langle v, w\rangle = \|v\|\,\|w\|\cos\vartheta$, where $\vartheta$ is the angle between the two vectors. The course **turns it round** and uses it as the definition of the angle: the scalar product and the norms can be computed, and from them you get $\cos\vartheta$.
+
+> [!DEF] 20.12 · Angle
+> Let $V$ be equipped with a positive definite scalar product. The **angle** between two non-zero vectors $v, w \in V$ is the number $\vartheta \in [0, \pi]$ such that
+> $$\cos\vartheta = \frac{\langle v, w\rangle}{\|v\|\,\|w\|}.$$
+
+Piece by piece:
+
+- the vectors must be **non-zero**, otherwise you would divide by zero;
+- the angle is in **radians** and lies in $[0, \pi]$, that is between 0° and 180°: the angle between two vectors has no orientation and does not exceed a straight angle;
+- **the definition makes sense thanks to Cauchy–Schwarz**: dividing $|\langle v, w\rangle| \le \|v\|\,\|w\|$ by $\|v\|\,\|w\| > 0$ you get
+  $$-1 \le \frac{\langle v, w\rangle}{\|v\|\,\|w\|} \le 1,$$
+  and for every number in $[-1, 1]$ there is **one and only one** $\vartheta \in [0, \pi]$ with that cosine;
+- the same thing is written with the arccosine: $\vartheta = \arccos\frac{\langle v, w\rangle}{\|v\|\,\|w\|}$.
+
+The sign of the scalar product decides the type of angle, because $\|v\|\,\|w\| > 0$ and the cosine in $[0, \pi]$ is positive before $\frac\pi2$ and negative after:
+
+| $\langle v, w\rangle$ | $\cos\vartheta$ | The angle $\vartheta$ is |
+|---|---|---|
+| $> 0$ | $> 0$ | **acute**, $0 \le \vartheta < \frac\pi2$ |
+| $= 0$ | $= 0$ | **right**, $\vartheta = \frac\pi2$ |
+| $< 0$ | $< 0$ | **obtuse**, $\frac\pi2 < \vartheta \le \pi$ |
+
+**Without a calculator**: at the exam you recognise the cosines of the special angles. It is worth having them on the sheet.
+
+| $\vartheta$ | $0$ | $\frac\pi6$ | $\frac\pi4$ | $\frac\pi3$ | $\frac\pi2$ | $\frac{2\pi}3$ | $\frac{3\pi}4$ | $\frac{5\pi}6$ | $\pi$ |
+|---|---|---|---|---|---|---|---|---|---|
+| degrees | 0° | 30° | 45° | 60° | 90° | 120° | 135° | 150° | 180° |
+| $\cos\vartheta$ | $1$ | $\frac{\sqrt3}2$ | $\frac{\sqrt2}2$ | $\frac12$ | $0$ | $-\frac12$ | $-\frac{\sqrt2}2$ | $-\frac{\sqrt3}2$ | $-1$ |
+
+> [!EXAMPLE] Four angles with the Euclidean product
+> 1. $v = (1, 0)$, $w = (1, 1)$: $\langle v, w\rangle = 1$, $\|v\| = 1$, $\|w\| = \sqrt 2$, so $\cos\vartheta = \frac1{\sqrt2} = \frac{\sqrt2}2$ and $\vartheta = \frac\pi4$.
+> 2. $v = (1, 2)$, $w = (-2, 1)$: $\langle v, w\rangle = -2 + 2 = 0$, so $\vartheta = \frac\pi2$.
+> 3. $v = (1, 0)$, $w = (-1, \sqrt3)$: $\langle v, w\rangle = -1$, $\|w\| = \sqrt{1 + 3} = 2$, so $\cos\vartheta = -\frac12$ and $\vartheta = \frac{2\pi}3$.
+> 4. $v = (1, 1, 1)$, $w = (1, 2, 3)$: $\langle v, w\rangle = 6$, $\|v\| = \sqrt3$, $\|w\| = \sqrt{14}$, so $\cos\vartheta = \frac6{\sqrt{42}}$ and $\vartheta = \arccos\frac{6}{\sqrt{42}}$, which is not a special angle. It is question 10 of the exam of 07/09/2026.
+
+```graph
+title: $v = (1, 0)$ and $w = (-1, \sqrt 3)$: $\cos\vartheta = -\frac12$, so $\vartheta = \frac{2\pi}{3}$ (obtuse)
+x: -2 2
+y: -0.5 2
+vector: 1 0 | accent | thick | $v$ | s
+vector: -1 sqrt(3) | blue | thick | $w$ | nw
+arc: 0 0 0.45 0 2pi/3 | amber | $\vartheta$
+```
+
+Try it with the tool: drag $v$ so that the product $u \cdot v$ changes sign, and watch the angle go from acute to right to obtuse. When $u \cdot v = 0$ the tool writes that the vectors are orthogonal. Careful: the tool writes the angle in **degrees** (90° corresponds to $\frac\pi2$), while at the exam radians are used.
+
+```widget vettori
+title: Norms, scalar product and angle
+u: 2 1
+v: -1 3
+modo: scalare
+modi: scalare
+raggio: 5
+```
+
+**Angles with a non-Euclidean product.** The definition holds for **every** positive definite product. With $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, for example, $e_1$ and $e_2$ are no longer perpendicular: $g_S(e_1, e_2) = 1$, $\|e_1\| = \sqrt2$, $\|e_2\| = 1$, so $\cos\vartheta = \frac1{\sqrt2}$ and the angle between $e_1$ and $e_2$ is $\frac\pi4$ (exercise 7).
+
+> [!NOTE] Link with computer science: cosine similarity
+> The handouts end the lesson with a link. In many applications (search engines, recommender systems, image recognition) an object, for example a word, a document or an image, is represented by a vector $x \in \R^n$, often called an **embedding**. To compare two representations $x$ and $y$ one uses the **cosine similarity**
+> $$\operatorname{sim}(x, y) = \frac{\langle x, y\rangle}{\|x\|\,\|y\|} = \cos\vartheta.$$
+> It depends on the angle and **not on the length** of the vectors. If the embeddings are normalised ($\|x\| = \|y\| = 1$), the cosine similarity is simply the scalar product $\langle x, y\rangle$. Vectors pointing in similar directions have similarity close to 1.
+>
+> A small example: three documents described by the number of times four words appear in them, $d_1 = (2, 1, 0, 1)$, $d_2 = (4, 2, 0, 2)$, $d_3 = (0, 1, 3, 0)$. The second is the first "written twice": $\operatorname{sim}(d_1, d_2) = 1$, even though $d_2$ is longer. Instead $\operatorname{sim}(d_1, d_3) = \frac{1}{\sqrt6\sqrt{10}} = \frac{\sqrt{15}}{30} \approx 0.13$: they talk about different things.
+
+> [!BEYOND] Where to find it in the book
+> Martelli: §7.2.2 "Cambiamento di base" (p. 212) and §7.2.3 on congruent matrices (p. 213); §7.1.5 "Forme quadratiche" (pp. 203–204); chapter 8, §8.1.1 "Norma" (pp. 240–241), §8.1.2 with the applications of Cauchy–Schwarz and the parallelogram law (pp. 241–242), §8.1.3 "Angoli" (pp. 242–243), §8.1.4 "Distanze" (pp. 243–244). The book proves Cauchy–Schwarz in a slightly different way, with $\|av + bw\|^2 \ge 0$ for $a = \|w\|^2$ and $b = -\langle v, w\rangle$.
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; it lasts 2 hours, with no calculator, and only 4 handwritten pages of notes. 2026/27 exam sessions: 22/01 and 05/02/2027, at 14:00. The details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions**
+
+1. **Norm and angle (quiz).** Exam of 07/09/2026: question 5 (norm of ${}^t(1, 1, 1)$ with an $S$ of order 3) and question 10 (Euclidean angle between ${}^t(1, 1, 1)$ and ${}^t(1, 2, 3)$). Exam of 03/06/2025, question 6 (angle with $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$). Exam of 08/02/2024, question 8 (angle between the polynomials $x$ and $x^2$).
+2. **Quadratic form → matrix (quiz).** Exam of 08/02/2024, question 7.
+3. **Change of basis (quiz).** Exams of 10/06/2024 and 03/06/2026, question 4: the matrix of $g_S$ in a new basis, with ${}^tMSM$ or entry by entry.
+4. **Problems.** Part (1) of problem 12 of 03/07/2026 asks for norms and the cosine of the angle with a $g_S$ on $\R^3$; part (2) of problem 12 of 07/02/2025 asks for norms and angle of two polynomials; part (2) of problem 12 of 05/02/2026 asks for which values of a parameter two vectors are orthogonal with respect to $g_S$.
+
+> [!METHOD] Norm and angle with a $g_S$
+> 1. Compute the vectors $Sv$ and $Sw$ **once**.
+> 2. $\|v\|^2 = {}^tv\,(Sv)$, $\|w\|^2 = {}^tw\,(Sw)$, $g_S(v, w) = {}^tv\,(Sw)$: they are Euclidean products between vectors you already know.
+> 3. $\cos\vartheta = \frac{g_S(v, w)}{\|v\|\,\|w\|}$. Simplify the roots ($\frac{1}{\sqrt2} = \frac{\sqrt2}2$, $\frac{3}{\sqrt{12}} = \frac{\sqrt3}2$) and compare with the table of special angles.
+> 4. If no special angle matches, the answer stays in the form $\arccos(\dots)$: in the quiz look for the equivalent option, perhaps written with a rationalised denominator.
+
+**Three real exam questions, solved**
+
+> [!EXAMPLE] Exam of 07/09/2026, question 5
+> On $\R^3$ you are given $g_S$ with $S = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 0 \\ 1 & 0 & 1 \end{pmatrix}$. What is the norm of $v = {}^t(1, 1, 1)$? (Options: $\sqrt2$, $2$, $\sqrt7$, $\sqrt3$, $3$.)
+>
+> **Solution.** $Sv = (2 + 1 + 1,\ 1 + 2 + 0,\ 1 + 0 + 1) = (4, 3, 2)$, then $\|v\|^2 = {}^tv\,(Sv) = 4 + 3 + 2 = 9$, so $\|v\| = 3$. The typical mistake is to answer $\sqrt3$, the **Euclidean** norm of $(1, 1, 1)$: here the product is $g_S$.
+
+> [!EXAMPLE] Exam of 03/06/2025, question 6
+> With $g_S(v, w) = {}^tv\,S\,w$ and $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, what is the angle between $u = {}^t(0, 2)$ and $w = {}^t(\sqrt3, 1 - \sqrt3)$? (Options: $\frac\pi4$, $0$, $\frac\pi3$, $\arccos\frac{1 - \sqrt3}{\sqrt{7 - 2\sqrt3}}$, $\frac\pi2$.)
+>
+> **Solution.**
+> - $Sw = \big(2\sqrt3 + 1 - \sqrt3,\ \sqrt3 + 1 - \sqrt3\big) = (\sqrt3 + 1,\ 1)$;
+> - $g_S(u, w) = {}^tu\,(Sw) = 0 \cdot (\sqrt3 + 1) + 2 \cdot 1 = 2$;
+> - $Su = (2, 2)$ and $\|u\|^2 = 0 \cdot 2 + 2 \cdot 2 = 4$, so $\|u\| = 2$;
+> - $\|w\|^2 = {}^tw\,(Sw) = \sqrt3(\sqrt3 + 1) + (1 - \sqrt3) \cdot 1 = 3 + \sqrt3 + 1 - \sqrt3 = 4$, so $\|w\| = 2$.
+>
+> $\cos\vartheta = \frac{2}{2 \cdot 2} = \frac12$, so $\vartheta = \frac\pi3$. The option with the arccosine is the cosine computed with the **Euclidean** product: $\frac{0 \cdot \sqrt3 + 2(1 - \sqrt3)}{2\sqrt{3 + (1 - \sqrt3)^2}} = \frac{1 - \sqrt3}{\sqrt{7 - 2\sqrt3}}$, the trap for those who forget $S$.
+
+> [!EXAMPLE] Exam of 10/06/2024, question 4
+> Given $S = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 0 & 0 \\ 1 & 0 & 2 \end{pmatrix}$, what is the matrix of $g_S$ in the basis $\mathcal B = \{{}^t(1, 0, 0), {}^t(1, 1, 0), {}^t(1, 1, 1)\}$?
+>
+> **Solution with ${}^tMSM$.** $M = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$ (columns: the vectors of the basis). First $SM = \begin{pmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \\ 1 & 1 & 3 \end{pmatrix}$, then
+> $${}^tM(SM) = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 & 3 \\ 1 & 1 & 1 \\ 1 & 1 & 3 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 3 & 4 \\ 3 & 4 & 7 \end{pmatrix}.$$
+> Checks: the result is symmetric; $\det S = -2$ and $\det M = 1$, so the result must also have determinant $-2$ (and indeed $1(21 - 16) - 2(14 - 12) + 3(8 - 9) = 5 - 4 - 3 = -2$).
+>
+> The wrong answers are instructive: one was $M$ itself, which is not symmetric and is discarded at once; one was $S$, the matrix in the canonical basis; one was ${}^tM\,M = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 2 \\ 1 & 2 & 3 \end{pmatrix}$, that is the matrix of the **Euclidean** product in the basis $\mathcal B$, for those who forget $S$. The fastest way to choose is to compute a single entry: $S'_{22} = g_S(v_2, v_2) = {}^t(1, 1, 0)\,S\,(1, 1, 0) = {}^t(1, 1, 0)\,(2, 1, 1) = 3$, and only one of the five matrices has 3 in position $(2, 2)$.
+
+**Mistakes to avoid**
+
+- Using the **Euclidean** product when a $g_S$ is given (see the two traps above).
+- Forgetting the **root**: $\|v\|^2 = 9$ means $\|v\| = 3$.
+- Using $M^{-1}SM$ instead of ${}^tMSM$.
+- Not halving the mixed coefficients of a quadratic form.
+- Giving the angle in degrees or outside $[0, \pi]$: a negative cosine gives an **obtuse** angle, not a negative angle.
+
+> [!EXAM] On the 4-page sheet
+> - $S' = {}^tM\,S\,M$ with $M = [\id]^{\mathcal B'}_{\mathcal B}$ (columns = new vectors in the old basis); $\det S' = (\det M)^2\det S$.
+> - Quadratic form: diagonal = coefficients of the squares, off the diagonal = **half** of the mixed coefficients.
+> - $\|v\| = \sqrt{\langle v, v\rangle}$; $|\langle v, w\rangle| \le \|v\|\,\|w\|$; $\|v + w\|^2 = \|v\|^2 + 2\langle v, w\rangle + \|w\|^2$.
+> - $d(P, Q) = \|Q - P\|$; $\cos\vartheta = \frac{\langle v, w\rangle}{\|v\|\,\|w\|}$, $\vartheta \in [0, \pi]$.
+> - The table of the cosines of the special angles.
+
+## Quiz
+
+```quiz
+Q: The quadratic form $q(x) = x_1^2 - 4x_1x_2 + 3x_3^2$ can be written as $q_S(x) = {}^tx\,S\,x$ with $S$ symmetric equal to:
++ $\begin{pmatrix} 1 & -2 & 0 \\ -2 & 0 & 0 \\ 0 & 0 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -4 & 0 \\ -4 & 0 & 0 \\ 0 & 0 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -4 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -2 & 0 \\ -2 & 3 & 0 \\ 0 & 0 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & 3 \end{pmatrix}$
+= On the diagonal the coefficients of the squares: $1$ for $x_1^2$, $0$ for $x_2^2$, $3$ for $x_3^2$. The coefficient $-4$ of $x_1x_2$ is split: $-2$ in positions $(1, 2)$ and $(2, 1)$. The second matrix gives $-8x_1x_2$; the third gives the right form but is not symmetric; the fourth puts $3$ on $x_2^2$; the last has the wrong sign. Similar to the exam of 08/02/2024, question 7.
+
+Q: Which quadratic form is defined by the matrix $S = \begin{pmatrix} 0 & 1 & -1 \\ 1 & 2 & 0 \\ -1 & 0 & 0 \end{pmatrix}$?
++ $2x_2^2 + 2x_1x_2 - 2x_1x_3$
+- $2x_2^2 + x_1x_2 - x_1x_3$
+- $2x_2^2 + 2x_1x_2 + 2x_1x_3$
+- $x_1^2 + 2x_2^2 + 2x_1x_2 - 2x_1x_3$
+- $2x_2^2 + 4x_1x_2 - 4x_1x_3$
+= $q_S(x) = \sum_i S_{ii}x_i^2 + \sum_{i < j} 2S_{ij}x_ix_j$: from the diagonal only $2x_2^2$; off the diagonal $2 \cdot 1 \cdot x_1x_2$ and $2 \cdot (-1) \cdot x_1x_3$; $S_{23} = 0$. Whoever forgets to double gets the second answer.
+
+Q: On $\R^3$ let $g_S$ be the scalar product with $S = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 3 & 1 \\ 0 & 1 & 2 \end{pmatrix}$. What is the norm of $v = {}^t(1, 1, 1)$ with respect to $g_S$?
++ $\sqrt{10}$
+- $10$
+- $\sqrt3$
+- $3$
+- $\sqrt7$
+= $Sv = (1 + 1,\ 1 + 3 + 1,\ 1 + 2) = (2, 5, 3)$ and $\|v\|^2 = {}^tv\,(Sv) = 2 + 5 + 3 = 10$, so $\|v\| = \sqrt{10}$. $10$ is the square of the norm; $\sqrt3$ is the Euclidean norm. Similar to the exam of 07/09/2026, question 5.
+
+Q: With respect to the Euclidean scalar product, what is the angle between ${}^t(1, 0, 1)$ and ${}^t(1, 1, 0)$?
++ $\frac\pi3$
+- $\frac\pi6$
+- $\frac\pi4$
+- $\frac{2\pi}3$
+- $\arccos\frac14$
+= Product $1 + 0 + 0 = 1$, norms $\sqrt2$ and $\sqrt2$: $\cos\vartheta = \frac{1}{2}$, so $\vartheta = \frac\pi3$. The cosine is positive, so the angle is acute: $\frac{2\pi}3$ has cosine $-\frac12$. Similar to the exam of 07/09/2026, question 10.
+
+Q: Let $g_S$ be the scalar product on $\R^2$ with $S = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$. What is the angle between ${}^t(1, 0)$ and ${}^t(1, 1)$ with respect to $g_S$?
++ $\frac\pi6$
+- $\frac\pi4$
+- $\frac\pi3$
+- $0$
+- $\arccos\frac34$
+= $g_S(e_1, (1, 1)) = S_{11} + S_{12} = 3$; $\|e_1\|^2 = S_{11} = 2$; $\|(1, 1)\|^2 = 2 + 1 + 1 + 2 = 6$. So $\cos\vartheta = \frac{3}{\sqrt2\sqrt6} = \frac{3}{\sqrt{12}} = \frac{\sqrt3}2$ and $\vartheta = \frac\pi6$. The answer $\frac\pi4$ is the **Euclidean** angle. Similar to the exam of 03/06/2025, question 6.
+
+Q: On $\R_2[x]$ consider the product $\langle p, q\rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)$. The angle between $p(x) = x$ and $q(x) = x + x^2$ is:
++ $\frac\pi4$
+- $\frac\pi2$
+- $\frac\pi3$
+- $0$
+- $\frac\pi6$
+= Values at $-1, 0, 1$: $x \to (-1, 0, 1)$, $x + x^2 \to (0, 0, 2)$. Then $\langle p, q\rangle = 0 + 0 + 2 = 2$, $\|p\| = \sqrt2$, $\|q\| = 2$, and $\cos\vartheta = \frac{2}{2\sqrt2} = \frac{\sqrt2}2$: $\vartheta = \frac\pi4$. Similar to the exam of 08/02/2024, question 8.
+
+Q: Let $S = [g]_{\mathcal B}$ and $S' = [g]_{\mathcal B'}$ be the matrices of the same scalar product in two bases, and let $M = [\id]^{\mathcal B'}_{\mathcal B}$. Which relation always holds?
++ $S' = {}^tM\,S\,M$
+- $S' = M^{-1}S\,M$
+- $S' = M\,S\,{}^tM$
+- $S' = {}^tM\,S$
+- $S' = S$
+= It is Proposition 20.1: $S'_{ij} = g(v_i', v_j') = {}^t(M^i)\,S\,M^j$. The formula with the inverse holds for endomorphisms. The matrix of a scalar product depends on the basis, so $S' = S$ is false in general. It is needed in the exams of 10/06/2024 and 03/06/2026, question 4.
+
+Q: Which statement is true for every pair of vectors $v, w$ of a space with a positive definite scalar product?
++ $|\langle v, w\rangle| \le \|v\|\,\|w\|$
+- $\|v + w\| = \|v\| + \|w\|$
+- $\|v + w\|^2 = \|v\|^2 + \|w\|^2$
+- $\|\lambda v\| = \lambda\,\|v\|$ for every $\lambda \in \R$
+- $\langle v, w\rangle \ge 0$
+= It is Cauchy–Schwarz. The second holds only for parallel vectors pointing the same way; the third (Pythagoras) only if $\langle v, w\rangle = 0$; the fourth is false for $\lambda < 0$ (you need $|\lambda|$); the last is false for $w = -v \ne 0$.
+
+Q: What is the Euclidean distance between the points $P = (1, 2, 3)$ and $Q = (3, 3, 5)$?
+N: 3
+= $Q - P = (2, 1, 2)$ and $d(P, Q) = \sqrt{4 + 1 + 4} = \sqrt9 = 3$.
+
+Q: Let $v, w$ be vectors with $\|v\| = 2$, $\|w\| = 3$ and $\langle v, w\rangle = 1$. What is $\|v + w\|^2$?
+N: 15
+= $\|v + w\|^2 = \|v\|^2 + 2\langle v, w\rangle + \|w\|^2 = 4 + 2 + 9 = 15$ (expansion of the square with bilinearity).
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 20.13 of the handouts
+On $\R^2$ consider the scalar product $g(x, y) = 2x_1y_1 + x_1y_2 + x_2y_1 + 2x_2y_2$.
+1. Find the matrix associated with $g$ with respect to the canonical basis and the corresponding quadratic form.
+2. Check that $g$ is positive definite.
+3. Compute the norms of $e_1, e_2$ and the angle between these two vectors.
+4. Find the matrix associated with $g$ with respect to the basis $\mathcal B = \{(1, 1), (1, -1)\}$.
+::: solution
+**1.** The coefficient of $x_iy_j$ goes in position $(i, j)$ (lesson L19):
+$$S = [g]_{\mathcal C} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}.$$
+The quadratic form is $q(x) = g(x, x) = 2x_1^2 + x_1x_2 + x_2x_1 + 2x_2^2 = 2x_1^2 + 2x_1x_2 + 2x_2^2$.
+
+**2.** I complete the square:
+$$\begin{aligned} q(x) &= 2\left(x_1^2 + x_1x_2\right) + 2x_2^2 \\ &= 2\left(x_1 + \frac{x_2}2\right)^2 - \frac{x_2^2}2 + 2x_2^2 \\ &= 2\left(x_1 + \frac{x_2}2\right)^2 + \frac32 x_2^2. \end{aligned}$$
+Both summands are $\ge 0$; the sum is 0 only if $x_2 = 0$ and then $x_1 = 0$. So $q(x) > 0$ for every $x \neq 0$: $g$ is positive definite. (With the $2 \times 2$ criterion: $2 > 0$ and $\det S = 3 > 0$.)
+
+**3.** By Corollary 19.9: $\|e_1\|^2 = S_{11} = 2$ and $\|e_2\|^2 = S_{22} = 2$, so $\|e_1\| = \|e_2\| = \sqrt2$. Then $g(e_1, e_2) = S_{12} = 1$:
+$$\cos\vartheta = \frac{1}{\sqrt2\,\sqrt2} = \frac12, \qquad \vartheta = \frac\pi3.$$
+For this product $e_1$ and $e_2$ form an angle of 60°, not of 90°.
+
+**4.** With $M = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ (columns: the vectors of $\mathcal B$):
+$$SM = \begin{pmatrix} 2 + 1 & 2 - 1 \\ 1 + 2 & 1 - 2 \end{pmatrix} = \begin{pmatrix} 3 & 1 \\ 3 & -1 \end{pmatrix},$$
+$${}^tM(SM) = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} 3 & 1 \\ 3 & -1 \end{pmatrix} = \begin{pmatrix} 6 & 0 \\ 0 & 2 \end{pmatrix}.$$
+Check entry by entry: $g((1, 1), (1, 1)) = 2 + 1 + 1 + 2 = 6$; $g((1, 1), (1, -1)) = 2 - 1 + 1 - 2 = 0$; $g((1, -1), (1, -1)) = 2 - 1 - 1 + 2 = 2$. ✓ The matrix is diagonal: the two vectors of $\mathcal B$ are orthogonal for $g$ (lesson L21).
+:::
+
+::: exercise basic Euclidean norms and distances
+(a) Compute $\|(2, -1, 2)\|$ and normalise the vector. (b) Compute the distance between $P = (1, 1, 1)$ and $Q = (3, -1, 2)$. (c) Normalise $(1, 1, 1, 1)$ in $\R^4$.
+::: solution
+(a) $\|(2, -1, 2)\| = \sqrt{4 + 1 + 4} = 3$; normalised: $\frac13(2, -1, 2) = \left(\frac23, -\frac13, \frac23\right)$. Check: $\frac{4 + 1 + 4}{9} = 1$. ✓
+
+(b) $Q - P = (2, -2, 1)$ and $d(P, Q) = \sqrt{4 + 4 + 1} = 3$.
+
+(c) $\|(1, 1, 1, 1)\| = \sqrt4 = 2$; normalised: $\left(\frac12, \frac12, \frac12, \frac12\right)$.
+:::
+
+::: exercise basic Five Euclidean angles
+Compute the angle between: (a) $(1, 2, 2)$ and $(2, -1, 2)$; (b) $(1, 1)$ and $(1, -1)$; (c) $(1, \sqrt3)$ and $(\sqrt3, 1)$; (d) $(1, 0, 1)$ and $(0, 1, 1)$; (e) $(1, 1, 0)$ and $(-1, 0, -1)$.
+::: solution
+(a) $\langle v, w\rangle = 2 - 2 + 4 = 4$, norms $3$ and $3$: $\cos\vartheta = \frac49$, $\vartheta = \arccos\frac49$ (acute, not a special angle).
+
+(b) $\langle v, w\rangle = 1 - 1 = 0$: $\vartheta = \frac\pi2$.
+
+(c) $\langle v, w\rangle = \sqrt3 + \sqrt3 = 2\sqrt3$, norms $\sqrt{1 + 3} = 2$ and $2$: $\cos\vartheta = \frac{2\sqrt3}4 = \frac{\sqrt3}2$, $\vartheta = \frac\pi6$.
+
+(d) $\langle v, w\rangle = 0 + 0 + 1 = 1$, norms $\sqrt2$ and $\sqrt2$: $\cos\vartheta = \frac12$, $\vartheta = \frac\pi3$.
+
+(e) $\langle v, w\rangle = -1 + 0 + 0 = -1$, norms $\sqrt2$ and $\sqrt2$: $\cos\vartheta = -\frac12$, $\vartheta = \frac{2\pi}3$ (obtuse).
+:::
+
+::: exercise basic Quadratic forms and matrices
+(a) Write the symmetric matrices of $q_1 = x_1^2 - 2x_1x_2 + 3x_2^2$ on $\R^2$, of $q_2 = x_2^2 + x_1x_3$ on $\R^3$ and of $q_3 = x_1^2 + 4x_1x_2$ on $\R^3$. (b) Write the quadratic forms of the matrices $\begin{pmatrix} 3 & 1 \\ 1 & 0 \end{pmatrix}$ and $\begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 2 \\ 0 & 2 & -1 \end{pmatrix}$.
+::: solution
+(a) Diagonal = coefficients of the squares, off the diagonal = half of the mixed coefficients:
+$$S_1 = \begin{pmatrix} 1 & -1 \\ -1 & 3 \end{pmatrix}, \qquad S_2 = \begin{pmatrix} 0 & 0 & \frac12 \\ 0 & 1 & 0 \\ \frac12 & 0 & 0 \end{pmatrix},$$
+$$S_3 = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}.$$
+In $S_3$ the variable $x_3$ does not appear: row and column 3 are zero (and the matrix must still be written as $3 \times 3$, because the form is on $\R^3$).
+
+(b) Squares from the diagonal, mixed terms with twice the entry:
+$$3x_1^2 + 2x_1x_2, \qquad 2x_1x_2 + 4x_2x_3 - x_3^2.$$
+:::
+
+::: exercise intermediate Changing basis to see that a product is positive definite
+Let $S = \begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix}$ and $\mathcal B' = \{(1, 0), (-2, 1)\}$. (a) Compute $[g_S]_{\mathcal B'}$ with Proposition 20.1. (b) Deduce that $g_S$ is positive definite.
+::: solution
+(a) $M = \begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix}$. First
+$$SM = \begin{pmatrix} 1 & -2 + 2 \\ 2 & -4 + 5 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix},$$
+then
+$${}^tM(SM) = \begin{pmatrix} 1 & 0 \\ -2 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ -2 + 2 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.$$
+
+(b) In coordinates with respect to $\mathcal B'$ the product becomes $g_S(v, v) = \lambda_1^2 + \lambda_2^2$ (Corollary 19.16 with the matrix $I_2$), where $(\lambda_1, \lambda_2) = [v]_{\mathcal B'}$. If $v \neq 0$ its coordinates are not both zero, so $g_S(v, v) > 0$. It is the same result as completing the square $x_1^2 + 4x_1x_2 + 5x_2^2 = (x_1 + 2x_2)^2 + x_2^2$: the new coordinates are exactly $\lambda_1 = x_1 + 2x_2$ and $\lambda_2 = x_2$.
+:::
+
+::: exercise intermediate Cauchy–Schwarz and the triangle inequality with numbers
+Let $v = (1, -2, 2)$ and $w = (3, 0, 4)$. (a) Check Cauchy–Schwarz. (b) Check the triangle inequality. (c) Find a vector $w'$ for which Cauchy–Schwarz becomes an equality.
+::: solution
+(a) $\langle v, w\rangle = 3 + 0 + 8 = 11$; $\|v\| = \sqrt{1 + 4 + 4} = 3$; $\|w\| = \sqrt{9 + 16} = 5$. Indeed $11 \le 15$.
+
+(b) $v + w = (4, -2, 6)$ and $\|v + w\| = \sqrt{16 + 4 + 36} = \sqrt{56} = 2\sqrt{14}$. Since $56 < 64$, $\sqrt{56} < 8 = 3 + 5$ holds. ✓ (Without a calculator you compare the squares.)
+
+(c) You need a vector parallel to $v$, for example $w' = -2v = (-2, 4, -4)$: $|\langle v, w'\rangle| = |{-2}\langle v, v\rangle| = 18$ and $\|v\|\,\|w'\| = 3 \cdot 6 = 18$.
+:::
+
+::: exercise intermediate Measuring with $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$
+With the product $g_S$: (a) compute the distance between $P = (1, 2)$ and $Q = (2, 1)$ and compare it with the Euclidean one; (b) compute the angle between $e_1$ and $e_2$.
+::: solution
+(a) $Q - P = (1, -1)$ and $\|(1, -1)\|^2 = 2 \cdot 1 + 2 \cdot 1 \cdot (-1) + 1 = 1$, so $d_S(P, Q) = 1$. The Euclidean distance is $\sqrt{1 + 1} = \sqrt2$.
+
+(b) $g_S(e_1, e_2) = S_{12} = 1$, $\|e_1\| = \sqrt{S_{11}} = \sqrt2$, $\|e_2\| = \sqrt{S_{22}} = 1$. So $\cos\vartheta = \frac{1}{\sqrt2} = \frac{\sqrt2}2$ and $\vartheta = \frac\pi4$.
+:::
+
+::: exercise intermediate Angles between polynomials
+On $\R_2[x]$ let $\langle p, q\rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)$. Compute: (a) $\|x\|$; (b) the angle between $1$ and $x^2$; (c) the angle between $x$ and $1 + x^2$.
+::: solution
+Values at $-1, 0, 1$: $1 \to (1, 1, 1)$, $x \to (-1, 0, 1)$, $x^2 \to (1, 0, 1)$, $1 + x^2 \to (2, 1, 2)$.
+
+(a) $\|x\|^2 = 1 + 0 + 1 = 2$, so $\|x\| = \sqrt2$.
+
+(b) $\langle 1, x^2\rangle = 1 + 0 + 1 = 2$, $\|1\| = \sqrt3$, $\|x^2\| = \sqrt2$: $\cos\vartheta = \frac{2}{\sqrt6} = \frac{2\sqrt6}{6} = \frac{\sqrt6}3$, so $\vartheta = \arccos\frac{\sqrt6}3$.
+
+(c) $\langle x, 1 + x^2\rangle = -2 + 0 + 2 = 0$: the two polynomials are orthogonal, $\vartheta = \frac\pi2$.
+:::
+
+::: exercise hard Parallelogram law and polarisation
+Prove that in every space with a positive definite scalar product (a) $\|v + w\|^2 + \|v - w\|^2 = 2\big(\|v\|^2 + \|w\|^2\big)$; (b) $\langle v, w\rangle = \frac14\big(\|v + w\|^2 - \|v - w\|^2\big)$. (c) Check both with $v = (1, 2)$, $w = (3, -1)$.
+::: solution
+Expanding with bilinearity (lesson L19):
+$$\begin{aligned} \|v + w\|^2 &= \|v\|^2 + 2\langle v, w\rangle + \|w\|^2, \\ \|v - w\|^2 &= \|v\|^2 - 2\langle v, w\rangle + \|w\|^2. \end{aligned}$$
+
+(a) Adding, the terms $\pm 2\langle v, w\rangle$ cancel out: $2\|v\|^2 + 2\|w\|^2$. Geometrically: in a parallelogram the sum of the squares of the diagonals equals the sum of the squares of the four sides.
+
+(b) Subtracting, $\|v\|^2$ and $\|w\|^2$ cancel out: $\|v + w\|^2 - \|v - w\|^2 = 4\langle v, w\rangle$.
+
+(c) $v + w = (4, 1)$, $v - w = (-2, 3)$: $\|v + w\|^2 = 17$, $\|v - w\|^2 = 13$. (a): $17 + 13 = 30 = 2(5 + 10)$. ✓ (b): $\frac14(17 - 13) = 1 = \langle v, w\rangle = 3 - 2$. ✓
+:::
+
+::: exercise hard The angles of a triangle in space
+Let $A = (1, 0, 0)$, $B = (0, 1, 0)$, $C = (0, 0, 2)$. Compute the cosines of the three angles of the triangle $ABC$ and check that the triangle is isosceles. Then check that the angle at $C$ equals $\pi$ minus twice the angle at $A$.
+::: solution
+The angle at a vertex is the angle between the two vectors that start from that vertex.
+
+- At $A$: $B - A = (-1, 1, 0)$, $C - A = (-1, 0, 2)$; product $1$, norms $\sqrt2$ and $\sqrt5$: $\cos\alpha = \frac{1}{\sqrt{10}}$.
+- At $B$: $A - B = (1, -1, 0)$, $C - B = (0, -1, 2)$; product $1$, norms $\sqrt2$ and $\sqrt5$: $\cos\beta = \frac{1}{\sqrt{10}}$.
+- At $C$: $A - C = (1, 0, -2)$, $B - C = (0, 1, -2)$; product $4$, norms $\sqrt5$ and $\sqrt5$: $\cos\gamma = \frac45$.
+
+$\alpha = \beta$ and the sides $AC$ and $BC$ have the same length $\sqrt5$: the triangle is isosceles. Now I compute the cosine of $\pi - 2\alpha$ with the formulas $\cos(\pi - t) = -\cos t$ and $\cos 2\alpha = 2\cos^2\alpha - 1$:
+$$\cos(\pi - 2\alpha) = -(2\cos^2\alpha - 1) = -\left(\frac{2}{10} - 1\right) = \frac45 = \cos\gamma.$$
+Since $\cos\alpha = \frac{1}{\sqrt{10}} > 0$, the angle $\alpha$ is acute, so $\pi - 2\alpha$ lies in $[0, \pi]$, like $\gamma$; and in $[0, \pi]$ the cosine takes each value only once. So $\gamma = \pi - 2\alpha$, that is $\alpha + \beta + \gamma = \pi$, as it must be in a triangle.
+:::
+
+::: exercise exam Norms, angle and distance with a $g_S$ on $\R^3$
+Let $S = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$ (positive definite, lesson L19, exercise 11), $u = {}^t(1, 0, 1)$, $v = {}^t(0, 1, 1)$. Compute with respect to $g_S$: (a) $\|u\|$ and $\|v\|$; (b) the cosine of the angle between $u$ and $v$; (c) the distance between $u$ and $v$.
+::: solution
+First the vectors $Su$ and $Sv$:
+$$\begin{aligned} Su &= (1 + 0 + 0,\ 1 + 0 + 0,\ 0 + 0 + 3) = (1, 1, 3), \\ Sv &= (0 + 1 + 0,\ 0 + 2 + 0,\ 0 + 0 + 3) = (1, 2, 3). \end{aligned}$$
+
+(a) $\|u\|^2 = {}^tu\,(Su) = 1 + 0 + 3 = 4$, so $\|u\| = 2$; $\|v\|^2 = {}^tv\,(Sv) = 0 + 2 + 3 = 5$, so $\|v\| = \sqrt5$.
+
+(b) $g_S(u, v) = {}^tu\,(Sv) = 1 + 0 + 3 = 4$, so
+$$\cos\vartheta = \frac{4}{2\sqrt5} = \frac{2}{\sqrt5} = \frac{2\sqrt5}5.$$
+
+(c) $v - u = (-1, 1, 0)$ and $S(v - u) = Sv - Su = (0, 1, 0)$, so $\|v - u\|^2 = {}^t(-1, 1, 0)\,(0, 1, 0) = 1$ and $d(u, v) = 1$. Check with the expansion of the square: $\|v - u\|^2 = \|v\|^2 - 2g_S(u, v) + \|u\|^2 = 5 - 8 + 4 = 1$. ✓
+:::
+
+::: exercise exam Orthogonality with a parameter
+Let $g_S$ on $\R^2$ with $S = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$. (a) For which $k$ are the vectors $u = (1, 0)$ and $v = (k, 1)$ orthogonal with respect to $g_S$? (b) For that $k$, what is $\|v\|$? (c) What is the angle between $u$ and $(1, 1)$?
+::: solution
+(a) $g_S(u, v) = {}^tu\,S\,v$; the row ${}^tu\,S$ is the first row of $S$, $(2, 1)$, so $g_S(u, v) = 2k + 1$. It is 0 for $k = -\frac12$.
+
+(b) $v = \left(-\frac12, 1\right)$, $Sv = \left(-1 + 1,\ -\frac12 + 2\right) = \left(0, \frac32\right)$, so $\|v\|^2 = -\frac12 \cdot 0 + 1 \cdot \frac32 = \frac32$ and $\|v\| = \sqrt{\frac32} = \frac{\sqrt6}2$.
+
+(c) $g_S(u, (1, 1)) = 2 + 1 = 3$, $\|u\|^2 = 2$, $\|(1, 1)\|^2 = 2 + 1 + 1 + 2 = 6$: $\cos\vartheta = \frac{3}{\sqrt{12}} = \frac{\sqrt3}2$, so $\vartheta = \frac\pi6$. (With the Euclidean product it would be $\frac\pi4$.)
+:::
+
+## Review questions
+
+::: question How does the matrix of a scalar product change when you change basis? Where does the formula come from?
+$S' = {}^tM\,S\,M$ with $M = [\id]^{\mathcal B'}_{\mathcal B}$. It comes from $S'_{ij} = g(v_i', v_j') = {}^t[v_i']_{\mathcal B}\,S\,[v_j']_{\mathcal B}$ and from the fact that $[v_i']_{\mathcal B}$ is column $i$ of $M$.
+:::
+
+::: question What is the difference with the change-of-basis formula for endomorphisms?
+For an endomorphism $A' = M^{-1}A\,M$; for a scalar product $S' = {}^tM\,S\,M$. The two formulas give the same result for every matrix when ${}^tM = M^{-1}$, that is when $M$ is orthogonal (lesson L22).
+:::
+
+::: question What is a quadratic form? How do you find its matrix?
+A homogeneous polynomial of degree 2 in $x_1, \dots, x_n$. The symmetric matrix $S$ with $q = q_S$ is unique: on the diagonal the coefficients of $x_i^2$, in positions $(i, j)$ and $(j, i)$ half the coefficient of $x_ix_j$.
+:::
+
+::: question How do you read the positive definiteness of $g_S$ off the quadratic form?
+$g_S$ is positive definite if and only if $q_S(x) = {}^tx\,S\,x > 0$ for every $x \neq 0$. To check it you can complete the square, or for $2 \times 2$ check $a > 0$ and $\det S > 0$.
+:::
+
+::: question What is the norm of a vector? Why is a positive definite product needed?
+$\|v\| = \sqrt{\langle v, v\rangle}$, the length of $v$. You need $\langle v, v\rangle \ge 0$ to be able to take the root, and $\langle v, v\rangle > 0$ for $v \ne 0$ so that only the zero vector has length zero.
+:::
+
+::: question Why $\|\lambda v\| = |\lambda|\,\|v\|$ and not $\lambda\|v\|$?
+Because $\|\lambda v\| = \sqrt{\lambda^2\langle v, v\rangle}$ and $\sqrt{\lambda^2} = |\lambda|$. With $\lambda = -1$: $\|-v\| = \|v\|$, a vector and its opposite are equally long.
+:::
+
+::: question State Cauchy–Schwarz and explain the idea of the proof.
+$|\langle v, w\rangle| \le \|v\|\,\|w\|$. For $w \ne 0$ you use $0 \le \|v - cw\|^2$ with $c = \frac{\langle v, w\rangle}{\langle w, w\rangle}$: expanding you get $0 \le \|v\|^2 - \frac{\langle v, w\rangle^2}{\|w\|^2}$, that is $\langle v, w\rangle^2 \le \|v\|^2\|w\|^2$.
+:::
+
+::: question How do you derive the triangle inequality from Cauchy–Schwarz?
+$\|v + w\|^2 = \|v\|^2 + \|w\|^2 + 2\langle v, w\rangle \le \|v\|^2 + \|w\|^2 + 2\|v\|\,\|w\| = (\|v\| + \|w\|)^2$, then you take the root.
+:::
+
+::: question How is the distance between two points defined? What properties does it have?
+$d(P, Q) = \|Q - P\|$. It is positive for $P \ne Q$ and zero for $P = Q$, it is symmetric, and $d(P, R) \le d(P, Q) + d(Q, R)$ because $R - P = (Q - P) + (R - Q)$.
+:::
+
+::: question How is the angle between two vectors defined? Why does the definition make sense?
+It is the $\vartheta \in [0, \pi]$ with $\cos\vartheta = \frac{\langle v, w\rangle}{\|v\|\,\|w\|}$, for $v, w \ne 0$. By Cauchy–Schwarz the ratio lies in $[-1, 1]$, and the cosine takes each value of $[-1, 1]$ exactly once in $[0, \pi]$.
+:::
+
+::: question How do you tell whether an angle is acute, right or obtuse without computing it?
+From the sign of $\langle v, w\rangle$: positive acute, zero right, negative obtuse.
+:::
+
+::: question What is cosine similarity and why does it not depend on the length of the vectors?
+$\operatorname{sim}(x, y) = \frac{\langle x, y\rangle}{\|x\|\,\|y\|} = \cos\vartheta$. If you multiply $x$ by $\lambda > 0$, numerator and denominator are both multiplied by $\lambda$, and the ratio does not change.
+:::
+
+## Glossary
+
+```glossary
+Change-of-basis matrix | $M = [\id]^{\mathcal B'}_{\mathcal B}$: column $i$ contains the coordinates of the new vector $v_i'$ in the old basis $\mathcal B$.
+Formula ${}^tMSM$ | Link between the matrices of the same scalar product in two bases: $[g]_{\mathcal B'} = {}^tM\,[g]_{\mathcal B}\,M$.
+Congruent matrices | (Martelli's term.) Symmetric matrices with $S' = {}^tM\,S\,M$ for an invertible $M$; their determinants have the same sign.
+Homogeneous polynomial | Polynomial whose monomials all have the same degree.
+Quadratic form | Homogeneous polynomial of degree 2; it can be written in a unique way as $q_S(x) = {}^tx\,S\,x$ with $S$ symmetric.
+$q_S$ | The quadratic form $q_S(x) = g_S(x, x)$ of the symmetric matrix $S$.
+Norm | $\lVert v \rVert = \sqrt{\langle v, v\rangle}$, the length of $v$ (with a positive definite product).
+Euclidean norm | $\lVert x \rVert = \sqrt{x_1^2 + \dots + x_n^2}$ on $\R^n$: Pythagoras' theorem.
+Unit vector | Vector of norm 1.
+Normalise | Divide a non-zero vector by its norm, getting a unit vector with the same direction and orientation.
+Cauchy–Schwarz inequality | $\lvert\langle v, w\rangle\rvert \le \lVert v \rVert\,\lVert w \rVert$; equality holds if and only if $v$ and $w$ are parallel.
+Triangle inequality | $\lVert v + w \rVert \le \lVert v \rVert + \lVert w \rVert$; for distances $d(P, R) \le d(P, Q) + d(Q, R)$.
+Vector $\overrightarrow{PQ}$ | The vector $Q - P$, which goes from the point $P$ to the point $Q$.
+Distance | $d(P, Q) = \lVert Q - P \rVert$.
+Angle between two vectors | The $\vartheta \in [0, \pi]$ with $\cos\vartheta = \frac{\langle v, w\rangle}{\lVert v \rVert\,\lVert w \rVert}$, for $v, w \ne 0$.
+Arccosine | The function $\arccos : [-1, 1] \to [0, \pi]$ that associates to a number the angle with that cosine.
+Cosine similarity | $\operatorname{sim}(x, y) = \cos\vartheta$ between two vectors, used to compare embeddings; it does not depend on the lengths.
+```
+
+## Checklist
+
+```checklist
+- I can write the matrix $M = [\id]^{\mathcal B'}_{\mathcal B}$ and compute $[g]_{\mathcal B'} = {}^tM\,S\,M$, checking that the result is symmetric.
+- I can explain why ${}^tM$ is used for scalar products and $M^{-1}$ for endomorphisms.
+- I can go from a quadratic form to its symmetric matrix and back, halving or doubling the mixed terms.
+- I can decide whether a quadratic form in two variables is positive definite by completing the square.
+- I can compute norms and distances with the Euclidean product and with a given $g_S$.
+- I can state and prove the four properties of the norm, including Cauchy–Schwarz.
+- I can derive the triangle inequality for distances from the one for the norm.
+- I can compute the angle between two vectors (also between polynomials) and recognise the special angles without a calculator.
+- I can say whether an angle is acute, right or obtuse by looking at the sign of the scalar product.
+- I can explain what cosine similarity is and why it does not depend on the length of the vectors.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 20 "Prodotti scalari II", pp. 100–104: sections 20.A (change of basis), 20.B (quadratic forms), 20.C (norm), 20.D (distances), 20.E (angles, with the box on cosine similarity) and 20.F (Exercise 20.13, solved here as the first exercise). The numbering is that of the handouts (Propositions 20.1, 20.4, 20.7, 20.11; Definitions 20.3, 20.6, 20.10, 20.12; Examples 20.2, 20.5, 20.8, 20.9). Reminders: lessons L16 (change of basis), L19 (scalar products, Corollary 19.16), Binet's theorem (Theorem 10.4).
+- **B. Martelli, *Geometria e algebra lineare***: §7.1.5 (quadratic forms), §7.2.2–7.2.3 (change of basis, congruent matrices), §8.1.1–8.1.4 (norm, applications, angles, distances). The book is free: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf).
+- **Exam papers** (Moodle 2025/26): questions of 08/02/2024 (7 and 8), 10/06/2024 (4), 03/06/2025 (6), 03/06/2026 (4), 07/09/2026 (5 and 10); problems 12 of 07/02/2025, 05/02/2026 and 03/07/2026. The three questions reported are solved in these notes.
+- The **"Beyond the handouts"** parts (sign of the determinant and congruent matrices, completing the squares and polarisation, equality cases, where to find it in the book) and the exercises after the first one are additions in these notes, to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L21_scalar_products_3.md -->
+> File: `ai_context/MDAG/lessons/L21_scalar_products_3.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L21
+title: Scalar products III
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L21
+description: >-
+  Notes on lesson L21 of Linear Algebra and Geometry (MDAG, part 2): orthogonal vectors, orthogonal complement,
+  orthogonal projection onto a line and onto a subspace, orthogonal and orthonormal bases, the Gram–Schmidt algorithm,
+  orthogonal decomposition and least squares, with exam-style quizzes and worked exercises.
+lede: >-
+  Orthogonality is the most used tool of the course. In this lesson you learn to find all the vectors orthogonal to a
+  subspace ($W^\perp$), to project a vector onto a line and onto a plane, to build orthogonal bases with the
+  Gram–Schmidt algorithm and to solve "as well as possible" a system that has no solutions, with the normal equations
+  ${}^tAAx = {}^tAb$. It is the heart of the second problem of many exam sessions.
+material: handouts
+facts:
+  Handouts: lesson 21 · pp. 105–110
+  Book: Martelli, §7.3 and §8.1.5–8.1.10
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 21 "Prodotti scalari III"; B. Martelli, Geometria e algebra
+  lineare, §7.1.7, §7.3, §8.1.5–8.1.10
+italian_file: L21_prodotti_scalari_3.html
+html_notes: notes/MDAG/L21_scalar_products_3.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L21_prodotti_scalari_3.md
+```
+
+## In brief
+
+- Throughout the lesson the scalar product is **positive definite**. Two vectors are **orthogonal** if $\langle v, w\rangle = 0$; if they are non-zero, it means that they form a right angle. The zero vector is orthogonal to everything.
+- The **orthogonal complement** of a subspace $W$ is $W^\perp = \{v \mid \langle v, w\rangle = 0 \ \forall w \in W\}$: it is always a subspace. It is computed by imposing orthogonality to the **generators** of $W$: it is a homogeneous linear system.
+- The **orthogonal projection** of $v$ onto the line $\Span(w)$ is $p_w(v) = \frac{\langle v, w\rangle}{\langle w, w\rangle}\,w$; the number $\frac{\langle v, w\rangle}{\langle w, w\rangle}$ is called the **Fourier coefficient**. The remainder $v - p_w(v)$ is orthogonal to $w$.
+- In an **orthogonal basis** the coordinates are computed without systems: $v = \sum_i \frac{\langle v, v_i\rangle}{\langle v_i, v_i\rangle}\,v_i$.
+- The **Gram–Schmidt** algorithm turns independent vectors into orthogonal vectors: from each $v_i$ you take away the projections onto the vectors already built. Dividing by the norms you get an **orthonormal** basis.
+- **Orthogonal decomposition**: $V = W \oplus W^\perp$, so every $v$ can be written in only one way as $v = w + z$ with $w \in W$, $z \in W^\perp$, and $\dim W + \dim W^\perp = \dim V$.
+- The piece $w = p_W(v)$ is the **orthogonal projection** onto $W$: with an orthonormal basis $p_W(v) = \sum_i \langle v, w_i\rangle w_i$. It is the point of $W$ **closest** to $v$.
+- **Least squares**: if $Ax = b$ has no solutions, you look for $x_0$ that makes $\|Ax_0 - b\|$ as small as possible. They are the solutions of the **normal equations** ${}^tA\,A\,x_0 = {}^tA\,b$; this is how you find the regression line.
+- At the exam: "orthonormal basis of a plane, then projection of a vector" is problem 12 of many exam sessions, with the Euclidean product or with a $g_S$.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Orthogonal vectors (p. 105)
+
+In lesson L20 you saw that the angle between two non-zero vectors is right exactly when the scalar product is zero. This condition is so important that it has a name, and it is used even when one of the vectors is zero.
+
+> [!DEF] Orthogonal vectors (p. 105)
+> Let $V$ be equipped with a positive definite scalar product. Two vectors $v, w \in V$ are **orthogonal** if
+> $$\langle v, w\rangle = 0.$$
+> If both are non-zero, this is equivalent to saying that they form a right angle.
+
+Piece by piece:
+
+- "orthogonal" is the technical name for "perpendicular";
+- the zero vector is orthogonal to **all** vectors, because $\langle 0, w\rangle = 0$ always (lesson L19);
+- orthogonality **depends on the scalar product**: two vectors orthogonal for one product may not be for another.
+
+> [!EXAMPLE] 21.1 · The vectors orthogonal to a vector of the plane
+> In the Euclidean scalar product of $\R^2$, the vectors $(x, y)$ orthogonal to $(a, b) \neq 0$ satisfy $ax + by = 0$ and therefore form the line
+> $$\Span\begin{pmatrix} -b \\ a \end{pmatrix}.$$
+> For example, the vectors orthogonal to $(2, 1)$ are those with $2x + y = 0$, that is the line $\Span((-1, 2))$. Check: $\langle (-1, 2), (2, 1)\rangle = -2 + 2 = 0$.
+
+Why exactly that line? The equation $ax + by = 0$ is a homogeneous system with a single non-zero equation in two unknowns: the solutions form a space of dimension $2 - 1 = 1$, a line. The vector $(-b, a)$ is a solution ($a(-b) + ba = 0$) and it is not zero, so it spans the line. The practical rule: **swap the coordinates and change one sign**.
+
+```graph
+title: The vectors orthogonal to $(2, 1)$ form the line $\Span((-1, 2))$
+x: -3 3
+y: -2.5 2.5
+line: 0 0 -1 2 | violet | dashed
+vector: 2 1 | accent | thick | $(2, 1)$ | se
+vector: -1 2 | blue | thick | $(-1, 2)$ | nw
+```
+
+> [!EXAMPLE] 21.2 · The canonical basis
+> With respect to the Euclidean scalar product of $\R^n$, the vectors $e_i$ and $e_j$ of the canonical basis are orthogonal for $i \neq j$: $\langle e_i, e_j\rangle$ is the sum of the products of the coordinates, and $e_i$, $e_j$ never have a 1 in the same position.
+
+> [!EXAMPLE] With another scalar product
+> With $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ the vectors $e_1$ and $e_2$ are **not** orthogonal: $g_S(e_1, e_2) = S_{12} = 1$. The vectors $g_S$-orthogonal to $e_1$ are those with $g_S(e_1, y) = 2y_1 + y_2 = 0$ (the first row of $S$ times $y$), that is the line $\Span((1, -2))$. For the Euclidean product, instead, they would be the line $\Span((0, 1))$.
+
+> [!BEYOND] Non-zero orthogonal vectors are independent
+> If $v_1, \dots, v_k$ are non-zero and pairwise orthogonal, then they are linearly independent (Martelli, Proposition 8.1.25). Start from a zero combination $\lambda_1v_1 + \dots + \lambda_kv_k = 0$ and take the scalar product with $v_i$:
+> $$0 = \langle 0, v_i\rangle = \lambda_1\langle v_1, v_i\rangle + \dots + \lambda_k\langle v_k, v_i\rangle = \lambda_i\langle v_i, v_i\rangle,$$
+> because all the other products are zero. Since $v_i \neq 0$, $\langle v_i, v_i\rangle > 0$ and so $\lambda_i = 0$, for every $i$. In particular $n$ non-zero pairwise orthogonal vectors in a space of dimension $n$ always form a basis.
+
+## The orthogonal complement (p. 105)
+
+Now not a single vector, but a whole subspace: which vectors are orthogonal to **all** the vectors of $W$?
+
+> [!DEF] 21.3 · Orthogonal complement
+> Let $W \subset V$ be a subspace. The **orthogonal complement** of $W$ is
+> $$W^\perp = \{v \in V \mid \langle v, w\rangle = 0 \text{ for every } w \in W\}.$$
+
+Piece by piece:
+
+- the symbol $W^\perp$ is read "$W$ orthogonal" or "$W$ perp";
+- a vector belongs to $W^\perp$ if it is orthogonal to **every** vector of $W$, not only to some;
+- extreme cases: $\{0\}^\perp = V$ (everything is orthogonal to the zero vector) and $V^\perp = \{0\}$ (a vector orthogonal to the whole of $V$ is orthogonal to itself, so it is zero because the product is positive definite).
+
+> [!PROP] 21.4
+> $W^\perp$ is a vector subspace of $V$.
+
+The proof checks the three conditions for a subspace (lesson L06):
+
+1. $0 \in W^\perp$, because $\langle 0, w\rangle = 0$ for every $w$;
+2. if $v, v' \in W^\perp$, for every $w \in W$ we have $\langle v + v', w\rangle = \langle v, w\rangle + \langle v', w\rangle = 0 + 0 = 0$, so $v + v' \in W^\perp$;
+3. if $v \in W^\perp$ and $\lambda \in \R$, for every $w \in W$ we have $\langle \lambda v, w\rangle = \lambda\langle v, w\rangle = \lambda \cdot 0 = 0$, so $\lambda v \in W^\perp$. $\square$
+
+For example the exam of 05/02/2026 (question 2) asked which of five sets was not a subspace of $\R_2[x]$, and among the sets there was $\R_1[x]^\perp$: it is a subspace by Proposition 21.4, so it was not the answer.
+
+**How it is computed in practice.** The definition asks you to check **infinitely many** vectors $w$. The generators are enough.
+
+> [!BEYOND] The generators are enough
+> If $W = \Span(w_1, \dots, w_k)$, then (Martelli, Proposition 7.3.3)
+> $$W^\perp = \{v \in V \mid \langle v, w_1\rangle = 0, \ \dots, \ \langle v, w_k\rangle = 0\}.$$
+> Indeed every $w \in W$ can be written $w = \lambda_1w_1 + \dots + \lambda_kw_k$, and if $v$ is orthogonal to the generators then $\langle v, w\rangle = \lambda_1\langle v, w_1\rangle + \dots + \lambda_k\langle v, w_k\rangle = 0$. With a product $g_S$ on $\R^n$ the conditions become the homogeneous linear system ${}^tw_i\,S\,x = 0$ for $i = 1, \dots, k$; with the Euclidean product, simply $\langle w_i, x\rangle = 0$.
+
+> [!METHOD] Computing $W^\perp$
+> 1. Find some generators $w_1, \dots, w_k$ of $W$ (if $W$ is given by equations, first find a basis).
+> 2. Write one equation for each generator: $\langle x, w_i\rangle = 0$. With $g_S$ the row of coefficients is ${}^tw_i\,S = {}^t(Sw_i)$.
+> 3. Solve the homogeneous system (lessons L11–L13) and write a basis of the solutions.
+> 4. Check: $\dim W^\perp = \dim V - \dim W$ (Theorem 21.8, further on).
+
+> [!EXAMPLE] Three complements in $\R^3$ (Euclidean product)
+> 1. **A line.** $W = \Span((1, 2, 3))$. A single equation: $x + 2y + 3z = 0$. $W^\perp$ is the **plane** with this equation; a basis: $y$ and $z$ are free, so $(-2, 1, 0)$ (with $y = 1, z = 0$) and $(-3, 0, 1)$ (with $y = 0, z = 1$).
+> 2. **A plane given by generators.** $W = \Span((1, 1, 0), (0, 1, 1))$. Two equations: $x + y = 0$ and $y + z = 0$. So $x = -y$, $z = -y$: $W^\perp = \Span((1, -1, 1))$, a **line**. Check: $1 - 1 + 0 = 0$ and $0 - 1 + 1 = 0$.
+> 3. **A plane given by an equation.** $W = \{x + y + z = 0\}$: the equation itself says that every vector of $W$ is orthogonal to $(1, 1, 1)$, so $\Span((1, 1, 1)) \subset W^\perp$. By the dimension formula $\dim W^\perp = 3 - 2 = 1$, so $W^\perp = \Span((1, 1, 1))$. In general the complement of the plane $\{ax + by + cz = 0\}$ is the line spanned by $(a, b, c)$.
+
+> [!EXAMPLE] A complement among polynomials
+> On $\R_2[x]$ with $\langle p, q\rangle = p(0)q(0) + p(1)q(1) + p(2)q(2)$ (lesson L19), we look for $\R_1[x]^\perp = \Span(1, x)^\perp$. With the matrix $\begin{pmatrix} 3 & 3 & 5 \\ 3 & 5 & 9 \\ 5 & 9 & 17 \end{pmatrix}$ of lesson L19 and $p = a + bx + cx^2$:
+> $$\begin{aligned} \langle p, 1\rangle &= 3a + 3b + 5c = 0, \\ \langle p, x\rangle &= 3a + 5b + 9c = 0. \end{aligned}$$
+> Subtracting: $2b + 4c = 0$, that is $b = -2c$; then $3a - 6c + 5c = 0$, that is $a = \frac c3$. With $c = 3$: $p = 1 - 6x + 3x^2$, and $\R_1[x]^\perp = \Span(1 - 6x + 3x^2)$. Check with the values at $0, 1, 2$, which are $1, -2, 1$: $\langle p, 1\rangle = 1 - 2 + 1 = 0$ and $\langle p, x\rangle = 0 - 2 + 2 = 0$.
+
+## Orthogonal projection onto a line (pp. 105–106)
+
+Imagine a line $U$ through the origin and a vector $v$ off the line. If the sun is straight above, perpendicular to the line, the shadow of $v$ on $U$ is a vector of $U$: the **orthogonal projection** of $v$. What is left, $v$ minus its shadow, is perpendicular to the line.
+
+Let $w \neq 0$ and let $U = \Span(w)$. For $v \in V$ we look for a vector $p_w(v) \in U$ such that
+
+$$v - p_w(v) \in U^\perp.$$
+
+This vector is the **orthogonal projection** of $v$ onto the line $U$.
+
+> [!PROP] 21.5
+> We have
+> $$p_w(v) = \frac{\langle v, w\rangle}{\langle w, w\rangle}\,w = \frac{\langle v, w\rangle}{\|w\|^2}\,w.$$
+
+The handouts' proof, step by step:
+
+1. $p_w(v)$ lies on the line $U = \Span(w)$, so it is a multiple of $w$: $p_w(v) = kw$ for a number $k$ to be found;
+2. the condition $v - kw \in U^\perp$ means that $v - kw$ is orthogonal to $w$ (the generator of the line is enough):
+   $$0 = \langle v - kw, w\rangle = \langle v, w\rangle - k\langle w, w\rangle;$$
+3. since $w \neq 0$, $\langle w, w\rangle > 0$ and you can divide: $k = \frac{\langle v, w\rangle}{\langle w, w\rangle}$. $\square$
+
+> [!EXAMPLE] Projecting $v = (1, 3)$ onto the line of $w = (4, 2)$
+> 1. $\langle v, w\rangle = 4 + 6 = 10$ and $\langle w, w\rangle = 16 + 4 = 20$;
+> 2. coefficient $\frac{10}{20} = \frac12$, so $p_w(v) = \frac12(4, 2) = (2, 1)$;
+> 3. the remainder is $v - p_w(v) = (1, 3) - (2, 1) = (-1, 2)$;
+> 4. check: $\langle (-1, 2), (4, 2)\rangle = -4 + 4 = 0$. ✓
+>
+> With $w' = (2, 1)$ instead of $w$ (same line) the coefficient becomes $\frac{\langle v, w'\rangle}{\langle w', w'\rangle} = \frac55 = 1$, but the projection is the same: $1 \cdot (2, 1) = (2, 1)$. **The projection depends on the line, not on the vector chosen to span it.**
+
+```graph
+title: $v = (1, 3)$ splits into $p_w(v) = (2, 1)$, on the line of $w$, plus $(-1, 2)$, orthogonal to the line
+x: -1.5 4.5
+y: -0.5 3.5
+line: 0 0 4 2 | grey | dashed
+vector: 4 2 | grey | $w$ | se
+vector: 1 3 | accent | thick | $v$ | nw
+vector: 2 1 | amber | thick | $p_w(v)$ | se
+segment: 2 1 1 3 | violet | dashed | $v - p_w(v)$ | e
+```
+
+> [!EXAMPLE] A projection in $\R^3$
+> $v = (1, 2, 3)$ onto the line of $w = (1, 1, 1)$: $\langle v, w\rangle = 6$, $\langle w, w\rangle = 3$, so $p_w(v) = 2(1, 1, 1) = (2, 2, 2)$. The remainder $(1, 2, 3) - (2, 2, 2) = (-1, 0, 1)$ is orthogonal to $w$: $-1 + 0 + 1 = 0$.
+
+**Every vector splits into two orthogonal pieces.** From the construction:
+
+$$v = p_w(v) + \big(v - p_w(v)\big),$$
+
+with the first term in $U$ and the second in $U^\perp$. Moreover $U \cap U^\perp = \{0\}$: a vector lying in both is orthogonal to itself, so it is zero. Then the sum is **direct** (Definition 18.4: the way of writing it as a sum is unique) and
+
+$$V = U \oplus U^\perp.$$
+
+The number $\frac{\langle v, w\rangle}{\langle w, w\rangle}$ is called the **Fourier coefficient** of $v$ with respect to $w$.
+
+> [!PITFALL] Two frequent mistakes
+> - Dividing by $\|w\|$ instead of by $\|w\|^2 = \langle w, w\rangle$. With $v = (3, 1)$ and $w = (1, 1)$ the right projection is $\frac42(1, 1) = (2, 2)$; dividing by $\|w\| = \sqrt2$ you would get $(2\sqrt2, 2\sqrt2)$, which does not even have an orthogonal remainder.
+> - Swapping the roles: $p_w(v)$ projects $v$ **onto the line of $w$**. Projecting $w$ onto the line of $v$ gives another vector.
+
+> [!BEYOND] The length of the projection
+> $\|p_w(v)\| = \frac{|\langle v, w\rangle|}{\|w\|^2}\,\|w\| = \frac{|\langle v, w\rangle|}{\|w\|}$ (Martelli, Exercise 8.1.15). If $w$ is a unit vector, $p_w(v) = \langle v, w\rangle\,w$ and the length of the projection is $|\langle v, w\rangle|$: it is the interpretation of the scalar product as a "shadow" that you see in physics.
+
+Try it with the tool: the yellow arrow is the projection of $v$ onto the line of $u$, and the violet segment is the remainder. Drag $v$: the violet segment always stays perpendicular to the line. When $v$ is perpendicular to $u$ the projection becomes the zero vector.
+
+```widget vettori
+title: Orthogonal projection of v onto the line of u
+u: 4 2
+v: 1 3
+modo: scalare
+modi: scalare
+raggio: 5
+```
+
+## Coordinates in an orthogonal basis (p. 106)
+
+A basis $\{v_1, \dots, v_n\}$ is called **orthogonal** if its vectors are pairwise orthogonal ($\langle v_i, v_j\rangle = 0$ for $i \ne j$), and **orthonormal** if in addition every vector has norm 1. The canonical basis of $\R^n$ is orthonormal for the Euclidean product (Example 21.2). With an orthogonal basis the coordinates are computed **without solving systems**.
+
+> [!PROP] 21.6
+> Let $\mathcal B = \{v_1, \dots, v_n\}$ be an orthogonal basis of $V$. For every $v \in V$,
+> $$v = \sum_{i=1}^n p_{v_i}(v) = \sum_{i=1}^n \frac{\langle v, v_i\rangle}{\langle v_i, v_i\rangle}\,v_i.$$
+
+In words: every vector is the **sum of its projections** onto the vectors of an orthogonal basis, and the coordinates are the Fourier coefficients. The proof:
+
+1. since $\mathcal B$ is a basis, $v = \lambda_1v_1 + \dots + \lambda_nv_n$ for some numbers $\lambda_1, \dots, \lambda_n$;
+2. take the scalar product of both sides with $v_i$: on the right all the terms $\lambda_j\langle v_j, v_i\rangle$ with $j \ne i$ are zero, by orthogonality, and what is left is $\langle v, v_i\rangle = \lambda_i\langle v_i, v_i\rangle$;
+3. so $\lambda_i = \frac{\langle v, v_i\rangle}{\langle v_i, v_i\rangle}$. $\square$
+
+If the basis is **orthonormal**, $\langle v_i, v_i\rangle = 1$ and the formula becomes even shorter: $v = \sum_i \langle v, v_i\rangle\,v_i$.
+
+> [!EXAMPLE] Coordinates without a system
+> In $\R^2$ the basis $v_1 = (2, 1)$, $v_2 = (-1, 2)$ is orthogonal ($-2 + 2 = 0$). For $v = (2, 3)$:
+> $$\frac{\langle v, v_1\rangle}{\langle v_1, v_1\rangle} = \frac{4 + 3}{5} = \frac75, \qquad \frac{\langle v, v_2\rangle}{\langle v_2, v_2\rangle} = \frac{-2 + 6}{5} = \frac45.$$
+> Check: $\frac75(2, 1) + \frac45(-1, 2) = \left(\frac{14 - 4}{5}, \frac{7 + 8}{5}\right) = (2, 3)$. ✓ (It is Example 8.1.19 of Martelli.)
+>
+> In $\R^3$, with the orthogonal basis $(1, 1, 0)$, $(1, -1, 0)$, $(0, 0, 1)$ and $v = (3, 1, 2)$: the coefficients are $\frac{3 + 1}{2} = 2$, $\frac{3 - 1}{2} = 1$, $\frac{2}{1} = 2$, and indeed $2(1, 1, 0) + (1, -1, 0) + 2(0, 0, 1) = (3, 1, 2)$.
+
+> [!IDEA] Why orthogonal bases save work
+> With an arbitrary basis, to find the coordinates of $v$ you have to solve an $n \times n$ system. With an orthogonal basis each coordinate is **a ratio of two scalar products**, computed on its own. This is why so much effort goes into building orthogonal bases: it is what Gram–Schmidt does.
+
+## The Gram–Schmidt algorithm (p. 107)
+
+Orthogonal bases are convenient: how do you build one? The **Gram–Schmidt** algorithm takes linearly independent vectors $v_1, \dots, v_k$ and turns them into orthogonal vectors $w_1, \dots, w_k$ by setting
+
+$$w_1 = v_1$$
+
+and, for $i \ge 2$,
+
+$$w_i = v_i - \sum_{j=1}^{i-1} p_{w_j}(v_i) = v_i - \sum_{j=1}^{i-1} \frac{\langle v_i, w_j\rangle}{\langle w_j, w_j\rangle}\,w_j.$$
+
+So at each step you take away from $v_i$ its components in the directions already built. Written out for three vectors:
+
+$$\begin{aligned} w_1 &= v_1, \\ w_2 &= v_2 - \frac{\langle v_2, w_1\rangle}{\langle w_1, w_1\rangle}\,w_1, \\ w_3 &= v_3 - \frac{\langle v_3, w_1\rangle}{\langle w_1, w_1\rangle}\,w_1 - \frac{\langle v_3, w_2\rangle}{\langle w_2, w_2\rangle}\,w_2. \end{aligned}$$
+
+**Why it works.** $w_2$ is $v_2$ minus its projection onto the line of $w_1$: by Proposition 21.5 the remainder is orthogonal to $w_1$. In the same way, taking away from $v_3$ the projections onto $w_1$ and onto $w_2$ (which are already orthogonal to each other), the remainder is orthogonal to both. Moreover each $w_i$ is $v_i$ plus a combination of the previous vectors, so $\Span(w_1, \dots, w_i) = \Span(v_1, \dots, v_i)$, and $w_i \ne 0$ because the $v_i$ are independent.
+
+> [!EXAMPLE] Gram–Schmidt in the plane
+> $v_1 = (3, 1)$, $v_2 = (2, 2)$. Then $w_1 = (3, 1)$ and
+> $$\begin{aligned} w_2 &= (2, 2) - \frac{\langle (2, 2), (3, 1)\rangle}{\langle (3, 1), (3, 1)\rangle}(3, 1) = (2, 2) - \frac{8}{10}(3, 1) \\ &= \left(2 - \frac{12}5, 2 - \frac45\right) = \left(-\frac25, \frac65\right). \end{aligned}$$
+> Check: $\langle w_2, w_1\rangle = -\frac65 + \frac65 = 0$. ✓ Multiplying by 5 you can use $(-2, 6)$, or dividing by 2, $(-1, 3)$: it stays orthogonal to $w_1$.
+
+> [!EXAMPLE] 21.7 · Gram–Schmidt in $\R^3$
+> Let us orthogonalise
+> $$v_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \qquad v_3 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}$$
+> with respect to the Euclidean scalar product of $\R^3$. We get
+> $$w_1 = v_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \qquad w_2 = v_2 - \frac{\langle v_2, w_1\rangle}{\langle w_1, w_1\rangle}\,w_1 = \begin{pmatrix} -\frac12 \\ \frac12 \\ 1 \end{pmatrix}$$
+> and
+> $$w_3 = v_3 - \frac{\langle v_3, w_1\rangle}{\langle w_1, w_1\rangle}\,w_1 - \frac{\langle v_3, w_2\rangle}{\langle w_2, w_2\rangle}\,w_2 = \begin{pmatrix} \frac23 \\ -\frac23 \\ \frac23 \end{pmatrix}.$$
+> The vectors $w_1, w_2, w_3$ are orthogonal.
+
+The computations that the handouts do not write:
+
+1. $\langle v_2, w_1\rangle = 0 + 1 + 0 = 1$ and $\langle w_1, w_1\rangle = 2$, so $w_2 = (0, 1, 1) - \frac12(1, 1, 0) = \left(-\frac12, \frac12, 1\right)$;
+2. $\langle v_3, w_1\rangle = 1 + 0 + 0 = 1$, so the first coefficient is $\frac12$;
+3. $\langle v_3, w_2\rangle = -\frac12 + 0 + 1 = \frac12$ and $\langle w_2, w_2\rangle = \frac14 + \frac14 + 1 = \frac32$, so the second coefficient is $\frac{1/2}{3/2} = \frac13$;
+4. $w_3 = (1, 0, 1) - \frac12(1, 1, 0) - \frac13\left(-\frac12, \frac12, 1\right)$, coordinate by coordinate:
+   $$1 - \frac12 + \frac16 = \frac23, \quad 0 - \frac12 - \frac16 = -\frac23, \quad 1 - 0 - \frac13 = \frac23;$$
+5. checks: $\langle w_1, w_2\rangle = -\frac12 + \frac12 + 0 = 0$, $\langle w_1, w_3\rangle = \frac23 - \frac23 + 0 = 0$, $\langle w_2, w_3\rangle = -\frac13 - \frac13 + \frac23 = 0$. ✓
+
+**From orthogonal to orthonormal.** To get an **orthonormal** basis it is enough to divide each vector by its norm (lesson L20): $\|w_1\| = \sqrt2$, $\|w_2\| = \sqrt{\frac32} = \frac{\sqrt6}2$, $\|w_3\| = \sqrt{\frac{4}{3}} = \frac{2}{\sqrt3}$, so
+
+$$\frac{1}{\sqrt2}\begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \qquad \frac{1}{\sqrt6}\begin{pmatrix} -1 \\ 1 \\ 2 \end{pmatrix}, \qquad \frac{1}{\sqrt3}\begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix}.$$
+
+In the second and third vectors it is best to remove the fractions first: $w_2 = \frac12(-1, 1, 2)$ and $\|(-1, 1, 2)\| = \sqrt6$; $w_3 = \frac23(1, -1, 1)$ and $\|(1, -1, 1)\| = \sqrt3$.
+
+> [!BEYOND] Rescaling during the algorithm
+> The projection onto a line does not change if you replace the generator with a non-zero multiple of it (you saw this in the section on projection). So during Gram–Schmidt you can **multiply each $w_i$ by a convenient number** before going on (Martelli, §8.1.8). In Example 21.7, with $w_2' = 2w_2 = (-1, 1, 2)$: $\langle v_3, w_2'\rangle = -1 + 0 + 2 = 1$, $\langle w_2', w_2'\rangle = 6$, and
+> $$w_3 = (1, 0, 1) - \frac12(1, 1, 0) - \frac16(-1, 1, 2) = \left(\frac23, -\frac23, \frac23\right),$$
+> the same result with fewer fractions.
+
+> [!PITFALL] You project onto the new $w$, not onto the old $v$
+> In the computation of $w_3$ the coefficients use $w_1$ and $w_2$, already orthogonal to each other. If by mistake you project onto $v_2$ instead of onto $w_2$:
+> $$(1, 0, 1) - \frac12(1, 1, 0) - \frac12(0, 1, 1) = \left(\frac12, -1, \frac12\right),$$
+> and this vector is **not** orthogonal to $w_2$: $\left\langle \left(\frac12, -1, \frac12\right), \left(-\frac12, \frac12, 1\right)\right\rangle = -\frac14 - \frac12 + \frac12 = -\frac14 \ne 0$.
+
+**With a non-Euclidean product.** The algorithm is identical: only the scalar products change, and they are computed with $S$. With $S = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ and $v_1 = e_1$, $v_2 = e_2$: $w_1 = e_1$, $g_S(e_2, e_1) = S_{21} = 1$, $g_S(e_1, e_1) = S_{11} = 2$, so
+
+$$w_2 = e_2 - \frac12 e_1 = \left(-\frac12, 1\right).$$
+
+Check: $g_S(e_1, w_2) = 2 \cdot \left(-\frac12\right) + 1 \cdot 1 = 0$. ✓ To normalise: $\|w_1\|_S = \sqrt2$ and $g_S(w_2, w_2) = 2 \cdot \frac14 + 2 \cdot \left(-\frac12\right) \cdot 1 + 1 = \frac12$, so the basis $\left\{\frac{e_1}{\sqrt2},\ \sqrt2\,w_2\right\} = \left\{\left(\frac{\sqrt2}2, 0\right), \left(-\frac{\sqrt2}2, \sqrt2\right)\right\}$ is orthonormal **for $g_S$** (not for the Euclidean product).
+
+Try the calculator: each row is a vector, and the product is the Euclidean one. With the vectors of Example 21.7 it writes the steps $u_2 = v_2 - \frac12 u_1$ and so on (the tool calls $u_i$ the vectors that are $w_i$ here), and at the end the orthonormal basis. Also try writing three dependent vectors: the third one becomes zero and is discarded.
+
+```widget gauss
+title: Gram–Schmidt step by step (rows = vectors)
+matrice: 1 1 0; 0 1 1; 1 0 1
+modo: gram-schmidt
+modi: gram-schmidt
+```
+
+> [!METHOD] Gram–Schmidt at the exam
+> 1. $w_1 = v_1$. Compute and write down $\langle w_1, w_1\rangle$: it will be needed again.
+> 2. $w_2 = v_2 - \frac{\langle v_2, w_1\rangle}{\langle w_1, w_1\rangle}\,w_1$. **Check** $\langle w_2, w_1\rangle = 0$ before going on; if there are fractions, rescale $w_2$.
+> 3. $w_3 = v_3 - \frac{\langle v_3, w_1\rangle}{\langle w_1, w_1\rangle}\,w_1 - \frac{\langle v_3, w_2\rangle}{\langle w_2, w_2\rangle}\,w_2$; check orthogonality with $w_1$ and with $w_2$.
+> 4. If an **orthonormal** basis is needed, divide each vector by its norm only at the end.
+> 5. With a $g_S$: every product is ${}^tu\,S\,w$; compute the vectors $Sw_j$ once and reuse them.
+
+## Orthogonal decomposition and projection onto a subspace (pp. 107–108)
+
+With Gram–Schmidt the projection goes from a line to any subspace. From here on $V$ has **finite dimension** and $W \subset V$ is a subspace.
+
+> [!THEOREM] 21.8 · Orthogonal decomposition
+> We have
+> $$V = W \oplus W^\perp.$$
+> In other words, every $v \in V$ can be written in a unique way as
+> $$v = w + z, \qquad w \in W, \quad z \in W^\perp.$$
+> In particular,
+> $$\dim W + \dim W^\perp = \dim V.$$
+
+The handouts' explanation, with the steps added:
+
+1. **An orthonormal basis of $W$.** Start from any basis of $W$, apply Gram–Schmidt and divide by the norms: you get an orthonormal basis $w_1, \dots, w_k$ of $W$ (if $W = \{0\}$ there is nothing to do: $W^\perp = V$).
+2. **The candidate.** Set
+   $$p_W(v) = \sum_{i=1}^k \langle v, w_i\rangle\,w_i.$$
+   It is a combination of the $w_i$, so $p_W(v) \in W$.
+3. **The remainder is orthogonal to $W$.** For every $j$, since $\langle w_i, w_j\rangle$ equals 1 for $i = j$ and 0 otherwise,
+   $$\begin{aligned} \langle v - p_W(v), w_j\rangle &= \langle v, w_j\rangle - \sum_{i=1}^k \langle v, w_i\rangle\langle w_i, w_j\rangle \\ &= \langle v, w_j\rangle - \langle v, w_j\rangle = 0. \end{aligned}$$
+   Being orthogonal to all the generators $w_j$, $v - p_W(v)$ is orthogonal to the whole of $W$: $v - p_W(v) \in W^\perp$.
+4. **Existence.** $v = p_W(v) + \big(v - p_W(v)\big)$ with the first piece in $W$ and the second in $W^\perp$: so $V = W + W^\perp$.
+5. **Uniqueness.** $W \cap W^\perp = \{0\}$, because a vector in the intersection is orthogonal to itself, so it is zero. The sum is direct (Definition 18.4) and the decomposition is unique.
+6. **Dimensions.** Putting together a basis of $W$ and one of $W^\perp$ you get a basis of $V$ (they span by point 4, they are independent because the sum is direct): so $\dim W + \dim W^\perp = \dim V$. $\square$
+
+The vector $p_W(v)$ is the **orthogonal projection** of $v$ onto $W$ and, for an orthonormal basis $w_1, \dots, w_k$ of $W$,
+
+$$p_W(v) = \sum_{i=1}^k \langle v, w_i\rangle\,w_i.$$
+
+> [!REMARK] The same formula with a basis that is only orthogonal
+> If $w_1, \dots, w_k$ is an **orthogonal** basis of $W$ (not normalised), substituting $\frac{w_i}{\|w_i\|}$ in the formula you get
+> $$p_W(v) = \sum_{i=1}^k \frac{\langle v, w_i\rangle}{\langle w_i, w_i\rangle}\,w_i = \sum_{i=1}^k p_{w_i}(v),$$
+> the sum of the projections onto the lines of the $w_i$ (Martelli, Proposition 8.1.28). It is the most convenient formula at the exam: it avoids square roots. **Careful**: it holds only if the basis of $W$ is orthogonal; with an arbitrary basis you first apply Gram–Schmidt.
+
+> [!EXAMPLE] Projecting $v = (1, 2, 3)$ onto the plane $W = \{x + y + z = 0\}$
+> **With an orthogonal basis.** Two vectors of $W$ orthogonal to each other: $a = (1, -1, 0)$ and $b = (1, 1, -2)$ (both have coordinates adding up to 0, and $\langle a, b\rangle = 1 - 1 + 0 = 0$). Then
+> $$\begin{aligned} p_W(v) &= \frac{\langle v, a\rangle}{\langle a, a\rangle}\,a + \frac{\langle v, b\rangle}{\langle b, b\rangle}\,b \\ &= \frac{-1}{2}(1, -1, 0) + \frac{-3}{6}(1, 1, -2) = (-1, 0, 1). \end{aligned}$$
+> The remainder is $v - p_W(v) = (2, 2, 2)$, a multiple of $(1, 1, 1)$: it lies in $W^\perp$. ✓
+>
+> **With the shortcut.** $W^\perp = \Span((1, 1, 1))$ is a line, and $v = p_W(v) + p_{W^\perp}(v)$. So
+> $$p_W(v) = v - p_{(1, 1, 1)}(v) = (1, 2, 3) - \frac63(1, 1, 1) = (-1, 0, 1).$$
+> Same result with a single computation. When $W$ is a plane of $\R^3$ it is almost always better to project onto the line $W^\perp$ and subtract.
+
+The projection has a minimum property that explains its geometric name: it is the point of $W$ **closest** to $v$.
+
+> [!PROP] 21.9
+> For every $w \in W$ we have
+> $$\|v - p_W(v)\| \le \|v - w\|,$$
+> with equality if and only if $w = p_W(v)$.
+
+The explanation:
+
+1. write $v - w = \big(v - p_W(v)\big) + \big(p_W(v) - w\big)$;
+2. the first piece lies in $W^\perp$ (Theorem 21.8), the second in $W$ (difference of two vectors of $W$): so they are **orthogonal**;
+3. for two orthogonal vectors **Pythagoras' theorem** holds, $\|a + b\|^2 = \|a\|^2 + \|b\|^2$ (it is the expansion of the square of lesson L20 with $\langle a, b\rangle = 0$):
+   $$\|v - w\|^2 = \|v - p_W(v)\|^2 + \|p_W(v) - w\|^2;$$
+4. the second summand is $\ge 0$, so $\|v - w\|^2 \ge \|v - p_W(v)\|^2$; it is an equality only if $\|p_W(v) - w\| = 0$, that is $w = p_W(v)$. $\square$
+
+In the example of the plane: $\|v - p_W(v)\| = \|(2, 2, 2)\| = 2\sqrt3 = \sqrt{12}$ is the **distance** of $v$ from the plane. Any other point of $W$ is further away: $w = 0$ gives $\|v\| = \sqrt{14}$, and indeed $14 = 12 + \|p_W(v)\|^2 = 12 + 2$; $w = (1, -1, 0)$ gives $\|(0, 3, 3)\| = \sqrt{18}$.
+
+> [!METHOD] Projection onto a subspace $W$
+> 1. Find a basis of $W$ (if $W$ is given by equations, solve them).
+> 2. Make it orthogonal with Gram–Schmidt.
+> 3. Add up the projections: $p_W(v) = \sum_i \frac{\langle v, w_i\rangle}{\langle w_i, w_i\rangle}\,w_i$.
+> 4. **Check** that $v - p_W(v)$ is orthogonal to the generators of $W$.
+> 5. If $W^\perp$ is smaller than $W$ (for example $W$ a plane in $\R^3$), compute $p_{W^\perp}(v)$ and then $p_W(v) = v - p_{W^\perp}(v)$.
+> 6. The distance of $v$ from $W$ is $\|v - p_W(v)\|$.
+
+## Least squares (pp. 109–110)
+
+Three experimental points, $(0, 1)$, $(1, 2)$, $(2, 2)$: is there a line $y = a + bt$ that passes through all three? You would need
+
+$$\begin{cases} a + 0b = 1 \\ a + 1b = 2 \\ a + 2b = 2 \end{cases}$$
+
+The first two give $a = 1$ and $b = 1$, but then the third would give $a + 2b = 3 \neq 2$: the system **has no solutions**. In reality this always happens, because measurements have errors. So you look for the line that passes "as close as possible" to the points.
+
+In general: consider a linear system $Ax = b$, with $A \in M(m, n, \R)$ and $b \in \R^m$. If the system has no solutions, we can look for $x$ so that $Ax$ is as close as possible to $b$.
+
+> [!DEF] 21.10 · Least-squares solution
+> A **least-squares solution** of $Ax = b$ is a vector $x_0 \in \R^n$ such that
+> $$\|Ax_0 - b\| \le \|Ax - b\| \qquad \forall\, x \in \R^n.$$
+
+Piece by piece:
+
+- $Ax - b$ is the vector of the **errors** (or residuals): how much each equation is off with the choice $x$;
+- $x_0$ makes the (Euclidean) length of this vector as small as possible;
+- minimising $\|Ax - b\|$ is the same as minimising $\|Ax - b\|^2$, that is the **sum of the squares** of the errors: hence the name;
+- if the system has solutions, the least-squares solutions are exactly those (zero error).
+
+**The link with projection.** Let
+
+$$W = \Imm L_A = \Span(A^1, \dots, A^n),$$
+
+be the space spanned by the columns $A^1, \dots, A^n$ of $A$ (lesson L14): the vectors $Ax$, as $x$ varies, are **exactly** the vectors of $W$. Looking for $Ax$ as close as possible to $b$ means looking for the point of $W$ closest to $b$, which by Proposition 21.9 is the projection $p_W(b)$. So $x_0$ is a least-squares solution precisely when
+
+$$Ax_0 = p_W(b), \quad \text{that is, when} \quad b - Ax_0 \in W^\perp.$$
+
+(The second form comes from the uniqueness of the decomposition $b = p_W(b) + (b - p_W(b))$ of Theorem 21.8: $Ax_0$ lies in $W$, and if $b - Ax_0$ lies in $W^\perp$ then $Ax_0$ must be $p_W(b)$.)
+
+**How to recognise a vector of $W^\perp$.** For every $y \in \R^m$:
+
+$$y \in W^\perp \iff \langle y, Ax\rangle = 0 \ \ \forall x \iff {}^tA\,y = 0.$$
+
+The first $\iff$ is the definition ($W$ is made of the vectors $Ax$). For the second: $\langle y, Ax\rangle = {}^ty\,A\,x = {}^t({}^tA\,y)\,x = \langle {}^tA\,y, x\rangle$, and a vector of $\R^n$ orthogonal to **all** the $x$ is zero (just take $x = {}^tA\,y$). Applying this to $y = b - Ax_0$: ${}^tA(b - Ax_0) = 0$, that is ${}^tA\,A\,x_0 = {}^tA\,b$.
+
+> [!THEOREM] 21.11 · Normal equations
+> A vector $x_0 \in \R^n$ is a least-squares solution of $Ax = b$ if and only if
+> $${}^tA\,A\,x_0 = {}^tA\,b.$$
+> These are called the **normal equations**.
+
+Three remarks from the handouts, with the reasons:
+
+- **The normal equations always have at least one solution**, because $p_W(b) \in W = \Imm L_A$: there is $x_0$ with $Ax_0 = p_W(b)$.
+- **If the columns of $A$ are linearly independent, the solution is unique**: in this case ${}^tAA$ is invertible and
+  $$x_0 = ({}^tA\,A)^{-1}\,{}^tA\,b.$$
+  The reason for invertibility (the handouts do not write it): if ${}^tAAx = 0$, then $0 = {}^tx\,{}^tAAx = \|Ax\|^2$, so $Ax = 0$, and with independent columns this forces $x = 0$. A square matrix with zero kernel is invertible.
+- ${}^tAA$ is a **symmetric** $n \times n$ matrix (${}^t({}^tAA) = {}^tA\,A$), small even when there are many data: with $m = 1000$ points and a line ($n = 2$) you solve a $2 \times 2$ system.
+
+> [!EXAMPLE] 21.12 · The least-squares line
+> We want to find the line $y = a + bt$ that best approximates, in the least-squares sense, the points $(0, 1)$, $(1, 2)$, $(2, 2)$. So we look for $a, b$ such that
+> $$\begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 1 & 2 \end{pmatrix}\begin{pmatrix} a \\ b \end{pmatrix} \approx \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}.$$
+> The normal equations are
+> $$\begin{pmatrix} 3 & 3 \\ 3 & 5 \end{pmatrix}\begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} 5 \\ 6 \end{pmatrix},$$
+> from which $a = \frac76$, $b = \frac12$. The line we are looking for is
+> $$y = \frac76 + \frac12 t.$$
+
+Watch out for the names: in this example the letter $b$ denotes both the slope of the line and (in the theorem) the data vector $(1, 2, 2)$. The computations, one by one:
+
+1. **The matrix and the data.** Each point $(t, y)$ gives an equation $a + bt = y$: the row of $A$ is $(1, t)$ and the data value is $y$.
+2. **${}^tAA$.** The columns of $A$ are $A^1 = (1, 1, 1)$ and $A^2 = (0, 1, 2)$; the entries of ${}^tAA$ are their scalar products: $\langle A^1, A^1\rangle = 3$, $\langle A^1, A^2\rangle = 0 + 1 + 2 = 3$, $\langle A^2, A^2\rangle = 0 + 1 + 4 = 5$.
+3. **${}^tA\,b$.** $\langle A^1, b\rangle = 1 + 2 + 2 = 5$ and $\langle A^2, b\rangle = 0 + 2 + 4 = 6$.
+4. **The $2 \times 2$ system.** $3a + 3b = 5$ and $3a + 5b = 6$. Subtracting: $2b = 1$, that is $b = \frac12$; then $3a = 5 - \frac32 = \frac72$, that is $a = \frac76$.
+5. **Check.** On the line the values are $\frac76$, $\frac76 + \frac12 = \frac53$, $\frac76 + 1 = \frac{13}6$. The errors $b - Ax_0 = \left(1 - \frac76,\ 2 - \frac53,\ 2 - \frac{13}6\right) = \left(-\frac16, \frac13, -\frac16\right)$ are orthogonal to the columns: $-\frac16 + \frac13 - \frac16 = 0$ and $0 + \frac13 - \frac13 = 0$. ✓ The sum of the squares of the errors is $\frac1{36} + \frac4{36} + \frac1{36} = \frac16$: no line does better.
+
+```graph
+title: The line $y = \frac76 + \frac12 t$ and the (vertical) errors with respect to the three points
+x: -0.5 2.5
+y: 0 3
+names: $t$ $y$
+line: 0 7/6 2 13/6 | accent | thick
+point: 0 1 | amber | $(0, 1)$ | sw
+point: 1 2 | amber | $(1, 2)$ | n
+point: 2 2 | amber | $(2, 2)$ | se
+segment: 0 1 0 7/6 | pink | thick
+segment: 1 2 1 5/3 | pink | thick
+segment: 2 2 2 13/6 | pink | thick
+```
+
+> [!NOTE] Link with computer science: linear regression
+> As the handouts observe, the previous example is precisely a **linear regression** with one variable. The observed data are collected in a vector $b$, while the matrix $A$ contains the features used to make the prediction. The model produces the vector $Ax$, and the parameters $x$ are chosen by minimising $\|Ax - b\|^2$. With more explanatory variables you simply add more columns to the matrix $A$. Least squares is one of the first examples in which orthogonal projections and linear systems become a method to **learn a model from data**.
+
+> [!METHOD] Least squares step by step
+> 1. Write the system as $Ax = b$ (for a line $y = a + bt$: rows $(1, t_i)$, data $y_i$).
+> 2. Compute ${}^tA\,A$ (scalar products between the columns) and ${}^tA\,b$ (scalar products between the columns and $b$).
+> 3. Solve the square system ${}^tA\,A\,x_0 = {}^tA\,b$.
+> 4. Check that the error $b - Ax_0$ is orthogonal to all the columns of $A$.
+
+> [!BEYOND] Where to find it in the book
+> Martelli: §7.1.7 "Vettori ortogonali" (pp. 205–206); §7.3 "Sottospazio ortogonale" (pp. 213–218), with Theorem 7.3.12 on the dimensions; chapter 8, §8.1.5 "Proiezione ortogonale" (pp. 244–245), §8.1.6 "Coefficienti di Fourier" (pp. 245–247), §8.1.7 "Ortogonalizzazione di Gram–Schmidt" (pp. 247–249), §8.1.8 "Riscalamento" (pp. 249–250), §8.1.9 "Ortogonalità" (p. 250) and §8.1.10 "Proiezioni su sottospazi" (pp. 251–253). Least squares is not covered in the book: for that section the handouts are the reference.
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; it lasts 2 hours, with no calculator, and only 4 handwritten pages of notes. 2026/27 exam sessions: 22/01 and 05/02/2027, at 14:00. The details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions**
+
+This lesson is the basis of **problem 12** of many exam sessions: in 7 of the 15 exam sessions 2023–2026 problem 12 is about scalar products, Gram–Schmidt and projections, and in two others it also asks for a projection onto a plane. The typical scheme:
+
+1. **orthonormal (or orthogonal) basis of a plane** $V = \Span(v_1, v_2) \subset \R^3$ with Gram–Schmidt: exam sessions of 10/06/2024, 03/06/2026 and 07/09/2026 (Euclidean product); of 16/01/2025 and 03/07/2026 (with a $g_S$);
+2. **orthogonal projection** of a vector onto that plane: the same exam sessions except that of 03/07/2026 (which asks for the orthogonal complement instead of the projection), plus 24/01/2024 (projection onto $\pi_3 = \Span(e_1, e_2 + e_3)$), 05/02/2026 (with $g_S$) and 15/01/2026 (part 4);
+3. **orthogonal complement**: exam sessions of 07/02/2025 (of $\Span(x, x^2)$ in $\R_2[x]$) and 03/07/2026 (of a plane with respect to $g_S$);
+4. the next part (intersection of a line with the plane and angle of incidence) is material of lessons L23–L24.
+
+In the quiz: the exam of 05/02/2026 (question 2) uses the fact that $W^\perp$ is always a subspace. In the 2023–2026 exam sessions there are no questions on least squares, which the 2026 handouts cover in section 21.E: they must be studied anyway.
+
+**Three real exam questions, solved**
+
+> [!EXAMPLE] Exam of 03/06/2026, problem 12, parts (1) and (2)
+> Let $v_1 = (1, 1, 0)$ and $v_2 = (0, 1, 1)$. (1) Compute an orthonormal basis of $V = \Span(v_1, v_2)$. (2) Determine the orthogonal projection of $w = (2, 1, 2)$ onto $V$.
+>
+> **Solution.** (1) Gram–Schmidt: $w_1 = v_1$; $\langle v_2, w_1\rangle = 1$, $\langle w_1, w_1\rangle = 2$, so $w_2 = (0, 1, 1) - \frac12(1, 1, 0) = \left(-\frac12, \frac12, 1\right)$, which I rescale to $w_2' = (-1, 1, 2)$. Check: $\langle w_1, w_2'\rangle = -1 + 1 + 0 = 0$. Normalising: $\left\{\frac{1}{\sqrt2}(1, 1, 0),\ \frac{1}{\sqrt6}(-1, 1, 2)\right\}$.
+>
+> (2) With the orthogonal basis $w_1, w_2'$:
+> $$\begin{aligned} p_V(w) &= \frac{\langle w, w_1\rangle}{2}\,w_1 + \frac{\langle w, w_2'\rangle}{6}\,w_2' \\ &= \frac32(1, 1, 0) + \frac36(-1, 1, 2) = (1, 2, 1). \end{aligned}$$
+> Check: $w - p_V(w) = (1, -1, 1)$ is orthogonal to $v_1$ ($1 - 1 = 0$) and to $v_2$ ($-1 + 1 = 0$). ✓
+
+> [!EXAMPLE] Exam of 16/01/2025, problem 12, parts (2) and (3)
+> Let $g_S$ be the scalar product of $\R^3$ with $S = \operatorname{diag}(1, 2, 3)$, and let $v_1 = (1, 1, 0)$, $v_2 = (1, 0, 1)$, $v_3 = (0, 1, 1)$. (2) Apply Gram–Schmidt to find an orthogonal basis of $\Span(v_1, v_2)$ with respect to $g_S$. (3) Compute the orthogonal projection of $v_3$ onto $\Span(v_1, v_2)$ with respect to $g_S$.
+>
+> **Solution.** With $S$ diagonal, $g_S(x, y) = x_1y_1 + 2x_2y_2 + 3x_3y_3$.
+> (2) $w_1 = v_1$, $g_S(w_1, w_1) = 1 + 2 = 3$, $g_S(v_2, w_1) = 1 + 0 + 0 = 1$, so $w_2 = (1, 0, 1) - \frac13(1, 1, 0) = \left(\frac23, -\frac13, 1\right)$; I rescale: $w_2' = (2, -1, 3)$. Check: $g_S(w_1, w_2') = 2 - 2 + 0 = 0$. ✓
+>
+> (3) $g_S(v_3, w_1) = 0 + 2 + 0 = 2$; $g_S(v_3, w_2') = 0 - 2 + 9 = 7$; $g_S(w_2', w_2') = 4 + 2 + 27 = 33$. So
+> $$\begin{aligned} p(v_3) &= \frac23(1, 1, 0) + \frac{7}{33}(2, -1, 3) \\ &= \left(\frac{22 + 14}{33}, \frac{22 - 7}{33}, \frac{21}{33}\right) = \left(\frac{12}{11}, \frac{5}{11}, \frac{7}{11}\right). \end{aligned}$$
+> Check: $v_3 - p(v_3) = \left(-\frac{12}{11}, \frac{6}{11}, \frac{4}{11}\right)$ and $g_S$ with $v_1$ gives $-\frac{12}{11} + \frac{12}{11} = 0$, with $v_2$ gives $-\frac{12}{11} + \frac{12}{11} = 0$. ✓ The mistake not to make: using the Euclidean product in one of the computations.
+
+> [!EXAMPLE] Exam of 07/02/2025, problem 12, part (3)
+> With the product $g$ on $\R_2[x]$ of lesson L19, with matrix $\begin{pmatrix} 6 & 1 & 3 \\ 1 & 2 & 0 \\ 3 & 0 & 2 \end{pmatrix}$ in the basis $\{1, x, x^2\}$, find a basis of the orthogonal complement of $\Span(x, x^2)$.
+>
+> **Solution.** For $p = a + bx + cx^2$: $g(p, x)$ is the second coordinate of $S(a, b, c)$, that is $a + 2b$; $g(p, x^2)$ is the third, that is $3a + 2c$. The system $a + 2b = 0$, $3a + 2c = 0$ gives $b = -\frac a2$, $c = -\frac{3a}2$; with $a = 2$: $p = 2 - x - 3x^2$. So the complement is $\Span(2 - x - 3x^2)$, of dimension $3 - 2 = 1$ as predicted by Theorem 21.8. Check: $S(2, -1, -3) = (12 - 1 - 9,\ 2 - 2 + 0,\ 6 + 0 - 6) = (2, 0, 0)$, with second and third coordinates zero. ✓ (In the previous parts the problem asked for the matrix, lesson L19, and the angle between $x$ and $x^2$, lesson L20: $g(x, x^2) = 0$, so it is $\frac\pi2$.)
+
+**Mistakes to avoid**
+
+- Projecting onto a **non-orthogonal** basis of the plane by adding the projections onto the single vectors: the result is wrong. Gram–Schmidt first.
+- In Gram–Schmidt, projecting onto the $v$ instead of onto the $w$ (see the pitfall).
+- Forgetting to **check** orthogonality: it is a computation of a few seconds and it saves many points.
+- With a $g_S$, computing a product with the Euclidean product.
+- Confusing $p_W(v)$ (which lies in $W$) with $v - p_W(v)$ (which lies in $W^\perp$).
+
+> [!EXAM] On the 4-page sheet
+> - $p_w(v) = \frac{\langle v, w\rangle}{\langle w, w\rangle}\,w$; $v - p_w(v) \perp w$.
+> - Orthogonal basis: $v = \sum \frac{\langle v, v_i\rangle}{\langle v_i, v_i\rangle}v_i$; orthonormal: $v = \sum \langle v, v_i\rangle v_i$.
+> - Gram–Schmidt for three vectors (the three rows of the formula), with the advice to rescale.
+> - $V = W \oplus W^\perp$, $\dim W^\perp = \dim V - \dim W$; $p_W(v) = \sum_i \frac{\langle v, w_i\rangle}{\langle w_i, w_i\rangle}w_i$ with **orthogonal** $w_i$; $p_W(v) = v - p_{W^\perp}(v)$; distance $= \|v - p_W(v)\|$.
+> - Least squares: ${}^tAAx_0 = {}^tAb$; error orthogonal to the columns.
+
+## Quiz
+
+```quiz
+Q: With respect to the Euclidean scalar product, the orthogonal complement of $W = \Span({}^t(1, 2, -1))$ in $\R^3$ is:
++ the plane $\{x + 2y - z = 0\}$
+- the line $\Span({}^t(1, 2, -1))$
+- the set $\{x + 2y - z = 1\}$
+- the line $\Span({}^t(-2, 1, 0))$
+- $\{0\}$
+= $v = (x, y, z)$ lies in $W^\perp$ if and only if it is orthogonal to the generator: $x + 2y - z = 0$. It is a plane (dimension $3 - 1 = 2$). The line $\Span((-2, 1, 0))$ is contained in the plane but it is not the whole of $W^\perp$; the set with $= 1$ does not contain zero, so it is not a subspace. Similar to the part on the orthogonal complement of the problems of 07/02/2025 and 03/07/2026.
+
+Q: What is the orthogonal projection (Euclidean product) of $v = {}^t(3, 1)$ onto the line $\Span({}^t(1, 1))$?
++ ${}^t(2, 2)$
+- ${}^t(4, 4)$
+- ${}^t(1, -1)$
+- ${}^t(2\sqrt2, 2\sqrt2)$
+- ${}^t(1, 1)$
+= $\frac{\langle v, w\rangle}{\langle w, w\rangle}w = \frac42(1, 1) = (2, 2)$. $(1, -1)$ is the remainder $v - p_w(v)$; $(2\sqrt2, 2\sqrt2)$ comes from dividing by $\|w\|$ instead of by $\|w\|^2$; $(4, 4)$ forgets to divide. Similar to part (2) of problems 12 of 03/06/2026 and 07/09/2026.
+
+Q: The basis $\{{}^t(1, 1), {}^t(1, -1)\}$ of $\R^2$ is orthogonal. What are the coordinates of $v = {}^t(5, 1)$ in this basis?
++ $(3, 2)$
+- $(6, 4)$
+- $(5, 1)$
+- $(2, 3)$
+- $(3, -2)$
+= Fourier coefficients: $\frac{5 + 1}{2} = 3$ and $\frac{5 - 1}{2} = 2$. Check: $3(1, 1) + 2(1, -1) = (5, 1)$. $(6, 4)$ forgets to divide by $\langle v_i, v_i\rangle = 2$.
+
+Q: Applying Gram–Schmidt (Euclidean product) to $v_1 = {}^t(1, 1, 0)$ and $v_2 = {}^t(1, 0, 1)$, the vector $w_2$ is:
++ ${}^t\left(\frac12, -\frac12, 1\right)$
+- ${}^t(0, -1, 1)$
+- ${}^t(1, 0, 1)$
+- ${}^t\left(\frac12, \frac12, 1\right)$
+- ${}^t\left(-\frac12, \frac12, 1\right)$
+= $w_2 = v_2 - \frac{\langle v_2, v_1\rangle}{\langle v_1, v_1\rangle}v_1 = (1, 0, 1) - \frac12(1, 1, 0) = \left(\frac12, -\frac12, 1\right)$. $(0, -1, 1)$ takes away all of $v_1$ instead of half; $\left(-\frac12, \frac12, 1\right)$ is orthogonal to $v_1$ but does not lie in $\Span(v_1, v_2)$. Similar to part (1) of problems 12 of 07/09/2026 and 03/06/2026.
+
+Q: Let $W$ be a subspace of dimension 2 of $\R^5$, with the Euclidean scalar product. What is the dimension of $W^\perp$?
+N: 3
+= By Theorem 21.8, $\dim W + \dim W^\perp = \dim \R^5 = 5$, so $\dim W^\perp = 3$.
+
+Q: Let $V$ have finite dimension with a positive definite scalar product and let $W \subset V$ be a subspace. Which statement is always true?
++ $V = W \oplus W^\perp$
+- $W \cap W^\perp = W$
+- $W^\perp$ is the set of the vectors of $V$ that do not lie in $W$
+- $\dim W^\perp = \dim W$
+- $W^\perp$ is a subspace only if $W$ is a line
+= It is Theorem 21.8. $W \cap W^\perp = \{0\}$ (not $W$, unless $W = \{0\}$); the set complement $V \setminus W$ does not contain zero and is not a subspace; the dimensions add up to $\dim V$, they are not equal in general; $W^\perp$ is always a subspace (Proposition 21.4).
+
+Q: The vector $x_0$ is a least-squares solution of the system $Ax = b$ if and only if:
++ ${}^tA\,A\,x_0 = {}^tA\,b$
+- $Ax_0 = b$
+- ${}^tA\,x_0 = b$
+- $A\,{}^tA\,x_0 = b$
+- $x_0 = A^{-1}b$
+= They are the normal equations (Theorem 21.11). $Ax_0 = b$ usually has no solutions (that is why least squares is used); $A$ is generally not square, so $A^{-1}$ makes no sense; the other two do not even have the right sizes in general.
+
+Q: Which of the following sets is **not** a subspace of $\R_2[x]$ (with a fixed positive definite scalar product)?
++ $\{x^2 + tx \mid t \in \R\}$
+- $\R_1[x]^\perp$
+- $\Span(1 + x, x^2)$
+- $\{p(x) \in \R_2[x] \mid p(1) = p(2)\}$
+- $\{p(x) \in \R_2[x] \mid p(0) = 0\}$
+= $\{x^2 + tx\}$ does not contain the zero polynomial (the coefficient of $x^2$ is always 1). The orthogonal complement is always a subspace (Proposition 21.4), and so is a span, and the last two are defined by homogeneous linear equations in the coefficients. Similar to the exam of 05/02/2026, question 2.
+
+Q: With respect to the Euclidean scalar product, what is the distance of the vector $v = {}^t(3, 0, 0)$ from the plane $W = \{x + 2y + 2z = 0\}$?
+N: 1
+= $W^\perp = \Span(n)$ with $n = (1, 2, 2)$, $\|n\| = 3$. The distance is $\|v - p_W(v)\| = \|p_n(v)\| = \frac{|\langle v, n\rangle|}{\|n\|} = \frac{3}{3} = 1$. An idea similar to the point–plane distance of the exam of 16/01/2025 (question 4), which however concerns an affine plane (lesson L24).
+
+Q: If $\{v_1, \dots, v_n\}$ is an **orthonormal** basis of $V$, the $i$-th coordinate of a vector $v$ in this basis is:
++ $\langle v, v_i\rangle$
+- $\|v\|$
+- $\langle v_i, v_i\rangle$
+- $\langle v, v\rangle$
+- $\langle v, v_1\rangle + \dots + \langle v, v_n\rangle$
+= By Proposition 21.6 the coordinate is $\frac{\langle v, v_i\rangle}{\langle v_i, v_i\rangle}$, and in an orthonormal basis $\langle v_i, v_i\rangle = 1$. The other answers cannot be coordinates: $\|v\|$, $\langle v, v\rangle$ and the sum do not depend on $i$, and $\langle v_i, v_i\rangle$ always equals 1.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 21.13 of the handouts
+Find the least-squares solution of the system
+$$\begin{cases} x = 1, \\ y = 1, \\ x + y = 3. \end{cases}$$
+Write the system in the form $Ax = b$, solve the normal equations and check that the error vector $b - Ax_0$ is orthogonal to the columns of $A$.
+::: solution
+**The system has no solutions.** The first two equations give $x = y = 1$, but then $x + y = 2 \neq 3$.
+
+**Form $Ax = b$.** One row per equation, one column per unknown:
+$$A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{pmatrix}, \qquad \begin{pmatrix} x \\ y \end{pmatrix}, \qquad b = \begin{pmatrix} 1 \\ 1 \\ 3 \end{pmatrix}.$$
+
+**Normal equations.** Columns $A^1 = (1, 0, 1)$ and $A^2 = (0, 1, 1)$:
+$${}^tA\,A = \begin{pmatrix} \langle A^1, A^1\rangle & \langle A^1, A^2\rangle \\ \langle A^2, A^1\rangle & \langle A^2, A^2\rangle \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix},$$
+$${}^tA\,b = \begin{pmatrix} 1 + 0 + 3 \\ 0 + 1 + 3 \end{pmatrix} = \begin{pmatrix} 4 \\ 4 \end{pmatrix}.$$
+The system is $2x + y = 4$, $x + 2y = 4$. Subtracting: $x - y = 0$, so $x = y$ and $3x = 4$:
+$$x_0 = \begin{pmatrix} \frac43 \\ \frac43 \end{pmatrix}.$$
+The columns of $A$ are independent, so this is the only least-squares solution.
+
+**Error vector.** $Ax_0 = \left(\frac43, \frac43, \frac83\right)$ and
+$$b - Ax_0 = \left(1 - \frac43,\ 1 - \frac43,\ 3 - \frac83\right) = \left(-\frac13, -\frac13, \frac13\right).$$
+**Check.** With $A^1$: $-\frac13 + 0 + \frac13 = 0$. With $A^2$: $0 - \frac13 + \frac13 = 0$. ✓ The error is orthogonal to the columns, as Theorem 21.11 says. The sum of the squares of the errors is $\frac19 + \frac19 + \frac19 = \frac13$.
+:::
+
+::: exercise basic Orthogonal complements
+With the Euclidean product, find a basis of $W^\perp$ for: (a) $W = \Span((3, -1)) \subset \R^2$; (b) $W = \Span((1, 0, 2)) \subset \R^3$; (c) $W = \Span((1, 1, 1), (1, 0, -1)) \subset \R^3$.
+::: solution
+(a) I swap the coordinates and change one sign: $W^\perp = \Span((1, 3))$. Check: $3 - 3 = 0$.
+
+(b) Equation $x + 2z = 0$, that is $x = -2z$ with $y, z$ free. Basis: $(0, 1, 0)$ (with $y = 1$, $z = 0$) and $(-2, 0, 1)$ (with $y = 0$, $z = 1$). $\dim W^\perp = 2$.
+
+(c) Two equations: $x + y + z = 0$ and $x - z = 0$. From the second $x = z$; from the first $y = -2z$. $W^\perp = \Span((1, -2, 1))$. Check: $1 - 2 + 1 = 0$ and $1 + 0 - 1 = 0$. ✓
+:::
+
+::: exercise basic Projections onto a line
+(a) Project $v = (4, 2)$ onto the line of $w = (1, 1)$ and write $v$ as the sum of a vector of the line and one orthogonal to it. (b) Project $v = (1, 0, 2)$ onto the line of $w = (2, 1, 2)$.
+::: solution
+(a) $\frac{\langle v, w\rangle}{\langle w, w\rangle} = \frac{6}{2} = 3$, so $p_w(v) = (3, 3)$. The remainder is $(4, 2) - (3, 3) = (1, -1)$, orthogonal to $(1, 1)$. So $(4, 2) = (3, 3) + (1, -1)$.
+
+(b) $\langle v, w\rangle = 2 + 0 + 4 = 6$, $\langle w, w\rangle = 4 + 1 + 4 = 9$: $p_w(v) = \frac69(2, 1, 2) = \left(\frac43, \frac23, \frac43\right)$. Check: the remainder $\left(-\frac13, -\frac23, \frac23\right)$ gives with $w$: $-\frac23 - \frac23 + \frac43 = 0$. ✓
+:::
+
+::: exercise basic Coordinates in an orthogonal basis of $\R^3$
+Check that $v_1 = (1, 1, 1)$, $v_2 = (1, -1, 0)$, $v_3 = (1, 1, -2)$ form an orthogonal basis and find the coordinates of $v = (2, 0, 4)$ without solving systems.
+::: solution
+**Orthogonality.** $\langle v_1, v_2\rangle = 1 - 1 + 0 = 0$; $\langle v_1, v_3\rangle = 1 + 1 - 2 = 0$; $\langle v_2, v_3\rangle = 1 - 1 + 0 = 0$. Three non-zero orthogonal vectors in $\R^3$ are independent, so they are a basis.
+
+**Coordinates.**
+- $\frac{\langle v, v_1\rangle}{\langle v_1, v_1\rangle} = \frac{2 + 0 + 4}{3} = 2$;
+- $\frac{\langle v, v_2\rangle}{\langle v_2, v_2\rangle} = \frac{2 - 0 + 0}{2} = 1$;
+- $\frac{\langle v, v_3\rangle}{\langle v_3, v_3\rangle} = \frac{2 + 0 - 8}{6} = -1$.
+
+Check: $2(1, 1, 1) + (1, -1, 0) - (1, 1, -2) = (2 + 1 - 1,\ 2 - 1 - 1,\ 2 + 0 + 2) = (2, 0, 4)$. ✓
+:::
+
+::: exercise intermediate Gram–Schmidt and coordinates
+(a) Show that $v_1 = (1, -1, 0)$, $v_2 = (2, 0, 1)$, $v_3 = (0, -1, 1)$ form a basis of $\R^3$ and orthogonalise it with Gram–Schmidt. (b) Compute the coordinates of $2e_1 - 5e_2 + e_3$ in the orthogonal basis found.
+::: solution
+(a) **Basis.** $\det\begin{pmatrix} 1 & 2 & 0 \\ -1 & 0 & -1 \\ 0 & 1 & 1 \end{pmatrix} = 1 \cdot (0 + 1) - 2 \cdot (-1 - 0) + 0 = 1 + 2 = 3 \neq 0$ (expansion along the first row; the columns are the three vectors).
+
+**Gram–Schmidt.**
+- $w_1 = (1, -1, 0)$, $\langle w_1, w_1\rangle = 2$.
+- $\langle v_2, w_1\rangle = 2$, so $w_2 = (2, 0, 1) - \frac22(1, -1, 0) = (1, 1, 1)$, with $\langle w_2, w_2\rangle = 3$. Check: $\langle w_1, w_2\rangle = 1 - 1 + 0 = 0$.
+- $\langle v_3, w_1\rangle = 0 + 1 + 0 = 1$ and $\langle v_3, w_2\rangle = 0 - 1 + 1 = 0$, so
+  $$w_3 = (0, -1, 1) - \frac12(1, -1, 0) - 0 \cdot w_2 = \left(-\frac12, -\frac12, 1\right),$$
+  which I rescale to $w_3' = (-1, -1, 2)$, with $\langle w_3', w_3'\rangle = 6$. Check: $\langle w_3', w_1\rangle = -1 + 1 = 0$, $\langle w_3', w_2\rangle = -1 - 1 + 2 = 0$. ✓
+
+(b) $v = (2, -5, 1)$. Fourier coefficients:
+$$\begin{aligned} \frac{\langle v, w_1\rangle}{2} &= \frac{2 + 5}{2} = \frac72, \\ \frac{\langle v, w_2\rangle}{3} &= \frac{2 - 5 + 1}{3} = -\frac23, \\ \frac{\langle v, w_3'\rangle}{6} &= \frac{-2 + 5 + 2}{6} = \frac56. \end{aligned}$$
+Check of the first coordinate: $\frac72 - \frac23 - \frac56 = \frac{21 - 4 - 5}{6} = 2$. ✓ (The other two work out in the same way: $-\frac72 - \frac23 - \frac56 = -5$ and $0 - \frac23 + \frac53 = 1$.)
+:::
+
+::: exercise intermediate Projection onto a plane and distance
+Let $W = \{x - y + 2z = 0\} \subset \R^3$ (Euclidean product) and $v = (1, 2, 3)$. Compute $p_W(v)$ and the distance of $v$ from $W$.
+::: solution
+I use the shortcut: $W^\perp = \Span(n)$ with $n = (1, -1, 2)$, $\langle n, n\rangle = 6$.
+
+1. $\langle v, n\rangle = 1 - 2 + 6 = 5$, so $p_{W^\perp}(v) = \frac56(1, -1, 2)$.
+2. $p_W(v) = v - p_{W^\perp}(v) = \left(1 - \frac56,\ 2 + \frac56,\ 3 - \frac{10}6\right) = \left(\frac16, \frac{17}6, \frac43\right)$.
+3. I check that it lies in $W$: $\frac16 - \frac{17}6 + \frac83 = \frac{1 - 17 + 16}{6} = 0$. ✓
+4. Distance: $\|v - p_W(v)\| = \|p_{W^\perp}(v)\| = \frac56\sqrt6 = \frac{5}{\sqrt6} = \frac{5\sqrt6}{6}$.
+:::
+
+::: exercise intermediate Gram–Schmidt with a non-Euclidean product
+Let $S = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 3 \end{pmatrix}$ (positive definite). Apply Gram–Schmidt to the canonical basis $e_1, e_2, e_3$ with respect to $g_S$ and find an orthonormal basis for $g_S$.
+::: solution
+Remember: $g_S(e_i, e_j) = S_{ij}$ and $g_S(e_i, y) = (Sy)_i$.
+
+- $w_1 = e_1$, $g_S(w_1, w_1) = S_{11} = 1$.
+- $g_S(e_2, w_1) = S_{21} = 1$, so $w_2 = e_2 - 1 \cdot e_1 = (-1, 1, 0)$. I compute $Sw_2 = (-1 + 1,\ -1 + 2,\ 0 + 1) = (0, 1, 1)$, so $g_S(w_2, w_2) = {}^tw_2\,(Sw_2) = 0 + 1 + 0 = 1$. Check: $g_S(w_1, w_2) = (Sw_2)_1 = 0$. ✓
+- $g_S(e_3, w_1) = S_{31} = 0$ and $g_S(e_3, w_2) = (Sw_2)_3 = 1$, so $w_3 = e_3 - 0 \cdot w_1 - \frac11 w_2 = (0, 0, 1) - (-1, 1, 0) = (1, -1, 1)$.
+- $Sw_3 = (1 - 1,\ 1 - 2 + 1,\ -1 + 3) = (0, 0, 2)$: checks $g_S(w_1, w_3) = 0$, $g_S(w_2, w_3) = {}^tw_2\,(Sw_3) = 0$ ✓, and $g_S(w_3, w_3) = {}^tw_3\,(0, 0, 2) = 2$.
+
+Orthonormal basis for $g_S$: $\left\{(1, 0, 0),\ (-1, 1, 0),\ \frac{1}{\sqrt2}(1, -1, 1)\right\}$. Note: for the **Euclidean** product these vectors are not even orthogonal ($\langle e_1, w_2\rangle = -1$).
+:::
+
+::: exercise hard A line through four points
+Find the least-squares line $y = a + bt$ for the points $(0, 0)$, $(1, 1)$, $(2, 1)$, $(3, 3)$, and compute the errors.
+::: solution
+$A$ has rows $(1, t_i)$ and the data are $b = (0, 1, 1, 3)$:
+$$A = \begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 1 & 2 \\ 1 & 3 \end{pmatrix}.$$
+The entries of ${}^tA\,A$ and of ${}^tA\,b$ are scalar products between the columns $A^1 = (1, 1, 1, 1)$, $A^2 = (0, 1, 2, 3)$ and the vector $b$:
+$${}^tA\,A = \begin{pmatrix} 4 & 0 + 1 + 2 + 3 \\ 0 + 1 + 2 + 3 & 0 + 1 + 4 + 9 \end{pmatrix} = \begin{pmatrix} 4 & 6 \\ 6 & 14 \end{pmatrix},$$
+$${}^tA\,b = \begin{pmatrix} 0 + 1 + 1 + 3 \\ 0 + 1 + 2 + 9 \end{pmatrix} = \begin{pmatrix} 5 \\ 12 \end{pmatrix}.$$
+System: $4a + 6b = 5$ and $6a + 14b = 12$. I multiply the first by 3 and the second by 2: $12a + 18b = 15$ and $12a + 28b = 24$; subtracting, $10b = 9$, that is $b = \frac9{10}$; then $4a = 5 - \frac{54}{10} = -\frac4{10}$, that is $a = -\frac1{10}$.
+
+Line: $y = -\frac1{10} + \frac9{10}t$. Values on the line: $-\frac1{10}, \frac8{10}, \frac{17}{10}, \frac{26}{10}$. Errors $b - Ax_0 = \left(\frac1{10}, \frac2{10}, -\frac7{10}, \frac4{10}\right)$. Check: sum $\frac{1 + 2 - 7 + 4}{10} = 0$ (orthogonal to the first column) and $\frac{0 + 2 - 14 + 12}{10} = 0$ (orthogonal to the second). ✓
+:::
+
+::: exercise hard Orthogonality and dimensions
+(a) Prove that non-zero pairwise orthogonal vectors are linearly independent. (b) Deduce that if $w \ne 0$ in $V$ of dimension $n$, then $\dim \Span(w)^\perp = n - 1$, without using Theorem 21.8. Hint: look at the linear map $f(v) = \langle v, w\rangle$.
+::: solution
+(a) From $\lambda_1v_1 + \dots + \lambda_kv_k = 0$, taking the scalar product with $v_i$ only $\lambda_i\langle v_i, v_i\rangle = 0$ is left (the other terms are zero by orthogonality). Since $v_i \ne 0$, $\langle v_i, v_i\rangle > 0$, so $\lambda_i = 0$ for every $i$.
+
+(b) $f : V \to \R$, $f(v) = \langle v, w\rangle$, is linear (linearity of the product in the first slot) and its kernel is exactly $\Span(w)^\perp$ (orthogonality to the generator is enough). The image is not $\{0\}$ because $f(w) = \|w\|^2 > 0$, so it is the whole of $\R$ and has dimension 1. By the rank–nullity theorem (Theorem 14.12): $\dim \Ker f = n - 1$.
+:::
+
+::: exercise hard A complement among polynomials
+On $\R_2[x]$ let $\langle p, q\rangle = p(-1)q(-1) + p(0)q(0) + p(1)q(1)$. Find $\R_1[x]^\perp$ and check the result with the values.
+::: solution
+The matrix in the basis $\{1, x, x^2\}$ is $\begin{pmatrix} 3 & 0 & 2 \\ 0 & 2 & 0 \\ 2 & 0 & 2 \end{pmatrix}$ (lesson L19, exercise 6). For $p = a + bx + cx^2$, orthogonal to $1$ and to $x$:
+$$\langle p, 1\rangle = 3a + 2c = 0, \qquad \langle p, x\rangle = 2b = 0.$$
+So $b = 0$ and $a = -\frac{2c}3$; with $c = 3$: $p = 3x^2 - 2$. $\R_1[x]^\perp = \Span(3x^2 - 2)$, of dimension $3 - 2 = 1$.
+
+Check: $3x^2 - 2$ takes the values $1, -2, 1$ at $-1, 0, 1$. Then $\langle p, 1\rangle = 1 - 2 + 1 = 0$ and $\langle p, x\rangle = -1 + 0 + 1 = 0$. ✓
+:::
+
+::: exercise exam Orthonormal basis of a plane, projection and distance
+Let $v_1 = (1, 0, 1)$ and $v_2 = (2, 1, 0)$ in $\R^3$ with the Euclidean product, and $V = \Span(v_1, v_2)$. (1) Compute an orthonormal basis of $V$. (2) Compute the orthogonal projection of $w = (2, 3, 2)$ onto $V$. (3) Compute the distance of $w$ from $V$ and a Cartesian equation of $V$.
+::: solution
+(1) $w_1 = v_1$, $\langle w_1, w_1\rangle = 2$; $\langle v_2, w_1\rangle = 2$, so $w_2 = (2, 1, 0) - (1, 0, 1) = (1, 1, -1)$, with $\langle w_2, w_2\rangle = 3$. Check: $\langle w_1, w_2\rangle = 1 + 0 - 1 = 0$. Orthonormal basis: $\left\{\frac{1}{\sqrt2}(1, 0, 1),\ \frac{1}{\sqrt3}(1, 1, -1)\right\}$.
+
+(2) $\langle w, w_1\rangle = 2 + 0 + 2 = 4$ and $\langle w, w_2\rangle = 2 + 3 - 2 = 3$:
+$$\begin{aligned} p_V(w) &= \frac42(1, 0, 1) + \frac33(1, 1, -1) \\ &= (2, 0, 2) + (1, 1, -1) = (3, 1, 1). \end{aligned}$$
+
+(3) $w - p_V(w) = (-1, 2, 1)$. Check: orthogonal to $v_1$ ($-1 + 0 + 1 = 0$) and to $v_2$ ($-2 + 2 + 0 = 0$). ✓ The distance is $\|(-1, 2, 1)\| = \sqrt6$. Since $(-1, 2, 1)$ spans $V^\perp$, an equation of $V$ is $-x + 2y + z = 0$ (check: $v_1$ gives $-1 + 0 + 1 = 0$, $v_2$ gives $-2 + 2 + 0 = 0$).
+:::
+
+::: exercise exam Orthonormalisation, complement and projection with $g_S$
+On $\R^3$ let $g_S$ with $S = \begin{pmatrix} 2 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}$ (positive definite), and let $u = (1, 1, 0)$, $v = (0, 1, 1)$, $W = \Span(u, v)$. (1) Find an orthonormal basis of $W$ with respect to $g_S$. (2) Find a basis of the orthogonal complement of $W$ with respect to $g_S$. (3) Compute the $g_S$-orthogonal projection of $e_1$ onto $W$.
+::: solution
+First the vectors $Su = (2, 1, 1)$ and $Sv = (1, 1, 1)$. Then $g_S(u, u) = {}^tu\,(Su) = 3$, $g_S(u, v) = {}^tu\,(Sv) = 2$, $g_S(v, v) = {}^tv\,(Sv) = 2$.
+
+(1) $w_1 = u$; $w_2 = v - \frac23 u = \left(-\frac23, \frac13, 1\right)$, rescaled $w_2' = (-2, 1, 3)$. Then $Sw_2' = (-4 + 3,\ 1,\ -2 + 3) = (-1, 1, 1)$: check $g_S(u, w_2') = {}^tu\,(Sw_2') = -1 + 1 + 0 = 0$ ✓, and $g_S(w_2', w_2') = 2 + 1 + 3 = 6$. Orthonormal basis: $\left\{\frac{1}{\sqrt3}(1, 1, 0),\ \frac{1}{\sqrt6}(-2, 1, 3)\right\}$.
+
+(2) $x \in W^\perp$ if $g_S(u, x) = {}^t(Su)\,x = 0$ and $g_S(v, x) = {}^t(Sv)\,x = 0$:
+$$2x_1 + x_2 + x_3 = 0, \qquad x_1 + x_2 + x_3 = 0.$$
+Subtracting, $x_1 = 0$, then $x_3 = -x_2$: $W^\perp = \Span((0, 1, -1))$, of dimension $3 - 2 = 1$. ✓
+
+(3) $g_S(e_1, u) = (Su)_1 = 2$ and $g_S(e_1, w_2') = (Sw_2')_1 = -1$, so
+$$\begin{aligned} p_W(e_1) &= \frac23(1, 1, 0) - \frac16(-2, 1, 3) \\ &= \left(\frac23 + \frac13,\ \frac23 - \frac16,\ -\frac12\right) = \left(1, \frac12, -\frac12\right). \end{aligned}$$
+Check: $e_1 - p_W(e_1) = \left(0, -\frac12, \frac12\right) = -\frac12(0, 1, -1)$ lies in $W^\perp$. ✓
+:::
+
+## Review questions
+
+::: question When are two vectors orthogonal? Is the zero vector orthogonal to anything?
+When $\langle v, w\rangle = 0$; if they are non-zero it means that they form a right angle. The zero vector is orthogonal to everything, because $\langle 0, w\rangle = 0$.
+:::
+
+::: question Which vectors of $\R^2$ are orthogonal to $(a, b) \ne 0$?
+Those with $ax + by = 0$: the line $\Span((-b, a))$. You swap the coordinates and change one sign.
+:::
+
+::: question What is $W^\perp$ and why is it a subspace?
+The set of the vectors orthogonal to all the vectors of $W$. It contains zero, and it is closed under sum and multiplication by a scalar because the scalar product is linear in the first slot.
+:::
+
+::: question How do you compute $W^\perp$ in practice?
+You impose orthogonality only to the generators of $W$: you get a homogeneous linear system, with one equation per generator. With a $g_S$ the row of coefficients for the generator $w_i$ is ${}^t(Sw_i)$.
+:::
+
+::: question What is the formula for the projection of $v$ onto the line of $w$? Where does it come from?
+$p_w(v) = \frac{\langle v, w\rangle}{\langle w, w\rangle}w$. You look for $kw$ with $v - kw$ orthogonal to $w$: $\langle v, w\rangle - k\langle w, w\rangle = 0$.
+:::
+
+::: question What is the Fourier coefficient and what is it for?
+It is the number $\frac{\langle v, w\rangle}{\langle w, w\rangle}$. In an orthogonal basis $\{v_i\}$ the Fourier coefficients of $v$ with respect to the $v_i$ are exactly the coordinates of $v$, without solving systems.
+:::
+
+::: question How does the Gram–Schmidt algorithm work?
+$w_1 = v_1$; then each $w_i$ is $v_i$ minus its projections onto the $w_1, \dots, w_{i-1}$ already built. The $w_i$ are orthogonal and span the same spaces as the $v_i$; dividing by the norms you get an orthonormal basis.
+:::
+
+::: question Why, in the computation of $w_3$, do you project onto $w_2$ and not onto $v_2$?
+Because the "sum of the projections" formula works only on vectors that are already orthogonal to each other. Projecting onto $v_2$, which is not orthogonal to $w_1$, the result in general is not orthogonal to $w_2$.
+:::
+
+::: question What does the orthogonal decomposition theorem say?
+If $V$ has finite dimension and the product is positive definite, $V = W \oplus W^\perp$: every $v$ can be written in only one way as $w + z$ with $w \in W$ and $z \in W^\perp$, and $\dim W + \dim W^\perp = \dim V$.
+:::
+
+::: question How do you compute the projection onto a plane of $\R^3$? Are there shortcuts?
+With an orthogonal basis $w_1, w_2$ of the plane: $p_W(v) = \sum \frac{\langle v, w_i\rangle}{\langle w_i, w_i\rangle}w_i$. Shortcut: if $n$ spans $W^\perp$, $p_W(v) = v - \frac{\langle v, n\rangle}{\langle n, n\rangle}n$.
+:::
+
+::: question Why is the projection the point of $W$ closest to $v$?
+For every $w \in W$, $v - w = (v - p_W(v)) + (p_W(v) - w)$ with the two pieces orthogonal; by Pythagoras $\|v - w\|^2 = \|v - p_W(v)\|^2 + \|p_W(v) - w\|^2 \ge \|v - p_W(v)\|^2$.
+:::
+
+::: question What are the normal equations and why do they work?
+${}^tAAx_0 = {}^tAb$. $x_0$ minimises $\|Ax - b\|$ when $Ax_0$ is the projection of $b$ onto $\Imm L_A$, that is when $b - Ax_0$ is orthogonal to the columns of $A$, that is ${}^tA(b - Ax_0) = 0$.
+:::
+
+::: question When is the least-squares solution unique?
+When the columns of $A$ are linearly independent: then ${}^tAA$ is invertible and $x_0 = ({}^tAA)^{-1}\,{}^tA\,b$.
+:::
+
+## Glossary
+
+```glossary
+Orthogonal vectors | $v$ and $w$ with $\langle v, w\rangle = 0$; if non-zero, they form a right angle.
+Orthogonal complement $W^\perp$ | $\{v \in V \mid \langle v, w\rangle = 0 \ \forall w \in W\}$; it is always a subspace.
+Orthogonal projection onto a line | $p_w(v) = \frac{\langle v, w\rangle}{\langle w, w\rangle}w$: the vector of the line $\Span(w)$ with $v - p_w(v)$ orthogonal to $w$.
+Fourier coefficient | The number $\frac{\langle v, w\rangle}{\langle w, w\rangle}$.
+Orthogonal basis | Basis whose vectors are pairwise orthogonal.
+Orthonormal basis | Orthogonal basis of vectors of norm 1; the coordinates of $v$ are $\langle v, v_i\rangle$.
+Normalise | Divide a non-zero vector by its norm.
+Gram–Schmidt algorithm | Turns independent vectors $v_1, \dots, v_k$ into orthogonal vectors $w_1, \dots, w_k$ with the same spans: $w_i = v_i - \sum_{j < i} p_{w_j}(v_i)$.
+Rescale | Replace a vector with a non-zero multiple of it; it does not change the projections and helps to avoid fractions.
+Direct sum $\oplus$ | $V = U \oplus W$: every vector can be written in only one way as the sum of a vector of $U$ and one of $W$.
+Orthogonal decomposition | $V = W \oplus W^\perp$ (Theorem 21.8), with $\dim W + \dim W^\perp = \dim V$.
+Orthogonal projection onto a subspace | $p_W(v)$, the part in $W$ of the decomposition $v = w + z$; with an orthonormal basis $p_W(v) = \sum \langle v, w_i\rangle w_i$.
+Pythagoras' theorem | If $\langle a, b\rangle = 0$, then $\lVert a + b \rVert^2 = \lVert a \rVert^2 + \lVert b \rVert^2$.
+Distance of a vector from a subspace | $\lVert v - p_W(v) \rVert$, the minimum distance between $v$ and the vectors of $W$.
+Least-squares solution | $x_0$ that minimises $\lVert Ax - b \rVert$ (Definition 21.10).
+Normal equations | ${}^tAAx_0 = {}^tAb$; their solutions are the least-squares solutions.
+Linear regression | Choice of the parameters of a linear model by minimising the sum of the squares of the errors.
+Residual (error) | The vector $b - Ax$; in the least-squares solution it is orthogonal to the columns of $A$.
+```
+
+## Checklist
+
+```checklist
+- I can decide whether two vectors are orthogonal, also with a product $g_S$ other than the Euclidean one.
+- I can compute $W^\perp$ by solving the system given by the generators of $W$, and check its dimension.
+- I can prove that $W^\perp$ is a subspace.
+- I can compute the orthogonal projection of a vector onto a line and derive the formula.
+- I can compute the coordinates of a vector in an orthogonal basis with the Fourier coefficients.
+- I can apply Gram–Schmidt to two or three vectors, checking orthogonality at each step and rescaling.
+- I can turn an orthogonal basis into an orthonormal one.
+- I can state and explain the orthogonal decomposition theorem and the dimension formula.
+- I can project a vector onto a plane of $\R^3$, also with the normal-vector shortcut, and compute its distance from the plane.
+- I can explain why the projection is the closest point (Pythagoras).
+- I can write and solve the normal equations, and find the least-squares line for some points.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 21 "Prodotti scalari III", pp. 105–110: sections 21.A (orthogonal vectors and complement), 21.B (orthogonal projection), 21.C (Gram–Schmidt), 21.D (orthogonal decomposition), 21.E (least squares, with the box on linear regression) and 21.F (Exercise 21.13, solved here as the first exercise). Numbering of the handouts: Examples 21.1, 21.2, 21.7, 21.12; Definitions 21.3, 21.10; Propositions 21.4, 21.5, 21.6, 21.9; Theorems 21.8, 21.11. Reminders: Definition 18.4 (direct sum), Theorem 14.12 (rank–nullity theorem), lessons L19 and L20.
+- **B. Martelli, *Geometria e algebra lineare***: §7.1.7, §7.3 (orthogonal subspace, Propositions 7.3.3 and 7.3.7, Theorem 7.3.12), §8.1.5–8.1.10 (projections, Fourier coefficients, Gram–Schmidt, rescaling, Propositions 8.1.25 and 8.1.28, Example 8.1.19). The book is free: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Exercise 5 is based on Exercise 8.2 of the book.
+- **Exam papers** (Moodle 2025/26): problems 12 of 24/01/2024, 10/06/2024, 16/01/2025, 07/02/2025, 15/01/2026, 05/02/2026, 03/06/2026, 03/07/2026, 07/09/2026; question 2 of 05/02/2026. The three questions reported are solved in these notes.
+- The **"Beyond the handouts"** parts (independence of orthogonal vectors, generators and complement, length of the projection, rescaling, where to find it in the book) and the exercises after the first one are additions in these notes, to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L22_euclidean_space_1.md -->
+> File: `ai_context/MDAG/lessons/L22_euclidean_space_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L22
+title: Euclidean space I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L22
+description: >-
+  Notes on lesson L22 of Linear Algebra and Geometry (MDAG, part 2): rotations and reflections of the plane,
+  isometries between spaces with a scalar product, orthogonal matrices, classification of the isometries of the plane
+  and of space, the cross product in R3, with exam-style quizzes and worked exercises.
+lede: >-
+  Which linear transformations move figures without deforming them? In the plane they are only rotations and
+  reflections, and their matrices are the orthogonal matrices, those with ${}^tAA = I$. In space the antirotations are
+  added. To close, the cross product $v \times w$: the fastest way to find a vector perpendicular to two vectors
+  of $\R^3$, which you will use in all the lessons on the geometry of space.
+material: handouts
+facts:
+  Handouts: lesson 22 · pp. 111–115
+  Book: Martelli, §4.4.8–4.4.9, §7.5, §8.2 and §9.1
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 22 "Lo spazio euclideo I"; B. Martelli, Geometria e algebra
+  lineare, §4.4.8–4.4.9, §7.5, §8.2 and §9.1
+italian_file: L22_spazio_euclideo_1.html
+html_notes: notes/MDAG/L22_euclidean_space_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L22_spazio_euclideo_1.md
+```
+
+## In brief
+
+- In these lessons on Euclidean space $\R^n$ always has the **Euclidean scalar product**. The **linear isometries** are the linear transformations that do not change lengths, distances and angles; they fix the origin.
+- The **rotation** by an angle $\vartheta$ (anticlockwise) has matrix $\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix}$, with determinant $1$.
+- The **reflection** in the line that forms an angle $\frac\vartheta2$ with the $x$ axis has matrix $\mathrm{Rif}_\vartheta = \begin{pmatrix} \cos\vartheta & \sin\vartheta \\ \sin\vartheta & -\cos\vartheta \end{pmatrix}$, with determinant $-1$. Careful: the line has angle $\frac\vartheta2$, not $\vartheta$.
+- An **isometry** is an isomorphism that preserves the scalar product. It is enough to check it on the vectors of a basis; with a positive definite product it is equivalent to preserving norms, or distances.
+- $L_A$ is an isometry of $\R^n$ if and only if ${}^tAA = I_n$: $A$ is called **orthogonal**. Its columns form an orthonormal basis, $A^{-1} = {}^tA$ and $\det A = \pm1$.
+- The $2 \times 2$ orthogonal matrices are exactly the $\mathrm{Rot}_\vartheta$ and the $\mathrm{Rif}_\vartheta$: the isometries of the plane are **rotations and reflections**. In space they are **rotations and antirotations**.
+- The **cross product** of $v, w \in \R^3$ is $v \times w = (v_2w_3 - v_3w_2,\ v_3w_1 - v_1w_3,\ v_1w_2 - v_2w_1)$: it is orthogonal to both $v$ and $w$, and it is zero if and only if $v$ and $w$ are dependent.
+- If $v$ and $w$ are independent, $v, w, v \times w$ is a basis of $\R^3$. At the exam the cross product is needed above all to find directions of lines and normal vectors to planes (lessons L23–L24).
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Transformations that do not deform (p. 111)
+
+Take a sheet with a drawing and turn it on the table around a fixed point, or flip it face down as in a mirror: the drawing moves, but no length and no angle changes. These transformations are called **isometries** ("same measure").
+
+In these lessons the handouts always use the **Euclidean scalar product** on the **Euclidean space** $\R^n$, and consider only **linear isometries**, that is isometries that fix the origin: they are linear maps $L_A(x) = Ax$ (lesson L14), so they send $0$ to $0$. Translations, which also move the origin, are not linear and stay out of these lessons.
+
+A reminder that will be needed all the time: **the columns of $A$ are the images of the vectors of the canonical basis**, $Ae_1 = A^1$ and $Ae_2 = A^2$. To write the matrix of a transformation of the plane it is enough to know where $e_1$ and $e_2$ go.
+
+## Rotations of the plane (p. 111)
+
+Rotate the plane by an angle $\vartheta$ anticlockwise around the origin. The vector $e_1 = (1, 0)$ lies on the circle of radius 1 at angle 0: after the rotation it lies at angle $\vartheta$, that is at the point $(\cos\vartheta, \sin\vartheta)$. The vector $e_2 = (0, 1)$ lies at angle $\frac\pi2$ and ends up at angle $\vartheta + \frac\pi2$, that is at the point $\left(\cos\left(\vartheta + \frac\pi2\right), \sin\left(\vartheta + \frac\pi2\right)\right) = (-\sin\vartheta, \cos\vartheta)$. These two images are the columns of the matrix.
+
+```graph
+title: The rotation by $\frac\pi6$ sends $e_1$ to $(\cos\frac\pi6, \sin\frac\pi6)$ and $e_2$ to $(-\sin\frac\pi6, \cos\frac\pi6)$
+x: -1.2 1.4
+y: -0.4 1.3
+vector: 1 0 | grey | $e_1$ | s
+vector: 0 1 | grey | $e_2$ | e
+vector: sqrt(3)/2 1/2 | accent | thick | $\mathrm{Rot}\,e_1$ | e
+vector: -1/2 sqrt(3)/2 | blue | thick | $\mathrm{Rot}\,e_2$ | nw
+arc: 0 0 0.45 0 pi/6 | amber | $\vartheta$
+arc: 0 0 0.45 pi/2 2pi/3 | amber | $\vartheta$
+```
+
+> [!DEF] 22.1 · Rotation
+> A **rotation** by an angle $\vartheta$ is the transformation $L_A : \R^2 \to \R^2$ determined by the matrix $A = \mathrm{Rot}_\vartheta$, with
+> $$\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix}.$$
+
+Examples to be able to write on the spot:
+
+| $\vartheta$ | $\mathrm{Rot}_\vartheta$ | What it does |
+|---|---|---|
+| $\frac\pi2$ | $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ | $(x, y) \mapsto (-y, x)$: for example $(1, 2) \mapsto (-2, 1)$ |
+| $\pi$ | $\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}$ | $(x, y) \mapsto (-x, -y)$: the half turn is $-I_2$ |
+| $\frac\pi3$ | $\begin{pmatrix} \frac12 & -\frac{\sqrt3}2 \\ \frac{\sqrt3}2 & \frac12 \end{pmatrix}$ | $(2, 0) \mapsto (1, \sqrt3)$ |
+| $\frac\pi4$ | $\frac{\sqrt2}2\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$ | $(1, 0) \mapsto \left(\frac{\sqrt2}2, \frac{\sqrt2}2\right)$ |
+
+> [!PROP] 22.2
+> The transformation $L_A$ really is an anticlockwise rotation of the plane by the angle $\vartheta$ around the origin.
+
+> [!PROOF] of Proposition 22.2 (from Martelli's book)
+> The handouts do not prove it; here is Martelli's argument (Proposition 4.4.15). Write a point in **polar coordinates**: $x = \varrho\cos\varphi$, $y = \varrho\sin\varphi$, where $\varrho$ is the distance from the origin and $\varphi$ the angle with the $x$ axis. Then
+> $$\begin{aligned} \mathrm{Rot}_\vartheta\begin{pmatrix} \varrho\cos\varphi \\ \varrho\sin\varphi \end{pmatrix} &= \begin{pmatrix} \varrho(\cos\vartheta\cos\varphi - \sin\vartheta\sin\varphi) \\ \varrho(\sin\vartheta\cos\varphi + \cos\vartheta\sin\varphi) \end{pmatrix} \\ &= \begin{pmatrix} \varrho\cos(\vartheta + \varphi) \\ \varrho\sin(\vartheta + \varphi) \end{pmatrix}, \end{aligned}$$
+> by the addition formulas for cosine and sine. The point with polar coordinates $(\varrho, \varphi)$ goes to the point $(\varrho, \varphi + \vartheta)$: same distance from the origin, angle increased by $\vartheta$. It is the anticlockwise rotation by the angle $\vartheta$.
+
+The handouts note that the matrix $\mathrm{Rot}_\vartheta$ always has determinant
+
+$$\begin{aligned} \det\mathrm{Rot}_\vartheta &= \cos\vartheta\cos\vartheta - (-\sin\vartheta)\sin\vartheta \\ &= \cos^2\vartheta + \sin^2\vartheta = 1. \end{aligned}$$
+
+Geometrically (Martelli, §3.3.10) the absolute value of the determinant is the factor by which areas are multiplied, and the sign says whether the orientation is preserved: a rotation preserves areas and does not "mirror" figures.
+
+> [!BEYOND] Composing and inverting rotations
+> - Rotating by $\beta$ and then by $\alpha$ is rotating by $\alpha + \beta$: $\mathrm{Rot}_\alpha\,\mathrm{Rot}_\beta = \mathrm{Rot}_{\alpha + \beta}$ (multiplying the matrices the addition formulas appear again). It is the same rule as the multiplication of complex numbers of modulus 1 (lesson L03): the angles add up.
+> - The inverse of $\mathrm{Rot}_\vartheta$ is the rotation backwards, $\mathrm{Rot}_{-\vartheta}$, and it coincides with the **transpose**: ${}^t\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & \sin\vartheta \\ -\sin\vartheta & \cos\vartheta \end{pmatrix} = \mathrm{Rot}_{-\vartheta}$. You will soon see that it is a property of all orthogonal matrices.
+
+Try it with the tool: the initial matrix is $\begin{pmatrix} 0.6 & -0.8 \\ 0.8 & 0.6 \end{pmatrix} = \mathrm{Rot}_\vartheta$ with $\cos\vartheta = \frac35$ and $\sin\vartheta = \frac45$. Move the "from I to A" slider: the grid turns without deforming, the coloured square keeps its area ($\det A = 1$) and the tool points out that there are no real eigenvectors (lesson L17). Then press "90° rotation", "45° rotation" and "reflection", or type the matrix $\begin{pmatrix} 0.6 & 0.8 \\ 0.8 & -0.6 \end{pmatrix}$, the reflection of the next section: the square changes colour because the orientation is reversed.
+
+```widget matrice
+title: Rotations and reflections as transformations of the plane
+a: 0.6 -0.8; 0.8 0.6
+x: 2 1
+raggio: 3
+```
+
+## Reflections of the plane (p. 111)
+
+Three reflections that are easy to picture, with the images of $e_1$ and $e_2$ as columns:
+
+| Reflection in | $e_1 \mapsto$ | $e_2 \mapsto$ | Matrix |
+|---|---|---|---|
+| the $x$ axis | $(1, 0)$ | $(0, -1)$ | $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ |
+| the bisector $y = x$ | $(0, 1)$ | $(1, 0)$ | $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ |
+| the $y$ axis | $(-1, 0)$ | $(0, 1)$ | $\begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$ |
+
+In general you fix an angle $\vartheta$ and consider the vector line $r$ that forms an angle $\frac\vartheta2$ with the $x$ axis. Why exactly $\frac\vartheta2$? Reflecting in $r$, the vector $e_1$ (angle 0) goes to the vector symmetric with respect to $r$, which has angle $2 \cdot \frac\vartheta2 = \vartheta$: the first column is $(\cos\vartheta, \sin\vartheta)$, as in the rotation. It is convenient for the angle in the matrix to be $\vartheta$, and then the line has angle $\frac\vartheta2$.
+
+> [!DEF] 22.3 · Reflection
+> An (orthogonal) **reflection** in the line $r$ is the transformation $L_A : \R^2 \to \R^2$ determined by the matrix $A = \mathrm{Rif}_\vartheta$, with
+> $$\mathrm{Rif}_\vartheta = \begin{pmatrix} \cos\vartheta & \sin\vartheta \\ \sin\vartheta & -\cos\vartheta \end{pmatrix}.$$
+
+The three reflections in the table are $\mathrm{Rif}_0$ ($x$ axis, angle $0$), $\mathrm{Rif}_{\pi/2}$ (bisector, angle $\frac\pi4$) and $\mathrm{Rif}_\pi$ ($y$ axis, angle $\frac\pi2$).
+
+> [!PROP] 22.4
+> The transformation $L_A$ really is a reflection of the plane in $r$.
+
+> [!PROOF] of Proposition 22.4 (from Martelli's book)
+> As for the rotation (Martelli, Proposition 4.4.17), in polar coordinates:
+> $$\begin{aligned} \mathrm{Rif}_\vartheta\begin{pmatrix} \varrho\cos\varphi \\ \varrho\sin\varphi \end{pmatrix} &= \begin{pmatrix} \varrho(\cos\vartheta\cos\varphi + \sin\vartheta\sin\varphi) \\ \varrho(\sin\vartheta\cos\varphi - \cos\vartheta\sin\varphi) \end{pmatrix} \\ &= \begin{pmatrix} \varrho\cos(\vartheta - \varphi) \\ \varrho\sin(\vartheta - \varphi) \end{pmatrix}. \end{aligned}$$
+> The point with angle $\varphi$ goes to the point with angle $\vartheta - \varphi$, at the same distance from the origin. The two angles $\varphi$ and $\vartheta - \varphi$ have average $\frac\vartheta2$: they are symmetric with respect to the line $r$. In particular the points of $r$ ($\varphi = \frac\vartheta2$) stay fixed.
+
+The handouts note that the matrix $\mathrm{Rif}_\vartheta$ always has determinant
+
+$$\det\mathrm{Rif}_\vartheta = -\cos^2\vartheta - \sin^2\vartheta = -1.$$
+
+The minus sign says that the reflection **reverses the orientation**: a turn anticlockwise becomes clockwise, like the right hand in the mirror.
+
+> [!REMARK] The reflection in a convenient basis
+> Let $s$ be the line orthogonal to $r$, that is the one that forms an angle $\frac\vartheta2 + \frac\pi2$ with the $x$ axis, and let $v_1$ and $v_2$ be vectors in the direction of the lines $r$ and $s$, respectively. The reflection $f$ is represented more easily with respect to the basis $\mathcal B = \{v_1, v_2\}$: since $f(v_1) = v_1$ and $f(v_2) = -v_2$, the matrix associated with the reflection with respect to $\mathcal B$ is simply
+> $$\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.$$
+
+In other words $v_1$ is an eigenvector with eigenvalue $1$ and $v_2$ an eigenvector with eigenvalue $-1$ (lesson L17): the reflection is **diagonalisable**, and the two lines of eigenvectors are perpendicular.
+
+> [!EXAMPLE] The reflection in the line of $(2, 1)$, in three ways
+> **1. With the angle.** The line $r = \Span((2, 1))$ forms with the $x$ axis an angle $\frac\vartheta2$ with $\tan\frac\vartheta2 = \frac12$. With the double-angle formulas, setting $t = \tan\frac\vartheta2 = \frac12$:
+> $$\begin{aligned} \cos\vartheta &= \frac{1 - t^2}{1 + t^2} = \frac{3/4}{5/4} = \frac35, \\ \sin\vartheta &= \frac{2t}{1 + t^2} = \frac{1}{5/4} = \frac45, \end{aligned}$$
+> $$\mathrm{Rif}_\vartheta = \begin{pmatrix} \frac35 & \frac45 \\ \frac45 & -\frac35 \end{pmatrix}.$$
+> Check: $\mathrm{Rif}_\vartheta\,(2, 1) = \left(\frac65 + \frac45, \frac85 - \frac35\right) = (2, 1)$ stays fixed, and $(-1, 2)$, perpendicular to $r$, goes to $\left(-\frac35 + \frac85, -\frac45 - \frac65\right) = (1, -2)$, its opposite. ✓
+>
+> **2. With the projection** (lesson L21). With $n = (-1, 2)$ perpendicular to $r$, reflecting means taking away **twice** the component along $n$: $f(v) = v - 2\,\frac{\langle v, n\rangle}{\langle n, n\rangle}\,n$. Then $f(e_1) = (1, 0) - 2 \cdot \frac{-1}{5}(-1, 2) = \left(\frac35, \frac45\right)$ and $f(e_2) = (0, 1) - 2 \cdot \frac25(-1, 2) = \left(\frac45, -\frac35\right)$: they are the columns found above.
+>
+> **3. With the change of basis** (lesson L16). In the basis $\mathcal B = \{(2, 1), (-1, 2)\}$ the matrix is $D = \operatorname{diag}(1, -1)$. With $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 2 & -1 \\ 1 & 2 \end{pmatrix}$ and $M^{-1} = \frac15\begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix}$:
+> $$M\,D\,M^{-1} = \begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}\cdot\frac15\begin{pmatrix} 2 & 1 \\ -1 & 2 \end{pmatrix} = \frac15\begin{pmatrix} 3 & 4 \\ 4 & -3 \end{pmatrix}.$$
+
+```graph
+title: The reflection in $r = \Span((2, 1))$ sends $v = (1, 2)$ to $\left(\frac{11}5, -\frac25\right)$
+x: -1.5 3
+y: -1 2.5
+line: 0 0 2 1 | violet | $r$ | ne
+vector: 1 2 | accent | thick | $v$ | n
+vector: 11/5 -2/5 | blue | thick | $f(v)$ | se
+segment: 1 2 11/5 -2/5 | grey | dashed
+point: 8/5 4/5 | amber
+```
+
+The yellow point is the midpoint between $v$ and $f(v)$: it lies on the line $r$, and the dashed segment is perpendicular to $r$. It is the definition of symmetry with respect to a line.
+
+> [!PITFALL] The angle of the line is half
+> $\mathrm{Rif}_\vartheta$ reflects in the line with angle $\frac\vartheta2$, **not** $\vartheta$. For example $\mathrm{Rif}_{\pi/2} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ reflects in the bisector $y = x$ (angle $\frac\pi4$), not in the $y$ axis. To avoid mistakes, find the line as the **eigenspace of the eigenvalue 1**: the vectors with $Av = v$.
+
+## Isometries between spaces with a scalar product (p. 112)
+
+Rotations and reflections preserve lengths and angles. We need a definition that works for every space with a scalar product, like polynomials.
+
+> [!DEF] 22.5 · Isometry
+> Let $V$ and $W$ be two vector spaces, each equipped with a scalar product. An **isometry** is an isomorphism $T : V \to W$ such that
+> $$\langle v, w\rangle = \langle T(v), T(w)\rangle \qquad \forall\, v, w \in V.$$
+
+Piece by piece:
+
+- $T$ is an **isomorphism**: linear and bijective (lesson L16);
+- on the left there is the scalar product of $V$, on the right that of $W$: they can be different;
+- preserving the scalar product means preserving **everything** that is derived from it: norms, distances, angles, orthogonality.
+
+> [!EXAMPLE] A rotation preserves the scalar product
+> With $x = (1, 2)$, $y = (3, -1)$ and $\mathrm{Rot}_{\pi/2}$: $\mathrm{Rot}_{\pi/2}\,x = (-2, 1)$ and $\mathrm{Rot}_{\pi/2}\,y = (1, 3)$. Before: $\langle x, y\rangle = 3 - 2 = 1$. After: $\langle (-2, 1), (1, 3)\rangle = -2 + 3 = 1$. ✓
+>
+> Two invertible transformations that are **not** isometries: the scaling $\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}$ sends $e_1$ to $(2, 0)$, which has norm 2; the shear $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ sends $e_2$ to $(1, 1)$, which has norm $\sqrt2$.
+
+In fact it is enough to check the condition on the vectors of a fixed basis $\mathcal B = \{v_1, \dots, v_n\}$ of $V$.
+
+> [!PROP] 22.6
+> An isomorphism $T$ is an isometry if and only if
+> $$\langle v_i, v_j\rangle = \langle T(v_i), T(v_j)\rangle \qquad \forall\, i, j.$$
+
+The handouts' explanation, step by step. The condition is necessary, because it is the definition applied to the vectors of the basis. Conversely, write two arbitrary vectors as combinations $v = \sum_i \lambda_iv_i$ and $w = \sum_j \mu_jv_j$. By bilinearity (Proposition 19.15) and linearity of $T$:
+
+$$\begin{aligned} \langle v, w\rangle &= \sum_{i,j} \lambda_i\mu_j\,\langle v_i, v_j\rangle, \\ \langle T(v), T(w)\rangle &= \Big\langle \sum_i \lambda_iT(v_i), \sum_j \mu_jT(v_j)\Big\rangle \\ &= \sum_{i,j} \lambda_i\mu_j\,\langle T(v_i), T(v_j)\rangle. \end{aligned}$$
+
+If the products between the vectors of the basis are equal, the two sums are equal too.
+
+With a positive definite product there are two more equivalent ways of saying "isometry".
+
+> [!PROP] 22.7
+> Let $T : V \to W$ be an isomorphism between spaces equipped with a positive definite scalar product. The following facts are equivalent:
+> 1. $T$ is an isometry,
+> 2. $T$ preserves the norm, that is $\|T(v)\| = \|v\|$ $\forall\, v \in V$,
+> 3. $T$ preserves the distance, that is $d(v, w) = d(T(v), T(w))$ $\forall\, v, w \in V$.
+
+> [!PROOF] of Proposition 22.7 (from Martelli's book)
+> The handouts do not prove it; here are Martelli's arguments (Proposition 8.2.1).
+> - **(1) ⇒ (2).** $\|T(v)\|^2 = \langle T(v), T(v)\rangle = \langle v, v\rangle = \|v\|^2$.
+> - **(2) ⇒ (3).** By linearity, $d(T(v), T(w)) = \|T(v) - T(w)\| = \|T(v - w)\| = \|v - w\| = d(v, w)$.
+> - **(3) ⇒ (2).** Since $T(0) = 0$: $\|v\| = d(0, v) = d(T(0), T(v)) = d(0, T(v)) = \|T(v)\|$.
+> - **(2) ⇒ (1).** You rebuild the scalar product from the norms (polarisation, lesson L20):
+>   $$\begin{aligned} \langle v, w\rangle &= \frac{\|v + w\|^2 - \|v\|^2 - \|w\|^2}{2} \\ &= \frac{\|T(v) + T(w)\|^2 - \|T(v)\|^2 - \|T(w)\|^2}{2} = \langle T(v), T(w)\rangle, \end{aligned}$$
+>   where the second step uses $\|v + w\| = \|T(v + w)\| = \|T(v) + T(w)\|$.
+
+**The language of matrices.** Let $V$ and $V'$ be spaces equipped with scalar products $g$ and $g'$ and with bases $\mathcal B$ and $\mathcal B'$, and let $T : V \to V'$ be an isomorphism. Let
+
+$$S = [g]_{\mathcal B}, \qquad S' = [g']_{\mathcal B'}, \qquad A = [T]^{\mathcal B}_{\mathcal B'}$$
+
+be the matrices associated with all the players on stage: the two scalar products (lesson L19) and the map (lesson L15).
+
+> [!PROP] 22.8
+> The isomorphism $T$ is an isometry if and only if
+> $$S = {}^tA\,S'\,A.$$
+
+The explanation: by Proposition 22.6 it is enough to check the vectors of the basis. The column $A^i$ contains the coordinates of $T(v_i)$ in the basis $\mathcal B'$, that is $A^i = [T(v_i)]_{\mathcal B'}$. By Corollary 19.16 in the basis $\mathcal B'$:
+
+$$({}^tA\,S'\,A)_{ij} = {}^t(A^i)\,S'\,A^j = g'(T(v_i), T(v_j)),$$
+
+while $S_{ij} = g(v_i, v_j)$. The two matrices are equal exactly when $g(v_i, v_j) = g'(T(v_i), T(v_j))$ for every $i, j$.
+
+## Orthogonal matrices (p. 113)
+
+The case we care about most is $\R^n$ with its Euclidean scalar product, and an endomorphism $L_A : \R^n \to \R^n$ with $A \in M(n)$. In Proposition 22.8 take the canonical basis as the bases: then $S = S' = I_n$ and $A$ is the matrix of $L_A$, so the condition becomes $I_n = {}^tA\,I_n\,A$.
+
+> [!COROLLARY] 22.9
+> The endomorphism $L_A$ is an isometry $\iff {}^tA\,A = I_n$.
+
+> [!DEF] 22.10 · Orthogonal matrix
+> A matrix $A \in M(n)$ with real entries such that ${}^tA\,A = I_n$ is called **orthogonal**.
+
+What does ${}^tA\,A = I_n$ mean in practice? The entry $(i, j)$ of ${}^tA\,A$ is row $i$ of ${}^tA$ times column $j$ of $A$, that is the scalar product between the columns $A^i$ and $A^j$. So:
+
+$${}^tA\,A = I_n \iff \langle A^i, A^j\rangle = \begin{cases} 1 & \text{if } i = j, \\ 0 & \text{if } i \neq j, \end{cases}$$
+
+that is ${}^tA\,A = I_n$ exactly when **the columns of $A$ form an orthonormal basis of $\R^n$**.
+
+> [!BEYOND] The properties of orthogonal matrices
+> From ${}^tA\,A = I_n$ it follows (Martelli, §8.2.2) that:
+> - **the inverse is the transpose**: $A^{-1} = {}^tA$, so also $A\,{}^tA = I_n$ (the **rows** are orthonormal too);
+> - $\det A = \pm1$: by Binet's theorem $1 = \det I_n = \det({}^tA)\det A = (\det A)^2$;
+> - any **real eigenvalues** are $\pm1$: if $Av = \lambda v$ with $v \neq 0$, then $\|v\| = \|Av\| = |\lambda|\,\|v\|$, so $|\lambda| = 1$;
+> - the product of two orthogonal matrices is orthogonal: ${}^t(AB)(AB) = {}^tB\,({}^tA\,A)\,B = {}^tB\,B = I_n$.
+
+> [!EXAMPLE] Orthogonal or not?
+> 1. $\frac15\begin{pmatrix} 3 & -4 \\ 4 & 3 \end{pmatrix}$: columns $\frac15(3, 4)$ and $\frac15(-4, 3)$, both of norm $\frac{\sqrt{9 + 16}}{5} = 1$, and product $\frac{-12 + 12}{25} = 0$. **Orthogonal** (it is $\mathrm{Rot}_\vartheta$ with $\cos\vartheta = \frac35$).
+> 2. $\begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$: orthogonal columns ($1 - 1 = 0$) but of norm $\sqrt2$. **Not orthogonal**: it is $\sqrt2\,\mathrm{Rot}_{-\pi/4}$, a rotation followed by an enlargement.
+> 3. $\frac13\begin{pmatrix} 1 & 2 & 2 \\ 2 & 1 & -2 \\ 2 & -2 & 1 \end{pmatrix}$: each column has norm $\frac{\sqrt{1 + 4 + 4}}{3} = 1$ and the products between columns are $\frac{2 + 2 - 4}{9} = 0$, $\frac{2 - 4 + 2}{9} = 0$, $\frac{4 - 2 - 2}{9} = 0$. **Orthogonal**, with determinant $-1$.
+
+> [!PITFALL] Two conditions that are not enough
+> - **Orthogonal** columns are not enough: you need **orthonormal** columns (example 2 above). The name "orthogonal matrix" is misleading.
+> - $\det A = \pm1$ is not enough: $\begin{pmatrix} 0 & 2 \\ \frac12 & 0 \end{pmatrix}$ has determinant $-1$ but the columns have norms $\frac12$ and $2$. The determinant $\pm1$ is a consequence of orthogonality, not a characterisation.
+
+## All the isometries of the plane (p. 113)
+
+We want to classify completely the isometries of the plane $\R^2$ with the Euclidean scalar product. By Corollary 22.9 it is enough to classify the $2 \times 2$ orthogonal matrices, and a few lines are enough to describe them all.
+
+> [!PROP] 22.11
+> The orthogonal matrices in $M(2)$ are the following:
+> $$\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix},$$
+> $$\mathrm{Rif}_\vartheta = \begin{pmatrix} \cos\vartheta & \sin\vartheta \\ \sin\vartheta & -\cos\vartheta \end{pmatrix}$$
+> as $\vartheta \in [0, 2\pi)$ varies.
+
+The handouts' proof, step by step:
+
+1. The columns $A^1$ and $A^2$ of an orthogonal matrix $A$ form an orthonormal basis of $\R^2$.
+2. $A^1$ is a unit vector: it lies on the circle of radius 1, so it can be written $A^1 = (\cos\vartheta, \sin\vartheta)$ for a unique $\vartheta \in [0, 2\pi)$.
+3. $A^2$ must be orthogonal to $A^1$: by Example 21.1 it lies on the line $\Span((-\sin\vartheta, \cos\vartheta))$. It must also be a unit vector, and on that line there are only two vectors of norm 1, which differ in sign: $A^2 = \pm(-\sin\vartheta, \cos\vartheta)$.
+4. With the $+$ sign you get $\mathrm{Rot}_\vartheta$, with the $-$ sign you get $\mathrm{Rif}_\vartheta$. Conversely, both matrices are orthogonal (you check it as in the previous example). $\square$
+
+> [!COROLLARY] 22.12
+> The isometries of $\R^2$ are rotations and reflections.
+
+The determinant tells them apart: **$\det A = 1$ rotation, $\det A = -1$ reflection**.
+
+> [!METHOD] Recognising an isometry of the plane
+> 1. Check that $A$ is orthogonal: columns of norm 1 and orthogonal to each other.
+> 2. Compute $\det A$.
+> 3. If $\det A = 1$ it is the rotation $\mathrm{Rot}_\vartheta$: read $\cos\vartheta = a_{11}$ and $\sin\vartheta = a_{21}$ off the first column, and find $\vartheta \in [0, 2\pi)$.
+> 4. If $\det A = -1$ it is a reflection: the axis is the eigenspace of the eigenvalue 1, that is the solutions of $(A - I)v = 0$ (or the line with angle $\frac\vartheta2$, with $\vartheta$ read off the first column).
+
+> [!EXAMPLE] Two matrices to recognise
+> - $A = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$: columns $(0, -1)$ and $(1, 0)$, orthonormal; $\det A = 0 - (1)(-1) = 1$. It is a rotation with $\cos\vartheta = 0$ and $\sin\vartheta = -1$, that is $\vartheta = \frac{3\pi}2$: a quarter turn **clockwise**. Check: $A e_1 = (0, -1)$.
+> - $B = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$: $\det B = -1$, a reflection. The first column $(-1, 0)$ gives $\vartheta = \pi$, so the axis has angle $\frac\pi2$: it is the $y$ axis. Check: $B(0, 1) = (0, 1)$.
+
+> [!EXAM] The set of orthogonal matrices is not a subspace
+> The set $O(2)$ of the $2 \times 2$ orthogonal matrices is not a subspace of $M(2, \R)$: it does not contain the zero matrix, and the sum of two orthogonal matrices is in general not orthogonal. By Proposition 22.11 it is made of two "circles" of matrices, $\mathrm{Rot}_\vartheta$ and $\mathrm{Rif}_\vartheta$, parametrised by the angle $\vartheta$. An exam session built a question on it: you find it solved in "Towards the exam".
+
+## Isometries of space (p. 113)
+
+With a little more work, but in a similar way, you classify the isometries of $\R^3$. First the two kinds of transformation that appear.
+
+- The **rotation** by an angle $\vartheta$ around an axis $r$ (a line through the origin) turns space around $r$: the points of $r$ stay fixed, the plane $r^\perp$ turns as in the plane. Around the $z$ axis the matrix is
+  $$\begin{pmatrix} \cos\vartheta & -\sin\vartheta & 0 \\ \sin\vartheta & \cos\vartheta & 0 \\ 0 & 0 & 1 \end{pmatrix}, \qquad \det = 1.$$
+- An **antirotation** does the same rotation and then reflects in the plane $U = r^\perp$ perpendicular to the axis. Around the $z$ axis the plane $U$ is $\{z = 0\}$, and reflecting in it changes the sign of the $z$ coordinate:
+  $$\begin{pmatrix} \cos\vartheta & -\sin\vartheta & 0 \\ \sin\vartheta & \cos\vartheta & 0 \\ 0 & 0 & -1 \end{pmatrix}, \qquad \det = -1.$$
+
+> [!THEOREM] 22.13
+> Every isometry of $\R^3$ is a rotation or an antirotation. Here an antirotation $T : \R^3 \to \R^3$ is the composition of a rotation around an axis $r$ and a reflection in the plane $U = r^\perp$.
+
+Piece by piece:
+
+- here too the determinant tells the two cases apart: **rotation if $\det = 1$, antirotation if $\det = -1$**;
+- special cases (Martelli, §8.2.5–8.2.6): the rotation by angle $0$ is the identity, the one by angle $\pi$ is the reflection in the line $r$; the antirotation by angle $0$ is the reflection in the plane $U$, the one by angle $\pi$ is $-I_3$, the reflection in the origin.
+
+> [!BEYOND] Recognising axis and angle
+> Martelli (p. 261) gives a recipe for an orthogonal matrix $A$ of order 3, with $\det A = \pm1$:
+> $$\operatorname{tr}A = \det A + 2\cos\vartheta, \quad \text{that is} \quad \cos\vartheta = \frac{\operatorname{tr}A - \det A}{2}.$$
+> The axis is the eigenspace of the eigenvalue $1$ for a rotation, of $-1$ for an antirotation (if $\vartheta \neq 0, \pi$). Example: $A = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}$ sends $e_1 \to e_2 \to e_3 \to e_1$. It is orthogonal (the columns are the vectors of the canonical basis in another order), $\det A = 1$, $\operatorname{tr}A = 0$, so it is a rotation with $\cos\vartheta = -\frac12$, that is $\vartheta = \frac{2\pi}3$. The axis is $\Ker(A - I) = \Span((1, 1, 1))$: indeed $A(1, 1, 1) = (1, 1, 1)$. Three applications of the rotation bring every vector back to its starting position, as it must be for $3 \cdot \frac{2\pi}{3} = 2\pi$.
+>
+> **Why the theorem is true** (idea of Martelli's proof, Theorem 8.2.13): the characteristic polynomial of $A$ has degree 3, so it has at least one real root; by what we saw above it is $\pm1$, with an eigenvector $v$ of norm 1. The plane $v^\perp$ is sent to itself, and there $A$ acts as an isometry of the plane: a rotation or a reflection. Putting the cases together you get rotations and antirotations.
+
+## The cross product (pp. 114–115)
+
+In space you constantly need a vector **perpendicular to two given vectors**: the normal direction to a plane, the direction of the line of intersection of two planes. You can solve a system (lesson L21: $W^\perp$), but there is a direct formula.
+
+> [!DEF] 22.14 · Cross product
+> Consider two vectors $v, w \in \R^3$:
+> $$v = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix}, \qquad w = \begin{pmatrix} w_1 \\ w_2 \\ w_3 \end{pmatrix}.$$
+> The **cross product** (or vector product) of $v$ and $w$ is the vector
+> $$v \times w = \begin{pmatrix} v_2w_3 - v_3w_2 \\ v_3w_1 - v_1w_3 \\ v_1w_2 - v_2w_1 \end{pmatrix}.$$
+
+Piece by piece:
+
+- unlike the scalar product, the result is a **vector** of $\R^3$, and the product is defined **only in $\R^3$**;
+- each coordinate is a "$2 \times 2$ determinant" made with the **other two** coordinates: the first uses coordinates 2 and 3, the second coordinates 3 and 1, the third coordinates 1 and 2 (the cyclic order $1 \to 2 \to 3 \to 1$ helps to remember the signs).
+
+**With the minors.** The handouts note that
+
+$$v \times w = \begin{pmatrix} d_1 \\ -d_2 \\ d_3 \end{pmatrix},$$
+
+where $d_i$ is the determinant of the $2 \times 2$ minor obtained by deleting the $i$-th row from the matrix
+
+$$A = \begin{pmatrix} v_1 & w_1 \\ v_2 & w_2 \\ v_3 & w_3 \end{pmatrix}.$$
+
+Watch out for the **minus sign** in front of $d_2$: $d_2 = v_1w_3 - v_3w_1$, and the second coordinate is $-d_2 = v_3w_1 - v_1w_3$.
+
+**The mnemonic rule.** You get the cross product by formally computing the determinant of this "matrix", expanded along the third column (Laplace expansion, Theorem 9.6):
+
+$$\begin{aligned} v \times w &= \det\begin{pmatrix} v_1 & w_1 & e_1 \\ v_2 & w_2 & e_2 \\ v_3 & w_3 & e_3 \end{pmatrix} \\ &= \det\begin{pmatrix} v_2 & w_2 \\ v_3 & w_3 \end{pmatrix}e_1 - \det\begin{pmatrix} v_1 & w_1 \\ v_3 & w_3 \end{pmatrix}e_2 + \det\begin{pmatrix} v_1 & w_1 \\ v_2 & w_2 \end{pmatrix}e_3. \end{aligned}$$
+
+It is only a mnemonic rule: that matrix is not a real matrix, because $e_1, e_2, e_3$ are not numbers but the vectors of the canonical basis.
+
+> [!EXAMPLE] Computing $(1, 2, 3) \times (4, 5, 6)$
+> With $v = (1, 2, 3)$ and $w = (4, 5, 6)$, coordinate by coordinate:
+> - first: $v_2w_3 - v_3w_2 = 2 \cdot 6 - 3 \cdot 5 = 12 - 15 = -3$;
+> - second: $v_3w_1 - v_1w_3 = 3 \cdot 4 - 1 \cdot 6 = 12 - 6 = 6$;
+> - third: $v_1w_2 - v_2w_1 = 1 \cdot 5 - 2 \cdot 4 = 5 - 8 = -3$.
+>
+> So $v \times w = (-3, 6, -3)$. With the minors of $A = \begin{pmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{pmatrix}$: $d_1 = 2 \cdot 6 - 5 \cdot 3 = -3$, $d_2 = 1 \cdot 6 - 4 \cdot 3 = -6$, $d_3 = 1 \cdot 5 - 4 \cdot 2 = -3$, and $(d_1, -d_2, d_3) = (-3, 6, -3)$. ✓
+>
+> Orthogonality check: $\langle (-3, 6, -3), (1, 2, 3)\rangle = -3 + 12 - 9 = 0$ and $\langle (-3, 6, -3), (4, 5, 6)\rangle = -12 + 30 - 18 = 0$. ✓
+
+> [!EXAMPLE] The canonical basis
+> $e_1 \times e_2 = e_3$, $e_2 \times e_3 = e_1$, $e_3 \times e_1 = e_2$ (Martelli, Example 9.1.1). For example $e_1 \times e_2 = (0 \cdot 0 - 0 \cdot 1,\ 0 \cdot 0 - 1 \cdot 0,\ 1 \cdot 1 - 0 \cdot 0) = (0, 0, 1)$. Swapping the order the sign changes: $e_2 \times e_1 = -e_3$.
+
+> [!PROP] 22.15
+> The vector $v \times w$ is orthogonal to both $v$ and $w$.
+
+The handouts' proof is elegant: the scalar product with $v$ is obtained by replacing $e_1, e_2, e_3$ with $v_1, v_2, v_3$ in the mnemonic rule.
+
+$$\begin{aligned} \langle v \times w, v\rangle &= \det\begin{pmatrix} v_2 & w_2 \\ v_3 & w_3 \end{pmatrix}v_1 - \det\begin{pmatrix} v_1 & w_1 \\ v_3 & w_3 \end{pmatrix}v_2 \\ &\quad + \det\begin{pmatrix} v_1 & w_1 \\ v_2 & w_2 \end{pmatrix}v_3 \\ &= \det\begin{pmatrix} v_1 & w_1 & v_1 \\ v_2 & w_2 & v_2 \\ v_3 & w_3 & v_3 \end{pmatrix} = 0. \end{aligned}$$
+
+- The second equality is the **Laplace expansion along the last column** (the signs $+, -, +$ are those of the positions $(1, 3)$, $(2, 3)$, $(3, 3)$).
+- The determinant is zero because the matrix has **two equal columns** (the first and the third).
+- In the same way, with $w$ instead of $v$ in the third column, you find $\langle v \times w, w\rangle = 0$. $\square$
+
+> [!PROP] 22.16
+> The vector $v \times w$ is zero $\iff$ $v$ and $w$ are dependent.
+
+The handouts' proof is a chain of equivalences, with the notation of the minors:
+
+$$\begin{aligned} v \times w = 0 &\iff d_1 = d_2 = d_3 = 0 \\ &\iff \rk A \le 1 \\ &\iff v \text{ and } w \text{ are dependent}. \end{aligned}$$
+
+- The first equivalence is the definition with the minors.
+- The third: $\rk A$ is the dimension of the space spanned by the columns $v$ and $w$ (lesson L08), and it is $\le 1$ exactly when $v$ and $w$ are dependent.
+- The second, the step that is not written: if $\rk A \le 1$, the two columns are proportional (or one is zero), and in every $2 \times 2$ minor they still are, so every $d_i = 0$. If instead $\rk A = 2$, the row rank is 2 as well (Proposition 8.6): there are two independent rows, and the minor formed by those two rows has independent rows, so a non-zero determinant. $\square$
+
+Example: $(1, 2, 3) \times (2, 4, 6) = (12 - 12,\ 6 - 6,\ 4 - 4) = (0, 0, 0)$, because $(2, 4, 6) = 2(1, 2, 3)$.
+
+> [!COROLLARY] 22.17
+> If $v$ and $w$ are independent, the triple $v, w, v \times w$ is a basis of $\R^3$.
+
+The handouts do not give the proof; here is a way with what you know. Three vectors in $\R^3$ are a basis if they are independent. Suppose $a\,v + b\,w + c\,(v \times w) = 0$ and take the scalar product with $v \times w$: by Proposition 22.15 the first two terms give zero, and what is left is $c\,\|v \times w\|^2 = 0$. By Proposition 22.16 $v \times w \neq 0$, so $c = 0$; then $a\,v + b\,w = 0$ and, since $v, w$ are independent, $a = b = 0$. $\square$
+
+> [!BEYOND] Other useful properties (you will see them in lesson L23)
+> - **Anticommutative**: $w \times v = -(v \times w)$ (in the definition the roles are swapped, and every coordinate changes sign); in particular $v \times v = 0$.
+> - **Bilinear**: $(v + v') \times w = v \times w + v' \times w$ and $(\lambda v) \times w = \lambda(v \times w)$, and the same in the second slot.
+> - **Not associative**: $(e_1 \times e_2) \times e_2 = e_3 \times e_2 = -e_1$, while $e_1 \times (e_2 \times e_2) = e_1 \times 0 = 0$.
+> - **Length and orientation**: $\|v \times w\|$ is the area of the parallelogram with sides $v$ and $w$, and the orientation follows the right-hand rule (thumb $v$, index finger $w$, middle finger $v \times w$).
+> - **Equation of a plane**: if $W = \Span(v, w)$ with $v, w$ independent, then $W = \{x \in \R^3 \mid \langle v \times w, x\rangle = 0\}$: the coordinates of $v \times w$ are the coefficients of the Cartesian equation (Martelli, Example 9.1.10). For example $(1, 0, 2) \times (0, 1, 1) = (-2, -1, 1)$, so $\Span((1, 0, 2), (0, 1, 1)) = \{-2x - y + z = 0\}$.
+
+Try it with the tool: drag the drawing to turn it and look at $u \times v$ (in yellow) perpendicular to the parallelogram with sides $u$ and $v$. Swap $u$ and $v$: the product changes orientation. Type $v = 4\ 0\ 0$, parallel to $u$: the product becomes zero (Proposition 22.16).
+
+```widget spazio
+title: The cross product in space
+modo: vettoriale
+u: 2 0 0
+v: 1 2 0
+```
+
+> [!BEYOND] Where to find it in the book
+> Martelli: §4.4.8 "Rotazioni nel piano" and §4.4.9 "Riflessioni ortogonali nel piano" (pp. 143–144), §4.4.11 on rotations around the $z$ axis (p. 145); §7.5 "Isometrie" (pp. 227–229), with Lemma 7.5.5 and Proposition 7.5.8; §8.2 "Isometrie" (pp. 253–261): equivalent definitions, orthogonal matrices, reflections, isometries of the plane, rotations and antirotations, isometries of space; §9.1 "Prodotto vettoriale" (pp. 267–272).
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, marked only with at least 6 points in the quiz; it lasts 2 hours, with no calculator, and only 4 handwritten pages of notes. 2026/27 exam sessions: 22/01 and 05/02/2027, at 14:00. The details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions**
+
+1. **Orthogonal matrices (quiz).** The exam of 10/07/2024 (question 2) asked for the dimension of $O(2)$: the answer is that it is not a subspace (see the box in the section on the isometries of the plane). Orthogonal matrices come back with the spectral theorem (lessons L25–L26), where a symmetric matrix is diagonalised with an orthogonal matrix.
+2. **The cross product as a tool (problems).** In the problems on lines and planes of $\R^3$ the cross product gives in one go the direction of the line of intersection of two planes: exam sessions of 24/01/2024, 10/07/2024, 06/09/2024 and 15/01/2026 (problem 12). In the questions on the distance between two lines (08/02/2024, 06/09/2024, 05/02/2026, 03/06/2026, 07/09/2026) you need a vector perpendicular to the directions of the two lines: again a cross product. The formulas on lines and planes are in lessons L23–L24.
+3. In the 2023–2026 exam sessions there are no questions on the isometries of $\R^3$ (rotations and antirotations).
+
+**Two real exam questions, solved**
+
+> [!EXAMPLE] Exam of 10/07/2024, question 2
+> Let $V = M(2, \R)$ and $O(2)$ the subset of the orthogonal matrices. The dimension of $O(2)$ is: (a) it has no dimension because it is not a vector subspace; (b) two; (c) four; (d) three; (e) one.
+>
+> **Solution.** The dimension is defined only for vector spaces. $O(2)$ is not a subspace: it does not contain the zero matrix, because ${}^t0\,0 = 0 \ne I_2$. So the answer is (a). (A second reason: $I_2 \in O(2)$ but $I_2 + I_2 = 2I_2 \notin O(2)$.)
+
+> [!EXAMPLE] Exam of 24/01/2024, problem 12, part (1)
+> Let $\pi_1 = \{2x + y - z = 1\}$ and $\pi_2 = \{x + 2y + z = 2\}$. Compute the line $r = \pi_1 \cap \pi_2$ in the form $r = P + \Span(v)$.
+>
+> **Solution with the cross product.** The direction $v$ of the line lies in both "vector" planes $\{2x + y - z = 0\}$ and $\{x + 2y + z = 0\}$, so it is orthogonal to the two normal vectors $n_1 = (2, 1, -1)$ and $n_2 = (1, 2, 1)$:
+> $$\begin{aligned} n_1 \times n_2 &= \big(1 \cdot 1 - (-1) \cdot 2,\ (-1) \cdot 1 - 2 \cdot 1,\ 2 \cdot 2 - 1 \cdot 1\big) \\ &= (3, -3, 3), \end{aligned}$$
+> and I can take $v = (1, -1, 1)$. A point $P$: I set $z = 0$ and solve $2x + y = 1$, $x + 2y = 2$; from the first $y = 1 - 2x$, and substituting $x + 2 - 4x = 2$, so $x = 0$ and $y = 1$. Then $P = (0, 1, 0)$ and
+> $$r = (0, 1, 0) + \Span((1, -1, 1)).$$
+> Checks: $P$ lies in both planes ($0 + 1 - 0 = 1$ and $0 + 2 + 0 = 2$), and $v$ satisfies the two homogeneous equations ($2 - 1 - 1 = 0$ and $1 - 2 + 1 = 0$). ✓
+
+**Mistakes to avoid**
+
+- Reading the axis of $\mathrm{Rif}_\vartheta$ at angle $\vartheta$ instead of $\frac\vartheta2$.
+- Believing that orthogonal columns, or $\det A = \pm1$, are enough for a matrix to be orthogonal.
+- Getting the sign of the second coordinate of the cross product wrong: it is $v_3w_1 - v_1w_3$, that is $-d_2$.
+- Forgetting that $w \times v = -(v \times w)$: the order matters for the orientation, not for the direction.
+- Not checking the result: $v \times w$ must give scalar product zero with $v$ and with $w$.
+
+> [!EXAM] On the 4-page sheet
+> - $\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix}$ ($\det 1$); $\mathrm{Rif}_\vartheta = \begin{pmatrix} \cos\vartheta & \sin\vartheta \\ \sin\vartheta & -\cos\vartheta \end{pmatrix}$ ($\det -1$, axis at angle $\frac\vartheta2$).
+> - $L_A$ isometry $\iff {}^tAA = I \iff$ orthonormal columns; then $A^{-1} = {}^tA$, $\det A = \pm1$.
+> - Isometries: in the plane rotations ($\det 1$) and reflections ($\det -1$); in space rotations and antirotations, $\cos\vartheta = \frac{\operatorname{tr}A - \det A}2$.
+> - $v \times w = (v_2w_3 - v_3w_2,\ v_3w_1 - v_1w_3,\ v_1w_2 - v_2w_1)$; orthogonal to $v$ and $w$; zero $\iff$ dependent.
+
+## Quiz
+
+```quiz
+Q: Which of these matrices is orthogonal?
++ $\frac15\begin{pmatrix} 3 & -4 \\ 4 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 0 \\ 0 & \frac12 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 2 \\ \frac12 & 0 \end{pmatrix}$
+= Only the first has columns of norm 1 and orthogonal: $\frac{3^2 + 4^2}{25} = 1$ and $\frac{-12 + 12}{25} = 0$. The second has orthogonal columns but of norm $\sqrt2$; the third and the last have determinant $\pm1$ but columns of norm $2$ and $\frac12$; the fourth (a shear) has second column of norm $\sqrt2$. Linked to the exam of 10/07/2024, question 2, on orthogonal matrices.
+
+Q: What is the image of $v = (3, 1)$ under the anticlockwise rotation by the angle $\frac\pi2$?
++ $(-1, 3)$
+- $(1, -3)$
+- $(-3, 1)$
+- $(1, 3)$
+- $(-3, -1)$
+= $\mathrm{Rot}_{\pi/2} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ sends $(x, y)$ to $(-y, x)$, so $(3, 1) \mapsto (-1, 3)$. Check: $\langle (3, 1), (-1, 3)\rangle = 0$ and the norms are equal. $(1, -3)$ is the **clockwise** rotation.
+
+Q: The matrix $\mathrm{Rif}_{\pi/2} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ represents the reflection in:
++ the line $y = x$
+- the $y$ axis
+- the $x$ axis
+- the line $y = -x$
+- the origin
+= The axis of $\mathrm{Rif}_\vartheta$ forms an angle $\frac\vartheta2 = \frac\pi4$ with the $x$ axis: it is the bisector $y = x$. Check: $(1, 1) \mapsto (1, 1)$ stays fixed, $(1, -1) \mapsto (-1, 1)$ changes sign. The $y$ axis is the mistake of those who read the angle $\vartheta$ instead of $\frac\vartheta2$.
+
+Q: Let $O(2) \subset M(2, \R)$ be the set of the $2 \times 2$ orthogonal matrices. Which statement is true?
++ $O(2)$ is not a vector subspace of $M(2, \R)$.
+- $O(2)$ is a subspace of dimension 4.
+- $O(2)$ contains the zero matrix.
+- The sum of two orthogonal matrices is always orthogonal.
+- $O(2)$ contains only rotation matrices.
+= The zero matrix is not orthogonal, and $I_2 + I_2 = 2I_2$ is not: $O(2)$ is not closed under sum, so it is not a subspace. It also contains the reflections (Proposition 22.11). Similar to the exam of 10/07/2024, question 2.
+
+Q: If $A \in M(3, \R)$ is an orthogonal matrix, then certainly:
++ $\det A = \pm1$
+- $\det A = 1$
+- $A$ is symmetric
+- $A^{-1} = A$
+- $\operatorname{tr}A = 3$
+= From ${}^tAA = I$ and Binet: $(\det A)^2 = 1$. The determinant can be $-1$ (a reflection, like $\operatorname{diag}(1, 1, -1)$). A rotation by $\frac\pi2$ around the $z$ axis is orthogonal but not symmetric, does not coincide with its inverse and has trace $1$. What always holds instead is $A^{-1} = {}^tA$.
+
+Q: What is the cross product $(1, 2, 0) \times (0, 1, 3)$?
++ $(6, -3, 1)$
+- $(6, 3, 1)$
+- $(-6, 3, -1)$
+- $(0, 2, 0)$
+- $(6, -3, -1)$
+= $(2 \cdot 3 - 0 \cdot 1,\ 0 \cdot 0 - 1 \cdot 3,\ 1 \cdot 1 - 2 \cdot 0) = (6, -3, 1)$. Check: $\langle (6, -3, 1), (1, 2, 0)\rangle = 6 - 6 = 0$ and $\langle (6, -3, 1), (0, 1, 3)\rangle = -3 + 3 = 0$. $(-6, 3, -1)$ is $(0, 1, 3) \times (1, 2, 0)$; $(0, 2, 0)$ is the coordinate-by-coordinate product. It is the computation needed for the direction of a line of intersection of planes, as in the exam of 15/01/2026 (problem 12, part 2).
+
+Q: For which of these pairs of vectors is the cross product the zero vector?
++ $(1, -2, 3)$ and $(-2, 4, -6)$
+- $(1, 0, 0)$ and $(0, 1, 0)$
+- $(1, 1, 0)$ and $(1, -1, 0)$
+- $(1, 2, 3)$ and $(3, 2, 1)$
+- $(0, 0, 1)$ and $(1, 1, 1)$
+= $v \times w = 0$ exactly when $v, w$ are dependent (Proposition 22.16): $(-2, 4, -6) = -2(1, -2, 3)$. The other pairs give $(0, 0, 1)$, $(0, 0, -2)$, $(-4, 8, -4)$, $(-1, 1, 0)$. In the questions on the distance between lines (for example the exam of 07/09/2026, question 7) this is how you check that the directions are not parallel.
+
+Q: Which of these linear transformations of the plane is **not** an isometry (with the Euclidean product)?
++ $(x, y) \mapsto (x + y, y)$
+- $(x, y) \mapsto (y, x)$
+- $(x, y) \mapsto (-x, -y)$
+- $(x, y) \mapsto \left(\frac{x - \sqrt3 y}{2}, \frac{\sqrt3 x + y}{2}\right)$
+- $(x, y) \mapsto (x, -y)$
+= The shear $(x, y) \mapsto (x + y, y)$ sends $e_2$ to $(1, 1)$, of norm $\sqrt2 \neq 1$. The others are $\mathrm{Rif}_{\pi/2}$, $\mathrm{Rot}_\pi$, $\mathrm{Rot}_{\pi/3}$ and $\mathrm{Rif}_0$: all with an orthogonal matrix.
+
+Q: A linear isometry of $\R^3$ with determinant $-1$ is:
++ an antirotation
+- a rotation
+- a translation
+- an orthogonal projection onto a plane
+- a rotation by the angle $\pi$ around an axis
+= By Theorem 22.13 every isometry of $\R^3$ is a rotation ($\det 1$) or an antirotation ($\det -1$). Translations are not linear; projections are not invertible; a rotation, by any angle, has determinant $1$. Special cases of antirotation are $-I_3$ (angle $\pi$) and the reflections in a plane (angle $0$).
+
+Q: What is the norm of $(1, 0, 0) \times (0, 3, 4)$?
+N: 5
+= $(1, 0, 0) \times (0, 3, 4) = (0 \cdot 4 - 0 \cdot 3,\ 0 \cdot 0 - 1 \cdot 4,\ 1 \cdot 3 - 0 \cdot 0) = (0, -4, 3)$, of norm $\sqrt{16 + 9} = 5$. In lesson L23 you will see that it is the area of the parallelogram with the two vectors as sides (as in exercise 7 of tutoring sheet 4).
+```
+
+## Exercises
+
+The handouts have no exercises for this lesson: these are all built for the notes; the last two are modelled on the exam papers and on tutoring sheet 4.
+
+::: exercise basic Writing and using rotations
+(a) Write $\mathrm{Rot}_{\pi/6}$ and $\mathrm{Rot}_{2\pi/3}$. (b) Rotate $(2, 0)$ by $\frac\pi3$ and $(1, 2)$ by $\frac\pi2$. (c) Check that $\mathrm{Rot}_{\pi/6}$ preserves the norm of $(2, 0)$.
+::: solution
+(a) With $\cos\frac\pi6 = \frac{\sqrt3}2$, $\sin\frac\pi6 = \frac12$, $\cos\frac{2\pi}3 = -\frac12$, $\sin\frac{2\pi}3 = \frac{\sqrt3}2$:
+$$\mathrm{Rot}_{\pi/6} = \begin{pmatrix} \frac{\sqrt3}2 & -\frac12 \\ \frac12 & \frac{\sqrt3}2 \end{pmatrix}, \qquad \mathrm{Rot}_{2\pi/3} = \begin{pmatrix} -\frac12 & -\frac{\sqrt3}2 \\ \frac{\sqrt3}2 & -\frac12 \end{pmatrix}.$$
+
+(b) $\mathrm{Rot}_{\pi/3}(2, 0) = 2 \cdot$ (first column) $= 2\left(\frac12, \frac{\sqrt3}2\right) = (1, \sqrt3)$. $\mathrm{Rot}_{\pi/2}(1, 2) = (-2, 1)$.
+
+(c) $\mathrm{Rot}_{\pi/6}(2, 0) = (\sqrt3, 1)$, of norm $\sqrt{3 + 1} = 2 = \|(2, 0)\|$. ✓
+:::
+
+::: exercise basic The reflection in the line $y = -x$
+Find the matrix of the reflection in the line $y = -x$ and check the result on two vectors.
+::: solution
+The line $y = -x$ forms with the $x$ axis an angle of $-\frac\pi4$ (or $\frac{3\pi}4$). With $\frac\vartheta2 = -\frac\pi4$ we have $\vartheta = -\frac\pi2$, and $\cos\left(-\frac\pi2\right) = 0$, $\sin\left(-\frac\pi2\right) = -1$:
+$$\mathrm{Rif}_{-\pi/2} = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}, \qquad (x, y) \mapsto (-y, -x).$$
+(With $\vartheta = \frac{3\pi}2 \in [0, 2\pi)$ you get the same matrix.) Check: $(1, -1)$, which lies on the line, goes to $(1, -1)$ and stays fixed; $(1, 1)$, perpendicular to the line, goes to $(-1, -1)$, its opposite. ✓
+:::
+
+::: exercise basic Orthogonal matrices and inverses
+For each matrix say whether it is orthogonal; if it is, write its inverse without any computation:
+$$A_1 = \frac15\begin{pmatrix} 3 & -4 \\ 4 & 3 \end{pmatrix}, \quad A_2 = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix},$$
+$$A_3 = \frac13\begin{pmatrix} 1 & 2 & 2 \\ 2 & 1 & -2 \\ 2 & -2 & 1 \end{pmatrix}, \quad A_4 = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}.$$
+::: solution
+- $A_1$: orthogonal (unit and orthogonal columns). $A_1^{-1} = {}^tA_1 = \frac15\begin{pmatrix} 3 & 4 \\ -4 & 3 \end{pmatrix}$.
+- $A_2$: **not** orthogonal, the columns have norm $\sqrt2$. (Its inverse exists, but it is not the transpose: it is $\frac12\,{}^tA_2$.)
+- $A_3$: orthogonal (computations in the example of the section on orthogonal matrices). $A_3$ is also symmetric, so $A_3^{-1} = {}^tA_3 = A_3$: applying it twice gives the identity. It is the reflection in the plane $\{-x + y + z = 0\}$: the formula $f(v) = v - 2\,\frac{\langle v, n\rangle}{\langle n, n\rangle}n$ with $n = (-1, 1, 1)$ gives $f(e_1) = (1, 0, 0) - 2 \cdot \frac{-1}{3}(-1, 1, 1) = \left(\frac13, \frac23, \frac23\right)$, the first column.
+- $A_4$: orthogonal, the columns are $e_3, e_1, e_2$ (the canonical basis in another order). $A_4^{-1} = {}^tA_4 = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}$.
+:::
+
+::: exercise intermediate The reflection in the line of $(1, 2)$
+Find the matrix of the reflection of the plane in the line $r = \Span((1, 2))$ in two ways: with $\mathrm{Rif}_\vartheta$ and with the change of basis.
+::: solution
+**With $\mathrm{Rif}_\vartheta$.** The angle $\frac\vartheta2$ of the line has $t = \tan\frac\vartheta2 = 2$. Then
+$$\begin{aligned} \cos\vartheta &= \frac{1 - t^2}{1 + t^2} = \frac{1 - 4}{5} = -\frac35, \\ \sin\vartheta &= \frac{2t}{1 + t^2} = \frac45, \end{aligned}$$
+$$\mathrm{Rif}_\vartheta = \begin{pmatrix} -\frac35 & \frac45 \\ \frac45 & \frac35 \end{pmatrix}.$$
+
+**With the change of basis.** In the basis $\{(1, 2), (-2, 1)\}$ (one vector on $r$, one perpendicular) the matrix is $\operatorname{diag}(1, -1)$. With $M = \begin{pmatrix} 1 & -2 \\ 2 & 1 \end{pmatrix}$, $M^{-1} = \frac15\begin{pmatrix} 1 & 2 \\ -2 & 1 \end{pmatrix}$:
+$$\begin{aligned} M\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}M^{-1} &= \begin{pmatrix} 1 & 2 \\ 2 & -1 \end{pmatrix}\cdot\frac15\begin{pmatrix} 1 & 2 \\ -2 & 1 \end{pmatrix} \\ &= \frac15\begin{pmatrix} -3 & 4 \\ 4 & 3 \end{pmatrix}. \end{aligned}$$
+Same result. Check: $(1, 2) \mapsto \left(\frac{-3 + 8}{5}, \frac{4 + 6}{5}\right) = (1, 2)$ and $(-2, 1) \mapsto \left(\frac{6 + 4}{5}, \frac{-8 + 3}{5}\right) = (2, -1)$. ✓
+:::
+
+::: exercise intermediate Recognising rotations and reflections
+Say which isometry $A = \frac15\begin{pmatrix} 4 & -3 \\ 3 & 4 \end{pmatrix}$ and $B = \frac15\begin{pmatrix} 4 & 3 \\ 3 & -4 \end{pmatrix}$ represent: angle for the rotation, axis for the reflection.
+::: solution
+Both have unit columns ($\frac{16 + 9}{25} = 1$) that are orthogonal: they are orthogonal.
+
+- $\det A = \frac{16 + 9}{25} = 1$: **rotation** with $\cos\vartheta = \frac45$ and $\sin\vartheta = \frac35$, that is $\vartheta = \arccos\frac45$ (about 37°, not a special angle).
+- $\det B = \frac{-16 - 9}{25} = -1$: **reflection**. The axis is $\Ker(B - I)$: the first row of $B - I$ is $\left(-\frac15, \frac35\right)$, so $-x + 3y = 0$, that is $x = 3y$: the axis is $\Span((3, 1))$. Check: $B(3, 1) = \left(\frac{12 + 3}{5}, \frac{9 - 4}{5}\right) = (3, 1)$. ✓
+:::
+
+::: exercise intermediate Two reflections make a rotation
+(a) Compute $\mathrm{Rif}_{\pi/2}\,\mathrm{Rif}_0$ and recognise the result. (b) Prove that in general $\mathrm{Rif}_\alpha\,\mathrm{Rif}_\beta = \mathrm{Rot}_{\alpha - \beta}$.
+::: solution
+(a) $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = \mathrm{Rot}_{\pi/2}$: reflecting in the $x$ axis and then in the bisector is rotating by a quarter turn.
+
+(b) Row by column, the four entries of $\mathrm{Rif}_\alpha\,\mathrm{Rif}_\beta$ are:
+
+- position $(1, 1)$: $\cos\alpha\cos\beta + \sin\alpha\sin\beta$;
+- position $(1, 2)$: $\cos\alpha\sin\beta - \sin\alpha\cos\beta$;
+- position $(2, 1)$: $\sin\alpha\cos\beta - \cos\alpha\sin\beta$;
+- position $(2, 2)$: $\sin\alpha\sin\beta + \cos\alpha\cos\beta$.
+
+By the subtraction formulas, $\cos\alpha\cos\beta + \sin\alpha\sin\beta = \cos(\alpha - \beta)$ and $\sin\alpha\cos\beta - \cos\alpha\sin\beta = \sin(\alpha - \beta)$; the top-right entry is $-\sin(\alpha - \beta)$. So the product is $\mathrm{Rot}_{\alpha - \beta}$. The determinant works out too: $(-1)(-1) = 1$.
+:::
+
+::: exercise intermediate Cross products and bases
+(a) Compute $(2, -1, 1) \times (1, 3, -2)$ and check that it is orthogonal to the two vectors. (b) Explain why $(2, -1, 1)$, $(1, 3, -2)$ and their cross product form a basis of $\R^3$.
+::: solution
+(a) With $v = (2, -1, 1)$ and $w = (1, 3, -2)$:
+- first: $v_2w_3 - v_3w_2 = (-1)(-2) - 1 \cdot 3 = 2 - 3 = -1$;
+- second: $v_3w_1 - v_1w_3 = 1 \cdot 1 - 2 \cdot (-2) = 1 + 4 = 5$;
+- third: $v_1w_2 - v_2w_1 = 2 \cdot 3 - (-1) \cdot 1 = 6 + 1 = 7$.
+
+$v \times w = (-1, 5, 7)$. Checks: $\langle (-1, 5, 7), v\rangle = -2 - 5 + 7 = 0$ and $\langle (-1, 5, 7), w\rangle = -1 + 15 - 14 = 0$. ✓
+
+(b) $v$ and $w$ are not proportional (the cross product is not zero, Proposition 22.16), so by Corollary 22.17 the triple is a basis.
+:::
+
+::: exercise intermediate The plane spanned by two vectors
+Let $W = \Span((1, 0, 2), (0, 1, 1))$. (a) Find a vector orthogonal to $W$ and a Cartesian equation of $W$. (b) Does the vector $(1, 1, 3)$ lie in $W$? And $(1, 1, 1)$?
+::: solution
+(a) $(1, 0, 2) \times (0, 1, 1) = (0 \cdot 1 - 2 \cdot 1,\ 2 \cdot 0 - 1 \cdot 1,\ 1 \cdot 1 - 0 \cdot 0) = (-2, -1, 1)$. A vector $x$ lies in $W$ if and only if it is orthogonal to this vector (lesson L21: $W = (W^\perp)^\perp$ and $W^\perp$ is the line spanned by $(-2, -1, 1)$). Equation: $-2x - y + z = 0$, or $2x + y - z = 0$.
+
+(b) $(1, 1, 3)$: $2 + 1 - 3 = 0$, it lies in $W$ (it is the sum of the two generators). $(1, 1, 1)$: $2 + 1 - 1 = 2 \neq 0$, it does not lie in $W$.
+:::
+
+::: exercise hard Properties of the cross product from the definition
+Prove, using only Definition 22.14: (a) $w \times v = -(v \times w)$; (b) $v \times v = 0$; (c) $(\lambda v) \times w = \lambda(v \times w)$. (d) Check with $v = (1, 2, 3)$, $w = (4, 5, 6)$ the identity $\|v \times w\|^2 + \langle v, w\rangle^2 = \|v\|^2\|w\|^2$, which the handouts prove in lesson L23.
+::: solution
+(a) Swapping $v$ and $w$ the first coordinate becomes $w_2v_3 - w_3v_2 = -(v_2w_3 - v_3w_2)$, and the same for the other two: every coordinate changes sign.
+
+(b) With $w = v$ every coordinate is of the form $v_2v_3 - v_3v_2 = 0$. (Or: by (a), $v \times v = -(v \times v)$, so $v \times v = 0$.)
+
+(c) Every coordinate of $(\lambda v) \times w$ is, for example, $(\lambda v_2)w_3 - (\lambda v_3)w_2 = \lambda(v_2w_3 - v_3w_2)$.
+
+(d) $v \times w = (-3, 6, -3)$, so $\|v \times w\|^2 = 9 + 36 + 9 = 54$; $\langle v, w\rangle = 4 + 10 + 18 = 32$, so $\langle v, w\rangle^2 = 1024$. On the right: $\|v\|^2 = 14$, $\|w\|^2 = 16 + 25 + 36 = 77$, and $14 \cdot 77 = 1078 = 54 + 1024$. ✓
+:::
+
+::: exercise hard An isometry of space
+Let $A = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & -1 \end{pmatrix}$. (a) Check that $A$ is orthogonal. (b) Is it a rotation or an antirotation? (c) Find the axis and the angle.
+::: solution
+(a) The columns are $(0, 1, 0)$, $(-1, 0, 0)$, $(0, 0, -1)$: unit vectors and pairwise orthogonal.
+
+(b) Expansion along the third row: $\det A = (-1) \cdot \det\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = (-1) \cdot 1 = -1$. It is an **antirotation**.
+
+(c) $Ae_3 = (0, 0, -1) = -e_3$: the axis is the $z$ axis, $\Span(e_3)$. On the plane $\{z = 0\}$ the matrix acts as $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = \mathrm{Rot}_{\pi/2}$. So $A$ is the rotation by $\frac\pi2$ around the $z$ axis followed by the reflection in the plane $\{z = 0\}$. With Martelli's formula: $\cos\vartheta = \frac{\operatorname{tr}A - \det A}{2} = \frac{-1 + 1}{2} = 0$, that is $\vartheta = \frac\pi2$. ✓
+:::
+
+::: exercise exam Completing an orthogonal matrix
+Let $A = \frac15\begin{pmatrix} 3 & a \\ 4 & b \end{pmatrix}$. (1) Find all the $a, b \in \R$ for which $A$ is orthogonal. (2) For each solution say whether $L_A$ is a rotation or a reflection (with angle or axis). (3) Compute $A^{-1}$.
+::: solution
+(1) The first column $\frac15(3, 4)$ is already a unit vector. The second, $\frac15(a, b)$, must be a unit vector, $a^2 + b^2 = 25$, and orthogonal to the first, $3a + 4b = 0$. From the second condition $a = -\frac43 b$; substituting, $\frac{16}9 b^2 + b^2 = 25$, that is $\frac{25}9 b^2 = 25$, so $b = \pm3$ and $a = \mp4$. The solutions are $(a, b) = (-4, 3)$ and $(a, b) = (4, -3)$.
+
+(2) With $(-4, 3)$: $A = \frac15\begin{pmatrix} 3 & -4 \\ 4 & 3 \end{pmatrix}$, $\det A = \frac{9 + 16}{25} = 1$: rotation with $\cos\vartheta = \frac35$, $\sin\vartheta = \frac45$. With $(4, -3)$: $A = \frac15\begin{pmatrix} 3 & 4 \\ 4 & -3 \end{pmatrix}$, $\det A = -1$: reflection, with axis $\Span((2, 1))$ (it is the matrix of the example in the section on reflections; check: $A(2, 1) = \left(\frac{6 + 4}{5}, \frac{8 - 3}{5}\right) = (2, 1)$).
+
+(3) For an orthogonal matrix $A^{-1} = {}^tA$. Rotation: $A^{-1} = \frac15\begin{pmatrix} 3 & 4 \\ -4 & 3 \end{pmatrix}$ (the rotation backwards). Reflection: $A$ is symmetric, so $A^{-1} = A$ (reflecting twice brings you back to the starting point).
+:::
+
+::: exercise exam Cross product, plane and basis
+Let $v = (2, 1, 0)$ and $w = (1, 0, 1)$. (1) Compute a vector orthogonal to $\Span(v, w)$ and a unit vector with the same direction. (2) Write a Cartesian equation of the plane $\Span(v, w)$. (3) Prove that $v, w, v \times w$ is a basis of $\R^3$ by computing a determinant. (4) A preview of lesson L23: what is the area of the parallelogram with sides $v$ and $w$?
+::: solution
+(1) $v \times w = (1 \cdot 1 - 0 \cdot 0,\ 0 \cdot 1 - 2 \cdot 1,\ 2 \cdot 0 - 1 \cdot 1) = (1, -2, -1)$. Check: $\langle (1, -2, -1), v\rangle = 2 - 2 + 0 = 0$, $\langle (1, -2, -1), w\rangle = 1 + 0 - 1 = 0$. ✓ Norm $\sqrt{1 + 4 + 1} = \sqrt6$, unit vector $\frac{1}{\sqrt6}(1, -2, -1)$.
+
+(2) $x - 2y - z = 0$. Check: $v$ gives $2 - 2 - 0 = 0$, $w$ gives $1 - 0 - 1 = 0$. ✓
+
+(3) With the columns $v, w, v \times w$, expansion along the first row:
+$$\begin{aligned} \det\begin{pmatrix} 2 & 1 & 1 \\ 1 & 0 & -2 \\ 0 & 1 & -1 \end{pmatrix} &= 2(0 + 2) - 1(-1 - 0) + 1(1 - 0) \\ &= 4 + 1 + 1 = 6 \neq 0. \end{aligned}$$
+So the three vectors are independent: a basis. The value $6 = \|v \times w\|^2$ is not a coincidence: expanding along the third column, the determinant of the matrix with columns $v, w, v \times w$ always equals $d_1^2 + d_2^2 + d_3^2 = \|v \times w\|^2 > 0$ (in lesson L23 it is Proposition 23.4).
+
+(4) $\|v \times w\| = \sqrt6$.
+:::
+
+## Review questions
+
+::: question What is a linear isometry? Why does it fix the origin?
+An isomorphism that preserves the scalar product: $\langle T(v), T(w)\rangle = \langle v, w\rangle$. Being linear, it sends $0$ to $0$; this is why translations are not among them.
+:::
+
+::: question How do you derive the matrix of the rotation by the angle $\vartheta$?
+The columns are the images of $e_1$ and $e_2$: $e_1$ goes to $(\cos\vartheta, \sin\vartheta)$ and $e_2$ goes to $(-\sin\vartheta, \cos\vartheta)$. So $\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix}$, with determinant 1.
+:::
+
+::: question In which line does $\mathrm{Rif}_\vartheta$ reflect? What is its determinant?
+In the line through the origin that forms an angle $\frac\vartheta2$ with the $x$ axis. The determinant is $-\cos^2\vartheta - \sin^2\vartheta = -1$.
+:::
+
+::: question Why does a reflection have matrix $\operatorname{diag}(1, -1)$ in a suitable basis?
+If $v_1$ lies on the line $r$ and $v_2$ on the perpendicular line, the reflection keeps $v_1$ fixed and changes the sign of $v_2$: $f(v_1) = v_1$, $f(v_2) = -v_2$.
+:::
+
+::: question Why, to check that an isomorphism is an isometry, are the vectors of a basis enough?
+Because, by bilinearity and linearity, $\langle v, w\rangle$ and $\langle T(v), T(w)\rangle$ are the same combinations of the products $\langle v_i, v_j\rangle$ and $\langle T(v_i), T(v_j)\rangle$.
+:::
+
+::: question Which equivalent conditions define an isometry with a positive definite product?
+Preserving the scalar product, preserving the norms ($\|T(v)\| = \|v\|$), preserving the distances ($d(T(v), T(w)) = d(v, w)$).
+:::
+
+::: question When is $L_A$ an isometry of $\R^n$? What does it mean for the columns of $A$?
+When ${}^tAA = I_n$, that is $A$ is orthogonal. The entry $(i, j)$ of ${}^tAA$ is $\langle A^i, A^j\rangle$, so the columns form an orthonormal basis.
+:::
+
+::: question What properties do orthogonal matrices have?
+$A^{-1} = {}^tA$; $\det A = \pm1$; the real eigenvalues are $\pm1$; the rows are orthonormal too; the product of two orthogonal matrices is orthogonal.
+:::
+
+::: question Why are the $2 \times 2$ orthogonal matrices only rotations and reflections?
+The first column is a unit vector, so $(\cos\vartheta, \sin\vartheta)$; the second is a unit vector orthogonal to the first, so $\pm(-\sin\vartheta, \cos\vartheta)$. With the $+$ sign you have $\mathrm{Rot}_\vartheta$, with the $-$ sign you have $\mathrm{Rif}_\vartheta$.
+:::
+
+::: question What are the isometries of $\R^3$?
+Rotations around an axis ($\det 1$) and antirotations ($\det -1$): a rotation around an axis $r$ composed with the reflection in the plane $r^\perp$.
+:::
+
+::: question How do you compute the cross product? How do you remember the sign?
+$v \times w = (v_2w_3 - v_3w_2,\ v_3w_1 - v_1w_3,\ v_1w_2 - v_2w_1)$, or $(d_1, -d_2, d_3)$ with the minors of the matrix with columns $v$ and $w$, or with the formal determinant with $e_1, e_2, e_3$ in the last column.
+:::
+
+::: question Why is $v \times w$ orthogonal to $v$? When is it zero?
+$\langle v \times w, v\rangle$ is the determinant of the matrix with columns $v, w, v$, which has two equal columns, so it is 0. It is zero exactly when $v$ and $w$ are dependent (all the $2 \times 2$ minors zero, rank $\le 1$).
+:::
+
+## Glossary
+
+```glossary
+Isometry | Isomorphism $T$ between spaces with a scalar product such that $\langle T(v), T(w)\rangle = \langle v, w\rangle$ for every $v, w$.
+Linear isometry | Isometry of $\R^n$ of the form $L_A(x) = Ax$; it fixes the origin.
+Rotation of the plane | $L_A$ with $A = \mathrm{Rot}_\vartheta$: it turns the plane by $\vartheta$ anticlockwise; $\det = 1$.
+$\mathrm{Rot}_\vartheta$ | The matrix with columns $(\cos\vartheta, \sin\vartheta)$ and $(-\sin\vartheta, \cos\vartheta)$.
+Reflection of the plane | $L_A$ with $A = \mathrm{Rif}_\vartheta$: symmetry with respect to the line with angle $\frac\vartheta2$; $\det = -1$.
+$\mathrm{Rif}_\vartheta$ | The matrix with columns $(\cos\vartheta, \sin\vartheta)$ and $(\sin\vartheta, -\cos\vartheta)$.
+Orthogonal matrix | Real square matrix with ${}^tAA = I_n$: orthonormal columns, $A^{-1} = {}^tA$, $\det A = \pm1$.
+$O(2)$ | The set of the $2 \times 2$ orthogonal matrices: the $\mathrm{Rot}_\vartheta$ and the $\mathrm{Rif}_\vartheta$. It is not a subspace.
+Orientation | The "sense of rotation" of the plane or of space; transformations with negative determinant reverse it.
+Rotation of space | Isometry of $\R^3$ that fixes a line $r$ (the axis) and rotates the plane $r^\perp$; $\det = 1$.
+Antirotation | Composition of a rotation around an axis $r$ and the reflection in the plane $r^\perp$; $\det = -1$.
+Axis | The line fixed by a rotation ($\Ker(A - I)$), or the one sent to its opposite by an antirotation.
+Trace | $\operatorname{tr}A$, sum of the entries on the diagonal; for the isometries of $\R^3$, $\cos\vartheta = \frac{\operatorname{tr}A - \det A}{2}$.
+Cross product | $v \times w = (v_2w_3 - v_3w_2,\ v_3w_1 - v_1w_3,\ v_1w_2 - v_2w_1)$, defined only in $\R^3$.
+Minors $d_i$ | $2 \times 2$ determinants of the $3 \times 2$ matrix with columns $v, w$ without row $i$; $v \times w = (d_1, -d_2, d_3)$.
+Mnemonic rule | $v \times w$ as a formal determinant with $e_1, e_2, e_3$ in the last column, expanded with Laplace.
+Anticommutativity | $w \times v = -(v \times w)$; in particular $v \times v = 0$.
+```
+
+## Checklist
+
+```checklist
+- I can write $\mathrm{Rot}_\vartheta$ and $\mathrm{Rif}_\vartheta$ and derive them from the images of $e_1$ and $e_2$.
+- I know that the axis of $\mathrm{Rif}_\vartheta$ has angle $\frac\vartheta2$ and I can find it as the eigenspace of the eigenvalue 1.
+- I can write the matrix of the reflection in a given line (with the angle, with the projection or with the change of basis).
+- I know the definition of isometry and why it is enough to check it on a basis.
+- I know that, with a positive definite product, isometry means preserving norms or distances.
+- I can recognise an orthogonal matrix (${}^tAA = I$, orthonormal columns) and use its properties ($A^{-1} = {}^tA$, $\det = \pm1$).
+- I can classify an isometry of the plane with the determinant and find the angle or the axis.
+- I know that the isometries of $\R^3$ are rotations and antirotations and I tell them apart with the determinant.
+- I can compute $v \times w$ with the formula, with the minors or with the mnemonic rule, and check the result with orthogonality.
+- I can use the cross product to find a vector normal to a plane or the direction of the line of intersection of two planes.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 22 "Lo spazio euclideo I", pp. 111–115: sections 22.A (linear isometries of the plane), 22.B (isometries of space) and 22.C (cross product), followed in order with their numbering (Definitions 22.1, 22.3, 22.5, 22.10, 22.14; Propositions 22.2, 22.4, 22.6, 22.7, 22.8, 22.11, 22.15, 22.16; Corollaries 22.9, 22.12, 22.17; Theorem 22.13; the Remark on the convenient basis for reflections). The handouts have no exercises for this lesson. Reminders: Proposition 8.6 (row rank), Theorem 9.6 (Laplace), Theorem 10.4 (Binet), lessons L16, L17, L19–L21.
+- **B. Martelli, *Geometria e algebra lineare***: §4.4.8–4.4.9 and §4.4.11 (proofs of Propositions 22.2 and 22.4 with polar coordinates), §7.5 (isometries), §8.2 (Proposition 8.2.1, orthogonal matrices, reflections, rotations and antirotations, Theorem 8.2.13 and the formula with the trace), §9.1 (cross product). The book is free: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf).
+- **Exam papers** (Moodle 2025/26): question 2 of 10/07/2024; problems 12 of 24/01/2024, 10/07/2024, 06/09/2024 and 15/01/2026; questions on the distance between lines of 08/02/2024, 06/09/2024, 05/02/2026, 03/06/2026 and 07/09/2026. **Tutoring sheet 4** (exercise 7, cross product and area). The two questions reported are solved in these notes.
+- The **"Beyond the handouts"** parts (composition and inverse of rotations, properties of orthogonal matrices, axis and angle of the isometries of $\R^3$, other properties of the cross product, where to find it in the book), the proofs taken from Martelli's book and all the exercises are additions in these notes, to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L23_euclidean_space_2.md -->
+> File: `ai_context/MDAG/lessons/L23_euclidean_space_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L23
+title: Euclidean space II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L23
+description: >-
+  Notes on lesson L23 of Linear Algebra and Geometry (MDAG, part 2): properties of the cross product and area of the
+  parallelogram, Cartesian and parametric form of lines and planes, affine subspaces and direction space (giacitura),
+  intersections, with exam-style quizzes and worked exercises.
+lede: >-
+  The cross product $v \times w$ has a length that measures an area and an orientation that you find with your right
+  hand. Then we move on to the geometry of lines and planes in $\R^3$: how they are written (equations or parameters),
+  how to go from one way of writing to the other, what an affine subspace $x + W$ is and how intersections are
+  computed. These are the computations that come back in almost every geometry problem at the exam.
+material: handouts
+facts:
+  Handouts: lesson 23 · pp. 116–121
+  Book: Martelli, §9.1 and §9.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 23 "Lo spazio euclideo II"; B. Martelli, Geometria e algebra lineare, §9.1–9.2
+italian_file: L23_spazio_euclideo_2.html
+html_notes: notes/MDAG/L23_euclidean_space_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L23_spazio_euclideo_2.md
+```
+
+## In brief
+
+- The **cross product** $v \times w$ of two vectors of $\R^3$ (lesson L22) is orthogonal to $v$ and to $w$, and its **length** is the **area of the parallelogram** with sides $v$ and $w$: $\lVert v \times w \rVert = \lVert v \rVert \lVert w \rVert \sin\vartheta$.
+- Everything follows from **Lagrange's identity** $\lVert v \times w \rVert^2 + \langle v, w \rangle^2 = \lVert v \rVert^2 \lVert w \rVert^2$.
+- The **orientation** of $v \times w$ is found with the **right-hand rule**: if $v$ and $w$ are independent, $v, w, v \times w$ is a **positive basis** of $\R^3$ (positive determinant).
+- The cross product is **bilinear** and **anticommutative** ($v \times w = -\,w \times v$), but it is **not associative**: brackets matter.
+- A subspace is described in **Cartesian form** (equations: they say *what lies inside it*) or in **parametric form** (generators: they say *what its points look like*).
+- An **affine subspace** is a translated vector subspace, $S = x + W$: $W$ is the **direction space** (giacitura), $x$ any point of $S$. The solutions of $Ax = b$, if there are any, form an affine subspace of dimension $n - \rk A$.
+- In $\R^3$ a plane has **one** equation $ax + by + cz = d$. From $P_0 + t v_1 + s v_2$ you get it like this: $(a, b, c) = v_1 \times v_2$, and $d$ is found by imposing that the plane passes through $P_0$.
+- To **intersect** you solve equations: you put the equations together (Cartesian with Cartesian), you substitute the generic point (Cartesian with parametric), you equate the generic points (parametric with parametric). If $\operatorname{giac}(S) + \operatorname{giac}(S') = \R^n$, the intersection is not empty.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Where we start again: the cross product (pp. 114–116)
+
+In lesson L22 you met an operation that exists **only in $\R^3$**: it takes **two vectors** and returns **a vector** (the scalar product, instead, returns a number). In these notes, to save space, we often write as rows the vectors that the handouts write as columns: $(1, 2, 2)$ means the column vector ${}^t(1, 2, 2)$.
+
+> [!DEF] 22.14 · Cross product (reminder from lesson L22)
+> Given two vectors $v = (v_1, v_2, v_3)$ and $w = (w_1, w_2, w_3)$ of $\R^3$, the **cross product** of $v$ and $w$ is the vector
+> $$v \times w = \begin{pmatrix} v_2 w_3 - v_3 w_2 \\ v_3 w_1 - v_1 w_3 \\ v_1 w_2 - v_2 w_1 \end{pmatrix}.$$
+> In other words $v \times w = (d_1, -d_2, d_3)$, where $d_i$ is the determinant of the $2 \times 2$ minor obtained by deleting the $i$-th row from the matrix $\begin{pmatrix} v_1 & w_1 \\ v_2 & w_2 \\ v_3 & w_3 \end{pmatrix}$.
+
+The handouts' mnemonic rule is a "determinant" made with a column of vectors (it is not a real matrix, because $e_1, e_2, e_3$ are not numbers):
+
+$$\begin{aligned} v \times w &= \det\begin{pmatrix} v_1 & w_1 & e_1 \\ v_2 & w_2 & e_2 \\ v_3 & w_3 & e_3 \end{pmatrix} \\ &= \det\begin{pmatrix} v_2 & w_2 \\ v_3 & w_3 \end{pmatrix} e_1 - \det\begin{pmatrix} v_1 & w_1 \\ v_3 & w_3 \end{pmatrix} e_2 + \det\begin{pmatrix} v_1 & w_1 \\ v_2 & w_2 \end{pmatrix} e_3. \end{aligned}$$
+
+In practice you do this:
+
+1. write $v$ and $w$ **side by side**, as two columns;
+2. first component: cover the **first row** and compute the $2 \times 2$ determinant that is left;
+3. second component: cover the **second row**, compute the determinant and **change its sign**;
+4. third component: cover the **third row** and compute the determinant.
+
+> [!EXAMPLE] $v = (1, 2, 2)$ and $w = (0, 3, 4)$
+> The two columns side by side give the rows $(1, 0)$, $(2, 3)$, $(2, 4)$.
+> - I cover the first row: $\det\begin{pmatrix} 2 & 3 \\ 2 & 4 \end{pmatrix} = 2 \cdot 4 - 3 \cdot 2 = 8 - 6 = 2$.
+> - I cover the second row: $\det\begin{pmatrix} 1 & 0 \\ 2 & 4 \end{pmatrix} = 1 \cdot 4 - 0 \cdot 2 = 4$, and I change the sign: $-4$.
+> - I cover the third row: $\det\begin{pmatrix} 1 & 0 \\ 2 & 3 \end{pmatrix} = 1 \cdot 3 - 0 \cdot 2 = 3$.
+>
+> So $v \times w = (2, -4, 3)$. I check that it is orthogonal to both:
+> $$\langle v \times w, v \rangle = 2 \cdot 1 + (-4) \cdot 2 + 3 \cdot 2 = 2 - 8 + 6 = 0,$$
+> $$\langle v \times w, w \rangle = 2 \cdot 0 + (-4) \cdot 3 + 3 \cdot 4 = 0 - 12 + 12 = 0.$$
+
+From lesson L22 you also need three facts:
+
+- $v \times w$ is **orthogonal** to both $v$ and $w$ (Proposition 22.15): the check just done;
+- $v \times w = 0$ **if and only if** $v$ and $w$ are **dependent**, that is one is a multiple of the other (Proposition 22.16);
+- if $v$ and $w$ are independent, $v, w, v \times w$ is a **basis** of $\R^3$ (Corollary 22.17).
+
+> [!PITFALL] The sign of the middle component
+> The most frequent mistake is forgetting the **minus** in front of the second determinant. A quick check that always saves you: the result must give **zero** in the scalar product with $v$ and with $w$. If it does not give zero, there is a computation mistake.
+
+## The length of $v \times w$ and the area of the parallelogram (pp. 116–117)
+
+Let us start from a case you can draw on paper. Take $v = (3, 0, 0)$ and $w = (1, 2, 0)$: both lie in the plane $z = 0$. The parallelogram with sides $v$ and $w$ has **base** $3$ and **height** $2$, so **area** $3 \cdot 2 = 6$.
+
+```graph
+title: The parallelogram with sides $v = (3, 0)$ and $w = (1, 2)$ in the plane $z = 0$: base $3$, height $h = 2$, area $6$
+x: -0.5 4.5
+y: -0.8 2.8
+names: $x$ $y$
+polygon: 0 0 3 0 4 2 1 2 | amber
+vector: 3 0 | accent | thick | $v$ | s
+vector: 1 2 | blue | thick | $w$ | nw
+segment: 1 2 1 0 | grey | dashed | $h$ | e
+arc: 0 0 0.6 0 1.107 | grey | $\vartheta$
+```
+
+Now compute the cross product. The rows side by side are $(3, 1)$, $(0, 2)$, $(0, 0)$:
+
+$$v \times w = \begin{pmatrix} 0 \cdot 0 - 0 \cdot 2 \\ 0 \cdot 1 - 3 \cdot 0 \\ 3 \cdot 2 - 0 \cdot 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 6 \end{pmatrix}.$$
+
+The vector points upwards (it is orthogonal to the plane $z = 0$, where $v$ and $w$ lie) and has **length 6**: exactly the area. It is not a coincidence, and it is what this section proves.
+
+### Lagrange's identity
+
+> [!PROP] 23.1
+> For every $v, w \in \R^3$ the following equation holds
+> $$\lVert v \times w \rVert^2 + \langle v, w \rangle^2 = \lVert v \rVert^2 \lVert w \rVert^2.$$
+
+Piece by piece:
+
+- $\lVert v \rVert = \sqrt{v_1^2 + v_2^2 + v_3^2}$ is the **norm** (length) of $v$ in the Euclidean scalar product (lesson L20), and $\lVert v \rVert^2 = v_1^2 + v_2^2 + v_3^2$;
+- $\langle v, w \rangle = v_1 w_1 + v_2 w_2 + v_3 w_3$ is the Euclidean **scalar product**;
+- the equality links the three quantities: if you know two of them, you find the third.
+
+> [!EXAMPLE] Check with $v = (1, 2, 2)$ and $w = (0, 3, 4)$
+> - $v \times w = (2, -4, 3)$, so $\lVert v \times w \rVert^2 = 4 + 16 + 9 = 29$;
+> - $\langle v, w \rangle = 0 + 6 + 8 = 14$, so $\langle v, w \rangle^2 = 196$;
+> - $\lVert v \rVert^2 = 1 + 4 + 4 = 9$ and $\lVert w \rVert^2 = 0 + 9 + 16 = 25$, so $\lVert v \rVert^2 \lVert w \rVert^2 = 225$.
+>
+> And indeed $29 + 196 = 225$.
+
+> [!PROOF] of Proposition 23.1
+> The handouts expand the squares: it is worth doing it in full, once.
+>
+> 1. On the left, expanding the three squares of $\lVert v \times w \rVert^2 = (v_2 w_3 - v_3 w_2)^2 + (v_1 w_3 - v_3 w_1)^2 + (v_1 w_2 - v_2 w_1)^2$ you get six squares and three double products:
+> $$\begin{aligned} &v_2^2 w_3^2 + v_3^2 w_2^2 + v_1^2 w_3^2 + v_3^2 w_1^2 + v_1^2 w_2^2 + v_2^2 w_1^2 \\ &\quad - 2\,(v_2 w_2 v_3 w_3 + v_1 w_1 v_3 w_3 + v_1 w_1 v_2 w_2). \end{aligned}$$
+> 2. The product $(v_1^2 + v_2^2 + v_3^2)(w_1^2 + w_2^2 + w_3^2)$ contains **all nine** terms $v_i^2 w_j^2$.
+> 3. The square $(v_1 w_1 + v_2 w_2 + v_3 w_3)^2$ contains the three terms with equal indices, $v_1^2 w_1^2 + v_2^2 w_2^2 + v_3^2 w_3^2$, plus the same three double products of point 1 (with the $+$ sign).
+> 4. Subtracting, $(v_1^2 + v_2^2 + v_3^2)(w_1^2 + w_2^2 + w_3^2) - (v_1 w_1 + v_2 w_2 + v_3 w_3)^2$ leaves the six terms $v_i^2 w_j^2$ with $i \neq j$ minus the three double products: it is exactly the expression of point 1.
+> 5. So $\lVert v \times w \rVert^2 = \lVert v \rVert^2 \lVert w \rVert^2 - \langle v, w \rangle^2$, which is the statement. $\square$
+
+### From the identity to the area
+
+Now suppose that $v$ and $w$ are **independent**. Then they lie in a plane $\pi = \Span(v, w)$, and inside that plane there is the parallelogram $P$ with sides $v$ and $w$ (Figure 8 of the handouts draws it with $v \times w$ coming out of the plane).
+
+> [!PROP] 23.2
+> The area of $P$ is $\operatorname{Area}(P) = \lVert v \rVert \lVert w \rVert \sin\vartheta$.
+
+Here $\vartheta$ is the angle between $v$ and $w$ (as in the corollary that follows). Why it holds: take $v$ as the **base**, of length $\lVert v \rVert$. The height is the distance of the vertex $w$ from the line of $v$: in the right triangle with hypotenuse $w$ and angle $\vartheta$ the leg opposite $\vartheta$ measures $\lVert w \rVert \sin\vartheta$ (it is the definition of sine you know from high school; Martelli's book uses the same argument). Base times height: $\lVert v \rVert \cdot \lVert w \rVert \sin\vartheta$. In the figure above: $3 \cdot \sqrt 5 \cdot \frac{2}{\sqrt 5} = 6$.
+
+> [!COROLLARY] 23.3
+> The modulus of the cross product is
+> $$\lVert v \times w \rVert = \lVert v \rVert \lVert w \rVert \sin\vartheta = \operatorname{Area}(P),$$
+> where $\vartheta$ is the angle formed by $v$ and $w$ and $P$ is the parallelogram with sides $v$ and $w$.
+
+The handouts' explanation, one step at a time:
+
+1. from the definition of angle (lesson L20), $\langle v, w \rangle = \lVert v \rVert \lVert w \rVert \cos\vartheta$;
+2. I substitute in Proposition 23.1: $\lVert v \times w \rVert^2 = \lVert v \rVert^2 \lVert w \rVert^2 - \lVert v \rVert^2 \lVert w \rVert^2 \cos^2\vartheta = \lVert v \rVert^2 \lVert w \rVert^2 (1 - \cos^2\vartheta)$;
+3. since $\sin^2\vartheta + \cos^2\vartheta = 1$, I get $\lVert v \times w \rVert^2 = \lVert v \rVert^2 \lVert w \rVert^2 \sin^2\vartheta$;
+4. I take the root. Here we need $\sin\vartheta \ge 0$, and indeed the angle between two vectors always lies in $[0, \pi]$, where the sine is never negative. So $\lVert v \times w \rVert = \lVert v \rVert \lVert w \rVert \sin\vartheta$, which by Proposition 23.2 is the area.
+
+> [!EXAMPLE] The area with the two methods
+> With $v = (1, 2, 2)$ and $w = (0, 3, 4)$:
+> - **with the cross product**: $\operatorname{Area}(P) = \lVert (2, -4, 3) \rVert = \sqrt{29}$;
+> - **with the angle**: $\cos\vartheta = \frac{14}{3 \cdot 5} = \frac{14}{15}$, so $\sin\vartheta = \sqrt{1 - \frac{196}{225}} = \frac{\sqrt{29}}{15}$ and $\operatorname{Area}(P) = 3 \cdot 5 \cdot \frac{\sqrt{29}}{15} = \sqrt{29}$.
+>
+> Same result; the first method needs no angle.
+
+> [!EXAMPLE] The area of a triangle in space
+> The triangle with vertices $A = (1, 0, 0)$, $B = (0, 2, 0)$, $C = (0, 0, 3)$ is **half** of the parallelogram with sides $\overrightarrow{AB}$ and $\overrightarrow{AC}$ (the diagonal $BC$ cuts it into two equal triangles).
+> - $\overrightarrow{AB} = B - A = (-1, 2, 0)$ and $\overrightarrow{AC} = C - A = (-1, 0, 3)$;
+> - rows side by side $(-1, -1)$, $(2, 0)$, $(0, 3)$: $\overrightarrow{AB} \times \overrightarrow{AC} = (2 \cdot 3 - 0 \cdot 0,\ -((-1) \cdot 3 - (-1) \cdot 0),\ (-1) \cdot 0 - (-1) \cdot 2) = (6, 3, 2)$;
+> - $\lVert (6, 3, 2) \rVert = \sqrt{36 + 9 + 4} = \sqrt{49} = 7$.
+>
+> Area of the triangle: $\frac 72$.
+
+```widget spazio
+title: Cross product and area of the parallelogram
+modo: vettoriale
+u: 1 2 2
+v: 0 3 4
+```
+
+Drag the drawing to turn it: the yellow parallelogram has area $\lVert u \times v \rVert = \sqrt{29} \approx 5.385$. Then try $v = (2, 4, 4)$, which is twice $u$: the parallelogram flattens onto a segment and the cross product becomes zero (Proposition 22.16). Finally swap $u$ and $v$: the vector $u \times v$ turns upside down (you will see why in the next section).
+
+## The orientation of $v \times w$: the right-hand rule (p. 117)
+
+If $v$ and $w$ are **dependent**, $v \times w = 0$ and there is nothing more to say. If they are **independent**, we already know two things:
+
+- the **direction**: $v \times w$ is orthogonal to the plane that contains $v$ and $w$;
+- the **length**: it is the area of the parallelogram.
+
+These two pieces of information leave **two** candidates, opposite to each other (one "above" the plane, one "below"). To choose the right orientation you use the **right-hand rule** (Figure 9 of the handouts): with your **right** hand, put the **thumb** along $v$ and the **index finger** along $w$; the **middle finger**, bent at a right angle to the palm, shows the orientation of $v \times w$. In the first example of the previous section $v$ pointed to the right, $w$ up and to the right, and $v \times w = (0, 0, 6)$ comes out of the sheet towards you.
+
+> [!PROP] 23.4
+> If $v$ and $w$ are independent, the triple $v, w, v \times w$ is a **positive basis** of $\R^3$, that is the matrix with columns $v, w, v \times w$ has positive determinant.
+
+Piece by piece:
+
+- a **positive basis** (or *positively oriented* basis) is a basis $u_1, u_2, u_3$ for which $\det(u_1 \mid u_2 \mid u_3) > 0$: the notation $(u_1 \mid u_2 \mid u_3)$ denotes the matrix with those columns;
+- the typical example is the canonical basis: $\det(e_1 \mid e_2 \mid e_3) = \det I_3 = 1 > 0$, and indeed $e_1 \times e_2 = e_3$;
+- the right-hand rule is the "physical" translation of this positive determinant.
+
+> [!PROOF] of Proposition 23.4 (from Martelli's book)
+> The handouts do not give the proof; the one in the book (Proposition 9.1.7) is short.
+>
+> 1. I write $v \times w = (d_1, -d_2, d_3)$ as in Definition 22.14, where $d_i$ is the minor of $\begin{pmatrix} v_1 & w_1 \\ v_2 & w_2 \\ v_3 & w_3 \end{pmatrix}$ without row $i$.
+> 2. I expand $\det(v \mid w \mid v \times w)$ with Laplace along the **third column**. The cofactor in position $(i, 3)$ is $(-1)^{i+3} d_i$, that is $+d_1$, $-d_2$, $+d_3$.
+> 3. So $\det(v \mid w \mid v \times w) = d_1 \cdot d_1 + (-d_2) \cdot (-d_2) + d_3 \cdot d_3 = d_1^2 + d_2^2 + d_3^2 = \lVert v \times w \rVert^2$.
+> 4. If $v$ and $w$ are independent, $v \times w \neq 0$ (Proposition 22.16), so the sum of the squares is **strictly** positive. $\square$
+
+> [!EXAMPLE] The determinant of the triple
+> With $v = (1, 2, 2)$, $w = (0, 3, 4)$ and $v \times w = (2, -4, 3)$, expanding along the third column:
+> $$\begin{aligned} \det\begin{pmatrix} 1 & 0 & 2 \\ 2 & 3 & -4 \\ 2 & 4 & 3 \end{pmatrix} &= 2 \cdot (8 - 6) - (-4) \cdot (4 - 0) + 3 \cdot (3 - 0) \\ &= 4 + 16 + 9 = 29 > 0, \end{aligned}$$
+> and $29 = \lVert v \times w \rVert^2$, as the proof says.
+
+> [!IDEA] A geometric definition
+> At this point the cross product of two **independent** vectors can be described without coordinates: it is the **only** vector orthogonal to both, as long as the area of the parallelogram with sides $v$ and $w$, and positively oriented with respect to $v$ and $w$. Direction, length and orientation: three pieces of information, a single vector.
+
+## The computation rules (p. 117)
+
+Two rules follow from the definition, which the handouts list right after Proposition 23.4.
+
+**1. Anticommutativity.** For every $v, w \in \R^3$:
+
+$$v \times w = -\,w \times v.$$
+
+The reason: swapping $v$ and $w$, in every component the two products swap places. For example the first component becomes $w_2 v_3 - w_3 v_2 = -(v_2 w_3 - v_3 w_2)$. With the numbers from before: $w \times v = (-2, 4, -3)$. Consequence: $v \times v = -\,v \times v$, so $2\,(v \times v) = 0$ and $v \times v = 0$.
+
+**2. Bilinearity.** The product $\times \colon \R^3 \times \R^3 \to \R^3$ is linear in each of its two slots, like the scalar product:
+
+$$(v + v') \times w = v \times w + v' \times w, \qquad (\lambda v) \times w = \lambda\,(v \times w),$$
+$$v \times (w + w') = v \times w + v \times w', \qquad v \times (\lambda w) = \lambda\,(v \times w).$$
+
+The reason: every component is a sum of terms of the form "a coordinate of $v$ times a coordinate of $w$", and an expression like this is linear in $v$ when $w$ is fixed (and vice versa). For example $(2v) \times w$ with $v = (1, 2, 2)$, $w = (0, 3, 4)$: $(2, 4, 4) \times (0, 3, 4) = (16 - 12,\ 0 - 8,\ 6 - 0) = (4, -8, 6) = 2\,(2, -4, 3)$.
+
+**The products of the vectors of the canonical basis**, to keep in mind:
+
+| $\times$ | $e_1$ | $e_2$ | $e_3$ |
+|---|---|---|---|
+| $e_1$ | $0$ | $e_3$ | $-e_2$ |
+| $e_2$ | $-e_3$ | $0$ | $e_1$ |
+| $e_3$ | $e_2$ | $-e_1$ | $0$ |
+
+(It is read "row $\times$ column": $e_1 \times e_2 = e_3$.) The cycle $e_1 \to e_2 \to e_3 \to e_1$ gives the $+$ sign, the opposite direction gives the $-$ sign.
+
+**3. No associative property.** Here is the fundamental difference with products of numbers or of matrices. The handouts' example:
+
+$$(e_1 \times e_2) \times e_2 = e_3 \times e_2 = -\,e_2 \times e_3 = -e_1, \qquad e_1 \times (e_2 \times e_2) = e_1 \times 0 = 0.$$
+
+Same three vectors, different brackets, different results.
+
+> [!PITFALL] Three mistakes not to make
+> - Writing $u \times v \times w$ **without brackets**: it has no unique meaning.
+> - Swapping the factors without changing the sign: $w \times v$ is the **opposite** of $v \times w$.
+> - Thinking that $v \times w = 0$ means $v = 0$ or $w = 0$: it is enough that they are **parallel**, for example $(1, 2, 3) \times (2, 4, 6) = 0$.
+
+## Cartesian form and parametric form (p. 118)
+
+The floor of a room, with the origin in a corner, is the plane $z = 0$. You can describe it in two ways:
+
+- with a **test**: "a point lies on the floor if its height $z$ is zero";
+- with a **recipe**: "the points of the floor are all those of the form $(t, s, 0)$, with $t$ and $s$ any numbers".
+
+The first is an **equation**, the second uses **parameters**. The handouts give a name to the two ways of writing.
+
+> [!DEF] Cartesian form and parametric form (p. 118)
+> A vector subspace of $\R^n$ described as the **zero set of a system of homogeneous linear equations** is said to be in **Cartesian form**. A vector subspace of $\R^n$ described as the **subspace spanned by some vectors** is said to be in **parametric form**. Every vector subspace of $\R^n$ can be described in both ways.
+
+The handouts' example is precisely the floor: the plane $W = \{z = 0\}$ of $\R^3$ in Cartesian form has the equation $z = 0$; in parametric form it is spanned by $e_1$ and $e_2$:
+
+$$W = \Span(e_1, e_2) = \left\{ t \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + s \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \ \middle|\ s, t \in \R \right\} = \left\{ \begin{pmatrix} t \\ s \\ 0 \end{pmatrix} \ \middle|\ s, t \in \R \right\}.$$
+
+- The parametric form is **explicit**: it says what the points look like, as the **parameters** ($t$ and $s$) vary.
+- The Cartesian form is **implicit**: it describes $W$ as the set of solutions of an equation (or of a system).
+
+The parametric form is often more convenient, precisely because it is explicit, but it depends on what you have to do:
+
+| What you have to do | More convenient form | Why |
+|---|---|---|
+| Decide whether $(2, 5, 0)$ lies in $W$ | Cartesian | substitute: $z = 0$, yes |
+| Write three points of $W$ | parametric | choose three pairs $(t, s)$ |
+| Find the dimension | parametric | count the independent generators |
+| Intersect with another subspace | it depends | you see it in the section on intersections |
+
+> [!EXAMPLE] Two passages between the forms, for vector subspaces
+> **From parametric to Cartesian.** The line $L = \Span((1, 2, 3))$ has the points $(x, y, z) = (t, 2t, 3t)$. From the first coordinate $t = x$; substituting into the others, $y = 2x$ and $z = 3x$. So
+> $$L = \{2x - y = 0,\ 3x - z = 0\}.$$
+> Check with the generator: $2 \cdot 1 - 2 = 0$ and $3 \cdot 1 - 3 = 0$.
+>
+> **From Cartesian to parametric.** The plane $\{x + y + z = 0\}$: I get $x = -y - z$ and leave $y = s$, $z = t$ free. The points are $(-s - t, s, t) = s(-1, 1, 0) + t(-1, 0, 1)$, so the plane is $\Span((-1, 1, 0), (-1, 0, 1))$.
+
+## Affine subspaces (pp. 118–119)
+
+In the plane $\R^2$ the line $y = x - 1$ **does not pass through the origin**: $(0, 0)$ does not satisfy the equation. So it is not a vector subspace (which always contains zero). But it is the line $y = x$, which is a vector subspace, **shifted** one step to the right: each of its points is $(1, 0)$ plus a vector of $\Span((1, 1))$. Lines and planes that do not pass through the origin are of this kind.
+
+> [!DEF] 12.5 · Affine subspace (reminder from lesson L12)
+> Let $V$ be a vector space. An **affine subspace** of $V$ is a subset of the form
+> $$S = \{x + v \mid v \in W\} =: x + W,$$
+> where $x$ is a fixed point of $V$ and $W \subseteq V$ is a vector subspace.
+
+The handouts recall where they come from: the solutions $S$ of a system of linear equations form **the empty set or an affine subspace** of $\R^n$. Indeed, if $S \neq \emptyset$,
+
+$$S = \{x + v \mid v \in S_0\},$$
+
+where $x$ is **any** solution and $S_0$ is the set of solutions of the **associated homogeneous system** (same equations with the constant terms equal to $0$), which is always a vector subspace. It is what you did in lesson L12: "particular solution plus solutions of the homogeneous system".
+
+### When two ways of writing give the same subspace
+
+The same affine subspace can be written in many ways, because **any** of its points is fine as a starting point.
+
+> [!PROP] 23.5
+> The affine spaces $x + W$ and $x' + W'$ coincide if and only if $W = W'$ and $x - x' \in W$.
+
+Piece by piece:
+
+- $W = W'$: the two ways of writing must have **the same direction** (the same vector subspace, even if written with different generators);
+- $x - x' \in W$: the vector that goes from one starting point to the other must be **an allowed direction**, that is the two starting points lie on the same affine subspace.
+
+> [!PROOF] of Proposition 23.5 (beyond the handouts)
+> The handouts do not prove it; here is a short proof.
+>
+> ($\Leftarrow$) Suppose $W = W'$ and $x - x' \in W$. A point of $x + W$ is $x + w$ with $w \in W$, and it can be rewritten $x + w = x' + \big((x - x') + w\big)$. The vector in brackets is a sum of two vectors of $W$, so it lies in $W = W'$: the point lies in $x' + W'$. Swapping the roles ($x' - x = -(x - x')$ lies in $W$ too) you get the other inclusion.
+>
+> ($\Rightarrow$) Suppose $x + W = x' + W'$ and call this set $S$. The **differences** $p - q$ between two points of $S$ are exactly the vectors of $W$: if $p = x + w_1$ and $q = x + w_2$, then $p - q = w_1 - w_2 \in W$; and every $w \in W$ is the difference $(x + w) - x$. The same reasoning, starting from $x'$, says that the differences are exactly the vectors of $W'$. So $W = W'$. Finally $x = x + 0 \in S = x' + W'$, that is $x - x' \in W' = W$. $\square$
+
+> [!EXAMPLE] 23.6
+> If $W = \Span\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ in $\R^2$, the two affine lines
+> $$r_1 = \begin{pmatrix} 1 \\ 0 \end{pmatrix} + W = \left\{ \begin{pmatrix} t + 1 \\ t \end{pmatrix} \ \middle|\ t \in \R \right\},$$
+> $$r_2 = \begin{pmatrix} 0 \\ -1 \end{pmatrix} + W = \left\{ \begin{pmatrix} u \\ u - 1 \end{pmatrix} \ \middle|\ u \in \R \right\}$$
+> are actually the same line, with equation $y = x - 1$.
+
+Let us check it in three ways:
+
+1. **with Proposition 23.5**: the direction space is the same, and $(1, 0) - (0, -1) = (1, 1) \in W$;
+2. **with the equation**: in $r_1$ the generic point $(t + 1, t)$ has $y = t = (t + 1) - 1 = x - 1$; in $r_2$ the point $(u, u - 1)$ has $y = u - 1 = x - 1$;
+3. **with the parameters**: the point of $r_1$ with parameter $t$ is the one of $r_2$ with parameter $u = t + 1$.
+
+Instead $(0, 0) + W$, that is the line $y = x$, is **different**: $(1, 0) - (0, 0) = (1, 0)$ is not a multiple of $(1, 1)$. It is a line **parallel** to $r_1$.
+
+```graph
+title: The line $y = x - 1$ is the line $W$ shifted: you can start from $(1, 0)$ or from $(0, -1)$
+x: -2.5 3.5
+y: -2.5 3
+line: 0 0 1 1 | grey | dashed | $W$ | nw
+line: 1 0 2 1 | accent | thick | $r_1 = r_2$ | se
+point: 1 0 | blue | $(1, 0)$ | se
+point: 0 -1 | amber | $(0, -1)$ | nw
+vector: 1 0 2 1 | violet | $(1, 1)$ | nw
+```
+
+### Direction space and dimension
+
+> [!DEF] 23.7
+> In the description of an affine space $S$ as $x + W$, the vector space $W$ is determined by $S$ and is called the **direction space** (giacitura) of $S$, denoted by $\operatorname{giac}(S)$. The point $x$ instead is **any** point of $S$. The **dimension** of $S$ is the dimension of the direction space $W$.
+
+Proposition 23.5 explains why the definition makes sense: the point $x$ can be changed, the direction space cannot. The direction space is the set of the vectors $\overrightarrow{PQ} = Q - P$ with $P, Q \in S$: the **directions** in which you can move while staying inside $S$.
+
+Affine subspaces also have the two forms.
+
+- **Parametric form** (explicit):
+$$S = x + \Span(v_1, \dots, v_k) = \{x + t_1 v_1 + \dots + t_k v_k \mid t_1, \dots, t_k \in \R\},$$
+where $v_1, \dots, v_k$ form a **basis** of the direction space. In this case $\dim S = k$: one parameter for each vector of the basis.
+- **Cartesian form** (implicit): $S = \{x \in \R^n \mid Ax = b\}$, with $A \in M(m, n)$ and $b \in \R^m$. By the **Rouché–Capelli theorem** (Theorem 12.6):
+$$S \neq \emptyset \iff \rk A = \rk(A \mid b), \qquad \text{and in this case } \dim S = n - \rk A.$$
+
+> [!EXAMPLE] Counting dimensions with Rouché–Capelli
+> **A system that gives a line.** $S = \{x + y + z = 3,\ x - y = 1\}$ in $\R^3$. The rows $(1, 1, 1)$ and $(1, -1, 0)$ of $A$ are not proportional, so $\rk A = 2 = \rk(A \mid b)$ and $\dim S = 3 - 2 = 1$: a line. To write it: from the second equation $x = 1 + y$; in the first $1 + y + y + z = 3$, that is $z = 2 - 2y$. With $y = t$:
+> $$S = \{(1 + t,\ t,\ 2 - 2t)\} = (1, 0, 2) + \Span((1, 1, -2)).$$
+>
+> **A system with no solutions.** $\{x + y + z = 1,\ x + y + z = 2\}$: subtracting the equations you get $0 = 1$. Here $\rk A = 1$ but $\rk(A \mid b) = 2$, and $S = \emptyset$. Geometrically: two distinct **parallel** planes.
+
+> [!NOTE] Link with computer science: linear classifiers (p. 119)
+> The handouts link this lesson to *machine learning*. An affine **hyperplane** of $\R^n$ (an affine subspace of dimension $n - 1$: a line in $\R^2$, a plane in $\R^3$) can be written as
+> $${}^t w\, x + b = 0,$$
+> with $w \in \R^n$ non-zero and $b \in \R$. The hyperplane divides space into two **half-spaces**: the one where ${}^t w\, x + b$ is positive and the one where it is negative. A simple **linear classifier** assigns a data vector $x$ to one of the two classes by looking at the **sign** of ${}^t w\, x + b$. The vector $w$ is **orthogonal** to the separating hyperplane. The same geometry underlies the perceptron and support vector machines in their linear form.
+
+> [!EXAMPLE] A classifier in $\R^2$
+> With $w = (1, 1)$ and $b = -3$ the hyperplane is the line $x + y - 3 = 0$. Let us classify three points by computing $x + y - 3$:
+> - $(1, 1)$: $1 + 1 - 3 = -1 < 0$, "negative" class;
+> - $(3, 2)$: $3 + 2 - 3 = 2 > 0$, "positive" class;
+> - $(1, 2)$: $1 + 2 - 3 = 0$, it lies exactly on the separating line.
+
+```graph
+title: The line $x + y = 3$ separates the points with $x + y - 3 < 0$ from those with $x + y - 3 > 0$; the vector $w = (1, 1)$ is orthogonal to it
+x: -0.5 4.5
+y: -0.5 4
+line: 3 0 0 3 | accent | $x + y = 3$ | ne
+point: 1 1 | pink | $(1, 1)$ | sw
+point: 3 2 | green | $(3, 2)$ | ne
+point: 1 2 | grey | $(1, 2)$ | sw
+vector: 1.5 1.5 2.3 2.3 | violet | thick | $w$ | e
+```
+
+## Lines and planes in space (pp. 119–120)
+
+The affine subspaces of $\R^3$ are of four kinds. The number of independent equations needed is $3 - \dim S$ (Rouché–Capelli with $n = 3$).
+
+| Dimension | What it is | Parametric form | Cartesian form |
+|---|---|---|---|
+| 0 | a point | $P_0$ | 3 independent equations |
+| 1 | a line | $P_0 + t v$ | 2 independent equations |
+| 2 | a plane | $P_0 + t v_1 + s v_2$ | 1 equation |
+| 3 | the whole of $\R^3$ | $P_0 + t e_1 + s e_2 + u e_3$ | no equation |
+
+- An affine **plane** $\pi$ in $\R^3$ is described by **one equation** $\pi = \{ax + by + cz = d\}$ (with $(a, b, c) \neq 0$), or by a point and two independent vectors that span the direction space: $\pi = \{P_0 + t v_1 + s v_2 \mid t, s \in \R\}$.
+- An affine **line** $r$ in $\R^3$ is described by **two** equations of that kind, or, more easily, in parametric form: $r = \{P_0 + t v \mid t \in \R\}$, with $v \neq 0$ (the **direction vector**).
+
+> [!PITFALL] A single equation is not enough for a line in space
+> In $\R^2$ the line $x + 2y = 3$ has a single equation. In $\R^3$ the same equation $x + 2y = 3$ describes a **plane** ($z$ is free): for a line in space you need **two** independent equations.
+
+> [!IDEA] The vector of the coefficients is orthogonal to the plane
+> Take two points $P$ and $Q$ of the plane $\{ax + by + cz = d\}$ and call $n = (a, b, c)$. Then $\langle n, P \rangle = d$ and $\langle n, Q \rangle = d$, so
+> $$\langle n, Q - P \rangle = d - d = 0.$$
+> Every vector of the direction space is orthogonal to $n$: this is why $n$ is called the **normal vector** of the plane. The direction space is exactly the vector plane $\{ax + by + cz = 0\}$, made of the vectors orthogonal to $n$. This fact will come back all the time in lesson L24 (angles and distances).
+
+### From Cartesian to parametric
+
+You solve the system $Ax = b$, for example with the Gauss–Jordan algorithm (lesson L11): the free variables become the parameters.
+
+> [!EXAMPLE] A plane and a line, from Cartesian to parametric
+> **The plane $x + 2y - z = 8$.** I get $z = x + 2y - 8$ and leave $x = s$, $y = t$ free:
+> $$(s,\ t,\ s + 2t - 8) = (0, 0, -8) + s(1, 0, 1) + t(0, 1, 2).$$
+> Check: $(0, 0, -8)$ satisfies $0 + 0 - (-8) = 8$; the two vectors satisfy the **homogeneous** equation: $1 + 0 - 1 = 0$ and $0 + 2 - 2 = 0$.
+>
+> **The line $\{x + y + z = 3,\ x - y = 1\}$** we already solved above: $(1, 0, 2) + \Span((1, 1, -2))$.
+
+### From parametric to Cartesian: the cross-product trick
+
+Sometimes you need the opposite. For **planes of $\R^3$** there is a quick method. Let $\pi = \{P_0 + t v_1 + u v_2\}$ with $v_1, v_2$ independent:
+
+1. compute $v_1 \times v_2$: it will have three coefficients $a, b, c$;
+2. the plane is $\pi = \{ax + by + cz = d\}$ for some $d \in \R$;
+3. you find $d$ by imposing $P_0 \in \pi$, that is by substituting the coordinates of $P_0$.
+
+Why it works: $n = v_1 \times v_2$ is orthogonal to $v_1$ and $v_2$ (Proposition 22.15). For every point $P = P_0 + t v_1 + u v_2$ of the plane
+$$\langle n, P \rangle = \langle n, P_0 \rangle + t \langle n, v_1 \rangle + u \langle n, v_2 \rangle = \langle n, P_0 \rangle,$$
+so all the points of the plane satisfy $ax + by + cz = d$ with $d = \langle n, P_0 \rangle$. And $n \neq 0$ because $v_1, v_2$ are independent (Proposition 22.16).
+
+> [!EXAMPLE] 23.8
+> Consider
+> $$\pi = \left\{ \begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix} + t \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + s \begin{pmatrix} 2 \\ -1 \\ 0 \end{pmatrix} \right\}.$$
+> We find
+> $$\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} \times \begin{pmatrix} 2 \\ -1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \\ -1 \end{pmatrix}.$$
+> So $\pi = \{x + 2y - z = d\}$ for some $d \in \R$, which we determine by imposing
+> $$\begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix} \in \pi \ \Rightarrow\ 1 + 4 + 3 = d,$$
+> and so $d = 8$. We have found a Cartesian equation for the plane: $\pi = \{x + 2y - z = 8\}$.
+
+The cross-product computations, row by row (rows side by side $(1, 2)$, $(0, -1)$, $(1, 0)$):
+
+- first component, I cover the first row: $0 \cdot 0 - (-1) \cdot 1 = 1$;
+- second, I cover the second row: $1 \cdot 0 - 2 \cdot 1 = -2$, and I change the sign: $2$;
+- third, I cover the third row: $1 \cdot (-1) - 2 \cdot 0 = -1$.
+
+Final check with another point of the plane, for example $t = s = 1$: $P = (1 + 1 + 2,\ 2 + 0 - 1,\ -3 + 1 + 0) = (4, 1, -2)$, and $4 + 2 \cdot 1 - (-2) = 8$.
+
+Notice one thing: in the previous example the same equation $x + 2y - z = 8$ had given us **another** parametric form, $(0, 0, -8) + s(1, 0, 1) + t(0, 1, 2)$. No contradiction, by Proposition 23.5: the direction spaces coincide, because $(2, -1, 0) = 2\,(1, 0, 1) - (0, 1, 2)$, and the difference of the starting points $(1, 2, -3) - (0, 0, -8) = (1, 2, 5) = (1, 0, 1) + 2\,(0, 1, 2)$ lies in the direction space.
+
+```widget spazio
+title: The plane of Example 23.8 with its normal vector
+modo: piano
+piano: 1 2 -1 = 8
+punto: 4 1 -2
+```
+
+The violet plane is $x + 2y - z = 8$ and the arrow $n$ is the normal vector $(1, 2, -1)$. The point $P = (4, 1, -2)$ lies on the plane: the tool says that its distance from the plane is $0$. Try changing $d$ (for example $x + 2y - z = 0$): the plane moves **parallel to itself**, because the direction space does not change. You will study the distance of a point from a plane in lesson L24.
+
+> [!BEYOND] Lines from parametric to Cartesian, and the plane through three points
+> **A line.** For $r = (1, 2, 3) + t(2, 1, -1)$ you **eliminate the parameter**: $x = 1 + 2t$, $y = 2 + t$, $z = 3 - t$. From the second $t = y - 2$; substituting, $x = 1 + 2(y - 2)$, that is $x - 2y = -3$, and $z = 3 - (y - 2)$, that is $y + z = 5$. So $r = \{x - 2y = -3,\ y + z = 5\}$. Check with $t = 1$, point $(3, 3, 2)$: $3 - 6 = -3$ and $3 + 2 = 5$.
+>
+> **A plane through three non-collinear points** $P_0, P_1, P_2$: it is $P_0 + t\,\overrightarrow{P_0P_1} + s\,\overrightarrow{P_0P_2}$, and then you use the cross product as above (Martelli, Proposition 9.2.12). With $A, B, C$ of the triangle example: $\overrightarrow{AB} \times \overrightarrow{AC} = (6, 3, 2)$ and $d = 6 \cdot 1 = 6$, so the plane is $6x + 3y + 2z = 6$.
+
+## Intersections (pp. 120–121)
+
+Two **vector** subspaces always meet, at least at the origin. Two **affine** subspaces do not: the planes $x + y + z = 1$ and $x + y + z = 2$ have no points in common, because no point can have $x + y + z$ equal to $1$ and to $2$ at the same time.
+
+> [!DEF] Incident subspaces (p. 120)
+> Two affine subspaces $S, S' \subseteq \R^n$ are **incident** if $S \cap S' \neq \emptyset$.
+
+If they are incident, take a point $x \in S \cap S'$ and write both starting from there: $S = x + W$ and $S' = x + W'$ (you can, by Definition 23.7). A point $y$ lies in both exactly when $y - x \in W$ and $y - x \in W'$, that is $y - x \in W \cap W'$. So
+
+$$S \cap S' = x + (W \cap W').$$
+
+In particular **the intersection, if it is not empty, is always an affine subspace**, with direction space $W \cap W'$.
+
+### Three cases, three methods
+
+How the intersection is computed depends on the form in which $S$ and $S'$ are given. Example 23.9 of the handouts shows the three cases; we work them out to the end.
+
+> [!EXAMPLE] 23.9 · First case: both in Cartesian form
+> If $S$ and $S'$ are described in Cartesian form, their intersection $S \cap S'$ is described in Cartesian form **by putting the equations together**. For example, if $S = \{x + y = 1\}$ and $S' = \{x - y + z = 3\}$ are two planes in $\R^3$, their intersection is the set of solutions of
+> $$\begin{cases} x + y = 1 \\ x - y + z = 3. \end{cases}$$
+
+The handouts stop at the system; let us solve it. From the first $x = 1 - y$. I substitute into the second: $1 - y - y + z = 3$, that is $z = 2 + 2y$. With $y = t$:
+
+$$S \cap S' = \{(1 - t,\ t,\ 2 + 2t)\} = (1, 0, 2) + \Span((-1, 1, 2)).$$
+
+It is a **line**. Check: $(1, 0, 2)$ satisfies $1 + 0 = 1$ and $1 - 0 + 2 = 3$. The vector $(-1, 1, 2)$ satisfies the homogeneous equations: $-1 + 1 = 0$ and $-1 - 1 + 2 = 0$.
+
+> [!EXAMPLE] 23.9 · Second case: one Cartesian and one parametric
+> If $S$ is described in Cartesian form and $S'$ in parametric form, to find $S \cap S'$ it is enough to **substitute the generic point** of $S'$ into the equations of $S$ and find the parameters that satisfy them. For example, if $S = \{x + y - z = 2\}$ is a plane in $\R^3$ and
+> $$S' = \left\{ \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} + t \begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix} \right\} = \left\{ \begin{pmatrix} 1 + t \\ -1 + 2t \\ 1 - 3t \end{pmatrix} \right\}$$
+> is a line, you substitute $x = 1 + t$, $y = -1 + 2t$, $z = 1 - 3t$ into the equation of $S$:
+> $$(1 + t) + (-1 + 2t) - (1 - 3t) = 2 \iff -1 + 6t = 2 \iff t = \tfrac 12,$$
+> and the intersection is the point
+> $$S \cap S' = \left\{ \begin{pmatrix} 3/2 \\ 0 \\ -1/2 \end{pmatrix} \right\}.$$
+
+The point comes from $t = \frac 12$: $\left(1 + \frac 12,\ -1 + 1,\ 1 - \frac 32\right) = \left(\frac 32, 0, -\frac 12\right)$. Check in the plane: $\frac 32 + 0 + \frac 12 = 2$. Watch out for the sign: $-(1 - 3t) = -1 + 3t$.
+
+> [!EXAMPLE] 23.9 · Third case: both in parametric form
+> If $S$ and $S'$ are both in parametric form, you **equate the generic point** of $S$ with that of $S'$ and find which parameters solve the system. The handouts warn that it can be more laborious.
+
+An example of ours. Let $r = (1, 0, 1) + t(1, 1, 0)$ and $r' = (0, 3, -1) + s(1, -1, 1)$. Equating the coordinates:
+
+$$\begin{cases} 1 + t = s \\ t = 3 - s \\ 1 = -1 + s. \end{cases}$$
+
+From the third $s = 2$; from the first $t = s - 1 = 1$; the second must be **checked**: $t = 1$ and $3 - s = 1$, it works. The lines meet at the point $r(1) = (2, 1, 1)$, and indeed also $r'(2) = (0 + 2,\ 3 - 2,\ -1 + 2) = (2, 1, 1)$.
+
+> [!METHOD] How to intersect
+> 1. **Cartesian with Cartesian**: put all the equations in a single system and solve it with Gauss; the solution in parametric form is the intersection.
+> 2. **Cartesian with parametric**: substitute the generic point (with the parameters) into the equations; you find the parameters and put them back into the generic point.
+> 3. **Parametric with parametric**: equate the generic points, with **different names** for the parameters ($t$ and $s$, never $t$ and $t$); solve and **check all the equations**. If one equation does not work, the intersection is empty.
+> 4. In every case, at the end **substitute** the point found into the two descriptions: it is the cheapest check there is.
+
+With the calculator below you can redo the first case: the augmented matrix of the system of Example 23.9 has rows $(1, 1, 0 \mid 1)$ and $(1, -1, 1 \mid 3)$. The tool reduces with Gauss–Jordan and writes the solutions with one parameter.
+
+```widget gauss
+title: The intersection of the two planes of Example 23.9
+matrice: 1 1 0 1; 1 -1 1 3
+modo: sistema
+```
+
+The tool chooses the third unknown as the parameter and finds $(2, -1, 0) + t\left(-\frac 12, \frac 12, 1\right)$. It looks like a different result from ours, but it is the **same line**, by Proposition 23.5: the direction is half of $(-1, 1, 2)$, and $(2, -1, 0) - (1, 0, 2) = (1, -1, -2)$ lies in the direction space.
+
+### When the intersection is certainly not empty
+
+The last proposition of the lesson gives a condition on the **direction spaces** that guarantees that they meet.
+
+> [!PROP] 23.10
+> If $\operatorname{giac}(S) + \operatorname{giac}(S') = \R^n$, then the subspaces $S$ and $S'$ are incident.
+
+Piece by piece:
+
+- $\operatorname{giac}(S) + \operatorname{giac}(S')$ is the **sum** of the two vector subspaces (lesson L07): all the vectors $w + w'$ with $w \in \operatorname{giac}(S)$ and $w' \in \operatorname{giac}(S')$;
+- the hypothesis says that, moving first along $S$ and then along $S'$, you reach **any** vector of $\R^n$;
+- the conclusion: $S \cap S' \neq \emptyset$. It does not say **where** they meet: for that you have to do the computations.
+
+> [!PROOF] of Proposition 23.10 (from Martelli's book)
+> 1. I write $S = \{P + t_1 v_1 + \dots + t_k v_k\}$ and $S' = \{Q + u_1 w_1 + \dots + u_h w_h\}$, with $v_i$ a basis of $\operatorname{giac}(S)$ and $w_j$ a basis of $\operatorname{giac}(S')$.
+> 2. The two subspaces are incident if and only if the system $P + t_1 v_1 + \dots + t_k v_k = Q + u_1 w_1 + \dots + u_h w_h$ in the unknowns $t_i, u_j$ has a solution.
+> 3. By hypothesis $v_1, \dots, v_k, w_1, \dots, w_h$ span $\R^n$. So the vector $Q - P$ is a linear combination of them: $Q - P = a_1 v_1 + \dots + a_k v_k + b_1 w_1 + \dots + b_h w_h$.
+> 4. Then $t_i = a_i$ and $u_j = -b_j$ solve the system: $P + \sum a_i v_i = Q - \sum b_j w_j$. $\square$
+
+> [!EXAMPLE] Two applications in $\R^3$
+> **Two planes with non-parallel normal vectors**, for example $x + y + z = 1$ and $x - y = 5$. The direction spaces are two **different** vector planes, so their sum strictly contains a plane: it has dimension $3$ and is the whole of $\R^3$. By Proposition 23.10 the planes meet (in a line).
+>
+> **A line and a plane**, with the direction of the line outside the direction space of the plane: $r = \{t(1, 1, 1)\}$ and $\pi = \{x + y + z = 7\}$. The vector $(1, 1, 1)$ does not lie in the direction space $\{x + y + z = 0\}$, because $1 + 1 + 1 = 3 \neq 0$. Then the direction space of the plane (dimension 2) and the direction of the line together span $\R^3$, and there is a common point. Substituting: $3t = 7$, $t = \frac 73$, point $\left(\frac 73, \frac 73, \frac 73\right)$.
+
+> [!PITFALL] The converse is false
+> If the sum of the direction spaces is **not** $\R^n$, the proposition says nothing: the intersection may or may not exist. Two lines of $\R^3$ have direction spaces of dimension $1$, whose sum has dimension at most $2$: the proposition never applies. Yet the $x$ axis and the $y$ axis meet (at the origin), while the line $\{t(1, -1, 0)\}$ and the plane $x + y + z = 7$ do not: substituting you get $0 = 7$.
+
+> [!BEYOND] Relative positions in $\R^3$
+> Putting together direction spaces and intersections you get this table (Martelli, §9.2.5 and §9.2.7). Two affine subspaces are **parallel** if the direction space of one is contained in that of the other; two lines that are neither incident nor parallel are called **skew**.
+>
+> | Pair | Direction spaces | Intersection |
+> |---|---|---|
+> | two planes | normals not proportional | a line |
+> | two planes | normals proportional | empty (distinct parallel planes) or the same plane |
+> | line and plane | direction outside the direction space of the plane | a point |
+> | line and plane | direction inside the direction space | empty (parallel line) or the whole line |
+> | two lines | proportional directions | empty (distinct parallel lines) or the same line |
+> | two lines | non-proportional directions | a point (incident) or empty (**skew**) |
+>
+> Skew lines exist only from space upwards: in the plane two non-parallel lines always meet (in $\R^2$ two different direction spaces add up to $\R^2$, and Proposition 23.10 applies).
+
+> [!BEYOND] Where to find it in the book
+> In Martelli's book: the cross product and its properties in §9.1 (pp. 267–272: Lagrange's identity Prop. 9.1.4, area Prop. 9.1.5 and Cor. 9.1.6, positive basis Prop. 9.1.7, triple product Exercise 9.1.8, volume of the parallelepiped Prop. 9.1.9); parametric and Cartesian form in §9.2.1 (pp. 272–274, with Example 9.2.3, which is our 23.8); intersections in §9.2.3 (pp. 275–276, Example 9.2.6 and Proposition 9.2.7); subspace spanned by points, parallelism and relative positions in §9.2.4, §9.2.5 and §9.2.7 (pp. 277–283).
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has **10 quiz questions** with 5 answers (only one right) and **2 problems worth 11 points**, marked only with **at least 6 correct quiz answers**; it lasts **2 hours**, **with no calculator**, and you may bring only a sheet of **4 handwritten pages**. The 2026/27 exam sessions are on **22/01/2027** and **05/02/2027** at 14:00. All the details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions.** Intersections are among the most frequent topics of all:
+
+- **quiz on the line–plane intersection**: exam sessions of 07/02/2025 (question 10) and 03/07/2026 (question 8); the proposed answers are always of the kind "a point $P = \dots$", "the whole line", "the whole plane", "empty";
+- **quiz on the intersection of two lines in parametric form**: exam sessions of 03/06/2025 and 10/07/2025 (question 10 in both);
+- **open problems**: writing the line $r = \pi_1 \cap \pi_2$ in the form $P + \Span(v)$ (24/01/2024, 10/07/2024, 06/09/2024, 15/01/2026), proving that a line and a plane are incident (24/01/2024, 10/07/2024), finding the intersection of three planes (06/09/2024, 15/01/2026), planes or lines depending on a parameter $k$ (03/06/2025, 02/09/2025).
+
+A real quiz question, as an example (exam of 07/02/2025, question 10): *the intersection of the line $r = {}^t(2, -2, 0) + s\,{}^t(1, -2, 1)$ with the plane $\pi = \{2x - 2y + z = 1\}$ is: (a) the whole plane; (b) $P = {}^t(-1, -1, 1)$; (c) $P = {}^t(1, 0, -1)$; (d) they have no intersection; (e) the whole line.*
+
+Working: the generic point of $r$ is $(2 + s,\ -2 - 2s,\ s)$. I substitute: $2(2 + s) - 2(-2 - 2s) + s = 4 + 2s + 4 + 4s + s = 8 + 7s$. The equation $8 + 7s = 1$ gives $s = -1$ and the point $(1, 0, -1)$: answer (c). Check: $2 - 0 - 1 = 1$. The quiz trick: you can also **substitute answers** (b) and (c) into the equation of the plane and into the line, and exclude (a) and (e) by looking at the scalar product between direction and normal, $\langle (1, -2, 1), (2, -2, 1) \rangle = 2 + 4 + 1 = 7 \neq 0$: the line is not parallel to the plane, so the intersection is **a point**.
+
+> [!METHOD] The line of intersection of two planes, in the form $P + \Span(v)$
+> 1. Put the two equations in a system and reduce it with Gauss (or solve for one variable and substitute).
+> 2. Choose the free variable as the parameter and write the generic point.
+> 3. Separate the constant part ($P$) from the part with the parameter ($t\,v$).
+> 4. Quick check: $v$ must be proportional to $n_1 \times n_2$, the cross product of the two normal vectors (it is orthogonal to both, so it lies in both direction spaces); $P$ must satisfy the two equations.
+
+> [!METHOD] Proving that a line and a plane are incident
+> Two ways, both accepted:
+> - **with Proposition 23.10**: if the direction $v$ of the line does not lie in the direction space of the plane (for a plane $ax + by + cz = d$: $\langle v, (a, b, c) \rangle \neq 0$; for a plane given by two generators $v_1, v_2$: $\det(v_1 \mid v_2 \mid v) \neq 0$), then the direction spaces add up to $\R^3$ and there is an intersection;
+> - **with the computation**: substitute the generic point of the line into the equation of the plane and find the parameter. If it exists, they are incident, and you also have the point.
+
+**Mistakes to avoid.**
+
+- Using the **same name** for the parameters of two different lines: the system becomes wrong.
+- In the intersection of two lines, not checking the **third** equation: two equations out of three can work even if the lines are skew.
+- Mixing up the **normal vector** of a plane with a vector **of** the plane: $(a, b, c)$ is orthogonal to the plane, it does not lie in it.
+- Writing a line of $\R^3$ with a single equation.
+- The $-$ sign of the second component of the cross product.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the formula for $v \times w$ with the scheme "cover the row, minus sign in the middle"; $\lVert v \times w \rVert = \text{area of the parallelogram}$ and $\frac 12 \lVert \overrightarrow{AB} \times \overrightarrow{AC} \rVert = \text{area of the triangle } ABC$; the table of the kinds of subspaces of $\R^3$ (how many equations, how many parameters); the method $n = v_1 \times v_2$, $d = \langle n, P_0 \rangle$; the three methods for intersections; Proposition 23.10.
+
+## Quiz
+
+```quiz
+Q: What is the cross product $(1, 0, 1) \times (2, -1, 0)$?
++ $(1, 2, -1)$
+- $(-1, -2, 1)$
+- $(1, -2, -1)$
+- $(2, 0, 0)$
+- $(-1, 2, 1)$
+= Rows side by side $(1, 2)$, $(0, -1)$, $(1, 0)$. First component $0 \cdot 0 - 1 \cdot (-1) = 1$; second $-(1 \cdot 0 - 1 \cdot 2) = 2$; third $1 \cdot (-1) - 0 \cdot 2 = -1$. It is the computation of Example 23.8. $(-1, -2, 1)$ is $(2, -1, 0) \times (1, 0, 1)$, with the factors swapped; $(1, -2, -1)$ forgets the minus sign in the middle; $(2, 0, 0)$ multiplies the coordinates one by one.
+
+Q: What is the area of the parallelogram with sides $v = (1, 1, 0)$ and $w = (0, 1, 1)$?
++ $\sqrt 3$
+- $\frac{\sqrt 3}{2}$
+- $3$
+- $1$
+- $\sqrt 2$
+= $v \times w = (1 \cdot 1 - 0 \cdot 1,\ -(1 \cdot 1 - 0 \cdot 0),\ 1 \cdot 1 - 1 \cdot 0) = (1, -1, 1)$, of norm $\sqrt{1 + 1 + 1} = \sqrt 3$. By Corollary 23.3 it is the area. $\frac{\sqrt 3}{2}$ would be the area of the triangle with sides $v$ and $w$; $3$ is the square of the norm.
+
+Q: Which of these statements about the cross product in $\R^3$ is **false**?
++ $(u \times v) \times w = u \times (v \times w)$ for every $u, v, w$
+- $v \times w = -\,w \times v$ for every $v, w$
+- $v \times v = 0$ for every $v$
+- $v \times w$ is orthogonal to both $v$ and $w$
+- $(2v) \times w = 2\,(v \times w)$ for every $v, w$
+= The cross product is not associative: $(e_1 \times e_2) \times e_2 = e_3 \times e_2 = -e_1$, while $e_1 \times (e_2 \times e_2) = e_1 \times 0 = 0$. The others are anticommutativity, its consequence $v \times v = 0$, Proposition 22.15 and bilinearity.
+
+Q: The planes $\pi_1 = \{x + y + z = 3\}$ and $\pi_2 = \{x - y = 1\}$ meet in the line:
++ $(1, 0, 2) + \Span((1, 1, -2))$
+- $(1, 0, 2) + \Span((1, 1, 1))$
+- $(0, 0, 3) + \Span((1, 1, -2))$
+- $(1, 0, 2) + \Span((1, -1, 0))$
+- $(2, 1, 1) + \Span((1, 1, -2))$
+= From the second equation $x = 1 + y$; in the first $1 + 2y + z = 3$, that is $z = 2 - 2y$. With $y = t$: $(1 + t, t, 2 - 2t)$. Check: $(1, 1, 1) \times (1, -1, 0) = (1, 1, -2)$. The directions $(1, 1, 1)$ and $(1, -1, 0)$ are the normal vectors, which are orthogonal to the planes; $(0, 0, 3)$ does not lie on $\pi_2$; $(2, 1, 1)$ does not lie on $\pi_1$. Similar to the exams of 24/01/2024 and 10/07/2024 (problem 12, part 1).
+
+Q: The plane $\pi = \{s\,e_1 + t\,(e_2 + e_3) \mid s, t \in \R\}$ in Cartesian form is:
++ $\{y - z = 0\}$
+- $\{x = 0\}$
+- $\{y + z = 0\}$
+- $\{x + y + z = 0\}$
+- $\{x - y + z = 0\}$
+= The plane passes through the origin and is spanned by $(1, 0, 0)$ and $(0, 1, 1)$. The normal vector is $(1, 0, 0) \times (0, 1, 1) = (0 \cdot 1 - 0 \cdot 1,\ -(1 \cdot 1 - 0 \cdot 0),\ 1 \cdot 1 - 0 \cdot 0) = (0, -1, 1)$, so $-y + z = 0$, that is $y = z$. Check: $e_1$ and $e_2 + e_3$ have $y = z$. Similar to the exam of 24/01/2024 (problem 12), where the plane $\pi_3$ was given exactly like this.
+
+Q: The plane $(0, 1, 1) + t(1, 0, 0) + s(0, 1, 2)$ has an equation of the form $2y - z = d$. What is $d$?
+N: 1
+= The normal vector is $(1, 0, 0) \times (0, 1, 2) = (0, -2, 1)$, that is the equation is $-2y + z = \text{const}$, equivalent to $2y - z = d$. Substituting the point $(0, 1, 1)$: $d = 2 \cdot 1 - 1 = 1$.
+
+Q: Which of these lines of $\R^2$ **coincides** with $r = (1, 2) + \Span((2, 1))$?
++ $(5, 4) + \Span((-4, -2))$
+- $(2, 1) + \Span((2, 1))$
+- $(1, 2) + \Span((1, 2))$
+- $(0, 0) + \Span((2, 1))$
+- $(3, 2) + \Span((2, 1))$
+= Proposition 23.5: you need the same direction space and the difference of the points must lie in the direction space. $\Span((-4, -2)) = \Span((2, 1))$ and $(5, 4) - (1, 2) = (4, 2) = 2\,(2, 1)$: same line. For the others: $(2, 1) - (1, 2) = (1, -1)$, $(0, 0) - (1, 2)$ and $(3, 2) - (1, 2) = (2, 0)$ are not multiples of $(2, 1)$ (distinct parallel lines); $(1, 2) + \Span((1, 2))$ has another direction space.
+
+Q: The intersection of the line $r = (1, 1, 0) + t\,(1, 0, 2)$ with the plane $\pi = \{x + y + z = 5\}$ is:
++ the point $(2, 1, 2)$
+- the point $(3, 1, 4)$
+- the point $(1, 1, 0)$
+- the whole line $r$
+- empty
+= I substitute $(1 + t, 1, 2t)$: $1 + t + 1 + 2t = 5$, that is $3t = 3$ and $t = 1$. The point is $(2, 1, 2)$; check $2 + 1 + 2 = 5$. The direction $(1, 0, 2)$ has scalar product $3 \neq 0$ with the normal $(1, 1, 1)$: the line is not parallel to the plane, so the intersection can be neither empty nor the whole line. Similar to the exams of 07/02/2025 (question 10) and 03/07/2026 (question 8).
+
+Q: The intersection of the lines $r = (1, 0, 1) + t\,(1, 1, 0)$ and $r' = (0, 3, -1) + s\,(1, -1, 1)$ is:
++ the point $(2, 1, 1)$
+- the point $(1, 0, 1)$
+- the point $(0, 3, -1)$
+- the point $(3, 2, 1)$
+- empty: the lines are skew
+= Equating: $1 + t = s$, $t = 3 - s$, $1 = -1 + s$. From the third $s = 2$, from the first $t = 1$, and the second works ($1 = 3 - 2$). The point is $(2, 1, 1)$. $(1, 0, 1)$ lies only on $r$, $(0, 3, -1)$ only on $r'$, $(3, 2, 1)$ is on $r$ but not on $r'$. Similar to the exams of 03/06/2025 and 10/07/2025 (question 10).
+
+Q: Which pair of affine subspaces of $\R^3$ **certainly** has a non-empty intersection?
++ Two planes whose normal vectors are not proportional.
+- Two lines with non-proportional directions.
+- The planes $\{x + y + z = 1\}$ and $\{x + y + z = 2\}$.
+- A line and a plane, when the direction of the line lies in the direction space of the plane.
+- A line and a point.
+= Two planes with non-proportional normals have different direction spaces, which add up to $\R^3$: by Proposition 23.10 they are incident. Two lines can be skew; the two planes with the same $x + y + z$ are parallel and disjoint; a line parallel to a plane may not touch it; a point can lie off a line. It is the argument used to "prove that $r$ and $\pi_3$ are incident" in the exams of 24/01/2024 and 10/07/2024.
+```
+
+## Exercises
+
+::: exercise basic Cross product and Lagrange's identity
+Let $v = (2, 1, -1)$ and $w = (1, 0, 3)$. (a) Compute $v \times w$ and check that it is orthogonal to $v$ and to $w$. (b) Check Lagrange's identity. (c) What is the area of the parallelogram with sides $v$ and $w$? (d) Check that $\det(v \mid w \mid v \times w) > 0$.
+::: solution
+(a) Rows side by side $(2, 1)$, $(1, 0)$, $(-1, 3)$:
+- first component, I cover the first row: $1 \cdot 3 - 0 \cdot (-1) = 3$;
+- second, I cover the second row: $2 \cdot 3 - 1 \cdot (-1) = 7$, I change the sign: $-7$;
+- third, I cover the third row: $2 \cdot 0 - 1 \cdot 1 = -1$.
+
+So $v \times w = (3, -7, -1)$. Checks: $\langle v \times w, v \rangle = 6 - 7 + 1 = 0$ and $\langle v \times w, w \rangle = 3 + 0 - 3 = 0$.
+
+(b) $\lVert v \times w \rVert^2 = 9 + 49 + 1 = 59$; $\langle v, w \rangle = 2 + 0 - 3 = -1$, squared $1$; $\lVert v \rVert^2 = 4 + 1 + 1 = 6$ and $\lVert w \rVert^2 = 1 + 0 + 9 = 10$. Indeed $59 + 1 = 60 = 6 \cdot 10$.
+
+(c) Area $= \lVert v \times w \rVert = \sqrt{59}$.
+
+(d) By the proof of Proposition 23.4 the determinant equals $\lVert v \times w \rVert^2 = 59 > 0$. Direct check, expanding along the third column of $\begin{pmatrix} 2 & 1 & 3 \\ 1 & 0 & -7 \\ -1 & 3 & -1 \end{pmatrix}$:
+$$3 \cdot (1 \cdot 3 - 0 \cdot (-1)) - (-7) \cdot (2 \cdot 3 - 1 \cdot (-1)) + (-1) \cdot (2 \cdot 0 - 1 \cdot 1) = 9 + 49 + 1 = 59.$$
+:::
+
+::: exercise basic The triangle and its plane
+Let $A = (1, 0, 0)$, $B = (0, 2, 0)$, $C = (0, 0, 3)$. (a) Compute the area of the triangle $ABC$. (b) Write the Cartesian equation of the plane that contains the three points (it is part 1 of exercise 6 of tutoring sheet 4, 2025).
+::: solution
+(a) $\overrightarrow{AB} = (-1, 2, 0)$, $\overrightarrow{AC} = (-1, 0, 3)$. Rows side by side $(-1, -1)$, $(2, 0)$, $(0, 3)$:
+$$\begin{aligned} \overrightarrow{AB} \times \overrightarrow{AC} &= \big(2 \cdot 3 - 0 \cdot 0,\ -((-1) \cdot 3 - (-1) \cdot 0),\ (-1) \cdot 0 - (-1) \cdot 2\big) \\ &= (6, 3, 2). \end{aligned}$$
+The norm is $\sqrt{36 + 9 + 4} = 7$: the parallelogram has area $7$ and the triangle, which is half of it, has area $\frac 72$.
+
+(b) The plane is $A + t\,\overrightarrow{AB} + s\,\overrightarrow{AC}$ and its normal vector is $(6, 3, 2)$. So $6x + 3y + 2z = d$ with $d = 6 \cdot 1 + 0 + 0 = 6$:
+$$\pi = \{6x + 3y + 2z = 6\}.$$
+Check: $B$ gives $3 \cdot 2 = 6$, $C$ gives $2 \cdot 3 = 6$. Dividing by 6 you get the form $x + \frac y2 + \frac z3 = 1$: the denominators are the points where the plane cuts the axes.
+:::
+
+::: exercise intermediate Computations without coordinates
+All you know is that $v \times w = (1, 2, 3)$. Compute (a) $w \times v$; (b) $(2v + w) \times (v - 3w)$; (c) $\langle v \times w, v \rangle$; (d) $(v + w) \times (v + w)$.
+::: solution
+Use only anticommutativity, bilinearity and $u \times u = 0$.
+
+(a) $w \times v = -\,v \times w = (-1, -2, -3)$.
+
+(b) I expand as a product of binomials, **keeping the order** of the factors:
+$$(2v + w) \times (v - 3w) = 2\,v \times v - 6\,v \times w + w \times v - 3\,w \times w.$$
+Now $v \times v = w \times w = 0$ and $w \times v = -\,v \times w$, so the result is $-6\,(v \times w) - (v \times w) = -7\,(v \times w) = (-7, -14, -21)$.
+
+(c) $0$: the cross product is orthogonal to $v$ (Proposition 22.15).
+
+(d) $0$: it is the cross product of a vector with itself.
+:::
+
+::: exercise basic From parametric to Cartesian
+Write the Cartesian equation of the plane $\pi = (2, 0, 1) + s\,(1, 2, 0) + t\,(0, 1, 1)$.
+::: solution
+Normal vector: rows side by side $(1, 0)$, $(2, 1)$, $(0, 1)$, so
+$$(1, 2, 0) \times (0, 1, 1) = (2 \cdot 1 - 0 \cdot 1,\ -(1 \cdot 1 - 0 \cdot 0),\ 1 \cdot 1 - 2 \cdot 0) = (2, -1, 1).$$
+The plane is $2x - y + z = d$, and imposing that it passes through $(2, 0, 1)$: $d = 4 - 0 + 1 = 5$. Result: $\pi = \{2x - y + z = 5\}$.
+
+Check with $s = t = 1$: the point $(3, 3, 2)$ gives $6 - 3 + 2 = 5$.
+:::
+
+::: exercise basic From Cartesian to parametric
+Write the line $r = \{x - y + z = 1,\ 2x + y - z = 2\}$ in parametric form and check the direction with the cross product of the normal vectors.
+::: solution
+Adding the two equations: $3x = 3$, that is $x = 1$. In the first: $1 - y + z = 1$, that is $z = y$. With $y = t$:
+$$r = \{(1, t, t)\} = (1, 0, 0) + \Span((0, 1, 1)).$$
+Check: $(1, -1, 1) \times (2, 1, -1)$ with rows side by side $(1, 2)$, $(-1, 1)$, $(1, -1)$ gives
+$$\big((-1)(-1) - 1 \cdot 1,\ -(1 \cdot (-1) - 2 \cdot 1),\ 1 \cdot 1 - 2 \cdot (-1)\big) = (0, 3, 3),$$
+which is proportional to $(0, 1, 1)$. The point $(1, 0, 0)$ satisfies $1 = 1$ and $2 = 2$.
+:::
+
+::: exercise intermediate Is it the same line?
+Let $r_1 = (1, 0, 2) + \Span((1, -1, 1))$, $r_2 = (3, -2, 4) + \Span((-2, 2, -2))$ and $r_3 = (1, 1, 1) + \Span((1, -1, 1))$. Which ones coincide?
+::: solution
+I use Proposition 23.5.
+
+- $r_1$ and $r_2$: the direction spaces coincide, because $(-2, 2, -2) = -2\,(1, -1, 1)$. The difference of the points is $(3, -2, 4) - (1, 0, 2) = (2, -2, 2) = 2\,(1, -1, 1)$, which lies in the direction space. So $r_1 = r_2$.
+- $r_1$ and $r_3$: same direction space, but $(1, 1, 1) - (1, 0, 2) = (0, 1, -1)$ is not a multiple of $(1, -1, 1)$ (the first coordinate would force the multiple to be $0$). So $r_3 \neq r_1$: they are **distinct parallel** lines.
+:::
+
+::: exercise intermediate Three pairs of lines
+For each pair decide whether the lines meet; if they do, find the point. (a) $r = (1, 2, 0) + t\,(1, 0, 1)$ and $r' = (0, 1, 1) + s\,(2, 1, 0)$. (b) The $x$ axis, that is $r = t\,(1, 0, 0)$, and $r' = (0, 1, 0) + s\,(0, 0, 1)$. (c) $r = t\,(1, 1, 1)$ and $r' = (1, 0, 0) + s\,(2, 2, 2)$.
+::: solution
+(a) I equate: $1 + t = 2s$, $2 = 1 + s$, $t = 1$. From the second $s = 1$, from the third $t = 1$; the first gives $2 = 2$, it works. Common point: $(2, 2, 1)$.
+
+(b) I equate: $t = 0$, $0 = 1$, $0 = s$. The second equation is impossible: no common point. The directions $(1, 0, 0)$ and $(0, 0, 1)$ are not proportional, so the lines are not parallel: they are **skew**.
+
+(c) The directions are proportional: $(2, 2, 2) = 2\,(1, 1, 1)$. Does the point $(1, 0, 0)$ lie on $r$? You would need $t = 1$ from the first coordinate and $t = 0$ from the second: no. So the lines are **distinct parallel** lines and do not meet.
+:::
+
+::: exercise intermediate Two planes that do not meet
+Compute the intersection of the planes $\pi_1 = \{x + 2y - z = 1\}$ and $\pi_2 = \{-2x - 4y + 2z = 3\}$, first with Rouché–Capelli and then with a geometric argument. What changes if instead of $3$ there is $-2$?
+::: solution
+Augmented matrix and one Gauss move:
+$$\left(\begin{array}{ccc|c} 1 & 2 & -1 & 1 \\ -2 & -4 & 2 & 3 \end{array}\right) \xrightarrow{R_2 \to R_2 + 2R_1} \left(\begin{array}{ccc|c} 1 & 2 & -1 & 1 \\ 0 & 0 & 0 & 5 \end{array}\right).$$
+The second row says $0 = 5$: $\rk A = 1$ but $\rk(A \mid b) = 2$, so the intersection is **empty**.
+
+Geometrically: the normal vectors $(1, 2, -1)$ and $(-2, -4, 2)$ are proportional, so the planes have the same direction space (they are parallel). Dividing the second equation by $-2$ you get $x + 2y - z = -\frac 32$, which is incompatible with $x + 2y - z = 1$.
+
+With $-2$ instead of $3$ the second equation becomes $-2\,(x + 2y - z) = -2$, that is $x + 2y - z = 1$: it is **the same plane**, and the intersection is the whole of $\pi_1$.
+:::
+
+::: exercise intermediate A plane that depends on a parameter
+For every $k \in \R$ let $\pi_k = \{x + ky + z = 1\}$ and let $r = \{t\,(1, 1, -1) \mid t \in \R\}$. For which $k$ does the line $r$ meet $\pi_k$? In that case, at which point?
+::: solution
+I substitute the generic point $(t, t, -t)$: $t + kt - t = 1$, that is $kt = 1$.
+
+- If $k \neq 0$: $t = \frac 1k$ and the point is $\left(\frac 1k, \frac 1k, -\frac 1k\right)$. Check: $\frac 1k + k \cdot \frac 1k - \frac 1k = 1$.
+- If $k = 0$: the equation becomes $0 = 1$, impossible. The line does not touch the plane $\pi_0 = \{x + z = 1\}$.
+
+Reading with the direction spaces: the scalar product between the direction $(1, 1, -1)$ and the normal $(1, k, 1)$ equals $1 + k - 1 = k$. For $k \neq 0$ the direction is outside the direction space and Proposition 23.10 guarantees that they meet; for $k = 0$ the line is parallel to the plane and, since the origin (which lies on $r$) does not satisfy $x + z = 1$, it does not touch it.
+:::
+
+::: exercise hard The triple product
+(a) Prove that for every $u, v, w \in \R^3$ we have $\langle u \times v, w \rangle = \det(u \mid v \mid w)$ (Martelli, Exercise 9.1.8). (b) Deduce that $u, v, w$ are linearly dependent if and only if $\langle u \times v, w \rangle = 0$. (c) Decide whether the points $A = (1, 0, 0)$, $B = (0, 1, 0)$, $C = (0, 0, 1)$, $D = (1, 1, -1)$ lie on the same plane.
+::: solution
+(a) I write $u \times v = (d_1, -d_2, d_3)$, with $d_i$ the minor of $(u \mid v)$ without row $i$. Then
+$$\langle u \times v, w \rangle = d_1 w_1 - d_2 w_2 + d_3 w_3.$$
+This is exactly the Laplace expansion of $\det(u \mid v \mid w)$ along the **third column**: the cofactor in position $(i, 3)$ is $(-1)^{i+3} d_i$, that is $+d_1$, $-d_2$, $+d_3$. It is the same argument as in the proof of Proposition 22.15, where instead of $w$ there was $v$.
+
+(b) Three vectors of $\R^3$ are dependent if and only if the determinant of the matrix having them as columns is zero (lessons L09–L10). By (a) that determinant is $\langle u \times v, w \rangle$.
+
+(c) The four points are coplanar if and only if $\overrightarrow{AB}$, $\overrightarrow{AC}$, $\overrightarrow{AD}$ are dependent. $\overrightarrow{AB} = (-1, 1, 0)$, $\overrightarrow{AC} = (-1, 0, 1)$, $\overrightarrow{AD} = (0, 1, -1)$. Expansion along the first row:
+$$\det\begin{pmatrix} -1 & -1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & -1 \end{pmatrix} = -1 \cdot (0 \cdot (-1) - 1 \cdot 1) - (-1) \cdot (1 \cdot (-1) - 1 \cdot 0) + 0 = 1 - 1 = 0.$$
+They are coplanar: indeed all four satisfy $x + y + z = 1$ (for $D$: $1 + 1 - 1 = 1$).
+:::
+
+::: exercise exam Three planes (exam of 15/01/2026, problem 12)
+Let $\pi_1 = \{x + y + z = 2\}$, $\pi_2 = \{x - y - 2z = 1\}$ and $\pi_3 = \{x + y - z = 0\}$ be three planes in $\R^3$. (1) Find the point $P = \pi_1 \cap \pi_2 \cap \pi_3$. (2) Find a vector $v \in \R^3$ such that $\pi_1 \cap \pi_2 = P + \Span(v)$. (3) Find two orthogonal vectors $w_1$ and $w_2$ such that $\pi_3 = \Span(w_1, w_2)$. (4) Find the orthogonal projection of $v$ onto the plane $\pi_3$.
+::: solution
+(1) I subtract the third equation from the first: $(x + y + z) - (x + y - z) = 2 - 0$, that is $2z = 2$ and $z = 1$. Then the first gives $x + y = 1$ and the second $x - y = 1 + 2z = 3$. Adding: $2x = 4$, $x = 2$, and so $y = -1$. $P = (2, -1, 1)$. Check: $2 - 1 + 1 = 2$, $2 + 1 - 2 = 1$, $2 - 1 - 1 = 0$.
+
+(2) $\pi_1 \cap \pi_2$ is a line (the normal vectors $(1, 1, 1)$ and $(1, -1, -2)$ are not proportional) that passes through $P$. Its direction is orthogonal to both normal vectors, so I can take their cross product (rows side by side $(1, 1)$, $(1, -1)$, $(1, -2)$):
+$$v = \big(1 \cdot (-2) - 1 \cdot (-1),\ -(1 \cdot (-2) - 1 \cdot 1),\ 1 \cdot (-1) - 1 \cdot 1\big) = (-1, 3, -2).$$
+Check: $-1 + 3 - 2 = 0$ and $-1 - 3 + 4 = 0$. So $\pi_1 \cap \pi_2 = (2, -1, 1) + \Span((-1, 3, -2))$.
+
+(3) $\pi_3$ passes through the origin, so it is a vector subspace. I choose a vector that satisfies $x + y - z = 0$, for example $w_1 = (1, -1, 0)$. For the second I need a vector of $\pi_3$ (orthogonal to the normal $n_3 = (1, 1, -1)$) and orthogonal to $w_1$: the cross product $n_3 \times w_1$ does exactly this. Rows side by side $(1, 1)$, $(1, -1)$, $(-1, 0)$:
+$$\begin{aligned} n_3 \times w_1 &= \big(1 \cdot 0 - (-1)(-1),\ -(1 \cdot 0 - 1 \cdot (-1)),\ 1 \cdot (-1) - 1 \cdot 1\big) \\ &= (-1, -1, -2). \end{aligned}$$
+I take $w_2 = (1, 1, 2)$. Checks: $1 + 1 - 2 = 0$ (it lies in $\pi_3$) and $\langle w_1, w_2 \rangle = 1 - 1 + 0 = 0$.
+
+(4) With the orthogonal basis $w_1, w_2$ the projection is (lesson L21)
+$$p_{\pi_3}(v) = \frac{\langle v, w_1 \rangle}{\langle w_1, w_1 \rangle} w_1 + \frac{\langle v, w_2 \rangle}{\langle w_2, w_2 \rangle} w_2.$$
+$\langle v, w_1 \rangle = -1 - 3 + 0 = -4$ and $\langle w_1, w_1 \rangle = 2$; $\langle v, w_2 \rangle = -1 + 3 - 4 = -2$ and $\langle w_2, w_2 \rangle = 6$. So
+$$p_{\pi_3}(v) = -2\,(1, -1, 0) - \tfrac 13\,(1, 1, 2) = \left(-\tfrac 73,\ \tfrac 53,\ -\tfrac 23\right).$$
+Check: $v - p_{\pi_3}(v) = \left(\frac 43, \frac 43, -\frac 43\right) = \frac 43\,(1, 1, -1)$ is proportional to the normal of $\pi_3$, as it must be.
+:::
+
+::: exercise exam A line, two planes and a meeting point
+Let $\pi_1 = \{x + y - z = 2\}$ and $\pi_2 = \{x - y + 2z = 1\}$. (1) Write the line $r = \pi_1 \cap \pi_2$ in the form $P + \Span(v)$. (2) Prove that $r$ and the plane $\pi_3 = \{x + y + z = 0\}$ are incident. (3) Find the intersection point. (4) Write the Cartesian equation of the plane that contains $r$ and the origin.
+::: solution
+(1) I add the equations: $2x + z = 3$, so $z = 3 - 2x$. From the first $y = 2 - x + z = 2 - x + 3 - 2x = 5 - 3x$. With $x = t$:
+$$r = \{(t,\ 5 - 3t,\ 3 - 2t)\} = (0, 5, 3) + \Span((1, -3, -2)).$$
+Checks: $(0, 5, 3)$ gives $0 + 5 - 3 = 2$ and $0 - 5 + 6 = 1$; moreover $(1, 1, -1) \times (1, -1, 2) = (1 \cdot 2 - (-1)(-1),\ -(1 \cdot 2 - (-1) \cdot 1),\ 1 \cdot (-1) - 1 \cdot 1) = (1, -3, -2)$.
+
+(2) The scalar product between the direction $(1, -3, -2)$ and the normal $(1, 1, 1)$ of $\pi_3$ equals $1 - 3 - 2 = -4 \neq 0$: the direction does not lie in the direction space of $\pi_3$, so $\operatorname{giac}(r) + \operatorname{giac}(\pi_3) = \R^3$ and, by Proposition 23.10, $r$ and $\pi_3$ are incident.
+
+(3) I substitute the generic point: $t + (5 - 3t) + (3 - 2t) = 0$, that is $8 - 4t = 0$ and $t = 2$. The point is $Q = (2, -1, -1)$. Check: $2 - 1 - 1 = 0$, and $Q$ also lies on $\pi_1$ ($2 - 1 + 1 = 2$) and on $\pi_2$ ($2 + 1 - 2 = 1$).
+
+(4) The plane contains the origin $O$, the point $P = (0, 5, 3)$ and the direction $v = (1, -3, -2)$: it is $O + s\,\overrightarrow{OP} + t\,v$. Normal vector (rows side by side $(1, 0)$, $(-3, 5)$, $(-2, 3)$):
+$$\begin{aligned} v \times \overrightarrow{OP} &= \big((-3) \cdot 3 - (-2) \cdot 5,\ -(1 \cdot 3 - (-2) \cdot 0),\ 1 \cdot 5 - (-3) \cdot 0\big) \\ &= (1, -3, 5). \end{aligned}$$
+It passes through the origin, so $d = 0$: the plane is $x - 3y + 5z = 0$. Check: $P$ gives $-15 + 15 = 0$ and $Q$ gives $2 + 3 - 5 = 0$.
+:::
+
+## Review questions
+
+::: question What does Lagrange's identity say?
+$\lVert v \times w \rVert^2 + \langle v, w \rangle^2 = \lVert v \rVert^2 \lVert w \rVert^2$ for every $v, w \in \R^3$ (Proposition 23.1). It is proved by expanding the squares.
+:::
+
+::: question Why is the length of $v \times w$ the area of the parallelogram with sides $v$ and $w$?
+Because, substituting $\langle v, w \rangle = \lVert v \rVert \lVert w \rVert \cos\vartheta$ into Lagrange's identity, you get $\lVert v \times w \rVert^2 = \lVert v \rVert^2 \lVert w \rVert^2 \sin^2\vartheta$; with $\sin\vartheta \ge 0$ (because $\vartheta \in [0, \pi]$) what is left is $\lVert v \rVert \lVert w \rVert \sin\vartheta$, which is base times height.
+:::
+
+::: question How do you choose the orientation of $v \times w$? What is a positive basis?
+With the right-hand rule: thumb on $v$, index finger on $w$, the middle finger shows $v \times w$. In formulas: if $v, w$ are independent, $\det(v \mid w \mid v \times w) > 0$, that is $v, w, v \times w$ is a positive basis (Proposition 23.4). The determinant is exactly $\lVert v \times w \rVert^2$.
+:::
+
+::: question Is the cross product commutative? Associative? Bilinear?
+It is not commutative but anticommutative: $v \times w = -\,w \times v$. It is not associative: $(e_1 \times e_2) \times e_2 = -e_1$ but $e_1 \times (e_2 \times e_2) = 0$. It is bilinear: linear in each of the two factors.
+:::
+
+::: question What is the difference between Cartesian form and parametric form?
+The Cartesian (implicit) form describes the subspace with equations: it is used to decide whether a point lies in it. The parametric (explicit) form describes it with a point and some generators, as parameters vary: it is used to produce the points and to read off the dimension.
+:::
+
+::: question What is an affine subspace? And its direction space?
+A subset of the form $x + W = \{x + v \mid v \in W\}$, with $W$ a vector subspace. $W$ is the direction space, determined by the subspace (it is made of the differences of two of its points); $x$ is any of its points. The dimension is $\dim W$.
+:::
+
+::: question When are $x + W$ and $x' + W'$ the same affine subspace?
+If and only if $W = W'$ and $x - x' \in W$ (Proposition 23.5).
+:::
+
+::: question What is the dimension of the solutions of $Ax = b$?
+If $\rk A = \rk(A \mid b)$, the solutions form an affine subspace of dimension $n - \rk A$, where $n$ is the number of unknowns; if $\rk A < \rk(A \mid b)$ there are no solutions (Rouché–Capelli).
+:::
+
+::: question How do you go from the parametric form to the Cartesian form of a plane of $\R^3$, and why does it work?
+You compute $(a, b, c) = v_1 \times v_2$ and find $d$ by substituting $P_0$ into $ax + by + cz = d$. It works because $v_1 \times v_2$ is orthogonal to $v_1$ and $v_2$, so $\langle v_1 \times v_2, P \rangle$ is the same number for all the points $P = P_0 + t v_1 + s v_2$.
+:::
+
+::: question How many equations are needed for a line of $\R^3$? And for a plane?
+A line has dimension 1: you need $3 - 1 = 2$ independent equations. A plane has dimension 2: $3 - 2 = 1$ equation is enough.
+:::
+
+::: question How do you compute an intersection in the three cases?
+Cartesian with Cartesian: you put the equations together. Cartesian with parametric: you substitute the generic point into the equations. Parametric with parametric: you equate the generic points (with parameters with different names) and solve the system, checking all the equations.
+:::
+
+::: question Why is the intersection of two affine subspaces, if it is not empty, an affine subspace?
+If $x \in S \cap S'$, you write $S = x + W$ and $S' = x + W'$; then $S \cap S' = x + (W \cap W')$, and $W \cap W'$ is a vector subspace.
+:::
+
+::: question What does Proposition 23.10 say? Does the converse hold?
+If $\operatorname{giac}(S) + \operatorname{giac}(S') = \R^n$, then $S$ and $S'$ meet. The converse is false: two lines of $\R^3$ can meet even if their direction spaces only add up to a plane (for example the $x$ and $y$ axes).
+:::
+
+::: question What are two skew lines?
+Two lines in space that do not meet and are not parallel (non-proportional directions). In the plane they do not exist.
+:::
+
+## Glossary
+
+```glossary
+Cross product | The vector $v \times w = (v_2 w_3 - v_3 w_2,\ v_3 w_1 - v_1 w_3,\ v_1 w_2 - v_2 w_1)$, defined only in $\R^3$.
+Lagrange's identity | $\lVert v \times w \rVert^2 + \langle v, w \rangle^2 = \lVert v \rVert^2 \lVert w \rVert^2$ (Proposition 23.1).
+Parallelogram with sides $v$ and $w$ | The figure with vertices $0$, $v$, $v + w$, $w$; its area is $\lVert v \times w \rVert = \lVert v \rVert \lVert w \rVert \sin\vartheta$.
+Positive basis | Basis $u_1, u_2, u_3$ of $\R^3$ with $\det(u_1 \mid u_2 \mid u_3) > 0$; for example $v, w, v \times w$ with $v, w$ independent.
+Right-hand rule | Thumb on $v$, index finger on $w$: the middle finger shows the orientation of $v \times w$.
+Anticommutativity | $v \times w = -\,w \times v$; in particular $v \times v = 0$.
+Bilinearity | Linearity in each of the two factors: $(v + v') \times w = v \times w + v' \times w$, $(\lambda v) \times w = \lambda\,(v \times w)$, and the same on the right.
+Cartesian form | Description of a subspace as the set of solutions of a system of linear equations (implicit).
+Parametric form | Description of a subspace with a point and some generators, as parameters vary (explicit).
+Affine subspace | A set $x + W = \{x + v \mid v \in W\}$ with $W$ a vector subspace: a translated vector subspace.
+Direction space (giacitura) | The vector subspace $W = \operatorname{giac}(S)$ of an affine subspace $S = x + W$: the set of the differences of two points of $S$.
+Dimension of an affine subspace | The dimension of the direction space; for a non-empty $\{Ax = b\}$ it is $n - \rk A$.
+Normal vector | For the plane $ax + by + cz = d$, the vector $(a, b, c)$, orthogonal to all the vectors of the direction space.
+Hyperplane | Affine subspace of dimension $n - 1$ in $\R^n$, of the form ${}^t w\, x + b = 0$ with $w \neq 0$.
+Linear classifier | Rule that assigns a data vector $x$ to a class according to the sign of ${}^t w\, x + b$.
+Incident subspaces | Two affine subspaces with non-empty intersection.
+Parallel subspaces | Two affine subspaces in which the direction space of one is contained in that of the other (Martelli, §9.2.5).
+Skew lines | Two lines in space that are neither incident nor parallel.
+```
+
+## Checklist
+
+```checklist
+- I can compute $v \times w$ with the "cover the row" scheme without getting the sign of the middle component wrong, and I can check the result with scalar products.
+- I can state Lagrange's identity and use it to find $\lVert v \times w \rVert$ from norms and scalar product.
+- I can compute the area of a parallelogram and of a triangle in space with the cross product.
+- I can explain the right-hand rule and what it means that $v, w, v \times w$ is a positive basis.
+- I can use anticommutativity and bilinearity, and I know that the cross product is not associative.
+- I can go from the Cartesian form to the parametric one (Gauss) and from the parametric form to the Cartesian one (cross product for planes, eliminating the parameter for lines).
+- I can recognise when two expressions $x + W$ and $x' + W'$ describe the same affine subspace.
+- I can compute the dimension of an affine subspace with Rouché–Capelli and I know how many equations are needed for lines and planes of $\R^3$.
+- I can intersect two subspaces in the three cases (Cartesian and Cartesian, Cartesian and parametric, parametric and parametric) and I always check the result.
+- I can use Proposition 23.10 to prove that a line and a plane are incident, and I know that the converse is false.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 23 "Lo spazio euclideo II", pp. 116–121: sections 23.A (more properties of the cross product), 23.B (Cartesian and parametric form), 23.C (affine spaces) and 23.D (intersections), followed in order with the original numbering (Propositions 23.1, 23.2, 23.4, 23.5, 23.10, Corollary 23.3, Definition 23.7, Examples 23.6, 23.8, 23.9). The initial reminder comes from lesson 22 (Definition 22.14, Propositions 22.15 and 22.16, Corollary 22.17, pp. 114–115) and from lesson 12 (Definition 12.5, Theorem 12.6). This lesson of the handouts has no exercise section.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §9.1 (cross product; the proofs of Propositions 23.2 and 23.4 and Exercise 9.1.8 on the triple product come from there) and §9.2 (affine subspaces, intersections with the proof of Proposition 9.2.7 = 23.10, relative positions).
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): text reported from 07/02/2025 (question 10) and 15/01/2026 (problem 12), with solutions written for these notes; the exam sessions of 24/01/2024, 10/07/2024, 06/09/2024, 03/06/2025, 10/07/2025, 02/09/2025 and 03/07/2026 are cited by type of question. Tutoring sheet 4, 2025 (exercise 6).
+- The **"Beyond the handouts"** parts (proof of Proposition 23.5, lines from parametric to Cartesian, plane through three points, relative positions, additional examples and exercises) are additions in these notes to connect the lesson to the book and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L24_euclidean_space_3.md -->
+> File: `ai_context/MDAG/lessons/L24_euclidean_space_3.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L24
+title: Euclidean space III
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L24
+description: >-
+  Notes on lesson L24 of Linear Algebra and Geometry (MDAG, part 2): angles between lines, between a line and a plane
+  and between planes, distances between points, between a point and a line, between skew lines and between a point
+  and a plane, with exam-style quizzes and worked exercises.
+lede: >-
+  When two lines or planes meet you measure the angle they form; when they do not meet you measure how far apart they
+  are. Here you find the handouts' definitions and the formulas that turn them into a computation of a few lines:
+  projections, normal vectors, cross product and determinant. They are among the most frequent questions of the exam.
+material: handouts
+facts:
+  Handouts: lesson 24 · pp. 122–128
+  Book: Martelli, §9.2.9, §9.2.10 and §8.1
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 24 "Lo spazio euclideo III"; B. Martelli, Geometria e algebra lineare, §8.1 and §9.2
+italian_file: L24_spazio_euclideo_3.html
+html_notes: notes/MDAG/L24_euclidean_space_3.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L24_spazio_euclideo_3.md
+```
+
+## In brief
+
+- If two affine subspaces **meet**, you measure their **angle**; if they are **disjoint**, their **distance**.
+- **Angle between two** incident **lines**: it is the angle between the direction vectors. There are two candidates, $\vartheta$ and $\pi - \vartheta$: you choose the one that is **acute or right**, that is $\cos\vartheta = \frac{\lvert \langle v, v' \rangle \rvert}{\lVert v \rVert \lVert v' \rVert}$.
+- **Angle between a line and a plane**: it is the angle between the direction $v$ of the line and its **orthogonal projection** onto the plane. It can also be computed as $\frac{\pi}{2}$ minus the acute angle with the **normal vector** (Proposition 24.4).
+- **Angle between two planes** (dihedral angle): it is the acute (or right) angle between the lines spanned by the **normal vectors** (Proposition 24.7).
+- **Point–line distance**: $d(P, r) = \frac{\lVert v_0 \times (P - P_0) \rVert}{\lVert v_0 \rVert}$, that is the area of the parallelogram divided by the base.
+- **Distance between lines**: if they are parallel it is the distance of a point from the other line; if they are **skew** it equals $\frac{\lvert \det(v \mid v' \mid P_0' - P_0) \rvert}{\lVert v \times v' \rVert}$, that is volume divided by base area.
+- **Point–plane distance**: $d(P_0, \pi) = \frac{\lvert a x_0 + b y_0 + c z_0 - d \rvert}{\sqrt{a^2 + b^2 + c^2}}$.
+- At the exam there is no calculator: angles are left as $\arccos\frac 13$, distances as $\frac{2}{7}\sqrt{133}$, and the special values ($\cos\frac{\pi}{3} = \frac 12$, $\cos\frac{\pi}{4} = \frac{\sqrt 2}{2}$, …) must be recognised.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Angles and distances: the idea (p. 122)
+
+Think of two roads. If they **cross**, the natural question is: at what **angle**? If instead one passes on a **flyover** above the other, they do not touch, but they are not parallel either: the natural question is how **far apart** they are (the height of the flyover). In space the lines of the flyover are called **skew**.
+
+Lesson L23 defined **incident** affine subspaces ($S \cap S' \neq \emptyset$). The handouts open lesson 24 like this: for two incident subspaces you study the **angle** of the intersection, for two non-incident subspaces the **distance**.
+
+| Pair | If they meet | If they do not meet |
+|---|---|---|
+| two lines | angle (Definition 24.1) | distance (Definition 24.13) |
+| line and plane | angle (Definition 24.2) | distance (beyond the handouts: see the section on the plane) |
+| two planes | dihedral angle (Definition 24.6) | distance (beyond the handouts) |
+| a point and a line or a plane | distance zero | distance (Definitions 24.10 and 24.16) |
+
+Everything is based on the Euclidean scalar product of $\R^3$ and on the notions of lesson L20. In particular the **angle between two** non-zero **vectors** is the number $\vartheta \in [0, \pi]$ with
+
+$$\cos\vartheta = \frac{\langle v, w \rangle}{\lVert v \rVert \lVert w \rVert}$$
+
+(Definition 20.12), and the angle is acute, right or obtuse according to whether $\langle v, w \rangle$ is positive, zero or negative.
+
+Without a calculator, these values must be recognised on the spot:
+
+| Angle $\vartheta$ | In degrees | $\cos\vartheta$ | $\sin\vartheta$ |
+|---|---|---|---|
+| $0$ | $0^\circ$ | $1$ | $0$ |
+| $\frac{\pi}{6}$ | $30^\circ$ | $\frac{\sqrt 3}{2}$ | $\frac 12$ |
+| $\frac{\pi}{4}$ | $45^\circ$ | $\frac{\sqrt 2}{2} = \frac{1}{\sqrt 2}$ | $\frac{\sqrt 2}{2}$ |
+| $\frac{\pi}{3}$ | $60^\circ$ | $\frac 12$ | $\frac{\sqrt 3}{2}$ |
+| $\frac{\pi}{2}$ | $90^\circ$ | $0$ | $1$ |
+| $\frac{2\pi}{3}$ | $120^\circ$ | $-\frac 12$ | $\frac{\sqrt 3}{2}$ |
+| $\frac{3\pi}{4}$ | $135^\circ$ | $-\frac{\sqrt 2}{2}$ | $\frac{\sqrt 2}{2}$ |
+| $\pi$ | $180^\circ$ | $-1$ | $0$ |
+
+The sine column is needed for the shortcut for the angle between a line and a plane (further on).
+
+For the other values the answer stays written as $\arccos(\dots)$: in the exam quizzes answers like $\arccos\frac 13$ or $\arccos\frac{6}{\sqrt{42}}$ appear precisely.
+
+## Angle between two lines (p. 122)
+
+The handouts consider three cases separately: two lines, a line and a plane, two planes. The first is the most direct.
+
+> [!DEF] 24.1 · Angle between lines
+> Let $r$ and $r'$ be two lines in $\R^3$ that meet at a point $P$. We have $r = P + \Span(v)$ and $r' = P + \Span(v')$, and we define the **angle between $r$ and $r'$** as the angle $\vartheta$ formed by $v$ and $v'$.
+
+Piece by piece:
+
+- the lines must **meet** at a point $P$: for two skew lines this definition does not apply;
+- $v$ and $v'$ are **direction vectors**: they span the direction spaces of the two lines;
+- depending on how $v$ and $v'$ are chosen there are **two** possible angles, $\vartheta$ and $\pi - \vartheta$: replacing $v$ with $-v$ turns an acute angle into an obtuse one. The handouts always choose the angle that is **acute or right**: if $\vartheta$ is obtuse, you take $\pi - \vartheta$.
+
+Since $\cos(\pi - \vartheta) = -\cos\vartheta$, choosing the acute angle means taking the absolute value of the scalar product:
+
+$$\cos\vartheta = \frac{\lvert \langle v, v' \rangle \rvert}{\lVert v \rVert \lVert v' \rVert}.$$
+
+```graph
+title: Two incident lines form two angles, $\vartheta$ and $\pi - \vartheta$: the acute one is chosen
+axes: no
+grid: no
+x: -3 3
+y: -2 2.4
+line: -2.5 0 2.5 0 | accent | $r$ | ne
+line: -1.8 -1.8 1.8 1.8 | blue | $r'$ | se
+vector: 0 0 1.6 0 | accent | thick | $v$ | s
+vector: 0 0 1.2 1.2 | blue | thick | $v'$ | nw
+arc: 0 0 0.8 0 pi/4 | amber | $\vartheta$
+arc: 0 0 0.5 pi/4 pi | grey | $\pi - \vartheta$
+point: 0 0 | $P$ | sw
+```
+
+> [!EXAMPLE] Two lines forming an angle of $\frac{\pi}{3}$
+> The lines $r = (1, 0, 0) + t\,(1, 1, 0)$ and $r' = (1, 0, 0) + s\,(0, 1, 1)$ both pass through $P = (1, 0, 0)$. With $v = (1, 1, 0)$ and $v' = (0, 1, 1)$:
+> - $\langle v, v' \rangle = 0 + 1 + 0 = 1$;
+> - $\lVert v \rVert = \sqrt 2$ and $\lVert v' \rVert = \sqrt 2$;
+> - $\cos\vartheta = \frac{1}{\sqrt 2 \cdot \sqrt 2} = \frac 12$, so $\vartheta = \frac{\pi}{3}$ ($60^\circ$).
+
+> [!EXAMPLE] When the computation gives an obtuse angle
+> The lines through the origin with directions $v = (1, 0, 0)$ and $v' = (-1, 1, 0)$: $\cos = \frac{-1}{1 \cdot \sqrt 2} = -\frac{\sqrt 2}{2}$, that is $\frac{3\pi}{4}$, which is obtuse. The angle between the **lines** is $\pi - \frac{3\pi}{4} = \frac{\pi}{4}$: the same one you get with the absolute value, $\frac{\lvert -1 \rvert}{\sqrt 2} = \frac{\sqrt 2}{2}$.
+
+> [!PITFALL] Angle between vectors and angle between lines
+> Between two **vectors** the angle can be obtuse (it lies in $[0, \pi]$). Between two **lines** it cannot: the result must lie in $\left[0, \frac{\pi}{2}\right]$. If you find a negative cosine, you are looking at the angle between the vectors: remove the minus sign.
+
+## Angle between a line and a plane (pp. 122–124)
+
+Imagine a pole stuck crookedly into the floor. The angle with the floor is measured by looking at the **shadow** of the pole when the sun is exactly overhead: the shadow is the orthogonal projection of the pole onto the floor, and the angle we want is the one between the pole and its shadow.
+
+> [!DEF] 24.2 · Angle between a line and a plane
+> Let $r$ be a line and $\pi$ a plane that meet at a point $P$. We define the angle $\vartheta$ between $r$ and $\pi$ as follows. We translate the origin so that $P = 0$. At this point $\pi$ is a vector subspace and we define the vector $v' = p_\pi(v)$ by taking the orthogonal projection of $v$ onto $\pi$. If $v' = 0$ we set $\vartheta = \frac{\pi}{2}$, otherwise we define $\vartheta$ as the angle between $v$ and $v'$.
+
+Piece by piece:
+
+- $v$ is a direction vector of the line: $r = P + \Span(v)$;
+- "we translate the origin to $P$" only serves to turn $\pi$ into a vector subspace, so that projecting makes sense; in practice you use the **direction space** of $\pi$;
+- $p_\pi(v)$ is the **orthogonal projection** of $v$ onto the plane (lesson L21): the "shadow" of $v$;
+- if the shadow is zero, $v$ is orthogonal to the plane and the angle is right;
+- in other words, if $r$ is not orthogonal to $\pi$, projecting $r$ orthogonally onto $\pi$ you get a line $r' \subset \pi$, and $\vartheta$ is the acute angle between $r$ and $r'$.
+
+The angle defined in this way is **automatically acute or right**: since $v - p_\pi(v)$ is orthogonal to $p_\pi(v)$, we have $\langle v, p_\pi(v) \rangle = \lVert p_\pi(v) \rVert^2 \ge 0$, so the cosine is never negative.
+
+To compute the projection, the handouts recall the formula of lesson L21: if $v_1, v_2$ is an **orthogonal basis** of the plane (you always get one with Gram–Schmidt),
+
+$$p_\pi(v) = \frac{\langle v, v_1 \rangle}{\langle v_1, v_1 \rangle} v_1 + \frac{\langle v, v_2 \rangle}{\langle v_2, v_2 \rangle} v_2.$$
+
+> [!EXAMPLE] 24.3
+> Consider $\pi = \{x + y - z = 0\} \subset \R^3$ and the vector $e_3$. We first look for an orthogonal basis for $\pi$ and find for example
+> $$v_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}.$$
+> At this point we determine the orthogonal projection onto $\pi$ of a generic vector of $\R^3$ with the previous formula:
+> $$p_\pi\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \frac{x + y + 2z}{6} \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix} + \frac{x - y}{2} \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} = \frac 13 \begin{pmatrix} 2x - y + z \\ -x + 2y + z \\ x + y + 2z \end{pmatrix}.$$
+> So the matrix associated with $p_\pi$ in the canonical basis is
+> $$\frac 13 \begin{pmatrix} 2 & -1 & 1 \\ -1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}.$$
+> With this matrix we can compute the orthogonal projection onto $\pi$ of any vector of $\R^3$. In particular $p_\pi(e_3) = \frac 13 (1, 1, 2)$, and then the angle between $e_3$ and $\pi$ is
+> $$\vartheta = \arccos \frac{\langle (1, 1, 2), (0, 0, 1) \rangle}{\lVert (1, 1, 2) \rVert \, \lVert (0, 0, 1) \rVert} = \arccos \frac{2}{\sqrt 6} = \arccos \frac{\sqrt 6}{3} \simeq 0.615,$$
+> which corresponds to an angle of about $35.3^\circ$.
+
+Let us look at the steps that the example takes for granted.
+
+1. **Where the orthogonal basis comes from.** A first vector of the plane is found by eye: $v_2 = (1, -1, 0)$ satisfies $1 - 1 - 0 = 0$. The second must lie in the plane and be orthogonal to $v_2$: the cross product between the normal vector $n = (1, 1, -1)$ and $v_2$ does exactly this (it is orthogonal to $n$, so it lies in the plane, and it is orthogonal to $v_2$). The computation gives $n \times v_2 = (-1, -1, -2)$, that is, changing sign, $v_1 = (1, 1, 2)$. Check: $1 + 1 - 2 = 0$ and $\langle v_1, v_2 \rangle = 1 - 1 + 0 = 0$.
+2. **The coefficients.** $\langle (x, y, z), v_1 \rangle = x + y + 2z$ and $\langle v_1, v_1 \rangle = 1 + 1 + 4 = 6$; $\langle (x, y, z), v_2 \rangle = x - y$ and $\langle v_2, v_2 \rangle = 2$.
+3. **The sum.** First component:
+   $$\frac{x + y + 2z}{6} + \frac{x - y}{2} = \frac{x + y + 2z + 3x - 3y}{6} = \frac{4x - 2y + 2z}{6} = \frac{2x - y + z}{3}.$$
+   The other two in the same way.
+4. **The angle.** The projection of $e_3$ is the third column of the matrix, $\frac 13 (1, 1, 2)$. For the angle the factor $\frac 13$ does not matter (multiplying a vector by a positive number does not change angles): $\langle (1, 1, 2), e_3 \rangle = 2$, $\lVert (1, 1, 2) \rVert = \sqrt 6$, $\lVert e_3 \rVert = 1$. Finally $\frac{2}{\sqrt 6} = \frac{2\sqrt 6}{6} = \frac{\sqrt 6}{3}$.
+
+With the Gauss calculator you can redo point 1 with the Gram–Schmidt algorithm: the rows are any two vectors of the plane, $(1, -1, 0)$ and $(1, 0, 1)$ (check that they satisfy $x + y - z = 0$). The tool finds $u_2 = \left(\frac 12, \frac 12, 1\right)$ and in the final basis rewrites it without fractions as $(1, 1, 2)$: it is exactly the $v_1$ of the handouts.
+
+```widget gauss
+title: An orthogonal basis of the plane $x + y - z = 0$ with Gram–Schmidt
+matrice: 1 -1 0; 1 0 1
+modo: gram-schmidt
+```
+
+### The normal-vector shortcut
+
+For a plane there is a special vector that does not lie **inside** the plane: the normal vector. The angle with the plane and the angle with the normal are complementary.
+
+> [!PROP] 24.4
+> The angle between $v$ and the plane $\pi$ and the angle between $v$ and the vector orthogonal to $\pi$ that forms an acute angle with $v$ add up to $\frac{\pi}{2}$.
+
+```graph
+title: Side view: the plane $\pi$ is the violet line, $n$ is orthogonal to it; $\vartheta$ (between $v$ and its shadow) and $\alpha$ (between $v$ and $n$) add up to a right angle
+axes: no
+grid: no
+x: -3 3
+y: -0.8 2.8
+line: 3 0 -2.6 0 | violet | thick | $\pi$ | ne
+vector: 0 0 0 2.4 | amber | thick | $n$ | e
+vector: 0 0 2 1.414 | accent | thick | $v$ | ne
+vector: 0 0 2 0 | blue | thick | $p_\pi(v)$ | s
+segment: 2 1.414 2 0 | grey | dashed
+arc: 0 0 0.9 0 0.6155 | amber | $\vartheta$
+arc: 0 0 1.4 0.6155 pi/2 | grey | $\alpha$
+```
+
+> [!PROOF] of Proposition 24.4 (beyond the handouts)
+> 1. I write $v = p + q$ with $p = p_\pi(v)$ in the direction space of the plane and $q = v - p$ parallel to the normal vector (it is the orthogonal decomposition of lesson L21). I choose the normal vector $n$ with $\langle v, n \rangle \ge 0$, that is forming an acute angle with $v$: then $q$ points the same way as $n$.
+> 2. $\cos\vartheta = \frac{\langle v, p \rangle}{\lVert v \rVert \lVert p \rVert} = \frac{\lVert p \rVert^2}{\lVert v \rVert \lVert p \rVert} = \frac{\lVert p \rVert}{\lVert v \rVert}$, because $\langle v, p \rangle = \langle p + q, p \rangle = \lVert p \rVert^2$.
+> 3. In the same way, calling $\alpha$ the angle between $v$ and $n$: $\cos\alpha = \frac{\langle v, n \rangle}{\lVert v \rVert \lVert n \rVert} = \frac{\lVert q \rVert}{\lVert v \rVert}$, because $\langle v, n \rangle = \langle q, n \rangle = \lVert q \rVert \lVert n \rVert$ ($q$ and $n$ are parallel and point the same way).
+> 4. By Pythagoras $\lVert p \rVert^2 + \lVert q \rVert^2 = \lVert v \rVert^2$, so $\cos^2\vartheta + \cos^2\alpha = 1$, that is $\cos\alpha = \sin\vartheta$ (both angles lie in $\left[0, \frac{\pi}{2}\right]$). Two acute angles with $\cos\alpha = \sin\vartheta$ are complementary: $\vartheta + \alpha = \frac{\pi}{2}$. $\square$
+
+> [!EXAMPLE] 24.5
+> In the previous example we can also compute the angle $\vartheta$ as $\frac{\pi}{2} - \alpha$, where $\alpha$ is the angle between $e_3$ and the vector $n = (-1, -1, 1)$, which is orthogonal to $\pi$. Then
+> $$\begin{aligned} \vartheta &= \frac{\pi}{2} - \arccos \frac{\langle (-1, -1, 1), (0, 0, 1) \rangle}{\lVert (-1, -1, 1) \rVert \, \lVert (0, 0, 1) \rVert} \\ &= \frac{\pi}{2} - \arccos \frac{1}{\sqrt 3} \simeq 1.570 - 0.955 = 0.615. \end{aligned}$$
+> We get the same result.
+
+Why $n = (-1, -1, 1)$ and not $(1, 1, -1)$, which is the vector of the coefficients of $x + y - z = 0$? Because the proposition asks for the normal vector that forms an **acute** angle with $v = e_3$: $\langle (1, 1, -1), e_3 \rangle = -1 < 0$, while $\langle (-1, -1, 1), e_3 \rangle = 1 > 0$. With the absolute value the problem disappears.
+
+> [!BEYOND] Two formulas without Gram–Schmidt
+> **The projection onto a plane.** If $n$ is a normal vector of the plane $\pi$ (through the origin), the projection onto $\pi$ is $v$ minus its projection onto the normal:
+> $$p_\pi(v) = v - \frac{\langle v, n \rangle}{\langle n, n \rangle}\, n.$$
+> In Example 24.3: $e_3 - \frac{-1}{3}(1, 1, -1) = \left(\frac 13, \frac 13, 1 - \frac 13\right) = \frac 13 (1, 1, 2)$, as before.
+>
+> **The line–plane angle in one line.** From Proposition 24.4 and from point 4 of the proof:
+> $$\sin\vartheta = \frac{\lvert \langle v, n \rangle \rvert}{\lVert v \rVert \lVert n \rVert}.$$
+> In Example 24.3: $\sin\vartheta = \frac{1}{1 \cdot \sqrt 3}$, so $\vartheta = \arcsin\frac{1}{\sqrt 3}$, which is the same angle as $\arccos\frac{\sqrt 6}{3}$ because $\left(\frac{1}{\sqrt 3}\right)^2 + \left(\frac{\sqrt 6}{3}\right)^2 = \frac 13 + \frac 23 = 1$.
+
+> [!METHOD] The angle between a line and a plane
+> 1. Check that they meet (if the line is parallel to the plane, the angle is not defined).
+> 2. Take the direction vector $v$ of the line and a normal vector $n$ of the plane (the coefficients of the Cartesian equation, or $v_1 \times v_2$ if the plane is in parametric form).
+> 3. **The handouts' method**: compute $p_\pi(v)$ and then the angle between $v$ and $p_\pi(v)$. **Quick method**: $\sin\vartheta = \frac{\lvert \langle v, n \rangle \rvert}{\lVert v \rVert \lVert n \rVert}$.
+> 4. If $\langle v, n \rangle = 0$ the line is parallel to the plane (or lies in it); if $v$ is proportional to $n$ the angle is $\frac{\pi}{2}$.
+
+## Angle between two planes (p. 124)
+
+Open a book halfway: the two halves of the cover are two planes that meet in the line of the spine. The opening of the book is measured by looking from above, that is by cutting with a plane **perpendicular** to the spine: the cut is made of two segments, and the angle between those segments is the opening.
+
+> [!DEF] 24.6 · Angle between planes
+> Let $\pi_1$ and $\pi_2$ be two planes that meet in a line $r = \pi_1 \cap \pi_2$. The (**dihedral**) angle between $\pi_1$ and $\pi_2$ is defined as follows: take two lines $s_1 \subset \pi_1$ and $s_2 \subset \pi_2$ that are incident and both orthogonal to $r$; the dihedral angle between $\pi_1$ and $\pi_2$ is by definition the angle $\alpha$ between $s_1$ and $s_2$. In fact you get two angles $\alpha$ and $\pi - \alpha$, and as always we choose the acute (or right) one.
+
+The definition is geometric but awkward to use. The next proposition turns it into a computation.
+
+> [!PROP] 24.7
+> Let $v_1$ and $v_2$ be two non-zero vectors orthogonal to $\pi_1$ and $\pi_2$. The angle $\alpha$ between $\pi_1$ and $\pi_2$ is equal to the acute (or right) angle between the lines spanned by $v_1$ and $v_2$.
+
+> [!IDEA] Why the normals can be used
+> Look at everything in the plane perpendicular to the line $r$ (the "cut" of the book). Inside it lie the two lines $s_1$ and $s_2$ of the definition, and so do the two normals $v_1$ and $v_2$ (they are orthogonal to $r$, because $r$ lies in both planes). In that plane $v_1$ is perpendicular to $s_1$ and $v_2$ to $s_2$: turning two lines by a right angle does not change the angle between them. Martelli's book leaves this fact as an exercise (Exercise 9.2.34).
+
+So for two planes $\pi_1 = \{a_1 x + b_1 y + c_1 z = d_1\}$ and $\pi_2 = \{a_2 x + b_2 y + c_2 z = d_2\}$ the dihedral angle is simply the acute (or right) angle between the lines spanned by the **vectors of the coefficients** $(a_1, b_1, c_1)$ and $(a_2, b_2, c_2)$:
+
+$$\cos\alpha = \frac{\lvert a_1 a_2 + b_1 b_2 + c_1 c_2 \rvert}{\sqrt{a_1^2 + b_1^2 + c_1^2}\,\sqrt{a_2^2 + b_2^2 + c_2^2}}.$$
+
+> [!EXAMPLE] 24.8
+> The planes $\pi_1 = \{x + y - z = 3\}$ and $\pi_2 = \{x - y - z = 9\}$ form an angle
+> $$\vartheta = \arccos \frac{\langle (1, 1, -1), (1, -1, -1) \rangle}{\lVert (1, 1, -1) \rVert \, \lVert (1, -1, -1) \rVert} = \arccos \frac{1}{\sqrt 3 \sqrt 3} = \arccos \frac 13 \simeq 1.230.$$
+> This corresponds to an angle of about $70.5^\circ$.
+
+The computations: $\langle (1, 1, -1), (1, -1, -1) \rangle = 1 - 1 + 1 = 1$ and the two norms equal $\sqrt{1 + 1 + 1} = \sqrt 3$. The cosine $\frac 13$ is not a special value: the answer is left as $\arccos\frac 13$. Note that the constant terms $3$ and $9$ are not needed: the angle depends only on the **direction spaces**.
+
+> [!EXAMPLE] Two perpendicular planes
+> The two planes of Example 23.9, $\{x + y = 1\}$ and $\{x - y + z = 3\}$, have normals $(1, 1, 0)$ and $(1, -1, 1)$ with scalar product $1 - 1 + 0 = 0$: the cosine is $0$ and the planes are **perpendicular** ($\alpha = \frac{\pi}{2}$).
+
+> [!PITFALL] Proportional normals
+> If the normal vectors are proportional (for example $(1, 2, -1)$ and $(-2, -4, 2)$), the computation would give $\cos\alpha = 1$: the planes are **parallel** and do not meet (or they coincide). It makes no sense to talk about the dihedral angle: you compute the distance.
+
+## Distance between points and point–line distance (pp. 124–126)
+
+The handouts define the distance $d(S, S')$ between two affine subspaces of $\R^3$. If they are **incident** the distance is **zero**. If they are **disjoint** the distance is positive and it is defined case by case. The common idea: you look for the **shortest segment** that connects them, which is always the **perpendicular** one.
+
+> [!DEF] 24.9 · Distance between points
+> As we already know, the distance $d(P, Q)$ between two points $P, Q \in \R^3$ is defined using the norm:
+> $$d(P, Q) = \lVert \overrightarrow{PQ} \rVert = \lVert Q - P \rVert.$$
+
+For example $d((1, 2, 3), (3, 1, 1)) = \lVert (2, -1, -2) \rVert = \sqrt{4 + 1 + 4} = 3$ (it is Definition 20.10 of lesson L20).
+
+> [!DEF] 24.10 · Distance between a point and a line
+> The distance $d(P, r)$ between a point $P$ and a line $r$ in space is defined as follows. We draw (Figure 10 of the handouts) the perpendicular $s$ to $r$ through $P$ and we define
+> $$d(P, r) = d(P, Q), \quad \text{where } Q = r \cap s.$$
+
+$Q$ is the **foot of the perpendicular**: the point of the line closest to $P$. If $r$ is in parametric form $r = \{P_0 + t v_0\}$, the distance is computed without looking for $Q$, with the cross product.
+
+> [!PROP] 24.11
+> The following equality holds
+> $$d(P, r) = \frac{\lVert v_0 \times v_1 \rVert}{\lVert v_0 \rVert}, \quad \text{where } v_1 = \overrightarrow{P_0 P} = P - P_0.$$
+
+The handouts' proof computes the same area in two ways.
+
+1. Consider the parallelogram with sides $v_0$ (along the line) and $v_1$ (from $P_0$ to $P$).
+2. By Corollary 23.3 its area is $\lVert v_0 \times v_1 \rVert$.
+3. As base times height: the base is $\lVert v_0 \rVert$ and the height is the distance of $P$ from the line of the base, that is $d(P, Q)$.
+4. Equating, $\lVert v_0 \times v_1 \rVert = \lVert v_0 \rVert \cdot d(P, Q)$, and dividing by $\lVert v_0 \rVert$ you get the formula.
+
+```graph
+title: The parallelogram with sides $v_0$ and $v_1 = P - P_0$: its height is the distance of $P$ from the line $r$
+x: -1 5
+y: -0.8 4
+line: 0 0 3 1 | accent | $r$ | se
+polygon: 0 0 3 1 4 4 1 3 | amber
+vector: 0 0 3 1 | accent | thick | $v_0$ | se
+vector: 0 0 1 3 | blue | thick | $v_1$ | w
+point: 0 0 | $P_0$ | sw
+point: 1 3 | pink | $P$ | n
+point: 1.8 0.6 | $Q$ | se
+segment: 1 3 1.8 0.6 | pink | dashed | $d(P, r)$ | e
+```
+
+> [!EXAMPLE] 24.12
+> Consider the point and the line
+> $$P = \begin{pmatrix} 1 \\ -2 \\ 3 \end{pmatrix}, \qquad r = \left\{ \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix} + t \begin{pmatrix} 3 \\ 2 \\ 1 \end{pmatrix} \right\}.$$
+> The distance between $P$ and $r$ is
+> $$d(P, r) = \frac{\left\lVert (3, 2, 1) \times (2, -2, 2) \right\rVert}{\lVert (3, 2, 1) \rVert} = \frac{\lVert (6, -4, -10) \rVert}{\sqrt{14}} = \frac{2\sqrt{38}}{\sqrt{14}} = \frac 27 \sqrt{133}.$$
+
+All the steps:
+
+1. $P_0 = (-1, 0, 1)$ and $v_0 = (3, 2, 1)$; $v_1 = P - P_0 = (1 - (-1),\ -2 - 0,\ 3 - 1) = (2, -2, 2)$.
+2. Cross product (rows side by side $(3, 2)$, $(2, -2)$, $(1, 2)$): $\big(2 \cdot 2 - 1 \cdot (-2),\ -(3 \cdot 2 - 1 \cdot 2),\ 3 \cdot (-2) - 2 \cdot 2\big) = (6, -4, -10)$.
+3. $\lVert (6, -4, -10) \rVert = \sqrt{36 + 16 + 100} = \sqrt{152} = \sqrt{4 \cdot 38} = 2\sqrt{38}$ and $\lVert v_0 \rVert = \sqrt{9 + 4 + 1} = \sqrt{14}$.
+4. I simplify: $\frac{2\sqrt{38}}{\sqrt{14}} = 2\sqrt{\frac{38}{14}} = 2\sqrt{\frac{19}{7}} = \frac{2\sqrt{19}}{\sqrt 7} = \frac{2\sqrt{19}\sqrt 7}{7} = \frac{2\sqrt{133}}{7}$.
+
+> [!BEYOND] The foot of the perpendicular, and a check
+> The point $Q$ is found by projecting $v_1$ onto the line (lesson L21):
+> $$Q = P_0 + \frac{\langle v_1, v_0 \rangle}{\langle v_0, v_0 \rangle} v_0.$$
+> In Example 24.12: $\langle v_1, v_0 \rangle = 6 - 4 + 2 = 4$ and $\langle v_0, v_0 \rangle = 14$, so $Q = (-1, 0, 1) + \frac{2}{7}(3, 2, 1) = \left(-\frac 17, \frac 47, \frac 97\right)$. Then $P - Q = \left(\frac 87, -\frac{18}{7}, \frac{12}{7}\right)$, with norm $\frac{\sqrt{64 + 324 + 144}}{7} = \frac{\sqrt{532}}{7} = \frac{2\sqrt{133}}{7}$: the same distance. I check that $P - Q$ is orthogonal to the line: $\frac{24 - 36 + 12}{7} = 0$.
+
+> [!PITFALL] You divide by the norm, not by its square
+> In the formula there is $\lVert v_0 \rVert$ in the denominator, not $\lVert v_0 \rVert^2$ (which appears instead in the projection). And the vector $v_1$ goes from a point **of the line** to the point $P$: using $P$ instead of $P - P_0$ gives a wrong result (unless the line passes through the origin).
+
+## Distance between two lines (pp. 126–127)
+
+> [!DEF] 24.13 · Distance between lines
+> The distance $d(r, r')$ between two **disjoint** lines $r$ and $r'$ in the plane or in space is defined as follows. The two lines $r$ and $r'$ are parallel or skew. In both cases we find a line $s$ perpendicular to both. We then define
+> $$d(r, r') = d(P, P'), \quad \text{where } P = r \cap s \text{ and } P' = r' \cap s.$$
+
+Piece by piece:
+
+- **disjoint**: if they meet the distance is zero;
+- **parallel**: same direction, no common point; the common perpendiculars are infinitely many, all of the same length;
+- **skew**: different directions and no common point (lesson L23); the common perpendicular $s$ is **unique** (Martelli, Proposition 9.2.27) and it is the "pillar" of the flyover.
+
+If $r = \{P_0 + t v\}$ and $r' = \{P_0' + u v'\}$ are in parametric form, the distance is computed quickly.
+
+**Parallel lines.** The distance $d(r, r')$ is equal to $d(P_0, r')$: you take a point of $r$ and apply Proposition 24.11.
+
+> [!EXAMPLE] Two parallel lines
+> $r = \{t\,(1, 1, 0)\}$ and $r' = \{(1, 0, 0) + s\,(1, 1, 0)\}$ have the same direction, and $(0, 0, 0) \in r$ does not lie on $r'$. With $P = (0, 0, 0)$, $P_0' = (1, 0, 0)$, $v_0 = (1, 1, 0)$:
+> - $P - P_0' = (-1, 0, 0)$;
+> - $(1, 1, 0) \times (-1, 0, 0) = \big(1 \cdot 0 - 0 \cdot 0,\ -(1 \cdot 0 - 0 \cdot (-1)),\ 1 \cdot 0 - 1 \cdot (-1)\big) = (0, 0, 1)$;
+> - $d(r, r') = \frac{\lVert (0, 0, 1) \rVert}{\lVert (1, 1, 0) \rVert} = \frac{1}{\sqrt 2} = \frac{\sqrt 2}{2}$.
+>
+> In the plane $z = 0$ they are the lines $y = x$ and $y = x - 1$: vertically they are $1$ apart, but the perpendicular segment, which measures the true distance, is shorter, $\frac{\sqrt 2}{2}$.
+
+**Skew lines.** Here a new formula is needed, with a **volume** instead of the area (Figure 11 of the handouts).
+
+> [!PROP] 24.14
+> If $r$ and $r'$ are skew, the following formula holds
+> $$d(r, r') = \frac{\lvert \det(v \mid v' \mid v'') \rvert}{\lVert v \times v' \rVert}, \quad \text{where } v'' = \overrightarrow{P_0 P_0'} = P_0' - P_0.$$
+
+The reasoning is the same as for Proposition 24.11, one dimension higher.
+
+1. Consider the parallelepiped spanned by $v$, $v'$ and $v''$.
+2. Its volume is $\lvert \det(v \mid v' \mid v'') \rvert$: it is the geometric meaning of the determinant (Martelli, Proposition 9.1.9, proved with the cross product).
+3. As base area times height: the base is the parallelogram with sides $v$ and $v'$, of area $\lVert v \times v' \rVert$; the height is the distance between the two parallel planes that contain the two lines, that is exactly $d = d(P, P') = d(r, r')$.
+4. Equating, $\lvert \det(v \mid v' \mid v'') \rvert = d(r, r') \cdot \lVert v \times v' \rVert$, hence the formula.
+
+> [!EXAMPLE] 24.15
+> Let us compute the distance between the skew lines
+> $$r = \left\{ \begin{pmatrix} 2 \\ -5 \\ 1 \end{pmatrix} + t \begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix} \right\}, \qquad r' = \left\{ \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + u \begin{pmatrix} -1 \\ -2 \\ 3 \end{pmatrix} \right\}.$$
+> It is
+> $$\begin{aligned} d(r, r') &= \frac{\left\lvert \det\begin{pmatrix} 2 & -1 & -1 \\ 0 & -2 & 6 \\ 1 & 3 & -1 \end{pmatrix} \right\rvert}{\left\lVert (2, 0, 1) \times (-1, -2, 3) \right\rVert} \\ &= \frac{\lvert 2(2 - 18) + (-6 - 2) \rvert}{\sqrt{2^2 + (-7)^2 + (-4)^2}} = \frac{40}{\sqrt{69}} = \frac{40}{69}\sqrt{69}. \end{aligned}$$
+
+All the steps:
+
+1. $v = (2, 0, 1)$, $v' = (-1, -2, 3)$ and $v'' = P_0' - P_0 = (1 - 2,\ 1 - (-5),\ 0 - 1) = (-1, 6, -1)$: they are the three columns of the matrix.
+2. Determinant with Laplace along the **first column** $(2, 0, 1)$: $2 \cdot \det\begin{pmatrix} -2 & 6 \\ 3 & -1 \end{pmatrix} - 0 + 1 \cdot \det\begin{pmatrix} -1 & -1 \\ -2 & 6 \end{pmatrix} = 2\,(2 - 18) + (-6 - 2) = -32 - 8 = -40$. In absolute value: $40$.
+3. Cross product (rows side by side $(2, -1)$, $(0, -2)$, $(1, 3)$): $\big(0 \cdot 3 - 1 \cdot (-2),\ -(2 \cdot 3 - 1 \cdot (-1)),\ 2 \cdot (-2) - 0 \cdot (-1)\big) = (2, -7, -4)$, of norm $\sqrt{4 + 49 + 16} = \sqrt{69}$.
+4. $d = \frac{40}{\sqrt{69}} = \frac{40\sqrt{69}}{69}$.
+
+> [!BEYOND] The determinant also tells whether two lines meet
+> For any two lines $r = \{P_0 + t v\}$ and $r' = \{P_0' + u v'\}$ we have: they are **coplanar** (that is incident or parallel) **if and only if** $\det(v \mid v' \mid P_0' - P_0) = 0$ (Martelli, Proposition 9.2.41). Indeed the determinant is zero exactly when the three vectors lie in the same plane. This gives a complete recipe:
+> 1. if $v$ and $v'$ are **proportional**, the lines are parallel (or coincide): distance with Proposition 24.11;
+> 2. otherwise compute $\det(v \mid v' \mid P_0' - P_0)$: if it is $0$ the lines are **incident** (distance $0$, and you can compute the angle); if it is not $0$ they are **skew** and the distance is given by Proposition 24.14.
+>
+> Since $\det(v \mid v' \mid v'') = \langle v \times v', v'' \rangle$ (triple product, lesson L23), it is best to compute $v \times v'$ first: it is needed both in the numerator and in the denominator.
+
+## Distance between a point and a plane (pp. 127–128)
+
+> [!DEF] 24.16 · Distance between a point and a plane
+> The distance between a point $P_0$ and a plane $\pi$ in space is defined in a way similar to what we have already seen: you draw the perpendicular $s$ to $\pi$ through $P_0$ and you define
+> $$d(P_0, \pi) = d(P_0, Q), \quad \text{with } Q = s \cap \pi.$$
+
+If the plane is in Cartesian form, there is a formula that does not require finding $Q$.
+
+> [!PROP] 24.17
+> If $\pi = \{ax + by + cz = d\}$ and $P_0 = (x_0, y_0, z_0)$, we have
+> $$d(P_0, \pi) = \frac{\lvert a x_0 + b y_0 + c z_0 - d \rvert}{\sqrt{a^2 + b^2 + c^2}}.$$
+
+Piece by piece:
+
+- in the numerator substitute the coordinates of $P_0$ into the equation of the plane **brought into the form** $ax + by + cz - d$: the result is zero exactly when $P_0$ lies on the plane;
+- in the denominator there is the norm of the normal vector $n = (a, b, c)$;
+- if you multiply the equation by a number, numerator and denominator change by the same factor: the distance does not change.
+
+```graph
+title: Point–plane distance (side view): the projection of $w = P_0 - P$ onto the normal $n$ is exactly as long as $d(P_0, \pi)$
+axes: no
+grid: no
+x: -3.2 3
+y: -0.8 3
+line: 3 0 -3 0 | violet | thick | $\pi$ | ne
+point: -2 0 | $P$ | s
+point: 1 2.2 | pink | $P_0$ | ne
+point: 1 0 | $Q$ | s
+vector: -2 0 1 2.2 | blue | thick
+text: -0.75 1.4 | blue | $w$
+segment: 1 2.2 1 0 | pink | dashed | $d$ | e
+vector: 2 0 2 1.2 | amber | thick | $n$ | e
+```
+
+> [!PROOF] of Proposition 24.17 (from Martelli's book)
+> 1. Let $n = (a, b, c)$, which is orthogonal to the plane (lesson L23), and let $P = (x, y, z)$ be **any** point of the plane.
+> 2. Set $w = P_0 - P$. The segment $P_0 Q$ is parallel to $n$, and its length is the length of the projection of $w$ onto the line of $n$: $d(P_0, Q) = \lVert p_n(w) \rVert = \frac{\lvert \langle w, n \rangle \rvert}{\lVert n \rVert}$ (lesson L21: $p_n(w) = \frac{\langle w, n \rangle}{\langle n, n \rangle} n$).
+> 3. I expand: $\langle w, n \rangle = a(x_0 - x) + b(y_0 - y) + c(z_0 - z) = a x_0 + b y_0 + c z_0 - (ax + by + cz)$.
+> 4. Since $P \in \pi$, we have $ax + by + cz = d$: so $\langle w, n \rangle = a x_0 + b y_0 + c z_0 - d$, and you get the formula. $\square$
+
+> [!EXAMPLE] 24.18
+> Consider the following plane and point in $\R^3$:
+> $$\pi = \{2x - y + z = 4\}, \qquad P_0 = \begin{pmatrix} 2 \\ 1 \\ -2 \end{pmatrix}.$$
+> Applying the formula we find
+> $$d(P_0, \pi) = \frac{\lvert 2 \cdot 2 - 1 - 2 - 4 \rvert}{\sqrt 6} = \frac{\sqrt 6}{2}.$$
+
+The computations: in the numerator $4 - 1 - 2 - 4 = -3$, in absolute value $3$; in the denominator $\sqrt{4 + 1 + 1} = \sqrt 6$. Finally $\frac{3}{\sqrt 6} = \frac{3\sqrt 6}{6} = \frac{\sqrt 6}{2}$.
+
+```widget spazio
+title: The distance of the point $P_0 = (2, 1, -2)$ from the plane $2x - y + z = 4$ (Example 24.18)
+modo: piano
+piano: 2 -1 1 = 4
+punto: 2 1 -2
+```
+
+The tool draws the plane, the normal vector $n = (2, -1, 1)$, the point $P_0$ and the **foot of the perpendicular** $H$ (which in the handouts is called $Q$). It should give you $d = 1.225$, that is $\frac{\sqrt 6}{2}$, and $H = (3;\ 0.5;\ -1.5)$. Try moving $P_0$ **parallel to the plane**, for example to $(3, 3, -2)$, that is type `3 3 -2` (you have added $(1, 2, 0)$, which satisfies $2 \cdot 1 - 2 + 0 = 0$, so it lies in the direction space): the distance does not change. Then multiply the equation by $2$, that is type `4 -2 2 = 8`: the distance stays the same in this case too.
+
+> [!BEYOND] The foot of the perpendicular and two more distances
+> **The foot $Q$.** Starting from $P_0$ you move along the normal until you reach the plane:
+> $$Q = P_0 - \frac{a x_0 + b y_0 + c z_0 - d}{a^2 + b^2 + c^2}\, (a, b, c).$$
+> In Example 24.18: $Q = (2, 1, -2) - \frac{-3}{6}(2, -1, 1) = (2, 1, -2) + \left(1, -\frac 12, \frac 12\right) = \left(3, \frac 12, -\frac 32\right)$. Check: $6 - \frac 12 - \frac 32 = 4$.
+>
+> **Two parallel planes** $ax + by + cz = d_1$ and $ax + by + cz = d_2$ (with **the same** coefficients): the distance is $\frac{\lvert d_1 - d_2 \rvert}{\sqrt{a^2 + b^2 + c^2}}$, because it is enough to take a point of the first and use Proposition 24.17.
+>
+> **A line parallel to a plane**: all its points have the same distance from the plane, so any one of its points is enough.
+
+## All the formulas in a table (beyond the handouts)
+
+> [!BEYOND] The summary for the exam sheet
+> Notation: $r = P_0 + \Span(v)$, $r' = P_0' + \Span(v')$, plane $\pi = \{ax + by + cz = d\}$ with normal $n = (a, b, c)$.
+>
+> | What | Formula | Where |
+> |---|---|---|
+> | angle between incident lines | $\cos\vartheta = \frac{\lvert \langle v, v' \rangle \rvert}{\lVert v \rVert \lVert v' \rVert}$ | Def. 24.1 |
+> | angle between line and plane | angle between $v$ and $p_\pi(v)$; $\sin\vartheta = \frac{\lvert \langle v, n \rangle \rvert}{\lVert v \rVert \lVert n \rVert}$ | Def. 24.2, Prop. 24.4 |
+> | angle between planes | $\cos\alpha = \frac{\lvert \langle n_1, n_2 \rangle \rvert}{\lVert n_1 \rVert \lVert n_2 \rVert}$ | Prop. 24.7 |
+> | point–point | $\lVert Q - P \rVert$ | Def. 24.9 |
+> | point–line | $\frac{\lVert v \times (P - P_0) \rVert}{\lVert v \rVert}$ | Prop. 24.11 |
+> | parallel lines | $d(P_0, r')$ | Def. 24.13 |
+> | skew lines | $\frac{\lvert \det(v \mid v' \mid P_0' - P_0) \rvert}{\lVert v \times v' \rVert}$ | Prop. 24.14 |
+> | point–plane | $\frac{\lvert a x_0 + b y_0 + c z_0 - d \rvert}{\sqrt{a^2 + b^2 + c^2}}$ | Prop. 24.17 |
+> | parallel planes | $\frac{\lvert d_1 - d_2 \rvert}{\sqrt{a^2 + b^2 + c^2}}$ (same coefficients) | beyond the handouts |
+
+> [!BEYOND] Where to find it in the book
+> In Martelli's book: angles between lines, between a line and a plane and between planes in §9.2.9 (pp. 285–287, with Proposition 9.2.33: among all the lines of the plane through $P$, the projected one forms the smallest angle with $r$); distances in §9.2.10 (pp. 287–291: Propositions 9.2.36, 9.2.39, 9.2.41 and 9.2.42, which are our 24.11, 24.14, the coplanarity criterion and 24.17). Norm, angle between vectors, distance and orthogonal projection are in §8.1 (pp. 240–245); the volume of the parallelepiped in Proposition 9.1.9 (p. 271); lines perpendicular to a plane or to a line in §9.2.6 (pp. 279–281).
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has **10 quiz questions** with 5 answers (only one right) and **2 problems worth 11 points**, marked only with **at least 6 correct quiz answers**; it lasts **2 hours**, **with no calculator**, and you may bring only a sheet of **4 handwritten pages**. The 2026/27 exam sessions are on **22/01/2027** and **05/02/2027** at 14:00. All the details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions.** Angles and distances are present in almost every exam session.
+
+- **Quiz on the distance between two lines**: 08/02/2024 (question 10), 06/09/2024 (question 6), 05/02/2026 (question 10, where the lines meet and the right answer is $0$), 03/06/2026 (question 10), 07/09/2026 (question 7).
+- **Quiz on the point–plane distance**: 16/01/2025 (question 4). **Quiz on the line–plane angle**: 10/07/2025 (question 8). **Quiz on the line perpendicular to a plane**: 02/09/2025 (question 9): the direction must be proportional to the normal vector.
+- **Open problems with the angle between a line and a plane**, usually after finding a line as the intersection of planes or a projection: 24/01/2024, 10/06/2024, 10/07/2024, 06/09/2024, 02/09/2025, 03/06/2026, 07/09/2026 (always problem 12). **Distance between lines** in an open problem: 10/07/2024 and 03/06/2025.
+
+Two real quiz questions, solved.
+
+*Exam of 07/09/2026, question 7.* The distance between the lines $r_1 = (2, 0, 0) + \Span(0, 1, 1)$ and $r_2 = (0, 3, 0) + \Span(-1, 1, 0)$ is: (a) $3$; (b) $\frac{\sqrt 3}{3}$; (c) $3\sqrt 3$; (d) $\sqrt 3$; (e) $3 + \sqrt 3$.
+
+Working: $v = (0, 1, 1)$ and $v' = (-1, 1, 0)$ are not proportional, and $v'' = (0, 3, 0) - (2, 0, 0) = (-2, 3, 0)$. Cross product (rows side by side $(0, -1)$, $(1, 1)$, $(1, 0)$): $v \times v' = \big(1 \cdot 0 - 1 \cdot 1,\ -(0 \cdot 0 - 1 \cdot (-1)),\ 0 \cdot 1 - 1 \cdot (-1)\big) = (-1, -1, 1)$, of norm $\sqrt 3$. Triple product: $\langle (-1, -1, 1), (-2, 3, 0) \rangle = 2 - 3 + 0 = -1 \neq 0$, so the lines are skew and $d = \frac{1}{\sqrt 3} = \frac{\sqrt 3}{3}$: answer (b). Here the rationalisation of lesson L01 really is needed.
+
+*Exam of 10/07/2025, question 8.* The angle between the plane $\Pi = \{x + z = 3\}$ and the line $r = {}^t(1, 0, 1) + s\,{}^t(2, 2, 0)$ is: (a) $\frac 12$; (b) $0$; (c) $\frac{\pi}{3}$; (d) $\frac{\pi}{2} - \frac 12$; (e) $\frac{\pi}{6}$.
+
+Working: $v = (2, 2, 0)$, $n = (1, 0, 1)$, $\langle v, n \rangle = 2 \neq 0$ (the line is not parallel to the plane, so (b) is excluded). With the shortcut: $\sin\vartheta = \frac{2}{2\sqrt 2 \cdot \sqrt 2} = \frac 12$, so $\vartheta = \frac{\pi}{6}$: answer (e). With the handouts' method: $p_\pi(v) = (2, 2, 0) - \frac 22 (1, 0, 1) = (1, 2, -1)$ and $\cos\vartheta = \frac{2 + 4 + 0}{2\sqrt 2 \cdot \sqrt 6} = \frac{6}{4\sqrt 3} = \frac{\sqrt 3}{2}$, again $\frac{\pi}{6}$. Answers (a) and (d) are traps: $\frac 12$ is the **sine** of the angle, not the angle; (c) is the angle with the normal.
+
+> [!METHOD] Distance between two lines, in four lines
+> 1. Write $v$, $v'$, $v'' = P_0' - P_0$.
+> 2. If $v$ and $v'$ are proportional: parallel lines, $d = \frac{\lVert v \times (P_0' - P_0) \rVert}{\lVert v \rVert}$.
+> 3. Otherwise compute $v \times v'$ and then $\langle v \times v', v'' \rangle$. If it is $0$, the lines meet: $d = 0$ (as in the quiz of 05/02/2026).
+> 4. If it is not $0$: $d = \frac{\lvert \langle v \times v', v'' \rangle \rvert}{\lVert v \times v' \rVert}$, and rationalise.
+
+> [!METHOD] The angle between a line and a plane in the open problems
+> The problems often ask, in this order: find the line (intersection of two planes, lesson L23), show that it meets the plane, compute the **orthogonal projection** of the direction onto the plane, and finally the angle. The "projection" part prepares exactly Definition 24.2: once $p_\pi(v)$ is found, the angle is $\arccos\frac{\langle v, p_\pi(v) \rangle}{\lVert v \rVert \lVert p_\pi(v) \rVert}$. If the text asks for the **cosine** of the angle (as on 03/06/2026), stop at the cosine.
+
+**Mistakes to avoid.**
+
+- Giving an **obtuse** angle as the angle between lines (or between planes): you always take the acute or right one.
+- Confusing the angle with the **normal** and the angle with the **plane**: they are complementary.
+- Writing the value of the **cosine** or of the **sine** as the "angle" (the trap of the answer $\frac 12$).
+- In the point–plane formula, forgetting to bring **everything to the left** ($ax + by + cz - d$) or forgetting the **absolute value**.
+- Comparing parallel planes with **non-normalised** equations: $x + 2y + 2z = 1$ and $2x + 4y + 4z = 5$ must first be written with the same coefficients.
+- Using the formula for skew lines for **parallel** lines: the denominator $\lVert v \times v' \rVert$ is zero.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the table of formulas (previous section), the table of special cosines, the "parallel / incident / skew" recipe with the determinant, and the formula for the foot of the perpendicular on a plane.
+
+## Quiz
+
+```quiz
+Q: The lines $r = (1, 0, 0) + t\,(1, 1, 0)$ and $r' = (1, 0, 0) + s\,(0, 1, 1)$ meet at $(1, 0, 0)$. What angle do they form?
++ $\frac{\pi}{3}$
+- $\frac{\pi}{6}$
+- $\frac{2\pi}{3}$
+- $\frac{\pi}{4}$
+- $\arccos\frac 14$
+= $\cos\vartheta = \frac{\lvert \langle (1, 1, 0), (0, 1, 1) \rangle \rvert}{\sqrt 2 \cdot \sqrt 2} = \frac 12$, so $\vartheta = \frac{\pi}{3}$. $\frac{2\pi}{3}$ is the obtuse angle, which is never chosen for two lines.
+
+Q: What is the angle between the plane $\pi = \{x + y = 3\}$ and the line $r = (0, 0, 1) + t\,(1, 0, 1)$?
++ $\frac{\pi}{6}$
+- $\frac{\pi}{3}$
+- $\frac 12$
+- $\frac{\pi}{2} - \frac 12$
+- $0$
+= $v = (1, 0, 1)$, $n = (1, 1, 0)$: $\sin\vartheta = \frac{\lvert 1 \rvert}{\sqrt 2 \cdot \sqrt 2} = \frac 12$, so $\vartheta = \frac{\pi}{6}$. With the projection: $p_\pi(v) = (1, 0, 1) - \frac 12 (1, 1, 0) = \left(\frac 12, -\frac 12, 1\right)$ and $\cos\vartheta = \frac{3/2}{\sqrt 2 \cdot \sqrt{3/2}} = \frac{\sqrt 3}{2}$. $\frac{\pi}{3}$ is the angle with the normal, $\frac 12$ the sine. Similar to the exam of 10/07/2025 (question 8), which had the same distractors.
+
+Q: What is the dihedral angle between the planes $\{x = 2\}$ and $\{x + y = 3\}$?
++ $\frac{\pi}{4}$
+- $\frac{3\pi}{4}$
+- $\frac{\pi}{3}$
+- $\frac{\pi}{2}$
+- $\frac{\pi}{6}$
+= Normals $(1, 0, 0)$ and $(1, 1, 0)$: $\cos\alpha = \frac{1}{1 \cdot \sqrt 2} = \frac{\sqrt 2}{2}$, so $\alpha = \frac{\pi}{4}$ (Proposition 24.7). $\frac{3\pi}{4}$ is the obtuse angle, which is discarded.
+
+Q: The distance of the point $P = (1, 2, 3)$ from the plane $\pi = \{2x - y + 2z = 1\}$ is:
++ $\frac 53$
+- $5$
+- $\frac 59$
+- $\frac 73$
+- $\frac{\sqrt 5}{3}$
+= $\frac{\lvert 2 - 2 + 6 - 1 \rvert}{\sqrt{4 + 1 + 4}} = \frac{5}{3}$. $5$ forgets the denominator, $\frac 59$ divides by $\lVert n \rVert^2$, $\frac 73$ gets the sign of $d$ wrong ($+1$ instead of $-1$). Similar to the exam of 16/01/2025 (question 4).
+
+Q: The distance of the point $P = (2, 0, 1)$ from the line $r = \{t\,(1, 1, 0) \mid t \in \R\}$ is:
++ $\sqrt 3$
+- $\sqrt 6$
+- $3$
+- $\sqrt 2$
+- $\frac{\sqrt 6}{2}$
+= $v_0 = (1, 1, 0)$, $v_1 = P - (0, 0, 0) = (2, 0, 1)$, $v_0 \times v_1 = (1 \cdot 1 - 0 \cdot 0,\ -(1 \cdot 1 - 0 \cdot 2),\ 1 \cdot 0 - 1 \cdot 2) = (1, -1, -2)$, of norm $\sqrt 6$. So $d = \frac{\sqrt 6}{\sqrt 2} = \sqrt 3$. $\sqrt 6$ forgets to divide by $\lVert v_0 \rVert$; $\frac{\sqrt 6}{2}$ divides by $\lVert v_0 \rVert^2$.
+
+Q: The lines $r_1 = (1, 0, 0) + t\,(0, 1, 2)$ and $r_2 = (3, -1, -1) + s\,(-1, 1, 4)$ are skew. What is their distance?
++ $\frac 53$
+- $5$
+- $\frac 59$
+- $\frac 35$
+- $0$
+= $v \times v' = (0, 1, 2) \times (-1, 1, 4) = (1 \cdot 4 - 2 \cdot 1,\ -(0 \cdot 4 - 2 \cdot (-1)),\ 0 \cdot 1 - 1 \cdot (-1)) = (2, -2, 1)$, of norm $3$. $v'' = (2, -1, -1)$ and $\langle (2, -2, 1), (2, -1, -1) \rangle = 4 + 2 - 1 = 5$. So $d = \frac 53$. Similar to the exams of 06/09/2024 (question 6) and 03/06/2026 (question 10); the lines are those of the problem of 03/06/2025 with $k = 0$.
+
+Q: What is the distance between the lines $r = \{t\,(1, 1, 0)\}$ and $r' = \{(1, 1, 1) + s\,(0, 0, 1)\}$?
++ $0$
+- $\frac{\sqrt 2}{2}$
+- $1$
+- $\sqrt 2$
+- the point $(1, 1, 0)$
+= The directions are not proportional, and $\det\left((1, 1, 0) \mid (0, 0, 1) \mid (1, 1, 1)\right) = \langle (1, 1, 0) \times (0, 0, 1), (1, 1, 1) \rangle = \langle (1, -1, 0), (1, 1, 1) \rangle = 0$: the lines are incident (they meet at $(1, 1, 0)$, with $t = 1$ and $s = -1$), so the distance is $0$. The point $(1, 1, 0)$ is not a distance. Similar to the exam of 05/02/2026 (question 10).
+
+Q: A line forms an acute angle $\alpha = \frac{\pi}{3}$ with the normal vector of a plane. What is the angle between the line and the plane?
++ $\frac{\pi}{6}$
+- $\frac{\pi}{3}$
+- $\frac{2\pi}{3}$
+- $\frac{\pi}{2}$
+- $\frac{5\pi}{6}$
+= By Proposition 24.4 the two angles add up to $\frac{\pi}{2}$: $\vartheta = \frac{\pi}{2} - \frac{\pi}{3} = \frac{\pi}{6}$.
+
+Q: Which of these lines meets the plane $\pi = \{2x - y + 2z = 3\}$ **perpendicularly**?
++ $(1, 1, 1) + t\,(2, -1, 2)$
+- $t\,(1, 2, 0)$
+- $(2, -1, 2) + t\,(1, 1, 1)$
+- $\{2x - y + 2z = 0\}$
+- $(0, 3, 0) + t\,(2, 1, 2)$
+= A line is perpendicular to the plane when its direction is proportional to the normal vector $(2, -1, 2)$. $(1, 2, 0)$ is orthogonal to the normal ($2 - 2 + 0 = 0$): that line is parallel to the plane. $(2, -1, 2) + t\,(1, 1, 1)$ uses the normal as a **point**, not as a direction. $\{2x - y + 2z = 0\}$ is a plane, not a line. $(2, 1, 2)$ is not proportional to $(2, -1, 2)$. Similar to the exam of 02/09/2025 (question 9).
+
+Q: What is the distance between the parallel planes $\{x + 2y + 2z = 1\}$ and $\{x + 2y + 2z = 7\}$?
+N: 2
+= Same coefficients, so $d = \frac{\lvert 7 - 1 \rvert}{\sqrt{1 + 4 + 4}} = \frac 63 = 2$. It is equivalent to taking the point $(1, 0, 0)$ of the first plane and using Proposition 24.17.
+```
+
+## Exercises
+
+::: exercise basic Angles between lines
+(a) The lines $r = (1, 2, 0) + t\,(1, 0, 1)$ and $r' = (1, 2, 0) + s\,(1, 1, 0)$ meet at $(1, 2, 0)$: compute the angle. (b) Same question for the lines through the origin with directions $(1, 2, 2)$ and $(2, -2, -1)$. (c) Same question for the lines through the origin with directions $(1, 1, 1)$ and $(-1, 0, -1)$.
+::: solution
+(a) $\langle (1, 0, 1), (1, 1, 0) \rangle = 1$, norms $\sqrt 2$ and $\sqrt 2$: $\cos\vartheta = \frac 12$, $\vartheta = \frac{\pi}{3}$.
+
+(b) $\langle (1, 2, 2), (2, -2, -1) \rangle = 2 - 4 - 2 = -4$, norms $3$ and $3$: the cosine between the vectors is $-\frac 49$ (obtuse angle). Between the lines you take the absolute value: $\vartheta = \arccos\frac 49$.
+
+(c) $\langle (1, 1, 1), (-1, 0, -1) \rangle = -2$, norms $\sqrt 3$ and $\sqrt 2$: $\cos\vartheta = \frac{2}{\sqrt 6} = \frac{\sqrt 6}{3}$, so $\vartheta = \arccos\frac{\sqrt 6}{3}$ (about $35.3^\circ$, the same number as in Example 24.3).
+:::
+
+::: exercise basic Angle between two planes
+Compute the dihedral angle between the planes $\pi_1 = \{2x + y - z = 1\}$ and $\pi_2 = \{x + 2y + z = 2\}$ (they are the planes of the exam of 24/01/2024). Then write a plane through the origin perpendicular to both.
+::: solution
+Normals $n_1 = (2, 1, -1)$ and $n_2 = (1, 2, 1)$: $\langle n_1, n_2 \rangle = 2 + 2 - 1 = 3$, norms $\sqrt 6$ and $\sqrt 6$. So $\cos\alpha = \frac{3}{6} = \frac 12$ and $\alpha = \frac{\pi}{3}$.
+
+Two planes are perpendicular when their **normal vectors** are orthogonal (cosine zero). So you need a normal vector $m$ with $\langle m, n_1 \rangle = \langle m, n_2 \rangle = 0$, for example
+$$\begin{aligned} m = n_1 \times n_2 &= \big(1 \cdot 1 - (-1) \cdot 2,\ -(2 \cdot 1 - (-1) \cdot 1),\ 2 \cdot 2 - 1 \cdot 1\big) \\ &= (3, -3, 3). \end{aligned}$$
+The plane $x - y + z = 0$ works. Since $m$ is also the direction of the line $\pi_1 \cap \pi_2$ (it is orthogonal to both normals), this is the plane through the origin perpendicular to the common line: the "cut" of Definition 24.6.
+:::
+
+::: exercise intermediate A line and a plane, with two methods
+Compute the angle between the plane $\pi = \{x + y - z = 0\}$ and the line $r = \{t\,(1, 1, 1)\}$: (a) with the projection of Definition 24.2; (b) with Proposition 24.4. Check that the results coincide.
+::: solution
+First of all the line meets the plane (at the origin).
+
+(a) With the formula of the projection onto the normal $n = (1, 1, -1)$: $\langle v, n \rangle = 1 + 1 - 1 = 1$ and $\langle n, n \rangle = 3$, so
+$$p_\pi(v) = (1, 1, 1) - \tfrac 13 (1, 1, -1) = \left(\tfrac 23, \tfrac 23, \tfrac 43\right).$$
+$\langle v, p_\pi(v) \rangle = \frac{2 + 2 + 4}{3} = \frac 83$, $\lVert v \rVert = \sqrt 3$, $\lVert p_\pi(v) \rVert = \frac{\sqrt{4 + 4 + 16}}{3} = \frac{\sqrt{24}}{3} = \frac{2\sqrt 6}{3}$. Then
+$$\cos\vartheta = \frac{8/3}{\sqrt 3 \cdot 2\sqrt 6 / 3} = \frac{8}{2\sqrt{18}} = \frac{4}{3\sqrt 2} = \frac{2\sqrt 2}{3}.$$
+
+(b) $\sin\vartheta = \frac{\lvert \langle v, n \rangle \rvert}{\lVert v \rVert \lVert n \rVert} = \frac{1}{\sqrt 3 \cdot \sqrt 3} = \frac 13$, so $\vartheta = \arcsin\frac 13$.
+
+They coincide: $\left(\frac{2\sqrt 2}{3}\right)^2 + \left(\frac 13\right)^2 = \frac 89 + \frac 19 = 1$, so $\arccos\frac{2\sqrt 2}{3} = \arcsin\frac 13$ (an acute angle is determined by its sine).
+:::
+
+::: exercise basic Point–line distance with the formula and with the foot
+Let $P = (1, 1, 1)$ and $r = \{t\,(1, 2, 2)\}$. Compute $d(P, r)$ with Proposition 24.11 and then by finding the foot of the perpendicular $Q$.
+::: solution
+**With the formula.** $v_0 = (1, 2, 2)$, $v_1 = P - (0, 0, 0) = (1, 1, 1)$. Rows side by side $(1, 1)$, $(2, 1)$, $(2, 1)$:
+$$v_0 \times v_1 = (2 \cdot 1 - 2 \cdot 1,\ -(1 \cdot 1 - 2 \cdot 1),\ 1 \cdot 1 - 2 \cdot 1) = (0, 1, -1).$$
+$d = \frac{\sqrt 2}{\lVert v_0 \rVert} = \frac{\sqrt 2}{3}$.
+
+**With the foot.** $Q = \frac{\langle v_1, v_0 \rangle}{\langle v_0, v_0 \rangle} v_0 = \frac{5}{9}(1, 2, 2) = \left(\frac 59, \frac{10}{9}, \frac{10}{9}\right)$. Then $P - Q = \left(\frac 49, -\frac 19, -\frac 19\right)$, orthogonal to $v_0$ ($\frac{4 - 2 - 2}{9} = 0$), with norm $\frac{\sqrt{16 + 1 + 1}}{9} = \frac{\sqrt{18}}{9} = \frac{3\sqrt 2}{9} = \frac{\sqrt 2}{3}$. Same result.
+:::
+
+::: exercise basic Point–plane distance and foot of the perpendicular
+For the plane $\pi = \{2x - y + z = 4\}$ and the point $P_0 = (2, 1, -2)$ of Example 24.18: (a) find the foot $Q$ of the perpendicular; (b) check that $d(P_0, Q) = \frac{\sqrt 6}{2}$; (c) write in parametric form the line $s$ perpendicular to $\pi$ through $P_0$.
+::: solution
+(c) The perpendicular line has the direction of the normal: $s = (2, 1, -2) + \lambda\,(2, -1, 1)$.
+
+(a) $Q = s \cap \pi$: I substitute $(2 + 2\lambda,\ 1 - \lambda,\ -2 + \lambda)$ into the equation: $2(2 + 2\lambda) - (1 - \lambda) + (-2 + \lambda) = 4$, that is $1 + 6\lambda = 4$ and $\lambda = \frac 12$. So $Q = \left(3, \frac 12, -\frac 32\right)$.
+
+(b) $P_0 - Q = \left(-1, \frac 12, -\frac 12\right)$, of norm $\sqrt{1 + \frac 14 + \frac 14} = \sqrt{\frac 32} = \frac{\sqrt 6}{2}$.
+:::
+
+::: exercise intermediate Parallel lines and parallel planes
+(a) Compute the distance between the parallel lines $r = \{(1, 0, 1) + t\,(1, 0, -1)\}$ and $r' = \{(0, 2, 0) + s\,(-2, 0, 2)\}$. (b) Compute the distance between the planes $\pi_1 = \{x + 2y + 2z = 1\}$ and $\pi_2 = \{2x + 4y + 4z = 5\}$.
+::: solution
+(a) The directions are proportional ($(-2, 0, 2) = -2\,(1, 0, -1)$). I take $P = (1, 0, 1) \in r$ and use Proposition 24.11 for the line $r'$, with $P_0' = (0, 2, 0)$ and, as direction, $v_0 = (1, 0, -1)$ (any vector proportional to $(-2, 0, 2)$ works). Then $P - P_0' = (1, -2, 1)$ and
+$$\begin{aligned} v_0 \times (P - P_0') &= \big(0 \cdot 1 - (-1)(-2),\ -(1 \cdot 1 - (-1) \cdot 1),\ 1 \cdot (-2) - 0 \cdot 1\big) \\ &= (-2, -2, -2), \end{aligned}$$
+of norm $2\sqrt 3$. So $d = \frac{2\sqrt 3}{\lVert v_0 \rVert} = \frac{2\sqrt 3}{\sqrt 2} = \sqrt 6$.
+
+(b) First I make the coefficients equal: dividing by 2, $\pi_2 = \{x + 2y + 2z = \frac 52\}$. Now $d = \frac{\lvert \frac 52 - 1 \rvert}{\sqrt{1 + 4 + 4}} = \frac{3/2}{3} = \frac 12$. Without dividing, the computation "$\frac{\lvert 5 - 1 \rvert}{3}$" would have given $\frac 43$, which is wrong.
+:::
+
+::: exercise intermediate Classifying two lines and computing the distance
+Let $r = \{(1, 1, 0) + t\,(1, 0, 2)\}$ and $r' = \{(0, 1, 1) + s\,(0, 1, 1)\}$. Decide whether they are incident, parallel or skew and compute their distance.
+::: solution
+The directions $v = (1, 0, 2)$ and $v' = (0, 1, 1)$ are not proportional: the lines are not parallel. Then $v'' = (0, 1, 1) - (1, 1, 0) = (-1, 0, 1)$ and
+$$v \times v' = \big(0 \cdot 1 - 2 \cdot 1,\ -(1 \cdot 1 - 2 \cdot 0),\ 1 \cdot 1 - 0 \cdot 0\big) = (-2, -1, 1).$$
+$\langle v \times v', v'' \rangle = 2 + 0 + 1 = 3 \neq 0$: the lines are **skew**. The distance is
+$$d(r, r') = \frac{3}{\lVert (-2, -1, 1) \rVert} = \frac{3}{\sqrt 6} = \frac{\sqrt 6}{2}.$$
+:::
+
+::: exercise hard The common perpendicular to two skew lines
+Let $r = \{(1, 1, 1) + t\,(-1, 2, 1)\}$ and $r' = \{(0, 1, 2) + s\,(1, 1, 1)\}$ (Martelli, Example 9.2.28). (a) Compute $d(r, r')$ with Proposition 24.14. (b) Find the points $P \in r$ and $P' \in r'$ such that the segment $PP'$ is perpendicular to both lines, and check that $d(P, P') = d(r, r')$.
+::: solution
+(a) $v = (-1, 2, 1)$, $v' = (1, 1, 1)$, $v'' = (0, 1, 2) - (1, 1, 1) = (-1, 0, 1)$. Cross product:
+$$v \times v' = \big(2 \cdot 1 - 1 \cdot 1,\ -((-1) \cdot 1 - 1 \cdot 1),\ (-1) \cdot 1 - 2 \cdot 1\big) = (1, 2, -3),$$
+of norm $\sqrt{14}$. $\langle (1, 2, -3), (-1, 0, 1) \rangle = -1 + 0 - 3 = -4$. So $d = \frac{4}{\sqrt{14}} = \frac{2\sqrt{14}}{7}$.
+
+(b) The generic point of $r$ is $P(t) = (1 - t,\ 1 + 2t,\ 1 + t)$, that of $r'$ is $P'(s) = (s,\ 1 + s,\ 2 + s)$. The vector $P(t) - P'(s) = (1 - t - s,\ 2t - s,\ -1 + t - s)$ must be orthogonal to $v$ and to $v'$:
+- $\langle P - P', v \rangle = -(1 - t - s) + 2(2t - s) + (-1 + t - s) = 6t - 2s - 2 = 0$;
+- $\langle P - P', v' \rangle = (1 - t - s) + (2t - s) + (-1 + t - s) = 2t - 3s = 0$.
+
+From the second $t = \frac{3s}{2}$; in the first $9s - 2s - 2 = 0$, that is $s = \frac 27$ and $t = \frac 37$. So
+$$P = \left(\tfrac 47, \tfrac{13}{7}, \tfrac{10}{7}\right), \qquad P' = \left(\tfrac 27, \tfrac 97, \tfrac{16}{7}\right), \qquad P - P' = \tfrac 27\,(1, 2, -3).$$
+$P - P'$ is proportional to $v \times v'$, as it must be, and $d(P, P') = \frac 27 \sqrt{14}$: it coincides with (a). The common perpendicular is the line $P' + \Span((1, 2, -3))$, the same one found by Martelli.
+:::
+
+::: exercise hard Planes at a given distance
+(a) Find the planes parallel to $\pi = \{x + 2y + 2z = 1\}$ that are at distance $2$ from $\pi$. (b) Find the points of the line $r = \{t\,(1, 1, 1)\}$ that are at distance $\sqrt 3$ from the plane $\sigma = \{x + y + z = 0\}$.
+::: solution
+(a) A parallel plane has the form $x + 2y + 2z = c$ (same normal). The distance from $\pi$ is $\frac{\lvert c - 1 \rvert}{3}$; imposing that it equals $2$: $\lvert c - 1 \rvert = 6$, that is $c = 7$ or $c = -5$. The planes are $x + 2y + 2z = 7$ and $x + 2y + 2z = -5$, one on each side.
+
+(b) The point $(t, t, t)$ is at distance $\frac{\lvert 3t \rvert}{\sqrt 3} = \sqrt 3\,\lvert t \rvert$ from $\sigma$. Imposing $\sqrt 3\,\lvert t \rvert = \sqrt 3$: $t = \pm 1$. The points are $(1, 1, 1)$ and $(-1, -1, -1)$.
+:::
+
+::: exercise exam Line, plane, angle and distance (exam of 10/07/2024, problem 12)
+Let $\pi_1 = \{x + y + 2z = 1\}$ and $\pi_2 = \{2x - 2y = 2\}$ be two planes in $\R^3$. (1) Compute the line $r = \pi_1 \cap \pi_2$ in the form $r = P + \Span(v)$. (2) Prove that $r$ and the plane $\pi_3 = \{x + y = -1\}$ are incident. (3) Compute the angle between $r$ and the plane $\pi_3$. (4) Compute the distance between $r$ and the line $s = {}^t(1, 0, 1) + \Span({}^t(2, 1, -2))$.
+::: solution
+(1) From the second equation, divided by 2: $x - y = 1$, that is $x = 1 + y$. In the first: $1 + y + y + 2z = 1$, that is $z = -y$. With $y = t$:
+$$r = \{(1 + t,\ t,\ -t)\} = (1, 0, 0) + \Span((1, 1, -1)).$$
+Check: $(1, 0, 0)$ satisfies $1 = 1$ and $2 = 2$; the direction is proportional to $(1, 1, 2) \times (2, -2, 0) = (4, 4, -4)$.
+
+(2) The normal of $\pi_3$ is $n = (1, 1, 0)$ and $\langle (1, 1, -1), (1, 1, 0) \rangle = 2 \neq 0$: the direction of the line does not lie in the direction space of the plane, so the direction spaces add up to $\R^3$ and, by Proposition 23.10, $r$ and $\pi_3$ are incident. The point: $(1 + t) + t = -1$ gives $t = -1$, that is $(0, -1, 1)$.
+
+(3) Projection of the direction $v = (1, 1, -1)$ onto the direction space of $\pi_3$:
+$$p(v) = v - \frac{\langle v, n \rangle}{\langle n, n \rangle} n = (1, 1, -1) - \tfrac 22 (1, 1, 0) = (0, 0, -1).$$
+Then $\cos\vartheta = \frac{\langle v, p(v) \rangle}{\lVert v \rVert \lVert p(v) \rVert} = \frac{1}{\sqrt 3 \cdot 1} = \frac{\sqrt 3}{3}$ and $\vartheta = \arccos\frac{\sqrt 3}{3}$ (about $54.7^\circ$). Check with the normal: $\sin\vartheta = \frac{2}{\sqrt 3 \sqrt 2} = \frac{\sqrt 6}{3}$, and $\frac 13 + \frac 69 = 1$.
+
+(4) Directions $v = (1, 1, -1)$ and $v' = (2, 1, -2)$, not proportional. $v'' = (1, 0, 1) - (1, 0, 0) = (0, 0, 1)$.
+$$\begin{aligned} v \times v' &= \big(1 \cdot (-2) - (-1) \cdot 1,\ -(1 \cdot (-2) - (-1) \cdot 2),\ 1 \cdot 1 - 1 \cdot 2\big) \\ &= (-1, 0, -1), \end{aligned}$$
+of norm $\sqrt 2$. $\langle (-1, 0, -1), (0, 0, 1) \rangle = -1 \neq 0$: the lines are skew and $d(r, s) = \frac{1}{\sqrt 2} = \frac{\sqrt 2}{2}$.
+:::
+
+::: exercise exam Projection, intersection and angle
+Let $v_1 = (1, 0, 1)$ and $v_2 = (1, 2, 1)$, and let $V = \Span(v_1, v_2)$. (1) Compute an orthogonal basis of $V$. (2) Compute the orthogonal projection of $w = (1, 1, 0)$ onto $V$. (3) Compute the intersection point and the angle of intersection between the line $r = (2, 0, 0) + \Span(w)$ and the plane $V$.
+::: solution
+(1) Gram–Schmidt: $u_1 = v_1 = (1, 0, 1)$ and
+$$u_2 = v_2 - \frac{\langle v_2, u_1 \rangle}{\langle u_1, u_1 \rangle} u_1 = (1, 2, 1) - \tfrac 22 (1, 0, 1) = (0, 2, 0).$$
+Orthogonal basis: $(1, 0, 1)$ and $(0, 2, 0)$ (or, more conveniently, $(0, 1, 0)$).
+
+(2) $p_V(w) = \frac{\langle w, u_1 \rangle}{\langle u_1, u_1 \rangle} u_1 + \frac{\langle w, e_2 \rangle}{\langle e_2, e_2 \rangle} e_2 = \frac 12 (1, 0, 1) + 1 \cdot (0, 1, 0) = \left(\frac 12, 1, \frac 12\right)$. Check: $w - p_V(w) = \left(\frac 12, 0, -\frac 12\right)$ is orthogonal to $u_1$ ($\frac 12 - \frac 12 = 0$) and to $e_2$.
+
+(3) The plane $V$ has normal $v_1 \times v_2 = (0 \cdot 1 - 1 \cdot 2,\ -(1 \cdot 1 - 1 \cdot 1),\ 1 \cdot 2 - 0 \cdot 1) = (-2, 0, 2)$, that is $V = \{x - z = 0\}$. The generic point of the line is $(2 + t, t, 0)$: $2 + t - 0 = 0$ gives $t = -2$, and the point is $(0, -2, 0)$. The angle is the one between $w$ and $p_V(w)$:
+$$\cos\vartheta = \frac{\frac 12 + 1 + 0}{\sqrt 2 \cdot \sqrt{\frac 14 + 1 + \frac 14}} = \frac{3/2}{\sqrt 2 \cdot \sqrt{3/2}} = \frac{3/2}{\sqrt 3} = \frac{\sqrt 3}{2},$$
+so $\vartheta = \frac{\pi}{6}$. Check with the normal $(1, 0, -1)$: $\sin\vartheta = \frac{\lvert 1 \rvert}{\sqrt 2 \cdot \sqrt 2} = \frac 12$. It is the same scheme as problems 12 of the exam sessions of 10/06/2024, 03/06/2026 and 07/09/2026.
+:::
+
+## Review questions
+
+::: question When do you compute an angle and when a distance?
+For two incident affine subspaces you compute the angle; for two disjoint subspaces the distance (for incident subspaces the distance is zero).
+:::
+
+::: question How is the angle between two incident lines defined? Why is the acute angle chosen?
+It is the angle between the direction vectors $v$ and $v'$ (Definition 24.1). Since changing $v$ into $-v$ turns the angle into $\pi - \vartheta$, the choice is not unique: you always take the acute or right one, that is $\cos\vartheta = \frac{\lvert \langle v, v' \rangle \rvert}{\lVert v \rVert \lVert v' \rVert}$.
+:::
+
+::: question How is the angle between a line and a plane defined?
+You bring the origin to the meeting point, project the direction $v$ of the line orthogonally onto the plane and take the angle between $v$ and the projection; if the projection is zero, the angle is $\frac{\pi}{2}$ (Definition 24.2).
+:::
+
+::: question What does Proposition 24.4 say and what is it for?
+The angle between $v$ and the plane and the angle between $v$ and the normal vector that forms an acute angle with $v$ add up to $\frac{\pi}{2}$. It lets you avoid the projection: $\sin\vartheta = \frac{\lvert \langle v, n \rangle \rvert}{\lVert v \rVert \lVert n \rVert}$.
+:::
+
+::: question How do you compute the dihedral angle between two planes?
+It is the acute (or right) angle between the lines spanned by the normal vectors (Proposition 24.7): for planes in Cartesian form, between the vectors of the coefficients.
+:::
+
+::: question How is the distance between a point and a line defined? What is the formula?
+It is the distance between the point $P$ and the foot $Q$ of the perpendicular to the line through $P$ (Definition 24.10). If $r = P_0 + t v_0$, we have $d(P, r) = \frac{\lVert v_0 \times (P - P_0) \rVert}{\lVert v_0 \rVert}$ (Proposition 24.11).
+:::
+
+::: question Where does the formula for the point–line distance come from?
+The area of the parallelogram with sides $v_0$ and $P - P_0$ is computed in two ways: with the cross product, $\lVert v_0 \times (P - P_0) \rVert$, and as base $\lVert v_0 \rVert$ times height $d(P, r)$.
+:::
+
+::: question How do you compute the distance between two parallel lines? And between two skew lines?
+Parallel: it is the distance of a point of one from the other. Skew: $\frac{\lvert \det(v \mid v' \mid P_0' - P_0) \rvert}{\lVert v \times v' \rVert}$ (Proposition 24.14), that is the volume of the parallelepiped divided by the area of the base.
+:::
+
+::: question How do you tell whether two lines are incident, parallel or skew?
+If the directions are proportional they are parallel (or coincident). Otherwise you compute $\det(v \mid v' \mid P_0' - P_0)$: if it is zero they are incident, if it is non-zero they are skew.
+:::
+
+::: question What is the formula for the point–plane distance and how is it proved?
+$d(P_0, \pi) = \frac{\lvert a x_0 + b y_0 + c z_0 - d \rvert}{\sqrt{a^2 + b^2 + c^2}}$ (Proposition 24.17). You project onto the normal vector the vector that goes from any point of the plane to $P_0$.
+:::
+
+::: question How do you compute the distance between two parallel planes?
+You write them with the same coefficients $ax + by + cz = d_1$ and $ax + by + cz = d_2$; the distance is $\frac{\lvert d_1 - d_2 \rvert}{\sqrt{a^2 + b^2 + c^2}}$.
+:::
+
+::: question When is a line perpendicular to a plane? And parallel?
+Perpendicular when its direction is proportional to the normal vector; parallel (or contained in it) when the direction is orthogonal to the normal vector, that is $\langle v, n \rangle = 0$.
+:::
+
+## Glossary
+
+```glossary
+Angle between two vectors | The number $\vartheta \in [0, \pi]$ with $\cos\vartheta = \frac{\langle v, w \rangle}{\lVert v \rVert \lVert w \rVert}$ (Definition 20.12).
+Angle between two lines | Acute or right angle between the direction vectors of two incident lines (Definition 24.1).
+Angle between a line and a plane | Angle between the direction of the line and its orthogonal projection onto the plane; right if the projection is zero (Definition 24.2).
+Dihedral angle | Angle between two incident planes, measured with two lines orthogonal to the common line; equal to the acute angle between the normals (Definition 24.6, Proposition 24.7).
+Normal vector | Vector orthogonal to a plane; for $ax + by + cz = d$ it is $(a, b, c)$.
+Orthogonal projection onto a plane | The vector $p_\pi(v)$ of the plane such that $v - p_\pi(v)$ is orthogonal to the plane; $p_\pi(v) = v - \frac{\langle v, n \rangle}{\langle n, n \rangle} n$.
+Foot of the perpendicular | The point $Q$ of a line or of a plane closest to a given point; the segment $PQ$ is perpendicular.
+Distance between points | $d(P, Q) = \lVert Q - P \rVert$ (Definition 24.9).
+Point–line distance | $d(P, r) = \frac{\lVert v_0 \times (P - P_0) \rVert}{\lVert v_0 \rVert}$ (Proposition 24.11).
+Skew lines | Lines in space that are neither incident nor parallel; they have a unique common perpendicular.
+Common perpendicular | Line that meets two disjoint lines and is orthogonal to both; its part between the two lines measures the distance.
+Distance between skew lines | $\frac{\lvert \det(v \mid v' \mid P_0' - P_0) \rvert}{\lVert v \times v' \rVert}$ (Proposition 24.14).
+Coplanar lines | Lines contained in the same plane: incident or parallel; equivalent to $\det(v \mid v' \mid P_0' - P_0) = 0$.
+Point–plane distance | $\frac{\lvert a x_0 + b y_0 + c z_0 - d \rvert}{\sqrt{a^2 + b^2 + c^2}}$ (Proposition 24.17).
+Volume of the parallelepiped | $\lvert \det(u \mid v \mid w) \rvert$ for the parallelepiped spanned by $u, v, w$.
+```
+
+## Checklist
+
+```checklist
+- I can tell when to compute an angle and when a distance.
+- I can compute the angle between two incident lines and I always choose the acute or right one.
+- I can compute the angle between a line and a plane both with the projection (Definition 24.2) and with the normal vector (Proposition 24.4).
+- I can compute the dihedral angle between two planes with the normal vectors.
+- I can recognise the special cosines and leave the other answers as $\arccos(\dots)$.
+- I can compute the point–line distance with the cross product and explain the formula with the area of the parallelogram.
+- I can decide whether two lines are parallel, incident or skew with the determinant $\det(v \mid v' \mid P_0' - P_0)$.
+- I can compute the distance between two parallel lines and between two skew lines.
+- I can compute the point–plane distance and the foot of the perpendicular.
+- I can compute the distance between two parallel planes after writing them with the same coefficients.
+- I can rationalise the results to recognise them among the quiz answers.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 24 "Lo spazio euclideo III", pp. 122–128: sections 24.A (angles between incident subspaces) and 24.B (distances between disjoint subspaces), followed in order with the original numbering (Definitions 24.1, 24.2, 24.6, 24.9, 24.10, 24.13, 24.16; Propositions 24.4, 24.7, 24.11, 24.14, 24.17; Examples 24.3, 24.5, 24.8, 24.12, 24.15, 24.18). From the previous lessons: Definition 20.12 (angle), Definition 20.10 (distance), projections of lesson 21, Proposition 23.10. This lesson of the handouts has no exercise section.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §8.1 (norm, angles, distances, orthogonal projection), §9.1.3 (volume of the parallelepiped), §9.2.6–9.2.10 (orthogonality, positions, angles, distances; the proof of Proposition 24.17, the coplanarity criterion and Example 9.2.28 on the common perpendicular come from there).
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): text reported from 07/09/2026 (question 7), 10/07/2025 (question 8) and 10/07/2024 (problem 12), with solutions written for these notes; the exam sessions of 24/01/2024, 08/02/2024, 10/06/2024, 06/09/2024, 16/01/2025, 03/06/2025, 02/09/2025, 05/02/2026 and 03/06/2026 are cited by type of question.
+- The **"Beyond the handouts"** parts (proof of Proposition 24.4, formulas with the normal vector, foot of the perpendicular, parallel planes, coplanarity criterion, summary table, additional examples and exercises) are additions in these notes to connect the lesson to the book and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L25_spectral_theorem_1.md -->
+> File: `ai_context/MDAG/lessons/L25_spectral_theorem_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L25
+title: Spectral theorem I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L25
+description: >-
+  Notes on lesson L25 of Linear Algebra and Geometry (MDAG, part 2): Hermitian products on complex spaces, Hermitian
+  matrices, associated matrix, self-adjoint endomorphisms and invariant subspaces, with exam-style quizzes and worked
+  exercises.
+lede: >-
+  To do geometry with complex vectors you need a product that gives real, positive lengths: it is the Hermitian
+  product, with a conjugation in the right place. Then come Hermitian matrices (${}^tH = \bar H$) and self-adjoint
+  endomorphisms, $\langle T(v), w \rangle = \langle v, T(w) \rangle$: they are the protagonists of the spectral
+  theorem of the next lesson.
+material: handouts
+facts:
+  Handouts: lesson 25 · pp. 129–133
+  Book: Martelli, §11.1 and §11.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 25 "Teorema spettrale I"; B. Martelli, Geometria e algebra lineare, §11.1–11.2
+italian_file: L25_teorema_spettrale_1.html
+html_notes: notes/MDAG/L25_spectral_theorem_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L25_teorema_spettrale_1.md
+```
+
+## In brief
+
+- On $\C^n$ the product "copied from the real case", $x_1 y_1 + \dots + x_n y_n$, does not measure lengths: the vector $(1, i)$ would have "squared length" $1 + i^2 = 0$. The remedy is to **conjugate the second vector**: it is the **Hermitian product**.
+- A Hermitian product is linear in the first slot and satisfies $\langle v, w \rangle = \overline{\langle w, v \rangle}$. It follows that $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$ (it is **sesquilinear**) and, above all, that $\langle v, v \rangle$ is **always real**.
+- If $\langle v, v \rangle > 0$ for every $v \neq 0$ the product is **positive definite**: norm, orthogonality, orthonormal bases and Gram–Schmidt work as in the real case. The basic example is the **Euclidean Hermitian product** $\langle x, y \rangle = {}^t x\, \bar y = x_1 \bar y_1 + \dots + x_n \bar y_n$.
+- A **Hermitian matrix** satisfies ${}^tH = \bar H$, that is $H_{ij} = \overline{H_{ji}}$: the diagonal is real and the symmetric entries are conjugate. A **real** matrix is Hermitian if and only if it is **symmetric**.
+- Every Hermitian product on $\C^n$ is $g_H(x, y) = {}^t x\, H\, \bar y$ with $H$ Hermitian: the coefficient of $x_i \bar y_j$ is $H_{ij}$.
+- An endomorphism is **self-adjoint** if $\langle T(v), w \rangle = \langle v, T(w) \rangle$. With respect to an **orthonormal** basis it is self-adjoint if and only if its matrix is Hermitian (in the real case: symmetric). With a non-orthonormal basis this criterion does not hold.
+- A subspace $U$ is **$T$-invariant** if $T(U) \subseteq U$. If $T$ is self-adjoint and $U$ is invariant, $U^\perp$ is invariant too: it is the key step of the spectral theorem (lesson L26).
+- At the exam this lesson is usually worth a quiz question (in 9 of the 15 exam sessions 2023–2026): "which formula is a Hermitian product?", "which matrix is Hermitian?", "which map is self-adjoint?".
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Hermitian products (pp. 129–130)
+
+In lessons L19–L21 scalar products were defined on **real** vector spaces. Let us try to use the same formula on $\C^2$, the space of pairs of complex numbers, and compute the "length" of the vector $x = (1, i)$:
+
+$$x_1 x_1 + x_2 x_2 = 1 \cdot 1 + i \cdot i = 1 + i^2 = 1 - 1 = 0.$$
+
+A **non-zero** vector with length zero: geometry breaks down. With $x = (i, 0)$ it is even worse: $i \cdot i = -1$, a negative "squared length".
+
+The cure comes from the modulus of complex numbers (lesson L02): $\lvert z \rvert^2 = z \bar z$, where $\bar z$ is the **conjugate**. If in the product you conjugate the coordinates of the **second** vector, the vector $(1, i)$ becomes
+
+$$x_1 \bar x_1 + x_2 \bar x_2 = 1 \cdot 1 + i \cdot (-i) = 1 + 1 = 2,$$
+
+that is $\lvert x_1 \rvert^2 + \lvert x_2 \rvert^2$: a real, positive number, as a squared length should be.
+
+> [!NOTE] Reminder on conjugation (lesson L02)
+> If $z = a + bi$, the conjugate is $\bar z = a - bi$. These rules are needed:
+> - $\overline{z + w} = \bar z + \bar w$ and $\overline{z w} = \bar z\, \bar w$ (conjugation respects sums and products; for the product: $\overline{(a + bi)(c + di)} = (ac - bd) - (ad + bc)i = (a - bi)(c - di)$);
+> - $\bar{\bar z} = z$;
+> - $z$ is real if and only if $z = \bar z$;
+> - $z \bar z = a^2 + b^2 = \lvert z \rvert^2$, real and non-negative, zero only for $z = 0$.
+
+The handouts translate the idea into axioms, as for scalar products.
+
+> [!DEF] 25.1 · Hermitian product
+> Let $V$ be a complex vector space. A **Hermitian product** on $V$ is a map
+> $$V \times V \longrightarrow \C, \qquad (v, w) \longmapsto \langle v, w \rangle$$
+> that satisfies the following axioms:
+> 1. $\langle v + v', w \rangle = \langle v, w \rangle + \langle v', w \rangle$,
+> 2. $\langle \lambda v, w \rangle = \lambda \langle v, w \rangle$,
+> 3. $\langle v, w \rangle = \overline{\langle w, v \rangle}$,
+>
+> for every $v, v', w \in V$ and every $\lambda \in \C$.
+
+Piece by piece:
+
+- **complex vector space**: the scalars are complex numbers, and the result $\langle v, w \rangle$ is a complex number;
+- (1) and (2) say that the product is **linear in the first slot**, exactly like a scalar product;
+- (3) is the difference: swapping the two vectors the result **is conjugated**. In the real case it was $\langle v, w \rangle = \langle w, v \rangle$.
+
+From the axioms the handouts derive other properties, for every $v, w, w' \in V$ and $\lambda \in \C$:
+
+4. $\langle v, w + w' \rangle = \langle v, w \rangle + \langle v, w' \rangle$;
+5. $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$;
+6. $\langle 0, w \rangle = \langle v, 0 \rangle = 0$;
+7. $\langle v, v \rangle$ is a **real number**, for every $v \in V$.
+
+The proofs are short and use only (1), (2), (3) and the rules of conjugation.
+
+- **(5)**, as in the handouts: $\langle v, \lambda w \rangle \overset{(3)}{=} \overline{\langle \lambda w, v \rangle} \overset{(2)}{=} \overline{\lambda \langle w, v \rangle} = \bar\lambda\, \overline{\langle w, v \rangle} \overset{(3)}{=} \bar\lambda \langle v, w \rangle$.
+- **(4)**, in the same way: $\langle v, w + w' \rangle = \overline{\langle w + w', v \rangle} = \overline{\langle w, v \rangle + \langle w', v \rangle} = \overline{\langle w, v \rangle} + \overline{\langle w', v \rangle} = \langle v, w \rangle + \langle v, w' \rangle$.
+- **(6)**: with $\lambda = 0$ in (2), $\langle 0, w \rangle = \langle 0 \cdot 0, w \rangle = 0 \cdot \langle 0, w \rangle = 0$; then $\langle v, 0 \rangle = \overline{\langle 0, v \rangle} = \bar 0 = 0$.
+- **(7)**: with $w = v$, axiom (3) says $\langle v, v \rangle = \overline{\langle v, v \rangle}$, and a number equal to its own conjugate is real.
+
+The handouts say it explicitly: **the conjugation in (3) is a trick to make $\langle v, v \rangle$ a real number.** Only then does it make sense to ask whether it is positive.
+
+> [!REMARK] Linear one and a half times (p. 130)
+> Axioms (1), (2) and property (4) are the same as for scalar products, while (5) is different: the Hermitian product is **linear on the left** and **antilinear on the right**. Putting the two things together we say that it is **sesquilinear** instead of bilinear, from the Latin *sesqui*, which means "one and a half": in a certain sense the Hermitian product is linear one and a half times, but not twice.
+
+| | Scalar product (real) | Hermitian product (complex) |
+|---|---|---|
+| scalars and result | real numbers | complex numbers |
+| first slot | linear | linear |
+| second slot | linear: $\langle v, \lambda w \rangle = \lambda \langle v, w \rangle$ | antilinear: $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$ |
+| swap | $\langle v, w \rangle = \langle w, v \rangle$ | $\langle v, w \rangle = \overline{\langle w, v \rangle}$ |
+| $\langle v, v \rangle$ | real | real (property 7) |
+| associated matrix | symmetric | Hermitian |
+
+> [!PITFALL] A scalar comes out conjugated only from the right
+> $\langle \lambda v, w \rangle = \lambda \langle v, w \rangle$ but $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$. With the Euclidean Hermitian product (next section) and $v = w = (1, 0)$: $\langle i v, v \rangle = i$, while $\langle v, i v \rangle = \bar i = -i$. In this course, as in the handouts and in the book, the product is linear in the **first** slot: some physics texts make the opposite choice.
+
+Since $\langle v, v \rangle$ is real, it makes sense to ask whether it is positive.
+
+> [!DEF] 25.2 · Positive definite Hermitian product
+> A Hermitian product is **positive definite** if $\langle v, v \rangle > 0$ for every $v \neq 0$.
+
+With a positive definite Hermitian product the constructions of the real case are repeated. The **norm** of a vector is
+
+$$\lVert v \rVert = \sqrt{\langle v, v \rangle},$$
+
+two vectors are **orthogonal** if $\langle v, w \rangle = 0$ (and then also $\langle w, v \rangle = \bar 0 = 0$), we talk about the **orthogonal space** $U^\perp$ and about **orthonormal bases**, and the **Gram–Schmidt** process works in this context too.
+
+## The Euclidean Hermitian product (p. 130)
+
+> [!EXAMPLE] 25.3 · The Euclidean Hermitian product
+> If $x \in \C^n$ is a vector and, more generally, $A \in M(m, n, \C)$ is a matrix with complex entries, we denote by $\bar x$ and $\bar A$ the vector or the matrix obtained by conjugating every single entry. The **Euclidean Hermitian product** on $\C^n$ is given by
+> $$\langle x, y \rangle = {}^t x\, \bar y.$$
+> It really is a Hermitian product, analogous to the Euclidean scalar product: the conjugation on the variable $y$ makes axiom (3) hold, indeed
+> $$\overline{\langle y, x \rangle} = \overline{{}^t y\, \bar x} = {}^t \bar y\, x = {}^t x\, \bar y = \langle x, y \rangle.$$
+> As in the real case, the Euclidean Hermitian product is positive definite, because for every non-zero $x \in \C^n$ we find
+> $$\langle x, x \rangle = {}^t x\, \bar x = x_1 \bar x_1 + \dots + x_n \bar x_n = \lvert x_1 \rvert^2 + \dots + \lvert x_n \rvert^2 > 0.$$
+
+In coordinates: $\langle x, y \rangle = x_1 \bar y_1 + x_2 \bar y_2 + \dots + x_n \bar y_n$. In the chain that checks axiom (3), the second-to-last step uses the fact that ${}^t \bar y\, x$ and ${}^t x\, \bar y$ are the same sum $\sum_k \bar y_k x_k$ written in another order.
+
+> [!EXAMPLE] Computations with the Euclidean Hermitian product
+> Let $x = (1, i)$ and $y = (2, 1 + i)$ in $\C^2$.
+> - $\langle x, y \rangle = 1 \cdot \bar 2 + i \cdot \overline{1 + i} = 2 + i(1 - i) = 2 + i - i^2 = 3 + i$.
+> - $\langle y, x \rangle = 2 \cdot \bar 1 + (1 + i) \cdot \bar i = 2 + (1 + i)(-i) = 2 - i - i^2 = 3 - i$: it is the conjugate of $3 + i$, as axiom (3) requires.
+> - $\lVert x \rVert^2 = \lvert 1 \rvert^2 + \lvert i \rvert^2 = 2$ and $\lVert y \rVert^2 = \lvert 2 \rvert^2 + \lvert 1 + i \rvert^2 = 4 + 2 = 6$: $\lVert x \rVert = \sqrt 2$, $\lVert y \rVert = \sqrt 6$.
+
+> [!EXAMPLE] Orthogonal vectors and an orthonormal basis of $\C^2$
+> $\langle (1, i), (1, -i) \rangle = 1 \cdot 1 + i \cdot \overline{-i} = 1 + i \cdot i = 0$: the two vectors are **orthogonal**. Both have norm $\sqrt 2$, so
+> $$\left\{ \tfrac{1}{\sqrt 2}(1, i),\ \tfrac{1}{\sqrt 2}(1, -i) \right\}$$
+> is an orthonormal basis of $\C^2$.
+>
+> You get to the same result with **Gram–Schmidt**, starting from $v_1 = (1, i)$ and $v_2 = (1, 0)$. You set $w_1 = v_1$ and
+> $$w_2 = v_2 - \frac{\langle v_2, w_1 \rangle}{\langle w_1, w_1 \rangle} w_1 = (1, 0) - \frac{1}{2}(1, i) = \left(\tfrac 12, -\tfrac i2\right),$$
+> where $\langle v_2, w_1 \rangle = 1 \cdot \bar 1 + 0 \cdot \bar i = 1$. Check: $\langle w_2, w_1 \rangle = \frac 12 \cdot 1 + \left(-\frac i2\right) \cdot (-i) = \frac 12 + \frac{i^2}{2} = 0$. Normalising ($\lVert w_2 \rVert^2 = \frac 14 + \frac 14 = \frac 12$) you find $\frac{1}{\sqrt 2}(1, -i)$ again.
+
+> [!PITFALL] The order in the Gram–Schmidt coefficient
+> The coefficient is $\frac{\langle v_2, w_1 \rangle}{\langle w_1, w_1 \rangle}$, with the vector to be corrected **on the left**. Writing $\langle w_1, v_2 \rangle$ you get the conjugate and the vector found is no longer orthogonal (in the real case the order did not matter). The reason: you want $\langle v_2 - c\, w_1, w_1 \rangle = 0$, that is $\langle v_2, w_1 \rangle - c \langle w_1, w_1 \rangle = 0$, and $c$ comes out without conjugation only because it is in the **first** slot.
+
+## Hermitian matrices (pp. 130–131)
+
+In scalar products **symmetric** matrices had a central role (lessons L19–L20). In Hermitian products the same role belongs to Hermitian matrices.
+
+> [!DEF] 25.4 · Hermitian matrix
+> A **Hermitian matrix** is a complex square matrix $H$ for which
+> $${}^t H = \bar H.$$
+> In other words $H_{ij} = \overline{H_{ji}}$ holds for every $i, j$.
+
+Piece by piece:
+
+- ${}^t H$ swaps rows and columns, $\bar H$ conjugates every entry: the condition says that **transposing is like conjugating**;
+- entry by entry: the one in row $i$ and column $j$ is the **conjugate** of the one in row $j$ and column $i$, its "mirror image" with respect to the diagonal;
+- on the diagonal ($i = j$) the condition becomes $H_{ii} = \overline{H_{ii}}$: **the diagonal entries are real**.
+
+The handouts' example:
+
+$$\begin{pmatrix} 2 & 1 + i \\ 1 - i & 1 \end{pmatrix}.$$
+
+The diagonal ($2$ and $1$) is real and the off-diagonal entries are conjugate: $\overline{1 - i} = 1 + i$.
+
+> [!REMARK] Real matrices (p. 131)
+> A square matrix with **real** entries is Hermitian if and only if it is **symmetric**: for a real number conjugation changes nothing, so $\bar H = H$ and the condition becomes ${}^t H = H$.
+
+> [!METHOD] Recognising a Hermitian matrix
+> 1. The matrix must be **square**.
+> 2. The **diagonal** must be **real**: a single $i$ on the diagonal is enough to exclude it.
+> 3. Every entry below the diagonal must be the **conjugate** of its mirror above: you change the sign of the imaginary part, **not** that of the real part.
+
+| Matrix | Hermitian? | Why |
+|---|---|---|
+| $\begin{pmatrix} 1 & 3 - 2i \\ 3 + 2i & -4 \end{pmatrix}$ | yes | real diagonal, $\overline{3 + 2i} = 3 - 2i$ |
+| $\begin{pmatrix} 1 & 3 - 2i \\ 3 - 2i & -4 \end{pmatrix}$ | no | it is symmetric, but $\overline{3 - 2i} = 3 + 2i \neq 3 - 2i$ |
+| $\begin{pmatrix} 1 & 3 - 2i \\ -3 - 2i & -4 \end{pmatrix}$ | no | $\overline{-3 - 2i} = -3 + 2i$: the sign of the real part has been changed too |
+| $\begin{pmatrix} i & 0 \\ 0 & 2 \end{pmatrix}$ | no | the diagonal contains $i$ |
+| $\begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}$ | yes | $\overline{i} = -i$ |
+
+### From the matrix to the product
+
+A symmetric matrix $S$ defines the scalar product $g_S$ on $\R^n$. In the same way a Hermitian matrix $H$ defines a Hermitian product on $\C^n$:
+
+$$g_H(x, y) = {}^t x\, H\, \bar y.$$
+
+The handouts check axiom (3) with this chain; here is the reason for each step.
+
+$$g_H(x, y) = {}^t x H \bar y \overset{(a)}{=} {}^t\big({}^t x H \bar y\big) \overset{(b)}{=} {}^t \bar y\, {}^t H\, x \overset{(c)}{=} {}^t \bar y\, \bar H x \overset{(d)}{=} \overline{{}^t y H \bar x} = \overline{g_H(y, x)}.$$
+
+- (a) ${}^t x H \bar y$ is a $1 \times 1$ matrix, that is a number, and it is equal to its transpose;
+- (b) the transpose of a product is the product of the transposes **in reverse order**, and ${}^t({}^t x) = x$;
+- (c) $H$ is Hermitian: ${}^t H = \bar H$;
+- (d) conjugation respects products: $\overline{{}^t y H \bar x} = {}^t \bar y\, \bar H\, x$.
+
+Axioms (1) and (2) are checked as for scalar products. Moreover, as for scalar products,
+
+$$g_H(e_i, e_j) = {}^t e_i H \bar e_j = {}^t e_i H e_j = H_{ij},$$
+
+where $e_1, \dots, e_n$ is the canonical basis of $\C^n$ (its vectors are real, so $\bar e_j = e_j$).
+
+In coordinates: $g_H(x, y) = \sum_{i, j} H_{ij}\, x_i \bar y_j$, that is **the coefficient of $x_i \bar y_j$ is $H_{ij}$**. In $\C^2$:
+
+$$g_H(x, y) = H_{11} x_1 \bar y_1 + H_{12} x_1 \bar y_2 + H_{21} x_2 \bar y_1 + H_{22} x_2 \bar y_2.$$
+
+With the handouts' matrix: $g_H(x, y) = 2 x_1 \bar y_1 + (1 + i) x_1 \bar y_2 + (1 - i) x_2 \bar y_1 + x_2 \bar y_2$.
+
+> [!METHOD] Deciding whether a formula is a Hermitian product
+> It is the most frequent exam question on this lesson. For a formula on $\C^2$ of the form $a\, x_1 \bar y_1 + b\, x_1 \bar y_2 + c\, x_2 \bar y_1 + d\, x_2 \bar y_2$:
+> 1. check that there is the **conjugation on the second vector** in every term (the $y$ with the bar); a formula without bars is bilinear, not Hermitian;
+> 2. write the matrix $H = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$: the row is the index of $x$, the column that of $\bar y$;
+> 3. check that $H$ is Hermitian: $a$ and $d$ **real**, and $c = \bar b$.
+
+> [!BEYOND] Hermitian does not mean positive definite
+> Definition 25.1 does not require positivity. The matrix $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ is Hermitian (it is real and symmetric), so $g(x, y) = x_1 \bar y_1 - x_2 \bar y_2$ is a Hermitian product; however $g(e_2, e_2) = -1 < 0$: it is not positive definite. In the exam quizzes the question is almost always "which one is a Hermitian product", and the right answer may well not be positive definite.
+
+## The associated matrix (p. 131)
+
+As in the real case, a Hermitian product is described by a matrix once a basis is chosen. If $V$ is a complex vector space with a Hermitian product and $\mathcal B = \{v_1, \dots, v_n\}$ is a basis of $V$, the **associated matrix** $H$ is
+
+$$H_{ij} = \langle v_i, v_j \rangle \quad \text{for every } i, j.$$
+
+The handouts use the letter $H$ instead of $S$ because this matrix is not symmetric but **Hermitian**: by axiom (3), $H_{ij} = \langle v_i, v_j \rangle = \overline{\langle v_j, v_i \rangle} = \overline{H_{ji}}$.
+
+For every pair of vectors $v, w \in V$ we have
+
+$$\langle v, w \rangle = {}^t[v]_{\mathcal B} \cdot H \cdot \overline{[w]_{\mathcal B}},$$
+
+where $[v]_{\mathcal B}$ is the vector of the coordinates of $v$ in the basis $\mathcal B$. It is proved exactly as for a scalar product, paying attention to sesquilinearity (the coordinates of $w$ come out conjugated, by property 5). It follows that **any Hermitian product on $\C^n$ is of the form $g_H$** for a Hermitian matrix $H$: just take the canonical basis.
+
+> [!EXAMPLE] The matrix of the Euclidean product in another basis
+> In $\C^2$ with the Euclidean Hermitian product we take the basis $\mathcal B = \{b_1, b_2\}$ with $b_1 = (1, i)$ and $b_2 = (0, 1)$.
+> - $H_{11} = \langle b_1, b_1 \rangle = 1 + i \cdot \bar i = 2$;
+> - $H_{12} = \langle b_1, b_2 \rangle = 1 \cdot \bar 0 + i \cdot \bar 1 = i$;
+> - $H_{21} = \langle b_2, b_1 \rangle = 0 \cdot \bar 1 + 1 \cdot \bar i = -i$;
+> - $H_{22} = \langle b_2, b_2 \rangle = 1$.
+>
+> So $H = \begin{pmatrix} 2 & i \\ -i & 1 \end{pmatrix}$, Hermitian. Check of the formula with $v = b_1 + b_2 = (1, 1 + i)$ and $w = b_2 = (0, 1)$:
+> - directly, $\langle v, w \rangle = 1 \cdot 0 + (1 + i) \cdot 1 = 1 + i$;
+> - with the coordinates $[v]_{\mathcal B} = (1, 1)$ and $[w]_{\mathcal B} = (0, 1)$ (real, so conjugation does not change them): $H \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} i \\ 1 \end{pmatrix}$ and $(1, 1) \begin{pmatrix} i \\ 1 \end{pmatrix} = i + 1$.
+>
+> Same result.
+
+## Self-adjoint endomorphisms (pp. 132–133)
+
+In this section and in the next one $V$ is a **real** vector space with a positive definite scalar product, or a **complex** vector space with a positive definite Hermitian product.
+
+Let us start with a computation in $\R^2$ with the Euclidean scalar product. Let $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ and compare $\langle A e_1, e_2 \rangle$ with $\langle e_1, A e_2 \rangle$:
+
+- $A e_1 = (2, 1)$ and $\langle (2, 1), (0, 1) \rangle = 1$;
+- $A e_2 = (1, 1)$ and $\langle (1, 0), (1, 1) \rangle = 1$.
+
+Equal. With the matrix $B = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ instead: $\langle B e_1, e_2 \rangle = \langle (1, 0), (0, 1) \rangle = 0$, but $\langle e_1, B e_2 \rangle = \langle (1, 0), (1, 1) \rangle = 1$. The difference: $A$ is symmetric, $B$ is not. In general, with the Euclidean product, $\langle Av, w \rangle = {}^t v\, {}^t A\, w$ and $\langle v, Aw \rangle = {}^t v\, A\, w$, which coincide for every $v, w$ precisely when ${}^t A = A$.
+
+> [!DEF] 25.5 · Self-adjoint endomorphism
+> An endomorphism $T \colon V \to V$ is **self-adjoint** if
+> $$\langle T(v), w \rangle = \langle v, T(w) \rangle \quad \text{for every } v, w \in V.$$
+
+Piece by piece:
+
+- an **endomorphism** is a linear map from $V$ to itself (lesson L16);
+- "self-adjoint": $T$ can be **moved from one side of the product to the other** without changing the result;
+- the definition recalls that of **isometry** (lesson L22), which requires $\langle v, w \rangle = \langle T(v), T(w) \rangle$. The handouts warn: there are analogies, but also important differences.
+
+| | Isometry | Self-adjoint endomorphism |
+|---|---|---|
+| condition | $\langle T(v), T(w) \rangle = \langle v, w \rangle$ | $\langle T(v), w \rangle = \langle v, T(w) \rangle$ |
+| $T$ appears | in both slots | in one slot only |
+| matrix in an orthonormal basis (real) | orthogonal: ${}^t A A = I$ | symmetric: ${}^t A = A$ |
+| example in $\R^2$ | rotation $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ | $\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ |
+
+As for isometries, the definition translates into a concrete condition on the matrix, **provided the basis is orthonormal**. Let $\mathcal B$ be an orthonormal basis of $V$, $T \colon V \to V$ an endomorphism and $A = [T]^{\mathcal B}_{\mathcal B}$ its associated matrix.
+
+> [!PROP] 25.6
+> The endomorphism $T$ is self-adjoint if and only if the matrix $A$ is Hermitian.
+
+The handouts' proof, with the steps explained.
+
+1. **It is enough to check the vectors of the basis.** By bilinearity (or sesquilinearity in the complex case), if the equality of Definition 25.5 holds for $v = v_i$ and $w = v_j$ elements of the basis, it holds for all linear combinations, that is for all vectors.
+2. **The matrix of the product is the identity.** The basis is orthonormal, so $\langle v_i, v_j \rangle$ equals $1$ if $i = j$ and $0$ otherwise: the matrix associated with the product is $I_n$, and $\langle v, w \rangle = {}^t[v]_{\mathcal B}\, I_n\, \overline{[w]_{\mathcal B}}$.
+3. **First computation.** $[T(v_i)]_{\mathcal B} = A^i$ is column $i$ of $A$, and $[v_j]_{\mathcal B} = e_j$. So
+$$\langle T(v_i), v_j \rangle = {}^t A^i\, e_j = A_{ji},$$
+that is the $j$-th coordinate of column $i$.
+4. **Second computation.** $[v_i]_{\mathcal B} = e_i$ and $[T(v_j)]_{\mathcal B} = A^j$, which must be conjugated:
+$$\langle v_i, T(v_j) \rangle = {}^t e_i\, \overline{A^j} = \overline{A_{ij}}.$$
+5. **Conclusion.** $T$ is self-adjoint if and only if $A_{ji} = \overline{A_{ij}}$ for every $i, j$, that is if and only if $A$ is Hermitian. The real case is identical, without conjugations: the condition becomes $A_{ji} = A_{ij}$, that is $A$ symmetric.
+
+Taking the canonical basis of $\R^n$ or of $\C^n$, which is orthonormal for the Euclidean product, you get the criterion used in the quizzes.
+
+> [!COROLLARY] 25.7
+> Let $A$ be an $n \times n$ matrix. The endomorphism $L_A \colon \C^n \to \C^n$ is self-adjoint with respect to the Euclidean Hermitian product of $\C^n$ if and only if the matrix $A$ is Hermitian. Similarly, if $A$ is real, the endomorphism $L_A \colon \R^n \to \R^n$ is self-adjoint with respect to the Euclidean scalar product of $\R^n$ if and only if the matrix $A$ is symmetric.
+
+> [!METHOD] Is a map given by a formula self-adjoint?
+> 1. Write the matrix in the canonical basis: for $T(x, y) = (ax + by,\ cx + dy)$ the matrix is $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ (each **row** contains the coefficients of one **component**).
+> 2. Over the reals: self-adjoint if and only if the matrix is **symmetric**, that is $b = c$.
+> 3. Over the complex numbers: self-adjoint if and only if the matrix is **Hermitian**: $a$, $d$ real and $c = \bar b$.
+
+> [!EXAMPLE] Three maps of $\C^2$
+> - $T(x, y) = \big(x + (1 - i)y,\ (1 + i)x + 2y\big)$ has matrix $\begin{pmatrix} 1 & 1 - i \\ 1 + i & 2 \end{pmatrix}$: real diagonal and $\overline{1 + i} = 1 - i$. It is Hermitian, so $T$ is self-adjoint.
+> - $T(x, y) = (ix,\ y)$ has matrix $\begin{pmatrix} i & 0 \\ 0 & 1 \end{pmatrix}$, with $i$ on the diagonal: it is not self-adjoint. Direct check with $v = w = e_1$: $\langle T(e_1), e_1 \rangle = \langle (i, 0), (1, 0) \rangle = i$, while $\langle e_1, T(e_1) \rangle = \langle (1, 0), (i, 0) \rangle = \bar i = -i$.
+> - $T(x, y) = (x + iy,\ ix + y)$ has matrix $\begin{pmatrix} 1 & i \\ i & 1 \end{pmatrix}$: it is symmetric, but $\bar i = -i \neq i$, so it is **not** Hermitian and $T$ is not self-adjoint. Over the complex numbers "symmetric" is not enough.
+
+> [!REMARK] The double role of Hermitian matrices (p. 132)
+> Hermitian (or symmetric) matrices appear in two roles: as matrices that represent a Hermitian (or scalar) **product**, and as matrices that represent a self-adjoint **endomorphism** with respect to an orthonormal basis. They are two quite distinct objects, even though they are represented by the same kind of matrix: the first takes two vectors and returns a number, the second turns a vector into a vector. They must not be confused.
+
+### Why an orthonormal basis is needed
+
+Proposition 25.6 holds only with an orthonormal basis. The handouts' example shows it; to write an endomorphism in another basis you use the formula of lesson L16, $[T]^{\mathcal B}_{\mathcal B} = M^{-1} A M$, where $M = [\id]^{\mathcal B}_{\mathcal C}$ has the vectors of $\mathcal B$ as columns.
+
+> [!EXAMPLE] 25.8
+> Consider $\R^2$ with the Euclidean scalar product. The endomorphism $L_A$ defined by the matrix $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ is self-adjoint, because the matrix $A$ is symmetric and we are using the canonical basis, which is orthonormal.
+>
+> If we write $L_A$ with respect to another orthonormal basis, for example $\mathcal B = \left\{ \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 0 \end{pmatrix} \right\}$, we get a new symmetric matrix:
+> $$A' = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}.$$
+> This is consistent with Proposition 25.6. If however we write $A$ with respect to a non-orthonormal basis, for example $\mathcal B = \left\{ \begin{pmatrix} -1 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \end{pmatrix} \right\}$, the new associated matrix may not be symmetric. In this case we get
+> $$A' = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} -1 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ -1 & 3 \end{pmatrix},$$
+> which is not a symmetric matrix.
+
+The computations, one product at a time.
+
+1. **First basis.** $M = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ (columns $(0, 1)$ and $(-1, 0)$), with $\det M = 0 \cdot 0 - (-1) \cdot 1 = 1$ and inverse $M^{-1} = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$. Since the basis is orthonormal, $M$ is orthogonal and $M^{-1} = {}^t M$. Then $M^{-1} A = \begin{pmatrix} 1 & 1 \\ -2 & -1 \end{pmatrix}$ and $(M^{-1} A) M = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$.
+2. **Second basis.** $M = \begin{pmatrix} -1 & 1 \\ 1 & 0 \end{pmatrix}$, with $\det M = 0 - 1 = -1$ and inverse $M^{-1} = \frac{1}{-1}\begin{pmatrix} 0 & -1 \\ -1 & -1 \end{pmatrix} = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}$. Then $M^{-1} A = \begin{pmatrix} 1 & 1 \\ 3 & 2 \end{pmatrix}$ and $(M^{-1} A) M = \begin{pmatrix} 0 & 1 \\ -1 & 3 \end{pmatrix}$.
+
+The endomorphism is always the same, and it is self-adjoint (the definition does not talk about bases); it is the **matrix** that, in a non-orthonormal basis, loses its symmetry.
+
+> [!PITFALL] "The matrix is not symmetric, so $T$ is not self-adjoint"
+> This conclusion is correct only if the basis is **orthonormal**. In the quizzes the maps are almost always given by a formula in canonical coordinates, and then the criterion of Corollary 25.7 applies without problems.
+
+## Invariant subspaces (p. 133)
+
+Take $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$ and the line $U = \Span((1, 1))$. Since $A(1, 1) = (3, 3) = 3\,(1, 1)$, every vector of $U$ is sent into $U$: the line "stays in its place". The perpendicular line $U^\perp = \Span((1, -1))$ stays in its place too: $A(1, -1) = (1, -1)$. It is not a coincidence.
+
+> [!DEF] 25.9 · Invariant subspace
+> Let $T \colon V \to V$ be an endomorphism. A subspace $U \subseteq V$ is **$T$-invariant** if $T(U) \subseteq U$, that is if $T$ sends the elements of $U$ into $U$.
+
+Examples you already know:
+
+- $\{0\}$ and $V$ are always invariant;
+- if $v$ is an **eigenvector**, $T(v) = \lambda v$, the line $\Span(v)$ is invariant: $T(t v) = t \lambda v \in \Span(v)$;
+- every **eigenspace** $V_\lambda$ is invariant (beyond the handouts: kernel and image are too).
+
+> [!PROP] 25.10
+> Let $T \colon V \to V$ be a self-adjoint endomorphism and $U \subseteq V$ a subspace. If $T(U) \subseteq U$, then $T(U^\perp) \subseteq U^\perp$. In other words, if $U$ is $T$-invariant then $U^\perp$ is $T$-invariant too.
+
+The handouts' proof:
+
+1. I take any vector $v \in U^\perp$: I must show that $T(v) \in U^\perp$, that is that $T(v)$ is orthogonal to every $u \in U$;
+2. for every $u \in U$: $\langle T(v), u \rangle = \langle v, T(u) \rangle$, because $T$ is self-adjoint;
+3. $T(u) \in U$ because $U$ is invariant, and $v \in U^\perp$: so $\langle v, T(u) \rangle = 0$;
+4. then $\langle T(v), u \rangle = 0$ for every $u \in U$, that is $T(v) \in U^\perp$. $\square$
+
+> [!EXAMPLE] Without the "self-adjoint" hypothesis the proposition is false
+> With $B = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ (not symmetric) the line $U = \Span(e_1)$ is invariant, because $B e_1 = e_1$. But $U^\perp = \Span(e_2)$ is not: $B e_2 = (1, 1) \notin \Span(e_2)$.
+
+> [!IDEA] What it is for
+> It is the engine of the proof of the spectral theorem (lesson L26): once an eigenvector $v$ of a self-adjoint $T$ is found, the line $\Span(v)$ is invariant, so $U = \Span(v)^\perp$ is too; then $T$ restricts to an endomorphism of $U$, which has one dimension less, and you start again in there. Step by step you build an orthonormal basis of eigenvectors.
+
+```widget matrice
+title: A symmetric matrix: the lines of eigenvectors are invariant and perpendicular
+a: 2 1; 1 2
+x: 1 1
+```
+
+The tool draws the two lines of eigenvectors of $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$: they are $\Span((1, 1))$ (eigenvalue $3$) and $\Span((1, -1))$ (eigenvalue $1$), and they are **perpendicular**. Drag the vector $x$ along one of them: $Ax$ stays on the same line, that is the line is invariant. Then press the "shear" button, which loads $B = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$: the $x$ axis stays invariant, but the $y$ axis does not, as in the example above.
+
+> [!BEYOND] Where to find it in the book
+> In Martelli's book: Hermitian products in §11.1 (pp. 347–350: definition 11.1.1, positive definite 11.1.3, Euclidean Hermitian product and Hermitian matrices in §11.1.3–11.1.4, an example with integrals of complex functions in §11.1.5, associated matrix in §11.1.6); self-adjoint endomorphisms and invariant subspaces in §11.2 (pp. 350–352: Proposition 11.2.1 = 25.6, Corollary 11.2.2 = 25.7, Example 11.2.3 = 25.8, Proposition 11.2.5 = 25.10).
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has **10 quiz questions** with 5 answers (only one right) and **2 problems worth 11 points**, marked only with **at least 6 correct quiz answers**; it lasts **2 hours**, **with no calculator**, and you may bring only a sheet of **4 handwritten pages**. The 2026/27 exam sessions are on **22/01/2027** and **05/02/2027** at 14:00. All the details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions.** Only quiz questions, but frequent ones: there is one in 9 of the 15 exam sessions. They are easy points, if you know the method.
+
+- **"Which of the following is a Hermitian product on $\C^2$?"**: exam sessions of 24/01/2024 (question 4), 16/01/2025 (question 9), 07/02/2025 (question 6), 02/09/2025 (question 7), 15/01/2026 (question 2). The five formulas differ in the coefficients and in the presence of the conjugation bars.
+- **"Which matrix is (or is not) Hermitian?"**: 10/06/2024 (question 9), 10/07/2024 (question 10).
+- **"Which map is (or is not) self-adjoint?"**: 08/02/2024 (question 9, on $\C^2$), 03/06/2026 (question 9, on $\R^2$).
+
+Three real quiz questions, solved.
+
+*Exam of 15/01/2026, question 2.* We write $x = (x_1, x_2)$, $y = (y_1, y_2) \in \C^2$. Which of the following is a Hermitian product? (a) $x_1 \bar y_1 + 3i x_1 \bar y_2 + 2i x_2 \bar y_1 + x_2 \bar y_2$; (b) $x_1 y_1 + 2i x_1 y_2 - 2i x_2 y_1 + 2 x_2 y_2$; (c) $3i x_1 \bar y_1 + 2 x_1 \bar y_2 + 2 x_2 \bar y_1 + x_2 \bar y_2$; (d) $x_1 \bar y_1 + 2 x_1 \bar y_2 - 2 x_2 \bar y_1 + 2 x_2 \bar y_2$; (e) $3 x_1 \bar y_1 + i x_1 \bar y_2 - i x_2 \bar y_1 - x_2 \bar y_2$.
+
+Working: (b) has no bars, so it is bilinear, discarded. For the others I write $H$: (a) $\begin{pmatrix} 1 & 3i \\ 2i & 1 \end{pmatrix}$, and $\overline{2i} = -2i \neq 3i$; (c) has $3i$ on the diagonal; (d) $\begin{pmatrix} 1 & 2 \\ -2 & 2 \end{pmatrix}$, and $-2 \neq \bar 2 = 2$; (e) $\begin{pmatrix} 3 & i \\ -i & -1 \end{pmatrix}$, real diagonal and $\overline{-i} = i$: **answer (e)**. Note that (e) is not positive definite ($g(e_2, e_2) = -1$): the question did not ask for it.
+
+*Exam of 03/06/2026, question 9.* Which of the following linear maps $T \colon \R^2 \to \R^2$ is self-adjoint with respect to the Euclidean scalar product? (a) $T(x, y) = (2x - y, -x + y)$; (b) $T(x, y) = (x - y, x + y)$; (c) $T(x, y) = (x, x)$; (d) $T(x, y) = (-x + y, 2x - y)$; (e) $T(x, y) = (x + y, y)$.
+
+Working: the matrices are (a) $\begin{pmatrix} 2 & -1 \\ -1 & 1 \end{pmatrix}$, (b) $\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$, (c) $\begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$, (d) $\begin{pmatrix} -1 & 1 \\ 2 & -1 \end{pmatrix}$, (e) $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$. The only symmetric one is (a): **answer (a)**, by Corollary 25.7.
+
+*Exam of 10/06/2024, question 9.* Which of the following matrices is **not** Hermitian? (a) $\begin{pmatrix} \sqrt 2 & -2i \\ 2i & 3 \end{pmatrix}$; (b) $\begin{pmatrix} 1 & 0 & i \\ 0 & -1 & -2i \\ -i & 2i & 0 \end{pmatrix}$; (c) $\begin{pmatrix} 0 & 0 \\ 0 & \sqrt 7 \end{pmatrix}$; (d) $\begin{pmatrix} 2 & 1 - 2i \\ 1 + 2i & -2 \end{pmatrix}$; (e) $\begin{pmatrix} -2i & 3 \\ 3 & 2i \end{pmatrix}$.
+
+Working: (e) has $-2i$ and $2i$ on the diagonal, which are not real: **answer (e)**. The others are Hermitian: in (a) $\overline{2i} = -2i$; in (b) $\overline{-i} = i$ and $\overline{2i} = -2i$; (c) is real and symmetric; in (d) $\overline{1 + 2i} = 1 - 2i$.
+
+> [!EXAM] Watch out for the bars
+> In the exam sessions of 16/01/2025 and 07/02/2025 the formulas of the Hermitian products are printed **without** the conjugation bars, with the variables called $(x_1, y_1)$ and $(x_2, y_2)$. The official solutions reason anyway on the **matrix of the coefficients**: real diagonal and conjugate off-diagonal coefficients. If you get a text like that, use the same criterion.
+
+**Mistakes to avoid.**
+
+- Forgetting to check the **diagonal**: a single non-real coefficient on the diagonal excludes the matrix.
+- Conjugating by changing the sign of the **real** part: $\overline{a + bi} = a - bi$, not $-a - bi$.
+- Believing that a complex **symmetric** matrix is Hermitian.
+- Reading the matrix of $T(x, y)$ by columns instead of by rows: the first **component** of $T$ gives the first **row**.
+- Thinking that "Hermitian" implies "positive definite".
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the definition of Hermitian product with properties (4)–(7); ${}^tH = \bar H$ and the method "real diagonal, conjugate mirrors"; $g_H(x, y) = \sum H_{ij} x_i \bar y_j$; self-adjoint $\iff$ Hermitian (symmetric) matrix **in an orthonormal basis**; Proposition 25.10.
+
+## Quiz
+
+```quiz
+Q: We write $x = (x_1, x_2)$, $y = (y_1, y_2) \in \C^2$. Which of the following is a Hermitian product?
++ $x_1 \bar y_1 + (1 - i) x_1 \bar y_2 + (1 + i) x_2 \bar y_1 + 3 x_2 \bar y_2$
+- $x_1 \bar y_1 + (1 - i) x_1 \bar y_2 + (1 - i) x_2 \bar y_1 + 3 x_2 \bar y_2$
+- $i x_1 \bar y_1 + x_1 \bar y_2 + x_2 \bar y_1 + x_2 \bar y_2$
+- $x_1 y_1 + (1 - i) x_1 y_2 + (1 + i) x_2 y_1 + 3 x_2 y_2$
+- $x_1 \bar y_1 + 2 x_1 \bar y_2 - 2 x_2 \bar y_1 + x_2 \bar y_2$
+= The matrix $\begin{pmatrix} 1 & 1 - i \\ 1 + i & 3 \end{pmatrix}$ has real diagonal and $\overline{1 + i} = 1 - i$: it is Hermitian. In the second $\overline{1 - i} = 1 + i \neq 1 - i$; in the third there is $i$ on the diagonal; the fourth has no conjugations (it is bilinear); in the fifth $\overline{-2} = -2 \neq 2$. Similar to the exams of 24/01/2024, 16/01/2025, 07/02/2025, 02/09/2025 and 15/01/2026.
+
+Q: Which of these matrices is Hermitian?
++ $\begin{pmatrix} 3 & 2 + i \\ 2 - i & 0 \end{pmatrix}$
+- $\begin{pmatrix} 3 & 2 + i \\ 2 + i & 0 \end{pmatrix}$
+- $\begin{pmatrix} i & 1 \\ 1 & i \end{pmatrix}$
+- $\begin{pmatrix} 1 & i \\ i & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 1 + i \\ -1 + i & 2 \end{pmatrix}$
+= In the first the diagonal is real and $\overline{2 - i} = 2 + i$. The second and the fourth are symmetric but not Hermitian ($\overline{2 + i} = 2 - i$, $\bar i = -i$); the third has $i$ on the diagonal; in the fifth $\overline{-1 + i} = -1 - i \neq 1 + i$ (the sign of the real part has been changed too). Similar to the exams of 10/06/2024 and 10/07/2024.
+
+Q: With the Euclidean Hermitian product of $\C^2$, what is $\langle (1, i), (i, 1) \rangle$?
++ $0$
+- $2i$
+- $-2i$
+- $2$
+- $1 + i$
+= $\langle x, y \rangle = x_1 \bar y_1 + x_2 \bar y_2 = 1 \cdot \bar i + i \cdot \bar 1 = -i + i = 0$: the two vectors are orthogonal. $2i$ is the result when you forget the conjugation ($1 \cdot i + i \cdot 1$).
+
+Q: With the Euclidean Hermitian product of $\C^2$, what is $\langle v, v \rangle$ for $v = (1 + i, 2i)$?
+N: 6
+= $\langle v, v \rangle = \lvert 1 + i \rvert^2 + \lvert 2i \rvert^2 = 2 + 4 = 6$, so $\lVert v \rVert = \sqrt 6$. Without conjugation you would get $(1 + i)^2 + (2i)^2 = 2i - 4$, which is not even real.
+
+Q: Let $\langle\ ,\ \rangle$ be a Hermitian product on $V$ and $\lambda \in \C$. Which equality holds for every $v, w \in V$?
++ $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$
+- $\langle v, \lambda w \rangle = \lambda \langle v, w \rangle$
+- $\langle \lambda v, w \rangle = \bar\lambda \langle v, w \rangle$
+- $\langle v, \lambda w \rangle = \lvert \lambda \rvert \langle v, w \rangle$
+- $\langle v, \lambda w \rangle = \lambda \langle w, v \rangle$
+= It is property (5): $\langle v, \lambda w \rangle = \overline{\langle \lambda w, v \rangle} = \overline{\lambda \langle w, v \rangle} = \bar\lambda \langle v, w \rangle$. From the first slot instead $\lambda$ comes out without conjugation (axiom 2).
+
+Q: In a Hermitian matrix the diagonal entries are:
++ always real
+- always zero
+- always purely imaginary
+- always positive
+- any complex numbers
+= From $H_{ii} = \overline{H_{ii}}$ it follows that $H_{ii}$ is real. They do not have to be positive: $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ is Hermitian.
+
+Q: Which of these maps $T \colon \R^2 \to \R^2$ is self-adjoint with respect to the Euclidean scalar product?
++ $T(x, y) = (3x + 2y,\ 2x - y)$
+- $T(x, y) = (3x + 2y,\ -2x - y)$
+- $T(x, y) = (x + y,\ y)$
+- $T(x, y) = (y,\ -x)$
+- $T(x, y) = (2x,\ x + y)$
+= By Corollary 25.7 it is enough that the matrix in the canonical basis is symmetric. Only the first is: $\begin{pmatrix} 3 & 2 \\ 2 & -1 \end{pmatrix}$. The others have matrices $\begin{pmatrix} 3 & 2 \\ -2 & -1 \end{pmatrix}$, $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$, $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ (a rotation), $\begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}$. Similar to the exam of 03/06/2026 (question 9).
+
+Q: Which of these maps $T \colon \C^2 \to \C^2$ is **not** self-adjoint with respect to the Euclidean Hermitian product?
++ $T(x, y) = (x + iy,\ ix + y)$
+- $T(x, y) = (x + iy,\ -ix + y)$
+- $T(x, y) = (2x,\ 3y)$
+- $T(x, y) = \big((1 + i)y,\ (1 - i)x\big)$
+- $T(x, y) = (x + 2y,\ 2x)$
+= The matrix $\begin{pmatrix} 1 & i \\ i & 1 \end{pmatrix}$ is symmetric but not Hermitian ($\bar i = -i \neq i$). The other matrices are $\begin{pmatrix} 1 & i \\ -i & 1 \end{pmatrix}$, $\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$, $\begin{pmatrix} 0 & 1 + i \\ 1 - i & 0 \end{pmatrix}$ and $\begin{pmatrix} 1 & 2 \\ 2 & 0 \end{pmatrix}$, all Hermitian. Similar to the exam of 08/02/2024 (question 9).
+
+Q: Let $T$ be a self-adjoint endomorphism of $\R^2$ with the Euclidean scalar product. With respect to which kind of basis is the matrix of $T$ **certainly** symmetric?
++ Any orthonormal basis.
+- Any basis.
+- A basis that contains the vector $e_1$.
+- A basis made of vectors of norm $2$.
+- A basis whose change-of-basis matrix has positive determinant.
+= It is Proposition 25.6: the condition holds for orthonormal bases. Example 25.8 shows that in a non-orthonormal basis, like $\{(-1, 1), (1, 0)\}$, the matrix may not be symmetric.
+
+Q: Let $T$ be a self-adjoint endomorphism of $\R^3$ and let $v$ be a vector with $T(v) = 2v$. Setting $U = \Span(v)$, which statement is true?
++ $U^\perp$ is $T$-invariant.
+- $U^\perp = \Ker T$.
+- $T(U^\perp) \subseteq U$.
+- $T(U^\perp) = \{0\}$.
+- Every vector of $U^\perp$ is an eigenvector with eigenvalue $2$.
+= $U$ is invariant because $v$ is an eigenvector, and by Proposition 25.10 $U^\perp$ is too. The others are false in general: for example with $T = \operatorname{diag}(2, 1, 3)$ and $v = e_1$ we have $U^\perp = \Span(e_2, e_3)$, $T(e_2) = e_2$ and $T(e_3) = 3e_3$.
+```
+
+## Exercises
+
+::: exercise basic Computations with the Euclidean Hermitian product
+Let $x = (2 - i, 1)$ and $y = (i, 1 - i)$ in $\C^2$. Compute $\langle x, y \rangle$, $\langle y, x \rangle$, $\lVert x \rVert$ and $\lVert y \rVert$, and check axiom (3).
+::: solution
+- $\langle x, y \rangle = (2 - i)\,\bar i + 1 \cdot \overline{1 - i} = (2 - i)(-i) + (1 + i) = -2i + i^2 + 1 + i = -2i - 1 + 1 + i = -i$.
+- $\langle y, x \rangle = i \cdot \overline{2 - i} + (1 - i) \cdot \bar 1 = i(2 + i) + 1 - i = 2i + i^2 + 1 - i = 2i - 1 + 1 - i = i$.
+
+Indeed $\overline{-i} = i$: axiom (3) is verified.
+
+- $\lVert x \rVert^2 = \lvert 2 - i \rvert^2 + \lvert 1 \rvert^2 = 5 + 1 = 6$, so $\lVert x \rVert = \sqrt 6$.
+- $\lVert y \rVert^2 = \lvert i \rvert^2 + \lvert 1 - i \rvert^2 = 1 + 2 = 3$, so $\lVert y \rVert = \sqrt 3$.
+:::
+
+::: exercise basic The properties that follow from the axioms
+Using only axioms (1), (2), (3) of Definition 25.1 and the rules of conjugation, prove that for every $v, w \in V$ and $\lambda, \mu \in \C$: (a) $\langle v, 0 \rangle = 0$; (b) $\langle \lambda v, \mu w \rangle = \lambda \bar\mu \langle v, w \rangle$; (c) $\langle v, w \rangle = 0$ if and only if $\langle w, v \rangle = 0$.
+::: solution
+(a) From axiom (2) with $\lambda = 0$: $\langle 0, v \rangle = \langle 0 \cdot 0, v \rangle = 0 \cdot \langle 0, v \rangle = 0$. By axiom (3), $\langle v, 0 \rangle = \overline{\langle 0, v \rangle} = \bar 0 = 0$.
+
+(b) First I take $\lambda$ out of the first slot (axiom 2), then $\mu$ out of the second (property 5, proved in the theory): $\langle \lambda v, \mu w \rangle = \lambda \langle v, \mu w \rangle = \lambda \bar\mu \langle v, w \rangle$.
+
+(c) By axiom (3), $\langle w, v \rangle = \overline{\langle v, w \rangle}$, and a complex number is zero if and only if its conjugate is zero. So orthogonality is a symmetric relation in the complex case too.
+:::
+
+::: exercise basic Completing a Hermitian matrix
+Complete the matrix so that it is Hermitian, then decide which of the other matrices are Hermitian:
+$$H = \begin{pmatrix} 1 & 2 - i & \ast \\ \ast & 0 & i \\ 3 & \ast & -2 \end{pmatrix}, \quad A = \begin{pmatrix} 5 & 1 + 4i \\ 1 - 4i & 0 \end{pmatrix}, \quad B = \begin{pmatrix} 0 & 2i \\ 2i & 0 \end{pmatrix}, \quad C = \begin{pmatrix} 1 & 2 \\ 2 & 7 \end{pmatrix}.$$
+::: solution
+Each asterisk is the conjugate of its mirror: $H_{21} = \overline{H_{12}} = \overline{2 - i} = 2 + i$; $H_{13} = \overline{H_{31}} = \bar 3 = 3$; $H_{32} = \overline{H_{23}} = \bar i = -i$. The diagonal $1, 0, -2$ is already real:
+$$H = \begin{pmatrix} 1 & 2 - i & 3 \\ 2 + i & 0 & i \\ 3 & -i & -2 \end{pmatrix}.$$
+
+$A$ is Hermitian ($\overline{1 - 4i} = 1 + 4i$). $B$ is not: it is symmetric, but $\overline{2i} = -2i \neq 2i$. $C$ is: it is real and symmetric (Remark on p. 131).
+:::
+
+::: exercise intermediate From the formula to the matrix and back
+Let $g(x, y) = 2 x_1 \bar y_1 + (1 + 2i) x_1 \bar y_2 + (1 - 2i) x_2 \bar y_1 + 5 x_2 \bar y_2$ on $\C^2$. (a) Write the matrix $H$ and check that $g$ is a Hermitian product. (b) Compute $g(v, w)$ with $v = (1, 1)$ and $w = (0, i)$, both with the formula and with ${}^t v H \bar w$.
+::: solution
+(a) The coefficient of $x_i \bar y_j$ is $H_{ij}$:
+$$H = \begin{pmatrix} 2 & 1 + 2i \\ 1 - 2i & 5 \end{pmatrix}.$$
+Real diagonal and $\overline{1 - 2i} = 1 + 2i$: $H$ is Hermitian, so $g = g_H$ is a Hermitian product.
+
+(b) **With the formula**: $\bar w = (0, -i)$, so $\bar w_1 = 0$ and $\bar w_2 = -i$. The terms with $\bar y_1$ disappear:
+$$g(v, w) = (1 + 2i) \cdot 1 \cdot (-i) + 5 \cdot 1 \cdot (-i) = (-i - 2i^2) - 5i = 2 - 6i.$$
+**With the matrices**: $H \bar w = \begin{pmatrix} (1 + 2i)(-i) \\ 5(-i) \end{pmatrix} = \begin{pmatrix} 2 - i \\ -5i \end{pmatrix}$, and ${}^t v H \bar w = (2 - i) + (-5i) = 2 - 6i$.
+:::
+
+::: exercise intermediate The associated matrix in a basis
+In $\C^2$ with the Euclidean Hermitian product let $\mathcal B = \{b_1, b_2\}$ with $b_1 = (1, 1)$ and $b_2 = (1, i)$. (a) Compute the associated matrix $H$. (b) Check the formula $\langle v, w \rangle = {}^t[v]_{\mathcal B}\, H\, \overline{[w]_{\mathcal B}}$ with $v = b_1 + i\, b_2$ and $w = b_2$.
+::: solution
+(a) $H_{11} = \langle b_1, b_1 \rangle = 1 + 1 = 2$; $H_{12} = \langle b_1, b_2 \rangle = 1 \cdot \bar 1 + 1 \cdot \bar i = 1 - i$; $H_{21} = \langle b_2, b_1 \rangle = 1 + i \cdot \bar 1 = 1 + i$; $H_{22} = \langle b_2, b_2 \rangle = 1 + i \bar i = 2$. So
+$$H = \begin{pmatrix} 2 & 1 - i \\ 1 + i & 2 \end{pmatrix},$$
+Hermitian, as it must be.
+
+(b) In canonical coordinates $v = (1, 1) + i(1, i) = (1 + i,\ 1 + i^2) = (1 + i, 0)$, and $\langle v, w \rangle = (1 + i) \cdot \bar 1 + 0 = 1 + i$.
+
+With the formula: $[v]_{\mathcal B} = (1, i)$, $[w]_{\mathcal B} = (0, 1)$, $\overline{[w]_{\mathcal B}} = (0, 1)$. Then $H \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 - i \\ 2 \end{pmatrix}$ and ${}^t[v]_{\mathcal B} \begin{pmatrix} 1 - i \\ 2 \end{pmatrix} = 1 \cdot (1 - i) + i \cdot 2 = 1 + i$. Same result.
+:::
+
+::: exercise intermediate Self-adjoint or not?
+Decide which endomorphisms are self-adjoint with respect to the Euclidean product (scalar or Hermitian): (a) $T \colon \C^2 \to \C^2$, $T(x, y) = \big(x + (1 - i)y,\ (1 + i)x + 2y\big)$; (b) $T \colon \C^2 \to \C^2$, $T(x, y) = (ix, y)$; (c) $T \colon \R^3 \to \R^3$, $T(x, y, z) = (x + 2z,\ 3y,\ 2x - z)$. For (b) find explicitly two vectors for which Definition 25.5 fails.
+::: solution
+(a) Matrix $\begin{pmatrix} 1 & 1 - i \\ 1 + i & 2 \end{pmatrix}$: real diagonal, $\overline{1 + i} = 1 - i$. Hermitian: $T$ is self-adjoint (Corollary 25.7).
+
+(b) Matrix $\begin{pmatrix} i & 0 \\ 0 & 1 \end{pmatrix}$: not Hermitian, so $T$ is not self-adjoint. With $v = w = e_1$: $\langle T(e_1), e_1 \rangle = \langle (i, 0), (1, 0) \rangle = i$, while $\langle e_1, T(e_1) \rangle = \langle (1, 0), (i, 0) \rangle = 1 \cdot \bar i = -i$.
+
+(c) Matrix $\begin{pmatrix} 1 & 0 & 2 \\ 0 & 3 & 0 \\ 2 & 0 & -1 \end{pmatrix}$: real and symmetric, so $T$ is self-adjoint.
+:::
+
+::: exercise intermediate The same matrix in two bases
+Let $A = \begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$, which defines a self-adjoint endomorphism of $\R^2$. Compute the matrix of $L_A$ (a) in the orthonormal basis $\mathcal B = \left\{ \frac{1}{\sqrt 2}(1, 1), \frac{1}{\sqrt 2}(1, -1) \right\}$; (b) in the basis $\mathcal B' = \{(1, 0), (1, 1)\}$. Comment in the light of Proposition 25.6.
+::: solution
+(a) $M = \frac{1}{\sqrt 2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ is orthogonal and $M^{-1} = {}^t M = M$ (it is also symmetric). It is worth noticing that $A(1, 1) = (3, 3)$ and $A(1, -1) = (-1, 1)$: the vectors of the basis are **eigenvectors**, with eigenvalues $3$ and $-1$. So
+$$[L_A]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 3 & 0 \\ 0 & -1 \end{pmatrix},$$
+diagonal, and in particular symmetric, as Proposition 25.6 predicts. (It is a preview of the spectral theorem.)
+
+(b) $M = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$, $M^{-1} = \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix}$. Then $M^{-1} A = \begin{pmatrix} -1 & 1 \\ 2 & 1 \end{pmatrix}$ and
+$$M^{-1} A M = \begin{pmatrix} -1 & 1 \\ 2 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 0 \\ 2 & 3 \end{pmatrix},$$
+which is not symmetric: the basis $\mathcal B'$ is not orthonormal ($\langle (1, 0), (1, 1) \rangle = 1 \neq 0$), and Proposition 25.6 does not apply.
+:::
+
+::: exercise intermediate Invariant subspaces of a symmetric matrix
+Let $A = \begin{pmatrix} 2 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$. (a) Check that $U = \Span((0, 1, 1))$ is $L_A$-invariant. (b) Find $U^\perp$ and check directly that it is invariant, as Proposition 25.10 predicts.
+::: solution
+(a) $A(0, 1, 1) = (0, 2, 2) = 2\,(0, 1, 1) \in U$: the generator is an eigenvector, so $U$ is invariant.
+
+(b) $U^\perp = \{(x, y, z) \mid y + z = 0\} = \Span((1, 0, 0), (0, 1, -1))$. Check on the generators: $A(1, 0, 0) = (2, 0, 0) \in U^\perp$ and $A(0, 1, -1) = (0, 0, 0) \in U^\perp$. Since $A$ is linear, it is enough to check the generators: $U^\perp$ is invariant.
+:::
+
+::: exercise hard Eigenvalues and eigenvectors of a self-adjoint endomorphism
+Let $T$ be a self-adjoint endomorphism of a space with a positive definite Hermitian (or scalar) product. Prove that: (a) if $T(v) = \lambda v$ with $v \neq 0$, then $\lambda$ is real; (b) if $T(v) = \lambda v$ and $T(w) = \mu w$ with $\lambda \neq \mu$, then $\langle v, w \rangle = 0$. (These are two facts you will use in lesson L26.)
+::: solution
+(a) I compute $\langle T(v), v \rangle$ in two ways. On the one hand $\langle \lambda v, v \rangle = \lambda \langle v, v \rangle$. On the other, since $T$ is self-adjoint, $\langle T(v), v \rangle = \langle v, T(v) \rangle = \langle v, \lambda v \rangle = \bar\lambda \langle v, v \rangle$. So $(\lambda - \bar\lambda) \langle v, v \rangle = 0$, and since $\langle v, v \rangle > 0$ (positive definite, $v \neq 0$), $\lambda = \bar\lambda$: $\lambda$ is real.
+
+(b) By (a) $\mu$ is real too, so $\bar\mu = \mu$. Then
+$$\lambda \langle v, w \rangle = \langle T(v), w \rangle = \langle v, T(w) \rangle = \langle v, \mu w \rangle = \bar\mu \langle v, w \rangle = \mu \langle v, w \rangle.$$
+So $(\lambda - \mu) \langle v, w \rangle = 0$ and, since $\lambda \neq \mu$, $\langle v, w \rangle = 0$.
+:::
+
+::: exercise hard Hermitian but not positive definite
+Let $H = \begin{pmatrix} 1 & i \\ -i & 1 \end{pmatrix}$. (a) Check that $H$ is Hermitian. (b) Find a vector $v \neq 0$ with $g_H(v, v) = 0$: the product $g_H$ is not positive definite.
+::: solution
+(a) Real diagonal and $\overline{-i} = i$: Hermitian.
+
+(b) $g_H(x, y) = x_1 \bar y_1 + i x_1 \bar y_2 - i x_2 \bar y_1 + x_2 \bar y_2$. I try $v = (1, -i)$, so $\bar v = (1, i)$:
+$$g_H(v, v) = 1 \cdot 1 + i \cdot 1 \cdot i + (-i)(-i) \cdot 1 + (-i) \cdot i = 1 - 1 - 1 + 1 = 0.$$
+A non-zero vector with $g_H(v, v) = 0$: $g_H$ is Hermitian but not positive definite. (You arrive at this $v$ by looking for a vector of the kernel of $H$ and conjugating it: $H \bar v = 0$ gives $g_H(v, v) = {}^t v\, H \bar v = 0$. In lesson L26 you will see that the eigenvalues of $H$ are $0$ and $2$.)
+:::
+
+::: exercise exam A Hermitian product with a parameter
+We write $x = (x_1, x_2)$, $y = (y_1, y_2) \in \C^2$ and, for $a \in \C$, let $g_a(x, y) = x_1 \bar y_1 + a\, x_1 \bar y_2 + (2 + i)\, x_2 \bar y_1 + 4\, x_2 \bar y_2$. (1) For which $a$ is the formula a Hermitian product? (2) For that value write the matrix $H$ and compute $g_a(v, v)$ with $v = (1, 1)$. (3) Find a vector $w \neq 0$ orthogonal to $e_1$ and compute $g_a(w, w)$: is the product positive definite?
+::: solution
+(1) The matrix is $\begin{pmatrix} 1 & a \\ 2 + i & 4 \end{pmatrix}$: the diagonal is real, and you need $a = \overline{2 + i} = 2 - i$. Only for $a = 2 - i$.
+
+(2) $H = \begin{pmatrix} 1 & 2 - i \\ 2 + i & 4 \end{pmatrix}$. With $v = (1, 1)$ (real, so $\bar v = v$) you add up all the entries: $g(v, v) = 1 + (2 - i) + (2 + i) + 4 = 9$. It is real, as it must be by property (7).
+
+(3) $g(w, e_1) = \sum_i H_{i1} w_i = w_1 + (2 + i) w_2$ (because $\bar e_1 = e_1$). Imposing $g(w, e_1) = 0$: for example $w_2 = 1$ and $w_1 = -(2 + i)$, that is $w = (-2 - i, 1)$. Then, with $\bar w = (-2 + i, 1)$:
+$$g(w, w) = (-2 - i)(-2 + i) + (2 - i)(-2 - i) + (2 + i)(-2 + i) + 4 = 5 - 5 - 5 + 4 = -1.$$
+(Computations: $(-2 - i)(-2 + i) = 4 - i^2 = 5$; $(2 - i)(-2 - i) = -(2 - i)(2 + i) = -5$; $(2 + i)(-2 + i) = -(2 + i)(2 - i) = -5$.) A non-zero vector with $g(w, w) < 0$: the product is **not** positive definite.
+:::
+
+::: exercise exam A self-adjoint endomorphism of $\C^2$
+Let $T \colon \C^2 \to \C^2$, $T(x, y) = \big(2x + (1 - i)y,\ (1 + i)x + 3y\big)$. (1) Write the matrix $A$ of $T$ in the canonical basis and show that $T$ is self-adjoint with respect to the Euclidean Hermitian product. (2) Check directly that $\langle T(e_1), e_2 \rangle = \langle e_1, T(e_2) \rangle$. (3) Check that $U = \Span((-1 + i, 1))$ is $T$-invariant, find $U^\perp$ and check that $U^\perp$ is invariant too.
+::: solution
+(1) $A = \begin{pmatrix} 2 & 1 - i \\ 1 + i & 3 \end{pmatrix}$: real diagonal and $\overline{1 + i} = 1 - i$. It is Hermitian, so $T$ is self-adjoint (Corollary 25.7).
+
+(2) $T(e_1) = (2, 1 + i)$ and $\langle (2, 1 + i), (0, 1) \rangle = (1 + i) \cdot \bar 1 = 1 + i$. $T(e_2) = (1 - i, 3)$ and $\langle (1, 0), (1 - i, 3) \rangle = 1 \cdot \overline{1 - i} = 1 + i$. Equal.
+
+(3) $T(-1 + i, 1) = \big(2(-1 + i) + (1 - i),\ (1 + i)(-1 + i) + 3\big) = (-1 + i,\ -2 + 3) = (-1 + i, 1)$: the generator is an eigenvector with eigenvalue $1$, so $U$ is invariant. (Computation: $(1 + i)(-1 + i) = -1 + i - i + i^2 = -2$.)
+
+$U^\perp$ is made of the $w$ with $\langle w, (-1 + i, 1) \rangle = w_1 \cdot \overline{-1 + i} + w_2 \cdot 1 = (-1 - i) w_1 + w_2 = 0$, that is $w_2 = (1 + i) w_1$: $U^\perp = \Span((1, 1 + i))$. Check: $T(1, 1 + i) = \big(2 + (1 - i)(1 + i),\ (1 + i) + 3(1 + i)\big) = (4,\ 4 + 4i) = 4\,(1, 1 + i)$. $U^\perp$ is invariant too (it is the line of the eigenvectors with eigenvalue $4$), as Proposition 25.10 predicts.
+:::
+
+## Review questions
+
+::: question Why can't the formula $x_1 y_1 + \dots + x_n y_n$ be used on $\C^n$ to measure lengths?
+Because it would give non-real or zero values for non-zero vectors: for $(1, i)$ you get $1 + i^2 = 0$. Conjugating the second vector you get $\lvert x_1 \rvert^2 + \dots + \lvert x_n \rvert^2$, real and positive.
+:::
+
+::: question What are the axioms of a Hermitian product?
+(1) $\langle v + v', w \rangle = \langle v, w \rangle + \langle v', w \rangle$; (2) $\langle \lambda v, w \rangle = \lambda \langle v, w \rangle$; (3) $\langle v, w \rangle = \overline{\langle w, v \rangle}$, for every $v, v', w$ and every $\lambda \in \C$.
+:::
+
+::: question What does sesquilinear mean? How does a scalar come out of the second slot?
+Linear in the first slot and antilinear in the second: $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$. "Sesqui" means one and a half.
+:::
+
+::: question Why is $\langle v, v \rangle$ always real?
+By axiom (3) with $w = v$: $\langle v, v \rangle = \overline{\langle v, v \rangle}$, and a number equal to its conjugate is real.
+:::
+
+::: question What is the Euclidean Hermitian product? Is it positive definite?
+$\langle x, y \rangle = {}^t x\, \bar y = x_1 \bar y_1 + \dots + x_n \bar y_n$ on $\C^n$. It is positive definite: $\langle x, x \rangle = \lvert x_1 \rvert^2 + \dots + \lvert x_n \rvert^2 > 0$ for $x \neq 0$.
+:::
+
+::: question What is a Hermitian matrix? What can be said about its diagonal?
+A complex square matrix with ${}^t H = \bar H$, that is $H_{ij} = \overline{H_{ji}}$. The diagonal entries are real. A real matrix is Hermitian if and only if it is symmetric.
+:::
+
+::: question How do you go from a formula $g(x, y) = \sum a_{ij} x_i \bar y_j$ to the matrix, and how do you decide whether it is a Hermitian product?
+The matrix has $H_{ij} = a_{ij}$ (row = index of $x$, column = index of $\bar y$). The formula is a Hermitian product if and only if $H$ is Hermitian, and all the terms have the conjugation on the second vector.
+:::
+
+::: question What is the matrix associated with a Hermitian product in a basis?
+$H_{ij} = \langle v_i, v_j \rangle$. It is Hermitian and $\langle v, w \rangle = {}^t[v]_{\mathcal B}\, H\, \overline{[w]_{\mathcal B}}$.
+:::
+
+::: question What is a self-adjoint endomorphism? What is the difference with an isometry?
+$T$ is self-adjoint if $\langle T(v), w \rangle = \langle v, T(w) \rangle$ for every $v, w$. An isometry instead satisfies $\langle T(v), T(w) \rangle = \langle v, w \rangle$. In a real orthonormal basis: self-adjoint means symmetric matrix, isometry means orthogonal matrix.
+:::
+
+::: question What does Proposition 25.6 say? Why is the orthonormal basis needed?
+In an orthonormal basis, $T$ is self-adjoint if and only if its matrix is Hermitian (symmetric in the real case). The proof uses the fact that the matrix of the product in that basis is the identity; in a non-orthonormal basis the matrix of a self-adjoint endomorphism may not be symmetric (Example 25.8).
+:::
+
+::: question How do you decide whether $T(x, y) = (ax + by, cx + dy)$ is self-adjoint?
+You write the matrix $\begin{pmatrix} a & b \\ c & d \end{pmatrix}$ in the canonical (orthonormal) basis and check that it is symmetric (real case) or Hermitian (complex case), by Corollary 25.7.
+:::
+
+::: question What is an invariant subspace? What does Proposition 25.10 say?
+$U$ is $T$-invariant if $T(U) \subseteq U$. If $T$ is self-adjoint and $U$ is invariant, then $U^\perp$ is invariant too: for $v \in U^\perp$ and $u \in U$, $\langle T(v), u \rangle = \langle v, T(u) \rangle = 0$.
+:::
+
+## Glossary
+
+```glossary
+Conjugate | Of $z = a + bi$ it is $\bar z = a - bi$; we have $z \bar z = \lvert z \rvert^2$.
+Hermitian product | Map $V \times V \to \C$ linear in the first slot with $\langle v, w \rangle = \overline{\langle w, v \rangle}$ (Definition 25.1).
+Sesquilinear | Linear in the first slot and antilinear in the second: $\langle v, \lambda w \rangle = \bar\lambda \langle v, w \rangle$.
+Antilinear | That makes scalars come out conjugated: $f(\lambda w) = \bar\lambda f(w)$.
+Positive definite Hermitian product | With $\langle v, v \rangle > 0$ for every $v \neq 0$ (Definition 25.2).
+Norm (complex case) | $\lVert v \rVert = \sqrt{\langle v, v \rangle}$, for a positive definite Hermitian product.
+Euclidean Hermitian product | On $\C^n$: $\langle x, y \rangle = {}^t x\, \bar y = x_1 \bar y_1 + \dots + x_n \bar y_n$.
+Conjugate matrix | $\bar A$: the matrix with all the entries conjugated.
+Hermitian matrix | Square matrix with ${}^t H = \bar H$, that is $H_{ij} = \overline{H_{ji}}$; it has a real diagonal.
+Product $g_H$ | The Hermitian product $g_H(x, y) = {}^t x\, H\, \bar y$ defined by a Hermitian matrix $H$; the coefficient of $x_i \bar y_j$ is $H_{ij}$.
+Associated matrix (Hermitian case) | $H_{ij} = \langle v_i, v_j \rangle$ with respect to a basis; we have $\langle v, w \rangle = {}^t[v]\, H\, \overline{[w]}$.
+Self-adjoint endomorphism | $T$ with $\langle T(v), w \rangle = \langle v, T(w) \rangle$ for every $v, w$ (Definition 25.5).
+Orthonormal basis | Basis of vectors of norm $1$, pairwise orthogonal; in it the matrix of the product is the identity.
+$T$-invariant subspace | Subspace $U$ with $T(U) \subseteq U$ (Definition 25.9).
+Orthogonal complement $U^\perp$ | Set of the vectors orthogonal to all the vectors of $U$.
+```
+
+## Checklist
+
+```checklist
+- I can explain why over the complex numbers the product needs the conjugation, with the example of the vector $(1, i)$.
+- I can state the axioms of the Hermitian product and prove properties (4), (5), (6), (7).
+- I can compute Hermitian products and norms in $\C^n$ without forgetting the conjugations.
+- I can use Gram–Schmidt in $\C^n$ with the coefficient $\frac{\langle v, w \rangle}{\langle w, w \rangle}$ in the right order.
+- I can recognise a Hermitian matrix at a glance: real diagonal, conjugate symmetric entries.
+- I can go from a formula $\sum a_{ij} x_i \bar y_j$ to the matrix and decide whether it is a Hermitian product.
+- I can compute the matrix associated with a Hermitian product in a basis and use the formula ${}^t[v] H \overline{[w]}$.
+- I can define a self-adjoint endomorphism and tell it apart from an isometry.
+- I can decide whether a map given by a formula is self-adjoint, and I know that the criterion requires an orthonormal basis.
+- I can prove that, for $T$ self-adjoint, if $U$ is invariant then $U^\perp$ is too.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 25 "Teorema spettrale I", pp. 129–133: sections 25.A (Hermitian products), 25.B (Hermitian matrices), 25.C (associated matrix), 25.D (self-adjoint endomorphisms) and 25.E (invariant subspaces), followed in order with the original numbering (Definitions 25.1, 25.2, 25.4, 25.5, 25.9; Example 25.3; Propositions 25.6, 25.10; Corollary 25.7; Example 25.8). From the previous lessons: conjugation and modulus (lesson 2), change of basis for endomorphisms (lesson 16), isometries (lesson 22). This lesson of the handouts has no exercise section.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §11.1 (Hermitian products, Hermitian matrices, associated matrix) and §11.2 (self-adjoint endomorphisms, invariant subspaces).
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): text reported from 15/01/2026 (question 2), 03/06/2026 (question 9) and 10/06/2024 (question 9), with solutions written for these notes; the exam sessions of 24/01/2024, 08/02/2024, 10/07/2024, 16/01/2025, 07/02/2025 and 02/09/2025 are cited by type of question.
+- The **"Beyond the handouts"** parts (motivation with the vector $(1, i)$, reminder on conjugation, numerical examples, Gram–Schmidt in $\C^2$, criterion for formulas, "Hermitian does not mean positive definite", exercises) are additions in these notes to connect the lesson to the book and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L26_spectral_theorem_2.md -->
+> File: `ai_context/MDAG/lessons/L26_spectral_theorem_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L26
+title: Spectral theorem II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L26
+description: >-
+  Notes on lesson L26 of Linear Algebra and Geometry (MDAG, part 2): the spectral theorem for self-adjoint
+  endomorphisms, its proof, the version with symmetric and orthogonal matrices, the link with PCA and all the
+  exercises of the handouts worked out, with exam-style quizzes.
+lede: >-
+  When can you diagonalise with a basis that is also orthonormal? Exactly when the endomorphism is self-adjoint: it is
+  the spectral theorem. For real matrices it means that $A$ is symmetric if and only if there is an orthogonal matrix
+  $M$ with ${}^tM A M$ diagonal. Here you find the proof, the step-by-step method and the exercises of the handouts,
+  including the one with complex numbers.
+material: handouts
+facts:
+  Handouts: lesson 26 · pp. 134–138
+  Book: Martelli, §11.3
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 110–140 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 26 "Teorema spettrale II"; B. Martelli, Geometria e algebra lineare, §11.3
+italian_file: L26_teorema_spettrale_2.html
+html_notes: notes/MDAG/L26_spectral_theorem_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L26_teorema_spettrale_2.md
+```
+
+## In brief
+
+- A diagonalisable endomorphism has a basis of eigenvectors; the spectral theorem says **when that basis can be chosen orthonormal**.
+- **Spectral theorem** (Theorem 26.1): $T$ is self-adjoint $\iff$ it has an **orthonormal basis of eigenvectors** and all its **eigenvalues are real**. It holds for real spaces with a positive definite scalar product and for complex spaces with a positive definite Hermitian product.
+- An important consequence: **a real symmetric matrix has all its eigenvalues real** and is always diagonalisable.
+- Version with matrices (Corollary 26.2): for a real $n \times n$ matrix $A$ the following are equivalent: **$A$ symmetric**, **$L_A$ has an orthonormal basis of eigenvectors**, **there is an orthogonal $M$ with ${}^tM A M = M^{-1} A M = D$ diagonal**.
+- Eigenvectors of **different** eigenvalues of a symmetric matrix are **automatically orthogonal**; inside an eigenspace of dimension $\ge 2$ the orthogonal basis is built with **Gram–Schmidt**.
+- Method: eigenvalues, bases of the eigenspaces, Gram–Schmidt inside each eigenspace, normalisation; the columns form $M$, and $M^{-1} = {}^tM$ without computing inverses.
+- In the complex case (Hermitian matrices) you use the **Hermitian** product to normalise, and the matrix $W$ satisfies ${}^t\bar W W = I$.
+- Application: **PCA** (principal component analysis) diagonalises a symmetric data matrix; the eigenvectors with the largest eigenvalues are the directions of greatest variability.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## The problem: eigenvectors that are also orthonormal (p. 134)
+
+In lessons L17–L18 you saw that the simplest endomorphisms to study are the **diagonalisable** ones, that is those that have a basis of eigenvectors: in that basis the matrix is diagonal, $M^{-1} A M = D$, where the columns of $M$ are the eigenvectors.
+
+But look at two diagonalisable matrices of $\R^2$.
+
+- $S = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$ has eigenvectors $(1, 1)$ (eigenvalue $3$) and $(1, -1)$ (eigenvalue $1$): they are **perpendicular**, $\langle (1, 1), (1, -1) \rangle = 0$.
+- $B = \begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}$ has eigenvectors $(1, 0)$ (eigenvalue $3$) and $(-1, 2)$ (eigenvalue $1$): they are **not** perpendicular, $\langle (1, 0), (-1, 2) \rangle = -1$.
+
+```graph
+title: The two lines of eigenvectors of $B = \begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}$ are not perpendicular: they form an angle of about $63.4^\circ$
+x: -2.5 2.5
+y: -2.2 2.6
+line: -2 0 2 0 | accent | thick | $V_3$ | ne
+line: -1 2 1 -2 | violet | thick | $V_1$ | e
+vector: 0 0 1 0 | accent | $(1, 0)$ | se
+vector: 0 0 -1 2 | violet | $(-1, 2)$ | w
+arc: 0 0 0.6 2.0344 pi | amber | $63.4^\circ$
+```
+
+With an orthonormal basis of eigenvectors you gain a lot: the matrix $M$ that has those vectors as columns is **orthogonal** (lesson L22), so $M^{-1} = {}^tM$ and no inverse needs to be computed; moreover the coordinates of a vector in that basis are found with scalar products (Fourier coefficients, lesson L21). The natural question is: **when** can we ask for the basis of eigenvectors to be orthonormal too? The handouts announce it straight away: **precisely for self-adjoint endomorphisms**.
+
+## The spectral theorem (p. 134)
+
+As in lesson L25, $V$ is a real vector space with a positive definite scalar product, or a complex one with a positive definite Hermitian product, of finite dimension $n$.
+
+> [!THEOREM] 26.1 · Spectral theorem
+> An endomorphism $T \colon V \to V$ is self-adjoint $\iff$ it has an orthonormal basis of eigenvectors and all its eigenvalues are in $\R$.
+
+Piece by piece:
+
+- **self-adjoint**: $\langle T(v), w \rangle = \langle v, T(w) \rangle$ for every $v, w$ (Definition 25.5); in an orthonormal basis it means a **Hermitian** matrix, or a **symmetric** one in the real case (Proposition 25.6);
+- **orthonormal basis of eigenvectors**: vectors $v_1, \dots, v_n$ with $T(v_i) = \lambda_i v_i$, of norm $1$ and pairwise orthogonal;
+- **eigenvalues in $\R$**: in the real case it is automatic (the eigenvalues of a real endomorphism are real numbers by definition); in the complex case it is an extra condition, and it is needed.
+
+> [!EXAMPLE] Why the complex case needs "real eigenvalues"
+> On $\C^2$ with the Euclidean Hermitian product, the endomorphism $T(x, y) = (ix, y)$ has matrix $\begin{pmatrix} i & 0 \\ 0 & 1 \end{pmatrix}$: the canonical basis is an **orthonormal basis of eigenvectors** (eigenvalues $i$ and $1$). And yet $T$ is **not** self-adjoint, because the matrix is not Hermitian (lesson L25). The theorem is not contradicted: the eigenvalue $i$ is not real.
+
+The name "spectral" comes from *spectrum*, the set of the eigenvalues of an endomorphism. The theorem links two topics of the course: **diagonalisability** (lessons L17–L18) and positive definite **scalar or Hermitian products** (lessons L19–L21 and L25).
+
+## The proof (pp. 134–135)
+
+The handouts' proof has three parts: the easy direction ($\Leftarrow$), the complex case of the hard direction ($\Rightarrow$), and the real case.
+
+**($\Leftarrow$) If there is an orthonormal basis of eigenvectors with real eigenvalues, $T$ is self-adjoint.**
+
+1. Let $\mathcal B$ be the orthonormal basis of eigenvectors. The matrix $A = [T]^{\mathcal B}_{\mathcal B}$ is **diagonal**, with the eigenvalues on the diagonal.
+2. The eigenvalues are real, so $A$ is diagonal with real numbers: ${}^tA = A = \bar A$, that is $A$ is Hermitian.
+3. The basis is orthonormal, so by Proposition 25.6 the endomorphism $T$ is self-adjoint.
+
+**($\Rightarrow$), complex case. First step: the eigenvalues of a self-adjoint endomorphism are real.** If $\lambda$ is an eigenvalue, there is an eigenvector $v \neq 0$ with $T(v) = \lambda v$, and
+
+$$\lambda \langle v, v \rangle = \langle \lambda v, v \rangle = \langle T(v), v \rangle = \langle v, T(v) \rangle = \langle v, \lambda v \rangle = \bar\lambda \langle v, v \rangle.$$
+
+The steps: the first uses linearity in the first slot; the second $T(v) = \lambda v$; the third that $T$ is self-adjoint; the fourth $T(v) = \lambda v$ again; the last property (5) of Hermitian products (the scalar comes out conjugated from the second slot). Since $\langle v, v \rangle > 0$ (the product is positive definite and $v \neq 0$), you can divide: $\lambda = \bar\lambda$, so **$\lambda \in \R$**.
+
+**Second step: the orthonormal basis of eigenvectors, by induction on the dimension $n$.**
+
+> [!PROOF] of Theorem 26.1, induction on the dimension
+> 1. **Case $n = 1$.** In a space of dimension one every non-zero vector is an eigenvector (every endomorphism is multiplication by a number). A vector of norm $1$ forms on its own an orthonormal basis of eigenvectors.
+> 2. **Inductive hypothesis.** Suppose the result true in dimension $n - 1$ and take $V$ of dimension $n$.
+> 3. **There is an eigenvector.** We are over the complex numbers: the characteristic polynomial of $T$ has at least one root by the **fundamental theorem of algebra** (lesson L04), so $T$ has an eigenvalue and an eigenvector $v \in V$.
+> 4. **An invariant subspace of dimension $n - 1$.** The line $\Span(v)$ is $T$-invariant (it is spanned by an eigenvector). By Proposition 25.10 $U = \Span(v)^\perp$ is $T$-invariant too: $T(U) \subseteq U$. Moreover $\dim U = n - 1$ (orthogonal decomposition, lesson L21).
+> 5. **The restriction is self-adjoint.** $T|_U \colon U \to U$ is an endomorphism of $U$ (thanks to point 4) and it is self-adjoint, because the equality $\langle T(u), u' \rangle = \langle u, T(u') \rangle$ holds for all the vectors of $V$, so in particular for those of $U$.
+> 6. **The inductive hypothesis applies.** $U$ has an orthonormal basis $v_2, \dots, v_n$ made of eigenvectors of $T|_U$, that is of $T$.
+> 7. **We add $v$.** I renormalise $v$ so that it has norm $1$. It is orthogonal to all the $v_2, \dots, v_n$, which lie in $U = \Span(v)^\perp$. So $\mathcal B = \{v, v_2, \dots, v_n\}$ is an orthonormal basis of $V$ made of eigenvectors of $T$. $\square$
+
+> [!IDEA] The proof in a picture
+> You "peel off" one eigenvector at a time. Once $v$ is found, the space splits into $\Span(v)$ and its orthogonal $U$, and $T$ does not mix the two pieces (both invariant). Inside $U$ you start again: another eigenvector, another orthogonal piece, and so on until the dimensions run out. Each vector peeled off is orthogonal to all the following ones by construction.
+
+**An important consequence.** The handouts stress it: **a real symmetric matrix $S$ always has all its eigenvalues real.** Indeed $S$ is real and symmetric, so Hermitian; then $L_S \colon \C^n \to \C^n$ is self-adjoint with respect to the Euclidean Hermitian product (Corollary 25.7), and by the complex case just proved it has all its eigenvalues real and an orthonormal basis of eigenvectors in $\C^n$.
+
+> [!BEYOND] The $2 \times 2$ case by hand
+> For a real $S = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$, the characteristic polynomial is $\lambda^2 - (a + c)\lambda + (ac - b^2)$, with discriminant
+> $$(a + c)^2 - 4(ac - b^2) = a^2 - 2ac + c^2 + 4b^2 = (a - c)^2 + 4b^2 \ge 0.$$
+> So the roots are always real. And they are equal only if $a = c$ and $b = 0$, that is if $S$ is already a multiple of the identity.
+
+**($\Rightarrow$), real case.** A delicate point remains: over the reals a polynomial may have no roots, so point 3 of the induction is not free. The handouts solve it like this.
+
+1. I take an orthonormal basis $\mathcal B$ of $V$ and set $S = [T]^{\mathcal B}_{\mathcal B}$: it is a **real symmetric** matrix (Proposition 25.6).
+2. Considered as a complex matrix, by the complex case just proved **all its eigenvalues are real**. So the characteristic polynomial of $S$ has a root $\lambda \in \R$.
+3. Since $\det(S - \lambda I_n) = 0$ with $S - \lambda I_n$ real, there is a non-zero **real** vector $v$ with $S v = \lambda v$ (the real homogeneous system has non-zero solutions): a real eigenvector.
+4. With this eigenvector you repeat the same induction as in the complex case. $\square$
+
+## The spectral theorem with matrices (p. 135)
+
+In the case of $\R^n$ with the Euclidean scalar product the theorem translates into a statement about matrices.
+
+> [!COROLLARY] 26.2
+> Let $A$ be a real $n \times n$ matrix. The following facts are equivalent:
+> 1. $A$ is symmetric;
+> 2. $L_A$ has an orthonormal basis of eigenvectors;
+> 3. there is an orthogonal matrix $M$ such that
+> $${}^tM A M = M^{-1} A M = D$$
+> is a diagonal matrix.
+
+Piece by piece:
+
+- **orthogonal matrix** (Definition 22.10): ${}^tM M = I_n$, that is $M^{-1} = {}^tM$; equivalently, the **columns** of $M$ form an orthonormal basis of $\R^n$;
+- in (3) the two expressions ${}^tM A M$ and $M^{-1} A M$ are the same matrix precisely because $M^{-1} = {}^tM$;
+- $D$ has the eigenvalues on the diagonal, in the same order in which the columns of $M$ list the eigenvectors.
+
+The handouts' explanation, one step at a time:
+
+1. **(1) $\iff$ (2)** is the spectral theorem: $L_A$ is self-adjoint with respect to the Euclidean product if and only if $A$ is symmetric (Corollary 25.7), and the eigenvalues of a real symmetric matrix are real.
+2. **(2) $\Rightarrow$ (3)**: an orthonormal basis of eigenvectors, put in columns, forms an **orthogonal** matrix $M$, and $M^{-1} A M$ is diagonal (it is the diagonalisation of lessons L17–L18).
+3. **(3) $\Rightarrow$ (2)**: if $M^{-1} A M = D$ is diagonal, the columns of $M$ are eigenvectors; if moreover $M$ is orthogonal, they form an orthonormal basis.
+4. In every case $M^{-1} = {}^tM$.
+
+> [!PITFALL] Diagonalisable does not mean symmetric
+> The matrix $B = \begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}$ is **diagonalisable** (two distinct eigenvalues), but it is not symmetric: there is a basis of eigenvectors, but not an **orthonormal** basis of eigenvectors (Exercise 26.3). The spectral theorem characterises the **orthogonally** diagonalisable matrices, not all the diagonalisable ones.
+
+### Two facts that make the computation quick
+
+> [!BEYOND] Eigenvectors of different eigenvalues are orthogonal
+> If $A$ is symmetric (or $T$ self-adjoint), $A v = \lambda v$, $A w = \mu w$ and $\lambda \neq \mu$, then $\langle v, w \rangle = 0$. Indeed, with $\mu$ real,
+> $$\lambda \langle v, w \rangle = \langle A v, w \rangle = \langle v, A w \rangle = \mu \langle v, w \rangle,$$
+> so $(\lambda - \mu)\langle v, w \rangle = 0$ and $\langle v, w \rangle = 0$. The handouts use this fact in Exercise 26.4 ("the eigenvector in $V_{\lambda_1}$ is always automatically orthogonal to all the vectors in $V_{\lambda_2}$").
+>
+> Practical consequence: **Gram–Schmidt is needed only inside each eigenspace** of dimension $\ge 2$. Between different eigenspaces orthogonality comes for free.
+
+The second fact: since a symmetric matrix is diagonalisable, **for every eigenvalue the geometric multiplicity equals the algebraic one** (Theorem 18.10). There is no need to check it: the dimension of each eigenspace can already be read off the characteristic polynomial.
+
+> [!METHOD] Finding an orthonormal basis of eigenvectors (and the matrix $M$)
+> 1. **Check** that $A$ is symmetric (if it is not, by Corollary 26.2 an orthonormal basis of eigenvectors does not exist).
+> 2. **Eigenvalues**: roots of $p_A(\lambda) = \det(A - \lambda I)$, with their multiplicities.
+> 3. **Eigenspaces**: for each eigenvalue solve $(A - \lambda I)x = 0$ and find a basis.
+> 4. **Orthogonalise inside each eigenspace** of dimension $\ge 2$ with Gram–Schmidt (or by choosing orthogonal vectors right away).
+> 5. **Normalise** each vector by dividing it by its norm.
+> 6. Put the vectors in columns: that is $M$, orthogonal. Then ${}^tM A M = D = \operatorname{diag}(\lambda_1, \dots, \lambda_n)$, with the eigenvalues in the order of the columns.
+> 7. **Check**: the vectors found must have scalar product $0$ pairwise and norm $1$.
+
+> [!EXAMPLE] A $2 \times 2$ matrix
+> $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$ is symmetric. $p_A(\lambda) = (2 - \lambda)^2 - 1 = \lambda^2 - 4\lambda + 3 = (\lambda - 3)(\lambda - 1)$.
+> - $\lambda = 3$: $(A - 3I)x = 0$ gives $-x_1 + x_2 = 0$, eigenvector $(1, 1)$;
+> - $\lambda = 1$: $(A - I)x = 0$ gives $x_1 + x_2 = 0$, eigenvector $(1, -1)$.
+>
+> They are already orthogonal (different eigenvalues). I normalise: $\frac{1}{\sqrt 2}(1, 1)$ and $\frac{1}{\sqrt 2}(1, -1)$. Then
+> $$M = \frac{1}{\sqrt 2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}, \qquad {}^tM A M = \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}.$$
+> Check of one product: $A\,(1, 1) = (3, 3) = 3\,(1, 1)$ and $A\,(1, -1) = (1, -1)$.
+
+> [!EXAMPLE] A $3 \times 3$ matrix with a double eigenvalue
+> $A = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 2 & 1 \\ 1 & 1 & 2 \end{pmatrix}$ is symmetric.
+>
+> **Eigenvalues.** With Sarrus, and calling $t = 2 - \lambda$:
+> $$\det(A - \lambda I) = t^3 + 1 + 1 - t - t - t = t^3 - 3t + 2 = (t - 1)^2 (t + 2).$$
+> Since $t - 1 = 1 - \lambda$ and $t + 2 = 4 - \lambda$, the eigenvalues are $\lambda = 1$ (double) and $\lambda = 4$ (simple).
+>
+> **Eigenspaces.** For $\lambda = 4$: $(A - 4I)x = 0$ has solutions $\Span((1, 1, 1))$ (every row of $A$ adds up to $4$). For $\lambda = 1$: $A - I$ has all its rows equal to $(1, 1, 1)$, so $V_1 = \{x_1 + x_2 + x_3 = 0\}$, of dimension $2$, with basis $(1, -1, 0)$ and $(1, 0, -1)$.
+>
+> **Gram–Schmidt inside $V_1$.** $w_1 = (1, -1, 0)$ and
+> $$\begin{aligned} w_2 &= (1, 0, -1) - \frac{\langle (1, 0, -1), (1, -1, 0) \rangle}{\langle (1, -1, 0), (1, -1, 0) \rangle}(1, -1, 0) \\ &= (1, 0, -1) - \tfrac 12 (1, -1, 0) = \left(\tfrac 12, \tfrac 12, -1\right), \end{aligned}$$
+> which I multiply by $2$: $(1, 1, -2)$. Check: $\langle (1, -1, 0), (1, 1, -2) \rangle = 0$, and $(1, 1, -2)$ satisfies $x_1 + x_2 + x_3 = 0$.
+>
+> **Normalisation and matrix.** The orthonormal basis of eigenvectors is
+> $$\tfrac{1}{\sqrt 3}(1, 1, 1), \qquad \tfrac{1}{\sqrt 2}(1, -1, 0), \qquad \tfrac{1}{\sqrt 6}(1, 1, -2),$$
+> and with these columns $M$ is orthogonal and ${}^tM A M = \operatorname{diag}(4, 1, 1)$. The vector $(1, 1, 1)$ is orthogonal to the other two without any need for Gram–Schmidt: different eigenvalues.
+
+With the calculator below you can check eigenvalues and eigenspaces (the tool also writes the multiplicities), and with the second one redo Gram–Schmidt inside the eigenspace $V_1$.
+
+```widget gauss
+title: Eigenvalues and eigenspaces of the symmetric matrix of the example
+matrice: 2 1 1; 1 2 1; 1 1 2
+modo: autovalori
+```
+
+```widget gauss
+title: Gram–Schmidt inside the eigenspace $V_1 = \{x_1 + x_2 + x_3 = 0\}$
+matrice: 1 -1 0; 1 0 -1
+modo: gram-schmidt
+```
+
+### The complex case
+
+For a **Hermitian** matrix $H$ the procedure is the same, with two differences: products and norms are computed with the **Hermitian product** $\langle x, y \rangle = {}^t x\, \bar y$, and the matrix $W$ with the eigenvectors as columns is not orthogonal but satisfies ${}^t\bar W W = I$, that is $W^{-1} = {}^t\bar W$ (the conjugate transpose). Exercise 26.5 of the handouts shows it in full.
+
+> [!PITFALL] Normalising a complex vector
+> The norm of $(1, i, i)$ is $\sqrt{\lvert 1 \rvert^2 + \lvert i \rvert^2 + \lvert i \rvert^2} = \sqrt 3$, not $\sqrt{1 + i^2 + i^2} = \sqrt{-1}$. In complex vectors you add up the **squared moduli**.
+
+## Link with computer science: PCA (pp. 135–136)
+
+> [!NOTE] PCA and dimensionality reduction
+> The handouts close the theoretical part with an application to data analysis: **Principal Component Analysis** (PCA). You have **centred** data $x_1, \dots, x_N \in \R^n$ (that is with mean zero) and you consider the matrix
+> $$S = \frac 1N \sum_{i=1}^N x_i\, {}^t x_i.$$
+> $S$ is **symmetric**, so by the spectral theorem it has an orthonormal basis of eigenvectors. The eigenvectors with the largest eigenvalues indicate the **directions** along which the data vary most. Projecting the data onto the subspace spanned by a few of these directions you get a lower-dimensional representation, which keeps an important part of the information. It is the mathematical principle of PCA.
+
+Piece by piece: each $x_i\, {}^t x_i$ is an $n \times n$ matrix (column times row), and it is symmetric because ${}^t(x_i\, {}^t x_i) = x_i\, {}^t x_i$; the mean of symmetric matrices is symmetric.
+
+> [!BEYOND] An example with four points
+> Take in $\R^2$ the points $(2, 2)$, $(-2, -2)$, $(1, -1)$, $(-1, 1)$: their mean is $(0, 0)$, so they are centred.
+> - $(2, 2)\,{}^t(2, 2) = \begin{pmatrix} 4 & 4 \\ 4 & 4 \end{pmatrix}$, and the same for $(-2, -2)$;
+> - $(1, -1)\,{}^t(1, -1) = \begin{pmatrix} 1 & -1 \\ -1 & 1 \end{pmatrix}$, and the same for $(-1, 1)$.
+>
+> So $S = \frac 14 \begin{pmatrix} 10 & 6 \\ 6 & 10 \end{pmatrix} = \begin{pmatrix} 5/2 & 3/2 \\ 3/2 & 5/2 \end{pmatrix}$, with eigenvalues $\frac 52 \pm \frac 32$, that is $4$ (eigenvector $(1, 1)$) and $1$ (eigenvector $(1, -1)$). The **first principal component** is the direction $u_1 = \frac{1}{\sqrt 2}(1, 1)$. The coordinates of the points along $u_1$ are $\langle x_i, u_1 \rangle = 2\sqrt 2,\ -2\sqrt 2,\ 0,\ 0$, and the mean of their squares is $\frac{8 + 8 + 0 + 0}{4} = 4$: exactly the eigenvalue. Along $u_2 = \frac{1}{\sqrt 2}(1, -1)$ the mean of the squares is $1$. Keeping only the coordinate along $u_1$ reduces the data to one dimension, losing the smaller part of the variability.
+
+```graph
+title: The four points and the two principal directions: along $u_1$ the data vary more (eigenvalue 4) than along $u_2$ (eigenvalue 1)
+x: -3 3
+y: -3 3
+line: -2 -2 2 2 | accent | dashed | thin
+line: -2 2 2 -2 | violet | dashed | thin
+point: 2 2 | amber | $(2, 2)$ | se
+point: -2 -2 | amber | $(-2, -2)$ | nw
+point: 1 -1 | amber | $(1, -1)$ | se
+point: -1 1 | amber | $(-1, 1)$ | nw
+vector: 0 0 1.4 1.4 | accent | thick | $u_1$ | nw
+vector: 0 0 0.7 -0.7 | violet | thick | $u_2$ | se
+```
+
+> [!BEYOND] Where to find it in the book
+> In Martelli's book the spectral theorem is §11.3 (pp. 352–355): Theorem 11.3.1 = 26.1, Corollary 11.3.2 = 26.2. Right after (Example 11.3.3) the book observes that orthogonal projections and reflections are self-adjoint and so represented by symmetric matrices, and uses the theorem to compute the signature of a symmetric matrix by counting the positive, negative and zero eigenvalues (Proposition 11.3.4, with Descartes' rule). Exercises 11.1 and 11.2 at the end of the chapter (p. 355) are similar to 26.3 and to our exercise on the matrix $\begin{pmatrix} 1 & i \\ -i & 1 \end{pmatrix}$.
+
+## Towards the exam
+
+The written test of Linear Algebra and Geometry has **10 quiz questions** with 5 answers (only one right) and **2 problems worth 11 points**, marked only with **at least 6 correct quiz answers**; it lasts **2 hours**, **with no calculator**, and you may bring only a sheet of **4 handwritten pages**. The 2026/27 exam sessions are on **22/01/2027** and **05/02/2027** at 14:00. All the details are in lesson L01.
+
+**What of this lesson appears in the 2023–2026 exam sessions.**
+
+- **Open problems with a matrix with a parameter**: you compute ${}^tA - A$ to find for which $k$ the matrix is symmetric, and you conclude with the spectral theorem. Exam of 24/01/2024 (problem 11, part 3: with $k = -1$ the matrix is symmetric, so diagonalisable) and of 15/01/2026 (problem 11, parts 2 and 3: for which $k$ there are real eigenvalues and an orthonormal basis of eigenvectors, and then compute it).
+- **Orthonormal basis of an eigenspace**: exam of 02/09/2025 (problem 11, part 3).
+- **Theory quiz questions**: exam of 16/01/2025 (question 7).
+
+Three real texts, solved.
+
+*Exam of 16/01/2025, question 7.* Let $A \in M(4, \R)$ be a symmetric matrix with exactly 2 distinct real eigenvalues. Which of the following statements is true? (a) At least one eigenvalue of $A$ must have multiplicity greater than 1. (b) $A$ must be orthogonal. (c) The eigenvectors of $A$ are orthonormal. (d) $A$ has at least one complex eigenvalue. (e) $A$ cannot be diagonalisable.
+
+Working: by the spectral theorem $A$ is diagonalisable with real eigenvalues, so the algebraic multiplicities of the two eigenvalues add up to $4$: at least one is $\ge 2$. **Answer (a).** (b) is false ($\operatorname{diag}(2, 2, 3, 3)$ is symmetric but not orthogonal); (c) confuses "there is an orthonormal basis of eigenvectors" with "all the eigenvectors are orthonormal" (twice an eigenvector does not have norm 1); (d) and (e) contradict the spectral theorem.
+
+*Exam of 02/09/2025, problem 11, part 3.* Given $A = \begin{pmatrix} -6 & 3 & 3 \\ 3 & -6 & 3 \\ 3 & 3 & -6 \end{pmatrix}$, compute an orthonormal basis of the eigenspace of $A$ with eigenvalue $-9$.
+
+Working: $A + 9I$ has all its rows equal to $(3, 3, 3)$, so $V_{-9} = \{x_1 + x_2 + x_3 = 0\}$, with basis $(1, -1, 0)$, $(1, 0, -1)$. It is the same plane as in the $3 \times 3$ example of the previous section: Gram–Schmidt gives $(1, -1, 0)$ and $(1, 1, -2)$, and normalising, the orthonormal basis is $\frac{1}{\sqrt 2}(1, -1, 0)$, $\frac{1}{\sqrt 6}(1, 1, -2)$.
+
+The third, the exam of 15/01/2026 (problem 11), is worked out in full in the exercises.
+
+> [!METHOD] The reasoning with ${}^tA - A$
+> 1. Compute ${}^tA - A$: it is the zero matrix exactly when $A$ is symmetric.
+> 2. For the values of the parameter at which $A$ is symmetric: real eigenvalues, diagonalisable, orthonormal basis of eigenvectors (Corollary 26.2).
+> 3. For the other values: **no orthonormal basis of eigenvectors** (again by Corollary 26.2), even though the matrix may be diagonalisable; for diagonalisability you need the methods of lessons L17–L18.
+
+**Mistakes to avoid.**
+
+- Forgetting to **normalise**: an orthogonal basis of eigenvectors is not yet orthonormal.
+- Doing Gram–Schmidt **between different eigenspaces** (useless) and **not** doing it inside an eigenspace of dimension $2$ (necessary, if the basis found with Gauss is not orthogonal).
+- Writing $M^{-1}$ by computing it by hand when $M$ is orthogonal: transposing is enough.
+- Deducing "not symmetric, so not diagonalisable": it is false (see $B = \begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}$).
+- In complex vectors, normalising with $\sqrt{\sum x_k^2}$ instead of with $\sqrt{\sum \lvert x_k \rvert^2}$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the statement of the spectral theorem and of Corollary 26.2; "real symmetric $\Rightarrow$ real eigenvalues"; "different eigenvalues $\Rightarrow$ orthogonal eigenvectors"; the recipe in seven steps; in the complex case $W^{-1} = {}^t\bar W$.
+
+## Quiz
+
+```quiz
+Q: With the Euclidean scalar product of $\R^2$, which of these matrices **certainly** has an orthonormal basis of eigenvectors?
++ $\begin{pmatrix} 1 & 3 \\ 3 & -2 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 3 \\ -3 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$
+= By Corollary 26.2 the real matrices with an orthonormal basis of eigenvectors are exactly the symmetric ones: only the first. The second has non-real eigenvalues ($1 \pm 3i$), the third is not diagonalisable, the fourth is diagonalisable but with eigenvectors $(1, 0)$ and $(1, 1)$ that are not orthogonal, the fifth is not symmetric. Similar to the exam of 15/01/2026 (problem 11, part 2).
+
+Q: Let $A \in M(3, \R)$ be symmetric with exactly two distinct eigenvalues. Which statement is true?
++ One of the two eigenspaces has dimension 2.
+- $A$ is orthogonal.
+- $A$ is not diagonalisable.
+- $A$ has a non-real eigenvalue.
+- Every basis of eigenvectors of $A$ is orthonormal.
+= $A$ is diagonalisable (spectral theorem), so the dimensions of the two eigenspaces add up to 3: one is 2 and the other 1. The other statements are false: for example $\operatorname{diag}(1, 1, 2)$ is not orthogonal, and $\{e_1, 2e_2, e_3\}$ is a basis of eigenvectors that is not orthonormal. Similar to the exam of 16/01/2025 (question 7).
+
+Q: The eigenvalues of a real symmetric matrix are:
++ always real
+- always positive
+- always distinct
+- sometimes non-real complex numbers
+- always integers
+= It is the consequence of the spectral theorem highlighted in the handouts. They are not always positive ($\operatorname{diag}(1, -1)$), nor distinct ($I_2$), nor integers (Exercise 26.3 has $2 \pm \sqrt 2$).
+
+Q: A real symmetric $2 \times 2$ matrix has eigenvalues $1$ and $3$, and $(1, 2)$ is an eigenvector with eigenvalue $1$. Which of these vectors is an eigenvector with eigenvalue $3$?
++ $(-2, 1)$
+- $(2, 1)$
+- $(1, 2)$
+- $(1, -2)$
+- $(3, 6)$
+= Eigenvectors of different eigenvalues of a symmetric matrix are orthogonal, and in $\R^2$ the vectors orthogonal to $(1, 2)$ form the line $\Span((-2, 1))$. $(1, 2)$ and $(3, 6)$ belong to the eigenvalue $1$; $(2, 1)$ and $(1, -2)$ are not orthogonal to $(1, 2)$.
+
+Q: If $M \in M(n, \R)$ is orthogonal, what is $M^{-1}$?
++ ${}^tM$
+- $M$
+- $-M$
+- $\frac{1}{\det M}\, M$
+- $M^2$
+= Orthogonal means ${}^tM M = I_n$, that is ${}^tM$ is the inverse. This is why in Corollary 26.2 ${}^tM A M = M^{-1} A M$. $M^{-1} = M$ holds only for the orthogonal matrices that are also symmetric, like reflections.
+
+Q: Which matrix $M$ is orthogonal and makes ${}^tM A M$ diagonal for $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$?
++ $\frac{1}{\sqrt 2}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$
+- $\frac 12\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$
+- $\frac{1}{\sqrt 2}\begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$
+- $\frac{1}{\sqrt 5}\begin{pmatrix} 1 & 2 \\ 2 & -1 \end{pmatrix}$
+= The columns must be eigenvectors of norm 1 and orthogonal: $\frac{1}{\sqrt 2}(1, 1)$ and $\frac{1}{\sqrt 2}(1, -1)$. Without the factor, or with $\frac 12$, the columns do not have norm 1 (the matrix is not orthogonal); with equal columns $M$ is not invertible; the last one is orthogonal but its columns are not eigenvectors, and ${}^tM A M = \begin{pmatrix} 14/5 & 3/5 \\ 3/5 & 6/5 \end{pmatrix}$ is not diagonal. Similar to the exams of 15/01/2026 and 02/09/2025 (problem 11).
+
+Q: The vector $(1, 1, 0)$ is an eigenvector of the symmetric matrix $A = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 1 & 0 \\ 0 & 0 & 5 \end{pmatrix}$. What is its eigenvalue?
+N: 3
+= $A\,(1, 1, 0) = (1 + 2,\ 2 + 1,\ 0) = (3, 3, 0) = 3\,(1, 1, 0)$.
+
+Q: What are the eigenvalues of the Hermitian matrix $H = \begin{pmatrix} 1 & i \\ -i & 1 \end{pmatrix}$?
++ $0$ and $2$
+- $i$ and $-i$
+- $1 + i$ and $1 - i$
+- $1$ (double)
+- $0$ and $-2$
+= $p_H(\lambda) = (1 - \lambda)^2 - i \cdot (-i) = (1 - \lambda)^2 - 1 = \lambda(\lambda - 2)$. The eigenvalues of a Hermitian matrix are real (spectral theorem): the answers with $i$ are excluded from the start.
+
+Q: An endomorphism $T$ of $\C^n$ has an orthonormal basis of eigenvectors with respect to the Euclidean Hermitian product. Which statement is true?
++ $T$ is self-adjoint if and only if all its eigenvalues are real.
+- $T$ is always self-adjoint.
+- $T$ is never self-adjoint.
+- The eigenvalues of $T$ are always real.
+- The matrix of $T$ in the canonical basis is diagonal.
+= With the orthonormal basis of eigenvectors already guaranteed, Theorem 26.1 says that $T$ is self-adjoint exactly when the eigenvalues are real. $T(x, y) = (ix, y)$ has the canonical basis as an orthonormal basis of eigenvectors but it is not self-adjoint (eigenvalue $i$).
+
+Q: For which $k \in \R$ does the matrix $A_k = \begin{pmatrix} 1 & k \\ k^2 & 2 \end{pmatrix}$ have an orthonormal basis of eigenvectors (Euclidean product)?
++ For $k = 0$ and $k = 1$.
+- Only for $k = 1$.
+- For every $k$.
+- For no $k$.
+- For $k = -1$ and $k = 1$.
+= ${}^tA_k - A_k = \begin{pmatrix} 0 & k^2 - k \\ k - k^2 & 0 \end{pmatrix}$ is zero if and only if $k^2 = k$, that is $k = 0$ or $k = 1$. By Corollary 26.2 these are exactly the values with an orthonormal basis of eigenvectors. For $k = -1$ the matrix is $\begin{pmatrix} 1 & -1 \\ 1 & 2 \end{pmatrix}$, not symmetric. Similar to the exams of 24/01/2024 and 15/01/2026 (problem 11).
+```
+
+## Exercises
+
+::: exercise basic Exercise 26.3 of the handouts: symmetric yes, symmetric no
+Check that the matrix $A$ has an orthonormal basis of eigenvectors while the matrix $B$ does not:
+$$A = \begin{pmatrix} 3 & 1 \\ 1 & 1 \end{pmatrix}, \qquad B = \begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}.$$
+::: solution
+Corollary 26.2 answers at once: $A$ is symmetric and $B$ is not. The handouts, however, ask you to check it **without** using the spectral theorem.
+
+**The matrix $A$.** $p_A(\lambda) = (3 - \lambda)(1 - \lambda) - 1 = \lambda^2 - 4\lambda + 2$, with roots $\lambda_{1,2} = \frac{4 \pm \sqrt{16 - 8}}{2} = 2 \pm \sqrt 2$. To find the eigenvectors I use the first row of $A - \lambda I$: $(3 - \lambda)x + y = 0$, that is $y = (\lambda - 3)x$.
+- $\lambda_1 = 2 + \sqrt 2$: $y = (\sqrt 2 - 1)x$. With $x = 1 + \sqrt 2$ you get $y = (\sqrt 2 - 1)(\sqrt 2 + 1) = 2 - 1 = 1$, so $v_1 = (1 + \sqrt 2, 1)$.
+- $\lambda_2 = 2 - \sqrt 2$: $y = (-1 - \sqrt 2)x$. With $x = 1 - \sqrt 2$ you get $y = -(1 + \sqrt 2)(1 - \sqrt 2) = -(1 - 2) = 1$, so $v_2 = (1 - \sqrt 2, 1)$.
+
+$\langle v_1, v_2 \rangle = (1 + \sqrt 2)(1 - \sqrt 2) + 1 = (1 - 2) + 1 = 0$: they are orthogonal. Normalising ($\lVert v_1 \rVert^2 = 4 + 2\sqrt 2$, $\lVert v_2 \rVert^2 = 4 - 2\sqrt 2$) you get an orthonormal basis of eigenvectors.
+
+**The matrix $B$.** It is triangular: eigenvalues $\lambda_1 = 3$ and $\lambda_2 = 1$. For $\lambda_1 = 3$: $(B - 3I)x = 0$ gives $y = 0$, eigenvector $v_1 = (1, 0)$. For $\lambda_2 = 1$: $(B - I)x = 0$ gives $2x + y = 0$, eigenvector $v_2 = (-1, 2)$. Now $\langle v_1, v_2 \rangle = -1 \neq 0$.
+
+Why no choice works: every eigenvector of $\lambda_1$ is a multiple of $v_1$ and every eigenvector of $\lambda_2$ is a multiple of $v_2$. Multiplying by numbers does not change the line, so every pair of eigenvectors forms the same angle $\vartheta$ or $\pi - \vartheta$, with $\cos\vartheta = \frac{-1}{1 \cdot \sqrt 5}$: it is not a right angle. It is impossible to choose orthonormal eigenvectors.
+:::
+
+::: exercise intermediate Exercise 26.4 of the handouts: an orthonormal basis of eigenvectors
+Find an orthonormal basis of eigenvectors for the matrix
+$$A = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 0 \\ 1 & 0 & 1 \end{pmatrix}.$$
+::: solution
+$A$ is symmetric, so the basis exists.
+
+**Characteristic polynomial**, expanding along the second row (which has only one non-zero entry):
+$$\begin{aligned} p_A(\lambda) &= \det\begin{pmatrix} 1 - \lambda & 0 & 1 \\ 0 & 2 - \lambda & 0 \\ 1 & 0 & 1 - \lambda \end{pmatrix} = (2 - \lambda)\det\begin{pmatrix} 1 - \lambda & 1 \\ 1 & 1 - \lambda \end{pmatrix} \\ &= (2 - \lambda)\big[(1 - \lambda)^2 - 1\big]. \end{aligned}$$
+Since $(1 - \lambda)^2 - 1 = \lambda^2 - 2\lambda = \lambda(\lambda - 2)$, you get $p_A(\lambda) = -\lambda(2 - \lambda)^2$. Eigenvalues: $\lambda_1 = 0$ with algebraic multiplicity $1$, $\lambda_2 = 2$ with algebraic multiplicity $2$; since $A$ is diagonalisable, the geometric multiplicities are the same.
+
+**Eigenspaces.**
+- $\lambda_1 = 0$: $Ax = 0$ gives $x_1 + x_3 = 0$ and $x_2 = 0$, so $V_0 = \Span((1, 0, -1))$.
+- $\lambda_2 = 2$: $(2I - A)x = 0$ with $2I - A = \begin{pmatrix} 1 & 0 & -1 \\ 0 & 0 & 0 \\ -1 & 0 & 1 \end{pmatrix}$ gives only $x_1 = x_3$, with $x_2$ free: $V_2 = \Span((1, 0, 1), (0, 1, 0))$.
+
+**Orthogonality.** The two vectors chosen in $V_2$ are already orthogonal: $\langle (1, 0, 1), (0, 1, 0) \rangle = 0$ (the handouts warn: they must be chosen like this, otherwise Gram–Schmidt is needed). The vector of $V_0$ is automatically orthogonal to the whole of $V_2$ (different eigenvalues): $\langle (1, 0, -1), (1, 0, 1) \rangle = 0$ and $\langle (1, 0, -1), (0, 1, 0) \rangle = 0$.
+
+**Normalisation.** $v_1 = (1, 0, -1)$ and $v_2 = (1, 0, 1)$ have norm $\sqrt 2$, $v_3 = (0, 1, 0)$ already has norm $1$:
+$$w_1 = \tfrac{1}{\sqrt 2}(1, 0, -1) = \left(\tfrac{\sqrt 2}{2}, 0, -\tfrac{\sqrt 2}{2}\right), \qquad w_2 = \tfrac{1}{\sqrt 2}(1, 0, 1) = \left(\tfrac{\sqrt 2}{2}, 0, \tfrac{\sqrt 2}{2}\right),$$
+$$w_3 = v_3 = (0, 1, 0).$$
+$\{w_1, w_2, w_3\}$ is an orthonormal basis of eigenvectors. With $M = (w_1 \mid w_2 \mid w_3)$ we have ${}^tM A M = \operatorname{diag}(0, 2, 2)$.
+:::
+
+::: exercise hard Exercise 26.5 of the handouts: a Hermitian matrix
+Compute the diagonalisation of the following matrix:
+$$A = \begin{pmatrix} 2 & i & i \\ -i & 1 & 0 \\ -i & 0 & 1 \end{pmatrix}.$$
+::: solution
+$A$ is Hermitian (real diagonal, $\overline{-i} = i$), so there is an orthonormal basis of eigenvectors (with respect to the Euclidean Hermitian product) and the eigenvalues are real.
+
+**Characteristic polynomial**, expanding along the first row:
+$$\det(A - \lambda I) = (2 - \lambda)(1 - \lambda)^2 - i\,\big[(-i)(1 - \lambda) - 0\big] + i\,\big[0 - (1 - \lambda)(-i)\big].$$
+The second term is $-i \cdot (-i)(1 - \lambda) = i^2 (1 - \lambda) = -(1 - \lambda)$; the third is $i \cdot i(1 - \lambda) = -(1 - \lambda)$. So
+$$\begin{aligned} \det(A - \lambda I) &= (1 - \lambda)\big[(2 - \lambda)(1 - \lambda) - 2\big] \\ &= (1 - \lambda)(\lambda^2 - 3\lambda) = (1 - \lambda)\lambda(\lambda - 3). \end{aligned}$$
+Eigenvalues $\lambda_1 = 0$, $\lambda_2 = 1$, $\lambda_3 = 3$, each with algebraic multiplicity $1$: all real, as predicted.
+
+**Eigenvectors.**
+- $\lambda_1 = 0$: from the second row $-ix + y = 0$, that is $y = ix$; from the third $z = ix$. The first works out: $2x + i(ix) + i(ix) = 2x - x - x = 0$. With $x = 1$: $v_1 = (1, i, i)$.
+- $\lambda_2 = 1$: $A - I = \begin{pmatrix} 1 & i & i \\ -i & 0 & 0 \\ -i & 0 & 0 \end{pmatrix}$; the second row gives $x = 0$ and the first $iy + iz = 0$, that is $z = -y$: $v_2 = (0, 1, -1)$.
+- $\lambda_3 = 3$: $A - 3I = \begin{pmatrix} -1 & i & i \\ -i & -2 & 0 \\ -i & 0 & -2 \end{pmatrix}$; from the second row $y = -\frac{i}{2}x$, from the third $z = -\frac{i}{2}x$. With $x = 2i$: $y = -\frac i2 \cdot 2i = 1$ and $z = 1$, so $v_3 = (2i, 1, 1)$. Check on the first row: $-2i + i + i = 0$.
+
+**Orthogonality** with the Hermitian product $\langle x, y \rangle = \sum x_k \bar y_k$: $\langle v_1, v_2 \rangle = 0 + i - i = 0$; $\langle v_1, v_3 \rangle = 1 \cdot \overline{2i} + i + i = -2i + 2i = 0$; $\langle v_2, v_3 \rangle = 0 + 1 - 1 = 0$. They are already orthogonal (distinct eigenvalues): it is enough to normalise them.
+
+**Normalisation**, with the squared moduli: $\lVert v_1 \rVert^2 = 1 + 1 + 1 = 3$, $\lVert v_2 \rVert^2 = 2$, $\lVert v_3 \rVert^2 = 4 + 1 + 1 = 6$. The normalised columns form
+$$W = \begin{pmatrix} \frac{\sqrt 3}{3} & 0 & \frac{i\sqrt 6}{3} \\ \frac{\sqrt 3\, i}{3} & \frac{\sqrt 2}{2} & \frac{\sqrt 6}{6} \\ \frac{\sqrt 3\, i}{3} & -\frac{\sqrt 2}{2} & \frac{\sqrt 6}{6} \end{pmatrix}$$
+(for example $\frac{2i}{\sqrt 6} = \frac{2i\sqrt 6}{6} = \frac{i\sqrt 6}{3}$), and
+$$\Lambda = W^{-1} A W = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 3 \end{pmatrix}.$$
+
+**The inverse without computations.** The handouts note that ${}^t\bar W \cdot W = I_3$, so $W^{-1} = {}^t\bar W$: the entry $(j, k)$ of ${}^t\bar W W$ is $\sum_l \overline{W_{lj}} W_{lk} = \langle w_k, w_j \rangle$, which equals $1$ if $j = k$ and $0$ otherwise because the columns are orthonormal. Careful: without conjugation it does not work, for example the entry $(1, 1)$ of ${}^tW W$ is $\frac 13 + \left(\frac{\sqrt 3 i}{3}\right)^2 + \left(\frac{\sqrt 3 i}{3}\right)^2 = \frac 13 - \frac 13 - \frac 13 = -\frac 13 \neq 1$.
+:::
+
+::: exercise basic An orthogonal diagonalisation $2 \times 2$
+Find an orthogonal matrix $M$ such that ${}^tM A M$ is diagonal, for $A = \begin{pmatrix} 5 & 2 \\ 2 & 2 \end{pmatrix}$.
+::: solution
+$p_A(\lambda) = (5 - \lambda)(2 - \lambda) - 4 = \lambda^2 - 7\lambda + 6 = (\lambda - 6)(\lambda - 1)$.
+- $\lambda = 6$: $(A - 6I)x = 0$ gives $-x_1 + 2x_2 = 0$, eigenvector $(2, 1)$.
+- $\lambda = 1$: $(A - I)x = 0$ gives $4x_1 + 2x_2 = 0$, eigenvector $(1, -2)$.
+
+Orthogonal: $2 - 2 = 0$. Norms $\sqrt 5$. So
+$$M = \frac{1}{\sqrt 5}\begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix}, \qquad {}^tM A M = \begin{pmatrix} 6 & 0 \\ 0 & 1 \end{pmatrix}.$$
+Check: $A\,(2, 1) = (12, 6) = 6\,(2, 1)$ and $A\,(1, -2) = (1, -2)$.
+:::
+
+::: exercise intermediate A double eigenvalue with Gram–Schmidt
+Find an orthonormal basis of eigenvectors for $A = \begin{pmatrix} 2 & 2 & 2 \\ 2 & 5 & 4 \\ 2 & 4 & 5 \end{pmatrix}$.
+::: solution
+**Characteristic polynomial**, expanding along the first row:
+$$\det(A - \lambda I) = (2 - \lambda)\big[(5 - \lambda)^2 - 16\big] - 2\big[2(5 - \lambda) - 8\big] + 2\big[8 - 2(5 - \lambda)\big].$$
+$(5 - \lambda)^2 - 16 = \lambda^2 - 10\lambda + 9 = (\lambda - 1)(\lambda - 9)$; $2(5 - \lambda) - 8 = 2 - 2\lambda$; $8 - 2(5 - \lambda) = -2 + 2\lambda$. So
+$$\begin{aligned} \det(A - \lambda I) &= (2 - \lambda)(\lambda - 1)(\lambda - 9) + 8(\lambda - 1) \\ &= (\lambda - 1)\big[(2 - \lambda)(\lambda - 9) + 8\big] = -(\lambda - 1)^2(\lambda - 10), \end{aligned}$$
+because $(2 - \lambda)(\lambda - 9) + 8 = -\lambda^2 + 11\lambda - 10 = -(\lambda - 1)(\lambda - 10)$. Eigenvalues: $1$ (double) and $10$.
+
+**Eigenspaces.** $A - I = \begin{pmatrix} 1 & 2 & 2 \\ 2 & 4 & 4 \\ 2 & 4 & 4 \end{pmatrix}$ has rank $1$: $V_1 = \{x_1 + 2x_2 + 2x_3 = 0\}$, with basis $(-2, 1, 0)$ and $(-2, 0, 1)$. For $\lambda = 10$: $A\,(1, 2, 2) = (10, 20, 20)$, so $V_{10} = \Span((1, 2, 2))$ (it is the line orthogonal to the plane $V_1$, as it must be).
+
+**Gram–Schmidt in $V_1$.** $w_1 = (-2, 1, 0)$ and
+$$\begin{aligned} w_2 &= (-2, 0, 1) - \frac{\langle (-2, 0, 1), (-2, 1, 0) \rangle}{\langle (-2, 1, 0), (-2, 1, 0) \rangle}(-2, 1, 0) \\ &= (-2, 0, 1) - \tfrac 45(-2, 1, 0) = \left(-\tfrac 25, -\tfrac 45, 1\right), \end{aligned}$$
+which I multiply by $5$: $(-2, -4, 5)$. Checks: $\langle (-2, 1, 0), (-2, -4, 5) \rangle = 4 - 4 = 0$ and $-2 - 8 + 10 = 0$ (it lies in $V_1$).
+
+**Normalisation.** $\lVert (1, 2, 2) \rVert = 3$, $\lVert (-2, 1, 0) \rVert = \sqrt 5$, $\lVert (-2, -4, 5) \rVert = \sqrt{45} = 3\sqrt 5$. Orthonormal basis of eigenvectors:
+$$\tfrac 13 (1, 2, 2), \qquad \tfrac{1}{\sqrt 5}(-2, 1, 0), \qquad \tfrac{1}{3\sqrt 5}(-2, -4, 5),$$
+with ${}^tM A M = \operatorname{diag}(10, 1, 1)$.
+:::
+
+::: exercise intermediate A $2 \times 2$ Hermitian matrix
+Find an orthonormal basis of eigenvectors (Euclidean Hermitian product) for $H = \begin{pmatrix} 1 & i \\ -i & 1 \end{pmatrix}$ and write $W$ with $W^{-1} H W$ diagonal.
+::: solution
+$p_H(\lambda) = (1 - \lambda)^2 - i(-i) = (1 - \lambda)^2 - 1 = \lambda(\lambda - 2)$: eigenvalues $0$ and $2$, real.
+- $\lambda = 0$: $x_1 + i x_2 = 0$, that is $x_1 = -i x_2$: with $x_2 = i$ we have $x_1 = 1$, eigenvector $(1, i)$. Check: $H\,(1, i) = (1 + i \cdot i,\ -i + i) = (0, 0)$.
+- $\lambda = 2$: $-x_1 + i x_2 = 0$, that is $x_1 = i x_2$: with $x_2 = -i$ we have $x_1 = 1$, eigenvector $(1, -i)$. Check: $H\,(1, -i) = (1 + 1,\ -i - i) = 2\,(1, -i)$.
+
+$\langle (1, i), (1, -i) \rangle = 1 + i \cdot \overline{-i} = 1 + i \cdot i = 0$, and the norms equal $\sqrt 2$. So
+$$W = \frac{1}{\sqrt 2}\begin{pmatrix} 1 & 1 \\ i & -i \end{pmatrix}, \qquad W^{-1} = {}^t\bar W = \frac{1}{\sqrt 2}\begin{pmatrix} 1 & -i \\ 1 & i \end{pmatrix},$$
+$$W^{-1} H W = \begin{pmatrix} 0 & 0 \\ 0 & 2 \end{pmatrix}.$$
+:::
+
+::: exercise hard The easy converse, with matrices
+Let $A \in M(n, \R)$ and suppose that there is an orthogonal matrix $M$ with ${}^tM A M = D$ diagonal. Prove directly that $A$ is symmetric.
+::: solution
+From ${}^tM A M = D$, multiplying on the left by $M$ and on the right by ${}^tM$ and using $M\,{}^tM = I$ (for a square matrix ${}^tM M = I$ also implies $M\,{}^tM = I$):
+$$A = M D\, {}^tM.$$
+Transposing, with the rule for the transpose of a product and ${}^tD = D$ (a diagonal matrix is symmetric):
+$${}^tA = {}^t({}^tM)\, {}^tD\, {}^tM = M D\, {}^tM = A.$$
+So $A$ is symmetric. It is the direction (3) $\Rightarrow$ (1) of Corollary 26.2, without going through endomorphisms.
+:::
+
+::: exercise hard Real eigenvalues for $2 \times 2$ symmetric matrices, by hand
+(a) Prove that $S = \begin{pmatrix} a & b \\ b & c \end{pmatrix}$ with $a, b, c \in \R$ always has real eigenvalues. (b) When do the two eigenvalues coincide? (c) Check that, if $b \neq 0$, the eigenvectors are orthogonal.
+::: solution
+(a) $p_S(\lambda) = \lambda^2 - (a + c)\lambda + (ac - b^2)$, with discriminant
+$$\Delta = (a + c)^2 - 4(ac - b^2) = (a - c)^2 + 4b^2 \ge 0.$$
+The roots are real.
+
+(b) $\Delta = 0$ if and only if $a = c$ and $b = 0$, that is $S = aI$: a single eigenvalue, and every vector is an eigenvector.
+
+(c) If $b \neq 0$ the eigenvalues $\lambda_1 \neq \lambda_2$ are distinct. From the first row of $S - \lambda I$, $(a - \lambda)x + by = 0$, an eigenvector of $\lambda$ is $v = (b, \lambda - a)$. Then
+$$\langle v_1, v_2 \rangle = b^2 + (\lambda_1 - a)(\lambda_2 - a) = b^2 + \lambda_1\lambda_2 - a(\lambda_1 + \lambda_2) + a^2.$$
+With $\lambda_1 + \lambda_2 = a + c$ and $\lambda_1 \lambda_2 = ac - b^2$ (coefficients of $p_S$): $b^2 + ac - b^2 - a^2 - ac + a^2 = 0$.
+:::
+
+::: exercise exam A matrix with a parameter (exam of 15/01/2026, problem 11)
+Consider the matrix $A = \begin{pmatrix} 1 & k^2 & 0 \\ k & k + 1 & k \\ 0 & k & 1 \end{pmatrix}$ in $M(3, \R)$, where $k$ is a real parameter. (1) Determine for which values of $k$ the matrix $A$ is invertible. (2) Compute ${}^tA - A$, and decide for which values of $k$ the matrix $A$ has both real eigenvalues and an orthonormal basis of eigenvectors. (3) Setting $k = 1$, compute an orthonormal basis of eigenvectors.
+::: solution
+(1) I expand along the first row:
+$$\det A = 1 \cdot \big((k + 1) \cdot 1 - k \cdot k\big) - k^2 \cdot (k \cdot 1 - k \cdot 0) + 0 = k + 1 - k^2 - k^3.$$
+I factor: $-k^3 - k^2 + k + 1 = -k^2(k + 1) + (k + 1) = (k + 1)(1 - k^2) = -(k + 1)^2 (k - 1)$. So $A$ is invertible for $k \neq 1$ and $k \neq -1$.
+
+(2) ${}^tA = \begin{pmatrix} 1 & k & 0 \\ k^2 & k + 1 & k \\ 0 & k & 1 \end{pmatrix}$, so
+$${}^tA - A = \begin{pmatrix} 0 & k - k^2 & 0 \\ k^2 - k & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}.$$
+$A$ is symmetric if and only if $k^2 = k$, that is $k = 0$ or $k = 1$. By Corollary 26.2, $A$ has an orthonormal basis of eigenvectors if and only if it is symmetric, and in that case it also has real eigenvalues. Answer: $k \in \{0, 1\}$.
+
+(3) With $k = 1$: $A = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 1 \end{pmatrix}$. Expanding along the first row,
+$$\begin{aligned} p_A(\lambda) &= (1 - \lambda)\big[(2 - \lambda)(1 - \lambda) - 1\big] - 1 \cdot \big[(1 - \lambda) - 0\big] \\ &= (1 - \lambda)\big[\lambda^2 - 3\lambda + 1 - 1\big] = (1 - \lambda)\,\lambda\,(\lambda - 3). \end{aligned}$$
+Eigenvalues $0$, $1$, $3$, distinct.
+- $\lambda = 0$: $x_1 + x_2 = 0$ and $x_2 + x_3 = 0$: $(1, -1, 1)$.
+- $\lambda = 1$: $A - I = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 0 \end{pmatrix}$ gives $x_2 = 0$ and $x_1 + x_3 = 0$: $(1, 0, -1)$.
+- $\lambda = 3$: $A - 3I = \begin{pmatrix} -2 & 1 & 0 \\ 1 & -1 & 1 \\ 0 & 1 & -2 \end{pmatrix}$ gives $x_2 = 2x_1$ and $x_2 = 2x_3$: $(1, 2, 1)$.
+
+They are pairwise orthogonal (distinct eigenvalues; check: $1 - 1 + 0 = 0$, $1 - 2 + 1 = 0$, $1 + 0 - 1 = 0$). Normalising:
+$$\tfrac{1}{\sqrt 3}(1, -1, 1), \qquad \tfrac{1}{\sqrt 2}(1, 0, -1), \qquad \tfrac{1}{\sqrt 6}(1, 2, 1).$$
+Note: $0$ is an eigenvalue precisely for $k = 1$, consistent with part (1) ($A$ not invertible).
+:::
+
+::: exercise exam Symmetric for a single value of the parameter
+Let $A_k = \begin{pmatrix} 2 & k & 0 \\ 1 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$ with $k \in \R$. (1) Compute ${}^tA_k - A_k$ and find for which $k$ the matrix is symmetric. (2) For that value find an orthogonal matrix $M$ and a diagonal one $D$ with ${}^tM A_k M = D$. (3) For $k = 4$ is the matrix diagonalisable? Does it have an orthonormal basis of eigenvectors?
+::: solution
+(1) ${}^tA_k - A_k = \begin{pmatrix} 0 & 1 - k & 0 \\ k - 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$: zero only for $k = 1$.
+
+(2) With $k = 1$ the top-left block is $\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$, with eigenvalues $3$ and $1$ and eigenvectors $(1, 1)$ and $(1, -1)$; the third vector of the canonical basis gives the eigenvalue $3$. So
+- $\lambda = 3$ (double): $V_3 = \Span((1, 1, 0), (0, 0, 1))$, already orthogonal;
+- $\lambda = 1$: $V_1 = \Span((1, -1, 0))$.
+
+Check with the polynomial: $p(\lambda) = (3 - \lambda)\big[(2 - \lambda)^2 - 1\big] = (3 - \lambda)(\lambda - 1)(\lambda - 3)$. Normalising:
+$$M = \begin{pmatrix} \frac{1}{\sqrt 2} & 0 & \frac{1}{\sqrt 2} \\ \frac{1}{\sqrt 2} & 0 & -\frac{1}{\sqrt 2} \\ 0 & 1 & 0 \end{pmatrix}, \qquad D = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & 1 \end{pmatrix}.$$
+
+(3) With $k = 4$ the block $\begin{pmatrix} 2 & 4 \\ 1 & 2 \end{pmatrix}$ has $p(\lambda) = (2 - \lambda)^2 - 4 = \lambda(\lambda - 4)$: eigenvalues $0$ and $4$, plus the eigenvalue $3$. Three **distinct** real eigenvalues: $A_4$ is diagonalisable (lesson L18). But it is not symmetric, so by Corollary 26.2 it does **not** have an orthonormal basis of eigenvectors. Indeed the eigenvectors of $4$ and of $0$ are $(2, 1, 0)$ and $(-2, 1, 0)$, with scalar product $-4 + 1 = -3 \neq 0$.
+:::
+
+## Review questions
+
+::: question What does the spectral theorem say?
+An endomorphism $T$ of a real space with a positive definite scalar product (or of a complex one with a positive definite Hermitian product) is self-adjoint if and only if it has an orthonormal basis of eigenvectors and all its eigenvalues are real (Theorem 26.1).
+:::
+
+::: question Why is the condition "real eigenvalues" needed in the complex case?
+Because there are endomorphisms with an orthonormal basis of eigenvectors that are not self-adjoint: $T(x, y) = (ix, y)$ on $\C^2$. Their diagonal matrix has a non-real entry, so it is not Hermitian.
+:::
+
+::: question How do you prove that the eigenvalues of a self-adjoint endomorphism are real?
+If $T(v) = \lambda v$ with $v \neq 0$: $\lambda \langle v, v \rangle = \langle T(v), v \rangle = \langle v, T(v) \rangle = \bar\lambda \langle v, v \rangle$, and since $\langle v, v \rangle > 0$ we have $\lambda = \bar\lambda$.
+:::
+
+::: question What is the idea of the induction in the proof?
+You take an eigenvector $v$ (it exists over the complex numbers by the fundamental theorem of algebra). $\Span(v)$ is invariant, so $U = \Span(v)^\perp$ is too (Proposition 25.10); $T|_U$ is self-adjoint on a space of dimension $n - 1$, and by induction it has an orthonormal basis of eigenvectors, to which you add $v$ normalised.
+:::
+
+::: question How do you go from the complex case to the real case?
+You write $T$ in an orthonormal basis with a real symmetric matrix $S$; considered as complex, it has real eigenvalues; so the characteristic polynomial has a real root $\lambda$, and $\det(S - \lambda I) = 0$ gives a real eigenvector. Then the same induction.
+:::
+
+::: question What does Corollary 26.2 say?
+For a real matrix $A$ the following are equivalent: $A$ symmetric; $L_A$ has an orthonormal basis of eigenvectors; there is an orthogonal $M$ with ${}^tM A M = M^{-1} A M$ diagonal.
+:::
+
+::: question What is an orthogonal matrix and why is it convenient?
+A real matrix with ${}^tM M = I$: its columns form an orthonormal basis. It is convenient because $M^{-1} = {}^tM$, without computations.
+:::
+
+::: question Why are eigenvectors of different eigenvalues of a symmetric matrix orthogonal?
+From $\lambda \langle v, w \rangle = \langle Av, w \rangle = \langle v, Aw \rangle = \mu \langle v, w \rangle$ it follows that $(\lambda - \mu)\langle v, w \rangle = 0$, and $\lambda \neq \mu$.
+:::
+
+::: question When is Gram–Schmidt needed to diagonalise a symmetric matrix?
+Only inside an eigenspace of dimension at least 2, if the basis found by solving the system is not already orthogonal. Between different eigenspaces orthogonality is automatic.
+:::
+
+::: question Is a diagonalisable matrix always symmetric?
+No. $\begin{pmatrix} 3 & 1 \\ 0 & 1 \end{pmatrix}$ is diagonalisable but not symmetric: it has a basis of eigenvectors, but not an orthonormal basis of eigenvectors.
+:::
+
+::: question How does the method change for a Hermitian matrix?
+Products and norms are computed with the Hermitian product (squared moduli); the matrix $W$ of the normalised eigenvectors satisfies ${}^t\bar W W = I$, so $W^{-1} = {}^t\bar W$.
+:::
+
+::: question What does the spectral theorem have to do with PCA?
+The matrix $S = \frac 1N \sum x_i\, {}^t x_i$ of the centred data is symmetric, so it has an orthonormal basis of eigenvectors; those with the largest eigenvalues are the directions of greatest variability, and projecting onto them reduces the dimension of the data.
+:::
+
+## Glossary
+
+```glossary
+Spectrum | The set of the eigenvalues of an endomorphism or of a matrix.
+Spectral theorem | $T$ self-adjoint $\iff$ orthonormal basis of eigenvectors and real eigenvalues (Theorem 26.1).
+Self-adjoint endomorphism | $T$ with $\langle T(v), w \rangle = \langle v, T(w) \rangle$ for every $v, w$ (lesson L25).
+Orthonormal basis of eigenvectors | Basis made of eigenvectors of norm 1, pairwise orthogonal; in it the matrix of the endomorphism is diagonal.
+Orthogonal matrix | Real matrix with ${}^tM M = I$; the columns are an orthonormal basis and $M^{-1} = {}^tM$.
+Orthogonal diagonalisation | Expression ${}^tM A M = D$ with $M$ orthogonal and $D$ diagonal; possible exactly for symmetric matrices (Corollary 26.2).
+Symmetric matrix | Real matrix with ${}^tA = A$; it has real eigenvalues and is diagonalisable with an orthogonal matrix.
+Hermitian matrix | Complex matrix with ${}^tH = \bar H$; it has real eigenvalues and an orthonormal basis of eigenvectors for the Hermitian product.
+Conjugate transpose | ${}^t\bar W$; for a matrix with orthonormal columns (Hermitian product) it is the inverse.
+Eigenspace | $V_\lambda = \{v \mid A v = \lambda v\}$; for symmetric matrices its dimension is the algebraic multiplicity of $\lambda$.
+Algebraic and geometric multiplicity | Multiplicity of $\lambda$ as a root of $p_A$, and dimension of $V_\lambda$; for symmetric matrices they coincide.
+Induction on the dimension | Technique of the proof: you peel off an eigenvector and apply the hypothesis to its orthogonal complement.
+Fundamental theorem of algebra | Every non-constant complex polynomial has a complex root; it guarantees an eigenvalue over the complex numbers.
+PCA | Principal component analysis: it diagonalises the symmetric data matrix to find the directions of greatest variability.
+```
+
+## Checklist
+
+```checklist
+- I can state the spectral theorem and explain why in the complex case the condition on real eigenvalues is needed.
+- I can prove that the eigenvalues of a self-adjoint endomorphism are real.
+- I can tell the proof by induction: eigenvector, invariant orthogonal complement, inductive hypothesis.
+- I know that a real symmetric matrix has real eigenvalues and is diagonalisable with an orthogonal matrix.
+- I can state Corollary 26.2 and use $M^{-1} = {}^tM$.
+- I can prove that eigenvectors of different eigenvalues of a symmetric matrix are orthogonal.
+- I can find an orthonormal basis of eigenvectors even with a double eigenvalue, using Gram–Schmidt inside the eigenspace.
+- I can diagonalise a Hermitian matrix using the Hermitian product and $W^{-1} = {}^t\bar W$.
+- I can use ${}^tA - A$ to decide, as a parameter varies, when an orthonormal basis of eigenvectors exists.
+- I can tell "diagonalisable" apart from "diagonalisable with an orthonormal basis".
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 26 "Teorema spettrale II", pp. 134–138: introduction, section 26.A (Theorem 26.1 with the proof, Corollary 26.2, link with PCA) and section 26.B (Exercises 26.3, 26.4 and 26.5, worked out in full in the exercises). From the previous lessons: diagonalisation (lessons 17–18), scalar products and Gram–Schmidt (lessons 19–21), orthogonal matrices (Definition 22.10), Hermitian products and self-adjoint endomorphisms (lesson 25).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §11.3 (spectral theorem, Corollary 11.3.2, consequences) and Exercises 11.1–11.2.
+- **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): text reported from 16/01/2025 (question 7), 02/09/2025 (problem 11, part 3) and 15/01/2026 (problem 11), with solutions written for these notes; the exam of 24/01/2024 (problem 11) is cited by type of question.
+- The **"Beyond the handouts"** parts ($2 \times 2$ case by hand, orthogonality of the eigenvectors of different eigenvalues, numerical example of PCA, additional examples and exercises) are additions in these notes to connect the lesson to the book and to the exam.
 
 
 ---

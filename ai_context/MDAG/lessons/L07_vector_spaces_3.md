@@ -601,7 +601,7 @@ two polynomials of different degrees, independent: **$\dim W_2 = 2$**. It is the
 $$p(x) = ax^2 - ax + c = a(x^2 - x) + c \cdot 1, \qquad W_3 = \Span(x^2 - x,\ 1).$$
 Two polynomials of different degrees, independent: **$\dim W_3 = 2$**.
 
-In all three cases the dimension is $\dim V$ minus the number of independent conditions: $4 - 1 = 3$, $4 - 2 = 2$, $3 - 1 = 2$. It is a preview of the rank–nullity theorem (lesson L15).
+In all three cases the dimension is $\dim V$ minus the number of independent conditions: $4 - 1 = 3$, $4 - 2 = 2$, $3 - 1 = 2$. It is a preview of the rank–nullity theorem (lesson L14).
 :::
 
 ::: exercise intermediate A basis with a parameter
@@ -751,4 +751,4 @@ Rank (preview) | The maximum number of independent vectors among the rows, or th
 - **2026 course handouts** (Buzano, Radeschi), lesson 7 "Spazi vettoriali III", pp. 31–35: sections 7.A–7.D are followed in order, with the page next to each heading; definitions, propositions, theorems, examples and exercises keep their numbering (Definitions 7.1, 7.7 and 7.11, Propositions 7.2 and 7.6, Examples 7.3–7.5, 7.8 and 7.9, Theorems 7.10 and 7.12, Exercises 7.13–7.15).
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.3.1–2.3.7 (linear independence and Example 2.3.2, standard bases, coordinates and Proposition 2.3.11, exchange lemma and proof of Theorem 2.3.16, infinite dimension of $\K[x]$, completion and extraction algorithms and Example 2.3.21, Propositions 2.3.20, 2.3.23 and 2.3.25).
 - **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (questions 1 and 5), 10/06/2024 (question 3), 10/07/2024 (question 2), 06/09/2024 (question 2), 16/01/2025 (question 2), 10/07/2025 (question 2), 02/09/2025 (question 10 and problem 11), 15/01/2026 (questions 3 and 4), 03/07/2026 (question 1), 07/09/2026 (question 2). The questions of 16/01/2025 (2), 15/01/2026 (4) and 07/09/2026 (2) are reported with solutions written for these notes. Tutoring exercise sheet 2, 2025 (Buzano, Radeschi), exercises 1, 3 and 4, as a model for some exercises.
-- The **"Beyond the handouts"** parts (Gauss's method to count independent vectors, coordinates, the proofs of Theorems 7.10 and 7.12, the consequences for the quizzes, the methods for the exam and exercises 4–12) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+- The **"Beyond the handouts"** parts (Gauss's method to count independent vectors, coordinates, the proofs of Theorems 7.10 and 7.12, the consequences for the quizzes, the methods for the exam and exercises 4–11) are additions in these notes to connect the lesson to the rest of the course and to the exam.

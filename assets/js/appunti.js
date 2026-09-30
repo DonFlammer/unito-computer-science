@@ -81,13 +81,18 @@
   window.addEventListener('resize', scorri);
   scorri();
 
-  /* comparsa degli elementi quando entrano nello schermo */
+  /* comparsa degli elementi quando entrano nello schermo; arrivando da un'altra pagina con la dissolvenza
+     (view transition), ciò che è già sullo schermo resta visibile da subito, senza entrata */
   const daRivelare = $$('.rivela');
+  const giaInVista = () => daRivelare.forEach(e => { const r = e.getBoundingClientRect(); if (r.top < window.innerHeight && r.bottom > 0) e.classList.add('visto'); });
   if (root.classList.contains('meno-moto') || !('IntersectionObserver' in window)) daRivelare.forEach(e => e.classList.add('visto'));
   else {
+    try { if (root.classList.contains('arrivo') || root.matches(':active-view-transition')) giaInVista(); } catch (e) { /* selettore non supportato: niente dissolvenza */ }
+    window.addEventListener('pagereveal', e => { if (e.viewTransition) giaInVista(); });
     const io = new IntersectionObserver(voci => voci.forEach(v => { if (v.isIntersecting) { v.target.classList.add('visto'); io.unobserve(v.target); } }), { rootMargin: '0px 0px -8% 0px' });
     daRivelare.forEach(e => io.observe(e));
   }
+  root.classList.add('pronto');   // da qui la comparsa la gestisce questo script (in CSS: html.arrivo:not(.pronto))
 
   /* luce che segue il puntatore sulle schede dei corsi */
   $$('.corso').forEach(c => c.addEventListener('pointermove', e => {

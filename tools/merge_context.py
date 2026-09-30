@@ -24,8 +24,8 @@ HEADER = (
     "students; the lesson notes rework the lecturers' slides. "
     "This English version is a translation of the Italian original (https://github.com/DonFlammer/unito-informatica): "
     "if the two differ, the Italian one prevails. "
-    "They are accurate and sourced, but may contain errors or outdated data; the author "
-    "takes no responsibility. For dates, rules and deadlines only the official sources are authoritative "
+    "They are accurate and sourced, but may contain errors or outdated data; I, DonFlammer, who maintain "
+    "this collection, take no responsibility. For dates, rules and deadlines only the official sources are authoritative "
     "(Moodle, the degree programme website, Esse3). Full text: DISCLAIMER.md at the root of the repository.\n"
 )
 

@@ -284,6 +284,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .link-lista a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .95rem 1.1rem; border-radius: var(--raggio-2); background: var(--surface); border: 1px solid var(--line); text-decoration: none; color: var(--text); font-weight: 500; transition: border-color .2s; }
 .link-lista a::after { content: "↗"; font-family: var(--mono); color: var(--accent); }
 .link-lista a:hover { border-color: var(--accent-line); color: var(--text); }
+.link-lista .manca { display: flex; align-items: center; padding: .95rem 1.1rem; border-radius: var(--raggio-2); border: 1px dashed var(--line-2); color: var(--text-3); font-weight: 500; }   /* pagina che non esiste ancora */
 
 /* ---------- piede ---------- */
 .piede { margin-top: clamp(3.5rem, 8vw, 6rem); border-top: 1px solid var(--line); background: color-mix(in srgb, var(--bg-2) 92%, transparent); }

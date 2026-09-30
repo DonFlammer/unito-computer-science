@@ -393,7 +393,7 @@ Here, as in the theorem, the dimensions are finite.
 >
 > For matrices: $L_A: \K^n \to \K^m$ is injective if and only if $\rk(A) = n$, surjective if and only if $\rk(A) = m$ (Martelli, Example 4.2.16).
 
-> [!EXAMPLE] The rank–nullity theorem instead of calculations (from Martelli's book, Example 4.2.12)
+> [!EXAMPLE] The rank–nullity theorem instead of calculations (modelled on Martelli's book, Example 4.2.12, which uses the point $2$)
 > What is the dimension of $W = \{p \in \R_2[x] \mid p(1) = 0\}$? $W$ is the kernel of the evaluation $f: \R_2[x] \to \R$, $f(p) = p(1)$, which is linear. $f$ is surjective: the constant polynomial $\lambda$ goes to $\lambda$. So $\dim \Imm f = 1$ and
 > $$\dim W = \dim \Ker f = \dim \R_2[x] - \dim \Imm f = 3 - 1 = 2.$$
 > The polynomials $x - 1$ and $x^2 - 1$ lie in $W$ (they are $0$ at $1$) and are independent (neither is a multiple of the other): two independent vectors in a space of dimension 2 are a basis (Theorem 7.12). So $W = \Span(x - 1,\ x^2 - 1)$.

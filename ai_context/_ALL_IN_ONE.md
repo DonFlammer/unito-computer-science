@@ -3490,6 +3490,10079 @@ Quantifiers | $\forall$ "for all", $\exists$ "there exists", $\exists!$ "there e
 
 ---
 
+<!-- FILE: ai_context/MDAG/lessons/L05_vector_spaces_1.md -->
+> File: `ai_context/MDAG/lessons/L05_vector_spaces_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L05
+title: Vector spaces I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L05
+description: >-
+  Notes on lesson L05 of Linear Algebra and Geometry (MDAG, part 2): Euclidean space, sum of vectors and product by
+  a scalar, groups, fields, definition of vector space and examples (polynomials, functions, sequences), with
+  exam-style quizzes and worked exercises.
+lede: >-
+  From the arrows of the plane to a much more general idea: the Euclidean space $\R^n$ with the sum and the product by
+  a scalar, groups and fields, and finally vector spaces, that is all the sets in which you calculate with the same
+  rules as in $\R^n$. You will find out that polynomials, functions and sequences are vectors too, and you will learn
+  to recognise when a set is not a vector space.
+material: handouts
+facts:
+  Handouts: lesson 5 · pp. 20–25
+  Book: Martelli, §1.5, §2.1 and §2.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 5 "Spazi vettoriali I"; B. Martelli, Geometria e algebra lineare, §1.5, §2.1 and §2.2.1–2.2.4
+italian_file: L05_spazi_vettoriali_1.html
+html_notes: notes/MDAG/L05_vector_spaces_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L05_spazi_vettoriali_1.md
+```
+
+## In brief
+
+- The **Euclidean space** $\R^n$ is the set of ordered lists $(x_1, \dots, x_n)$ of $n$ real numbers. Each element can be seen as a **point** or as a **vector**, an arrow that starts at the origin.
+- In $\R^n$ there are two operations, always done **component by component**: the **sum** $x + y$ (in $\R^2$ it is the parallelogram rule) and the **product by a scalar** $\lambda x$ (it stretches, shrinks or flips the vector).
+- A **group** is a set with an operation that has an identity element, is associative and in which every element has an inverse. $(\Z, +)$ is a group, $(\N, +)$ is not.
+- A **field** is a set with sum and product in which you can do the four operations, dividing only by elements other than $0$. $\Q$, $\R$ and $\C$ are fields, $\Z$ is not; $\{0, 1\}$ with $1 + 1 = 0$ is a field too.
+- A **vector space** over a field $\K$ is a set $V$ with a sum and a product by a scalar that respect **five axioms**: the same calculation rules as $\R^n$.
+- There are **two zeros** not to be confused: the $0$ of the field and the origin $0_V$ of the space. Proposition 5.5 links them: $0v = 0_V$.
+- $\K^n$ (also $\C^n$), sequences, functions $[0, 1] \to \K$ and polynomials $\K[x]$ are vector spaces: in all of them you add and multiply "one piece at a time".
+- To prove that a set is **not** a vector space one counterexample is enough: the zero is missing, or a sum or a multiple leaves the set. Polynomials of degree exactly $2$, for example, are not one.
+- At the exam you need them in the multiple-choice questions: "does $\C$ admit a structure of vector space over $\R$?" (exam of 07/02/2025) and, from lesson L06, "which of these sets is a subspace?".
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Why vector spaces (p. 20)
+
+The course studies geometric objects (points, lines, planes) that live in $\R^n$. The handouts, though, immediately take one more step: instead of working only with $\R^n$, they consider **all the sets that have the same algebraic properties as $\R^n$**. These sets are called **vector spaces**.
+
+To see why this pays off, look at three objects that are very different from each other.
+
+| | arrows of the plane | polynomials | functions on $[0, 1]$ |
+|---|---|---|---|
+| two elements | $(1, 2)$ and $(3, 1)$ | $x^2 + 1$ and $2x - 3$ | $f(x) = x^2$ and $g(x) = 1 - x$ |
+| their sum | $(4, 3)$ | $x^2 + 2x - 2$ | $x^2 - x + 1$ |
+| twice the first | $(2, 4)$ | $2x^2 + 2$ | $2x^2$ |
+| the "zero" element | $(0, 0)$ | the zero polynomial | the function that is always $0$ |
+
+In all three cases:
+
+- adding two elements you get an element **of the same kind**;
+- multiplying by a number you stay **in the same kind**;
+- the **same calculation rules** hold, for example $2(a + b) = 2a + 2b$.
+
+If you prove a theorem using **only** those rules, the theorem holds in one go for arrows, for polynomials, for functions and for everything that respects the same rules. That is the advantage of abstraction. The handouts mention three examples you will use often: the **sets of solutions of linear systems** (lessons L11–L13), **spaces of functions** (in this lesson) and **spaces of matrices** (lesson L06).
+
+## The Euclidean space $\R^n$ (pp. 20–21)
+
+In the Cartesian plane a point is determined by two numbers, for example $(2, 3)$: 2 steps to the right and 3 up. In space you need three, $(x, y, z)$. Euclidean space generalises this idea to any number of coordinates.
+
+> [!DEF] 5.1 · Euclidean space
+> Let $n \ge 1$ be a natural number. The **$n$-dimensional Euclidean space** is the set
+> $$\R^n = \underbrace{\R \times \cdots \times \R}_{n \text{ times}}.$$
+> Its elements are sequences $(x_1, \dots, x_n)$ of $n$ real numbers.
+
+Piece by piece:
+
+- $\R \times \R$ is the **Cartesian product**: the set of all **ordered pairs** $(a, b)$ with $a, b \in \R$. With $n$ factors you get the ordered lists of $n$ numbers, also called **$n$-tuples**.
+- Here "sequence" means a **finite and ordered** list of $n$ numbers (in lesson L01 sequences were infinite). The order matters: $(1, 2) \neq (2, 1)$.
+- $\R^2$ is the **Cartesian plane**, $\R^3$ the **Cartesian space**. For $n \ge 4$ you can no longer draw, but you calculate in the same way: $(1, 0, -2, 5)$ is an element of $\R^4$.
+- The element $(0, \dots, 0)$ is called the **origin** and is written $0$ or $O$.
+
+### Point or vector?
+
+An element $x \in \R^n$ can be read in two ways: as a **point**, or as a **vector**, that is an arrow that starts at the origin and ends at $x$. They are two ways of drawing the same list of numbers. Usually the letters $P, Q$ are used for points and $v, w$ for vectors.
+
+```graph
+title: Two elements of $\R^2$: $(2, 3)$ drawn as a point and $(-3, 1)$ drawn as a vector
+x: -4 4
+y: -1 4
+point: 2 3 | amber | $P = (2, 3)$ | e
+vector: -3 1 | accent | thick | $v = (-3, 1)$ | n
+```
+
+The handouts often write vectors **vertically**:
+
+$$x = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}.$$
+
+This way of writing is called a **column vector**, and the numbers $x_1, \dots, x_n$ are the **coordinates** of $x$. The reason for writing it vertically will become clear with the product of matrices (lesson L08). To save space, in these notes vectors often appear as rows too, like $(1, 2, 3)$: it is the same vector.
+
+> [!NOTE] How the exam papers write it
+> In the exam papers a column vector written as a row often appears as ${}^t(1, 2, 3)$ or $t(1, 2, 3)$: the $t$ stands for "transpose" and means "this row, put vertically". The transpose is covered in lesson L08.
+
+### The sum of vectors (pp. 20–21)
+
+> [!DEF] Sum of vectors (p. 20)
+> The space $\R^n$ has a sum defined **component by component**: if
+> $$x = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix}, \qquad y = \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix}, \qquad \text{then} \qquad x + y = \begin{pmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n \end{pmatrix}.$$
+
+In words: you add the first coordinates together, the second ones together, and so on.
+
+> [!EXAMPLE] · sums in $\R^2$ and in $\R^4$
+> $$\begin{pmatrix} 1 \\ 2 \end{pmatrix} + \begin{pmatrix} 3 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 + 3 \\ 2 + 1 \end{pmatrix} = \begin{pmatrix} 4 \\ 3 \end{pmatrix}, \qquad \begin{pmatrix} 1 \\ 0 \\ -2 \\ 5 \end{pmatrix} + \begin{pmatrix} 3 \\ 1 \\ 2 \\ -5 \end{pmatrix} = \begin{pmatrix} 4 \\ 1 \\ 0 \\ 0 \end{pmatrix}.$$
+
+In $\R^2$ this sum coincides with the **parallelogram rule**, the one used in physics to add forces. Draw $v$ and $w$ starting from the origin and complete the parallelogram that has them as sides: the diagonal that starts from the origin is $v + w$. Or, which is the same: move $w$ so that it starts from the tip of $v$, and its tip lands exactly on $v + w$.
+
+```graph
+title: The sum $v + w$ is the diagonal of the parallelogram built on $v = (1, 2)$ and $w = (3, 1)$
+x: -1 5
+y: -1 4
+polygon: 0 0 1 2 4 3 3 1 | amber | faint
+segment: 1 2 4 3 | blue | dashed
+segment: 3 1 4 3 | accent | dashed
+vector: 4 3 | amber | thick | $v + w = (4, 3)$ | n
+vector: 1 2 | accent | thick | $v$ | nw
+vector: 3 1 | blue | thick | $w$ | se
+```
+
+> [!PITFALL] Only vectors with the same number of coordinates
+> You can only add vectors of the **same** $\R^n$: $(1, 2) + (1, 2, 3)$ makes no sense, because the third coordinate has no partner.
+
+### The product by a scalar (p. 21)
+
+> [!DEF] Product by a scalar (p. 21)
+> Given $x \in \R^n$ and a scalar $\lambda \in \R$, we define
+> $$\lambda x = \begin{pmatrix} \lambda x_1 \\ \vdots \\ \lambda x_n \end{pmatrix}.$$
+> The real number $\lambda$ is called a **scalar**; the operation $x \mapsto \lambda x$ is called **product by a scalar**.
+
+Piece by piece:
+
+- $\lambda$ is the Greek letter *lambda*: it denotes a **number**, not a vector. To tell them apart, the numbers that multiply vectors are called **scalars**.
+- Every coordinate is multiplied by the **same** number $\lambda$.
+- $x \mapsto \lambda x$ is read "$x$ goes to $\lambda x$": to every vector the operation associates its multiple.
+
+Geometrically, $\lambda x$ is obtained by **stretching or shrinking** $x$ by a factor $|\lambda|$ and, if $\lambda < 0$, **reversing its direction**. Try with $v = (1, 2)$:
+
+| $\lambda$ | $\lambda v$ | what happens |
+|---:|---|---|
+| $2$ | $(2, 4)$ | same direction, twice as long |
+| $\frac 12$ | $(\frac 12, 1)$ | same direction, half as long |
+| $1$ | $(1, 2)$ | stays the same |
+| $0$ | $(0, 0)$ | becomes the zero vector |
+| $-1$ | $(-1, -2)$ | opposite direction, same length: it is the **opposite** $-v$ |
+| $-2$ | $(-2, -4)$ | opposite direction, twice as long |
+
+All the multiples of $v$ lie on the **line** through the origin and $v$, here the line $y = 2x$. This remark comes back in lesson L06, where the set of the multiples of $v$ will be called $\Span(v)$.
+
+```graph
+title: The multiples of $v = (1, 2)$ all lie on the line $y = 2x$
+x: -4 4
+y: -5 5
+line: 0 0 2.3 4.6 | grey | dashed | $y = 2x$ | e
+vector: 2 4 | blue | $2v$ | e
+vector: 1 2 | accent | thick | $v$ | w
+vector: -2 -4 | pink | $-2v$ | e
+```
+
+Try it yourself. In the tool below you can drag the tips of $u$ and $v$. In the "u + v" mode you see the parallelogram; in the "multiple" mode move the slider $\lambda$: with $\lambda = -2$ you find Figure 6 of the handouts again, with $\lambda$ between $0$ and $1$ the vector gets shorter, with negative $\lambda$ it flips, with $\lambda = 0$ it shrinks to the origin.
+
+```widget vettori
+title: Sum and product by a scalar in the plane
+u: 1 2
+v: 3 1
+modo: somma
+modi: somma multiplo
+lambda: -2
+```
+
+### The calculation rules of $\R^n$
+
+The two operations of $\R^n$ respect eight rules. The handouts recall them in Definition 5.4 ("the same properties as the corresponding operations of Euclidean space"); Martelli's book lists them in §2.1.5. Here they are, checked with $v = (1, 2)$, $w = (3, -1)$, $u = (0, 5)$, $\lambda = 2$ and $\mu = 3$:
+
+| Rule | Check with numbers |
+|---|---|
+| $v + w = w + v$ | $(1, 2) + (3, -1) = (4, 1) = (3, -1) + (1, 2)$ |
+| $(v + w) + u = v + (w + u)$ | $(4, 1) + (0, 5) = (4, 6)$ and $(1, 2) + (3, 4) = (4, 6)$ |
+| $v + 0 = v$ | $(1, 2) + (0, 0) = (1, 2)$ |
+| $v + (-v) = 0$ | $(1, 2) + (-1, -2) = (0, 0)$ |
+| $\lambda(v + w) = \lambda v + \lambda w$ | $2 \cdot (4, 1) = (8, 2)$ and $(2, 4) + (6, -2) = (8, 2)$ |
+| $(\lambda + \mu) v = \lambda v + \mu v$ | $5 \cdot (1, 2) = (5, 10)$ and $(2, 4) + (3, 6) = (5, 10)$ |
+| $(\lambda\mu) v = \lambda(\mu v)$ | $6 \cdot (1, 2) = (6, 12)$ and $2 \cdot (3, 6) = (6, 12)$ |
+| $1v = v$ | $1 \cdot (1, 2) = (1, 2)$ |
+
+Each rule holds because it holds for real numbers, one coordinate at a time. They are exactly the rules that the definition of vector space will require of every set that wants to "behave like $\R^n$".
+
+## Groups (pp. 21–22)
+
+To say what a vector space is you need two algebraic structures: the **group**, for vectors with the sum, and the **field**, for scalars. We start with the group.
+
+Think of the integers with the sum. Adding two integers you get an integer. The $0$ changes nothing: $0 + 7 = 7$. Every integer has an opposite that "cancels" the sum: $7 + (-7) = 0$. And you can move the brackets: $(2 + 3) + 4 = 2 + (3 + 4) = 9$. With the natural numbers instead something breaks: the equation $3 + x = 0$ has no solution in $\N$, because the opposite of $3$ is missing. The definition of group puts exactly these properties down in black and white.
+
+> [!DEF] 5.2 · Group
+> A **group** is a set $G$ equipped with a binary operation, that is a function that associates with every pair $a, b$ of elements in $G$ a new element of $G$ that we denote by $a * b$. The symbol $*$ denotes the binary operation. The operation must satisfy the following three axioms:
+> 1. $\exists\, e \in G : e * a = a * e = a,\ \forall a \in G$ (existence of the identity element $e$);
+> 2. $a * (b * c) = (a * b) * c,\ \forall a, b, c \in G$ (associative property);
+> 3. $\forall a \in G,\ \exists\, a' \in G : a * a' = a' * a = e$ (existence of the inverse).
+>
+> The group $G$ is **commutative** if the commutative property $a * b = b * a,\ \forall a, b \in G$ also holds.
+
+Piece by piece:
+
+- **Binary operation**: it takes two elements of $G$ and returns one **still in $G$**. If the result can leave $G$, it is not an operation on $G$: subtraction is not an operation on $\N$, because $2 - 5 = -3 \notin \N$.
+- The symbol $*$ is a placeholder: in concrete cases it is the sum $+$, the product $\cdot$ or the composition of functions $\circ$.
+- **Axiom 1**: there is an element $e$ that changes nothing, the **same** one for all $a$. For the sum it is $0$, for the product it is $1$.
+- **Axiom 2**: the brackets can be moved, and so also dropped: $a * b * c$ has only one meaning.
+- **Axiom 3**: every $a$ has a "canceller" $a'$, which depends on $a$: combined with $a$ it gives back $e$. For the sum $a'$ is the opposite $-a$, for the product it is the inverse $\frac 1a$.
+- **Commutative**: the order does not matter. Not all groups are commutative (box further down), but the groups of this course with the sum all are.
+
+Here are the examples and counterexamples of the handouts, with the reason.
+
+| Set and operation | identity $e$ | inverse of $a$ | commutative group? |
+|---|---|---|---|
+| $(\Z, +)$ | $0$ | $-a$ | yes |
+| $(\Q, +)$, $(\R, +)$, $(\C, +)$ | $0$ | $-a$ | yes |
+| $(\Q \setminus \{0\}, \cdot)$, $(\R \setminus \{0\}, \cdot)$, $(\C \setminus \{0\}, \cdot)$ | $1$ | $a^{-1} = \frac 1a$ | yes |
+| $(\N, +)$ | $0$ | missing: for $a = 1$ you would need $-1 \notin \N$ | **no**, axiom 3 fails |
+| $(\Z, \cdot)$ and $(\Z \setminus \{0\}, \cdot)$ | $1$ | missing: for $a = 2$ you would need $\frac 12 \notin \Z$ | **no**, axiom 3 fails |
+
+> [!EXAMPLE] · the calculations in $(\Q \setminus \{0\}, \cdot)$
+> - The operation stays in the set: the product of two fractions different from $0$ is a fraction different from $0$, for example $\frac 23 \cdot \left(-\frac 94\right) = -\frac{18}{12} = -\frac 32$.
+> - The identity is $e = 1$: $1 \cdot \frac 23 = \frac 23$.
+> - The inverse of $-\frac 34$ is $-\frac 43$, because $\left(-\frac 34\right)\left(-\frac 43\right) = \frac{12}{12} = 1$.
+> - The $0$ has to be removed because it **has no inverse**: $0 \cdot x = 0 \neq 1$ for every $x$.
+
+> [!PITFALL] Removing zero is needed for the product, not for the sum
+> $\Q \setminus \{0\}$ is a group with the product, but **not** with the sum: $1 + (-1) = 0$ leaves the set, and the identity element $0$ is missing.
+
+> [!BEYOND] · uniqueness, cancellation and a non-commutative group
+> From Martelli's book (§1.5.1), three useful facts.
+> - **The inverse is unique.** If $a'$ and $a''$ are both inverses of $a$, then $a' = a' * e = a' * (a * a'') = (a' * a) * a'' = e * a'' = a''$.
+> - **You can cancel.** From $a * b = a * c$ follows $b = c$: just combine both sides on the left with the inverse of $a$ and use associativity. With the sum: from $v + x = v + y$ follows $x = y$. It will be needed shortly, in Proposition 5.5.
+> - **A non-commutative group.** The permutations of $\{1, 2, 3\}$ with composition form a group (the symmetric group $S_3$, studied in Discrete Mathematics) in which the order matters: in general $\sigma \circ \tau \neq \tau \circ \sigma$.
+
+## Fields (p. 22)
+
+In the number sets $\Z$, $\Q$, $\R$ and $\C$ there are **two** operations, $+$ and $\cdot$. The structure that puts them together is the **field**. The idea: a field is a set in which you can do **the four operations** with the usual rules, dividing only by elements other than $0$. In $\Q$ the equation $2x = 1$ has the solution $x = \frac 12$; in $\Z$ it does not.
+
+> [!DEF] 5.3 · Field
+> A **field** is a set $A$ equipped with two binary operations $+$ and $\cdot$ that satisfy these axioms:
+> 1. $A$ is a commutative group with the operation $+$, with identity element $0_A$;
+> 2. $A \setminus \{0_A\}$ is a commutative group with the operation $\cdot$, with identity element $1_A$;
+> 3. the distributive property $a \cdot (b + c) = (a \cdot b) + (a \cdot c),\ \forall a, b, c \in A$ holds.
+
+Piece by piece:
+
+- **Axiom 1**: it contains four rules of the sum. There is the zero $0_A$, every element has an opposite, the sum is associative and commutative.
+- **Axiom 2**: it contains four rules of the product, but **only for the non-zero elements**. The product of two non-zero elements is non-zero, there is the one $1_A$ (which is therefore different from $0_A$), every **non-zero** element has an inverse, the product is associative and commutative.
+- **Axiom 3**: it links the two operations.
+- They are the same rules as the nine properties of $\R$ from lesson L01 (Proposition 1.5), grouped differently: properties 1–4 are in axiom 1, 5–8 in axiom 2, 9 is axiom 3.
+
+| Set, with $+$ and $\cdot$ | is it a field? | why |
+|---|---|---|
+| $\Q$, $\R$, $\C$ | yes | all the rules hold; for example the inverse of $\frac ab \neq 0$ is $\frac ba$ |
+| $\Z$ | no | $2$ has no inverse for the product: $\frac 12 \notin \Z$ |
+| $\N$ | no | already the sum does not form a group: $-1$ is missing |
+| $\R \setminus \{0\}$ | no | the sum leaves the set: $1 + (-1) = 0$ |
+| $\{0, 1\}$ with $1 + 1 = 0$ | yes | it is Exercise 5.9, below |
+
+### A field with only two elements
+
+In Exercise 5.9 the handouts define on $\K = \{0, 1\}$ these two operations:
+
+| $+$ | $0$ | $1$ |
+|---|---|---|
+| $0$ | $0$ | $1$ |
+| $1$ | $1$ | $0$ |
+
+| $\cdot$ | $0$ | $1$ |
+|---|---|---|
+| $0$ | $0$ | $0$ |
+| $1$ | $0$ | $1$ |
+
+The only unusual rule is $1 + 1 = 0$. Read $0$ as "even" and $1$ as "odd": odd plus odd is even, odd times odd is odd. The tables are the rules of parity, and that is why all the field properties hold (the check is in exercise 4). In computer science it is the field of bits: the sum is XOR, the product is AND.
+
+> [!NOTE] The field of the course
+> In the course the field is almost always $\K = \R$ or $\K = \C$. The letter $\K$ means "any field": what is proved for $\K$ holds for both.
+
+## Vector spaces (pp. 22–23)
+
+Now all the ingredients are there. In $\R^n$ there are two operations, sum and product by a scalar, with the eight rules of the table seen above. The definition of vector space says: **any** set with two operations of this kind, which respect the same rules, is a vector space.
+
+> [!DEF] 5.4 · Vector space
+> We fix a field $\K$. For us this is generally either the field $\K = \R$ of real numbers or the field $\K = \C$ of complex numbers (but for the definition it can be any field). The elements of $\K$ are called **scalars**. A **vector space** over $\K$ is a set $V$ of elements, called **vectors**, equipped with two operations:
+> - an operation called **sum** that associates with two vectors $v, w \in V$ a third vector $v + w \in V$;
+> - an operation called **product by a scalar** that associates with a vector $v \in V$ and a scalar $\lambda \in \K$ a vector $\lambda v \in V$.
+>
+> These two operations must satisfy the same properties as the corresponding operations of Euclidean space, that is:
+> 1. the set $V$ is a commutative group with the sum $+$;
+> 2. $\lambda(v + w) = \lambda v + \lambda w$;
+> 3. $(\lambda + \mu)v = \lambda v + \mu v$;
+> 4. $(\lambda\mu)v = \lambda(\mu v)$;
+> 5. $1v = v$.
+>
+> The properties must hold for all $v, w \in V$ and all $\lambda, \mu \in \K$.
+
+Piece by piece:
+
+- **The field $\K$** supplies the numbers you multiply by: the scalars. If you change the field the vector space changes, even with the same set $V$ (you will see it with $\C$, which is a vector space both over $\C$ and over $\R$).
+- **The vectors** can be objects of any kind: arrows, polynomials, functions, matrices. Only how the operations behave matters.
+- **The two operations** must give results **inside $V$**: $v + w \in V$ and $\lambda v \in V$. It is the first thing to check, and it is where most of the sets that are *not* vector spaces fall.
+- **Axiom 1**, "commutative group with the sum", contains four rules: the sum is associative, $(u + v) + w = u + (v + w)$; there is a zero vector $0_V$ with $v + 0_V = v$; every $v$ has an opposite $-v$ with $v + (-v) = 0_V$; the sum is commutative, $v + w = w + v$.
+- **Axiom 2**: a scalar distributes over a sum of **vectors**.
+- **Axiom 3**: a vector distributes over a sum of **scalars**. Careful: on the left the $+$ is the sum in $\K$, on the right it is the sum in $V$. Same symbol, two different operations.
+- **Axiom 4**: on the left $\lambda\mu$ is a product of numbers, done in $\K$; on the right you first multiply $v$ by $\mu$ and then the result by $\lambda$.
+- **Axiom 5**: the scalar $1$ of the field leaves vectors as they are. It looks obvious, but it does not follow from the others (box below).
+- In all there are **eight rules**, plus the requirement that the operations do not leave $V$: the same as in the table of $\R^n$.
+
+> [!PITFALL] There is no product between two vectors
+> In a vector space you add two vectors and multiply a vector by a **scalar**. A "vector times vector" product is not part of the definition. The scalar product between vectors will arrive in lesson L19, and it is something else.
+
+> [!BEYOND] · why axiom 5 is needed
+> Take $V = \R^2$ with the usual sum, but with a "lazy" product by a scalar that always gives the zero vector: $\lambda \star v = 0$ for every $\lambda$ and every $v$. Axioms 1–4 hold: for example $\lambda \star (v + w) = 0 = 0 + 0 = \lambda \star v + \lambda \star w$. Axiom 5 instead fails: $1 \star (1, 2) = (0, 0) \neq (1, 2)$. So axiom 5 is not a consequence of the others: without it the "product by a scalar" could wipe out all the information. Another example, in which only axiom 5 fails, is exercise 9.
+
+### The origin and the two zeros (p. 23)
+
+The identity element of the group $(V, +)$ is written $0$ (or $0_V$) and is called the **origin** of the vector space $V$. It must not be confused with the zero $0$ of the field $\K$: the handouts warn that in the course the symbol $0$ denotes different things, and the meaning is clear from the context.
+
+| Space | the zero of the field | the origin $0_V$ |
+|---|---|---|
+| $\R^3$ | the number $0$ | the vector $(0, 0, 0)$ |
+| $\C^2$ | the complex number $0$ | the vector $(0, 0)$ |
+| $\K[x]$ (polynomials) | the number $0$ | the zero polynomial, with all coefficients equal to $0$ |
+| functions $[0, 1] \to \R$ | the number $0$ | the function that is $0$ at every point |
+
+From the axioms a first result follows straight away.
+
+> [!PROP] 5.5
+> The relation $0v = 0$ holds.
+
+The first $0$ is the identity element of $\K$ (a number), the second is the origin of $V$ (a vector). In words: **multiplying any vector by the scalar zero you get the zero vector**. For example $0 \cdot (3, -1) = (0, 0)$ in $\R^2$.
+
+In $\R^n$ you check it coordinate by coordinate. The point of the proposition is that it holds in **every** vector space, and it is proved using only the axioms. The handouts' proof is one line long; here it is with all the steps.
+
+1. In the field $0 + 0 = 0$ holds. So $0v = (0 + 0)v$.
+2. By axiom 3, $(0 + 0)v = 0v + 0v$. Putting them together: $0v = 0v + 0v$.
+3. Call $w = 0v$: you have $w = w + w$. Add to both sides the opposite $-w$, which exists by axiom 1:
+   $$w + (-w) = (w + w) + (-w).$$
+4. On the left there is $0_V$. On the right, by the associative property, $(w + w) + (-w) = w + (w + (-w)) = w + 0_V = w$.
+5. So $0_V = w$, that is $0v = 0_V$. $\square$
+
+It is the handouts' "cancelling": in a group you cancel by adding the opposite to both sides.
+
+> [!BEYOND] · three more consequences of the axioms
+> With the same technique you prove (exercise 8) that in every vector space:
+> - $\lambda 0_V = 0_V$ for every scalar $\lambda$;
+> - $(-1)v = -v$: multiplying by $-1$ gives the opposite;
+> - if $\lambda v = 0_V$, then $\lambda = 0$ or $v = 0_V$.
+>
+> The last one uses the fact that in a field every $\lambda \neq 0$ has an inverse: it is one of the reasons why scalars must live in a field.
+
+## Examples of vector spaces (pp. 23–25)
+
+The handouts present five examples. For each one you have to say who the vectors are, how they are added and how they are multiplied by a scalar; then you check the axioms (it is Exercise 5.6).
+
+### The field $\K$ over itself (p. 23)
+
+If $(\K, +, \cdot)$ is a field, then it is also a vector space over itself. The vectors are the elements of $\K$, and so are the scalars; the sum of vectors is the sum of $\K$ and the product by a scalar is the product of $\K$. For $\K = \R$ the vectors are real numbers: it is $\R = \R^1$, the line.
+
+The handouts explain why the five axioms hold. In the third column there is a check with $\lambda = 2$, $\mu = 3$, $v = 4$ and $w = 5$.
+
+| Axiom | why it holds | with numbers |
+|---|---|---|
+| 1. $(\K, +)$ commutative group | it is axiom 1 of the field | $4 + 5 = 5 + 4 = 9$ |
+| 2. $\lambda(v + w) = \lambda v + \lambda w$ | distributive property of the field | $2 \cdot 9 = 18 = 8 + 10$ |
+| 3. $(\lambda + \mu)v = \lambda v + \mu v$ | commutativity and distributivity | $5 \cdot 4 = 20 = 8 + 12$ |
+| 4. $(\lambda\mu)v = \lambda(\mu v)$ | associativity of the product | $6 \cdot 4 = 24 = 2 \cdot 12$ |
+| 5. $1v = v$ | $1$ is the identity element of the product | $1 \cdot 4 = 4$ |
+
+### The space $\K^n$ (pp. 23–24)
+
+The main example of a vector space over $\R$ is the Euclidean space $\R^n$. For any field $\K^n$ is defined in the same way.
+
+> [!DEF] The space $\K^n$ (pp. 23–24)
+> Let $n \ge 1$ be a natural number. The space $\K^n$ is the set of sequences $(x_1, \dots, x_n)$ of numbers in $\K$, generally described as column vectors. The sum and the multiplication by a scalar are defined term by term:
+> $$\begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} + \begin{pmatrix} y_1 \\ \vdots \\ y_n \end{pmatrix} = \begin{pmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n \end{pmatrix}, \qquad \lambda \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} \lambda x_1 \\ \vdots \\ \lambda x_n \end{pmatrix}.$$
+
+With $\K = \C$ you get $\C^n$: both the coordinates and the scalars are complex. The calculations are done with the rules of lesson L02, remembering that $i^2 = -1$.
+
+> [!EXAMPLE] · the two calculations of the handouts in $\C^2$
+> **Sum.** Row by row, you add the real parts together and the imaginary parts together:
+> $$\begin{pmatrix} 1 + i \\ -2 \end{pmatrix} + \begin{pmatrix} 3i \\ 1 - i \end{pmatrix} = \begin{pmatrix} 1 + (1 + 3)i \\ (-2 + 1) - i \end{pmatrix} = \begin{pmatrix} 1 + 4i \\ -1 - i \end{pmatrix}.$$
+> **Product by a scalar.** The scalar $2 + i$ multiplies both coordinates:
+> $$(2 + i)\begin{pmatrix} 3 \\ 1 - i \end{pmatrix} = \begin{pmatrix} (2 + i) \cdot 3 \\ (2 + i)(1 - i) \end{pmatrix} = \begin{pmatrix} 6 + 3i \\ 3 - i \end{pmatrix}.$$
+> The second calculation in full: $(2 + i)(1 - i) = 2 - 2i + i - i^2 = 2 - i - (-1) = 3 - i$.
+
+It remains to check that $\K^n$ really is a vector space. The handouts check axiom 2, and their method is the one to imitate for all the others:
+
+$$\begin{aligned} \lambda(x + y) &= \lambda \begin{pmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n \end{pmatrix} = \begin{pmatrix} \lambda(x_1 + y_1) \\ \vdots \\ \lambda(x_n + y_n) \end{pmatrix} \\ &= \begin{pmatrix} \lambda x_1 + \lambda y_1 \\ \vdots \\ \lambda x_n + \lambda y_n \end{pmatrix} = \begin{pmatrix} \lambda x_1 \\ \vdots \\ \lambda x_n \end{pmatrix} + \begin{pmatrix} \lambda y_1 \\ \vdots \\ \lambda y_n \end{pmatrix} = \lambda x + \lambda y. \end{aligned}$$
+
+Each equality has its reason:
+
+1. the definition of the sum: $x + y$ has coordinates $x_k + y_k$;
+2. the definition of the product by a scalar: every coordinate is multiplied by $\lambda$;
+3. the distributive property **in the field**, in each of the $n$ coordinates: $\lambda(x_k + y_k) = \lambda x_k + \lambda y_k$;
+4. the definition of the sum, read backwards;
+5. the definition of the product by a scalar, read backwards.
+
+The general idea to take away: **every axiom of $\K^n$ boils down to the same property in $\K$, one coordinate at a time.**
+
+> [!PITFALL] In $\C^n$ the scalars are complex
+> In $\C^2$ you can multiply by $i$: $i \cdot (1, 0) = (i, 0)$. In $\R^2$ you cannot: the scalars are only real, and $(i, 0) \notin \R^2$. That is why $\R^2$, with the usual operations, is **not** a vector space over $\C$.
+
+### The space of sequences (p. 24)
+
+Instead of vectors with $n$ components you can take **infinite sequences** $(x_n)_{n \in \N} = (x_0, x_1, x_2, \dots)$, with each $x_k \in \K$: vectors with infinitely many coordinates. Sum and product by a scalar are again done component by component:
+
+$$(x_n)_{n \in \N} + (y_n)_{n \in \N} = (x_n + y_n)_{n \in \N}, \qquad \lambda (x_n)_{n \in \N} = (\lambda x_n)_{n \in \N}.$$
+
+With these operations you get a vector space.
+
+> [!EXAMPLE] · two real sequences
+> Let $x = (1, 2, 3, 4, \dots)$, that is $x_n = n + 1$, and $y = (1, 1, 1, 1, \dots)$, the constant sequence. Then
+> $$x + y = (2, 3, 4, 5, \dots), \qquad 3x = (3, 6, 9, 12, \dots), \qquad x + (-1)y = (0, 1, 2, 3, \dots).$$
+> The zero vector is the sequence $(0, 0, 0, \dots)$ and the opposite of $x$ is $(-1, -2, -3, \dots)$.
+
+### The functions $[0, 1] \to \K$ (p. 24)
+
+In sequences every $n \in \N$ corresponds to a number $x_n$. You can do the same with **every** real number $x \in [0, 1]$: with each one you associate an element $f(x) \in \K$, and you get a function $f : [0, 1] \to \K$. Sum and product by a scalar are defined **point by point**:
+
+$$(f + g)(x) = f(x) + g(x), \qquad (\lambda f)(x) = \lambda f(x), \qquad \forall x \in [0, 1].$$
+
+Piece by piece:
+
+- $f + g$ is a **new function**: to know its value at a point $x$ you compute $f(x)$ and $g(x)$ and add them. The brackets in $(f + g)(x)$ say exactly this: first you form the function $f + g$, then you evaluate it at $x$.
+- $\lambda f$ is the function that at every point is $\lambda$ times $f$.
+- The zero vector is the **zero function**, which is $0$ at every point; the opposite of $f$ is the function $x \mapsto -f(x)$.
+- A function is like a vector with one coordinate for each point of $[0, 1]$: its values.
+
+> [!EXAMPLE] · sum of two functions, point by point
+> Let $f(x) = x^2$ and $g(x) = 1 - x$. Then $(f + g)(x) = x^2 - x + 1$ and $(3f)(x) = 3x^2$. At some points:
+>
+> | $x$ | $0$ | $\frac 14$ | $\frac 12$ | $1$ |
+> |---|---|---|---|---|
+> | $f(x)$ | $0$ | $\frac 1{16}$ | $\frac 14$ | $1$ |
+> | $g(x)$ | $1$ | $\frac 34$ | $\frac 12$ | $0$ |
+> | $(f + g)(x)$ | $1$ | $\frac{13}{16}$ | $\frac 34$ | $1$ |
+> | $(3f)(x)$ | $0$ | $\frac 3{16}$ | $\frac 34$ | $3$ |
+>
+> Each column is added like a coordinate of $\K^n$.
+
+> [!BEYOND] · they are all functions
+> Martelli's book (§2.2.4) brings the last examples together into one: for any set $X$, the functions $X \to \K$ form a vector space $F(X, \K)$. With $X = \{1, \dots, n\}$ you find $\K^n$ again (a function on $n$ points is a list of $n$ numbers), with $X = \N$ the sequences, with $X = [0, 1]$ the functions of the handouts.
+
+### The space $\K[x]$ of polynomials (p. 25)
+
+Given a field $\K$, $\K[x]$ is the set of all polynomials with coefficients in $\K$ (lesson L04). Two polynomials can be added, and multiplying a polynomial by a scalar you still get a polynomial.
+
+> [!EXAMPLE] · the calculations of the handouts
+> To add, you collect the terms of the same degree:
+> $$(x^3 - 2x + 1) + (4x^4 + x - 3) = 4x^4 + x^3 + (-2 + 1)x + (1 - 3) = 4x^4 + x^3 - x - 2.$$
+> To multiply by a scalar you multiply every coefficient:
+> $$3(x^3 - 2x) = 3x^3 - 6x.$$
+
+If you write the coefficients in a table, degree by degree, the sum becomes exactly a **component by component** sum, as in $\K^n$:
+
+| | $x^4$ | $x^3$ | $x^2$ | $x$ | $1$ |
+|---|---:|---:|---:|---:|---:|
+| $x^3 - 2x + 1$ | $0$ | $1$ | $0$ | $-2$ | $1$ |
+| $4x^4 + x - 3$ | $4$ | $0$ | $0$ | $1$ | $-3$ |
+| sum | $4$ | $1$ | $0$ | $-1$ | $-2$ |
+
+The zero vector is the **zero polynomial**, with all coefficients equal to $0$, and the opposite of $p(x)$ is $-p(x)$, with all the coefficients' signs changed. Axioms 1–5 are checked coefficient by coefficient (Exercise 5.6).
+
+> [!PITFALL] The product of polynomials has nothing to do with it
+> Two polynomials can also be multiplied together, but this operation is **not** part of the vector space structure: in $\K[x]$ only the sum and the product by a scalar count.
+
+> [!PITFALL] Degree at most $k$ yes, degree exactly $k$ no
+> The polynomials of degree **at most** $k$ form a vector space, written $\K_k[x]$ (Exercise 5.7): for example $\R_2[x] = \{ax^2 + bx + c \mid a, b, c \in \R\}$. The polynomials of degree **exactly** $2$ instead do not: $x^2$ and $-x^2 + x$ have degree $2$, but their sum $x$ has degree $1$. And the zero polynomial does not have degree $2$.
+
+### All the examples at a glance
+
+| Space | a vector is | the sum is done | $\lambda v$ is done | zero vector |
+|---|---|---|---|---|
+| $\K$ | a number | as in $\K$ | as in $\K$ | $0$ |
+| $\K^n$ | a column of $n$ numbers | coordinate by coordinate | coordinate by coordinate | $(0, \dots, 0)$ |
+| sequences | an infinite list $(x_n)$ | term by term | term by term | $(0, 0, 0, \dots)$ |
+| functions $[0, 1] \to \K$ | a function $f$ | point by point | point by point | the zero function |
+| $\K[x]$ | a polynomial | degree by degree | coefficient by coefficient | the zero polynomial |
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book: groups, rings and fields in **§1.5 "Strutture algebriche"** (pp. 34–36); Euclidean space, the sum and the product by a scalar in **§2.1** (pp. 43–46); the definition of vector space, Proposition 2.2.1 ($0v = 0$) and the examples $\K^n$, $\K[x]$ and $F(X, \K)$ in **§2.2.1–2.2.4** (pp. 46–49). Matrices (§2.2.5) are in lesson L06.
+
+## Towards the exam
+
+The Linear Algebra and Geometry written test has 10 multiple-choice questions with 5 answers each (you need at least 6 points to have the 2 problems worth 11 points marked), it lasts 2 hours, with no calculator and only 4 handwritten pages; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+1. **Recognising a vector space.** In the quizzes there are theory questions with five reasoned answers, like this one.
+
+> [!EXAM] Exam of 07/02/2025, question 2
+> "Identify the correct answer to the question 'does $\C$ admit a structure of vector space over $\R$?'": (a) No, since $\C$ is already a vector space over $\C$ itself. (b) Yes, because every field is a vector space over $\R$. (c) No, but since $\C$ contains $\R$, $\R$ is a vector space over $\C$. (d) No, because $\C$ and $\R$ are different fields. (e) Yes, $\R$ is a subset of $\C$ and the operations $+$, $\cdot$ on $\R$ are the same as in $\C$.
+>
+> **Solution.** It is (e). The vectors are the complex numbers and the scalars the real ones; the sum is that of $\C$ and the product by a scalar $\lambda z$ is the product in $\C$ of a real by a complex number, which is still complex: $\lambda(a + bi) = \lambda a + (\lambda b)i$. Axioms 1–5 hold because they are special cases of the properties of the field $\C$, as for "$\K$ over itself" (Exercise 5.8). The others: (a) and (d) say true things, but they do not rule out the structure over $\R$; (b) is false, for example $\Q$ is not a vector space over $\R$ because $\sqrt 2 \cdot 1 \notin \Q$; (c) is false, because $i \cdot 1 = i \notin \R$.
+
+2. **Ruling out the option "it is not a vector space".** In the questions on dimension a trap answer of this kind often appears: "$T^s(3)$ has no dimension because it is not a vector space" (24/01/2024, question 5), "$S(3)$ has no dimension because it is not a vector space" and "$X$ is not necessarily a vector space", with $X = \Span(v_1, v_2, v_3)$ (15/01/2026, questions 4 and 3). To rule them out you need to know which sets are vector spaces: triangular or symmetric matrices and Spans always are (lesson L06).
+3. **Subspaces.** The most frequent question of this part is "which of these sets is (or is not) a subspace?": exams of 08/02/2024 (question 2), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 3). You solve it with the checks of this lesson (is the zero there? do the sum and the multiples stay inside?) and with the definition of subspace of lesson L06.
+4. **Calculations component by component** in $\K^n$, including those with complex numbers in $\C^n$, and with polynomials: you need them in almost all the exercises of the course.
+
+> [!METHOD] · "Is it a vector space?" in four checks
+> 1. **Who is who.** Write down the field of scalars $\K$, the set $V$ and the two operations.
+> 2. **Do the operations stay in $V$?** Try with concrete elements: do the sum of two elements and a multiple (also with $\lambda = -1$ and $\lambda = 0$) still lie in $V$?
+> 3. **Is the zero there?** The zero vector must be in $V$. If the operations are the usual ones, remember that $0v = 0_V$: if $V$ is not empty and is closed under multiples, the zero is necessarily there.
+> 4. **The axioms.** If $V$ lies inside a known space ($\K^n$, $\K[x]$, the functions) with the same operations, axioms 1–5 already hold there and stay true. If the operations are "strange", try each axiom with small numbers: a single case that does not work is enough to say no.
+>
+> To answer **no**, **one** counterexample with numbers is enough; to answer **yes** you need an argument that works for all vectors and all scalars.
+
+> [!PITFALL] The most common mistakes
+> - Confusing the $0$ of the field with the origin $0_V$.
+> - Forgetting to check that sums and multiples stay in the set.
+> - Believing that "degree exactly $k$" works like "degree at most $k$".
+> - In $\C^n$, forgetting that $i^2 = -1$.
+> - Saying "it is a vector space" without saying **over which field**: $\C$ is one over $\R$ and over $\C$, while $\R^2$ is one over $\R$ but not over $\C$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the five axioms, with the four rules hidden in the first; $0v = 0_V$ and $(-1)v = -v$; the table of the five examples with their zero vector; the three typical counterexamples: the zero is missing, the sum leaves the set, a multiple leaves the set.
+
+## Quiz
+
+```quiz
+Q: With the usual sum and product by a scalar (coordinate by coordinate), is $\R^2$ a vector space over the field $\C$?
+- Yes, because $\R \subset \C$.
++ No: for example $i \cdot (1, 0) = (i, 0)$ is not in $\R^2$.
+- Yes, because every vector space over $\R$ is also one over $\C$.
+- No, because $\R^2$ with the sum is not a commutative group.
+- No, because $\C$ is not a field.
+= The product by a scalar must give a vector of $V$: with the complex scalar $i$ you leave $\R^2$. The other reasons are false: $(\R^2, +)$ is a commutative group and $\C$ is a field. On the contrary, $\C$ is a vector space over $\R$ (Exercise 5.8). Similar to the exam of 07/02/2025, question 2.
+
+Q: Is $\R$, with the usual sum and the product by rational numbers, a vector space over $\Q$?
++ Yes: a rational times a real is a real, and the axioms follow from the properties of the field $\R$.
+- No, because $\sqrt 2 \notin \Q$.
+- No: if anything it is $\Q$ that is a vector space over $\R$.
+- Yes, but only if you restrict to rational numbers.
+- No, because $\R$ and $\Q$ are different fields.
+= It is the same reasoning as "$\C$ over $\R$": the scalars ($\Q$) lie inside the set of vectors ($\R$), so $\lambda v$ stays in $\R$ and the axioms are special cases of distributivity, associativity and identity element in $\R$. Instead $\Q$ is not a vector space over $\R$: $\sqrt 2 \cdot 1 \notin \Q$. Similar to the exam of 07/02/2025, question 2.
+
+Q: Which of these, with the operation shown, is a commutative group?
+- $(\N, +)$
+- $(\Z, \cdot)$
++ $(\Q \setminus \{0\}, \cdot)$
+- $(\R, \cdot)$
+- $(\Z \setminus \{0\}, \cdot)$
+= In $\Q \setminus \{0\}$ the product of two non-zero fractions is non-zero, the identity is $1$ and the inverse of $\frac ab$ is $\frac ba$. In $\N$ the opposite of $1$ is missing; in $\Z$ and in $\Z \setminus \{0\}$ the inverse of $2$ is missing; in $(\R, \cdot)$ the $0$ has no inverse.
+
+Q: Which of these sets, with the operations shown, is a field?
+- $\Z$, with the usual sum and product.
+- $\N$, with the usual sum and product.
++ $\{0, 1\}$, with $1 + 1 = 0$ and the other sums and the products as in the integers.
+- $\R \setminus \{0\}$, with the usual sum and product.
+- $\{0, 1, 2, 3\}$, with sum and product of the remainders in the division by $4$.
+= $\{0, 1\}$ with those rules is the field of Exercise 5.9 (the rules of parity). $\Z$: $2$ has no inverse. $\N$: the opposite of $1$ is missing. $\R \setminus \{0\}$: the sum leaves the set, $1 + (-1) = 0$. With the remainders modulo $4$: $2 \cdot 2 = 4$ has remainder $0$, and $2$ has no inverse.
+
+Q: In $\C^2$, what is $(1 + i)\begin{pmatrix} 2 \\ i \end{pmatrix}$?
++ $\begin{pmatrix} 2 + 2i \\ -1 + i \end{pmatrix}$
+- $\begin{pmatrix} 2 + 2i \\ 1 + i \end{pmatrix}$
+- $\begin{pmatrix} 2 + 2i \\ i \end{pmatrix}$
+- $\begin{pmatrix} 3 + i \\ 1 + 2i \end{pmatrix}$
+- $\begin{pmatrix} 2 \\ -1 \end{pmatrix}$
+= The scalar multiplies both coordinates: $(1 + i) \cdot 2 = 2 + 2i$ and $(1 + i) \cdot i = i + i^2 = -1 + i$. The second answer forgets that $i^2 = -1$, the third does not multiply the second coordinate, the fourth adds instead of multiplying.
+
+Q: In $\R^3$, what is $2\begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix} - 3\begin{pmatrix} 0 \\ 1 \\ 2 \end{pmatrix}$?
++ $(2, -3, -8)$
+- $(2, -3, 4)$
+- $(2, 3, -8)$
+- $(2, -1, -4)$
+- $(2, -3, -7)$
+= $2(1, 0, -1) = (2, 0, -2)$ and $3(0, 1, 2) = (0, 3, 6)$; then you subtract coordinate by coordinate: $(2 - 0,\ 0 - 3,\ -2 - 6) = (2, -3, -8)$.
+
+Q: With the usual sum and product by a scalar, which of these sets of polynomials with real coefficients is a vector space over $\R$?
+- The polynomials of degree exactly $2$.
+- The polynomials $p(x)$ with $p(0) = 1$.
++ The polynomials of degree less than or equal to $2$, that is $\R_2[x]$.
+- The polynomials with all coefficients greater than or equal to $0$.
+- The polynomials of the form $x^2 + bx + c$, with $b, c \in \R$.
+= $\R_2[x]$ is the space of Exercise 5.7. The others fail: $x^2 + (-x^2 + x) = x$ does not have degree $2$; the zero polynomial has $p(0) = 0 \neq 1$; $(-1) \cdot x = -x$ has a negative coefficient; $(x^2 + 1) + (x^2 + 1) = 2x^2 + 2$ does not have the form $x^2 + bx + c$. Similar to the exams of 08/02/2024 (question 2) and 07/09/2026 (question 3), which ask which set of polynomials is (or is not) a subspace.
+
+Q: With the operations of $\R^2$, which of these subsets is a vector space over $\R$?
++ $\{(x, y) \in \R^2 \mid x + y = 0\}$
+- $\{(x, y) \in \R^2 \mid x + y = 1\}$
+- $\{(x, y) \in \R^2 \mid x \ge 0\}$
+- $\{(x, y) \in \R^2 \mid xy = 0\}$
+- $\{(x, y) \in \R^2 \mid y = x^2\}$
+= If $x + y = 0$ and $x' + y' = 0$, then also $(x + x') + (y + y') = 0$ and $\lambda x + \lambda y = 0$: the operations stay in the set, which contains $(0, 0)$. Counterexamples for the others: $(0, 0)$ does not satisfy $x + y = 1$; $(-1) \cdot (1, 0) = (-1, 0)$ has $x < 0$; $(1, 0) + (0, 1) = (1, 1)$ has $xy = 1$; $(1, 1) + (1, 1) = (2, 2)$, but $2 \neq 2^2$. Similar to the exam of 03/06/2025, question 2.
+
+Q: Do the functions $f : [0, 1] \to \R$ with $f(0) = 1$, with the operations point by point, form a vector space over $\R$?
+- Yes, like all functions from $[0, 1]$ to $\R$.
++ No: for example the zero function is not in it, and if $f(0) = g(0) = 1$ then $(f + g)(0) = 2$.
+- Yes, because $1$ is the identity element of the product.
+- No, because functions are not vectors.
+- Yes, but only if you restrict to polynomials.
+= The zero vector would be the zero function, which at $0$ is $0$: it is not in the set. The sum leaves it too. It is the same reason as in the exam of 10/07/2024, question 2: the set $O(2)$ of orthogonal matrices is not a subspace because it does not contain the zero matrix.
+
+Q: In the field $\{0, 1, 2\}$ with sum and product of the remainders in the division by $3$ (Exercise 5.10), what is the inverse of $2$ with respect to the product?
+N: 2
+= $2 \cdot 2 = 4$, which divided by $3$ gives remainder $1$: so $2 \cdot 2 = 1$, and the inverse of $2$ is $2$ itself.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 5.6 of the handouts: the five axioms for all the examples
+For all the examples of vector spaces seen above ($\K$ over itself, $\K^n$, sequences, functions $[0, 1] \to \K$, polynomials $\K[x]$) check the 5 axioms, as the handouts checked axiom 2 for $\K^n$.
+::: solution
+The idea: in all the examples the operations are done "one piece at a time" (coordinate, term, point or coefficient), and each piece is an element of $\K$. So every axiom boils down to a property of the field $\K$. We write it out in full for $\K^n$, then we see what changes in the other cases.
+
+**$\K^n$.** Let $x = (x_1, \dots, x_n)$, $y$, $z$ be in $\K^n$ and $\lambda, \mu \in \K$. The operations stay in $\K^n$, because sums and products of elements of $\K$ lie in $\K$.
+- Axiom 1, commutative group:
+  - associative: coordinate $k$ of $(x + y) + z$ is $(x_k + y_k) + z_k$, that of $x + (y + z)$ is $x_k + (y_k + z_k)$, and they are equal by the associativity of the sum in $\K$;
+  - identity: $0 = (0, \dots, 0)$, because $x_k + 0 = x_k$;
+  - opposite: $-x = (-x_1, \dots, -x_n)$, because $x_k + (-x_k) = 0$;
+  - commutative: $x_k + y_k = y_k + x_k$ in $\K$.
+- Axiom 2: done in the handouts, with distributivity in $\K$.
+- Axiom 3: coordinate $k$ of $(\lambda + \mu)x$ is $(\lambda + \mu)x_k = \lambda x_k + \mu x_k$, which is coordinate $k$ of $\lambda x + \mu x$ (distributivity and commutativity in $\K$).
+- Axiom 4: $(\lambda\mu)x_k = \lambda(\mu x_k)$ by the associativity of the product in $\K$.
+- Axiom 5: $1 \cdot x_k = x_k$, because $1$ is the identity of the product in $\K$.
+
+**$\K$ over itself.** It is the case $n = 1$ of $\K^n$; the reason for each axiom is in the table of the section on the examples.
+
+**Sequences.** Same check, with "term $k$" in place of "coordinate $k$". Now $k$ runs from $0$ to infinity, but each check concerns one term at a time. Identity: $(0, 0, 0, \dots)$; opposite of $(x_n)$: $(-x_n)$.
+
+**Functions $[0, 1] \to \K$.** Same check "point by point": two functions are equal if they have the same value at every $x \in [0, 1]$. For example axiom 2: for every $x$,
+$$\big(\lambda(f + g)\big)(x) = \lambda\big(f(x) + g(x)\big) = \lambda f(x) + \lambda g(x) = (\lambda f + \lambda g)(x).$$
+Identity: the zero function; opposite of $f$: the function $x \mapsto -f(x)$.
+
+**Polynomials $\K[x]$.** A polynomial is determined by its coefficients, and sum and product by a scalar act coefficient by coefficient: you repeat the check of $\K^n$ with "coefficient of $x^k$" in place of "coordinate $k$". The sum $p + q$ has degree at most equal to the larger of the two degrees, so it is still a polynomial. Identity: the zero polynomial; opposite: $-p(x)$.
+:::
+
+::: exercise intermediate Exercise 5.7 of the handouts: degree at most $k$
+Check that the set $\K_k[x]$ of polynomials with coefficients in $\K$ of degree $\le k$ is a vector space. Why is the set of polynomials of degree **exactly** $k$ not a vector space if $k \ge 1$?
+::: solution
+**$\K_k[x]$ is a vector space.** Every element is written $p(x) = a_k x^k + \dots + a_1 x + a_0$ with $a_0, \dots, a_k \in \K$ (some coefficient, even the first, can be $0$).
+1. The operations stay in $\K_k[x]$. If $p(x) = a_k x^k + \dots + a_0$ and $q(x) = b_k x^k + \dots + b_0$, then
+   $$p(x) + q(x) = (a_k + b_k)x^k + \dots + (a_0 + b_0), \qquad \lambda p(x) = \lambda a_k x^k + \dots + \lambda a_0,$$
+   and no powers higher than $x^k$ appear: the degree stays $\le k$.
+2. The zero polynomial is in $\K_k[x]$ (all coefficients zero), and the opposite $-p(x)$ has the same degree as $p$.
+3. Axioms 1–5 hold in all of $\K[x]$ (exercise 1), so in particular they hold for the polynomials of degree $\le k$.
+
+In short: $\K_k[x]$ behaves like $\K^{k+1}$, because a polynomial of degree $\le k$ is given by the list of its $k + 1$ coefficients $(a_0, a_1, \dots, a_k)$.
+
+**Degree exactly $k$, with $k \ge 1$: it is not a vector space.** One counterexample is enough.
+- The sum can lower the degree: $x^k + 1$ and $-x^k$ have degree $k$, but $(x^k + 1) + (-x^k) = 1$ has degree $0 \neq k$.
+- The zero vector is not there: the zero polynomial does not have degree $k$ (and indeed $0 \cdot x^k = 0$ leaves the set).
+
+With $k = 2$: $x^2 + 1$ and $-x^2$ have degree $2$, their sum $1$ does not.
+
+**Why $k \ge 1$?** For $k = 0$ the polynomials of degree $0$ are the constants. If you decide that the zero polynomial also has degree $0$, they are all the constants, that is $\K$ itself, which is a vector space; if the zero polynomial has no degree, what remains are the non-zero constants, which are not one (the zero is missing). The answer depends on a convention, and the exercise avoids the case.
+:::
+
+::: exercise basic Exercise 5.8 of the handouts: $\C$ is a vector space over $\R$
+In the first example $\C$ is a vector space over the field $\C$. Prove that it is also a vector space over $\R$.
+::: solution
+Vectors: the complex numbers $z = a + bi$. Scalars: the real numbers $\lambda$. Sum: that of $\C$. Product by a scalar: the product in $\C$ between the real $\lambda$ and the complex $z$,
+$$\lambda(a + bi) = \lambda a + (\lambda b)i,$$
+which is still a complex number. The operations stay in $\C$.
+
+The axioms:
+1. $(\C, +)$ is a commutative group, because $\C$ is a field (axiom 1 of the field).
+2. $\lambda(z + w) = \lambda z + \lambda w$: it is the distributive property of $\C$, applied with $\lambda \in \R \subset \C$.
+3. $(\lambda + \mu)z = \lambda z + \mu z$: distributivity and commutativity of $\C$.
+4. $(\lambda\mu)z = \lambda(\mu z)$: associativity of the product in $\C$.
+5. $1z = z$: $1$ is the identity of the product in $\C$.
+
+Each axiom is a special case of a property of $\C$ in which one of the numbers is real.
+
+**With coordinates.** The correspondence $a + bi \leftrightarrow (a, b)$ turns the operations into those of $\R^2$: $(a + bi) + (c + di) = (a + c) + (b + d)i$ corresponds to $(a, b) + (c, d)$, and $\lambda(a + bi)$ corresponds to $\lambda(a, b)$. As a vector space over $\R$, $\C$ behaves like the plane $\R^2$: it is the Gauss plane of lesson L02.
+
+**Careful with the reverse.** $\R$ is **not** a vector space over $\C$ with the usual product, because $i \cdot 1 = i \notin \R$.
+:::
+
+::: exercise intermediate Exercise 5.9 of the handouts: the field with two elements
+Let $\K = \{0, 1\}$ with the operations
+$$0 + 0 = 0, \quad 0 + 1 = 1, \quad 1 + 0 = 1, \quad 1 + 1 = 0, \qquad 0 \cdot 0 = 0, \quad 0 \cdot 1 = 0, \quad 1 \cdot 0 = 0, \quad 1 \cdot 1 = 1.$$
+Prove that $(\K, +, \cdot)$ is a field.
+::: solution
+You check the three axioms of Definition 5.3.
+
+**Axiom 1: $(\K, +)$ is a commutative group with identity $0$.**
+- The sums stay in $\{0, 1\}$ (the table says so).
+- Identity: $0 + 0 = 0$ and $0 + 1 = 1 + 0 = 1$, so $0$ leaves everything as it is.
+- Opposites: $0 + 0 = 0$, so $-0 = 0$; $1 + 1 = 0$, so $-1 = 1$.
+- Commutative: $0 + 1 = 1 + 0$, and the other cases have two equal terms.
+- Associative: the triples $(a, b, c)$ are $2^3 = 8$. Instead of trying them one by one, notice that $a + b + c$ is $0$ if among $a$, $b$, $c$ there is an even number of $1$s, and it is $1$ if there is an odd number, however you place the brackets. For example $(1 + 1) + 1 = 0 + 1 = 1$ and $1 + (1 + 1) = 1 + 0 = 1$.
+
+**Axiom 2: $\K \setminus \{0\} = \{1\}$ is a commutative group with the product.** There is only one element: $1 \cdot 1 = 1$ stays in the set, $1$ is the identity and is its own inverse; associativity and commutativity hold because there is only one possible product, $1 \cdot 1$.
+
+**Axiom 3: the distributive law $a(b + c) = ab + ac$.** If $a = 0$ both sides are $0$. If $a = 1$ both sides are $b + c$. So it holds in all $8$ cases.
+
+**The reason.** Read $0$ as "even" and $1$ as "odd": the tables are the rules of parity (odd plus odd is even, and so on). The properties of the sum and the product of the integers carry over to the remainders of the division by $2$. This field is often written $\mathbb{F}_2$ or $\Z_2$.
+:::
+
+::: exercise hard Exercise 5.10 of the handouts: a field with three elements
+Let $\K = \{0, 1, 2\}$. Find, in a similar way to the previous exercise, two operations $+$ and $\cdot$ that make $(\K, +, \cdot)$ a field. For the very brave: try to generalise to $\K = \{0, 1, 2, \dots, p - 1\}$ with $p$ a prime number.
+::: solution
+**The idea.** In the previous exercise the operations were those of the remainders of the division by $2$. Here you use the **remainders of the division by $3$**: you calculate as with the integers and then keep the remainder. For example $2 + 2 = 4$, which divided by $3$ gives remainder $1$: so $2 + 2 = 1$. And $2 \cdot 2 = 4$, remainder $1$: so $2 \cdot 2 = 1$.
+
+| $+$ | $0$ | $1$ | $2$ |
+|---|---|---|---|
+| $0$ | $0$ | $1$ | $2$ |
+| $1$ | $1$ | $2$ | $0$ |
+| $2$ | $2$ | $0$ | $1$ |
+
+| $\cdot$ | $0$ | $1$ | $2$ |
+|---|---|---|---|
+| $0$ | $0$ | $0$ | $0$ |
+| $1$ | $0$ | $1$ | $2$ |
+| $2$ | $0$ | $2$ | $1$ |
+
+The check:
+1. $(\K, +)$ is a commutative group: identity $0$; opposites $-0 = 0$, $-1 = 2$ (because $1 + 2 = 0$) and $-2 = 1$; the table is symmetric, so the sum is commutative. Associativity carries over from the integers: $(a + b) + c$ and $a + (b + c)$ are the same integer, so they have the same remainder.
+2. $\{1, 2\}$ with the product: $1 \cdot 1 = 1$, $1 \cdot 2 = 2$, $2 \cdot 2 = 1$, so the product of two non-zero elements is non-zero. Identity $1$; inverses $1^{-1} = 1$ and $2^{-1} = 2$; commutativity and associativity as with the integers.
+3. Distributive law: it holds for the integers, and taking the remainder respects sums and products, so it also holds for the remainders.
+
+**The general case, with $p$ prime.** On $\{0, 1, \dots, p - 1\}$ you use sum and product "modulo $p$", that is you keep the remainder of the division by $p$. All the properties carry over from the integers as above, except one that has to be proved: **every $a \neq 0$ has an inverse**.
+- Multiply $a$ by all the non-zero elements: $a \cdot 1, a \cdot 2, \dots, a \cdot (p - 1)$.
+- Their remainders are all different. If $ab$ and $ac$ had the same remainder, $p$ would divide $a(b - c)$; since $p$ is prime, it would divide $a$ or $b - c$. It does not divide $a$, because $1 \le a \le p - 1$; and $b - c$ lies between $-(p - 2)$ and $p - 2$, so it is divisible by $p$ only if $b = c$.
+- None has remainder $0$: $p$ would have to divide $a$ or $b$, both between $1$ and $p - 1$.
+- So they are $p - 1$ different non-zero remainders: they are **all** the remainders $1, \dots, p - 1$, in another order. One of them is $1$, and that one gives the inverse of $a$.
+
+**Why $p$ must be prime.** With $\{0, 1, 2, 3\}$ and the remainders modulo $4$ you do not get a field: $2 \cdot 2 = 4$ has remainder $0$, and $2$ has no inverse ($2 \cdot 1 = 2$, $2 \cdot 2 = 0$, $2 \cdot 3 = 2$). These sets of remainders are studied in Discrete Mathematics (modular arithmetic).
+:::
+
+::: exercise basic Calculations in $\R^3$, in $\C^2$ and with polynomials
+Compute:
+(a) $2u - 3v$ with $u = (1, 0, -1)$ and $v = (2, -1, 1)$ in $\R^3$;
+(b) $iz + w$ with $z = (1 + i, 2)$ and $w = (3, -i)$ in $\C^2$;
+(c) $2p - q$ with $p(x) = x^3 - x + 2$ and $q(x) = 2x^3 + x^2 - 4$;
+(d) the vector $x \in \R^3$ such that $x + (1, 2, 3) = (4, 0, 3)$.
+::: solution
+(a) $2u = (2, 0, -2)$ and $3v = (6, -3, 3)$. So
+$$2u - 3v = (2 - 6,\ 0 - (-3),\ -2 - 3) = (-4, 3, -5).$$
+
+(b) First the product by the scalar $i$, coordinate by coordinate: $iz = (i(1 + i),\ 2i) = (i + i^2,\ 2i) = (-1 + i,\ 2i)$. Then the sum:
+$$iz + w = (-1 + i + 3,\ 2i - i) = (2 + i,\ i).$$
+
+(c) $2p(x) = 2x^3 - 2x + 4$. Subtracting $q$ degree by degree:
+$$2p(x) - q(x) = (2 - 2)x^3 + (0 - 1)x^2 + (-2 - 0)x + (4 - (-4)) = -x^2 - 2x + 8.$$
+
+(d) You add the opposite of $(1, 2, 3)$ to both sides:
+$$x = (4, 0, 3) + (-1, -2, -3) = (3, -2, 0).$$
+Check: $(3, -2, 0) + (1, 2, 3) = (4, 0, 3)$.
+:::
+
+::: exercise basic Group or not?
+For each case say whether it is a group. If it is, give the identity element and the inverse of one element; if it is not, say what fails, with an example.
+(a) The even numbers $\{\dots, -2, 0, 2, 4, \dots\}$ with the sum.
+(b) The odd numbers with the sum.
+(c) $\Z$ with subtraction, $a * b = a - b$.
+(d) $\{1, -1\}$ with the product.
+(e) The positive real numbers with the product.
+::: solution
+(a) **Yes**, and it is commutative. The sum of two even numbers is even; the identity $0$ is even; the inverse of $4$ is $-4$, which is even too.
+
+(b) **No**. The operation leaves the set: $1 + 3 = 4$ is not odd. And the identity is missing too, because $0$ is even.
+
+(c) **No**. Subtraction is not associative: $(5 - 3) - 1 = 1$, while $5 - (3 - 1) = 3$. An identity element is missing too: $a - 0 = a$, but $0 - a = -a \neq a$ for $a \neq 0$.
+
+(d) **Yes**, commutative. $1 \cdot 1 = 1$, $1 \cdot (-1) = -1$, $(-1)(-1) = 1$: the products stay in the set. The identity is $1$ and the inverse of $-1$ is $-1$ itself.
+
+(e) **Yes**, commutative. The product of two positive numbers is positive; the identity is $1$; the inverse of $5$ is $\frac 15$, still positive.
+:::
+
+::: exercise intermediate Three consequences of the axioms
+Using only the axioms of Definition 5.4 and Proposition 5.5, prove that in every vector space $V$ over $\K$:
+(a) $\lambda 0_V = 0_V$ for every $\lambda \in \K$;
+(b) $(-1)v = -v$ for every $v \in V$;
+(c) if $\lambda v = 0_V$, then $\lambda = 0$ or $v = 0_V$.
+::: solution
+(a) Since $0_V + 0_V = 0_V$ (identity element), by axiom 2
+$$\lambda 0_V = \lambda(0_V + 0_V) = \lambda 0_V + \lambda 0_V.$$
+Adding the opposite of $\lambda 0_V$ to both sides and cancelling as in Proposition 5.5, what remains is $0_V = \lambda 0_V$.
+
+(b) You show that $(-1)v$ added to $v$ gives $0_V$:
+$$v + (-1)v = 1v + (-1)v = (1 + (-1))v = 0v = 0_V.$$
+The steps use, in order, axiom 5, axiom 3, the fact that $1 + (-1) = 0$ in the field and Proposition 5.5. So $(-1)v$ is an opposite of $v$; since the opposite is unique (box on groups), $(-1)v = -v$.
+
+(c) Suppose $\lambda v = 0_V$ with $\lambda \neq 0$: you must show that $v = 0_V$. Since $\K$ is a field, $\lambda$ has an inverse $\lambda^{-1}$. Then
+$$v = 1v = (\lambda^{-1}\lambda)v = \lambda^{-1}(\lambda v) = \lambda^{-1} 0_V = 0_V,$$
+using axiom 5, the fact that $\lambda^{-1}\lambda = 1$, axiom 4 and point (a). If instead $\lambda = 0$ there is nothing to prove.
+:::
+
+::: exercise exam A strange product by a scalar
+On $V = \R^2$ consider the usual sum and the product by a scalar
+$$\lambda \star (x, y) = (\lambda x, 0).$$
+(1) Compute $3 \star (2, 5)$ and $1 \star (2, 5)$.
+(2) Check axioms 2, 3 and 4 of Definition 5.4.
+(3) Is $V$, with these operations, a vector space over $\R$?
+(4) Does $0 \star v = 0_V$ still hold for every $v$?
+::: solution
+(1) $3 \star (2, 5) = (3 \cdot 2, 0) = (6, 0)$ and $1 \star (2, 5) = (2, 0)$.
+
+(2) Let $v = (x, y)$, $w = (x', y')$ and $\lambda, \mu \in \R$.
+- Axiom 2: $\lambda \star (v + w) = \lambda \star (x + x', y + y') = (\lambda x + \lambda x', 0) = (\lambda x, 0) + (\lambda x', 0) = \lambda \star v + \lambda \star w$. It holds.
+- Axiom 3: $(\lambda + \mu) \star v = ((\lambda + \mu)x, 0) = (\lambda x, 0) + (\mu x, 0) = \lambda \star v + \mu \star v$. It holds.
+- Axiom 4: $(\lambda\mu) \star v = (\lambda\mu x, 0)$ and $\lambda \star (\mu \star v) = \lambda \star (\mu x, 0) = (\lambda\mu x, 0)$. It holds.
+
+(3) **No.** Axiom 1 holds (the sum is the usual one of $\R^2$), but axiom 5 fails: $1 \star (2, 5) = (2, 0) \neq (2, 5)$. A single false axiom is enough.
+
+(4) **Yes**: $0 \star (x, y) = (0, 0)$. It is no coincidence: the proof of Proposition 5.5 uses only axioms 1 and 3, which hold here.
+
+At the exam a question like this appears as multiple choice ("is it a vector space?"): the right reason is the counterexample to axiom 5.
+:::
+
+::: exercise exam As at the exam: is it a vector space over $\R$?
+For each of the following sets, with the operations shown, decide whether it is a vector space over $\R$, giving reasons for your answer.
+(a) $\C$, with the usual sum and the product by real numbers.
+(b) $\R^2$, with the usual sum and $\lambda \cdot (x, y) = (\lambda x, y)$.
+(c) The real polynomials of degree exactly $3$, with the usual operations.
+(d) The functions $f : [0, 1] \to \R$ with $f(1) = 0$, with the operations point by point.
+(e) The positive real numbers, with the "sum" $x \oplus y = xy$ and the "product by a scalar" $\lambda \odot x = x^\lambda$.
+::: solution
+(a) **Yes**: it is Exercise 5.8, and the question of the exam of 07/02/2025.
+
+(b) **No**: axiom 3 fails. With $\lambda = \mu = 1$ and $v = (0, 1)$:
+$$(1 + 1) \cdot (0, 1) = (0, 1), \qquad 1 \cdot (0, 1) + 1 \cdot (0, 1) = (0, 1) + (0, 1) = (0, 2).$$
+The two results are different. You can also see it from Proposition 5.5: $0 \cdot (0, 1) = (0, 1)$ is not the zero vector.
+
+(c) **No**: $(x^3 + x) + (-x^3) = x$ has degree $1$, so the sum leaves the set; moreover the zero polynomial does not have degree $3$.
+
+(d) **Yes**. The zero function is $0$ at $1$, so it is in the set. If $f(1) = g(1) = 0$, then $(f + g)(1) = 0 + 0 = 0$ and $(\lambda f)(1) = \lambda \cdot 0 = 0$: sums and multiples stay in the set. The axioms hold because they hold for all functions $[0, 1] \to \R$ with the same operations. In lesson L06 a set like this will be called a **subspace**.
+
+(e) **Yes**, even if it looks strange. The operations stay among the positive numbers: $xy > 0$ and $x^\lambda > 0$.
+- Axiom 1: $\oplus$ is the product of positive numbers, which is a commutative group (exercise 7 (e)). The "zero vector" is the number $1$, because $x \oplus 1 = x$, and the "opposite" of $x$ is $\frac 1x$.
+- Axiom 2: $\lambda \odot (x \oplus y) = (xy)^\lambda = x^\lambda y^\lambda = (\lambda \odot x) \oplus (\lambda \odot y)$.
+- Axiom 3: $(\lambda + \mu) \odot x = x^{\lambda + \mu} = x^\lambda x^\mu = (\lambda \odot x) \oplus (\mu \odot x)$.
+- Axiom 4: $(\lambda\mu) \odot x = x^{\lambda\mu} = (x^\mu)^\lambda = \lambda \odot (\mu \odot x)$.
+- Axiom 5: $1 \odot x = x^1 = x$.
+
+Check with Proposition 5.5: $0 \odot x = x^0 = 1$, which is exactly the zero vector of this space. Moral: vectors can be anything and the operations can look unusual; all that matters is that they respect the axioms.
+:::
+
+## Review questions
+
+::: question What is $\R^n$, and in which two ways can you read one of its elements?
+It is the set of ordered lists $(x_1, \dots, x_n)$ of $n$ real numbers, the Cartesian product of $n$ copies of $\R$. An element can be read as a point or as a vector, that is an arrow from the origin to that point.
+:::
+
+::: question How do you add two vectors of $\R^n$, and what does the sum mean in $\R^2$?
+Component by component: $(x_1, \dots, x_n) + (y_1, \dots, y_n) = (x_1 + y_1, \dots, x_n + y_n)$. In $\R^2$ it is the parallelogram rule: $v + w$ is the diagonal of the parallelogram that has $v$ and $w$ as sides.
+:::
+
+::: question What effect does the product by a scalar $\lambda v$ have as $\lambda$ varies?
+It multiplies every coordinate by $\lambda$. It stretches $v$ if $|\lambda| > 1$, shrinks it if $|\lambda| < 1$, reverses its direction if $\lambda < 0$; with $\lambda = 0$ it gives the zero vector, with $\lambda = -1$ the opposite. All the multiples of $v \neq 0$ lie on the line through the origin and $v$.
+:::
+
+::: question What are the group axioms? Give an example and a counterexample.
+Identity element, associative property, existence of the inverse of every element (plus the commutative property, for commutative groups). Example: $(\Z, +)$, with identity $0$ and inverse $-a$. Counterexample: $(\N, +)$, because $1$ has no opposite in $\N$.
+:::
+
+::: question Why is $\Q \setminus \{0\}$ a group with the product and $\Z \setminus \{0\}$ is not?
+In $\Q \setminus \{0\}$ every element $\frac ab$ has the inverse $\frac ba$, which is still a non-zero fraction. In $\Z \setminus \{0\}$ the number $2$ has no inverse, because $\frac 12$ is not an integer.
+:::
+
+::: question What is a field? Why is $\Z$ not one?
+A set with two operations $+$ and $\cdot$ such that $(A, +)$ is a commutative group with identity $0_A$, $(A \setminus \{0_A\}, \cdot)$ is a commutative group with identity $1_A$, and the distributive law holds. $\Z$ is not one because $2$ has no inverse for the product.
+:::
+
+::: question What are the five vector space axioms? What does the first contain?
+(1) $(V, +)$ is a commutative group; (2) $\lambda(v + w) = \lambda v + \lambda w$; (3) $(\lambda + \mu)v = \lambda v + \mu v$; (4) $(\lambda\mu)v = \lambda(\mu v)$; (5) $1v = v$. The first contains four rules: associative, zero vector, opposite, commutative. Moreover sum and product by a scalar must give results in $V$.
+:::
+
+::: question What is the difference between the $0$ of the field and the origin $0_V$?
+The $0$ of the field is a scalar, a number. The origin $0_V$ is a vector, the identity element of the sum of $V$: in $\R^3$ it is $(0, 0, 0)$, among polynomials it is the zero polynomial, among functions it is the zero function.
+:::
+
+::: question State and prove Proposition 5.5.
+$0v = 0_V$ for every $v$. Indeed $0v = (0 + 0)v = 0v + 0v$ by axiom 3; adding the opposite of $0v$ to both sides you get $0_V = 0v$.
+:::
+
+::: question Why is $\C$ a vector space over $\R$, while $\R$ is not one over $\C$?
+A real times a complex number is a complex number, and the axioms are special cases of the field properties of $\C$. On the contrary, a complex scalar times a real number may not be real: $i \cdot 1 = i \notin \R$.
+:::
+
+::: question How do you add two functions $[0, 1] \to \R$? What is the zero vector?
+Point by point: $(f + g)(x) = f(x) + g(x)$ and $(\lambda f)(x) = \lambda f(x)$ for every $x \in [0, 1]$. The zero vector is the function that is $0$ at every point.
+:::
+
+::: question Why do the polynomials of degree exactly $2$ not form a vector space, while $\R_2[x]$ does?
+The sum can lower the degree ($x^2 + (-x^2 + x) = x$) and the zero polynomial does not have degree $2$. In $\R_2[x]$ instead sums and multiples still have degree $\le 2$, and the zero polynomial is there.
+:::
+
+::: question How do you prove that a set, with certain operations, is not a vector space?
+With a single concrete counterexample: the zero is not in the set, or the sum of two elements or a multiple leave the set, or an axiom fails for certain numbers.
+:::
+
+## Glossary
+
+```glossary
+Euclidean space $\R^n$ | The set of ordered lists $(x_1, \dots, x_n)$ of $n$ real numbers, with sum and product by a scalar component by component.
+Cartesian product | $A \times B$ is the set of ordered pairs $(a, b)$ with $a \in A$ and $b \in B$.
+Column vector | A vector written vertically; in the exam papers, written as a row, it appears as ${}^t(x_1, \dots, x_n)$.
+Coordinates | The numbers $x_1, \dots, x_n$ that make up the vector $x$.
+Origin | The vector $(0, \dots, 0)$ of $\R^n$; in any vector space, the identity element $0_V$ of the sum.
+Scalar | An element of the field $\K$, that is a number that multiplies vectors.
+Product by a scalar | The operation that associates with $\lambda \in \K$ and $v \in V$ the vector $\lambda v$; in $\R^n$ it multiplies every coordinate by $\lambda$.
+Parallelogram rule | In $\R^2$, $v + w$ is the diagonal of the parallelogram with sides $v$ and $w$.
+Binary operation | Rule that associates with two elements of a set an element of the same set.
+Group | Set with a binary operation that has an identity element, is associative and in which every element has an inverse.
+Commutative group | Group in which $a * b = b * a$ also holds for all $a, b$.
+Field | Set with $+$ and $\cdot$: commutative group with the sum, commutative group with the product once $0$ is removed, distributive law. Examples: $\Q$, $\R$, $\C$.
+Vector space | Set $V$ with a sum and a product by scalars of a field $\K$ that respect the five axioms of Definition 5.4.
+Zero vector $0_V$ | The identity element of the sum of $V$: $v + 0_V = v$ for every $v$.
+Opposite $-v$ | The vector such that $v + (-v) = 0_V$; $-v = (-1)v$ holds.
+The space $\K^n$ | The columns of $n$ elements of $\K$, with term-by-term operations; for example $\C^2$.
+Polynomials $\K[x]$ and $\K_k[x]$ | $\K[x]$: all the polynomials with coefficients in $\K$; $\K_k[x]$: those of degree at most $k$. Both are vector spaces.
+Operations point by point | For functions: $(f + g)(x) = f(x) + g(x)$ and $(\lambda f)(x) = \lambda f(x)$ at every point $x$.
+```
+
+## Checklist
+
+```checklist
+- I can write an element of $\R^n$ as a point, as a vector and as a column vector.
+- I can add vectors and multiply them by a scalar, also in $\C^n$, and I can draw the sum in $\R^2$ with the parallelogram.
+- I can list the group axioms and explain why $(\N, +)$ and $(\Z, \cdot)$ are not groups.
+- I can say what a field is and why $\Z$ is not one, while $\{0, 1\}$ with $1 + 1 = 0$ is.
+- I can write the five vector space axioms and the four rules contained in the first.
+- I can tell the zero of the field from the origin $0_V$ and I can prove that $0v = 0_V$.
+- I can explain why $\K^n$, sequences, functions $[0, 1] \to \K$ and $\K[x]$ are vector spaces, and what the zero vector is in each.
+- I can prove that $\C$ is a vector space over $\R$ and explain why $\R^2$ is not one over $\C$.
+- I can find a counterexample when a set is not a vector space: the zero is missing, or a sum or a multiple leaves the set.
+- I can check an axiom with unusual operations, as in exercises 9 and 10.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 5 "Spazi vettoriali I", pp. 20–25: sections 5.A–5.D are followed in order, with the page next to each heading; definitions, propositions and exercises keep their numbering (Definitions 5.1–5.4, Proposition 5.5, Exercises 5.6–5.10).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.5 (groups, uniqueness of the inverse, cancellation, rings and fields), §2.1 (Euclidean space, sum, product by a scalar and their properties), §2.2.1–2.2.4 (definition of vector space, Proposition 2.2.1, the spaces $\K^n$, $\K[x]$ and $F(X, \K)$).
+- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (question 5), 08/02/2024 (question 2), 10/07/2024 (question 2), 07/02/2025 (question 2, reported with a solution written for these notes), 03/06/2025 (question 2), 15/01/2026 (questions 3 and 4), 05/02/2026 (question 2), 07/09/2026 (question 3).
+- The **"Beyond the handouts"** parts (uniqueness of the inverse and cancellation, why axiom 5 is needed, more consequences of the axioms, the space $F(X, \K)$, the method for the exam and exercises 6–10) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L06_vector_spaces_2.md -->
+> File: `ai_context/MDAG/lessons/L06_vector_spaces_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L06
+title: Vector spaces II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L06
+description: >-
+  Notes on lesson L06 of Linear Algebra and Geometry (MDAG, part 2): the space of matrices, vector subspaces,
+  diagonal, triangular, symmetric and skew-symmetric matrices, linear combinations and the subspace spanned (Span),
+  with exam-style quizzes and worked exercises.
+lede: >-
+  Inside a vector space there are other, smaller ones: subspaces. Here you learn to recognise them with three
+  checks, you meet the space of matrices $M(m, n, \K)$ and its most important subspaces (diagonal, triangular,
+  symmetric, skew-symmetric matrices) and you discover the main way to build subspaces: taking all the linear
+  combinations of some vectors, that is their $\Span$.
+material: handouts
+facts:
+  Handouts: lesson 6 · pp. 26–30
+  Book: Martelli, §2.2.5–2.2.16
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 6 "Spazi vettoriali II"; B. Martelli, Geometria e algebra lineare, §2.2.5–2.2.16
+italian_file: L06_spazi_vettoriali_2.html
+html_notes: notes/MDAG/L06_vector_spaces_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L06_spazi_vettoriali_2.md
+```
+
+## In brief
+
+- An $m \times n$ **matrix** is a table of numbers with $m$ rows and $n$ columns. The $m \times n$ matrices, with sum and product by a scalar done entry by entry, form the vector space $M(m, n, \K)$; in particular $M(m, 1, \K) = \K^m$.
+- A **subspace** of $V$ is a subset $W$ that contains $0$ and is **closed** under the sum and the product by a scalar. With the operations of $V$, it is a vector space in its own right.
+- Every space $V$ has the trivial subspace $\{0\}$ and the total subspace $V$; every other subspace lies in between: $\{0\} \subset W \subset V$.
+- Examples: $\K_k[x] \subset \K[x]$; in the plane, the lines **through the origin**; among square matrices, the diagonal ones $D(n)$, the upper triangular $T^s(n)$ and lower triangular $T^i(n)$ ones, the symmetric $S(n)$ and the skew-symmetric $A(n)$ ones (Proposition 6.5).
+- To say that a set is **not** a subspace one counterexample is enough. The quickest: **it does not contain zero**, like a line that does not pass through the origin.
+- A **linear combination** of $v_1, \dots, v_k$ is a vector of the form $\lambda_1 v_1 + \dots + \lambda_k v_k$, with $\lambda_1, \dots, \lambda_k$ any scalars.
+- The **Span** of $v_1, \dots, v_k$ is the set of all their linear combinations, and it is always a subspace (Proposition 6.7). For example $\Span(v)$, with $v \neq 0$, is the line through the origin with the direction of $v$.
+- To find out whether a vector $u$ lies in $\Span(v_1, \dots, v_k)$ you look for coefficients with $\lambda_1 v_1 + \dots + \lambda_k v_k = u$: it is a linear system.
+- At the exam "which of these sets is (or is not) a subspace?" comes up almost every session: 08/02/2024, 03/06/2025, 05/02/2026, 07/09/2026.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## The space of matrices (p. 26)
+
+In lesson L05 the vectors of $\K^n$ were columns of numbers. Now you put several columns side by side and you get a **table**: a matrix. For example
+
+$$A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$$
+
+has $2$ rows and $3$ columns. Matrices are the "other fundamental example" of vector space with which the handouts open the lesson, and from here on they will appear everywhere.
+
+> [!DEF] 6.1 · Matrix
+> Let $\K$ be, as always, a fixed field. A **matrix** with $m$ **rows** and $n$ **columns** with coefficients in $\K$ is a rectangular table of the form
+> $$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{m1} & \cdots & a_{mn} \end{pmatrix}$$
+> in which all the $mn$ coefficients $a_{ij}$ belong to $\K$. In short we say that $A$ is an **$m \times n$ matrix**. Its rows are denoted by $A_1, \dots, A_m$ and its columns by $A^1, \dots, A^n$.
+
+Piece by piece:
+
+- **$m \times n$** is read "$m$ by $n$": first the number of rows, then that of columns. The matrix $A$ above is $2 \times 3$.
+- **$a_{ij}$** is the coefficient in row $i$ and column $j$: **first the row, then the column**. In the matrix $A$ above, $a_{12} = 2$ (row 1, column 2) and $a_{21} = 4$ (row 2, column 1).
+- In all there are $m \cdot n$ coefficients: $A$ has $2 \cdot 3 = 6$.
+- **$A_i$**, with the index **at the bottom**, is row $i$; **$A^j$**, with the index **at the top**, is column $j$. In the matrix $A$ above: $A_2 = (4, 5, 6)$ and $A^3 = \begin{pmatrix} 3 \\ 6 \end{pmatrix}$.
+
+> [!PITFALL] $A^1$ is not a power
+> In the handouts $A^1, \dots, A^n$ are the **columns** of $A$: the index at the top is just a label. $A^2$ is the second column, not $A$ times $A$.
+
+> [!EXAMPLE] · the matrices of the handouts
+> Two matrices with coefficients in $\R$:
+> $$B = \begin{pmatrix} 1 & \sqrt 2 \\ 0 & -5 \\ 7 & \pi \end{pmatrix}, \qquad C = \begin{pmatrix} 5 & 0 & \sqrt 3 \end{pmatrix}.$$
+> $B$ is $3 \times 2$: $b_{12} = \sqrt 2$, $b_{32} = \pi$, the row $B_2 = (0, -5)$, the column $B^1 = {}^t(1, 0, 7)$. $C$ is $1 \times 3$: a single row.
+
+### Sum and product by a scalar
+
+Two matrices $A = (a_{ij})$ and $B = (b_{ij})$ of the **same size** are added component by component; the product by a scalar is also defined component by component:
+
+$$(A + B)_{ij} = a_{ij} + b_{ij}, \qquad (\lambda A)_{ij} = \lambda a_{ij}.$$
+
+In words: entry $(i, j)$ of the sum is the sum of the entries $(i, j)$, and $\lambda A$ multiplies every entry by $\lambda$.
+
+> [!EXAMPLE] · sum and multiple of matrices
+> $$\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix} + \begin{pmatrix} 0 & -1 & 2 \\ 1 & 1 & -3 \end{pmatrix} = \begin{pmatrix} 1 + 0 & 2 - 1 & 3 + 2 \\ 4 + 1 & 5 + 1 & 6 - 3 \end{pmatrix} = \begin{pmatrix} 1 & 1 & 5 \\ 5 & 6 & 3 \end{pmatrix},$$
+> $$2\begin{pmatrix} 1 & -1 \\ 0 & 3 \end{pmatrix} = \begin{pmatrix} 2 & -2 \\ 0 & 6 \end{pmatrix}.$$
+
+The set of all $m \times n$ matrices with coefficients in $\K$, with these operations, is written $M(m, n, \K)$, or $M(m, n)$ when the field is understood. The handouts remark that $M(m, n, \K)$ is a vector space. The reason is the one of lesson L05: the operations are done entry by entry, so every axiom boils down to a property of the field, one entry at a time. In practice an $m \times n$ matrix behaves like a vector of $\K^{mn}$ written over several rows. The zero vector is the **zero matrix**, with all coefficients $0$; the opposite of $A$ is $-A$, with all the coefficients' signs changed.
+
+Finally, an $m \times 1$ matrix has a single column: it is a column vector. So
+
+$$M(m, 1, \K) = \K^m.$$
+
+> [!PITFALL] Only matrices of the same size
+> $\begin{pmatrix} 1 & 2 \end{pmatrix} + \begin{pmatrix} 1 \\ 2 \end{pmatrix}$ makes no sense: the first is $1 \times 2$, the second $2 \times 1$. The product **between** matrices exists, but it is another operation, which is not part of the vector space structure: it arrives in lesson L08.
+
+## Vector subspaces (pp. 26–27)
+
+In the plane $\R^2$ look at the line $r$ with equation $y = 2x$. It contains the origin. If you take two of its points, for example $(1, 2)$ and $(-3, -6)$, their sum $(-2, -4)$ is still on $r$. If you multiply one of its points by a number, for example $5 \cdot (1, 2) = (5, 10)$, you stay on $r$. With the sum and the product by a scalar you **never leave** $r$: $r$ is a small vector space inside $\R^2$.
+
+The line $s$ with equation $y = 2x + 1$, parallel to the first, instead does not work. It does not pass through the origin, because $0 \neq 2 \cdot 0 + 1$. And the sum leaves it: $(0, 1)$ and $(1, 3)$ are on $s$, but $(0, 1) + (1, 3) = (1, 4)$ is not, because $2 \cdot 1 + 1 = 3 \neq 4$.
+
+```graph
+title: The line $y = 2x$ passes through the origin and is a subspace; the line $y = 2x + 1$ is not: the sum of two of its points leaves it
+x: -4 4
+y: -3 5
+line: 0 0 1.5 3 | accent | $y = 2x$ | e
+line: 0 1 -1.5 -2 | pink | dashed | $y = 2x + 1$ | w
+point: 0 0 | accent | $O$ | se
+point: 0 1 | pink | $(0, 1)$ | w
+point: 1 3 | pink | $(1, 3)$ | w
+point: 1 4 | amber | $(1, 4)$ | nw
+```
+
+The handouts define precisely when a vector space "contains another one".
+
+> [!DEF] 6.2 · Vector subspace
+> Let $V$ be a vector space over a field $\K$. A **vector subspace** of $V$ is a subset $W \subset V$ that satisfies the following three axioms:
+> 1. $0 \in W$;
+> 2. if $v, v' \in W$, then also $v + v' \in W$;
+> 3. if $v \in W$ and $\lambda \in \K$, then $\lambda v \in W$.
+
+Piece by piece:
+
+- $W \subset V$: you start from a vector space $V$ you already know and take some of its vectors.
+- **Axiom 1**: the zero vector **of $V$** must be in $W$. It is the first check, and the quickest.
+- **Axiom 2**: the sum of two vectors of $W$ does not leave $W$. We say that $W$ is **closed under the sum**.
+- **Axiom 3**: every multiple of a vector of $W$, with **any** scalar (even negative or zero), stays in $W$. We say that $W$ is **closed under the product by a scalar**.
+
+With the operations "inherited" from $V$, every subspace $W$ is itself a vector space. The reason, with the details the handouts leave implicit:
+
+1. the operations stay in $W$, by axioms 2 and 3;
+2. axioms 2–5 of Definition 5.4, and the associative and commutative properties, hold for all the vectors of $V$, so also for those of $W$;
+3. the zero vector is in $W$ by axiom 1;
+4. the opposite of $v \in W$ is in $W$: it is $-v = (-1)v$ (lesson L05, exercise 8), which is in $W$ by axiom 3.
+
+### The trivial subspace and the total one (p. 27)
+
+Every vector space $V$ always has two subspaces:
+
+- the **trivial subspace** $\{0\}$, made only of the origin: $0 + 0 = 0$ and $\lambda 0 = 0$, so you do not leave it;
+- the **total subspace** $V$, made of all the vectors.
+
+Every other subspace lies in between:
+
+$$\{0\} \subset W \subset V.$$
+
+An example already met is $\K_k[x] \subset \K[x]$, made of the polynomials of degree $\le k$ (Exercise 5.7): it contains the zero polynomial, and sums and multiples of polynomials of degree $\le k$ still have degree $\le k$.
+
+> [!EXAMPLE] · the line $y = 2x$, with letters
+> Let $W = \{(x, y) \in \R^2 \mid y = 2x\}$. We check the three axioms with generic vectors.
+> 1. $(0, 0) \in W$, because $0 = 2 \cdot 0$.
+> 2. If $(x, y)$ and $(x', y')$ are in $W$, that is $y = 2x$ and $y' = 2x'$, the sum $(x + x', y + y')$ satisfies $y + y' = 2x + 2x' = 2(x + x')$: it is in $W$.
+> 3. If $(x, y) \in W$ and $\lambda \in \R$, then $\lambda y = \lambda \cdot 2x = 2(\lambda x)$: $(\lambda x, \lambda y)$ is in $W$ too.
+>
+> So $W$ is a subspace of $\R^2$.
+
+> [!EXAMPLE] · three sets that are not subspaces of $\R^2$
+> - **$\{(x, y) \mid y = 2x + 1\}$**: it does not contain $(0, 0)$. Axiom 1 fails.
+> - **The first quadrant $\{(x, y) \mid x \ge 0,\ y \ge 0\}$**: it contains the origin and is closed under the sum, but $(-1) \cdot (1, 1) = (-1, -1)$ leaves it. Axiom 3 fails.
+> - **The union of the two axes $\{(x, y) \mid xy = 0\}$**: it contains the origin and is closed under multiples, but $(1, 0) + (0, 1) = (1, 1)$ leaves it, because $1 \cdot 1 \neq 0$. Axiom 2 fails.
+
+> [!PITFALL] One axiom alone is not enough
+> The first quadrant is closed under the sum but not under multiples; the union of the axes is closed under multiples but not under the sum. You have to check **all three** axioms. To say yes you need all three; to say no one that fails is enough, with a concrete example.
+
+> [!BEYOND] · the most common subspaces, from Martelli's book
+> - **Homogeneous linear systems** (Proposition 2.2.2). The solutions of a system of linear equations **with zero constant term**, such as $\{x + 2y - z = 0,\ x - y = 0\}$ in $\R^3$, form a subspace. The reason: if $a_1 x_1 + \dots + a_n x_n = 0$ holds for $x$ and for $y$, it also holds for $x + y$ and for $\lambda x$, because $a_1(x_1 + y_1) + \dots = 0 + 0 = 0$ and $a_1 (\lambda x_1) + \dots = \lambda \cdot 0 = 0$. With a non-zero constant term instead the origin is not a solution (Remark 2.2.3).
+> - **Polynomials that vanish at a point** (Proposition 2.2.5). Given $a \in \K$, the polynomials with $p(a) = 0$ form a subspace of $\K[x]$: $(p + q)(a) = 0 + 0 = 0$ and $(\lambda p)(a) = \lambda \cdot 0 = 0$. Those with $p(a) = 1$ do not, because they do not contain the zero polynomial (Remark 2.2.6).
+> - **Intersection** (Proposition 2.2.11). If $U$ and $W$ are subspaces, $U \cap W$ is one too. The **union** instead in general is not: the union of the two axes of $\R^2$ seen above is the book's example (Example 2.2.14, and exercise 12).
+
+## Diagonal, triangular, symmetric and skew-symmetric matrices (pp. 27–28)
+
+Inside the space of matrices there are many subspaces: you get them by imposing conditions on the coefficients. The most important ones concern **square** matrices.
+
+> [!DEF] 6.3 · Square, diagonal, triangular, symmetric and skew-symmetric matrices
+> An $n \times n$ matrix is called **square**. A square $n \times n$ matrix $A$ is:
+> - **diagonal** if $a_{ij} = 0,\ \forall i \neq j$;
+> - **upper triangular** if $a_{ij} = 0,\ \forall i > j$;
+> - **lower triangular** if $a_{ij} = 0,\ \forall i < j$;
+> - **triangular** if it is lower or upper triangular;
+> - **symmetric** if $a_{ij} = a_{ji},\ \forall i, j$;
+> - **skew-symmetric** if $a_{ij} = -a_{ji},\ \forall i, j$.
+
+Piece by piece:
+
+- The entries $a_{11}, a_{22}, \dots, a_{nn}$, those with the two indices equal, form the **main diagonal**: the line that goes down from the top left to the bottom right.
+- **Diagonal**: everything off the main diagonal is zero. On the diagonal there can be any number, even $0$.
+- **Upper triangular**: $i > j$ means "row index greater than column index", that is the entries **below** the diagonal. Those must be zero; the numbers are above and on the diagonal.
+- **Lower triangular**: the other way round, the entries **above** the diagonal ($i < j$) are zero.
+- **Symmetric**: entry $(i, j)$ is equal to entry $(j, i)$. The matrix is a **mirror image** of itself across the main diagonal.
+- **Skew-symmetric**: entry $(i, j)$ is the opposite of entry $(j, i)$. With $i = j$ the condition says $a_{ii} = -a_{ii}$, that is $2a_{ii} = 0$, and dividing by $2$ you get $a_{ii} = 0$: on the diagonal of a skew-symmetric matrix there are **only zeros**. The handouts remark it at the end of Example 6.4 (p. 28).
+
+> [!NOTE] A remark about the field
+> The step from $2a_{ii} = 0$ to $a_{ii} = 0$ divides by $2$, and it can be done in the fields of the course, $\Q$, $\R$ and $\C$. In the field $\{0, 1\}$ of Exercise 5.9, where $2 = 1 + 1 = 0$, it cannot: there $a = -a$ for every $a$, and a skew-symmetric matrix can have a non-zero diagonal. Martelli's book points this out in a note to §2.2.14; the handouts take for granted that the field is $\Q$, $\R$ or $\C$.
+
+The general form of each class, for $3 \times 3$ matrices (the letters are any numbers):
+
+| diagonal | upper triangular | lower triangular | symmetric | skew-symmetric |
+|---|---|---|---|---|
+| $\begin{pmatrix} a & 0 & 0 \\ 0 & b & 0 \\ 0 & 0 & c \end{pmatrix}$ | $\begin{pmatrix} a & b & c \\ 0 & d & e \\ 0 & 0 & f \end{pmatrix}$ | $\begin{pmatrix} a & 0 & 0 \\ b & c & 0 \\ d & e & f \end{pmatrix}$ | $\begin{pmatrix} a & b & c \\ b & d & e \\ c & e & f \end{pmatrix}$ | $\begin{pmatrix} 0 & a & b \\ -a & 0 & c \\ -b & -c & 0 \end{pmatrix}$ |
+
+> [!EXAMPLE] 6.4 · One matrix for each class
+> The following matrices are, in order, diagonal, upper triangular, lower triangular, symmetric and skew-symmetric:
+> $$\begin{pmatrix} 2 & 0 \\ 0 & -1 \end{pmatrix}, \quad \begin{pmatrix} 1 & 9 \\ 0 & \sqrt 2 \end{pmatrix}, \quad \begin{pmatrix} -1 & 0 \\ 7 & 2 \end{pmatrix}, \quad \begin{pmatrix} -1 & 2 \\ 2 & 4 \end{pmatrix}, \quad \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}.$$
+> The same matrix can belong to several classes: for example
+> $$\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$$
+> is diagonal, upper triangular, lower triangular and symmetric. The zero matrix belongs to all five classes.
+
+Let us check the example entry by entry, for the $2 \times 2$ matrices, where the entries off the diagonal are only $a_{12}$ (above) and $a_{21}$ (below):
+
+| Matrix | $a_{12}$ | $a_{21}$ | class |
+|---|---:|---:|---|
+| $\begin{pmatrix} 2 & 0 \\ 0 & -1 \end{pmatrix}$ | $0$ | $0$ | diagonal (and also triangular and symmetric) |
+| $\begin{pmatrix} 1 & 9 \\ 0 & \sqrt 2 \end{pmatrix}$ | $9$ | $0$ | upper triangular: the entry below is zero |
+| $\begin{pmatrix} -1 & 0 \\ 7 & 2 \end{pmatrix}$ | $0$ | $7$ | lower triangular: the entry above is zero |
+| $\begin{pmatrix} -1 & 2 \\ 2 & 4 \end{pmatrix}$ | $2$ | $2$ | symmetric: $a_{12} = a_{21}$ |
+| $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ | $1$ | $-1$ | skew-symmetric: $a_{12} = -a_{21}$ and zero diagonal |
+
+The first matrix is also triangular (upper and lower) and symmetric: the first row of the table reminds you. In the handouts' list each matrix is the example of its class, but that does not mean it belongs only to that one.
+
+### Five subspaces of $M(n)$ (p. 28)
+
+The space of square $n \times n$ matrices is written $M(n, \K)$, or more simply $M(n)$. The handouts denote by
+
+$$D(n), \qquad T^s(n), \qquad T^i(n), \qquad S(n), \qquad A(n)$$
+
+the subsets made, respectively, of the diagonal, upper triangular, lower triangular, symmetric and skew-symmetric matrices.
+
+> [!PROP] 6.5
+> The subsets $D(n)$, $T^s(n)$, $T^i(n)$, $S(n)$, $A(n)$ are all vector subspaces of $M(n)$.
+
+The handouts' explanation: for each of the five subsets it is enough to check that the zero matrix belongs to it and that sum and product by a scalar preserve the property that defines it. Here it is in full.
+
+**Symmetric matrices $S(n)$.**
+1. The zero matrix is symmetric: $0 = 0$ in every entry.
+2. If $A$ and $B$ are symmetric, that is $a_{ij} = a_{ji}$ and $b_{ij} = b_{ji}$, then
+   $$(A + B)_{ij} = a_{ij} + b_{ij} = a_{ji} + b_{ji} = (A + B)_{ji}.$$
+3. If $A$ is symmetric and $\lambda \in \K$, then $(\lambda A)_{ij} = \lambda a_{ij} = \lambda a_{ji} = (\lambda A)_{ji}$.
+
+**Skew-symmetric matrices $A(n)$.** Same steps with the minus sign: $(A + B)_{ij} = a_{ij} + b_{ij} = -a_{ji} - b_{ji} = -(A + B)_{ji}$ and $(\lambda A)_{ij} = \lambda a_{ij} = -\lambda a_{ji} = -(\lambda A)_{ji}$.
+
+**Upper triangular matrices $T^s(n)$.** If $i > j$, then $a_{ij} = 0$ and $b_{ij} = 0$, so $(A + B)_{ij} = 0 + 0 = 0$ and $(\lambda A)_{ij} = \lambda \cdot 0 = 0$: the zeros below the diagonal stay zeros. The same for $T^i(n)$, with $i < j$, and for $D(n)$, with $i \neq j$.
+
+> [!EXAMPLE] · the sum of two symmetric matrices is symmetric
+> $$\begin{pmatrix} 1 & 2 \\ 2 & 3 \end{pmatrix} + \begin{pmatrix} 0 & -1 \\ -1 & 5 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 8 \end{pmatrix}, \qquad -3\begin{pmatrix} 0 & 4 \\ -4 & 0 \end{pmatrix} = \begin{pmatrix} 0 & -12 \\ 12 & 0 \end{pmatrix}.$$
+> The first sum is still a mirror image across the diagonal; the multiple of a skew-symmetric matrix is still skew-symmetric.
+
+> [!NOTE] The transpose, in advance
+> In the explanation of Proposition 6.5 the handouts write ${}^t(A + B) = A + B$ and ${}^t(\lambda A) = \lambda A$. The symbol ${}^tA$ is the **transpose** of $A$, which you get by swapping rows and columns: $({}^tA)_{ij} = a_{ji}$. Lesson L08 defines it. With this notation, $A$ is symmetric if and only if ${}^tA = A$, and skew-symmetric if and only if ${}^tA = -A$.
+
+> [!PITFALL] "Triangular" is not a subspace
+> Proposition 6.5 talks about **upper** triangular and **lower** triangular matrices, separately. The set of all triangular matrices (upper or lower) is not a subspace:
+> $$\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix},$$
+> the sum of an upper triangular and a lower triangular matrix, is not triangular. It is again the problem of the union of two subspaces.
+
+> [!BEYOND] · relations between the five classes
+> Martelli's book (Example 2.2.13) notes that $D(n) = T^s(n) \cap T^i(n)$: a matrix is diagonal exactly when it is both upper and lower triangular. And $S(n) \cap A(n) = \{0\}$: if $a_{ij} = a_{ji}$ and $a_{ij} = -a_{ji}$, then $a_{ij} = -a_{ij}$, so $2a_{ij} = 0$ and $a_{ij} = 0$ (dividing by $2$, as in the note above: in the field $\{0, 1\}$, where $1 + 1 = 0$, symmetric and skew-symmetric are instead the same thing).
+
+## Linear combinations (p. 28)
+
+With the sum and the product by a scalar you can build new vectors starting from some given vectors: you multiply each one by a number and add up the results.
+
+> [!DEF] Linear combination (p. 28)
+> Let $V$ be a vector space and let $v_1, \dots, v_k \in V$. A **linear combination** of the vectors $v_1, \dots, v_k$ is a vector of the form
+> $$v = \lambda_1 v_1 + \dots + \lambda_k v_k,$$
+> where $\lambda_1, \dots, \lambda_k \in \K$.
+
+Piece by piece:
+
+- The numbers $\lambda_1, \dots, \lambda_k$ are called the **coefficients** of the combination. They are any scalars: positive, negative, fractions, even zero.
+- "Linear" means that you use **only** the two operations of the vector space: no product between vectors, no squares.
+- With all coefficients equal to $0$ you always get the zero vector; with $\lambda_i = 1$ and the others $0$ you get $v_i$ itself.
+
+> [!EXAMPLE] · combinations in three different spaces
+> - In $\R^3$: $2\begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} - \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 - 0 \\ 0 - 1 \\ 2 - 1 \end{pmatrix} = \begin{pmatrix} 2 \\ -1 \\ 1 \end{pmatrix}$.
+> - Among polynomials: $3(x^2 + 1) - 2(x - 1) = 3x^2 + 3 - 2x + 2 = 3x^2 - 2x + 5$.
+> - Among matrices: $a\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + b\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} a & b \\ b & a \end{pmatrix}$, which is the form of the matrices of Exercise 6.9.
+
+The handouts' example is in $\R^3$, with
+
+$$v_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \qquad \lambda_1 v_1 + \lambda_2 v_2 = \begin{pmatrix} \lambda_1 \\ \lambda_2 \\ 0 \end{pmatrix}.$$
+
+As $\lambda_1$ and $\lambda_2$ vary you get **precisely** the plane $z = 0$. "Precisely" means two things:
+
+1. every combination has third coordinate equal to $0$, so it lies in the plane $z = 0$;
+2. conversely, every point $(a, b, 0)$ of the plane is obtained, with $\lambda_1 = a$ and $\lambda_2 = b$.
+
+In the tool below $u$ and $v$ are two vectors of the plane and the yellow point is the combination $\lambda u + \mu v$. Move the sliders $\lambda$ and $\mu$: with $u = (1, 2)$ and $v = (3, 1)$ the point reaches any position of the plane. Then drag $v$ onto the line of $u$, for example to $(2, 4)$: from that moment the combinations stay on the red line, whatever $\lambda$ and $\mu$ are.
+
+```widget vettori
+title: The linear combinations $\lambda u + \mu v$
+u: 1 2
+v: 3 1
+modo: combinazione
+modi: combinazione
+lambda: 2
+mu: -1
+```
+
+## The subspace spanned: Span (pp. 28–29)
+
+The example of the plane $z = 0$ suggests looking at **all together** the linear combinations of some vectors.
+
+> [!DEF] 6.6 · Subspace spanned
+> Let $V$ be a vector space and $v_1, \dots, v_k \in V$ arbitrary vectors. The **subspace spanned** by $v_1, \dots, v_k$ is the subset of $V$ made of all their linear combinations and it is denoted by $\Span(v_1, \dots, v_k)$. In symbols:
+> $$\Span(v_1, \dots, v_k) = \{\lambda_1 v_1 + \dots + \lambda_k v_k \mid \lambda_1, \dots, \lambda_k \in \K\}.$$
+
+Piece by piece:
+
+- *Span* is an English word: *to span* means, in this context, "to generate", "to cover".
+- It is a **set**, and usually an infinite one: it contains one combination for each choice of the coefficients.
+- It contains the starting vectors (for $v_1$: $\lambda_1 = 1$ and the other coefficients $0$) and the zero vector (all coefficients $0$).
+- The bar $\mid$ is read "as … vary": $\lambda_1, \dots, \lambda_k$ take all the possible values in $\K$.
+- We also say that $v_1, \dots, v_k$ **span** $\Span(v_1, \dots, v_k)$, and that they are **generators** of it.
+
+The name "subspace spanned" anticipates a fact to be proved: the Span really is a subspace.
+
+> [!PROP] 6.7
+> The subset $\Span(v_1, \dots, v_k)$ is a vector subspace of $V$.
+
+Proof (from the handouts, with the justifications). We call $W = \Span(v_1, \dots, v_k)$ and check the three axioms of Definition 6.2.
+
+1. **$0 \in W$.** With $\lambda_1 = \dots = \lambda_k = 0$ you get $0v_1 + \dots + 0v_k = 0 + \dots + 0 = 0$, by Proposition 5.5. So $0$ is a linear combination of the $v_i$: it is in $W$.
+2. **Closed under the sum.** If $v, w \in W$, by definition they are written as combinations:
+   $$v = \lambda_1 v_1 + \dots + \lambda_k v_k, \qquad w = \mu_1 v_1 + \dots + \mu_k v_k.$$
+   Adding and collecting each $v_i$ (associative and commutative properties of the sum and axiom 3):
+   $$v + w = (\lambda_1 + \mu_1)v_1 + \dots + (\lambda_k + \mu_k)v_k,$$
+   which is still a linear combination of the $v_i$, with coefficients $\lambda_i + \mu_i$. So $v + w \in W$.
+3. **Closed under the product by a scalar.** If $v \in W$ and $\lambda \in \K$, by axioms 2 and 4:
+   $$\lambda v = \lambda(\lambda_1 v_1 + \dots + \lambda_k v_k) = (\lambda\lambda_1)v_1 + \dots + (\lambda\lambda_k)v_k \in W. \qquad \square$$
+
+> [!EXAMPLE] 6.8 · The Span of a single vector
+> If $v$ is a single vector, then $\Span(v) = \{\lambda v \mid \lambda \in \K\}$: they are all the multiples of $v$. For example, in $\R^2$,
+> $$\Span\begin{pmatrix} 1 \\ 2 \end{pmatrix} = \left\{ \begin{pmatrix} t \\ 2t \end{pmatrix} \;\middle|\; t \in \R \right\},$$
+> which is the line $y = 2x$.
+
+Why exactly the line $y = 2x$? A point $(x, y)$ is in the Span if there is $t$ with $x = t$ and $y = 2t$. The first equation says $t = x$; substituting into the second, $y = 2x$. Conversely, if $y = 2x$, just take $t = x$. It is the line of the multiples of $(1, 2)$ drawn in lesson L05.
+
+What shape can a Span have in the plane and in space? A table to find your way (the precise reason arrives with dimension, in lesson L07):
+
+| Generators | Span in $\R^2$ | Span in $\R^3$ |
+|---|---|---|
+| only the zero vector | $\{0\}$ | $\{0\}$ |
+| one vector $v \neq 0$ | the line through the origin with the direction of $v$ | the line through the origin with the direction of $v$ |
+| two vectors that are not multiples of each other | all of $\R^2$ | the plane through the origin that contains them |
+| two vectors that are multiples of each other (not both zero) | a line | a line |
+
+> [!PITFALL] $\Span(v_1, v_2)$ is not $\{v_1, v_2\}$
+> $\{v_1, v_2\}$ is a set with **two** elements; $\Span(v_1, v_2)$ contains **all** the combinations, infinitely many if the vectors are not zero. And different generators can give the same Span: $\Span\big((1, 2)\big) = \Span\big((2, 4)\big) = \Span\big((-1, -2)\big)$, always the line $y = 2x$.
+
+> [!BEYOND] · the Span is the smallest subspace that contains the vectors
+> If a subspace $U$ contains $v_1, \dots, v_k$, it also contains all their multiples (axiom 3) and all the sums of multiples (axiom 2): so $\Span(v_1, \dots, v_k) \subset U$. Practical consequence, very useful in the quizzes: **to show that $\Span(v_1, \dots, v_k) \subset U$ it is enough to check that each $v_i$ lies in $U$**. To show equality you also need the converse: every vector of $U$ is a combination of the $v_i$.
+
+### Does a vector lie in the Span? (pp. 29–30)
+
+It is the question of Exercise 6.10, and one of the most frequent of the whole course.
+
+> [!METHOD] · $u \in \Span(v_1, \dots, v_k)$?
+> 1. Write down the unknown: you look for coefficients $\lambda_1, \dots, \lambda_k$ with $\lambda_1 v_1 + \dots + \lambda_k v_k = u$.
+> 2. Compute the combination and set it equal coordinate by coordinate (or coefficient by coefficient, for polynomials): you get a **linear system** in the unknowns $\lambda_i$.
+> 3. Solve the system. For now with substitutions; from lesson L11 with Gauss's method.
+> 4. If the system has a solution, $u$ lies in the Span, and the $\lambda_i$ you found prove it: substitute them and check. If the system leads to a contradiction, such as $3 = 4$, $u$ does not lie in the Span.
+
+> [!EXAMPLE] · a polynomial in the Span of two others
+> Does the polynomial $x^2 + 2x + 3$ lie in $\Span(x^2 + 1,\ x + 1)$? We look for $a, b$ with
+> $$a(x^2 + 1) + b(x + 1) = ax^2 + bx + (a + b) = x^2 + 2x + 3.$$
+> Setting the coefficients equal: $a = 1$ (of $x^2$), $b = 2$ (of $x$), $a + b = 3$ (constant term). The first two give $a = 1$ and $b = 2$, and the third is satisfied: $1 + 2 = 3$. So yes: $x^2 + 2x + 3 = (x^2 + 1) + 2(x + 1)$.
+>
+> With $x^2 + 2x + 4$ instead the third equation would become $1 + 2 = 4$, false: that polynomial does **not** lie in the Span.
+
+For larger systems the tool below does the Gauss steps for you (you learn the method in lesson L11). Write the vectors $v_1, \dots, v_k$ in the columns and, in the last column, the vector $u$ to test. The matrix already entered is the one of Exercise 6.10 with $u = (1, 2, 3)$: the tool finds exactly one solution, $x_1 = 1$ and $x_2 = 2$ (it calls $x_1, x_2$ what here are $\lambda_1, \lambda_2$). Then change the last number from $3$ to $4$, that is try $w = (1, 2, 4)$, and press "Compute": no solution.
+
+```widget gauss
+title: Does the vector in the last column lie in the Span of the other columns?
+matrice: 1 0 1; 0 1 2; 1 1 3
+modo: sistema
+modi: sistema
+```
+
+> [!BEYOND] · parametric form and Cartesian form
+> Martelli's book (§2.2.11) gives a name to the two ways of describing a subspace of $\K^n$. In **parametric form** you describe it as the Span of some vectors: $\Span((1, 0, 1), (0, 1, 1)) = \{(s, t, s + t) \mid s, t \in \R\}$. In **Cartesian form** you describe it with homogeneous linear equations: the same set is the plane $z = x + y$. In Exercise 6.10 you go from the first to the second. The two ways will come back for lines and planes in lessons L22–L24.
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book: matrices and the space $M(m, n, \K)$ in **§2.2.5** (pp. 49–50); subspaces, trivial and total subspace in **§2.2.6–2.2.7** (pp. 50–51); homogeneous systems in **§2.2.8** (pp. 51–52); linear combinations and Span in **§2.2.9–2.2.10** (pp. 52–54, Proposition 2.2.4 = Proposition 6.7); Cartesian and parametric form and polynomials with restrictions in **§2.2.11–2.2.12** (pp. 54–55); diagonal, triangular, symmetric and skew-symmetric matrices in **§2.2.14** (pp. 56–57, Proposition 2.2.10 = Proposition 6.5); intersection and union in **§2.2.15–2.2.16** (pp. 57–58).
+
+## Towards the exam
+
+The Linear Algebra and Geometry written test has 10 multiple-choice questions with 5 answers each (you need at least 6 points to have the 2 problems worth 11 points marked), it lasts 2 hours, with no calculator and only 4 handwritten pages; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+1. **"Is it a subspace?"** It is the most frequent question of this part of the course: exams of 08/02/2024 (question 2), 10/07/2024 (question 2, the set $O(2)$ of orthogonal matrices, which does not contain the zero matrix), 03/06/2025 (question 2), 05/02/2026 (question 2) and 07/09/2026 (question 3). Two examples, with the solution.
+
+> [!EXAM] Exam of 08/02/2024, question 2
+> **Text.** Which of the following sets is **not** a subspace of $\R_2[x]$? (a) $\{p(x) \in \R_2[x] \mid p(0) = 0\}$; (b) $\{(t + s)x^2 - tx - s \mid s, t \in \R\}$; (c) $\{p(x) = ax^2 + bx + c \mid a = 2c,\ b = 0\}$; (d) $\{(1 + t)x^2 + tx \mid t \in \R\}$; (e) $\{p(x) \in \R_2[x] \mid p(1) = 0 = p(2)\}$.
+>
+> **Solution.** It is (d). To get the zero polynomial you would need $1 + t = 0$ and $t = 0$ at the same time, that is $t = -1$ and $t = 0$: impossible. So the zero polynomial is not there. The others are subspaces: (a) and (e) are polynomials that vanish at certain points; (b) can be rewritten $t(x^2 - x) + s(x^2 - 1)$, so it is $\Span(x^2 - x,\ x^2 - 1)$; (c) is defined by homogeneous linear equations in the coefficients ($a - 2c = 0$, $b = 0$).
+
+> [!EXAM] Exam of 03/06/2025, question 2
+> **Text.** Which of the following sets of points $(x, y, z) \in \R^3$ is a vector subspace of $\R^3$? (a) $x^2 - 2x + 1 = 0$; (b) $x + 2yz + 3z = 7$; (c) $-x + 7y + z = 5$; (d) $x + \frac y2 - 5\pi z = 0$; (e) $x + 3iy + 5z = 0$.
+>
+> **Solution.** It is (d): a homogeneous linear equation with real coefficients. The others: in (a) the equation is $(x - 1)^2 = 0$, that is $x = 1$, and the origin does not satisfy it; (b) and (c) have a non-zero constant term, so the origin is not there (in (b) there is also the product $yz$). Option (e) has a non-real coefficient and the official solution rules it out because it "is not defined over the real numbers". Strictly speaking, for a real vector the equation requires the real part and the imaginary part to vanish separately, $x + 5z = 0$ and $3y = 0$, and the resulting set is a line through the origin; but the intention of the question is clear, and the expected answer is (d).
+
+2. **"$U = \Span(\dots)$".** Another recurring question asks which Span is equal to a subspace of polynomials (24/01/2024, question 1; 15/01/2026, question 7).
+
+> [!EXAM] Exam of 24/01/2024, question 1
+> **Text.** Let $a(x) = x - 1$, $b(x) = x + 2$, $c(x) = 2x^2 - 2$, $d(x) = x^2 - x$, $e(x) = 2x^3 + 1$, $f(x) = x^3 - x^2$ be in $\R_3[x]$, and let $U = \{p(x) \in \R_3[x] \mid p(1) = 0\}$. Then: (a) $U = \Span(a, c)$; (b) $U = \Span(a, c, f)$; (c) $U = \Span(c, d, e, f)$; (d) $U = \Span(b, e, f)$; (e) $U = \Span(a, c, d)$.
+>
+> **Solution.** It is (b), and you can prove it with the tools of this lesson.
+> - Rule out (c) and (d): $e(1) = 3 \neq 0$ and $b(1) = 3 \neq 0$, so $e, b \notin U$ and those Spans leave $U$.
+> - Rule out (a) and (e): their generators have degree $\le 2$, so every combination of them has degree $\le 2$; but $U$ contains $x^3 - 1$, of degree $3$.
+> - Confirm (b). On the one hand $a(1) = c(1) = f(1) = 0$, so $\Span(a, c, f) \subset U$ (box on the smallest Span). On the other, if $p(1) = 0$ then $p(x) = (x - 1)q(x)$ with $q$ of degree $\le 2$ (lesson L04), so $p$ is a combination of $x - 1$, $x(x - 1) = x^2 - x$ and $x^2(x - 1) = x^3 - x^2$. And these three are combinations of $a$, $c$, $f$: $x - 1 = a$, $x^2 - x = \frac 12 c - a$, $x^3 - x^2 = f$. So $U \subset \Span(a, c, f)$.
+
+3. **The special matrices.** In the questions on dimension $T^s(3)$ (24/01/2024, question 5) and $S(3)$ (15/01/2026, question 4) appear: the dimension is computed in lesson L07, but that they are subspaces is Proposition 6.5. The exam of 08/02/2024 (question 6) asks for which matrices $A + {}^tA = 0$: they are the skew-symmetric ones.
+4. **The Span in the problems.** In the problems worth 11 points the Span is used to write lines and planes: "compute the line $r = \pi_1 \cap \pi_2$ in the form $r = P + \Span(v)$" (24/01/2024, problem 12). You will see it in lessons L22–L24.
+
+> [!METHOD] · "Is it a subspace?": the signals to recognise
+> | If the set is described by… | then… |
+> |---|---|
+> | **homogeneous** linear equations in the coordinates or in the coefficients ($x - 2y = 0$, $a = 2c$, $p(1) = 0$, $p(1) = p(2)$) | it is a subspace |
+> | an equation with a non-zero constant term ($x + y = 1$, $p(0) = 1$, $a_{11} = 1$) | it does not contain zero: **no** |
+> | inequalities ($x \ge 0$, $b > 0$) | almost always no: try multiplying by $-1$ |
+> | products or powers of the unknowns ($xy = 0$, $x = y^2$) | almost always no: try a sum or a multiple |
+> | a parameter with a fixed piece, such as $\{(1 + t)x^2 + tx\}$ | almost always no: with no $t$ do you get zero |
+> | a Span, or "all the combinations of…" | yes, always (Proposition 6.7) |
+>
+> To answer **no** write a concrete counterexample; to answer **yes**, rewrite the set as a Span or check the three axioms with generic vectors.
+
+> [!PITFALL] The most common mistakes
+> - Checking only the zero: the first quadrant contains zero but is not a subspace.
+> - Forgetting negative scalars in the check of axiom 3.
+> - Thinking that "triangular" (upper or lower) is a subspace: $T^s(n)$ and $T^i(n)$ are, separately.
+> - Confusing $\Span(v_1, v_2)$ with the set $\{v_1, v_2\}$.
+> - In the check "$u \in \Span$?" stopping at the first equations without checking the last one too.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the three subspace axioms; the table of the "yes / no" signals; the general $3 \times 3$ forms of the five classes of matrices; the definition of $\Span$ and the method "$u \in \Span$?".
+
+## Quiz
+
+```quiz
+Q: Which of these sets is **not** a subspace of $\R_2[x]$?
+- $\{p(x) \in \R_2[x] \mid p(2) = 0\}$
+- $\{p(x) \in \R_2[x] \mid p(0) = p(1)\}$
+- $\Span(x,\ x^2 + 1)$
++ $\{x^2 + t \mid t \in \R\}$
+- $\{ax^2 + bx + c \mid a = b = c\}$
+= No polynomial of the form $x^2 + t$ is zero, because the coefficient of $x^2$ is always $1$: the zero is missing. The others are subspaces: $p(2) = 0$ and $p(0) - p(1) = 0$ are homogeneous linear conditions, a Span always is one, and $\{a = b = c\}$ is $\Span(x^2 + x + 1)$. Similar to the exams of 08/02/2024 and 05/02/2026 (question 2).
+
+Q: Which of these sets is a vector subspace of $\R^3$?
++ $\{(x, y, z) \mid x - 2y + 3z = 0\}$
+- $\{(x, y, z) \mid x + y + z = 1\}$
+- $\{(x, y, z) \mid xyz = 0\}$
+- $\{(x, y, z) \mid x \ge 0\}$
+- $\{(x, y, z) \mid x = y^2\}$
+= It is a homogeneous linear equation: if two vectors satisfy it, so do their sum and their multiples. Counterexamples for the others: the origin does not satisfy $x + y + z = 1$; $(1, 1, 0) + (0, 0, 1) = (1, 1, 1)$ has $xyz = 1$; $(-1)(1, 0, 0)$ has $x < 0$; $(1, 1, 0)$ satisfies $x = y^2$ but $2 \cdot (1, 1, 0) = (2, 2, 0)$ does not, because $2 \neq 4$. Similar to the exam of 03/06/2025, question 2.
+
+Q: The matrix $\begin{pmatrix} 0 & 2 \\ -2 & 0 \end{pmatrix}$ is:
++ skew-symmetric, and of none of the other four classes
+- symmetric
+- upper triangular
+- diagonal
+- both symmetric and skew-symmetric
+= $a_{12} = 2 = -a_{21}$ and the diagonal is zero: it is skew-symmetric. It is not symmetric ($2 \neq -2$), nor triangular (both entries off the diagonal are non-zero), nor diagonal. Only the zero matrix is both symmetric and skew-symmetric.
+
+Q: Which of these vectors belongs to $\Span\big((1, 0, 1),\ (0, 1, 1)\big)$?
++ $(1, 1, 2)$
+- $(1, 1, 1)$
+- $(2, 1, 1)$
+- $(0, 0, 1)$
+- $(1, -1, 1)$
+= The combinations are $a(1, 0, 1) + b(0, 1, 1) = (a, b, a + b)$: the third coordinate is the sum of the first two. Only $(1, 1, 2)$ satisfies this, with $a = b = 1$. In the others the third coordinate should be $2$, $3$, $0$ and $0$.
+
+Q: In $\R^2$, what is $\Span\big((1, 2)\big)$?
++ The line $y = 2x$.
+- The line $x = 2y$.
+- The line $y = x + 2$.
+- The whole plane $\R^2$.
+- The set $\{(1, 2)\}$, with a single element.
+= $\Span((1, 2)) = \{(t, 2t) \mid t \in \R\}$ (Example 6.8): the points with $y = 2x$. The line $x = 2y$ does not contain $(1, 2)$; $y = x + 2$ does not pass through the origin, so it is not even a subspace; a single non-zero vector spans a line, not the plane.
+
+Q: The set of matrices $A \in M(2, \R)$ with $a_{11} = 1$ is:
+- a subspace, because it is defined by a linear equation
+- a subspace, because it contains the identity matrix
++ not a subspace: for example it does not contain the zero matrix
+- a subspace, because it is closed under the product by a scalar
+- equal to the whole of $M(2, \R)$
+= The zero matrix has $a_{11} = 0 \neq 1$. The equation $a_{11} = 1$ is linear but not homogeneous; containing the identity is not enough; and it is not even closed under multiples, because $2A$ has $a_{11} = 2$. Similar to the exam of 10/07/2024, question 2 ($O(2)$ is not a subspace because it does not contain the zero matrix).
+
+Q: For which value of $k$ does the vector $(1, k, 3)$ belong to $\Span\big((1, 0, 1),\ (0, 1, 1)\big)$?
+N: 2
+= You look for $(a, b, a + b) = (1, k, 3)$: so $a = 1$, $b = k$ and $1 + k = 3$, that is $k = 2$. Check: $(1, 0, 1) + 2(0, 1, 1) = (1, 2, 3)$.
+
+Q: Let $U = \{p(x) \in \R_2[x] \mid p(1) = 0\}$. Which equality is true?
++ $U = \Span(x - 1,\ x^2 - 1)$
+- $U = \Span(x - 1)$
+- $U = \Span(x + 1,\ x^2 - 1)$
+- $U = \Span(x^2 - 1,\ x^2 - x,\ x^2 + x)$
+- $U = \Span(1,\ x,\ x^2)$
+= $x - 1$ and $x^2 - 1$ vanish at $1$, so their Span lies in $U$. Conversely, if $p(1) = 0$ then $p(x) = (x - 1)(ax + b) = a(x^2 - x) + b(x - 1) = a(x^2 - 1) + (b - a)(x - 1)$. The others: $\Span(x - 1)$ does not contain $x^2 - 1$; $x + 1$ and $x^2 + x$ are equal to $2$ at $1$, so they are not in $U$; $\Span(1, x, x^2)$ is the whole of $\R_2[x]$. Similar to the exams of 24/01/2024 (question 1) and 15/01/2026 (question 7).
+
+Q: Which statement is true?
++ Every subspace of $V$ contains the zero vector of $V$.
+- The union of two subspaces is always a subspace.
+- $\Span(v)$ contains only the vector $v$.
+- $\{0\}$ is not a subspace, because it has only one element.
+- In $\R^2$ a line that does not pass through the origin can be a subspace.
+= It is axiom 1 of Definition 6.2. The union of the two axes of $\R^2$ is not a subspace; $\Span(v)$ contains all the multiples of $v$; $\{0\}$ is the trivial subspace; a line that does not pass through the origin does not contain zero.
+
+Q: The set of matrices $A \in M(2, \R)$ such that $A + {}^tA = 0$ (where ${}^tA$ is the transpose, $({}^tA)_{ij} = a_{ji}$) is:
++ the space $A(2)$ of skew-symmetric matrices
+- the space $S(2)$ of symmetric matrices
+- the space $D(2)$ of diagonal matrices
+- the set that contains only the zero matrix
+- the empty set
+= $A + {}^tA = 0$ means $a_{ij} + a_{ji} = 0$ for all $i, j$, that is $a_{ij} = -a_{ji}$: it is the definition of skew-symmetric matrix. For example $\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$ satisfies the condition and is not zero. Similar to the exam of 08/02/2024, question 6.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 6.9 of the handouts: the matrices of the form $\begin{pmatrix} a & b \\ b & a \end{pmatrix}$
+Consider the subset $W \subset M(2, \R)$ made of the matrices of the form
+$$\begin{pmatrix} a & b \\ b & a \end{pmatrix}, \qquad a, b \in \R.$$
+Prove that $W$ is a vector subspace of $M(2, \R)$ and check that
+$$W = \Span\left(\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\right).$$
+::: solution
+**$W$ is a subspace.** I check the three axioms of Definition 6.2.
+1. The zero matrix is in $W$: it is the case $a = b = 0$.
+2. Sum: $\begin{pmatrix} a & b \\ b & a \end{pmatrix} + \begin{pmatrix} a' & b' \\ b' & a' \end{pmatrix} = \begin{pmatrix} a + a' & b + b' \\ b + b' & a + a' \end{pmatrix}$, which still has the same form, with $a + a'$ and $b + b'$ in place of $a$ and $b$.
+3. Multiples: $\lambda \begin{pmatrix} a & b \\ b & a \end{pmatrix} = \begin{pmatrix} \lambda a & \lambda b \\ \lambda b & \lambda a \end{pmatrix}$, same form with $\lambda a$ and $\lambda b$.
+
+**$W$ is the Span of the two matrices.** I call $I = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ and $J = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$. For all $a, b$:
+$$aI + bJ = \begin{pmatrix} a & 0 \\ 0 & a \end{pmatrix} + \begin{pmatrix} 0 & b \\ b & 0 \end{pmatrix} = \begin{pmatrix} a & b \\ b & a \end{pmatrix}.$$
+Read from left to right, it says that every combination of $I$ and $J$ is in $W$; read from right to left, that every element of $W$ is a combination of $I$ and $J$. So $W = \Span(I, J)$.
+
+Note: with this second part the first point becomes automatic, because every Span is a subspace (Proposition 6.7). It is the quickest way to prove that a set is a subspace: rewrite it as a Span.
+:::
+
+::: exercise intermediate Exercise 6.10 of the handouts: a Span in $\R^3$
+In $\R^3$ let
+$$v_1 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}.$$
+Describe $\Span(v_1, v_2)$ explicitly and determine which of the vectors
+$$u = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}, \qquad w = \begin{pmatrix} 1 \\ 2 \\ 4 \end{pmatrix}$$
+belong to this subspace.
+::: solution
+**Explicit description.** A generic combination is
+$$a v_1 + b v_2 = \begin{pmatrix} a \\ 0 \\ a \end{pmatrix} + \begin{pmatrix} 0 \\ b \\ b \end{pmatrix} = \begin{pmatrix} a \\ b \\ a + b \end{pmatrix}, \qquad a, b \in \R.$$
+So $\Span(v_1, v_2) = \{(a, b, a + b) \mid a, b \in \R\}$: the vectors in which the third coordinate is the sum of the first two. In Cartesian form it is the **plane** $z = x + y$, that is $x + y - z = 0$, which passes through the origin. Indeed a point $(x, y, z)$ is of the form $(a, b, a + b)$ exactly when $z = x + y$: just take $a = x$ and $b = y$.
+
+**The vector $u$.** I look for $a, b$ with $(a, b, a + b) = (1, 2, 3)$: from the first two coordinates $a = 1$ and $b = 2$; the third requires $a + b = 3$, and $1 + 2 = 3$. Yes: $u = v_1 + 2v_2 \in \Span(v_1, v_2)$. Check: $(1, 0, 1) + 2(0, 1, 1) = (1, 2, 3)$.
+
+**The vector $w$.** Again $a = 1$ and $b = 2$, but the third coordinate requires $a + b = 4$, while $1 + 2 = 3$. Contradiction: $w \notin \Span(v_1, v_2)$. With the equation of the plane: $1 + 2 - 4 = -1 \neq 0$.
+:::
+
+::: exercise basic Calculations with matrices
+Let $A = \begin{pmatrix} 2 & -1 & 0 \\ 1 & 3 & 4 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 1 & -2 \\ 0 & -1 & 5 \end{pmatrix}$.
+(a) What size are they? What are $a_{13}$, $a_{21}$, the row $A_2$ and the column $A^2$?
+(b) Compute $A + B$ and $3A - 2B$.
+(c) Find the matrix $X$ such that $A + X = B$.
+::: solution
+(a) They are both $2 \times 3$. $a_{13} = 0$ (row 1, column 3), $a_{21} = 1$ (row 2, column 1), $A_2 = (1, 3, 4)$, $A^2 = {}^t(-1, 3)$.
+
+(b) Entry by entry:
+$$A + B = \begin{pmatrix} 3 & 0 & -2 \\ 1 & 2 & 9 \end{pmatrix}, \qquad 3A - 2B = \begin{pmatrix} 6 - 2 & -3 - 2 & 0 + 4 \\ 3 - 0 & 9 + 2 & 12 - 10 \end{pmatrix} = \begin{pmatrix} 4 & -5 & 4 \\ 3 & 11 & 2 \end{pmatrix}.$$
+
+(c) Adding $-A$ to both sides, $X = B - A = \begin{pmatrix} -1 & 2 & -2 \\ -1 & -4 & 1 \end{pmatrix}$. Check: $A + X = B$.
+:::
+
+::: exercise basic Recognising the classes of matrices
+For each matrix say which of the five classes of Definition 6.3 it belongs to:
+$$M_1 = \begin{pmatrix} 3 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & -1 \end{pmatrix}, \quad M_2 = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 5 & 6 \\ 3 & 6 & 0 \end{pmatrix}, \quad M_3 = \begin{pmatrix} 0 & 1 & -2 \\ -1 & 0 & 3 \\ 2 & -3 & 0 \end{pmatrix}, \quad M_4 = \begin{pmatrix} 1 & 0 & 0 \\ 4 & 2 & 0 \\ 5 & 6 & 3 \end{pmatrix}, \quad M_5 = \begin{pmatrix} 1 & 1 \\ -1 & 1 \end{pmatrix}.$$
+::: solution
+- $M_1$: off the diagonal only zeros, so it is **diagonal**; as a consequence it is also **upper triangular**, **lower triangular** and **symmetric**. It is not skew-symmetric, because the diagonal is not zero.
+- $M_2$: $a_{12} = a_{21} = 2$, $a_{13} = a_{31} = 3$, $a_{23} = a_{32} = 6$: **symmetric**, and nothing else (there are numbers both above and below the diagonal).
+- $M_3$: zero diagonal and $a_{12} = 1 = -a_{21}$, $a_{13} = -2 = -a_{31}$, $a_{23} = 3 = -a_{32}$: **skew-symmetric**, and nothing else.
+- $M_4$: above the diagonal only zeros: **lower triangular** (so triangular), and nothing else.
+- $M_5$: $a_{12} = 1 = -a_{21}$, but the diagonal is not zero, so it is not skew-symmetric; it is not symmetric because $1 \neq -1$; it is not triangular. It belongs to **none** of the five classes.
+:::
+
+::: exercise intermediate Subspaces of $\R^3$
+Say which of the following subsets of $\R^3$ are subspaces. If yes, prove it; if no, find a counterexample.
+(a) $W_1 = \{(x, y, z) \mid x + 2y - z = 0\}$
+(b) $W_2 = \{(x, y, z) \mid x = y = z\}$
+(c) $W_3 = \{(x, y, z) \mid x + y + z = 1\}$
+(d) $W_4 = \{(x, y, z) \mid x^2 = y^2\}$
+(e) $W_5 = \{(t, t^2, 0) \mid t \in \R\}$
+::: solution
+(a) **Yes.** $(0, 0, 0)$ satisfies the equation. If $x + 2y - z = 0$ and $x' + 2y' - z' = 0$, adding you get $(x + x') + 2(y + y') - (z + z') = 0$; multiplying by $\lambda$, $\lambda x + 2\lambda y - \lambda z = 0$. It is a plane through the origin.
+
+(b) **Yes.** It can be rewritten $W_2 = \{(t, t, t) \mid t \in \R\} = \Span((1, 1, 1))$, which is a subspace by Proposition 6.7: the line through the origin with the direction of $(1, 1, 1)$.
+
+(c) **No.** The origin is not there: $0 + 0 + 0 = 0 \neq 1$.
+
+(d) **No.** It contains the origin and is closed under multiples, but not under the sum: $(1, 1, 0)$ and $(1, -1, 0)$ are in $W_4$ (in both $x^2 = y^2 = 1$), their sum $(2, 0, 0)$ is not, because $4 \neq 0$. $W_4$ is the union of the two planes $x = y$ and $x = -y$.
+
+(e) **No.** $(1, 1, 0) \in W_5$ (with $t = 1$), but $2 \cdot (1, 1, 0) = (2, 2, 0)$ is not: to have first coordinate $2$ you need $t = 2$, and then the second would be $4$.
+:::
+
+::: exercise exam As at the exam: subspaces of $\R_2[x]$
+For each subset of $\R_2[x]$ decide whether it is a subspace. For those that are, write them as the Span of a few polynomials.
+(a) $\{p(x) \in \R_2[x] \mid p(1) = 0\}$
+(b) $\{p(x) \in \R_2[x] \mid p(0) = 1\}$
+(c) $\{ax^2 + bx + c \mid a = c,\ b = 0\}$
+(d) $\{ax^2 + bx + c \mid b > 0\}$
+(e) $\{(1 + t)x^2 + tx \mid t \in \R\}$
+(f) $\{(t + s)x^2 - tx - s \mid s, t \in \R\}$
+::: solution
+(a) **Yes.** The zero polynomial vanishes at $1$; if $p(1) = q(1) = 0$ then $(p + q)(1) = 0$ and $(\lambda p)(1) = 0$. To write it as a Span: $p(x) = ax^2 + bx + c$ has $p(1) = a + b + c = 0$, that is $c = -a - b$, so
+$$p(x) = ax^2 + bx - a - b = a(x^2 - 1) + b(x - 1).$$
+The set is $\Span(x^2 - 1,\ x - 1)$.
+
+(b) **No**: the zero polynomial has $p(0) = 0 \neq 1$.
+
+(c) **Yes**: the polynomials are $ax^2 + a = a(x^2 + 1)$, so the set is $\Span(x^2 + 1)$.
+
+(d) **No**: $x$ has $b = 1 > 0$, but $(-1) \cdot x = -x$ has $b = -1$. (And the zero polynomial, which has $b = 0$, is missing too.)
+
+(e) **No**: for the zero polynomial you would need $1 + t = 0$ and $t = 0$ at the same time, impossible.
+
+(f) **Yes**: collecting $t$ and $s$,
+$$(t + s)x^2 - tx - s = t(x^2 - x) + s(x^2 - 1),$$
+so the set is $\Span(x^2 - x,\ x^2 - 1)$.
+
+In lesson L07 you will compute the dimension of each: $2$, $1$ and $2$.
+:::
+
+::: exercise basic Spans in the plane
+(a) Describe $\Span((2, -1))$ with an equation.
+(b) Describe $\Span((1, 2), (2, 4))$.
+(c) Prove that $\Span((1, 0), (1, 1)) = \R^2$, finding the coefficients explicitly for any vector $(a, b)$.
+::: solution
+(a) $\Span((2, -1)) = \{(2t, -t) \mid t \in \R\}$. From $x = 2t$ and $y = -t$ you get $t = -y$ and $x = -2y$: it is the line $x + 2y = 0$.
+
+(b) $(2, 4) = 2 \cdot (1, 2)$, so every combination $\lambda(1, 2) + \mu(2, 4) = (\lambda + 2\mu)(1, 2)$ is a multiple of $(1, 2)$. The Span is the line $y = 2x$, like $\Span((1, 2))$: the second vector adds nothing.
+
+(c) I look for $\lambda, \mu$ with $\lambda(1, 0) + \mu(1, 1) = (\lambda + \mu, \mu) = (a, b)$. From the second coordinate $\mu = b$; from the first $\lambda = a - b$. So
+$$(a, b) = (a - b)(1, 0) + b(1, 1)$$
+for all $a, b$: every vector of the plane is a combination, and the Span is the whole of $\R^2$. Check with $(3, 5)$: $-2 \cdot (1, 0) + 5 \cdot (1, 1) = (3, 5)$.
+:::
+
+::: exercise intermediate A Span with a parameter
+For which values of $k \in \R$ does the vector $u_k = (1, 2, k)$ belong to $\Span\big((1, 1, 0),\ (0, 1, 1)\big)$? For those values write $u_k$ as a linear combination.
+::: solution
+I look for $a, b$ with $a(1, 1, 0) + b(0, 1, 1) = (a,\ a + b,\ b) = (1, 2, k)$. Coordinate by coordinate:
+$$a = 1, \qquad a + b = 2, \qquad b = k.$$
+From the first two, $a = 1$ and $b = 1$. The third then requires $k = 1$. So $u_k$ lies in the Span **only for $k = 1$**, and in that case
+$$(1, 2, 1) = (1, 1, 0) + (0, 1, 1).$$
+For $k \neq 1$ the third equation contradicts the first two. In Cartesian form the Span is $\{(a, a + b, b)\}$, that is the plane $y = x + z$: $u_k$ lies in it when $2 = 1 + k$.
+:::
+
+::: exercise intermediate Skew-symmetric $3 \times 3$ matrices as a Span
+Prove that $A(3)$, the skew-symmetric $3 \times 3$ matrices, is the Span of three matrices, and find them. Check with your description that the sum of two skew-symmetric matrices is skew-symmetric.
+::: solution
+A skew-symmetric $3 \times 3$ matrix has a zero diagonal, and the entries below the diagonal are the opposites of those above. So it is determined by $a = a_{12}$, $b = a_{13}$, $c = a_{23}$:
+$$\begin{pmatrix} 0 & a & b \\ -a & 0 & c \\ -b & -c & 0 \end{pmatrix} = a\begin{pmatrix} 0 & 1 & 0 \\ -1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} + b\begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ -1 & 0 & 0 \end{pmatrix} + c\begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & -1 & 0 \end{pmatrix}.$$
+Calling $F_1, F_2, F_3$ the three matrices on the right, every skew-symmetric matrix is a combination of them and every combination of them is skew-symmetric: $A(3) = \Span(F_1, F_2, F_3)$. By Proposition 6.7 it is a subspace.
+
+Sum: with $a, b, c$ and $a', b', c'$ you get the matrix with $a + a'$, $b + b'$, $c + c'$ in the same positions and their opposites below the diagonal, which still has the skew-symmetric form. In lesson L07 you will see that $F_1, F_2, F_3$ are a basis, so $\dim A(3) = 3$ (it is Exercise 1 of tutoring Sheet 2, 2025).
+:::
+
+::: exercise exam As at the exam: a subspace of $\R_3[x]$
+Let $U = \{p(x) \in \R_3[x] \mid p(1) = p(-1)\}$.
+(1) Prove that $U$ is a subspace of $\R_3[x]$.
+(2) Prove that $U = \Span(1,\ x^2,\ x^3 - x)$.
+(3) Which of $x^2 - 1$, $x^3 + x$, $x^3 - x + 5$ and $x$ lie in $U$?
+::: solution
+(1) The zero polynomial is $0$ at $1$ and at $-1$, so it lies in $U$. If $p(1) = p(-1)$ and $q(1) = q(-1)$, then $(p + q)(1) = p(1) + q(1) = p(-1) + q(-1) = (p + q)(-1)$ and $(\lambda p)(1) = \lambda p(1) = \lambda p(-1) = (\lambda p)(-1)$. The three axioms hold.
+
+(2) I write $p(x) = ax^3 + bx^2 + cx + d$. Then
+$$p(1) = a + b + c + d, \qquad p(-1) = -a + b - c + d.$$
+The condition $p(1) = p(-1)$ becomes $a + c = -a - c$, that is $2a + 2c = 0$, that is $c = -a$. So the polynomials of $U$ are
+$$ax^3 + bx^2 - ax + d = a(x^3 - x) + b\,x^2 + d \cdot 1,$$
+with any $a, b, d$: exactly the combinations of $x^3 - x$, $x^2$ and $1$. So $U = \Span(1, x^2, x^3 - x)$.
+
+(3) It is enough to check the condition $c = -a$ (coefficient of $x$ equal to the opposite of that of $x^3$), or to compute $p(1)$ and $p(-1)$.
+- $x^2 - 1$: $a = 0$, $c = 0$. **It lies in $U$** ($p(1) = p(-1) = 0$).
+- $x^3 + x$: $a = 1$, $c = 1 \neq -1$. **It does not lie in $U$** ($p(1) = 2$, $p(-1) = -2$).
+- $x^3 - x + 5$: $a = 1$, $c = -1$. **It lies in $U$** ($p(1) = p(-1) = 5$).
+- $x$: $a = 0$, $c = 1 \neq 0$. **It does not lie in $U$** ($p(1) = 1$, $p(-1) = -1$).
+
+The quiz of the exam of 15/01/2026 (question 7) asks exactly which Span is equal to this $U$: among the answers there is $\Span(x^3 - x,\ x^2 - 1,\ x^2 + 1)$, which coincides with $\Span(1, x^2, x^3 - x)$ because $1 = \frac 12\big((x^2 + 1) - (x^2 - 1)\big)$ and $x^2 = \frac 12\big((x^2 + 1) + (x^2 - 1)\big)$.
+:::
+
+::: exercise exam As at the exam: subsets of $M(2, \R)$
+For each subset of $M(2, \R)$ decide whether it is a subspace; if it is, write it as a Span.
+(a) $W_1 = \{A \mid a_{11} + a_{22} = 0\}$
+(b) $W_2 = \{A \mid a_{11} a_{22} = 0\}$
+(c) $W_3 = \{A \mid a_{12} = 2a_{21}\}$
+(d) $W_4 = \{A \mid A \text{ is symmetric and } a_{11} = 1\}$
+::: solution
+(a) **Yes.** The condition is linear and homogeneous in the coefficients. From $a_{22} = -a_{11}$:
+$$\begin{pmatrix} a & b \\ c & -a \end{pmatrix} = a\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} + b\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} + c\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix},$$
+so $W_1$ is the Span of these three matrices.
+
+(b) **No.** $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ and $\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$ are in $W_2$ (the product $a_{11}a_{22}$ is $0$), but their sum is the identity, with $a_{11}a_{22} = 1$.
+
+(c) **Yes.** Linear homogeneous condition; setting $a_{21} = t$, $a_{12} = 2t$:
+$$\begin{pmatrix} a & 2t \\ t & d \end{pmatrix} = a\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + t\begin{pmatrix} 0 & 2 \\ 1 & 0 \end{pmatrix} + d\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}.$$
+
+(d) **No.** The zero matrix has $a_{11} = 0 \neq 1$.
+:::
+
+::: exercise hard Intersection and union of subspaces
+Let $U$ and $W$ be subspaces of a vector space $V$.
+(a) Prove that $U \cap W$ is a subspace.
+(b) Show with an example in $\R^2$ that $U \cup W$ may not be a subspace.
+(c) Prove that $U \cup W$ is a subspace if and only if $U \subset W$ or $W \subset U$.
+::: solution
+(a) $0 \in U$ and $0 \in W$, so $0 \in U \cap W$. If $v, v' \in U \cap W$, then $v + v' \in U$ (because $U$ is a subspace) and $v + v' \in W$ (because $W$ is one): so $v + v' \in U \cap W$. The same for $\lambda v$.
+
+(b) $U = \Span((1, 0))$ (the $x$-axis) and $W = \Span((0, 1))$ (the $y$-axis): $(1, 0) + (0, 1) = (1, 1)$ is on neither of the two axes.
+
+(c) If $U \subset W$, then $U \cup W = W$, which is a subspace; the same if $W \subset U$.
+
+Conversely, suppose that $U \cup W$ is a subspace but that neither of the two contains the other: then there exist $u \in U$ with $u \notin W$ and $w \in W$ with $w \notin U$. The sum $u + w$ is in $U \cup W$, so it is in $U$ or in $W$.
+- If $u + w \in U$, then $w = (u + w) - u \in U$, because $U$ is closed under sums and multiples: contradiction.
+- If $u + w \in W$, then $u = (u + w) - w \in W$: contradiction.
+
+So one of the two contains the other. It is Exercise 2.2.15 of Martelli's book.
+:::
+
+## Review questions
+
+::: question What is an $m \times n$ matrix, and what do $a_{ij}$, $A_i$ and $A^j$ denote?
+It is a table of $mn$ numbers of $\K$ with $m$ rows and $n$ columns. $a_{ij}$ is the coefficient in row $i$ and column $j$; $A_i$ is row $i$; $A^j$ is column $j$ (the index at the top is not a power).
+:::
+
+::: question Why is $M(m, n, \K)$ a vector space, and what is its zero vector?
+Because sum and product by a scalar are done entry by entry, and every axiom boils down to the same property in the field, one entry at a time. The zero vector is the zero matrix.
+:::
+
+::: question What are the three subspace axioms?
+$W \subset V$ is a subspace if (1) $0 \in W$; (2) $v, v' \in W \Rightarrow v + v' \in W$; (3) $v \in W$, $\lambda \in \K \Rightarrow \lambda v \in W$.
+:::
+
+::: question Why is a subspace a vector space in its own right?
+The operations stay in $W$ (axioms 2 and 3); the calculation properties hold in all of $V$, so also in $W$; the zero is in $W$ (axiom 1); the opposite of $v$ is $(-1)v$, which is in $W$ by axiom 3.
+:::
+
+::: question Which subspaces of $V$ are always there?
+The trivial subspace $\{0\}$ and the total subspace $V$; every subspace $W$ satisfies $\{0\} \subset W \subset V$.
+:::
+
+::: question Why is the line $y = 2x + 1$ not a subspace of $\R^2$, while $y = 2x$ is?
+$y = 2x + 1$ does not pass through the origin (and the sum of two of its points leaves the line). $y = 2x$ contains the origin and is closed under sums and multiples: it is $\Span((1, 2))$.
+:::
+
+::: question Define diagonal, upper triangular, symmetric and skew-symmetric matrix.
+Diagonal: $a_{ij} = 0$ for $i \neq j$. Upper triangular: $a_{ij} = 0$ for $i > j$ (zeros below the diagonal). Symmetric: $a_{ij} = a_{ji}$. Skew-symmetric: $a_{ij} = -a_{ji}$, and so zero diagonal.
+:::
+
+::: question Why are there only zeros on the diagonal of a skew-symmetric matrix?
+With $i = j$ the condition $a_{ij} = -a_{ji}$ becomes $a_{ii} = -a_{ii}$, that is $2a_{ii} = 0$, and dividing by $2$ (which you can do in $\Q$, $\R$ and $\C$) you get $a_{ii} = 0$.
+:::
+
+::: question Do the triangular matrices (upper or lower) form a subspace?
+No: the sum of an upper triangular and a lower triangular matrix may not be triangular, for example $\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}$. $T^s(n)$ and $T^i(n)$ are subspaces separately.
+:::
+
+::: question What is a linear combination? What is $\Span(v_1, \dots, v_k)$?
+A linear combination is a vector $\lambda_1 v_1 + \dots + \lambda_k v_k$ with any scalars $\lambda_i$. $\Span(v_1, \dots, v_k)$ is the set of **all** these combinations, as the coefficients vary.
+:::
+
+::: question Repeat the proof that the Span is a subspace.
+With all coefficients zero you get $0$. The sum of two combinations is the combination with coefficients $\lambda_i + \mu_i$. A multiple of a combination is the combination with coefficients $\lambda\lambda_i$.
+:::
+
+::: question How do you decide whether a vector $u$ lies in $\Span(v_1, \dots, v_k)$?
+You look for $\lambda_1, \dots, \lambda_k$ with $\lambda_1 v_1 + \dots + \lambda_k v_k = u$: setting the coordinates equal you get a linear system. If it has a solution $u$ lies in the Span, otherwise it does not.
+:::
+
+::: question How do you quickly prove that a set is a subspace?
+By rewriting it as the Span of some vectors: every Span is a subspace by Proposition 6.7. For example $\{(t + s)x^2 - tx - s\} = \Span(x^2 - x, x^2 - 1)$.
+:::
+
+## Glossary
+
+```glossary
+$m \times n$ matrix | Table of $mn$ elements of $\K$ with $m$ rows and $n$ columns; $a_{ij}$ is the coefficient in row $i$ and column $j$.
+Rows and columns $A_i$, $A^j$ | $A_i$ is row $i$ of $A$, $A^j$ column $j$; the index at the top is not a power.
+$M(m, n, \K)$ | The vector space of $m \times n$ matrices with coefficients in $\K$; $M(m, 1, \K) = \K^m$.
+Square matrix, $M(n)$ | $n \times n$ matrix; $M(n) = M(n, n, \K)$.
+Main diagonal | The entries $a_{11}, a_{22}, \dots, a_{nn}$.
+Diagonal matrix | Square with $a_{ij} = 0$ for $i \neq j$; space $D(n)$.
+Upper / lower triangular | Square with zeros below the diagonal ($a_{ij} = 0$ for $i > j$, space $T^s(n)$) or above it ($i < j$, space $T^i(n)$).
+Symmetric matrix | $a_{ij} = a_{ji}$ for all $i, j$; space $S(n)$. Equivalent to ${}^tA = A$.
+Skew-symmetric matrix | $a_{ij} = -a_{ji}$ for all $i, j$, hence zero diagonal; space $A(n)$. Equivalent to ${}^tA = -A$.
+Vector subspace | Subset $W \subset V$ with $0 \in W$, closed under the sum and the product by a scalar.
+Closed under an operation | Applying the operation to elements of the set you stay in the set.
+Trivial and total subspace | $\{0\}$ and $V$ itself: every subspace lies between the two.
+Linear combination | A vector $\lambda_1 v_1 + \dots + \lambda_k v_k$, with coefficients $\lambda_i \in \K$.
+Coefficients | The scalars $\lambda_1, \dots, \lambda_k$ of a linear combination.
+Span, subspace spanned | $\Span(v_1, \dots, v_k)$: the set of all the linear combinations of the $v_i$; it is a subspace.
+Generators | Vectors $v_1, \dots, v_k$ such that $W = \Span(v_1, \dots, v_k)$.
+Transpose ${}^tA$ | The matrix with rows and columns swapped, $({}^tA)_{ij} = a_{ji}$ (lesson L08).
+Parametric and Cartesian form | A subspace of $\K^n$ described as a Span or with homogeneous linear equations.
+```
+
+## Checklist
+
+```checklist
+- I can read a matrix: size, coefficient $a_{ij}$, rows $A_i$ and columns $A^j$.
+- I can add matrices of the same size and multiply them by a scalar.
+- I can state the three subspace axioms and explain why a subspace is a vector space.
+- I can prove that a set is a subspace by checking the three axioms with generic vectors.
+- I can find a counterexample when a set is not a subspace (the zero is missing, the sum leaves the set, a multiple leaves the set).
+- I can recognise diagonal, triangular, symmetric and skew-symmetric matrices and write their general $3 \times 3$ form.
+- I can prove that $S(n)$ and $A(n)$ are subspaces, and why "triangular" is not.
+- I can compute a linear combination of vectors, polynomials and matrices.
+- I can say what $\Span(v_1, \dots, v_k)$ is and prove that it is a subspace.
+- I can decide whether a vector lies in a Span by setting up and solving the system of the coefficients.
+- I can rewrite a subspace defined by conditions as the Span of a few vectors.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 6 "Spazi vettoriali II", pp. 26–30: the space of matrices and sections 6.A–6.D followed in order, with the page next to each heading; definitions, propositions, examples and exercises keep their numbering (Definitions 6.1, 6.2, 6.3 and 6.6, Examples 6.4 and 6.8, Propositions 6.5 and 6.7, Exercises 6.9 and 6.10).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.2.5–2.2.16 (matrices, subspaces, homogeneous systems, linear combinations and Span, parametric and Cartesian form, polynomials with restrictions, special matrices, intersection and union of subspaces, Exercise 2.2.15).
+- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (questions 1 and 5, problem 12), 08/02/2024 (questions 2 and 6), 10/07/2024 (question 2), 03/06/2025 (question 2), 15/01/2026 (questions 4 and 7), 05/02/2026 (question 2), 07/09/2026 (question 3). The questions of 24/01/2024 (1), 08/02/2024 (2) and 03/06/2025 (2) are reported with solutions written for these notes. Tutoring exercise sheet 2, 2025 (Buzano, Radeschi), exercises 1 and 2, as a model for two exercises.
+- The **"Beyond the handouts"** parts (homogeneous systems, polynomials that vanish at a point, intersection and union, relations between the classes of matrices, the Span as the smallest subspace, parametric and Cartesian form, the method for the exam and exercises 3–12) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L07_vector_spaces_3.md -->
+> File: `ai_context/MDAG/lessons/L07_vector_spaces_3.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L07
+title: Vector spaces III
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L07
+description: >-
+  Notes on lesson L07 of Linear Algebra and Geometry (MDAG, part 2): linear dependence and independence, bases,
+  standard basis of K^n and of polynomials, dimension of a vector space and the theorem on bases, with exam-style
+  quizzes and worked exercises.
+lede: >-
+  When are some vectors "too many"? Linear independence tells you with a single equation. From there come bases,
+  which span the whole space with no waste, and dimension: the number of vectors in a basis, the same for all
+  bases. At the end you know why $\dim \K^n = n$, $\dim \K_n[x] = n + 1$ and $\dim M(m, n, \K) = mn$, and how to
+  answer the exam questions on bases and dimensions.
+material: handouts
+facts:
+  Handouts: lesson 7 · pp. 31–35
+  Book: Martelli, §2.3.1–2.3.7
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 7 "Spazi vettoriali III"; B. Martelli, Geometria e algebra lineare, §2.3.1–2.3.7
+italian_file: L07_spazi_vettoriali_3.html
+html_notes: notes/MDAG/L07_vector_spaces_3.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L07_spazi_vettoriali_3.md
+```
+
+## In brief
+
+- Some vectors $v_1, \dots, v_k$ are **linearly dependent** if a combination of them with coefficients **not all zero** gives the zero vector. They are **linearly independent** if the only combination that gives $0$ is the one with all coefficients equal to zero.
+- Dependent means that **one of them is a linear combination of the others** (Proposition 7.2): there is a vector "too many".
+- A vector on its own is dependent only if it is the zero vector; two vectors are dependent only if they are **multiples**. With three or more vectors looking at them in pairs is not enough (Example 7.4).
+- A subset of independent vectors is still made of independent vectors (Proposition 7.6).
+- A **basis** of $V$ is a sequence of **independent** vectors that **span** $V$. Examples: the **standard basis** $e_1, \dots, e_n$ of $\K^n$ and the basis $1, x, \dots, x^n$ of $\K_n[x]$.
+- All the bases of a space have the **same number** of vectors (Theorem 7.10): this number is the **dimension** $\dim V$.
+- $\dim \K^n = n$, $\dim \K_n[x] = n + 1$, $\dim M(m, n, \K) = mn$; the space $\K[x]$ of all polynomials has infinite dimension.
+- If $\dim V = n$, to decide whether $n$ vectors are a basis it is enough to check **one** of the two conditions: independence **or** spanning (Theorem 7.12).
+- At the exam there are questions on dimensions (triangular or symmetric matrices, subspaces of polynomials), on "generators and/or independent", on which set is a basis: for example the exams of 24/01/2024, 16/01/2025, 15/01/2026 and 07/09/2026.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Dimension: where we start (p. 31)
+
+From school you know that a point has dimension $0$, a line dimension $1$, a plane dimension $2$. In this lesson the word "dimension" becomes a precise definition, which holds for every vector space and for every subspace of it: even for $M(2, 3, \R)$ or for $\R_3[x]$, which cannot be drawn.
+
+The idea is to count **how many vectors are needed** to span the space, with no waste. Look at these two cases in $\R^2$ (lesson L06):
+
+- $\Span\big((1, 2), (2, 4)\big)$ is a **line**: the second vector is twice the first and adds nothing. One of the two is "too many".
+- $\Span\big((1, 2), (2, 1)\big)$ is **the whole plane**: both are needed, neither is too many.
+
+To count properly you must first recognise the vectors that are too many. That is the job of linear dependence.
+
+```graph
+title: $(1, 2)$ and $(2, 4)$ lie on the same line through the origin (dependent); $(1, 2)$ and $(2, 1)$ do not (independent)
+x: -1 5
+y: -1 5
+line: 0 0 2.4 4.8 | grey | dashed | $y = 2x$ | e
+vector: 2 4 | blue | thick | $(2, 4)$ | e
+vector: 1 2 | accent | thick | $(1, 2)$ | w
+vector: 2 1 | amber | thick | $(2, 1)$ | se
+```
+
+## Linear dependence and independence (pp. 31–33)
+
+If $(2, 4) = 2 \cdot (1, 2)$, then $2 \cdot (1, 2) - (2, 4) = (0, 0)$: a combination of the two vectors, with coefficients $2$ and $-1$, gives the zero vector. Every time a vector is "too many" this happens, and the definition starts exactly from here.
+
+> [!DEF] 7.1 · Linearly dependent and independent vectors
+> Let $V$ be a vector space over $\K$ and let $v_1, \dots, v_k \in V$ be some vectors. We say that these vectors are **linearly dependent** if there exist coefficients $\lambda_1, \dots, \lambda_k \in \K$, **not all zero**, such that
+> $$\lambda_1 v_1 + \dots + \lambda_k v_k = 0.$$
+> The vectors $v_1, \dots, v_k$ are **linearly independent** if they are not linearly dependent. This important condition can be expressed as follows: the vectors $v_1, \dots, v_k$ are linearly independent if and only if
+> $$\lambda_1 v_1 + \dots + \lambda_k v_k = 0 \implies \lambda_1 = \dots = \lambda_k = 0.$$
+> In other words, the only linear combination of the $v_1, \dots, v_k$ that can give the zero vector is the trivial one, in which all the coefficients $\lambda_1, \dots, \lambda_k$ are zero.
+
+Piece by piece:
+
+- The combination with **all** coefficients equal to $0$ always gives the zero vector, whatever the vectors: $0v_1 + \dots + 0v_k = 0$. The handouts call it the **trivial** combination. The interesting question is whether there are **others**.
+- **Not all zero** means: at least one coefficient different from $0$. The others can also be $0$.
+- **Dependent**: there is a **non-trivial** combination that gives $0$. To prove it you just have to **show it**: $2 \cdot (1, 2) - (2, 4) = 0$.
+- **Independent**: the implication $\lambda_1 v_1 + \dots + \lambda_k v_k = 0 \Rightarrow$ all the $\lambda_i = 0$. To prove it you start from a zero combination with unknown coefficients and **deduce** that they are all zero: usually you solve a linear system.
+- Dependence and independence are properties **of the whole list** of vectors, not of the single vectors.
+
+> [!EXAMPLE] · the check with unknowns, in $\R^2$
+> **$(1, 2)$ and $(2, 1)$ are independent.** Suppose $a(1, 2) + b(2, 1) = (0, 0)$, that is $(a + 2b,\ 2a + b) = (0, 0)$:
+> $$\begin{cases} a + 2b = 0 \\ 2a + b = 0 \end{cases}$$
+> From the first $a = -2b$; substituting into the second, $-4b + b = -3b = 0$, so $b = 0$ and then $a = 0$. The only zero combination is the trivial one: independent.
+>
+> **$(1, 2)$ and $(2, 4)$ are dependent.** The same system becomes $a + 2b = 0$ and $2a + 4b = 0$: the second equation is twice the first, and every pair with $a = -2b$ works. For example $b = -1$, $a = 2$: $2(1, 2) - (2, 4) = (0, 0)$, with non-zero coefficients.
+
+### One vector too many (p. 31)
+
+If $v_1, \dots, v_k$ are dependent, one of them can be expressed in terms of the others. By hypothesis there is at least one coefficient $\lambda_i \neq 0$. I isolate the term $\lambda_i v_i$, divide everything by $\lambda_i$ (you can, because $\lambda_i \neq 0$ and we are in a field) and move the other terms:
+
+$$v_i = -\frac{\lambda_1}{\lambda_i} v_1 - \dots - \frac{\lambda_k}{\lambda_i} v_k,$$
+
+where $v_i$ does **not** appear on the right. So $v_i$ is a linear combination of the others.
+
+> [!PROP] 7.2
+> The vectors $v_1, \dots, v_k$ are dependent $\iff$ one of them can be expressed as a linear combination of the others.
+
+The direction $\Rightarrow$ is the calculation above. The direction $\Leftarrow$, which the handouts leave implicit: if $v_i = \mu_1 v_1 + \dots + \mu_k v_k$ (without the term with $v_i$), bringing everything to the left you get
+
+$$\mu_1 v_1 + \dots + (-1) v_i + \dots + \mu_k v_k = 0,$$
+
+a zero combination in which the coefficient of $v_i$ is $-1 \neq 0$: the vectors are dependent.
+
+> [!IDEA] · what "dependent" means
+> Some vectors are dependent when **one is too many**: it can be rebuilt from the others, and removing it does not change the Span. They are independent when **each brings a new direction**, which the others cannot produce.
+
+### One and two vectors (pp. 31–32)
+
+The cases $k = 1$ and $k = 2$ are clear straight away from Proposition 7.2.
+
+- **A vector $v_1$ is dependent $\iff v_1 = 0$.** If $v_1 = 0$, then $1 \cdot v_1 = 0$ with coefficient $1 \neq 0$. If $v_1 \neq 0$ and $\lambda v_1 = 0$, then $\lambda = 0$ (lesson L05, exercise 8).
+- **Two vectors $v_1, v_2$ are dependent $\iff$ they are multiples**, that is there is $k \in \K$ with $v_1 = kv_2$ or $v_2 = kv_1$. It is Proposition 7.2 with two vectors: "one is a combination of the other" means "one is a multiple of the other".
+
+> [!EXAMPLE] 7.3 · Two vectors of $\R^2$
+> The vectors $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}$ and $v_2 = \begin{pmatrix} -2 \\ -2 \end{pmatrix}$ of $\R^2$ are dependent; $w_1 = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$ and $w_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ are independent because they are not multiples.
+
+The reason, with numbers: $v_2 = -2v_1$, so $2v_1 + v_2 = 0$. Instead $w_2 = kw_1$ would require $2 = k$ (first coordinate) and $1 = 2k$ (second), that is $k = 2$ and $k = \frac 12$ at the same time: impossible. And for the same reason $w_1$ is not a multiple of $w_2$ either.
+
+> [!PITFALL] The zero vector makes everything dependent
+> If the zero vector is in the list, the vectors are **always** dependent: $1 \cdot 0 + 0 \cdot v_2 + \dots + 0 \cdot v_k = 0$ is a zero combination with one coefficient equal to $1$.
+
+In the tool below $u = (1, 2)$ and $v = (2, 1)$ are independent: with the combinations $\lambda u + \mu v$ you reach every point of the plane. Drag $v$ to $(2, 4)$ or to $(-1, -2)$: it becomes a multiple of $u$, the tool points it out and the combinations stay on the red line.
+
+```widget vettori
+title: Two vectors of the plane: independent or multiples?
+u: 1 2
+v: 2 1
+modo: combinazione
+modi: combinazione
+lambda: 1
+mu: 1
+```
+
+### Three or more vectors (p. 32)
+
+With three or more vectors things get more complicated: looking at them two at a time is not enough.
+
+> [!EXAMPLE] 7.4 · Three vectors dependent, but independent in pairs
+> The vectors
+> $$v_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \qquad v_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}$$
+> of $\R^3$ are dependent, because $v_1 - v_2 - v_3 = 0$. In pairs the three vectors are always independent (they are never multiples), but all three together are not, and unlike the case $k = 2$ you cannot see it at a glance. Indeed each of the three can be written as a combination of the other two: $v_1 = v_2 + v_3$, or $v_2 = v_1 - v_3$, or $v_3 = v_1 - v_2$.
+
+The calculation, coordinate by coordinate:
+
+$$v_1 - v_2 - v_3 = \begin{pmatrix} 1 - 0 - 1 \\ 1 - 1 - 0 \\ 0 - 1 - (-1) \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}.$$
+
+How do you **find** a relation like this, instead of guessing it? You look for $a v_1 + b v_2 + c v_3 = 0$ with $a, b, c$ unknown:
+
+$$\begin{cases} a + c = 0 \\ a + b = 0 \\ b - c = 0 \end{cases}$$
+
+From the first $c = -a$, from the second $b = -a$; the third becomes $-a - (-a) = 0$, always true. So $a$ is free: with $a = 1$ you get $b = -1$, $c = -1$, that is exactly $v_1 - v_2 - v_3 = 0$. A free unknown means infinitely many solutions, and so also non-zero solutions: the vectors are dependent. Geometrically the three vectors lie in the **same plane through the origin**, the plane $x - y + z = 0$ (check: $1 - 1 + 0 = 0$, $0 - 1 + 1 = 0$, $1 - 0 - 1 = 0$).
+
+> [!EXAMPLE] 7.5 · The standard basis of $\R^3$ is independent
+> The vectors
+> $$e_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \qquad e_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \qquad e_3 = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix}$$
+> are independent. If a linear combination produces the zero vector, $\lambda_1 e_1 + \lambda_2 e_2 + \lambda_3 e_3 = 0$, rewriting both sides as vectors you find
+> $$\lambda_1 \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + \lambda_2 \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} + \lambda_3 \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \lambda_3 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 0 \end{pmatrix}.$$
+> From this you deduce $\lambda_1 = \lambda_2 = \lambda_3 = 0$: the only linear combination of $e_1, e_2, e_3$ that gives the zero vector is the trivial one, so the three vectors are independent.
+
+### Subsets of independent vectors (pp. 32–33)
+
+> [!PROP] 7.6
+> If $v_1, \dots, v_k$ are independent, then any subset of $\{v_1, \dots, v_k\}$ is also made of independent vectors.
+
+The handouts' explanation, with the steps. Suppose by contradiction that some of them, for convenience the first $h$, are dependent: there is a non-trivial zero combination $\lambda_1 v_1 + \dots + \lambda_h v_h = 0$. Adding the other vectors with coefficient zero,
+
+$$\lambda_1 v_1 + \dots + \lambda_h v_h + 0 v_{h+1} + \dots + 0 v_k = 0,$$
+
+you get a zero combination of **all** the vectors, still non-trivial (the $\lambda_1, \dots, \lambda_h$ were not all zero). This contradicts the independence of $v_1, \dots, v_k$.
+
+In particular, if $v_1, \dots, v_k$ are independent, then:
+
+- the vectors $v_i$ are **all non-zero** (subsets of a single vector);
+- the vectors $v_i$ are **pairwise not multiples** (subsets of two vectors).
+
+> [!PITFALL] Necessary conditions, not sufficient ones
+> Example 7.4 shows that for $k \ge 3$ these two conditions are **not enough**: $v_1, v_2, v_3$ are non-zero and pairwise not multiples, and yet they are dependent. With three or more vectors you have to set up the zero combination and solve the system.
+
+> [!BEYOND] · how many independent vectors there are in a list: Gauss's method
+> For long lists the system becomes heavy. In lesson L13 the handouts use **Gauss's method** (lesson L11) and the **rank** (lesson L08): you write the vectors as rows of a matrix and do moves of the type $R_2 \to R_2 - R_1$. Each move replaces a vector with its difference with a multiple of another, and the Span does not change. At the end the non-zero rows are independent, and their number, the rank, tells you how many independent vectors there were. In the tool the matrix has as rows the three vectors of Example 7.4: a row of zeros comes out and $\rk = 2$. Then try the rows `1 1 2`, `-1 1 -1`, `0 1 1` (the vectors $v_1, v_2, v_4$ of Exercise 7.15): $\rk = 3$, independent.
+
+```widget gauss
+title: How many independent vectors? One vector per row
+matrice: 1 1 0; 0 1 1; 1 0 -1
+modo: rango
+modi: rango
+```
+
+## Bases (pp. 33–34)
+
+In the plane every vector is written with two numbers, for example $(5, 3) = 5(1, 0) + 3(0, 1)$. The two vectors $(1, 0)$ and $(0, 1)$ are enough to build the whole plane, and neither of the two is too many. A list like this is called a basis. The handouts present it as one of the most important definitions of the course.
+
+> [!DEF] 7.7 · Basis
+> Let $V$ be a vector space. A sequence $v_1, \dots, v_n \in V$ of vectors is a **basis** if both these conditions are satisfied:
+> 1. the vectors $v_1, \dots, v_n$ are independent;
+> 2. the vectors $v_1, \dots, v_n$ span $V$.
+
+Piece by piece:
+
+- **They span $V$** means $V = \Span(v_1, \dots, v_n)$: any vector of $V$ can be expressed as a linear combination of the $v_1, \dots, v_n$. No vector is left out.
+- **Independent**: none of the $v_i$ is too many.
+- **Both** conditions are needed. Few vectors can be independent without spanning; many vectors can span without being independent.
+- It is a **sequence**: the order matters too, and it will become important with coordinates (lesson L13).
+
+| Vectors of $\R^2$ | independent? | do they span $\R^2$? | basis? |
+|---|---|---|---|
+| $(1, 0)$ | yes | no: only the $x$-axis | no |
+| $(1, 0),\ (0, 1),\ (1, 1)$ | no: $(1, 1) = (1, 0) + (0, 1)$ | yes | no |
+| $(1, 0),\ (0, 1)$ | yes | yes | **yes** |
+| $(1, 2),\ (2, 1)$ | yes | yes: $(a, b) = \frac{2b - a}3 (1, 2) + \frac{2a - b}3 (2, 1)$ | **yes** |
+| $(1, 2),\ (2, 4)$ | no: multiples | no: only the line $y = 2x$ | no |
+
+In the second-to-last row there is another basis of $\R^2$: a space has infinitely many bases.
+
+> [!EXAMPLE] 7.8 · The standard basis of $\K^n$
+> The elements
+> $$e_1 = \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix}, \quad e_2 = \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix}, \quad \dots, \quad e_n = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix}$$
+> form a basis of $\K^n$, called the **standard basis**.
+>
+> **They are independent.** If $\lambda_1 e_1 + \dots + \lambda_n e_n = 0$, translated into vectors it becomes
+> $$\begin{pmatrix} \lambda_1 \\ \lambda_2 \\ \vdots \\ \lambda_n \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 0 \end{pmatrix},$$
+> so $\lambda_1 = \dots = \lambda_n = 0$.
+>
+> **They span $\K^n$.** A generic vector $x \in \K^n$ can be written as a linear combination of $e_1, \dots, e_n$:
+> $$x = \begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} = x_1 \begin{pmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{pmatrix} + x_2 \begin{pmatrix} 0 \\ 1 \\ \vdots \\ 0 \end{pmatrix} + \dots + x_n \begin{pmatrix} 0 \\ 0 \\ \vdots \\ 1 \end{pmatrix} = x_1 e_1 + x_2 e_2 + \dots + x_n e_n.$$
+
+The vector $e_i$ has a $1$ in place $i$ and zeros elsewhere. For example in $\R^3$:
+
+$$\begin{pmatrix} 5 \\ -2 \\ 7 \end{pmatrix} = 5e_1 - 2e_2 + 7e_3:$$
+
+the coefficients with respect to the standard basis are exactly the coordinates of the vector.
+
+> [!EXAMPLE] 7.9 · The standard basis of polynomials
+> In the space $\K_n[x]$ of polynomials of degree less than or equal to $n$, the elements $1, x, x^2, \dots, x^n$ form a basis, called the **standard basis**.
+>
+> **They are independent**: if $\lambda_0 \cdot 1 + \lambda_1 x + \dots + \lambda_n x^n = 0$, then $\lambda_0 = \dots = \lambda_n = 0$.
+>
+> **They span $\K_n[x]$**: each polynomial of degree less than or equal to $n$ is written as $p(x) = a_n x^n + \dots + a_1 x + a_0$, and this expression is already a linear combination of the vectors $1, x, \dots, x^n$, with coefficients $a_0, a_1, \dots, a_n$.
+
+Why does independence hold? On the right of the equals sign there is the **zero polynomial**, the one with all coefficients equal to $0$. Two polynomials are equal when they have the same coefficients, so $\lambda_0 + \lambda_1 x + \dots + \lambda_n x^n$ is the zero polynomial only if every $\lambda_i$ is $0$. (Seen as a function, a non-zero polynomial of degree $\le n$ has at most $n$ roots, lesson L04: it cannot be $0$ at every point.)
+
+> [!PITFALL] $\K_n[x]$ has $n + 1$ basis vectors, not $n$
+> The standard basis of $\K_2[x]$ is $1, x, x^2$: **three** polynomials, because there is also the constant $1$. For $\K_n[x]$ the vectors are $1, x, \dots, x^n$: $n + 1$ in all.
+
+> [!BEYOND] · what a basis is for: coordinates
+> Martelli's book (Proposition 2.3.11) shows that, once a basis $v_1, \dots, v_n$ is fixed, **every vector can be written in only one way** as $\lambda_1 v_1 + \dots + \lambda_n v_n$. If there were two expressions, $\sum \lambda_i v_i = \sum \mu_i v_i$, subtracting you would get $\sum (\lambda_i - \mu_i) v_i = 0$, and by independence $\lambda_i = \mu_i$ for every $i$. The numbers $\lambda_1, \dots, \lambda_n$ are called the **coordinates** of the vector with respect to the basis. For example, with respect to the basis $(1, 1), (-1, 1)$ of $\R^2$, the vector $(2, 0) = 1 \cdot (1, 1) - 1 \cdot (-1, 1)$ has coordinates $1, -1$. Coordinates are studied in lesson L13.
+
+## Dimension (pp. 34–35)
+
+A line through the origin in $\R^2$ has bases with one vector: $(1, 2)$, or $(2, 4)$, or $(-1, -2)$. The plane $\R^2$ has bases with two vectors: $(1, 0), (0, 1)$, or $(1, 2), (2, 1)$. Every space has infinitely many bases, but it seems that the **number** of vectors is always the same. It is so, and it is the fundamental theorem of the lesson.
+
+> [!THEOREM] 7.10
+> If a vector space $V$ has a basis made of $n$ vectors, then every basis of $V$ contains $n$ vectors.
+
+This theorem makes it possible to define an intuitive concept rigorously.
+
+> [!DEF] 7.11 · Dimension
+> If a vector space $V$ has a basis $v_1, \dots, v_n$, we say that $V$ has **dimension** $n$. If $V$ has no finite basis, we say that it has dimension $\infty$.
+
+Piece by piece:
+
+- The dimension is written $\dim V$.
+- The definition is **well posed** thanks to Theorem 7.10: $V$ has many bases, but they all have the same number $n$ of elements, so the number $n$ does not depend on the basis chosen. Without the theorem, two people could find two different "dimensions" for the same space.
+- To compute a dimension it is enough to find **one** basis and count its vectors.
+- The space $\{0\}$ contains only the zero vector, which on its own is dependent: it has no bases with at least one vector. By convention its basis is the empty list and $\dim\{0\} = 0$ (Martelli's book: $V$ has dimension $0$ if and only if $V = \{0\}$). So a point has dimension $0$, as at school.
+
+With the bases already found:
+
+| Space | a basis | dimension |
+|---|---|---:|
+| $\K^n$ | $e_1, \dots, e_n$ (Example 7.8) | $n$ |
+| $\K_n[x]$, polynomials of degree $\le n$ | $1, x, \dots, x^n$ (Example 7.9) | $n + 1$ |
+| $M(m, n, \K)$ | the matrices $e_{ij}$ (Exercise 7.13) | $mn$ |
+| $\K[x]$, all polynomials | no finite basis | $\infty$ |
+| $\{0\}$ | the empty list | $0$ |
+
+**Why $\K[x]$ has infinite dimension.** The handouts mention it as a consequence of the definition; the reason is this. Take any finite list of polynomials $p_1, \dots, p_k$ and call $N$ the largest of their degrees. Every linear combination of the $p_i$ has degree at most $N$, so $x^{N+1}$ is not a combination of them. No finite list spans $\K[x]$: there is no finite basis.
+
+> [!EXAMPLE] · the dimension of some subspaces
+> - The line $y = 2x$ of $\R^2$ is $\Span((1, 2))$, and $(1, 2) \neq 0$ is independent: a basis with one vector, **dimension 1**.
+> - The plane $z = x + y$ of $\R^3$ is $\Span((1, 0, 1), (0, 1, 1))$ (Exercise 6.10); the two vectors are not multiples, so they are independent: **dimension 2**.
+> - The matrices $\begin{pmatrix} a & b \\ b & a \end{pmatrix}$ of Exercise 6.9 are $\Span(I, J)$ with $I$ and $J$ not multiples: **dimension 2**.
+> - The diagonal matrices $D(3)$: every diagonal matrix is $a e_{11} + b e_{22} + c e_{33}$, and the three matrices are independent (each has a $1$ where the others have $0$): **dimension 3**.
+
+> [!BEYOND] · why all bases have the same number of vectors
+> The handouts state Theorem 7.10 without proof. Martelli's book (§2.3.4) deduces it from an **exchange lemma**: if $v_1, \dots, v_n$ span $V$ and $w_1, \dots, w_n$ are independent, then $w_1, \dots, w_n$ also span $V$. The idea is to replace the $v$ with the $w$ one at a time, without ever losing the spanning property. The full proof is in the box below.
+
+> [!PROOF] of Theorem 7.10, from Martelli's book
+> **Lemma.** If $v_1, \dots, v_n$ span $V$ and $w_1, \dots, w_n \in V$ are independent, then $w_1, \dots, w_n$ also span $V$.
+>
+> *Proof of the lemma.* You exchange one vector at a time. Suppose you have already shown that $V = \Span(w_1, \dots, w_{s-1}, v_s, \dots, v_n)$ (at the start, with $s = 1$, it is the hypothesis). Then $w_s$ is a combination of these vectors:
+> $$w_s = \lambda_1 w_1 + \dots + \lambda_{s-1} w_{s-1} + \lambda_s v_s + \dots + \lambda_n v_n.$$
+> At least one coefficient $\lambda_i$ with $i \ge s$ is non-zero: otherwise this would be a dependence relation among $w_1, \dots, w_s$, which instead are independent (Proposition 7.6). Reordering the $v$, suppose $\lambda_s \neq 0$. Dividing by $\lambda_s$ you get $v_s$ as a combination of $w_1, \dots, w_s, v_{s+1}, \dots, v_n$; so these vectors still span the whole of $V$. After $n$ steps, $V = \Span(w_1, \dots, w_n)$.
+>
+> *Proof of the theorem.* By contradiction, let $v_1, \dots, v_n$ and $w_1, \dots, w_m$ be two bases of $V$ with $n < m$. The $v_i$ span $V$ and $w_1, \dots, w_n$ are independent (a subset of independent vectors). By the lemma, $w_1, \dots, w_n$ span $V$, so $w_{n+1}$ is a linear combination of them: then $w_1, \dots, w_m$ are dependent (Proposition 7.2). Contradiction.
+
+### One condition out of two is enough (p. 35)
+
+To prove that some vectors are a basis you would have to check two things: that they are independent and that they span. The next theorem says that, if the **number** of vectors is the right one, one is enough.
+
+> [!THEOREM] 7.12
+> If $\dim V = n$ and $\{v_1, \dots, v_n\}$ is a set of $n$ vectors, then $v_1, \dots, v_n$ form a basis of $V$ if and only if **one** of the two conditions of the definition of basis holds (while the other condition then holds automatically).
+
+Piece by piece:
+
+- The key hypothesis is that the vectors are **exactly $n = \dim V$**.
+- In practice you almost always check **independence**, which is a system with zero constant term.
+- Example: in $\R^3$ three independent vectors are always a basis; three vectors that span $\R^3$ are always independent.
+
+> [!EXAMPLE] · a basis of $\R^2$ in one line
+> $(1, 2)$ and $(2, 1)$ are not multiples, so they are independent (Example 7.3). They are $2 = \dim \R^2$ vectors: by Theorem 7.12 they are a basis of $\R^2$, with no need to check that they span.
+
+> [!PITFALL] The theorem holds only with the right number of vectors
+> Two independent vectors of $\R^3$ are **not** a basis: they are $2 \neq 3$ vectors. Four vectors of $\R^3$ that span are **not** a basis: they are too many, and they are necessarily dependent (box below).
+
+> [!BEYOND] · the consequences to use in the quizzes
+> From Martelli's book (Propositions 2.3.23 and 2.3.25 and the algorithms of §2.3.5–2.3.6), in a space $V$ with $\dim V = n$:
+> - **more than $n$ vectors are always dependent**: if they were independent, the first $n$ would be a basis (Theorem 7.12) and the others would be combinations of them;
+> - **fewer than $n$ vectors never span $V$**: from a list of generators you can remove one at a time the vectors that are too many (Proposition 7.2) until you are left with independent vectors, that is with a basis, which would have fewer than $n$ vectors;
+> - **$\dim \Span(v_1, \dots, v_k) \le k$**, and it is equal to the maximum number of independent vectors among $v_1, \dots, v_k$ (it is the remark that lesson L08 uses for the rank);
+> - **every subspace $U \subset V$ has $\dim U \le \dim V$**, and $\dim U = \dim V$ only if $U = V$;
+> - **independent vectors can be completed to a basis**: as long as they do not span, you add a vector outside their Span, and the list stays independent (exercise 11).
+
+> [!PROOF] of Theorem 7.12, from Martelli's book
+> Let $v_1, \dots, v_n$ be vectors of $V$ with $\dim V = n$.
+> - **If they are independent, they span.** Any basis of $V$ has $n$ vectors that span; by the exchange lemma (previous box), the $v_i$ too, independent and $n$ in number, span $V$.
+> - **If they span, they are independent.** If they were dependent, one of them would be a combination of the others (Proposition 7.2) and could be removed without changing the Span. Repeating, you would reach a basis of $V$ with fewer than $n$ vectors, against Theorem 7.10.
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book: dependence and independence in **§2.3.1** (pp. 60–62, with Proposition 2.3.4 = Proposition 7.6); bases and standard bases of $\K^n$, $\K_n[x]$ and $M(m, n, \K)$ in **§2.3.2** (pp. 62–64); coordinates in **§2.3.3** (pp. 64–65); dimension, exchange lemma and infinite dimension of $\K[x]$ in **§2.3.4** (pp. 65–67); completion and extraction algorithms and Proposition 2.3.23 (= Theorem 7.12) in **§2.3.5–2.3.6** (pp. 67–69); dimension of subspaces in **§2.3.7** (pp. 69–70).
+
+## Towards the exam
+
+The Linear Algebra and Geometry written test has 10 multiple-choice questions with 5 answers each (you need at least 6 points to have the 2 problems worth 11 points marked), it lasts 2 hours, with no calculator and only 4 handwritten pages; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+This lesson is among the most present in the quizzes. The typical questions, with the exam sessions in which they came up:
+
+| Type of question | Exam sessions |
+|---|---|
+| dimension of a space of matrices | $T^s(3)$: 24/01/2024, question 5; $S(3)$: 15/01/2026, question 4 |
+| dimension of a Span or of a subspace | 02/09/2025, question 10; 15/01/2026, question 3; 10/07/2025, question 2; 03/07/2026, question 1 |
+| "are they generators and/or linearly independent?" | 06/09/2024, question 2; 16/01/2025, question 2 |
+| which set is a basis, or completes a basis | 10/06/2024, question 3; 07/09/2026, question 2 |
+
+In the problems worth 11 points bases are always needed: "find a basis of $\Ker$ and its dimension" (02/09/2025, problem 11), bases of eigenvectors, orthonormal bases. You will see them from lesson L14 on.
+
+> [!EXAM] Exam of 16/01/2025, question 2
+> **Text.** Are the polynomials $1$, $x$, $x^2$ and $1 + 2x + x^2$ of $\R_2[x]$ generators and/or linearly independent? (a) They are linearly independent, but not generators. (b) They are neither linearly independent nor generators. (c) The question is ill-posed: polynomials are not vectors. (d) They are generators, but not linearly independent. (e) They are both generators and linearly independent.
+>
+> **Solution.** (d). The first three are the standard basis of $\R_2[x]$ (Example 7.9), so they already span: adding a vector they still span. But they are $4$ vectors in a space of dimension $3$, so they are dependent; explicitly $1 + 2x + x^2 = 1 \cdot 1 + 2 \cdot x + 1 \cdot x^2$. Option (c) is false: polynomials are vectors of the vector space $\R_2[x]$ (lesson L05).
+
+> [!EXAM] Exam of 07/09/2026, question 2
+> **Text.** Let $A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$, $C = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$, $D = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$, $E = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, $F = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$. Which set forms a basis of $M(2, \R)$? (a) $\{A, B, F\}$; (b) $\{A, C, D, E\}$; (c) $\{A, B, E, F\}$; (d) $\{B, C, D, E, F\}$; (e) $\{B, C, F\}$.
+>
+> **Solution.** (c). Since $\dim M(2, \R) = 4$, a basis has exactly $4$ elements: only (b) and (c) remain, and by Theorem 7.12 it is enough to check independence. In (b) $C + D = A$: dependent. In (c) I impose $x_1 A + x_2 B + x_3 E + x_4 F = 0$:
+> $$\begin{pmatrix} x_2 + x_3 + x_4 & x_1 + x_3 + x_4 \\ x_1 + x_3 & x_3 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}.$$
+> From the bottom-right entry $x_3 = 0$; then $x_1 = 0$ (bottom left), $x_4 = 0$ (top right), $x_2 = 0$ (top left). Only the trivial combination: it is a basis.
+
+> [!EXAM] Exam of 15/01/2026, question 4
+> **Text.** The dimension of the space $S(3)$ of symmetric $3 \times 3$ matrices is: (a) nine; (b) zero; (c) three; (d) six; (e) $S(3)$ has no dimension because it is not a vector space.
+>
+> **Solution.** (d). A symmetric $3 \times 3$ matrix is determined by the $6$ coefficients on the diagonal and above it:
+> $$\begin{pmatrix} a & b & c \\ b & d & e \\ c & e & f \end{pmatrix} = a e_{11} + d e_{22} + f e_{33} + b(e_{12} + e_{21}) + c(e_{13} + e_{31}) + e(e_{23} + e_{32}).$$
+> The six matrices on the right span $S(3)$ and are independent: if the combination is the zero matrix, each coefficient appears on its own in some entry, so it is zero. Option (e) is false by Proposition 6.5. With the same reasoning $\dim T^s(3) = 6$ (exam of 24/01/2024, question 5) and $\dim A(3) = 3$.
+
+> [!METHOD] · "Are they generators and/or independent?"
+> They are $k$ vectors in a space $V$ of dimension $n$.
+> 1. **Count.** If $k > n$ they are certainly dependent; if $k < n$ they certainly do not span $V$.
+> 2. **Find the vectors that are too many.** Set up $\lambda_1 v_1 + \dots + \lambda_k v_k = 0$ and solve, or look for a vector that is a combination of the others. Removing the vectors that are too many you get $r$ independent vectors, and $r = \dim \Span(v_1, \dots, v_k)$.
+> 3. **Conclude.** They are independent if and only if $r = k$; they span $V$ if and only if $r = n$; they are a basis if and only if $r = k = n$.
+>
+> The answers of the type "the question is ill-posed" (there are too many vectors, polynomials are not vectors) are traps: the question always makes sense.
+
+> [!METHOD] · the dimension of a subspace
+> 1. Write the generic element of the subspace using the conditions to eliminate the dependent variables: some **free parameters** remain.
+> 2. Collect the parameters: the generic element becomes a linear combination, with one vector for each parameter. The subspace is the Span of those vectors.
+> 3. Check that they are independent (usually they are: each parameter appears on its own in some coordinate).
+> 4. The dimension is the number of vectors, that is the number of free parameters.
+>
+> Example: $W = \{p \in \R_3[x] \mid p(2) = 0\}$. By lesson L04, $p(2) = 0$ means $p(x) = (x - 2)(a + bx + cx^2)$, so $W = \Span\big(x - 2,\ x(x - 2),\ x^2(x - 2)\big)$. The three polynomials have different degrees, $1$, $2$ and $3$, so they are independent (exercise 5): $\dim W = 3$. It is the type of question of the exams of 10/07/2025 (question 2, with $p(6) = 0$) and 03/07/2026 (question 1, with $p(2) = p(-2) = 0$, where the dimension is $2$).
+
+> [!PITFALL] The most common mistakes
+> - Saying that $\dim \K_n[x] = n$: it is $n + 1$, because of the constant.
+> - Saying that vectors that are pairwise not multiples are independent: it holds only for two vectors (Example 7.4).
+> - Using Theorem 7.12 with the wrong number of vectors.
+> - Confusing "they span" with "they are a basis": a basis must also be independent.
+> - Choosing "it is not a vector space" for $S(3)$, $T^s(3)$ or a Span: they are always subspaces. That answer is right only for sets that do not contain zero, like $O(2)$ in the exam of 10/07/2024 (question 2).
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the definition of independence as an implication; Proposition 7.2; the cases with one and two vectors; the definition of basis; the table of dimensions ($\K^n$, $\K_n[x]$, $M(m, n)$, and then $D(n) = n$, $T^s(n) = S(n) = \frac{n(n+1)}2$, $A(n) = \frac{n(n-1)}2$); Theorem 7.12; the counting rule (more than $n$ vectors are dependent, fewer than $n$ do not span).
+
+## Quiz
+
+```quiz
+Q: Are the vectors $(1, 0, 1)$, $(0, 1, 1)$, $(1, 1, 2)$, $(0, 0, 1)$ of $\R^3$ generators and/or linearly independent?
+- They are linearly independent, but not generators.
+- They are neither linearly independent nor generators.
+- The question is ill-posed: the vectors are 4 and not 3.
++ They are generators, but not linearly independent.
+- They are both generators and linearly independent.
+= Four vectors in $\R^3$ are always dependent; indeed $(1, 1, 2) = (1, 0, 1) + (0, 1, 1)$. They span: $(1, 0, 1)$, $(0, 1, 1)$ and $(0, 0, 1)$ are independent (from $a(1, 0, 1) + b(0, 1, 1) + c(0, 0, 1) = 0$ you get $a = 0$, $b = 0$ and then $c = 0$), so by Theorem 7.12 they are already a basis of $\R^3$. Similar to the exam of 06/09/2024, question 2.
+
+Q: Are the polynomials $1 + x$, $1 - x$ and $2$ of $\R_2[x]$ generators and/or linearly independent?
+- They are linearly independent, but not generators.
++ They are neither linearly independent nor generators.
+- They are generators, but not linearly independent.
+- They are both generators and linearly independent, that is a basis.
+- The question is ill-posed: $2$ is a number, not a polynomial.
+= $(1 + x) + (1 - x) = 2$, so they are dependent. All their combinations have degree $\le 1$, so you cannot get $x^2$: they do not span $\R_2[x]$. The Span is $\R_1[x]$, of dimension $2$. And $2$ is a polynomial of degree $0$. Similar to the exam of 16/01/2025, question 2.
+
+Q: What is the dimension of $\Span\big((1, 1, 0),\ (0, 1, 1),\ (1, 2, 1)\big)$?
+- $0$
+- $1$
++ $2$
+- $3$
+- $4$
+= $(1, 2, 1) = (1, 1, 0) + (0, 1, 1)$, so the third vector is too many. The first two are not multiples, so they are independent: they are a basis of the Span, which has dimension $2$ (a plane). Similar to the exam of 02/09/2025, question 10.
+
+Q: What is the dimension of the space $A(3)$ of skew-symmetric $3 \times 3$ matrices?
+- Nine.
+- Six.
++ Three.
+- Zero.
+- $A(3)$ has no dimension because it is not a vector space.
+= A skew-symmetric $3 \times 3$ matrix has a zero diagonal and is determined by $a_{12}$, $a_{13}$, $a_{23}$: it is $a F_1 + b F_2 + c F_3$ with three independent matrices (lesson L06, exercise 9). $A(3)$ is a subspace by Proposition 6.5. Similar to the exams of 24/01/2024 (question 5) and 15/01/2026 (question 4), on $T^s(3)$ and $S(3)$, both of dimension $6$.
+
+Q: Let $v_1, \dots, v_5$ be five vectors of $\R^3$ and let $X = \Span(v_1, \dots, v_5)$. Which statement is always true?
+- $\dim X = 5$
++ $\dim X \le 3$
+- $X = \R^3$
+- $v_1, \dots, v_5$ are linearly independent.
+- $\dim X$ is not well defined, because $X$ is not necessarily a subspace.
+= $X$ is a subspace of $\R^3$ (Proposition 6.7), and a subspace of $\R^3$ has dimension at most $3$: a basis of it is made of independent vectors of $\R^3$, which are at most $3$. Five vectors in $\R^3$ are always dependent, so $\dim X = 5$ is impossible; and $X = \R^3$ is not guaranteed (for example if they are all multiples of the same vector). Similar to the exam of 15/01/2026, question 3, where with three vectors the right answer was $\dim X \le 3$.
+
+Q: Let $A = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$, $C = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, $D = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}$, $E = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$. Which set is a basis of $M(2, \R)$?
++ $\{A, B, C, D\}$
+- $\{A, B, C\}$
+- $\{A, C, D, E\}$
+- $\{A, B, C, D, E\}$
+- $\{B, D, E\}$
+= A basis of $M(2, \R)$ has $4$ elements: three or five will not do. $aA + bB + cC + dD = \begin{pmatrix} a + b & c + d \\ c - d & a - b \end{pmatrix} = 0$ gives $a + b = a - b = 0$ and $c + d = c - d = 0$, so all zero: $\{A, B, C, D\}$ is a basis (Theorem 7.12). In $\{A, C, D, E\}$ instead $E = A + C$. Similar to the exam of 07/09/2026, question 2.
+
+Q: Which polynomial $s(x)$ can be added to $1 + x$ and $x + x^2$ to get a basis of $\R_2[x]$?
++ $s(x) = 1$
+- $s(x) = 1 + 2x + x^2$
+- $s(x) = 1 - x^2$
+- $s(x) = x^3$
+- $s(x) = 0$
+= With $s = 1$: from $a(1 + x) + b(x + x^2) + c = (a + c) + (a + b)x + bx^2 = 0$ you get $b = 0$, then $a = 0$, then $c = 0$; three independent vectors in a space of dimension $3$ are a basis. The others: $1 + 2x + x^2 = (1 + x) + (x + x^2)$ and $1 - x^2 = (1 + x) - (x + x^2)$ depend on the first two; $x^3 \notin \R_2[x]$; the zero polynomial makes the list dependent. Similar to the exam of 10/06/2024, question 3.
+
+Q: In $\R^3$, three linearly independent vectors:
++ are always a basis of $\R^3$.
+- may not span $\R^3$.
+- are a basis only if they are $e_1, e_2, e_3$.
+- always span a plane.
+- are a basis only if none has zero coordinates.
+= It is Theorem 7.12: they are $3 = \dim \R^3$ independent vectors, so they span and are a basis. The bases of $\R^3$ are infinitely many, and the vectors can have zero coordinates (like $e_1, e_2, e_3$ themselves).
+
+Q: What is the dimension of the subspace $W = \{p(x) \in \R_3[x] \mid p(2) = 0\}$?
+N: 3
+= $p(2) = 0$ means $p(x) = (x - 2)(a + bx + cx^2)$, so $W = \Span\big(x - 2,\ x(x - 2),\ x^2(x - 2)\big)$, three polynomials of different degrees and hence independent: $\dim W = 3$. Similar to the exam of 10/07/2025, question 2 (with $p(6) = 0$).
+
+Q: For which values of $k \in \R$ are the vectors $(1, k)$ and $(k, 4)$ of $\R^2$ linearly dependent?
+- Only for $k = 2$.
++ For $k = 2$ and for $k = -2$.
+- Only for $k = 4$.
+- For no value of $k$.
+- For every value of $k$.
+= Two vectors are dependent if and only if they are multiples. $(k, 4) = t(1, k)$ requires $t = k$ and $4 = tk = k^2$, that is $k = \pm 2$ (and $(1, k)$ is never zero, so this case is enough). With $k = 2$: $(2, 4) = 2(1, 2)$; with $k = -2$: $(-2, 4) = -2(1, -2)$.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 7.13 of the handouts: the standard basis of matrices
+For each $1 \le i \le m$ and $1 \le j \le n$ we denote by $e_{ij}$ the $m \times n$ matrix that has all zeros, except a $1$ in the entry in row $i$ and column $j$. For example, for $2 \times 2$ matrices:
+$$e_{11} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \quad e_{12} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \quad e_{21} = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, \quad e_{22} = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}.$$
+Prove that the matrices $e_{ij}$, with $1 \le i \le m$ and $1 \le j \le n$, form a basis of $M(m, n, \K)$. In particular $\dim M(m, n, \K) = mn$.
+::: solution
+It is the same proof as for the standard basis of $\K^n$ (Example 7.8), with two indices instead of one.
+
+**They span.** Every matrix is written as a combination of the $e_{ij}$, with its coefficients:
+$$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & & \vdots \\ a_{m1} & \cdots & a_{mn} \end{pmatrix} = \sum_{i, j} a_{ij} e_{ij},$$
+because $a_{ij} e_{ij}$ is the matrix with $a_{ij}$ in entry $(i, j)$ and zeros elsewhere, and adding all these matrices you fill all the entries. For example
+$$\begin{pmatrix} 3 & -1 \\ 0 & 5 \end{pmatrix} = 3e_{11} - e_{12} + 0e_{21} + 5e_{22}.$$
+
+**They are independent.** If $\sum_{i, j} \lambda_{ij} e_{ij} = 0$, writing out the matrices
+$$\begin{pmatrix} \lambda_{11} & \cdots & \lambda_{1n} \\ \vdots & & \vdots \\ \lambda_{m1} & \cdots & \lambda_{mn} \end{pmatrix} = \begin{pmatrix} 0 & \cdots & 0 \\ \vdots & & \vdots \\ 0 & \cdots & 0 \end{pmatrix},$$
+so $\lambda_{ij} = 0$ for all $i, j$.
+
+**Dimension.** There is one matrix $e_{ij}$ for each entry: $m$ rows times $n$ columns, that is $mn$ matrices. So $\dim M(m, n, \K) = mn$; for example $\dim M(2, 3) = 6$ and $\dim M(3) = 9$.
+:::
+
+::: exercise basic Exercise 7.14 of the handouts: a basis of $\R^2$
+Prove that the vectors $\begin{pmatrix} -1 \\ 1 \end{pmatrix}$ and $\begin{pmatrix} 2 \\ 1 \end{pmatrix}$ form a basis of $\R^2$.
+::: solution
+**With Theorem 7.12.** They are two vectors and $\dim \R^2 = 2$, so independence is enough. Two vectors are dependent only if they are multiples: $(2, 1) = k(-1, 1)$ would require $k = -2$ (first coordinate) and $k = 1$ (second), impossible. So they are independent, and they are a basis.
+
+**Directly, also checking that they span.** I look for $t, u$ with $t(-1, 1) + u(2, 1) = (x, y)$ for any vector $(x, y)$:
+$$\begin{cases} -t + 2u = x \\ t + u = y \end{cases}$$
+Adding the two equations: $3u = x + y$, so $u = \frac{x + y}3$. From the second: $t = y - u = \frac{-x + 2y}3$. The solution always exists, so the vectors span $\R^2$; and it is unique (for $(x, y) = (0, 0)$ it gives $t = u = 0$), so they are independent.
+
+Check with $(x, y) = (1, 2)$: $u = 1$, $t = 1$, and indeed $(-1, 1) + (2, 1) = (1, 2)$.
+:::
+
+::: exercise intermediate Exercise 7.15 of the handouts: dependent and independent in $\R^3$
+Consider the vectors of $\R^3$
+$$v_1 = \begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}, \quad v_2 = \begin{pmatrix} -1 \\ 1 \\ -1 \end{pmatrix}, \quad v_3 = \begin{pmatrix} 1 \\ 5 \\ 4 \end{pmatrix}, \quad v_4 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}.$$
+Show that $v_1, v_2, v_3$ are dependent and $v_1, v_2, v_4$ independent.
+::: solution
+**$v_1, v_2, v_3$ are dependent.** I try to write $v_3$ as a combination of $v_1$ and $v_2$ (Proposition 7.2): I look for $a, b$ with $a v_1 + b v_2 = v_3$, that is
+$$\begin{cases} a - b = 1 \\ a + b = 5 \\ 2a - b = 4 \end{cases}$$
+Adding the first two: $2a = 6$, so $a = 3$ and $b = 2$. The third: $2 \cdot 3 - 2 = 4$. True. So $v_3 = 3v_1 + 2v_2$, that is $3v_1 + 2v_2 - v_3 = 0$: a zero combination with non-zero coefficients.
+
+Check: $3(1, 1, 2) + 2(-1, 1, -1) = (3 - 2,\ 3 + 2,\ 6 - 2) = (1, 5, 4) = v_3$.
+
+**$v_1, v_2, v_4$ are independent.** Suppose $a v_1 + b v_2 + c v_4 = 0$:
+$$\begin{cases} a - b = 0 \\ a + b + c = 0 \\ 2a - b + c = 0 \end{cases}$$
+From the first $b = a$. Substituting: the second gives $2a + c = 0$, the third $a + c = 0$. Subtracting these two: $a = 0$; so $c = 0$ and $b = 0$. Only the trivial combination: independent. Being three independent vectors in $\R^3$, they are also a basis of $\R^3$ (Theorem 7.12).
+:::
+
+::: exercise basic Dependent or independent?
+For each list say whether the vectors are dependent or independent. If they are dependent, write a non-trivial combination equal to zero.
+(a) $(3, -6)$ and $(-1, 2)$ in $\R^2$.
+(b) $(1, 0, 2)$ and $(2, 0, 1)$ in $\R^3$.
+(c) $(1, 2)$, $(1, 1)$ and $(2, 0)$ in $\R^2$.
+(d) $(1, 2, 3)$, $(0, 0, 0)$ and $(4, 5, 6)$ in $\R^3$.
+(e) $(1, 2, 3)$, $(0, 1, 5)$ and $(0, 0, 2)$ in $\R^3$.
+::: solution
+(a) **Dependent**: $(3, -6) = -3 \cdot (-1, 2)$, so $(3, -6) + 3(-1, 2) = (0, 0)$.
+
+(b) **Independent**: they are two vectors that are not multiples. From $(2, 0, 1) = k(1, 0, 2)$ you would need $k = 2$ and $1 = 2k$, that is $k = \frac 12$: impossible.
+
+(c) **Dependent**: they are three vectors in $\R^2$, which has dimension $2$. A relation (from Martelli's book, Example 2.3.2): $-2(1, 2) + 4(1, 1) - (2, 0) = (-2 + 4 - 2,\ -4 + 4 - 0) = (0, 0)$.
+
+(d) **Dependent**: the zero vector is there, and $0 \cdot (1, 2, 3) + 1 \cdot (0, 0, 0) + 0 \cdot (4, 5, 6) = 0$.
+
+(e) **Independent.** From $a(1, 2, 3) + b(0, 1, 5) + c(0, 0, 2) = 0$: the first coordinate gives $a = 0$; the second $2a + b = 0$, so $b = 0$; the third $3a + 5b + 2c = 0$, so $c = 0$. The "echelon" form (each vector has zeros where the previous one starts) makes the equations solvable one at a time.
+:::
+
+::: exercise intermediate Independent polynomials and bases of $\R_3[x]$
+(a) Prove that non-zero polynomials with all different degrees are linearly independent.
+(b) Are the polynomials $f = x^3 + x$, $g = x^2 - 1$, $h = x^3 + x^2 + x - 1$ independent?
+(c) Are the polynomials $f = x^3 + x$, $g = x^2 - 1$, $k = x^3 - x$ independent? Are they a basis of $\R_3[x]$? If not, complete them to a basis.
+::: solution
+(a) Let $p_1, \dots, p_k$ be non-zero with degrees $d_1 < d_2 < \dots < d_k$, and let $\lambda_1 p_1 + \dots + \lambda_k p_k = 0$. The term $x^{d_k}$ appears only in $p_k$, with a coefficient $c \neq 0$: in the combination the coefficient of $x^{d_k}$ is $\lambda_k c$, which must be $0$, so $\lambda_k = 0$. Now what remains is a zero combination of $p_1, \dots, p_{k-1}$, and you repeat: $\lambda_{k-1} = 0$, and so on down to $\lambda_1 = 0$.
+
+(b) **No**: $h = f + g$, because $(x^3 + x) + (x^2 - 1) = x^3 + x^2 + x - 1$. So $f + g - h = 0$.
+
+(c) From $a f + b g + c k = 0$:
+$$a(x^3 + x) + b(x^2 - 1) + c(x^3 - x) = (a + c)x^3 + bx^2 + (a - c)x - b = 0.$$
+All the coefficients must be zero: $b = 0$, $a + c = 0$, $a - c = 0$, so $a = c = 0$. They are **independent**. They are not a basis of $\R_3[x]$: they are $3$ vectors and $\dim \R_3[x] = 4$, so they do not span (for example, every combination of them has constant term equal to $-b$ and coefficient of $x^2$ equal to $b$: you cannot get the polynomial $1$).
+
+Completion: I add the polynomial $1$. From $af + bg + ck + d \cdot 1 = 0$:
+$$(a + c)x^3 + bx^2 + (a - c)x + (d - b) = 0,$$
+so $b = 0$, $a = c = 0$ and $d = b = 0$. Four independent vectors in a space of dimension $4$: by Theorem 7.12, $f, g, k, 1$ are a basis of $\R_3[x]$.
+:::
+
+::: exercise exam As at the exam: bases and dimensions of spaces of matrices
+Find a basis and the dimension of each of the subspaces $D(3)$, $T^s(3)$, $S(3)$ and $A(3)$ of $M(3)$. Then say what $\dim D(n)$, $\dim T^s(n)$, $\dim S(n)$ and $\dim A(n)$ are in general.
+::: solution
+I use the matrices $e_{ij}$ of Exercise 7.13. In each case I write the generic matrix, rewrite it as a combination and check independence: each free coefficient appears on its own in an entry where the other matrices have $0$, so a zero combination has all coefficients zero.
+
+- **$D(3)$**: $\begin{pmatrix} a & 0 & 0 \\ 0 & b & 0 \\ 0 & 0 & c \end{pmatrix} = a e_{11} + b e_{22} + c e_{33}$. Basis $e_{11}, e_{22}, e_{33}$: **dimension 3**.
+- **$T^s(3)$**: $\begin{pmatrix} a & b & c \\ 0 & d & e \\ 0 & 0 & f \end{pmatrix} = a e_{11} + b e_{12} + c e_{13} + d e_{22} + e\, e_{23} + f e_{33}$. Basis $e_{11}, e_{12}, e_{13}, e_{22}, e_{23}, e_{33}$: **dimension 6**. It is the answer of the exam of 24/01/2024, question 5.
+- **$S(3)$**: basis $e_{11}, e_{22}, e_{33}, e_{12} + e_{21}, e_{13} + e_{31}, e_{23} + e_{32}$ (box on the exam of 15/01/2026): **dimension 6**.
+- **$A(3)$**: $\begin{pmatrix} 0 & a & b \\ -a & 0 & c \\ -b & -c & 0 \end{pmatrix} = a(e_{12} - e_{21}) + b(e_{13} - e_{31}) + c(e_{23} - e_{32})$. Basis of three matrices: **dimension 3**.
+
+Check: $\dim S(3) + \dim A(3) = 6 + 3 = 9 = \dim M(3)$.
+
+**In general**, for $n \times n$ matrices:
+- $\dim D(n) = n$: the free coefficients are those of the diagonal;
+- $\dim T^s(n) = \dim T^i(n) = \dim S(n) = \frac{n(n + 1)}2$: diagonal ($n$ entries) plus the triangle above it ($\frac{n(n - 1)}2$ entries), that is $n + \frac{n(n - 1)}2 = \frac{n(n + 1)}2$;
+- $\dim A(n) = \frac{n(n - 1)}2$: only the triangle above the diagonal, because the diagonal is zero.
+
+With $n = 3$: $3$, $6$, $6$, $3$, as above.
+:::
+
+::: exercise exam As at the exam: the dimension of subspaces of polynomials
+Find a basis and the dimension of:
+(a) $W_1 = \{p(x) \in \R_3[x] \mid p(1) = 0\}$;
+(b) $W_2 = \{p(x) \in \R_3[x] \mid p(2) = 0 \text{ and } p(-2) = 0\}$;
+(c) $W_3 = \{p(x) \in \R_2[x] \mid p(0) = p(1)\}$.
+::: solution
+(a) By lesson L04, $p(1) = 0$ means that $x - 1$ divides $p$: $p(x) = (x - 1)(a + bx + cx^2)$ with any $a, b, c$. So
+$$W_1 = \Span\big(x - 1,\ x(x - 1),\ x^2(x - 1)\big) = \Span\big(x - 1,\ x^2 - x,\ x^3 - x^2\big).$$
+The three polynomials have degrees $1$, $2$, $3$, so they are independent (exercise 5 (a)): **$\dim W_1 = 3$**. (It is the subspace of the exam of 24/01/2024, question 1, in lesson L06.)
+
+(b) $p(2) = 0$ and $p(-2) = 0$ mean that $x - 2$ and $x + 2$ divide $p$, so $p(x) = (x^2 - 4)(a + bx)$ with any $a, b$:
+$$W_2 = \Span\big(x^2 - 4,\ x^3 - 4x\big),$$
+two polynomials of different degrees, independent: **$\dim W_2 = 2$**. It is the answer of the exam of 03/07/2026, question 1.
+
+(c) I write $p(x) = ax^2 + bx + c$: $p(0) = c$ and $p(1) = a + b + c$. The condition $p(0) = p(1)$ becomes $a + b = 0$, that is $b = -a$. So
+$$p(x) = ax^2 - ax + c = a(x^2 - x) + c \cdot 1, \qquad W_3 = \Span(x^2 - x,\ 1).$$
+Two polynomials of different degrees, independent: **$\dim W_3 = 2$**.
+
+In all three cases the dimension is $\dim V$ minus the number of independent conditions: $4 - 1 = 3$, $4 - 2 = 2$, $3 - 1 = 2$. It is a preview of the rank–nullity theorem (lesson L15).
+:::
+
+::: exercise intermediate A basis with a parameter
+For which $k \in \R$ are the vectors $u_1 = (1, 1, 0)$, $u_2 = (0, 1, 1)$, $u_3 = (1, 0, k)$ a basis of $\R^3$?
+::: solution
+They are three vectors in $\R^3$: by Theorem 7.12 it is enough to understand when they are independent. From $a u_1 + b u_2 + c u_3 = 0$:
+$$\begin{cases} a + c = 0 \\ a + b = 0 \\ b + kc = 0 \end{cases}$$
+From the first $a = -c$, from the second $b = -a = c$. The third becomes $c + kc = (1 + k)c = 0$.
+- If $k \neq -1$, then $c = 0$, and so $a = b = 0$: independent, **basis**.
+- If $k = -1$, any $c$ works: for example $c = 1$, $a = -1$, $b = 1$ gives $-u_1 + u_2 + u_3 = 0$. Dependent, **not** a basis.
+
+With $k = -1$ you find again the vectors of Example 7.4 (with $u_3 = v_3$). In lesson L13 the same result is obtained with the determinant: the matrix of the three vectors has determinant $1 + k$.
+:::
+
+::: exercise intermediate Completing a basis and extracting one
+(a) Complete $w_1 = (1, 1, 0)$, $w_2 = (-1, 0, 1)$ to a basis of $\R^3$.
+(b) Let $v_1 = (1, 0, 1)$, $v_2 = (0, 1, 1)$, $v_3 = (1, 1, 2)$, $v_4 = (1, -1, 0)$. Extract from $v_1, v_2, v_3, v_4$ a basis of $U = \Span(v_1, v_2, v_3, v_4)$ and find $\dim U$.
+::: solution
+(a) It is enough to add a vector that is not in the plane $\Span(w_1, w_2)$ (exercise 11). I try $e_1 = (1, 0, 0)$ (it is the choice of Martelli's book, Example 2.3.21). From $a w_1 + b w_2 + c e_1 = 0$:
+$$\begin{cases} a - b + c = 0 \\ a = 0 \\ b = 0 \end{cases}$$
+so $a = b = 0$ and then $c = 0$. Three independent vectors in $\R^3$: $w_1, w_2, e_1$ is a basis.
+
+(b) I look for the vectors that are too many. $v_3 = v_1 + v_2$, because $(1, 0, 1) + (0, 1, 1) = (1, 1, 2)$; $v_4 = v_1 - v_2$, because $(1, 0, 1) - (0, 1, 1) = (1, -1, 0)$. I remove $v_3$ and $v_4$: the Span does not change (Proposition 7.2), and $v_1, v_2$ remain, not multiples, so independent. A basis of $U$ is $v_1, v_2$ and **$\dim U = 2$**: $U$ is the plane $z = x + y$ of Exercise 6.10.
+:::
+
+::: exercise exam As at the exam: generators, independent, basis?
+For each list decide whether the vectors are linearly independent, whether they span the space shown and whether they form a basis of it.
+(a) $(1, -1)$, $(2, 1)$, $(0, 3)$ in $\R^2$.
+(b) $(1, 0, 2)$, $(0, 1, -1)$, $(2, 1, 3)$ in $\R^3$.
+(c) $(1, 1, 0, 0)$, $(0, 1, 1, 0)$, $(0, 0, 1, 1)$ in $\R^4$.
+::: solution
+(a) Three vectors in $\R^2$: **dependent**. They span: $(1, -1)$ and $(2, 1)$ are not multiples, so they are already a basis of $\R^2$, and adding $(0, 3)$ they still span. **Generators, not a basis.** A relation: $(0, 3) = a(1, -1) + b(2, 1)$ gives $a + 2b = 0$ and $-a + b = 3$; adding, $3b = 3$, so $b = 1$, $a = -2$: $(0, 3) = -2(1, -1) + (2, 1)$.
+
+(b) $2(1, 0, 2) + (0, 1, -1) = (2, 1, 3)$: the third is a combination of the first two, **dependent**. The first two are not multiples, so the Span has dimension $2$: it is a plane, they **do not span** $\R^3$. **It is not a basis.**
+
+(c) From $a(1, 1, 0, 0) + b(0, 1, 1, 0) + c(0, 0, 1, 1) = 0$: the first coordinate gives $a = 0$, the second $a + b = 0$, so $b = 0$; the fourth gives $c = 0$. **Independent.** But they are $3$ vectors and $\dim \R^4 = 4$: they **do not span**, and they **are not a basis**. For example $e_4 = (0, 0, 0, 1)$ is not a combination of them: you would need $a = 0$ (first coordinate), then $b = 0$ (second), then $c = 0$ (third), but the fourth coordinate would be $c = 0 \neq 1$.
+:::
+
+::: exercise hard Adding a vector outside the Span
+Let $v_1, \dots, v_k$ be independent vectors of $V$ and let $v_{k+1} \in V$. Prove that
+$$v_1, \dots, v_{k+1} \text{ are independent} \iff v_{k+1} \notin \Span(v_1, \dots, v_k).$$
+Deduce that, in a space of dimension $n$, every list of independent vectors can be completed to a basis.
+::: solution
+($\Rightarrow$) If $v_{k+1} \in \Span(v_1, \dots, v_k)$, that is $v_{k+1} = \lambda_1 v_1 + \dots + \lambda_k v_k$, then $\lambda_1 v_1 + \dots + \lambda_k v_k - v_{k+1} = 0$ would be a zero combination with the coefficient $-1$: the vectors would be dependent.
+
+($\Leftarrow$) Suppose $\lambda_1 v_1 + \dots + \lambda_k v_k + \lambda_{k+1} v_{k+1} = 0$.
+- If $\lambda_{k+1} \neq 0$, I divide by $\lambda_{k+1}$ and get $v_{k+1}$ as a combination of $v_1, \dots, v_k$: against the hypothesis $v_{k+1} \notin \Span$.
+- So $\lambda_{k+1} = 0$, and what remains is $\lambda_1 v_1 + \dots + \lambda_k v_k = 0$: by the independence of the first $k$ vectors, also $\lambda_1 = \dots = \lambda_k = 0$.
+
+**Completion.** Let $\dim V = n$ and let $v_1, \dots, v_k$ be independent with $k < n$. They do not span $V$ (fewer than $n$ vectors do not span), so there exists $v_{k+1} \notin \Span(v_1, \dots, v_k)$; by what we have just proved, $v_1, \dots, v_{k+1}$ are still independent. You repeat until the vectors are $n$: at that point they are $n$ independent vectors, that is a basis by Theorem 7.12. It is the completion algorithm of Martelli's book (§2.3.5).
+:::
+
+## Review questions
+
+::: question When are some vectors linearly dependent? And independent?
+Dependent: there is a combination $\lambda_1 v_1 + \dots + \lambda_k v_k = 0$ with coefficients not all zero. Independent: $\lambda_1 v_1 + \dots + \lambda_k v_k = 0$ implies $\lambda_1 = \dots = \lambda_k = 0$, that is the only zero combination is the one with all coefficients zero.
+:::
+
+::: question What does Proposition 7.2 say, and how is it proved?
+Some vectors are dependent if and only if one of them is a linear combination of the others. If $\lambda_i \neq 0$ in a zero combination, you divide by $\lambda_i$ and isolate $v_i$; conversely, if $v_i$ is a combination of the others, bringing everything to the left you get a zero combination with coefficient $-1$ in front of $v_i$.
+:::
+
+::: question When is a single vector dependent? And two vectors?
+A vector is dependent if and only if it is the zero vector. Two vectors are dependent if and only if they are multiples of each other.
+:::
+
+::: question Are three non-zero vectors that are pairwise not multiples necessarily independent?
+No. Example 7.4: $(1, 1, 0)$, $(0, 1, 1)$, $(1, 0, -1)$ are non-zero and pairwise not multiples, but $v_1 - v_2 - v_3 = 0$. The two conditions are necessary but not sufficient for $k \ge 3$.
+:::
+
+::: question Why is a list that contains the zero vector always dependent?
+Because $1 \cdot 0$ plus all the other vectors multiplied by $0$ gives the zero vector, and it is a combination with a non-zero coefficient.
+:::
+
+::: question What is a basis? Give an example in $\R^2$ other than the standard basis.
+A sequence of independent vectors that span the space. In $\R^2$ $(1, 2), (2, 1)$ is also a basis: they are two vectors that are not multiples, so independent, and by Theorem 7.12 they span.
+:::
+
+::: question What is the standard basis of $\K^n$? And of $\K_n[x]$?
+In $\K^n$: $e_1, \dots, e_n$, where $e_i$ has $1$ in place $i$ and $0$ elsewhere. In $\K_n[x]$: $1, x, x^2, \dots, x^n$, which are $n + 1$ polynomials.
+:::
+
+::: question What does Theorem 7.10 say, and why is it needed?
+If $V$ has a basis of $n$ vectors, every basis of $V$ has $n$ vectors. It is needed so that the dimension, defined as the number of vectors in a basis, does not depend on the basis chosen.
+:::
+
+::: question What are the dimensions of $\K^n$, $\K_n[x]$, $M(m, n, \K)$ and $\K[x]$?
+$n$, $n + 1$, $mn$ and infinite. $\K[x]$ has no finite bases, because every finite list of polynomials spans only polynomials up to a certain degree.
+:::
+
+::: question What does Theorem 7.12 say? Give an example.
+If $\dim V = n$ and you have exactly $n$ vectors, they are a basis as soon as they are independent or as soon as they span: the other condition follows. Example: $(-1, 1)$ and $(2, 1)$ are not multiples, so they are independent, and they are a basis of $\R^2$.
+:::
+
+::: question Can four vectors of $\R^3$ be independent? Can two vectors of $\R^3$ span $\R^3$?
+No in both cases. In a space of dimension $n$ more than $n$ vectors are always dependent and fewer than $n$ vectors never span.
+:::
+
+::: question How do you compute the dimension of a subspace defined by conditions?
+You write the generic element with the free parameters, rewrite it as a linear combination with one vector per parameter, check that those vectors are independent and count them. For example $\{p \in \R_3[x] \mid p(2) = 0\}$ has dimension $3$.
+:::
+
+::: question What are $\dim S(3)$, $\dim T^s(3)$ and $\dim A(3)$?
+$6$, $6$ and $3$. In general $\dim S(n) = \dim T^s(n) = \frac{n(n + 1)}2$ and $\dim A(n) = \frac{n(n - 1)}2$.
+:::
+
+## Glossary
+
+```glossary
+Trivial combination | The linear combination with all coefficients equal to $0$; it always gives the zero vector.
+Linearly dependent | Vectors for which there is a combination with coefficients not all zero equal to $0$; it is the same as saying that one is a combination of the others.
+Linearly independent | Vectors for which the only combination equal to $0$ is the trivial one.
+Multiple vectors | $v_1 = kv_2$ or $v_2 = kv_1$ for some scalar $k$: for two vectors it is the same as being dependent.
+Generators | Vectors $v_1, \dots, v_n$ such that $V = \Span(v_1, \dots, v_n)$: every vector of $V$ is a combination of them.
+Basis | Sequence of independent vectors that span $V$.
+Standard basis of $\K^n$ | $e_1, \dots, e_n$, where $e_i$ has $1$ in place $i$ and $0$ elsewhere.
+Standard basis of $\K_n[x]$ | The polynomials $1, x, x^2, \dots, x^n$.
+Matrices $e_{ij}$ | The matrix with $1$ in entry $(i, j)$ and $0$ elsewhere; they form the standard basis of $M(m, n, \K)$.
+Dimension | The number of vectors in a basis of $V$, written $\dim V$; it is $\infty$ if there are no finite bases.
+Well-posed definition | A definition that does not depend on the choices made: for the dimension Theorem 7.10 guarantees it.
+Infinite dimension | Property of a space with no finite bases, like $\K[x]$.
+Coordinates with respect to a basis | The unique coefficients $\lambda_1, \dots, \lambda_n$ with $v = \lambda_1 v_1 + \dots + \lambda_n v_n$ (lesson L13).
+Exchange lemma | If $n$ vectors span $V$, then $n$ independent vectors of $V$ also span $V$: the key to Theorem 7.10.
+Completion to a basis | Adding to independent vectors vectors outside their Span until you have $\dim V$ vectors.
+Extraction of a basis | Removing from a list of generators the vectors that are combinations of the others, until independent vectors remain.
+Rank (preview) | The maximum number of independent vectors among the rows, or the columns, of a matrix (lesson L08).
+```
+
+## Checklist
+
+```checklist
+- I can write the definition of linearly independent vectors as an implication and explain it in words.
+- I can prove that some vectors are independent by setting up and solving the system of the coefficients.
+- I can prove that some vectors are dependent by showing a non-trivial combination equal to zero.
+- I can state and prove Proposition 7.2 and I can recognise the cases with one and two vectors.
+- I can explain with Example 7.4 why with three vectors looking at them in pairs is not enough.
+- I can define a basis and check that $e_1, \dots, e_n$ and $1, x, \dots, x^n$ are bases.
+- I know the dimensions of $\K^n$, $\K_n[x]$, $M(m, n, \K)$ and $\K[x]$, without getting the $+1$ of polynomials wrong.
+- I can use Theorem 7.12 to prove that $n$ vectors are a basis by checking only independence.
+- I can answer "generators and/or independent?" by counting the vectors and looking for the ones that are too many.
+- I can compute basis and dimension of subspaces of matrices ($D(n)$, $T^s(n)$, $S(n)$, $A(n)$) and of polynomials defined by conditions.
+- I can complete independent vectors to a basis and extract a basis from a list of generators.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 7 "Spazi vettoriali III", pp. 31–35: sections 7.A–7.D are followed in order, with the page next to each heading; definitions, propositions, theorems, examples and exercises keep their numbering (Definitions 7.1, 7.7 and 7.11, Propositions 7.2 and 7.6, Examples 7.3–7.5, 7.8 and 7.9, Theorems 7.10 and 7.12, Exercises 7.13–7.15).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.3.1–2.3.7 (linear independence and Example 2.3.2, standard bases, coordinates and Proposition 2.3.11, exchange lemma and proof of Theorem 2.3.16, infinite dimension of $\K[x]$, completion and extraction algorithms and Example 2.3.21, Propositions 2.3.20, 2.3.23 and 2.3.25).
+- **Exam sessions cited** (papers and solutions on the 2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): 24/01/2024 (questions 1 and 5), 10/06/2024 (question 3), 10/07/2024 (question 2), 06/09/2024 (question 2), 16/01/2025 (question 2), 10/07/2025 (question 2), 02/09/2025 (question 10 and problem 11), 15/01/2026 (questions 3 and 4), 03/07/2026 (question 1), 07/09/2026 (question 2). The questions of 16/01/2025 (2), 15/01/2026 (4) and 07/09/2026 (2) are reported with solutions written for these notes. Tutoring exercise sheet 2, 2025 (Buzano, Radeschi), exercises 1, 3 and 4, as a model for some exercises.
+- The **"Beyond the handouts"** parts (Gauss's method to count independent vectors, coordinates, the proofs of Theorems 7.10 and 7.12, the consequences for the quizzes, the methods for the exam and exercises 4–12) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L08_matrices_1.md -->
+> File: `ai_context/MDAG/lessons/L08_matrices_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L08
+title: Matrices I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L08
+description: >-
+  Notes on lesson L08 of Linear Algebra and Geometry (MDAG, part 2): transpose of a matrix, symmetric matrices,
+  row rank and column rank, the row-by-column product and its properties, trace, with exam-style quizzes and
+  worked exercises.
+lede: >-
+  Matrices stop being simple tables and become tools for calculating: the transpose ${}^tA$, the rank
+  $\rk(A)$ (how many really independent columns there are), the row-by-column product, which is not commutative, and
+  the trace $\tr A$. These are the operations that appear in almost every exam quiz, often with a trap.
+material: handouts
+facts:
+  Handouts: lesson 8 · pp. 36–40
+  Book: Martelli, §2.3.10, §3.2.3, §3.2.6, §3.4.1–3.4.5 and §4.4.5
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 8 "Matrici I"; B. Martelli, Geometria e algebra lineare, §2.3.10, §3.2.3, §3.2.6, §3.4.1–3.4.5 and §4.4.5
+italian_file: L08_matrici_1.html
+html_notes: notes/MDAG/L08_matrices_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L08_matrici_1.md
+```
+
+## In brief
+
+- An $m \times n$ matrix has $m$ rows and $n$ columns. The $m \times n$ matrices with coefficients in $\K$ form the vector space $M(m, n, \K)$, of dimension $mn$. Rows are written $A_1, \dots, A_m$ (index at the bottom), columns $A^1, \dots, A^n$ (index at the top).
+- The **transpose** ${}^tA$ swaps rows and columns: $({}^tA)_{ij} = A_{ji}$, and an $m \times n$ matrix becomes $n \times m$. A square matrix is **symmetric** if ${}^tA = A$, **skew-symmetric** if ${}^tA = -A$.
+- The **rank** $\rk(A)$ is the dimension of the space spanned by the columns, that is, the **maximum number of linearly independent columns**.
+- Row rank and column rank are equal: $\rk({}^tA) = \rk(A)$. As a consequence $\rk(A) \le \min(m, n)$.
+- The **row-by-column product** $AB$ exists only if $A$ has as many columns as $B$ has rows: $(m \times n) \cdot (n \times p)$ gives an $m \times p$ matrix, with $(AB)_{ij} = A_{i1}B_{1j} + \dots + A_{in}B_{nj}$.
+- The product is **not commutative**: usually $AB \neq BA$, and it can happen that $AB = 0$ with $A \neq 0$ and $B \neq 0$. Associativity and distributivity still hold, though.
+- The **trace** of a square matrix is the sum of the numbers on the main diagonal, and $\tr(AB) = \tr(BA)$ even when $AB \neq BA$.
+- At the exam there is almost always a question "which identity holds among $AB$, $BA$, $A$ and $B$?", a trace of a product and a rank to calculate.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Where we start again: matrices (p. 36)
+
+A **matrix** is a rectangular table of numbers. In lesson L06 we defined it like this: a matrix with $m$ rows and $n$ columns with coefficients in a field $\K$ (for us almost always $\K = \R$ or $\K = \C$) is
+
+$$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{m1} & \cdots & a_{mn} \end{pmatrix}.$$
+
+In short we say that $A$ is an $m \times n$ matrix (read "$m$ by $n$"): **first the rows, then the columns**.
+
+- The number $a_{ij}$ is in row $i$ and column $j$: **the first index is the row, the second the column**. The handouts also write it $A_{ij}$: it is the same thing.
+- The $i$-th row is written $A_i$ (index at the bottom), the $j$-th column $A^j$ (index at the top). Careful: here $A^2$ means "second column", not "$A$ squared"; usually the context makes it clear.
+- $M(m, n, \K)$ is the set of all $m \times n$ matrices with coefficients in $\K$; the square $n \times n$ matrices form $M(n, \K)$, or more briefly $M(n)$.
+- An $m \times 1$ matrix is a **column vector**: $M(m, 1, \K) = \K^m$.
+
+> [!EXAMPLE] · Reading a matrix
+> $$A = \begin{pmatrix} 3 & 0 & -1 \\ 2 & 5 & 4 \end{pmatrix}$$
+> is a $2 \times 3$ matrix: two rows and three columns. The number in row 2 and column 3 is $a_{23} = 4$; the one in row 1 and column 2 is $a_{12} = 0$. The second row is $A_2 = (2, 5, 4)$, the third column is
+> $$A^3 = \begin{pmatrix} -1 \\ 4 \end{pmatrix} \in \R^2.$$
+> Each column has as many numbers as there are rows (here 2), so the columns are vectors of $\R^2$; each row has as many numbers as there are columns (here 3), so the rows are vectors of $\R^3$.
+
+The handouts recall the two operations already seen in lesson L06, both **entry by entry**: the sum of two matrices of the same size and the product by a scalar $\lambda \in \K$,
+
+$$(A + B)_{ij} = a_{ij} + b_{ij}, \qquad (\lambda A)_{ij} = \lambda a_{ij}.$$
+
+For example:
+
+$$\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + \begin{pmatrix} 0 & -2 \\ 5 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 8 & 5 \end{pmatrix}, \qquad 3 \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 3 & 6 \\ 9 & 12 \end{pmatrix}.$$
+
+With these two operations $M(m, n, \K)$ is a **vector space of dimension $mn$** (Exercise 7.13 of the handouts): a basis is made of the $mn$ matrices $e_{ij}$ that have a 1 in entry $(i, j)$ and 0 elsewhere. In this lesson four new operations arrive.
+
+| Operation | It can be done if | Starts from | Gives |
+|---|---|---|---|
+| transpose ${}^tA$ | always | $A$ of size $m \times n$ | an $n \times m$ matrix |
+| rank $\rk(A)$ | always | $A$ of size $m \times n$ | an integer between $0$ and $\min(m, n)$ |
+| product $AB$ | columns of $A$ = rows of $B$ | $A$ of size $m \times n$, $B$ of size $n \times p$ | an $m \times p$ matrix |
+| trace $\tr A$ | $A$ square | $A$ of size $n \times n$ | a number |
+
+## The transpose of a matrix (p. 36)
+
+Take a matrix and **flip it over the diagonal** that goes down from the top-left corner: the first column becomes the first row, the second column becomes the second row, and so on. The result is the transpose.
+
+> [!DEF] 8.1 · Transpose
+> The **transpose** of a matrix $A \in M(m, n, \K)$ is the matrix
+> $${}^tA \in M(n, m, \K)$$
+> defined by swapping rows and columns, that is:
+> $$({}^tA)_{ij} = A_{ji}.$$
+
+Piece by piece:
+
+- ${}^tA$ is read "$A$ transpose". The small $t$ **at the top left** is the course's notation; in other books you find $A^T$ or $A^t$.
+- $A \in M(m, n, \K)$ and ${}^tA \in M(n, m, \K)$: the dimensions **swap**. From $3 \times 2$ you go to $2 \times 3$.
+- $({}^tA)_{ij} = A_{ji}$: the number that the transpose has in row $i$ and column $j$ is the one that $A$ has in row $j$ and column $i$. The indices swap, exactly like rows and columns.
+- As a consequence row $i$ of ${}^tA$ contains the same numbers as column $i$ of $A$, and column $j$ of ${}^tA$ the same numbers as row $j$ of $A$.
+
+> [!EXAMPLE] 8.2 · A $3 \times 2$ matrix and its transpose
+> $$A = \begin{pmatrix} 2 & 1 \\ -1 & 0 \\ 5 & 7 \end{pmatrix} \quad\Longrightarrow\quad {}^tA = \begin{pmatrix} 2 & -1 & 5 \\ 1 & 0 & 7 \end{pmatrix}$$
+> The first column of $A$, that is $2, -1, 5$ read from top to bottom, has become the first row of ${}^tA$; the second column $1, 0, 7$ has become the second row. Check of two entries with the definition:
+> - $({}^tA)_{13} = A_{31} = 5$ (row 3 and column 1 of $A$);
+> - $({}^tA)_{21} = A_{12} = 1$ (row 1 and column 2 of $A$).
+>
+> $A$ is $3 \times 2$, ${}^tA$ is $2 \times 3$.
+
+The handouts list some properties straight away.
+
+> [!PROP] · Properties of the transpose (p. 36)
+> - ${}^t(A + B) = {}^tA + {}^tB$, $\quad {}^t(\lambda A) = \lambda({}^tA)$.
+> - If $A \in M(n)$, then also ${}^tA \in M(n)$.
+> - $A \in M(n)$ is symmetric $\iff {}^tA = A$; $A \in M(n)$ is skew-symmetric $\iff {}^tA = -A$.
+
+Let us look at them one at a time.
+
+1. **Sums and multiples.** Adding and then transposing gives the same result as transposing and then adding: in both cases entry $(i, j)$ contains $a_{ji} + b_{ji}$. With numbers:
+   $${}^t\left(\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} + \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\right) = {}^t\begin{pmatrix} 1 & 3 \\ 4 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 4 \\ 3 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 3 \\ 2 & 4 \end{pmatrix} + \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}.$$
+   The same holds for multiples: multiplying every number by $\lambda$ and then flipping, or the other way round, leads to the same matrix. In other words transposition **respects sums and multiples**: from lesson L14 a function with this property will be called *linear*.
+2. **Square matrices stay square.** From $n \times n$ you go to $n \times n$. The main diagonal (the entries $a_{11}, a_{22}, \dots, a_{nn}$) **does not move**: $({}^tA)_{ii} = A_{ii}$.
+3. **Symmetric and skew-symmetric.** In lesson L06 (Definition 6.3) a square matrix is symmetric if $a_{ij} = a_{ji}$ for all $i, j$, skew-symmetric if $a_{ij} = -a_{ji}$ for all $i, j$. With the transpose you say it in one formula: ${}^tA = A$ means exactly $A_{ji} = A_{ij}$ in every entry.
+
+> [!EXAMPLE] · A symmetric one and a skew-symmetric one
+> $$S = \begin{pmatrix} 1 & 4 & 5 \\ 4 & 2 & 6 \\ 5 & 6 & 3 \end{pmatrix}, \qquad N = \begin{pmatrix} 0 & 2 & -1 \\ -2 & 0 & 3 \\ 1 & -3 & 0 \end{pmatrix}.$$
+> In $S$ the diagonal acts as a **mirror**: the 4 in position $(1, 2)$ comes back in position $(2, 1)$, the 5 in $(1, 3)$ and $(3, 1)$, the 6 in $(2, 3)$ and $(3, 2)$. So ${}^tS = S$.
+>
+> In $N$ every number comes back on the other side **with the opposite sign**: $2$ and $-2$, $-1$ and $1$, $3$ and $-3$. So ${}^tN = -N$. The diagonal of a skew-symmetric matrix is all zero: from $a_{ii} = -a_{ii}$ follows $2a_{ii} = 0$, that is $a_{ii} = 0$.
+
+> [!BEYOND] · two more useful properties
+> - Transposing twice brings you back to the starting matrix: ${}^t({}^tA) = A$.
+> - Every square matrix is the sum of a symmetric one and a skew-symmetric one (Martelli, Example 2.3.33):
+>   $$A = \underbrace{\frac{A + {}^tA}2}_{\text{symmetric}} + \underbrace{\frac{A - {}^tA}2}_{\text{skew-symmetric}}.$$
+>   For example with $A = \begin{pmatrix} 1 & 2 \\ 4 & 3 \end{pmatrix}$ you find $\frac{A + {}^tA}2 = \begin{pmatrix} 1 & 3 \\ 3 & 3 \end{pmatrix}$ and $\frac{A - {}^tA}2 = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$, which added together give $A$ back.
+> - The matrix ${}^tA - A$ is always skew-symmetric, and it is zero **exactly** when $A$ is symmetric. That is why some exam problems ask you to calculate it (see "Towards the exam").
+
+### Vectors written as rows: the notation ${}^t(x, y, z)$
+
+A column vector takes up three lines of text. To save space it is written as the **transpose of a row**:
+
+$${}^t(1, 2, 3) = {}^t\begin{pmatrix} 1 & 2 & 3 \end{pmatrix} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}.$$
+
+In the exam papers it is everywhere: "$v_1 = {}^t(1, 0, -1)$", "$T({}^t(x, y, z)) = {}^t(x + 2y, \dots)$"; in scanned texts the $t$ can appear detached, as $t(1, 2)$. It always means: the **column** vector with those coordinates.
+
+## The rank of a matrix (p. 37)
+
+Look at this matrix:
+
+$$A = \begin{pmatrix} 2 & 4 & -2 \\ 1 & 2 & -1 \end{pmatrix}.$$
+
+It has three columns, $A^1 = {}^t(2, 1)$, $A^2 = {}^t(4, 2)$ and $A^3 = {}^t(-2, -1)$, but they are all **multiples of the first one**: $A^2 = 2A^1$ and $A^3 = -A^1$. They all lie on the same line. Three columns, but only one "piece of information": the rank measures exactly this.
+
+```graph
+title: The three columns of $A$ lie on the line $y = \frac x2$: the space they span has dimension 1
+x: -3 5
+y: -2 3
+line: 0 0 2 1 | grey | dashed
+vector: 4 2 | blue | $A^2$ | ne
+vector: 2 1 | accent | thick | $A^1$ | nw
+vector: -2 -1 | violet | $A^3$ | sw
+```
+
+> [!DEF] 8.3 · Rank
+> Let $A$ be an $m \times n$ matrix with coefficients in $\K$, with columns $A^1, \dots, A^n$; each $A^i$ is a vector in $\K^m$. The **rank** of $A$ (or **column rank** of $A$) is the dimension of the space
+> $$\Span(A^1, \dots, A^n) \subset \K^m.$$
+> It is commonly written $\rk(A)$.
+
+Piece by piece:
+
+- $A^1, \dots, A^n$ are the columns: each one has $m$ numbers, so it is a vector of $\K^m$.
+- $\Span(A^1, \dots, A^n)$ is the set of **all** linear combinations $\lambda_1 A^1 + \dots + \lambda_n A^n$ (lesson L06, Definition 6.6): it is a subspace of $\K^m$.
+- The **dimension** is the number of vectors in a basis of it (lesson L07, Definition 7.11).
+- $\rk$ comes from the English *rank*.
+
+In the example above $\Span(A^1, A^2, A^3) = \Span(A^1)$ is a line, which has dimension 1: $\rk(A) = 1$.
+
+> [!PROP] 8.4
+> The rank of $A$ is the maximum number of linearly independent columns of $A$.
+
+The handouts derive it "with a remark from lesson 7". Here is the reasoning, step by step.
+
+1. The columns $A^1, \dots, A^n$ **span** $W = \Span(A^1, \dots, A^n)$, by definition.
+2. If they are linearly dependent, one of them is a linear combination of the others (Proposition 7.2). Removing it, the Span **does not change**: every combination that used it can be rewritten with the others.
+3. You repeat until the remaining columns are independent. At that point they are independent and span $W$: they are a **basis** of $W$, so their number is $\dim W = \rk(A)$.
+4. No group of independent columns can be larger: in a space of dimension $d$, more than $d$ vectors are always dependent (Martelli, §2.3).
+
+So the maximum number of independent columns is exactly $\dim W$. Martelli calls this procedure the **extraction algorithm** of a basis from a set of generators.
+
+You can make the same argument with the rows.
+
+> [!DEF] 8.5 · Row rank
+> We define the **row rank** of $A$ as the dimension of the space spanned by the rows
+> $$\Span(A_1, \dots, A_m) \subset \K^n.$$
+> In other words, the row rank of $A$ is the rank of the transpose ${}^tA$.
+
+The rows have $n$ numbers, so they lie in $\K^n$. "In other words": the columns of ${}^tA$ are exactly the rows of $A$, so the Span of the rows of $A$ is the Span of the columns of ${}^tA$.
+
+At first sight row rank and column rank have nothing in common: in a $2 \times 5$ matrix the columns are five vectors of $\K^2$, the rows two vectors of $\K^5$. Instead:
+
+> [!PROP] 8.6
+> For every matrix $A$ the row rank is equal to the column rank. So $\rk({}^tA) = \rk(A)$ holds.
+
+> [!EXAMPLE] · Rows and columns of a $2 \times 5$ matrix
+> $$C = \begin{pmatrix} 1 & 2 & 0 & 1 & 3 \\ 2 & 4 & 1 & 0 & 5 \end{pmatrix}$$
+> **Rows.** $C_1 = (1, 2, 0, 1, 3)$ and $C_2 = (2, 4, 1, 0, 5)$ are not multiples of each other (in the third position $C_1$ has $0$ and $C_2$ has $1$), so they are independent: the row rank is 2.
+>
+> **Columns.** Five vectors of $\R^2$: they cannot all five be independent, because $\dim \R^2 = 2$. But $C^1 = {}^t(1, 2)$ and $C^3 = {}^t(0, 1)$ are not multiples, so they are independent: the column rank is 2.
+>
+> The two ranks are equal, as Proposition 8.6 says.
+
+A consequence to remember, which needs no calculations:
+
+$$\rk(A) \le \min(m, n).$$
+
+Indeed $\Span(A^1, \dots, A^n)$ is a subspace of $\K^m$, so it has dimension at most $m$; and it is spanned by $n$ vectors, so it has dimension at most $n$. A $3 \times 5$ matrix has rank at most 3, a $4 \times 2$ one at most 2.
+
+> [!BEYOND] · why rows and columns give the same rank
+> The handouts do not prove it here. Martelli (Proposition 3.2.20) uses the **Gauss moves** on the rows, which you will see in lessons L11 and L12: they change neither the row rank nor the column rank, and they turn the matrix into a "row echelon" matrix, in which both ranks are equal to the number of **pivots** (the first non-zero numbers of the rows). From there also follows the practical method: **the rank is the number of non-zero rows of a reduction to row echelon form**.
+
+### Calculating the rank by hand
+
+> [!METHOD] The rank without Gauss moves
+> 1. If $A$ is the zero matrix, $\rk(A) = 0$; if it has at least one non-zero number, $\rk(A) \ge 1$.
+> 2. Write down the bound $\rk(A) \le \min(m, n)$ straight away.
+> 3. Look for columns **or rows** (the rank is the same, choose the handier ones) that are zero, equal, multiples of others or sums of others: removing them does not change the Span.
+> 4. Check that the remaining ones are independent: two vectors are if they are not multiples; with three or more solve $\lambda_1 v_1 + \lambda_2 v_2 + \dots = 0$.
+> 5. As many as remain, that is the rank.
+
+> [!EXAMPLE] · Four ranks
+> 1. $I_3 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$: the columns are $e_1, e_2, e_3$, independent (lesson L07, Example 7.5). $\rk = 3$.
+> 2. $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$: the columns ${}^t(1, 3)$ and ${}^t(2, 4)$ are not multiples (you would need $2 = 1 \cdot c$ and $4 = 3 \cdot c$, that is $c = 2$ and $c = \frac 43$ at the same time). $\rk = 2$.
+> 3. $\begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 2 \end{pmatrix}$: the third column is the sum of the first two, ${}^t(1, 1, 2) = {}^t(1, 0, 1) + {}^t(0, 1, 1)$, and the first two are not multiples. $\rk = 2$.
+> 4. $\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$: here it is better to look at the rows. The third is $2 \cdot (4, 5, 6) - (1, 2, 3) = (8 - 1, 10 - 2, 12 - 3) = (7, 8, 9)$, and the first two are not multiples. $\rk = 2$.
+
+In the tool below you find the last matrix. Press "Compute": the tool transforms it with the Gauss moves (you will see them in lessons L10 and L11) and counts the non-zero rows that remain. Then try $I_3$ (type `1 0 0; 0 1 0; 0 0 1`), which has rank 3, and `1 2; 2 4`, which has rank 1.
+
+```widget gauss
+title: The rank of a matrix, with the steps
+matrice: 1 2 3; 4 5 6; 7 8 9
+modo: rango
+modi: rango
+```
+
+> [!PITFALL] Three typical mistakes about the rank
+> - The rank is **not** the number of rows, nor the number of rows with some non-zero number: matrix $4$ of the example has three non-zero rows but rank 2.
+> - The rank never exceeds $\min(m, n)$: a $2 \times 5$ matrix cannot have rank 5.
+> - Two vectors are dependent only if they are **multiples**; three vectors can be dependent even if no two of them are (lesson L07, Example 7.4). Do not stop at the checks in pairs.
+
+## The product of matrices (pp. 37–38)
+
+### The idea with an everyday example
+
+Anna buys 2 notebooks and 3 pens; Bruno buys 1 notebook and 5 pens. In shop X a notebook costs €4 and a pen €1; in shop Y a notebook costs €3 and a pen €2. How much does each of them spend in each shop?
+
+For Anna in shop X: $2 \cdot 4 + 3 \cdot 1 = 11$ €. It is a "row" (what Anna buys) times a "column" (the prices of X): first times first, second times second, and you add. Putting everything in two tables:
+
+$$\underbrace{\begin{pmatrix} 2 & 3 \\ 1 & 5 \end{pmatrix}}_{\text{purchases: people} \times \text{items}} \underbrace{\begin{pmatrix} 4 & 3 \\ 1 & 2 \end{pmatrix}}_{\text{prices: items} \times \text{shops}} = \begin{pmatrix} 2 \cdot 4 + 3 \cdot 1 & 2 \cdot 3 + 3 \cdot 2 \\ 1 \cdot 4 + 5 \cdot 1 & 1 \cdot 3 + 5 \cdot 2 \end{pmatrix} = \underbrace{\begin{pmatrix} 11 & 12 \\ 9 & 13 \end{pmatrix}}_{\text{spending: people} \times \text{shops}}.$$
+
+The 12 in row 1 and column 2 is how much Anna (row 1) spends in shop Y (column 2). Notice two things that always hold: the product can be done because the **columns** of the first table and the **rows** of the second talk about the same things (the items); the result has the **rows** of the first (the people) and the **columns** of the second (the shops).
+
+> [!DEF] 8.7 · Row-by-column product
+> If $A$ is an $m \times n$ matrix and $B$ is an $n \times p$ matrix, the product $AB$ is a new $m \times p$ matrix defined as follows: the entry $(AB)_{ij}$ of the new matrix $AB$ is
+> $$(AB)_{ij} = \sum_{k=1}^n A_{ik}B_{kj} = A_{i1}B_{1j} + \dots + A_{in}B_{nj}.$$
+> This kind of product of matrices is called the **row-by-column product** because the entry $(AB)_{ij}$ is obtained by taking a suitable product of the $i$-th row $A_i$ of $A$ and the $j$-th column $B^j$ of $B$.
+
+Piece by piece:
+
+- **The sizes.** $(m \times \mathbf{n}) \cdot (\mathbf{n} \times p) = m \times p$: the two "inner" numbers must be **equal**, the "outer" ones give the size of the result. If the inner numbers are different, the product **does not exist**.
+- **The symbol $\sum$** (capital sigma) is a sum: $\sum_{k=1}^n x_k$ means $x_1 + x_2 + \dots + x_n$. The index $k$ runs from 1 to $n$.
+- **Row by column.** The row $A_i = (A_{i1}, \dots, A_{in})$ and the column $B^j = {}^t(B_{1j}, \dots, B_{nj})$ both have $n$ numbers: you multiply **the first with the first, the second with the second**, and so on, and you add the results. That is why the row needs as many numbers as the column.
+- The result goes in the entry that is **in the same row as the row used and in the same column as the column used**. Schematically, row 2 times column 2:
+  $$\begin{pmatrix} \cdot & \cdot \\ a & b \\ \cdot & \cdot \end{pmatrix} \begin{pmatrix} \cdot & x & \cdot \\ \cdot & y & \cdot \end{pmatrix} = \begin{pmatrix} \cdot & \cdot & \cdot \\ \cdot & ax + by & \cdot \\ \cdot & \cdot & \cdot \end{pmatrix}$$
+
+> [!EXAMPLE] 8.8 · A $3 \times 2$ times a $2 \times 4$
+> $$A = \begin{pmatrix} 1 & 2 \\ -1 & 1 \\ 0 & 3 \end{pmatrix}, \qquad B = \begin{pmatrix} -1 & 2 & 0 & 1 \\ 3 & 0 & 3 & 0 \end{pmatrix}$$
+> $A$ is $3 \times 2$ and $B$ is $2 \times 4$: the inner numbers are $2$ and $2$, so $AB$ exists and is $3 \times 4$. The rows of $A$ are $(1, 2)$, $(-1, 1)$, $(0, 3)$; the columns of $B$ are ${}^t(-1, 3)$, ${}^t(2, 0)$, ${}^t(0, 3)$, ${}^t(1, 0)$. The twelve calculations:
+>
+> | | column 1 | column 2 | column 3 | column 4 |
+> |---|---|---|---|---|
+> | row 1 | $1 \cdot (-1) + 2 \cdot 3 = 5$ | $1 \cdot 2 + 2 \cdot 0 = 2$ | $1 \cdot 0 + 2 \cdot 3 = 6$ | $1 \cdot 1 + 2 \cdot 0 = 1$ |
+> | row 2 | $(-1)(-1) + 1 \cdot 3 = 4$ | $(-1) \cdot 2 + 1 \cdot 0 = -2$ | $(-1) \cdot 0 + 1 \cdot 3 = 3$ | $(-1) \cdot 1 + 1 \cdot 0 = -1$ |
+> | row 3 | $0 \cdot (-1) + 3 \cdot 3 = 9$ | $0 \cdot 2 + 3 \cdot 0 = 0$ | $0 \cdot 0 + 3 \cdot 3 = 9$ | $0 \cdot 1 + 3 \cdot 0 = 0$ |
+>
+> $$AB = \begin{pmatrix} 1 & 2 \\ -1 & 1 \\ 0 & 3 \end{pmatrix} \cdot \begin{pmatrix} -1 & 2 & 0 & 1 \\ 3 & 0 & 3 & 0 \end{pmatrix} = \begin{pmatrix} 5 & 2 & 6 & 1 \\ 4 & -2 & 3 & -1 \\ 9 & 0 & 9 & 0 \end{pmatrix}.$$
+> We can compute the product $AB$ because the number of columns of $A$ equals the number of rows of $B$. Conversely, we **cannot** compute the product $BA$: the number of columns of $B$ is 4, while the number of rows of $A$ is 3.
+
+In the tool below you find the matrices of Example 8.8: press "Compute" and compare the twelve calculations with the table. Then swap the two matrices (type $B$ in the first box and $A$ in the second): the tool warns you that the product cannot be done.
+
+```widget gauss
+title: The row-by-column product, one entry at a time
+matrice: 1 2; -1 1; 0 3
+b: -1 2 0 1; 3 0 3 0
+modo: prodotto
+modi: prodotto
+```
+
+A very important special case: the second factor is a column vector.
+
+> [!EXAMPLE] 8.9 · Matrix times vector
+> If $A$ is an $m \times n$ matrix and $x$ is an $n \times 1$ matrix, that is a column vector $x \in \K^n$, then the product $Ax$ is an $m \times 1$ matrix, that is a column vector in $\K^m$. For example:
+> $$\begin{pmatrix} 1 & 2 \\ -1 & 1 \\ 0 & 3 \end{pmatrix} \cdot \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 1 \cdot 1 + 2 \cdot (-1) \\ (-1) \cdot 1 + 1 \cdot (-1) \\ 0 \cdot 1 + 3 \cdot (-1) \end{pmatrix} = \begin{pmatrix} -1 \\ -2 \\ -3 \end{pmatrix}.$$
+
+> [!BEYOND] · $Ax$ is a combination of the columns of $A$
+> Look at Example 8.9 again, this time **by columns**:
+> $$1 \cdot \begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix} + (-1) \cdot \begin{pmatrix} 2 \\ 1 \\ 3 \end{pmatrix} = \begin{pmatrix} -1 \\ -2 \\ -3 \end{pmatrix}.$$
+> In general $Ax = x_1 A^1 + x_2 A^2 + \dots + x_n A^n$: the matrix-times-vector product is the **linear combination of the columns** with the coordinates of $x$ as coefficients. So the set of all vectors $Ax$ is $\Span(A^1, \dots, A^n)$, and the rank is its dimension.
+>
+> It is also the reason why this product, strange at first sight, is the right one: the system $\begin{cases} 2x + 3y = 5 \\ x - y = 1 \end{cases}$ is written in one line as
+> $$\begin{pmatrix} 2 & 3 \\ 1 & -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 5 \\ 1 \end{pmatrix},$$
+> that is $Ax = b$ (Martelli, §3.4.2). From lesson L11 you work with linear systems written like this.
+
+### The product is not commutative
+
+If $A$ and $B$ are two $n \times n$ matrices, you can compute both $AB$ and $BA$, and the result is $n \times n$ in both cases. But **in general these two products are not equal**: the product of matrices is **not commutative**.
+
+> [!EXAMPLE] 8.10 · $AB \neq BA$
+> Let $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ and $B = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$.
+>
+> $AB$, entry by entry: $(1, 1)$: $1 \cdot 0 + 0 \cdot 0 = 0$; $(1, 2)$: $1 \cdot 1 + 0 \cdot 0 = 1$; $(2, 1)$: $0 \cdot 0 + 0 \cdot 0 = 0$; $(2, 2)$: $0 \cdot 1 + 0 \cdot 0 = 0$.
+>
+> $BA$: $(1, 1)$: $0 \cdot 1 + 1 \cdot 0 = 0$; $(1, 2)$: $0 \cdot 0 + 1 \cdot 0 = 0$; $(2, 1)$: $0 \cdot 1 + 0 \cdot 0 = 0$; $(2, 2)$: $0 \cdot 0 + 0 \cdot 0 = 0$.
+> $$AB = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = B, \qquad BA = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = 0,$$
+> so $AB \neq BA$.
+
+The example also shows that some rules of numbers no longer hold for matrices.
+
+> [!PITFALL] With matrices you cannot "cancel"
+> - $BA = 0$ even though $A \neq 0$ and $B \neq 0$: a zero product does **not** imply that a factor is zero.
+> - $AB = B$, but $A$ is not the matrix that "changes nothing" (the identity matrix $I_2$, lesson L09): from $AB = B$ you **cannot** "divide by $B$" and conclude $A = I_2$.
+> - The order of the factors must always be respected: $(A + B)^2 = (A + B)(A + B) = A^2 + AB + BA + B^2$, which in general is **not** $A^2 + 2AB + B^2$ (exercise 6).
+
+Even when $AB$ and $BA$ both exist, they can have **different sizes**: if $A$ is $3 \times 2$ and $B$ is $2 \times 3$, then $AB$ is $3 \times 3$ and $BA$ is $2 \times 2$ (Exercise 8.15). The rules that do work as with numbers are these.
+
+> [!PROP] 8.11
+> For all matrices $A, B, C$ for which the products and sums make sense and for every $\lambda \in \K$, we have
+> 1. $A(BC) = (AB)C$ (associativity),
+> 2. $A(B + C) = AB + AC$ and $(A + B)C = AC + BC$ (distributivity),
+> 3. $\lambda(AB) = (\lambda A)B = A(\lambda B)$.
+
+Piece by piece:
+
+- "For which the products and sums make sense": the sizes must be compatible. For example in (1) $A$ is $m \times n$, $B$ is $n \times p$, $C$ is $p \times q$.
+- **Associativity**: you can write $ABC$ without brackets and compute it as you prefer, $(AB)C$ or $A(BC)$. But **the order of the letters stays the same**: $ABC$ is not $ACB$.
+- **Distributivity** in two versions, because the product is not commutative: in the first $A$ multiplies **on the left** and stays on the left, in the second $C$ multiplies **on the right** and stays on the right.
+- **Scalars** instead move freely: $\lambda(AB) = (\lambda A)B = A(\lambda B)$.
+
+> [!PROOF] of Proposition 8.11, points (1) and (2)
+> We follow Martelli (Proposition 3.4.2). For distributivity, with the definition of product and of sum:
+> $$(A(B + C))_{ij} = \sum_k A_{ik}(B + C)_{kj} = \sum_k A_{ik}B_{kj} + \sum_k A_{ik}C_{kj} = (AB)_{ij} + (AC)_{ij}.$$
+> For associativity you write both sides as double sums:
+> $$(A(BC))_{ij} = \sum_k A_{ik}(BC)_{kj} = \sum_k \sum_h A_{ik}B_{kh}C_{hj},$$
+> $$((AB)C)_{ij} = \sum_h (AB)_{ih}C_{hj} = \sum_h \sum_k A_{ik}B_{kh}C_{hj}.$$
+> They are the same sums of products $A_{ik}B_{kh}C_{hj}$, over all pairs $(k, h)$, only in a different order: so they are equal. Point (3) is checked in the same way.
+
+> [!BEYOND] · the identity matrix and powers
+> The **identity matrix** $I_n$ has 1 on the diagonal and 0 elsewhere; the handouts introduce it in lesson L09 (Definition 9.4). In the product it plays the part of the number 1: $I_n A = A I_n = A$ for every $A \in M(n)$ (Martelli, Proposition 3.4.4). With square matrices you can take **powers**: $A^2 = AA$, $A^3 = AAA$, and so on. For example
+> $$A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}, \quad A^2 = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}, \quad A^3 = A^2 A = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}.$$
+> In Discrete Mathematics you will say that $M(n)$, with sum and product, is a **non-commutative ring** (for $n \ge 2$).
+
+> [!METHOD] "Which identity holds?"
+> It is a very frequent exam question: given square $3 \times 3$ matrices $A$ and $B$, which of $AB = BA$, $AB = A$, $AB = B$, $BA = A$, $BA = B$ is true?
+> 1. Compute $AB$ row by row (nine calculations). Often the matrices have many zeros and many 1s: take advantage of them.
+> 2. Compare $AB$ with $A$ and with $B$.
+> 3. If neither works, compute $BA$ and compare it with $A$, with $B$ and with $AB$.
+> 4. To **rule out** an equality **one** different entry is enough: you do not need to finish the whole product.
+
+## The trace of a square matrix (p. 39)
+
+In the matrix $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ the main diagonal contains 1 and 4: their sum, 5, is the trace.
+
+> [!DEF] 8.12 · Trace
+> The **trace** of a square matrix $A \in M(n)$ is the number
+> $$\tr A = A_{11} + \dots + A_{nn}.$$
+> That is, the trace of $A$ is the sum of the numbers on the main diagonal of $A$.
+
+- It is computed only for **square** matrices: in a $2 \times 3$ one the main diagonal does not go "from corner to corner".
+- $\tr$ comes from the English *trace*.
+- For example $\tr \begin{pmatrix} 2 & 7 & -1 \\ 0 & -3 & 5 \\ 4 & 1 & 6 \end{pmatrix} = 2 + (-3) + 6 = 5$, and $\tr I_n = 1 + \dots + 1 = n$.
+
+The product is not commutative, but the trace "does not notice".
+
+> [!PROP] 8.13
+> If $A, B \in M(n)$, the relation $\tr(AB) = \tr(BA)$ holds.
+
+The handouts' explanation is one line:
+
+$$\tr(AB) = \sum_{i, j = 1}^n A_{ij}B_{ji} = \sum_{j, i = 1}^n B_{ji}A_{ij} = \tr(BA).$$
+
+Here it is step by step.
+
+1. The diagonal entry $(AB)_{ii}$ is row $i$ of $A$ times column $i$ of $B$: $(AB)_{ii} = \sum_{j} A_{ij}B_{ji}$ (here the summation index is called $j$).
+2. Adding over $i$: $\tr(AB) = \sum_i \sum_j A_{ij}B_{ji}$, a sum with one term for **each pair** $(i, j)$.
+3. In the same way $(BA)_{jj} = \sum_i B_{ji}A_{ij}$, so $\tr(BA) = \sum_j \sum_i B_{ji}A_{ij}$.
+4. The two totals contain the same terms ($A_{ij}B_{ji} = B_{ji}A_{ij}$, because between **numbers** the product is commutative), for the same pairs $(i, j)$: they are equal.
+
+In the $2 \times 2$ case you can see it at a glance: with $A = (a_{ij})$ and $B = (b_{ij})$,
+
+$$\tr(AB) = a_{11}b_{11} + a_{12}b_{21} + a_{21}b_{12} + a_{22}b_{22},$$
+
+$$\tr(BA) = b_{11}a_{11} + b_{12}a_{21} + b_{21}a_{12} + b_{22}a_{22}:$$
+
+are the same four products.
+
+> [!EXAMPLE] · Different products, same trace
+> $$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix}: \qquad AB = \begin{pmatrix} 1 \cdot 0 + 2 \cdot 1 & 1 \cdot 1 + 2 \cdot 1 \\ 3 \cdot 0 + 4 \cdot 1 & 3 \cdot 1 + 4 \cdot 1 \end{pmatrix} = \begin{pmatrix} 2 & 3 \\ 4 & 7 \end{pmatrix},$$
+> $$BA = \begin{pmatrix} 0 \cdot 1 + 1 \cdot 3 & 0 \cdot 2 + 1 \cdot 4 \\ 1 \cdot 1 + 1 \cdot 3 & 1 \cdot 2 + 1 \cdot 4 \end{pmatrix} = \begin{pmatrix} 3 & 4 \\ 4 & 6 \end{pmatrix}.$$
+> $AB \neq BA$, but $\tr(AB) = 2 + 7 = 9$ and $\tr(BA) = 3 + 6 = 9$.
+
+> [!BEYOND] · other properties of the trace, useful in the quizzes
+> - It is linear: $\tr(A + B) = \tr A + \tr B$ and $\tr(\lambda A) = \lambda \tr A$. Moreover $\tr({}^tA) = \tr A$, because the diagonal does not move.
+> - It is **not** multiplicative: $\tr(AB) \neq \tr A \cdot \tr B$ in general. With $A = B = I_2$: $\tr(I_2 I_2) = 2$, while $\tr I_2 \cdot \tr I_2 = 4$.
+> - The same proof works if $A$ is $m \times n$ and $B$ is $n \times m$: $AB$ and $BA$ have different sizes but the same trace (you check it in Exercise 8.15).
+> - With three factors you can "rotate": $\tr(ABC) = \tr(BCA) = \tr(CAB)$ (just apply Proposition 8.13 to $A$ and $BC$), but you **cannot** swap two factors: $\tr(ACB)$ can be different (exercise 11).
+> - For $\tr(AB)$ the diagonal entries are enough: $\tr(AB) = \sum_i (\text{row } i \text{ of } A) \cdot (\text{column } i \text{ of } B)$. And for a real matrix $\tr(A\,{}^tA)$ is the **sum of the squares of all its numbers**, because $(A\,{}^tA)_{ii}$ is row $i$ of $A$ times itself.
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book: the transpose in §2.3.10 (p. 73) and symmetric and skew-symmetric matrices in §2.3.11 (pp. 73–74); the rank in §3.2.3 (pp. 88–89: Definition 3.2.7, Proposition 3.2.8, Corollary 3.2.11) and row and column rank in §3.2.6 (p. 92, Proposition 3.2.20 and Corollary 3.2.21); the product of matrices and its properties in §3.4.1–3.4.5 (pp. 104–107), with Exercise 3.4.3 on the transpose of the product; the trace in §4.4.5 (p. 141, Proposition 4.4.11).
+
+## Towards the exam
+
+The Linear Algebra and Geometry written test has 10 quiz questions with 5 answers each (you need at least 6 correct answers for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. The details are in lesson L01.
+
+The operations of this lesson appear in **almost every exam session** from 2023 to 2026:
+
+| Type of question | Exam sessions (question number) | What you need |
+|---|---|---|
+| "Which identity holds?" among $AB$, $BA$, $A$, $B$ | 24/01/2024 (6), 10/06/2024 (5), 10/07/2024 (3), 15/01/2026 (1), 03/06/2026 (5) | row-by-column product, $AB \neq BA$ |
+| trace of a product | 08/02/2024 (4), 06/09/2024 (8), 16/01/2025 (3), 10/07/2025 (9), 05/02/2026 (3), 03/07/2026 (9), 07/09/2026 (8) | only the diagonal of the product |
+| product of three $2 \times 2$ matrices | 07/02/2025 (3) | associativity, order of the factors |
+| rank of a $3 \times 3$, $4 \times 4$ or $5 \times 5$ matrix | 10/06/2024 (10), 16/01/2025 (6), 07/02/2025 (4), 05/02/2026 (4), 07/09/2026 (9) | relations between rows or columns, then Gauss (L11–L12) |
+| computing ${}^tA - A$ in a problem | 24/01/2024 (11), 15/01/2026 (11) | transpose, symmetric matrices |
+
+Three real questions, with the worked solution.
+
+> [!EXAM] Exam of 15/01/2026, question 1
+> Let $A = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & -1 & 0 \\ 0 & 1 & -1 \\ 0 & 0 & 1 \end{pmatrix}$. Which identity holds? (a) $AB = BA$; (b) $BA = B$; (c) $AB = B$; (d) $AB = A$; (e) $BA = A$.
+>
+> **Solution.** I compute $AB$ row by row. Row 1 of $A$ is $(1, 1, 1)$: with the three columns of $B$ it gives $1 + 0 + 0 = 1$, then $-1 + 1 + 0 = 0$, then $0 - 1 + 1 = 0$. Row 2, $(0, 1, 1)$, gives $0$, $1$, $-1 + 1 = 0$. Row 3, $(0, 0, 1)$, gives $0, 0, 1$. So $AB = I_3$, which is neither $A$ nor $B$: (c) and (d) are false. Redoing the calculation in the other order you also find $BA = I_3$ (row 2 of $B$ times the columns of $A$: $0$, $1$, $1 - 1 = 0$, and so on). So $AB = BA$: answer **(a)**. The two matrices are each the inverse of the other, a concept of lesson L10.
+
+> [!EXAM] Exam of 10/07/2025, question 9
+> Given the matrix $A = \begin{pmatrix} 2 & 1 \\ 0 & 1 \\ 0 & 1 \end{pmatrix}$, the trace of $A \cdot {}^tA$ is: (a) 7; (b) 9; (c) it cannot be computed, since $A$ is not a square matrix; (d) 6; (e) 0.
+>
+> **Solution.** $A$ is $3 \times 2$ and ${}^tA$ is $2 \times 3$, so $A \cdot {}^tA$ is $3 \times 3$: it is **square**, and the trace exists. Answer (c) is the trap. Only the diagonal entries are needed: $(A\,{}^tA)_{ii}$ is row $i$ of $A$ times itself, that is $2^2 + 1^2 = 5$, then $0^2 + 1^2 = 1$, then $0^2 + 1^2 = 1$. Trace: $5 + 1 + 1 = 7$, answer **(a)**. Check with Proposition 8.13: ${}^tA\,A = \begin{pmatrix} 4 & 2 \\ 2 & 3 \end{pmatrix}$ has trace $4 + 3 = 7$.
+
+> [!EXAM] Exam of 15/01/2026, problem 11, point (2), first part
+> Given $A = \begin{pmatrix} 1 & k^2 & 0 \\ k & k + 1 & k \\ 0 & k & 1 \end{pmatrix}$ in $M(3, \R)$, with $k$ a real parameter, compute ${}^tA - A$.
+>
+> **Solution.** ${}^tA = \begin{pmatrix} 1 & k & 0 \\ k^2 & k + 1 & k \\ 0 & k & 1 \end{pmatrix}$ (the first row of $A$ becomes the first column, and so on). Subtracting entry by entry:
+> $${}^tA - A = \begin{pmatrix} 0 & k - k^2 & 0 \\ k^2 - k & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}.$$
+> It is zero if and only if $k - k^2 = k(1 - k) = 0$, that is for $k = 0$ or $k = 1$: **only for these values is $A$ symmetric**. The rest of the problem needed exactly this, because real symmetric matrices have real eigenvalues and an orthonormal basis of eigenvectors (spectral theorem, lessons L25–L26). Notice that the result is skew-symmetric, as it must be.
+
+**The method for the questions on the rank.** First look for obvious relations between rows or columns: equal columns, multiple rows, a row that is the sum of two others. In the quizzes of recent years there almost always were some: in the $3 \times 3$ matrices a column twice another, or a row equal to the sum of the other two, or a combination with small coefficients (such as $-2$ and $3$); in the $4 \times 4$ one of 05/02/2026 two rows were combinations of the first two. Then check that the remaining rows are independent. If you see nothing, reduce to row echelon form with Gauss (lessons L11–L12) or, for a square matrix, compute the determinant (lessons L09–L10: $\det A \neq 0$ means maximum rank).
+
+**The method for traces.** Do not compute the whole product: you only need the diagonal entries, that is $n$ products "row $i$ times column $i$". With three factors, $\tr(ABC)$, first compute $AB$ (you need all of it) and then only the diagonal of $(AB)C$; or use $\tr(ABC) = \tr(CAB)$ if it is handier. In the questions with roots and $\pi$ (08/02/2024, 07/09/2026) the "ugly" numbers almost always cancel out: trust the calculation.
+
+Mistakes to avoid:
+
+- multiplying **column by row** instead of row by column, or swapping the order of the factors;
+- taking for granted that $AB = BA$, or that $AB = 0$ implies $A = 0$ or $B = 0$;
+- writing $\tr(AB) = \tr A \cdot \tr B$;
+- forgetting that ${}^t(AB) = {}^tB\,{}^tA$ (with the order **reversed**);
+- answering "it cannot be computed" when the final product is square even though the factors are not;
+- stating a rank greater than $\min(m, n)$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: $(m \times n)(n \times p) = m \times p$ and $(AB)_{ij} = \sum_k A_{ik}B_{kj}$; $AB \neq BA$ in general; ${}^t(AB) = {}^tB\,{}^tA$; $\tr(AB) = \tr(BA)$, $\tr(ABC) = \tr(CAB)$, $\tr(A\,{}^tA)$ equal to the sum of the squares of the numbers of $A$; $\rk(A) = \rk({}^tA) \le \min(m, n)$; symmetric $\iff {}^tA = A$.
+
+## Quiz
+
+```quiz
+Q: Let $A = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 0 \\ 1 & 1 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 & 0 \\ -1 & 1 & 0 \\ 0 & -1 & 1 \end{pmatrix}$. Which identity holds?
++ $AB = BA$
+- $AB = A$
+- $AB = B$
+- $BA = A$
+- $BA = B$
+= Row by column: row 2 of $A$, $(1, 1, 0)$, times the columns of $B$ gives $1 - 1 = 0$, $1$, $0$; row 3, $(1, 1, 1)$, gives $1 - 1 + 0 = 0$, $1 - 1 = 0$, $1$. So $AB = I_3$, and in the same way $BA = I_3$: $AB = BA$ holds. The others are false because $I_3$ is neither $A$ nor $B$. Similar to the exam of 15/01/2026, question 1.
+
+Q: Let $A = \begin{pmatrix} 0 & 1 & 2 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}$ and $B = \begin{pmatrix} 3 & 1 & -1 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$. Which identity holds?
++ $AB = A$
+- $AB = B$
+- $BA = A$
+- $BA = B$
+- $AB = BA$
+= Every row of $A$ has 0 in the first place, so the first row of $B$ gets multiplied by 0; the other rows of $B$ are $(0, 1, 0)$ and $(0, 0, 1)$ and copy the rest. For example row 1 of $AB$ is $0 \cdot (3, 1, -1) + 1 \cdot (0, 1, 0) + 2 \cdot (0, 0, 1) = (0, 1, 2)$. So $AB = A$. Instead the first row of $BA$ is $3(0, 1, 2) + (0, 1, 1) - (0, 0, 0) = (0, 4, 7)$, different from those of $A$, of $B$ and of $AB$. Similar to the exams of 03/06/2026 (question 5) and 24/01/2024 (question 6).
+
+Q: Let $A = \begin{pmatrix} \sqrt 5 & 0 & -\pi \\ 0 & \sqrt 2 & \sqrt 2 \\ \pi & \sqrt 5 & 0 \end{pmatrix}$ and $B = \begin{pmatrix} \sqrt 5 & \pi & \sqrt 5 \\ \pi & 0 & -\pi \\ 0 & \sqrt 2 & \sqrt 2 \end{pmatrix}$. What is $\tr(AB)$?
++ $7$
+- $(\sqrt 5 + \sqrt 2)^2$
+- $5 + 2\pi^2$
+- $\sqrt 7$
+- $2\pi\sqrt 5$
+= Only the diagonal entries are needed. $(AB)_{11} = \sqrt 5 \cdot \sqrt 5 + 0 \cdot \pi + (-\pi) \cdot 0 = 5$; $(AB)_{22} = 0 \cdot \pi + \sqrt 2 \cdot 0 + \sqrt 2 \cdot \sqrt 2 = 2$; $(AB)_{33} = \pi\sqrt 5 + \sqrt 5 \cdot (-\pi) + 0 \cdot \sqrt 2 = 0$. Total $7$. Similar to the exams of 07/09/2026 (question 8) and 08/02/2024 (question 4).
+
+Q: Given $A = \begin{pmatrix} 1 & 0 & 2 \\ 3 & 1 & 0 \end{pmatrix}$, what is $\tr(A \cdot {}^tA)$?
++ $15$
+- It cannot be computed, since $A$ is not square.
+- $2$
+- $7$
+- $49$
+= $A$ is $2 \times 3$, so $A \cdot {}^tA$ is $2 \times 2$: square, the trace exists. The diagonal entries are the rows of $A$ times themselves: $1 + 0 + 4 = 5$ and $9 + 1 + 0 = 10$, total $15$, that is the sum of the squares of all the numbers of $A$. The $2$ is the sum $a_{11} + a_{22}$ of $A$, the $7$ the sum of its numbers. Similar to the exam of 10/07/2025, question 9.
+
+Q: What is the rank of the matrix $\begin{pmatrix} 2 & 1 & 3 \\ 1 & 1 & 2 \\ 3 & 2 & 5 \end{pmatrix}$?
++ $2$
+- $3$
+- $1$
+- $0$
+- $5$
+= The third row is the sum of the first two: $(2 + 1, 1 + 1, 3 + 2) = (3, 2, 5)$. The first two are not multiples (you would need $2 = c \cdot 1$ and $1 = c \cdot 1$ at the same time). So there are at most 2 independent rows, and there are 2: rank 2. Similar to the exams of 07/09/2026 (question 9) and 16/01/2025 (question 6).
+
+Q: $A$ is a $2 \times 3$ matrix and $B$ is a $3 \times 4$ matrix. Which statement is true?
++ $AB$ is a $2 \times 4$ matrix and $BA$ is not defined.
+- $AB$ and $BA$ are both defined.
+- $AB$ is a $3 \times 3$ matrix.
+- $AB$ is not defined, $BA$ is a $4 \times 3$ matrix.
+- $AB$ is $2 \times 4$ and $BA$ is $4 \times 2$.
+= $(2 \times 3)(3 \times 4)$: the inner numbers are equal, the result is $2 \times 4$. For $BA$ the 4 columns of $B$ would have to be as many as the 2 rows of $A$: they are not, so $BA$ does not exist.
+
+Q: For matrices $A$ and $B$ for which the product $AB$ is defined, ${}^t(AB)$ is equal to:
++ ${}^tB\,{}^tA$
+- ${}^tA\,{}^tB$
+- $AB$
+- $BA$
+- ${}^tA\,B$
+= It is Exercise 8.14 of the handouts: the transpose of a product is the product of the transposes in reverse order. ${}^tA\,{}^tB$ in general is not even defined: with $A$ $3 \times 2$ and $B$ $2 \times 4$ it would be $(2 \times 3)(4 \times 2)$.
+
+Q: For which $k \in \R$ is the matrix $A = \begin{pmatrix} 1 & k^2 & 2 \\ k & 0 & 1 \\ 2 & 1 & 3 \end{pmatrix}$ symmetric?
++ For $k = 0$ or $k = 1$.
+- Only for $k = 1$.
+- Only for $k = 0$.
+- For $k = \pm 1$.
+- For no value of $k$.
+= ${}^tA = A$ means $a_{ij} = a_{ji}$: $a_{13} = a_{31} = 2$ and $a_{23} = a_{32} = 1$ are already fine, what is left is $a_{12} = a_{21}$, that is $k^2 = k$, which gives $k(k - 1) = 0$. With $k = -1$ you would have $a_{12} = 1 \neq -1 = a_{21}$. Similar to the exam of 15/01/2026, problem 11.
+
+Q: Let $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$. What is $\tr(ABA)$?
+N: 4
+= $AB = \begin{pmatrix} 1 \cdot 0 + 2 \cdot 1 & 1 \cdot 1 + 2 \cdot 0 \\ 0 + 1 & 0 \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix}$, then $(ABA)_{11} = 2 \cdot 1 + 1 \cdot 0 = 2$ and $(ABA)_{22} = 1 \cdot 2 + 0 \cdot 1 = 2$: trace $4$. Careful: $\tr A \cdot \tr B \cdot \tr A = 2 \cdot 0 \cdot 2 = 0$ is wrong. Similar to the exam of 05/02/2026, question 3.
+
+Q: Let $A$ be a $3 \times 5$ matrix with real coefficients. Which statement is always true?
++ $\rk(A) \le 3$.
+- $\rk(A)$ can be equal to $5$.
+- $\rk({}^tA)$ can be different from $\rk(A)$.
+- $\rk(A) = 3$.
+- The 5 columns of $A$ are linearly independent.
+= The columns lie in $\R^3$, so the space they span has dimension at most 3: $\rk(A) \le \min(3, 5) = 3$. Five vectors of $\R^3$ are always dependent. The rank can be less than 3 (for example the zero matrix has rank 0), and $\rk({}^tA) = \rk(A)$ always (Proposition 8.6).
+```
+
+## Exercises
+
+::: exercise basic Exercise 8.15 of the handouts: $AB$, $BA$ and their traces
+Let $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}$. Compute $AB$ and $BA$. Compute the trace of $AB$ and of $BA$.
+::: solution
+**Sizes.** $A$ is $3 \times 2$, $B$ is $2 \times 3$: $AB$ is $(3 \times 2)(2 \times 3) = 3 \times 3$, $BA$ is $(2 \times 3)(3 \times 2) = 2 \times 2$. Both exist, but they have different sizes.
+
+**$AB$.** The rows of $A$ are $(1, 2)$, $(3, 4)$, $(5, 6)$; the columns of $B$ are ${}^t(1, 4)$, ${}^t(2, 5)$, ${}^t(3, 6)$.
+- row 1: $1 + 8 = 9$, $\ 2 + 10 = 12$, $\ 3 + 12 = 15$;
+- row 2: $3 + 16 = 19$, $\ 6 + 20 = 26$, $\ 9 + 24 = 33$;
+- row 3: $5 + 24 = 29$, $\ 10 + 30 = 40$, $\ 15 + 36 = 51$.
+
+$$AB = \begin{pmatrix} 9 & 12 & 15 \\ 19 & 26 & 33 \\ 29 & 40 & 51 \end{pmatrix}, \qquad \tr(AB) = 9 + 26 + 51 = 86.$$
+
+**$BA$.** The rows of $B$ are $(1, 2, 3)$ and $(4, 5, 6)$; the columns of $A$ are ${}^t(1, 3, 5)$ and ${}^t(2, 4, 6)$.
+- row 1: $1 + 6 + 15 = 22$, $\ 2 + 8 + 18 = 28$;
+- row 2: $4 + 15 + 30 = 49$, $\ 8 + 20 + 36 = 64$.
+
+$$BA = \begin{pmatrix} 22 & 28 \\ 49 & 64 \end{pmatrix}, \qquad \tr(BA) = 22 + 64 = 86.$$
+
+The two traces are equal even though the matrices have different sizes: the proof of Proposition 8.13 also works for $A$ of size $m \times n$ and $B$ of size $n \times m$.
+:::
+
+::: exercise intermediate Exercise 8.16 of the handouts: associativity yes, commutativity no
+Let $A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}$, $B = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 1 \end{pmatrix}$, $C = \begin{pmatrix} -1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & -1 & 0 \end{pmatrix}$. Compute $(AB)C$, $A(BC)$, $(BA)C$ and $C(BA)$.
+::: solution
+It is worth first understanding what $B$ and $C$ do, using the remark "$Ax$ is a combination of the columns of $A$" (and the analogous one for rows).
+
+**$AB$.** The columns of $B$ are ${}^t(1, 0, 1)$, ${}^t(0, 1, 0)$, ${}^t(1, 0, 1)$, so the columns of $AB$ are $A^1 + A^3$, $A^2$, $A^1 + A^3$. With $A^1 = {}^t(1, 4, 7)$, $A^2 = {}^t(2, 5, 8)$, $A^3 = {}^t(3, 6, 9)$:
+$$AB = \begin{pmatrix} 4 & 2 & 4 \\ 10 & 5 & 10 \\ 16 & 8 & 16 \end{pmatrix}.$$
+Check of one entry with the definition: $(AB)_{21} = 4 \cdot 1 + 5 \cdot 0 + 6 \cdot 1 = 10$ ✓.
+
+**Multiplying on the right by $C$.** The columns of $C$ are $-e_1$, $-e_3$, $-e_2$: the columns of $XC$ are $-X^1$, $-X^3$, $-X^2$ (change of sign and swap of the second with the third). So
+$$(AB)C = \begin{pmatrix} -4 & -4 & -2 \\ -10 & -10 & -5 \\ -16 & -16 & -8 \end{pmatrix}.$$
+
+**$A(BC)$.** $BC$ has columns $-B^1$, $-B^3$, $-B^2$: $BC = \begin{pmatrix} -1 & -1 & 0 \\ 0 & 0 & -1 \\ -1 & -1 & 0 \end{pmatrix}$. Row by column, for example $(A(BC))_{11} = 1 \cdot (-1) + 2 \cdot 0 + 3 \cdot (-1) = -4$ and $(A(BC))_{23} = 4 \cdot 0 + 5 \cdot (-1) + 6 \cdot 0 = -5$. Completing:
+$$A(BC) = \begin{pmatrix} -4 & -4 & -2 \\ -10 & -10 & -5 \\ -16 & -16 & -8 \end{pmatrix} = (AB)C,$$
+as associativity guarantees (Proposition 8.11).
+
+**$BA$.** Multiplying **on the left** by $B$ acts on the rows: the rows of $BA$ are $A_1 + A_3$, $A_2$, $A_1 + A_3$:
+$$BA = \begin{pmatrix} 8 & 10 & 12 \\ 4 & 5 & 6 \\ 8 & 10 & 12 \end{pmatrix}.$$
+
+**$(BA)C$**: columns $-X^1, -X^3, -X^2$ with $X = BA$:
+$$(BA)C = \begin{pmatrix} -8 & -12 & -10 \\ -4 & -6 & -5 \\ -8 & -12 & -10 \end{pmatrix}.$$
+
+**$C(BA)$**: on the left $C$ acts on the rows, which become $-X_1$, $-X_3$, $-X_2$:
+$$C(BA) = \begin{pmatrix} -8 & -10 & -12 \\ -8 & -10 & -12 \\ -4 & -5 & -6 \end{pmatrix}.$$
+
+Moral: $(AB)C = A(BC)$, but $(BA)C \neq C(BA)$, because $C$ and $BA$ do not commute.
+:::
+
+::: exercise intermediate Exercise 8.14 of the handouts: the transpose of a product
+Prove that the relation ${}^t(AB) = {}^tB\,{}^tA$ holds.
+::: solution
+Let $A$ be of size $m \times n$ and $B$ of size $n \times p$, so that $AB$ exists and is $m \times p$.
+
+1. **The sizes match.** ${}^t(AB)$ is $p \times m$. ${}^tB$ is $p \times n$ and ${}^tA$ is $n \times m$, so ${}^tB\,{}^tA$ exists and is $p \times m$. (Instead ${}^tA\,{}^tB$ would be $(n \times m)(p \times n)$, which in general does not exist.)
+2. **Entry $(i, j)$ of the left-hand side.** By the definition of transpose and then of product:
+   $$({}^t(AB))_{ij} = (AB)_{ji} = \sum_{k=1}^n A_{jk}B_{ki}.$$
+3. **Entry $(i, j)$ of the right-hand side.** By the definition of product and then of transpose:
+   $$({}^tB\,{}^tA)_{ij} = \sum_{k=1}^n ({}^tB)_{ik}({}^tA)_{kj} = \sum_{k=1}^n B_{ki}A_{jk}.$$
+4. The two sums have the same terms, because $A_{jk}B_{ki} = B_{ki}A_{jk}$ (they are numbers). The matrices have the same size and the same entries: they are equal. $\square$
+
+**Check with numbers** (Example 8.8): ${}^t(AB) = {}^t\begin{pmatrix} 5 & 2 & 6 & 1 \\ 4 & -2 & 3 & -1 \\ 9 & 0 & 9 & 0 \end{pmatrix}$ has first row $(5, 4, 9)$. And the first row of ${}^tB\,{}^tA$ is the row $(-1, 3)$ of ${}^tB$ times the columns ${}^t(1, 2)$, ${}^t(-1, 1)$, ${}^t(0, 3)$ of ${}^tA$: $-1 + 6 = 5$, $1 + 3 = 4$, $0 + 9 = 9$ ✓.
+:::
+
+::: exercise basic Transpose, symmetric part and skew-symmetric part
+Let $A = \begin{pmatrix} 1 & 4 & 2 \\ 0 & 3 & 5 \\ -2 & 1 & 6 \end{pmatrix}$. (a) Compute ${}^tA$. (b) Compute $S = \frac{A + {}^tA}2$ and $N = \frac{A - {}^tA}2$ and check that $S$ is symmetric, $N$ is skew-symmetric and $S + N = A$. (c) Compute $\tr A$ and $\tr({}^tA)$.
+::: solution
+(a) The rows of ${}^tA$ are the columns of $A$:
+$${}^tA = \begin{pmatrix} 1 & 0 & -2 \\ 4 & 3 & 1 \\ 2 & 5 & 6 \end{pmatrix}.$$
+
+(b) Sum and difference entry by entry:
+$$A + {}^tA = \begin{pmatrix} 2 & 4 & 0 \\ 4 & 6 & 6 \\ 0 & 6 & 12 \end{pmatrix}, \qquad A - {}^tA = \begin{pmatrix} 0 & 4 & 4 \\ -4 & 0 & 4 \\ -4 & -4 & 0 \end{pmatrix},$$
+so
+$$S = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 3 & 3 \\ 0 & 3 & 6 \end{pmatrix}, \qquad N = \begin{pmatrix} 0 & 2 & 2 \\ -2 & 0 & 2 \\ -2 & -2 & 0 \end{pmatrix}.$$
+$S$ is symmetric: the numbers off the diagonal mirror each other ($2$ and $2$, $0$ and $0$, $3$ and $3$). $N$ is skew-symmetric: zero diagonal and mirrored numbers with the opposite sign. Finally $S + N = \begin{pmatrix} 1 & 4 & 2 \\ 0 & 3 & 5 \\ -2 & 1 & 6 \end{pmatrix} = A$ ✓.
+
+(c) $\tr A = 1 + 3 + 6 = 10$ and $\tr({}^tA) = 1 + 3 + 6 = 10$: the diagonal does not change when you transpose.
+:::
+
+::: exercise intermediate Four ranks
+Find the rank of the matrices
+$$A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 1 & 0 \\ 0 & 3 & 6 \end{pmatrix}, \quad B = \begin{pmatrix} 1 & -1 & 2 \\ -2 & 2 & -4 \end{pmatrix}, \quad C = \begin{pmatrix} 1 & 0 & 2 & 1 \\ 0 & 1 & 1 & 1 \\ 1 & 1 & 3 & 2 \end{pmatrix}, \quad D = \begin{pmatrix} 1 & 2 \\ 3 & 4 \\ 5 & 6 \end{pmatrix}.$$
+::: solution
+**$A$** (from tutoring exercise sheet 2, 2025). I look for a relation between the rows: $2A_1 - A_2 = (2 - 2, 4 - 1, 6 - 0) = (0, 3, 6) = A_3$. So the third row is a combination of the first two, which are not multiples ($(1, 2, 3)$ and $(2, 1, 0)$: the third coordinate would give $3c = 0$, that is $c = 0$, impossible). $\rk(A) = 2$.
+
+**$B$.** The second row is $-2$ times the first: $(-2, 2, -4) = -2(1, -1, 2)$. The matrix is not zero, so $\rk(B) = 1$.
+
+**$C$.** $C_3 = C_1 + C_2 = (1, 1, 3, 2)$ ✓, and $C_1$, $C_2$ are not multiples (in the first position $1$ and $0$, in the second $0$ and $1$). $\rk(C) = 2$, even though $C$ has four columns.
+
+**$D$.** $\rk(D) \le \min(3, 2) = 2$. The two columns ${}^t(1, 3, 5)$ and ${}^t(2, 4, 6)$ are not multiples ($2 = c \cdot 1$ gives $c = 2$, but $4 \neq 2 \cdot 3$). $\rk(D) = 2$: maximum rank.
+:::
+
+::: exercise intermediate Powers and the square of a sum
+Let $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$. (a) Compute $A^2$ and $A^3$ and guess $A^n$. (b) Compute $(A + B)^2$ and $A^2 + 2AB + B^2$: are they equal?
+::: solution
+(a) $A^2 = AA = \begin{pmatrix} 1 \cdot 1 + 1 \cdot 0 & 1 \cdot 1 + 1 \cdot 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$, and $A^3 = A^2 A = \begin{pmatrix} 1 & 1 + 2 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}$. Each time the number at the top right grows by 1: $A^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}$ (it is proved by induction: $A^{n+1} = A^n A = \begin{pmatrix} 1 & n + 1 \\ 0 & 1 \end{pmatrix}$).
+
+(b) $A + B = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, so $(A + B)^2 = \begin{pmatrix} 2 & 2 \\ 2 & 2 \end{pmatrix}$ (every entry is $1 \cdot 1 + 1 \cdot 1$).
+
+Then $AB = \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix}$, $BA = \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}$ and $B^2 = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$ (here too a zero product with $B \neq 0$). So
+$$A^2 + 2AB + B^2 = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} + \begin{pmatrix} 2 & 0 \\ 2 & 0 \end{pmatrix} = \begin{pmatrix} 3 & 2 \\ 2 & 1 \end{pmatrix} \neq (A + B)^2.$$
+The right formula is $(A + B)^2 = A^2 + AB + BA + B^2 = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} + \begin{pmatrix} 1 & 0 \\ 1 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 2 \\ 2 & 2 \end{pmatrix}$ ✓. The school "$2AB$" works only if $AB = BA$.
+:::
+
+::: exercise hard The matrices that commute with a given matrix
+Find all the matrices $X = \begin{pmatrix} a & b \\ c & d \end{pmatrix} \in M(2, \R)$ such that $AX = XA$, where $A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$.
+::: solution
+I compute the two products:
+$$AX = \begin{pmatrix} a + c & b + d \\ c & d \end{pmatrix}, \qquad XA = \begin{pmatrix} a & a + b \\ c & c + d \end{pmatrix}.$$
+I set them equal entry by entry:
+- $(1, 1)$: $a + c = a$, so $c = 0$;
+- $(1, 2)$: $b + d = a + b$, so $d = a$;
+- $(2, 1)$: $c = c$, always true;
+- $(2, 2)$: $d = c + d$, so again $c = 0$.
+
+The matrices we are looking for are
+$$X = \begin{pmatrix} a & b \\ 0 & a \end{pmatrix} = a \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} + b \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \qquad a, b \in \R.$$
+They form a subspace of $M(2, \R)$ of dimension 2. For example $X = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}$ ($c = 1$) does **not** commute with $A$: commuting is an exception, not the rule.
+:::
+
+::: exercise intermediate A zero product with non-zero factors
+Let $A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$ and $B = \begin{pmatrix} 2 & -4 \\ -1 & 2 \end{pmatrix}$. Compute $AB$ and $BA$. What do you learn?
+::: solution
+$$AB = \begin{pmatrix} 1 \cdot 2 + 2 \cdot (-1) & 1 \cdot (-4) + 2 \cdot 2 \\ 2 \cdot 2 + 4 \cdot (-1) & 2 \cdot (-4) + 4 \cdot 2 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix},$$
+$$BA = \begin{pmatrix} 2 \cdot 1 + (-4) \cdot 2 & 2 \cdot 2 + (-4) \cdot 4 \\ (-1) \cdot 1 + 2 \cdot 2 & (-1) \cdot 2 + 2 \cdot 4 \end{pmatrix} = \begin{pmatrix} -6 & -12 \\ 3 & 6 \end{pmatrix}.$$
+Three lessons in one exercise: (1) $AB = 0$ even though $A \neq 0$ and $B \neq 0$; (2) $AB = 0$ but $BA \neq 0$, so $AB \neq BA$; (3) you cannot "cancel": for example $AB = A \cdot 0$ but $B \neq 0$. The reason: the columns of $B$, ${}^t(2, -1)$ and ${}^t(-4, 2)$, are combinations of the columns of $A$ that give zero ($2A^1 - A^2 = 0$), and $A$ has rank 1.
+:::
+
+::: exercise hard The trace of $A\,{}^tA$
+(a) Prove that for every real matrix $A$ of size $m \times n$ we have $\tr(A\,{}^tA) = \sum_{i, j} a_{ij}^2$. (b) Deduce that if $\tr(A\,{}^tA) = 0$ then $A = 0$. (c) Show with $A = \begin{pmatrix} 1 & i \\ 0 & 0 \end{pmatrix} \in M(2, \C)$ that (b) is false over the complex numbers.
+::: solution
+(a) $A\,{}^tA$ is $m \times m$. Its diagonal entry $(i, i)$ is row $i$ of $A$ times column $i$ of ${}^tA$, which is again row $i$ of $A$:
+$$(A\,{}^tA)_{ii} = \sum_{j=1}^n A_{ij}({}^tA)_{ji} = \sum_{j=1}^n A_{ij}A_{ij} = \sum_{j=1}^n a_{ij}^2.$$
+Adding over $i$ you get the sum of the squares of all the numbers of $A$.
+
+(b) A sum of squares of **real** numbers is zero only if every square is zero, because no term is negative. So every $a_{ij} = 0$ and $A = 0$.
+
+(c) $A\,{}^tA = \begin{pmatrix} 1 & i \\ 0 & 0 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ i & 0 \end{pmatrix} = \begin{pmatrix} 1 + i^2 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$, so the trace is $0$ but $A \neq 0$. With complex numbers $1^2 + i^2 = 0$: the squares can cancel out. It is one of the reasons why, for complex vectors, the Hermitian product will arrive in lesson L25.
+:::
+
+::: exercise exam Which identity holds?
+Let $A = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 2 & -1 & 3 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 3 & -1 & 0 \end{pmatrix}$. Which identity holds? (a) $AB = BA$; (b) $AB = A$; (c) $AB = B$; (d) $BA = A$; (e) $BA = B$.
+::: solution
+**$AB$.** Multiplying on the left by $A$ acts on the rows of $B$: the rows of $AB$ are $1 \cdot B_1$, $1 \cdot B_2$ and $2B_1 - B_2 + 3B_3$.
+- row 1: $(1, 2, 0)$; row 2: $(0, 1, 0)$;
+- row 3: $2(1, 2, 0) - (0, 1, 0) + 3(3, -1, 0) = (2 + 9, 4 - 1 - 3, 0) = (11, 0, 0)$.
+
+$AB = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 0 \\ 11 & 0 & 0 \end{pmatrix}$: entry $(3, 1)$ alone (11 against 2 in $A$ and 3 in $B$) is enough to rule out (b) and (c).
+
+**$BA$.** The rows of $BA$ are combinations of the rows of $A$ with the coefficients of the rows of $B$. The third column of $B$ is zero, so the third row of $A$ never comes in; the first two rows of $A$ are $(1, 0, 0)$ and $(0, 1, 0)$ and copy the coefficients:
+- row 1: $1 \cdot (1, 0, 0) + 2 \cdot (0, 1, 0) = (1, 2, 0)$;
+- row 2: $(0, 1, 0)$;
+- row 3: $3 \cdot (1, 0, 0) - 1 \cdot (0, 1, 0) = (3, -1, 0)$.
+
+So $BA = B$: answer **(e)**. The others are false: $BA = B \neq A$ rules out (d), and $AB \neq BA$ (entry $(3, 1)$: 11 against 3) rules out (a).
+:::
+
+::: exercise exam A trace of three factors and a $4 \times 4$ rank
+(a) Let $A = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix}$, $B = \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix}$, $C = \begin{pmatrix} 0 & 1 \\ 1 & -1 \end{pmatrix}$. Compute $\tr(ABC)$ and compare it with $\tr(ACB)$. (b) Find the rank of $M = \begin{pmatrix} 1 & 0 & 1 & 2 \\ 0 & 3 & 0 & 1 \\ 1 & 6 & 1 & 4 \\ 2 & 3 & 2 & 5 \end{pmatrix}$.
+::: solution
+(a) First $AB = \begin{pmatrix} 1 \cdot 2 + (-1) \cdot 1 & 1 \cdot 0 + (-1) \cdot 1 \\ 0 \cdot 2 + 2 \cdot 1 & 0 \cdot 0 + 2 \cdot 1 \end{pmatrix} = \begin{pmatrix} 1 & -1 \\ 2 & 2 \end{pmatrix}$. Of $(AB)C$ only the diagonal entries are needed:
+- $((AB)C)_{11} = 1 \cdot 0 + (-1) \cdot 1 = -1$;
+- $((AB)C)_{22} = 2 \cdot 1 + 2 \cdot (-1) = 0$.
+
+$\tr(ABC) = -1$. For comparison, $AC = \begin{pmatrix} -1 & 2 \\ 2 & -2 \end{pmatrix}$ and $(ACB)_{11} = -2 + 2 = 0$, $(ACB)_{22} = 0 - 2 = -2$: $\tr(ACB) = -2 \neq \tr(ABC)$. Rotations ($BCA$, $CAB$) preserve the trace, swaps do not.
+
+(b) I look for relations between the rows. $M_1 + 2M_2 = (1, 6, 1, 2 + 2) = (1, 6, 1, 4) = M_3$ and $2M_1 + M_2 = (2, 3, 2, 4 + 1) = (2, 3, 2, 5) = M_4$. Rows 3 and 4 are combinations of the first two, which are not multiples ($M_1$ has $0$ in the second place, $M_2$ has $0$ in the first). So $\rk(M) = 2$. You could also notice that the third column is equal to the first: the rank is at most 3, but you still need to find the relations between the rows.
+:::
+
+::: exercise exam When is $A$ symmetric?
+Let $A = \begin{pmatrix} 2 & k & 1 \\ k^2 & 1 & k \\ 1 & 1 & 0 \end{pmatrix}$, with $k \in \R$. (a) Compute ${}^tA - A$. (b) For which $k$ is the matrix $A$ symmetric? (c) Check that ${}^tA - A$ is skew-symmetric for every $k$.
+::: solution
+(a) ${}^tA = \begin{pmatrix} 2 & k^2 & 1 \\ k & 1 & 1 \\ 1 & k & 0 \end{pmatrix}$, so
+$${}^tA - A = \begin{pmatrix} 0 & k^2 - k & 0 \\ k - k^2 & 0 & 1 - k \\ 0 & k - 1 & 0 \end{pmatrix}.$$
+
+(b) $A$ is symmetric if and only if ${}^tA - A = 0$, that is if both $k^2 - k = 0$ (so $k = 0$ or $k = 1$) and $1 - k = 0$ (so $k = 1$) hold. Both: **only $k = 1$**. Check: with $k = 1$, $A = \begin{pmatrix} 2 & 1 & 1 \\ 1 & 1 & 1 \\ 1 & 1 & 0 \end{pmatrix}$ is symmetric. With $k = 0$ instead $a_{23} = 0 \neq 1 = a_{32}$.
+
+(c) The diagonal is zero, and the mirrored entries have opposite signs: $k^2 - k$ and $k - k^2$, $1 - k$ and $k - 1$. In general ${}^t({}^tA - A) = A - {}^tA = -({}^tA - A)$.
+:::
+
+## Review questions
+
+::: question What is the transpose of a matrix and what size does it have?
+It is the matrix ${}^tA$ obtained by swapping rows and columns: $({}^tA)_{ij} = A_{ji}$. If $A$ is $m \times n$, ${}^tA$ is $n \times m$: row $i$ of ${}^tA$ is column $i$ of $A$.
+:::
+
+::: question How do you recognise symmetric and skew-symmetric matrices with the transpose? Why does a skew-symmetric matrix have a zero diagonal?
+A square $A$ is symmetric if ${}^tA = A$ and skew-symmetric if ${}^tA = -A$. On the diagonal the transpose changes nothing, so in a skew-symmetric matrix $a_{ii} = -a_{ii}$, that is $a_{ii} = 0$.
+:::
+
+::: question What does the notation ${}^t(1, 0, -1)$ mean?
+It is the column vector with coordinates $1, 0, -1$, written as the transpose of a row to save space.
+:::
+
+::: question How is the rank of a matrix defined?
+$\rk(A)$ is the dimension of the subspace of $\K^m$ spanned by the columns: $\rk(A) = \dim \Span(A^1, \dots, A^n)$. It is the same as the maximum number of linearly independent columns (Proposition 8.4).
+:::
+
+::: question Why is the rank the maximum number of independent columns?
+Because from the columns, which span the Span, you can remove one at a time those that are combinations of the others without changing the Span, until independent columns remain: they are a basis, and their number is the dimension. More columns than that would be dependent.
+:::
+
+::: question What is the relation between row rank and column rank?
+They are equal for every matrix (Proposition 8.6): $\rk({}^tA) = \rk(A)$. So to compute the rank you can look at the rows or at the columns, as you like.
+:::
+
+::: question Why $\rk(A) \le \min(m, n)$?
+The Span of the columns is a subspace of $\K^m$, so it has dimension at most $m$, and it is spanned by $n$ vectors, so it has dimension at most $n$.
+:::
+
+::: question When can you compute the product $AB$, and what size does it have?
+When the number of columns of $A$ is equal to the number of rows of $B$: $(m \times n)(n \times p)$ gives an $m \times p$ matrix.
+:::
+
+::: question How do you compute the entry $(AB)_{ij}$?
+Row $i$ of $A$ times column $j$ of $B$: you multiply the corresponding numbers and add them up, $(AB)_{ij} = A_{i1}B_{1j} + \dots + A_{in}B_{nj}$.
+:::
+
+::: question Is the product of matrices commutative? Give an example.
+No. With $A = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ and $B = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ you find $AB = B$ and $BA = 0$ (Example 8.10).
+:::
+
+::: question Which properties hold for the product of matrices?
+Associativity $A(BC) = (AB)C$, the two distributive laws $A(B + C) = AB + AC$ and $(A + B)C = AC + BC$, and $\lambda(AB) = (\lambda A)B = A(\lambda B)$ (Proposition 8.11). Commutativity does not hold, and a product can be zero with both factors non-zero.
+:::
+
+::: question What is the trace and what does Proposition 8.13 say?
+The trace of a square matrix is the sum of the numbers on the main diagonal. Proposition 8.13 says that $\tr(AB) = \tr(BA)$ for $A, B \in M(n)$, even when $AB \neq BA$.
+:::
+
+::: question What is the transpose of a product?
+${}^t(AB) = {}^tB\,{}^tA$: the product of the transposes in reverse order (Exercise 8.14).
+:::
+
+::: question How do you quickly compute $\tr(AB)$ in a quiz?
+You compute only the diagonal entries of $AB$, that is for each $i$ row $i$ of $A$ times column $i$ of $B$, and add them up. For $\tr(A\,{}^tA)$ it is enough to add the squares of all the numbers of $A$.
+:::
+
+## Glossary
+
+```glossary
+$m \times n$ matrix | Table of numbers with $m$ rows and $n$ columns; $a_{ij}$ (or $A_{ij}$) is the number in row $i$ and column $j$.
+$M(m, n, \K)$, $M(n)$ | The set of $m \times n$ matrices with coefficients in $\K$, a vector space of dimension $mn$; $M(n)$ are the square $n \times n$ ones.
+Row $A_i$ and column $A^j$ | The $i$-th row (index at the bottom, a vector of $\K^n$) and the $j$-th column (index at the top, a vector of $\K^m$).
+Main diagonal | The entries $a_{11}, a_{22}, \dots, a_{nn}$ of a square matrix.
+Transpose ${}^tA$ | The matrix with rows and columns swapped: $({}^tA)_{ij} = A_{ji}$; from $m \times n$ it becomes $n \times m$.
+${}^t(x, y, z)$ | The column vector with coordinates $x, y, z$, written as the transpose of a row.
+Symmetric matrix | Square matrix with ${}^tA = A$, that is $a_{ij} = a_{ji}$.
+Skew-symmetric matrix | Square matrix with ${}^tA = -A$; it has a zero diagonal.
+Rank $\rk(A)$ | Dimension of the space spanned by the columns; maximum number of linearly independent columns.
+Row rank | Dimension of the space spanned by the rows, that is $\rk({}^tA)$; it is always equal to the rank.
+Row-by-column product | $(AB)_{ij} = \sum_k A_{ik}B_{kj}$; it can be done if $A$ has as many columns as $B$ has rows, and $(m \times n)(n \times p) = m \times p$.
+Matrix-times-vector product | $Ax$, with $x \in \K^n$: a vector of $\K^m$, equal to $x_1A^1 + \dots + x_nA^n$.
+Non-commutativity | In general $AB \neq BA$, even for square matrices.
+Associativity and distributivity | $A(BC) = (AB)C$; $A(B + C) = AB + AC$ and $(A + B)C = AC + BC$.
+Power of a matrix | For square $A$, $A^2 = AA$, $A^3 = AAA$, and so on.
+Trace $\tr A$ | Sum of the entries on the main diagonal of a square matrix; $\tr(AB) = \tr(BA)$.
+Identity matrix $I_n$ | The square matrix with 1 on the diagonal and 0 elsewhere; $I_nA = AI_n = A$ (lesson L09).
+```
+
+## Checklist
+
+```checklist
+- I can read a matrix: size $m \times n$, entry $a_{ij}$, row $A_i$, column $A^j$.
+- I can compute the transpose and use it to recognise a symmetric or skew-symmetric matrix.
+- I can read the notation ${}^t(x, y, z)$ for column vectors.
+- I know the definition of rank and why it is the maximum number of independent columns.
+- I know that row rank and column rank are equal and that $\rk(A) \le \min(m, n)$.
+- I can find the rank of a small matrix by looking for relations between rows or columns.
+- I can tell whether a product $AB$ exists, what size it has, and compute it row by column without mistakes.
+- I can explain with an example that $AB \neq BA$ and that $AB = 0$ does not imply $A = 0$ or $B = 0$.
+- I can state associativity and distributivity and use ${}^t(AB) = {}^tB\,{}^tA$.
+- I can compute a trace and use $\tr(AB) = \tr(BA)$ to save calculations in the quizzes.
+- I can answer the exam question "which identity holds among $AB$, $BA$, $A$ and $B$?".
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 8 "Matrici I", pp. 36–40: the opening recap and sections 8.A (transpose), 8.B (rank), 8.C (product of matrices), 8.D (trace) and 8.E (exercises) are followed in order, with the page next to each heading; definitions, propositions, examples and exercises keep their numbering (Definitions 8.1, 8.3, 8.5, 8.7, 8.12; Propositions 8.4, 8.6, 8.11, 8.13; Examples 8.2, 8.8, 8.9, 8.10; Exercises 8.14, 8.15, 8.16). For the recaps: lessons 6 and 7 (Definitions 6.1, 6.3, 6.6, 7.11, Proposition 7.2, Exercise 7.13).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.3.10–2.3.11 (transpose, symmetric and skew-symmetric matrices, Example 2.3.33), §3.2.3 and §3.2.6 (rank, Propositions 3.2.8 and 3.2.20, Corollary 3.2.11), §3.4.1–3.4.5 (product, Propositions 3.4.2 and 3.4.4, systems written as $Ax = b$), §4.4.5 (trace).
+- **Exam**: papers of the Linear Algebra exams from 24/01/2024 to 07/09/2026 (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); reported with my own solution: question 1 of 15/01/2026, question 9 of 10/07/2025 and problem 11 (point 2) of 15/01/2026; the others are cited by number. Tutoring exercise sheet 2 (11/11/2025), exercise 8.
+- The **"Beyond the handouts"** parts (extra properties of the transpose and of the trace, the product as a combination of columns, identity and powers, methods for the quiz, unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L09_matrices_2.md -->
+> File: `ai_context/MDAG/lessons/L09_matrices_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L09
+title: Matrices II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L09
+description: >-
+  Notes on lesson L09 of Linear Algebra and Geometry (MDAG, part 2): the determinant of a square matrix defined with
+  permutations, the formulas for 2×2 and 3×3 matrices, triangular matrices and the identity matrix, the Laplace
+  expansion and the first properties of the determinant, with exam-style quizzes and worked exercises.
+lede: >-
+  The determinant is a number computed from a square matrix that tells you a great deal about it. Here you learn to
+  compute it in all the ways you need: the definition with permutations, the formulas for $2 \times 2$ and
+  $3 \times 3$, the easy case of triangular matrices, the Laplace expansion along the handiest row or column, and
+  what happens when you multiply a row by a number.
+material: handouts
+facts:
+  Handouts: lesson 9 · pp. 41–45
+  Book: Martelli, §3.3.1–3.3.4 and §3.3.10
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 9 "Matrici II"; B. Martelli, Geometria e algebra lineare, §3.3.1–3.3.4, §3.3.10 and §3.4.6
+italian_file: L09_matrici_2.html
+html_notes: notes/MDAG/L09_matrices_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L09_matrici_2.md
+```
+
+## In brief
+
+- The **determinant** $\det A$ is a number associated with every **square** matrix. For non-square matrices it does not exist.
+- For $2 \times 2$ matrices: $\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$. In absolute value it is the area of the parallelogram whose sides are the columns.
+- The general definition is a sum over all the $n!$ **permutations** $\sigma$ of $\{1, \dots, n\}$: each term is a product $a_{1\sigma(1)} \cdots a_{n\sigma(n)}$ that takes one number from each row and from each column, with the sign $\sgn(\sigma) = \pm 1$.
+- For $3 \times 3$ matrices there are six terms, three with plus and three with minus (you remember them with Sarrus' rule).
+- For a **triangular** matrix the determinant is the product of the numbers on the diagonal; in particular $\det I_n = 1$. Moreover $\det({}^tA) = \det A$.
+- **Laplace expansion**: $\det A = \sum_j (-1)^{i+j} a_{ij} \det C_{ij}$ along any row $i$, and the same along a column. The signs $(-1)^{i+j}$ go **like a chessboard**; the row or column with the most zeros is the handiest.
+- A row (or column) of zeros gives $\det A = 0$; multiplying a row by $c$ multiplies the determinant by $c$; so $\det(cA) = c^n \det A$.
+- At the exam: "the determinant of $A$ is…" with $4 \times 4$ or $5 \times 5$ matrices full of zeros, with $\pi$ and $e$ to factor out, or the trap of the non-square matrix.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## The determinant of a square matrix (pp. 41–42)
+
+### The $2 \times 2$ case: a number that measures an area
+
+Take the matrix $A = \begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix}$ and draw its columns $A^1 = {}^t(3, 1)$ and $A^2 = {}^t(1, 2)$ as arrows in the plane. Together they form a parallelogram. How big is it?
+
+```graph
+title: The parallelogram with sides ${}^t(3, 1)$ and ${}^t(1, 2)$ has area $3 \cdot 2 - 1 \cdot 1 = 5$
+x: -0.5 4.5
+y: -0.5 3.5
+polygon: 0 0 3 1 4 3 1 2 | green
+vector: 3 1 | accent | thick | $A^1$ | se
+vector: 1 2 | blue | thick | $A^2$ | nw
+```
+
+The parallelogram lies inside the rectangle $[0, 4] \times [0, 3]$, of area $12$. Removing the leftover pieces (two triangles of area $\frac{3 \cdot 1}2$, two of area $\frac{1 \cdot 2}2$ and two small $1 \times 1$ squares) what remains is $12 - 3 - 2 - 2 = 5$. You get the same number in one go with the formula
+
+$$\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc, \qquad \det \begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix} = 3 \cdot 2 - 1 \cdot 1 = 5.$$
+
+This number is the **determinant**. For larger matrices the formula gets more complicated, and to write it you need permutations.
+
+> [!BEYOND] · the determinant measures areas and volumes
+> Martelli (§3.3.10) shows that for a real $2 \times 2$ matrix $|\det A|$ is the area of the parallelogram whose sides are the two columns, and for a $3 \times 3$ one it is the volume of the parallelepiped whose edges are the three columns. The **sign** tells how the columns are oriented: if you swap the two columns you get $\det \begin{pmatrix} 1 & 3 \\ 2 & 1 \end{pmatrix} = 1 - 6 = -5$, same area but opposite sign. If the columns are parallel, the parallelogram gets squashed onto a segment and the determinant is $0$. We come back to this at the end of the lesson, with an interactive tool.
+
+### Permutations and sign
+
+A **permutation** of $\{1, \dots, n\}$ is a way of lining up the numbers from 1 to $n$ again, each one once and only once. The handouts write a permutation $\sigma$ by listing its values in square brackets:
+
+$$\sigma = [\sigma(1)\ \sigma(2)\ \cdots\ \sigma(n)].$$
+
+For example $\sigma = [2\ 3\ 1]$ is the permutation with $\sigma(1) = 2$, $\sigma(2) = 3$, $\sigma(3) = 1$. The set of all permutations of $\{1, \dots, n\}$ is called $S_n$ and has $n! = 1 \cdot 2 \cdots n$ elements (you will see them in detail in the Discrete Mathematics part of the course): $S_2$ has $2! = 2$ of them, $S_3$ has $3! = 6$, $S_4$ has $4! = 24$.
+
+- A **transposition** is a permutation that swaps two elements and leaves all the others where they are, like $[2\ 1\ 3]$ (swaps 1 and 2) or $[3\ 2\ 1]$ (swaps 1 and 3).
+- Every permutation is obtained from $[1\ 2\ \cdots\ n]$ with a sequence of swaps. If $k$ are needed, the **sign** is $\sgn(\sigma) = (-1)^k$: $+1$ if the number of swaps is even, $-1$ if it is odd. You can reach the same permutation with different sequences, but the number of swaps always has the same parity (Discrete Mathematics proves it), so the sign is well defined.
+- $\sgn(\mathrm{id}) = +1$ (zero swaps) and every transposition has sign $-1$.
+
+The six permutations of $S_3$, with the number of swaps (of two places in the list) that produce them from $[1\ 2\ 3]$:
+
+| $\sigma$ | How you get it from $[1\ 2\ 3]$ | Swaps | $\sgn(\sigma)$ |
+|---|---|--:|--:|
+| $[1\ 2\ 3] = \mathrm{id}$ | no swap | 0 | $+1$ |
+| $[1\ 3\ 2]$ | I swap the second and third place | 1 | $-1$ |
+| $[3\ 2\ 1]$ | I swap the first and third place | 1 | $-1$ |
+| $[2\ 1\ 3]$ | I swap the first and second place | 1 | $-1$ |
+| $[2\ 3\ 1]$ | $[1\ 2\ 3] \to [2\ 1\ 3] \to [2\ 3\ 1]$ | 2 | $+1$ |
+| $[3\ 1\ 2]$ | $[1\ 2\ 3] \to [1\ 3\ 2] \to [3\ 1\ 2]$ | 2 | $+1$ |
+
+> [!BEYOND] · the sign by counting inversions
+> A quick way to find the sign: count the **inversions**, that is the pairs of numbers in which a larger number comes before a smaller one. If their number is even the sign is $+1$, if odd it is $-1$. In $[3\ 1\ 2]$ the inversions are $(3, 1)$ and $(3, 2)$: two, sign $+1$. In $[2\ 1\ 4\ 3]$ they are $(2, 1)$ and $(4, 3)$: sign $+1$. In $[3\ 2\ 1]$ they are $(3, 2)$, $(3, 1)$, $(2, 1)$: three, sign $-1$.
+
+### The definition
+
+> [!DEF] 9.1 · Determinant
+> Let $A$ be a square $n \times n$ matrix. The **determinant** of $A$ is the number
+> $$\det A = \sum_{\sigma \in S_n} \sgn(\sigma)\, a_{1\sigma(1)} \cdots a_{n\sigma(n)}.$$
+> Here $S_n$ denotes the set of the $n!$ permutations of $\{1, \dots, n\}$: this is a sum over $n!$ elements. The term $\sgn(\sigma) = \pm 1$ denotes the sign of the permutation $\sigma$ and it is $1$ or $-1$ depending on $\sigma$. If $\sigma$ is a product of $k$ transpositions (permutations that swap two elements and leave all the other elements fixed), then $\sgn(\sigma) = (-1)^k$. The permutation $\sigma$ is denoted by the symbol $[\sigma(1) \cdots \sigma(n)]$.
+
+Piece by piece:
+
+- **Only square matrices.** The definition uses the same $n$ for the rows and for the columns: a $2 \times 3$ matrix has no determinant.
+- **One term for each permutation.** For each $\sigma \in S_n$ you multiply $n$ numbers: $a_{1\sigma(1)}$ from row 1, $a_{2\sigma(2)}$ from row 2, and so on. The columns $\sigma(1), \dots, \sigma(n)$ are all different, because $\sigma$ is a permutation. So **each term takes exactly one number from each row and one from each column**, like $n$ rooks on a chessboard that cannot capture each other (the picture is Martelli's).
+- **The sign.** Each product must be added with the sign of $\sigma$: plus if $\sigma$ is obtained with an even number of swaps, minus if odd.
+- **How many terms.** $n!$: 2 for $n = 2$, 6 for $n = 3$, 24 for $n = 4$, 120 for $n = 5$. That is why for $n \ge 4$ the definition is never used directly: you need better methods, such as the Laplace expansion.
+
+### The cases $n = 1$, $2$, $3$
+
+The handouts examine the first three cases.
+
+**$n = 1$.** The matrix is a number, $A = (a_{11})$. $S_1$ contains only $\mathrm{id} = [1]$, with positive sign:
+
+$$\det A = a_{11}.$$
+
+**$n = 2$.** $S_2$ contains $\mathrm{id} = [1\ 2]$ (sign $+1$) and the transposition $[2\ 1]$ (sign $-1$). The two terms are $a_{11}a_{22}$ and $a_{12}a_{21}$:
+
+$$\det \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix} = a_{11}a_{22} - a_{12}a_{21}.$$
+
+In words: main diagonal minus the other diagonal.
+
+**$n = 3$.** The six permutations of the table give six terms. The three transpositions have sign $-1$, the other three $+1$:
+
+$$\det A = a_{11}a_{22}a_{33} - a_{11}a_{23}a_{32} - a_{13}a_{22}a_{31} - a_{12}a_{21}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}.$$
+
+Check one term against the table: $[2\ 3\ 1]$ has $\sigma(1) = 2$, $\sigma(2) = 3$, $\sigma(3) = 1$, so it gives $+a_{12}a_{23}a_{31}$.
+
+> [!BEYOND] · Sarrus' rule, only for $3 \times 3$ matrices
+> To remember the formula: copy the first two columns again to the right of the matrix. The three diagonals that go **down** to the right give the terms with plus, the three that go **up** those with minus:
+> $$\begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}\!\begin{matrix} a_{11} & a_{12} \\ a_{21} & a_{22} \\ a_{31} & a_{32} \end{matrix} \qquad \begin{aligned} &+\ a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32} \\ &-\ a_{13}a_{22}a_{31} - a_{11}a_{23}a_{32} - a_{12}a_{21}a_{33} \end{aligned}$$
+> Careful: **it works only for $n = 3$**. For a $4 \times 4$ matrix the "diagonals" would be 8, while the real terms are $4! = 24$.
+
+> [!EXAMPLE] 9.2 · Three determinants
+> The determinants of the matrices
+> $$(3), \qquad \begin{pmatrix} 1 & 2 \\ -1 & 4 \end{pmatrix}, \qquad \begin{pmatrix} 1 & 2 & 1 \\ 2 & 1 & 2 \\ -1 & 0 & 1 \end{pmatrix}$$
+> are $3$, $\ 4 - (-2) = 6$, $\ -6$ respectively. Let us look at the calculations.
+> - $1 \times 1$: $\det(3) = 3$.
+> - $2 \times 2$: $1 \cdot 4 - 2 \cdot (-1) = 4 - (-2) = 6$.
+> - $3 \times 3$, with the formula (term by term, in the order of the formula):
+>   $$\underbrace{1 \cdot 1 \cdot 1}_{a_{11}a_{22}a_{33}} - \underbrace{1 \cdot 2 \cdot 0}_{a_{11}a_{23}a_{32}} - \underbrace{1 \cdot 1 \cdot (-1)}_{a_{13}a_{22}a_{31}} - \underbrace{2 \cdot 2 \cdot 1}_{a_{12}a_{21}a_{33}} + \underbrace{2 \cdot 2 \cdot (-1)}_{a_{12}a_{23}a_{31}} + \underbrace{1 \cdot 2 \cdot 0}_{a_{13}a_{21}a_{32}}$$
+>   $$= 1 - 0 + 1 - 4 - 4 + 0 = -6.$$
+>
+> With Sarrus: the diagonals going down give $1 \cdot 1 \cdot 1 + 2 \cdot 2 \cdot (-1) + 1 \cdot 2 \cdot 0 = -3$, those going up $1 \cdot 1 \cdot (-1) + 1 \cdot 2 \cdot 0 + 2 \cdot 2 \cdot 1 = 3$, and $-3 - 3 = -6$. The handouts add the same six terms in another order: $1 - 0 - 4 + (-4) + 0 - (-1) = -6$.
+
+> [!PITFALL] The sign of $ad - bc$
+> In the $2 \times 2$ case you subtract the product of the **other** diagonal, with its signs: $\det \begin{pmatrix} 1 & 2 \\ -1 & 4 \end{pmatrix} = 4 - (2)(-1) = 4 + 2 = 6$, not $4 - 2 = 2$. Always put brackets around negative numbers.
+
+## Triangular matrices, identity and transpose (pp. 42–43)
+
+For triangular matrices you read the determinant on the diagonal.
+
+> [!PROP] 9.3 · Determinant of a triangular matrix
+> Let $A \in M(n)$ be an **upper triangular** matrix
+> $$A = \begin{pmatrix} a_{11} & a_{12} & \dots & a_{1n} \\ 0 & a_{22} & \dots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & a_{nn} \end{pmatrix}.$$
+> Then
+> $$\det A = a_{11}a_{22} \cdots a_{nn}.$$
+
+The handouts' explanation: in the formula of the determinant, for an upper triangular matrix all the products are zero except the one of the identity permutation. Here is why, step by step.
+
+1. Below the diagonal there are only zeros: $a_{ij} = 0$ when $i > j$.
+2. A term $a_{1\sigma(1)} \cdots a_{n\sigma(n)}$ can be non-zero only if no factor lies below the diagonal, that is if $\sigma(i) \ge i$ for every row $i$.
+3. In the last row: $\sigma(n) \ge n$, so $\sigma(n) = n$. In the second-to-last: $\sigma(n - 1) \ge n - 1$ and $\sigma(n - 1) \neq n$ (column $n$ is already used), so $\sigma(n - 1) = n - 1$. Going up like this, $\sigma(i) = i$ for every $i$: $\sigma = \mathrm{id}$.
+4. Only the term of the identity remains, which has sign $+1$: $\det A = a_{11}a_{22} \cdots a_{nn}$.
+
+The same result holds for **lower triangular** matrices (zeros above the diagonal), with the same reasoning starting from the first row. And it holds for **diagonal** matrices, which are triangular in both senses.
+
+> [!EXAMPLE] · Three determinants with no effort
+> $$\det \begin{pmatrix} 2 & 5 & -1 \\ 0 & 3 & 4 \\ 0 & 0 & -1 \end{pmatrix} = 2 \cdot 3 \cdot (-1) = -6, \qquad \det \begin{pmatrix} 1 & 0 & 0 \\ 7 & 2 & 0 \\ -3 & 5 & 4 \end{pmatrix} = 1 \cdot 2 \cdot 4 = 8,$$
+> $$\det \begin{pmatrix} 5 & 9 & \pi \\ 0 & 0 & \sqrt 2 \\ 0 & 0 & 7 \end{pmatrix} = 5 \cdot 0 \cdot 7 = 0.$$
+> The numbers above the diagonal do not matter at all, and a single zero on the diagonal is enough to give a zero determinant.
+
+Here the handouts introduce a matrix that will play a fundamental role throughout the course.
+
+> [!DEF] 9.4 · Identity matrix
+> The **identity matrix** of size $n \times n$ is the matrix
+> $$I_n = \begin{pmatrix} 1 & 0 & \cdots & 0 \\ 0 & 1 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & 1 \end{pmatrix}$$
+> whose coefficients are 1 on the main diagonal and 0 elsewhere.
+
+$I_n$ is diagonal, so by Proposition 9.3
+
+$$\det(I_n) = 1 \cdot 1 \cdots 1 = 1.$$
+
+In the product of matrices it plays the part of the number 1: $I_nA = AI_n = A$ (we anticipated it in lesson L08), and it is the starting point for the inverse matrices of lesson L10.
+
+Another property that, the handouts say, follows directly from the definition:
+
+> [!PROP] 9.5
+> $\det({}^tA) = \det A$ holds.
+
+For a $2 \times 2$ matrix you see it straight away: ${}^tA = \begin{pmatrix} a_{11} & a_{21} \\ a_{12} & a_{22} \end{pmatrix}$ has determinant $a_{11}a_{22} - a_{21}a_{12}$, the same as $A$. For the $3 \times 3$ matrix of Example 9.2, the transpose $\begin{pmatrix} 1 & 2 & -1 \\ 2 & 1 & 0 \\ 1 & 2 & 1 \end{pmatrix}$ again has determinant $-6$ (try it with Sarrus).
+
+> [!PROOF] of Proposition 9.5
+> When you transpose, entry $(i, j)$ goes to $(j, i)$. A term of $\det({}^tA)$ is $({}^tA)_{1\sigma(1)} \cdots ({}^tA)_{n\sigma(n)} = a_{\sigma(1)1} \cdots a_{\sigma(n)n}$: it still takes one number from each row and from each column of $A$. Reordering the factors by row, it is the term of $\det A$ of the inverse permutation $\sigma^{-1}$, the one that "undoes" $\sigma$. And $\sigma^{-1}$ has the same sign as $\sigma$: if $\sigma$ is obtained with $k$ swaps, $\sigma^{-1}$ is obtained with the same $k$ swaps done in reverse order. So $\det({}^tA)$ and $\det A$ are sums of the same terms with the same signs (Martelli, Proposition 3.3.2).
+
+The practical consequence: **everything that holds for rows also holds for columns**, because the rows of $A$ are the columns of ${}^tA$ and the determinant is the same.
+
+## The Laplace expansion (pp. 43–44)
+
+The definition with permutations is awkward already for $n = 4$ (24 terms). The **Laplace expansion** reduces an $n \times n$ determinant to $(n - 1) \times (n - 1)$ determinants, and so on down to $2 \times 2$ ones.
+
+Let $A$ be an $n \times n$ matrix with $n \ge 2$. We denote by $C_{ij}$ the $(n - 1) \times (n - 1)$ submatrix obtained from $A$ by **removing row $i$ and column $j$**. For example, with
+
+$$A = \begin{pmatrix} 1 & -1 & 0 \\ 2 & -1 & 5 \\ 1 & 1 & -1 \end{pmatrix}: \quad C_{11} = \begin{pmatrix} -1 & 5 \\ 1 & -1 \end{pmatrix}, \quad C_{12} = \begin{pmatrix} 2 & 5 \\ 1 & -1 \end{pmatrix}, \quad C_{23} = \begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}.$$
+
+For $C_{12}$ you delete row 1 and column 2: what remains is $2, 5$ from the second row and $1, -1$ from the third.
+
+> [!THEOREM] 9.6 · Laplace expansion
+> For every fixed $i$ the equality
+> $$\det A = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det C_{ij}.$$
+> holds.
+
+Piece by piece:
+
+- You choose **one row**, the $i$-th, any row: the result does not depend on the choice.
+- For each number $a_{ij}$ of that row you delete its row and its column, compute the determinant $\det C_{ij}$ of what remains and multiply it by $a_{ij}$.
+- Each product gets the sign $(-1)^{i+j}$: $+$ if $i + j$ is even, $-$ if it is odd.
+- You add everything up. If $a_{ij} = 0$ its term disappears: **you do not need to compute $\det C_{ij}$**.
+
+Thanks to $\det({}^tA) = \det A$ the same holds for columns.
+
+> [!COROLLARY] 9.7 · Expansion along a column
+> For every fixed $j$ the equality
+> $$\det A = \sum_{i=1}^n (-1)^{i+j} a_{ij} \det C_{ij}.$$
+> holds.
+
+The signs $(-1)^{i+j}$ are arranged **like on a chessboard**, with $+$ at the top left:
+
+$$\begin{pmatrix} + & - & + \\ - & + & - \\ + & - & + \end{pmatrix} \qquad \begin{pmatrix} + & - & + & - \\ - & + & - & + \\ + & - & + & - \\ - & + & - & + \end{pmatrix}$$
+
+> [!EXAMPLE] 9.8 · Expansion along the first row
+> To compute the following determinant, we expand along the first row (that is, we take $i = 1$):
+> $$\det \begin{pmatrix} 1 & -1 & 0 \\ 2 & -1 & 5 \\ 1 & 1 & -1 \end{pmatrix} = 1 \cdot \det \begin{pmatrix} -1 & 5 \\ 1 & -1 \end{pmatrix} - (-1) \cdot \det \begin{pmatrix} 2 & 5 \\ 1 & -1 \end{pmatrix} + 0 \cdot \det \begin{pmatrix} 2 & -1 \\ 1 & 1 \end{pmatrix}.$$
+> The signs are $+, -, +$ (first row of the chessboard). The three $2 \times 2$ determinants:
+> - $\det C_{11} = (-1)(-1) - 5 \cdot 1 = 1 - 5 = -4$;
+> - $\det C_{12} = 2 \cdot (-1) - 5 \cdot 1 = -2 - 5 = -7$;
+> - the third is not needed, because it is multiplied by $0$.
+>
+> Total: $1 \cdot (-4) - (-1) \cdot (-7) + 0 = -4 - 7 + 0 = -11$.
+
+Let us check that the result does not depend on the row or column chosen: we expand the same matrix along the **first column** ($j = 1$), with signs $+, -, +$:
+
+$$1 \cdot \det \begin{pmatrix} -1 & 5 \\ 1 & -1 \end{pmatrix} - 2 \cdot \det \begin{pmatrix} -1 & 0 \\ 1 & -1 \end{pmatrix} + 1 \cdot \det \begin{pmatrix} -1 & 0 \\ -1 & 5 \end{pmatrix}$$
+
+$$= 1 \cdot (-4) - 2 \cdot 1 + 1 \cdot (-5) = -11.$$
+
+Same result, but with three $2 \times 2$ determinants instead of two. That is why the handouts remark that it is better to expand along a row (or column) that contains some zeros.
+
+> [!EXAMPLE] 9.9 · Expansion along an almost empty column
+> Expanding the following matrix along the second column we get:
+> $$\det \begin{pmatrix} 1 & 0 & 1 \\ 2 & 0 & 1 \\ \pi & 3 & \sqrt 7 \end{pmatrix} = (-1) \cdot 3 \cdot \det \begin{pmatrix} 1 & 1 \\ 2 & 1 \end{pmatrix} = 3.$$
+> In the second column the only non-zero number is $a_{32} = 3$, in position $(3, 2)$: sign $(-1)^{3+2} = -1$. Deleting row 3 and column 2 leaves $C_{32} = \begin{pmatrix} 1 & 1 \\ 2 & 1 \end{pmatrix}$, with determinant $1 - 2 = -1$. So $(-1) \cdot 3 \cdot (-1) = 3$. The numbers $\pi$ and $\sqrt 7$, which seemed to complicate everything, do not enter the calculation.
+>
+> In the expansion you must always pay attention to the sign $(-1)^{i+j}$ associated with entry $ij$, which varies as on a chessboard.
+
+> [!PROOF] · why the Laplace expansion works ($3 \times 3$ case)
+> Take the formula for $n = 3$ and group the six terms according to the number of the first row that they contain:
+> $$\det A = a_{11}(a_{22}a_{33} - a_{23}a_{32}) - a_{12}(a_{21}a_{33} - a_{23}a_{31}) + a_{13}(a_{21}a_{32} - a_{22}a_{31}).$$
+> The three brackets are exactly $\det C_{11}$, $\det C_{12}$ and $\det C_{13}$, and the signs are $+, -, +$. It is the expansion along the first row. In general (Martelli, Theorem 3.3.5) the terms that contain $a_{ij}$ are, apart from the factor $a_{ij}$, exactly the terms of $\det C_{ij}$, with an extra sign $(-1)^{i+j}$.
+
+> [!METHOD] Computing a determinant with Laplace
+> 1. Check that the matrix is **square**; if it is not, the determinant does not exist.
+> 2. If it is triangular, multiply the diagonal (Proposition 9.3) and you are done.
+> 3. Choose the row or column with the **most zeros**.
+> 4. For each non-zero number of that row: chessboard sign, number, determinant of the submatrix that remains after deleting its row and its column.
+> 5. Repeat on the submatrices until you reach $2 \times 2$ (or triangular matrices).
+> 6. Check: expand along another row or column or, for a $3 \times 3$, use Sarrus.
+
+> [!EXAMPLE] · A $4 \times 4$ with an almost empty column
+> $$M = \begin{pmatrix} 2 & 0 & 1 & 3 \\ 1 & 0 & 0 & 2 \\ 0 & 1 & 4 & -1 \\ 3 & 0 & 2 & 1 \end{pmatrix}$$
+> The second column has a single non-zero number, $m_{32} = 1$, with sign $(-1)^{3+2} = -1$. Deleting row 3 and column 2:
+> $$\det M = -1 \cdot \det \begin{pmatrix} 2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1 \end{pmatrix}.$$
+> I expand the $3 \times 3$ along the second row, which has a zero (signs $-, +, -$):
+> $$\det \begin{pmatrix} 2 & 1 & 3 \\ 1 & 0 & 2 \\ 3 & 2 & 1 \end{pmatrix} = -1 \cdot \det \begin{pmatrix} 1 & 3 \\ 2 & 1 \end{pmatrix} + 0 - 2 \cdot \det \begin{pmatrix} 2 & 1 \\ 3 & 2 \end{pmatrix}$$
+> $$= -1 \cdot (1 - 6) - 2 \cdot (4 - 3) = 5 - 2 = 3.$$
+> So $\det M = -3$. Instead of 24 terms, three $2 \times 2$ determinants.
+
+In the tool below you can check your determinants: type the matrix and press "Compute". The tool does not use Laplace but the **Gauss moves**, which turn the matrix into a triangular one while changing the determinant in a controlled way: it is the method of the next lesson, L10. Try the matrix of Example 9.8 (already entered) and then the $M$ above (`2 0 1 3; 1 0 0 2; 0 1 4 -1; 3 0 2 1`).
+
+```widget gauss
+title: Check a determinant
+matrice: 1 -1 0; 2 -1 5; 1 1 -1
+modo: determinante
+modi: determinante
+```
+
+## Properties of the determinant (p. 44)
+
+Three properties follow straight away from the Laplace expansion.
+
+> [!PROP] 9.10 · Zero row or column
+> If the entries of a row (or column) of $A$ are all zero, then $\det(A) = 0$.
+
+It is a direct consequence of the Laplace expansion: just compute the determinant by expanding along the all-zero row (or column). Each term is "$0$ times something". For example $\det \begin{pmatrix} 4 & 7 & 1 \\ 0 & 0 & 0 \\ 2 & 9 & 5 \end{pmatrix} = 0$ without any calculation.
+
+> [!PROP] 9.11 · Multiplying a row by a number
+> If the matrix $A'$ is obtained from the matrix $A$ by multiplying all the entries of a row (or column) by the number $c$, then $\det(A') = c \cdot \det(A)$.
+
+The reason: expand $\det A'$ along the multiplied row. The submatrices $C_{ij}$ **do not contain** that row, so they are the same as for $A$; only the numbers $c\,a_{ij}$ in front change. Each term is multiplied by $c$, and so is the sum.
+
+With numbers: $\det \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix} = 4 - 6 = -2$; multiplying the first row by 5, $\det \begin{pmatrix} 5 & 10 \\ 3 & 4 \end{pmatrix} = 20 - 30 = -10 = 5 \cdot (-2)$.
+
+Read backwards, the proposition lets you **factor out** a factor common to a row or a column:
+
+$$\det \begin{pmatrix} 6 & 9 \\ 2 & 5 \end{pmatrix} = 3 \det \begin{pmatrix} 2 & 3 \\ 2 & 5 \end{pmatrix} = 3 \cdot (10 - 6) = 12.$$
+
+Direct check: $6 \cdot 5 - 9 \cdot 2 = 30 - 18 = 12$ ✓. It is the decisive trick when $\pi$, $e$, $\sqrt 2$ or $i$ appear in the matrix (Exercise 9.14 and "Towards the exam").
+
+> [!COROLLARY] 9.12 · The determinant of $cA$
+> From the proposition we immediately get
+> $$\det(cA) = c^n \cdot \det(A)$$
+> and in particular
+> $$\det(-A) = (-1)^n \cdot \det(A).$$
+
+The reason: $cA$ has **all $n$ rows** multiplied by $c$. Applying Proposition 9.11 one row at a time, the factor $c$ comes out $n$ times. With $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$:
+
+$$\det(3A) = \det \begin{pmatrix} 3 & 6 \\ 9 & 12 \end{pmatrix} = 36 - 54 = -18 = 3^2 \cdot (-2).$$
+
+And for even $n$ $\det(-A) = \det A$, for odd $n$ $\det(-A) = -\det A$.
+
+> [!PITFALL] $\det(cA)$ is not $c \det A$, and $\det(A + B)$ is not $\det A + \det B$
+> - If $A$ is $3 \times 3$ with $\det A = 5$, then $\det(2A) = 2^3 \cdot 5 = 40$, not $10$.
+> - The determinant is **not** additive (Martelli, Remark 3.4.9): with $A = I_2$ and $B = -I_2$ we have $\det(A + B) = \det \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = 0$, while $\det A + \det B = 1 + 1 = 2$.
+> - Proposition 9.11 is about **one** row: multiplying two rows by $c$ multiplies the determinant by $c^2$.
+
+## The geometric meaning (beyond the handouts)
+
+> [!BEYOND] · area, orientation and volume
+> For a real $2 \times 2$ matrix with columns $v_1 = {}^t(a, c)$ and $v_2 = {}^t(b, d)$ (Martelli, §3.3.10):
+> - $|\det A| = |ad - bc|$ is the **area** of the parallelogram with sides $v_1$ and $v_2$;
+> - the **sign** tells the orientation: $\det A > 0$ if, turning from $v_1$ towards $v_2$ through the smaller angle, you go anticlockwise (as from $e_1$ to $e_2$), $\det A < 0$ if you go clockwise;
+> - $\det A = 0$ exactly when $v_1$ and $v_2$ are parallel: the parallelogram is squashed.
+>
+> For a $3 \times 3$ matrix, $|\det A|$ is the **volume** of the parallelepiped whose edges are the three columns (you will meet it again with the cross product, lesson L22). For example $\det \begin{pmatrix} 3 & -1 & 0 \\ 1 & 3 & 0 \\ 0 & 0 & 4 \end{pmatrix} = 4 \cdot (9 + 1) = 40$: a parallelepiped whose base is a square of area 10 and whose height is 4.
+
+In the tool below the matrix $A$ transforms the square with sides $e_1$ and $e_2$ into the coloured parallelogram, whose sides are the columns $Ae_1$ and $Ae_2$. Change the four numbers and watch how the area and the colour change: green if $\det A > 0$, pink if $\det A < 0$, yellow if $\det A = 0$. Try the buttons: "shear" ($\det = 1$: the shape changes, the area does not), "reflection" ($\det = -1$: same area, orientation reversed), "projection" ($\det = 0$: the square gets squashed onto a segment). The lines about eigenvalues concern lesson L17: ignore them for now.
+
+```widget matrice
+title: The determinant as an area with a sign
+a: 3 1; 1 2
+x: 1 1
+raggio: 5
+```
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book the determinant is in §3.3 (pp. 93–103): the definition and the cases $n = 1, 2, 3$ in §3.3.1 (pp. 93–94, with the representation with "colourings" and Proposition 3.3.2 on $\det({}^tA)$), triangular matrices in §3.3.2 (Proposition 3.3.3), the identity matrix in §3.3.3 (Definition 3.3.4), the Laplace expansion in §3.3.4 (pp. 96–97, Theorem 3.3.5), the geometric meaning in §3.3.10 (pp. 101–103). Permutations and their sign are in §1.2.5; the determinant of $\lambda A$ is Exercise 3.10.
+
+## Towards the exam
+
+The Linear Algebra and Geometry written test has 10 quiz questions with 5 answers each (you need at least 6 correct answers for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. The details are in lesson L01.
+
+The determinant appears in almost every exam session, in three forms (and you need it anyway for eigenvalues, from lesson L17):
+
+| Type of question | Exam sessions (question number) | Lesson |
+|---|---|---|
+| "The determinant of $A$ is…" with $A$ of size $3 \times 3$, $4 \times 4$ or $5 \times 5$ | 10/06/2024 (2), 10/07/2024 (4), 10/07/2025 (4), 02/09/2025 (3), 03/06/2026 (2) | this one |
+| determinant of a product or of a power: $\det(AB)$, $\det(A^3)$, $\det(A\,{}^tA)$ | 06/09/2024 (4), 16/01/2025 (3), 07/02/2025 (5), 03/06/2025 (9), 05/02/2026 (5), 03/07/2026 (6) | L10 (Binet's theorem) |
+| problem: "for which $k$ is the matrix invertible?" | 24/01/2024, 06/09/2024, 07/02/2025, 15/01/2026, 05/02/2026, 03/07/2026 (problem 11) | L10 |
+
+Three real questions of the first type, with the worked solution.
+
+> [!EXAM] Exam of 10/07/2025, question 4
+> Let $A = \begin{pmatrix} 1 & -1 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 2 & -1 & 0 \end{pmatrix}$. What is the determinant of $A$? (a) $1$; (b) $0$; (c) $\det(A)$ is not defined; (d) $2$; (e) $-1$.
+>
+> **Solution.** Count rows and columns first of all: 3 rows and 4 columns. The matrix is not square, so the determinant **does not exist**: answer **(c)**. If you expand without looking you find numbers that look plausible (the $3 \times 3$ part on the left, expanded along its third column, has determinant $-1 \cdot (1 \cdot 1 - 0) = -1$, which is among the answers): that is the whole trap.
+
+> [!EXAM] Exam of 02/09/2025, question 3
+> Compute the determinant of $A = \begin{pmatrix} 1 & 2 & 0 & 0 & 0 \\ 0 & 1 & 3 & 0 & 0 \\ 0 & 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 & 2 \\ 1 & 0 & 0 & 0 & 1 \end{pmatrix}$: (a) $12$; (b) $13$; (c) $0$; (d) $11$; (e) $1$.
+>
+> **Solution.** The first column has two non-zero numbers: $a_{11} = 1$ (sign $+$) and $a_{51} = 1$ (sign $(-1)^{5+1} = +1$). I expand along the first column:
+> - deleting row 1 and column 1 leaves $C_{11} = \begin{pmatrix} 1 & 3 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 1 \end{pmatrix}$, upper triangular: $\det C_{11} = 1$;
+> - deleting row 5 and column 1 leaves $C_{51} = \begin{pmatrix} 2 & 0 & 0 & 0 \\ 1 & 3 & 0 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 1 & 2 \end{pmatrix}$, lower triangular: $\det C_{51} = 2 \cdot 3 \cdot 1 \cdot 2 = 12$.
+>
+> $\det A = 1 \cdot 1 + 1 \cdot 12 = 13$: answer **(b)**. The distractor $12$ is for those who forget the first term.
+
+> [!EXAM] Exam of 03/06/2026, question 2
+> The determinant of $\begin{pmatrix} 1 & e & 1 & 1 \\ \pi & 2\pi e & 3\pi & \pi \\ 1 & e & 2 & 0 \\ 0 & e & 0 & 3 \end{pmatrix}$ is equal to: (a) $1$; (b) $0$; (c) $\pi e$; (d) $\pi + e$; (e) $6 + 2\pi e$.
+>
+> **Solution.** The second row has the common factor $\pi$ and the second column the common factor $e$: I factor them out with Proposition 9.11 (for rows and for columns):
+> $$\det = \pi e \cdot \det \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & 1 \\ 1 & 1 & 2 & 0 \\ 0 & 1 & 0 & 3 \end{pmatrix}.$$
+> I expand along the fourth row, $(0, 1, 0, 3)$: what remains is $a_{42} = 1$ (sign $(-1)^{4+2} = +$) and $a_{44} = 3$ (sign $+$).
+> - $C_{42} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 3 & 1 \\ 1 & 2 & 0 \end{pmatrix}$: along the third column, $1 \cdot (2 - 3) - 1 \cdot (2 - 1) + 0 = -1 - 1 = -2$;
+> - $C_{44} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 3 \\ 1 & 1 & 2 \end{pmatrix}$: with Sarrus, $(4 + 3 + 1) - (2 + 3 + 2) = 8 - 7 = 1$.
+>
+> The determinant in brackets is $1 \cdot (-2) + 3 \cdot 1 = 1$, so the total is $\pi e$: answer **(c)**.
+
+In the other two exam sessions of the first type (10/07/2024 and 10/06/2024) the matrices had dependent rows and the determinant was $0$: with the tools of lesson L10 you see it almost without calculations.
+
+**The method, in order.** (1) Is it square? (2) Is it triangular? (3) Is there a zero row or column? (4) Are there common factors to take out ($\pi$, $e$, roots, large numbers)? (5) Laplace along the row or column with the most zeros. (6) For a final $3 \times 3$, Sarrus. Without a calculator it always pays to reduce the numbers before multiplying.
+
+Mistakes to avoid:
+
+- forgetting the chessboard sign, above all in the "odd" positions such as $(1, 2)$, $(2, 3)$, $(5, 4)$;
+- using Sarrus on a $4 \times 4$;
+- writing $\det(2A) = 2\det A$: for an $n \times n$ matrix it is $2^n \det A$;
+- answering with a number when the matrix is not square.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: $\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$; Sarrus' rule for $3 \times 3$ matrices (with the drawing); the Laplace expansion with the chessboard of signs; triangular $\Rightarrow$ product of the diagonal; $\det({}^tA) = \det A$; zero row $\Rightarrow 0$; a row times $c$ $\Rightarrow$ determinant times $c$; $\det(cA) = c^n \det A$.
+
+## Quiz
+
+```quiz
+Q: Let $A = \begin{pmatrix} 2 & 0 & 1 \\ -1 & 3 & 0 \end{pmatrix}$. What is the determinant of $A$?
++ $\det(A)$ is not defined.
+- $0$
+- $6$
+- $-6$
+- $1$
+= $A$ has 2 rows and 3 columns: it is not square, and the determinant exists only for square matrices (Definition 9.1). Similar to the exam of 10/07/2025, question 4.
+
+Q: The determinant of $A = \begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 1 & 2 & 0 \\ 0 & 0 & 1 & 1 \\ 3 & 0 & 0 & 1 \end{pmatrix}$ is:
++ $-5$
+- $7$
+- $1$
+- $0$
+- $5$
+= Along the first column: $a_{11} = 1$ with sign $+$ and submatrix $C_{11}$ upper triangular with diagonal $1, 1, 1$, so $1$; then $a_{41} = 3$ with sign $(-1)^{4+1} = -1$ and $C_{41} = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 2 & 0 \\ 0 & 1 & 1 \end{pmatrix}$, lower triangular with determinant $2$. Total $1 - 3 \cdot 2 = -5$. If you forget the sign you find $7$. Similar to the exam of 02/09/2025, question 3.
+
+Q: The determinant of $\begin{pmatrix} 1 & \pi & 2 \\ e & 2\pi e & e \\ 0 & \pi & 3 \end{pmatrix}$ is equal to:
++ $4\pi e$
+- $0$
+- $\pi e$
+- $4$
+- $\pi + e$
+= I factor $e$ out of the second row and $\pi$ out of the second column: $\pi e \det \begin{pmatrix} 1 & 1 & 2 \\ 1 & 2 & 1 \\ 0 & 1 & 3 \end{pmatrix}$. Along the first column: $1 \cdot (6 - 1) - 1 \cdot (3 - 2) + 0 = 5 - 1 = 4$. Total $4\pi e$. Similar to the exam of 03/06/2026, question 2.
+
+Q: Let $A$ be a $3 \times 3$ matrix with $\det A = 5$. What is $\det(2A)$?
++ $40$
+- $10$
+- $25$
+- $8$
+- $30$
+= $2A$ has all three rows multiplied by 2, so (Corollary 9.12) $\det(2A) = 2^3 \det A = 8 \cdot 5 = 40$. $10 = 2 \cdot 5$ is the mistake of those who multiply only one row.
+
+Q: Let $A$ be a $4 \times 4$ matrix with $\det A = 3$. What is $\det(-A)$?
++ $3$
+- $-3$
+- $81$
+- $-81$
+- $-12$
+= $\det(-A) = (-1)^4 \det A = \det A = 3$: with even $n$ the sign does not change (Corollary 9.12).
+
+Q: How many terms does the formula of the determinant (Definition 9.1) have for a $5 \times 5$ matrix?
++ $120$
+- $25$
+- $5$
+- $10$
+- $60$
+= One term for each permutation of $\{1, 2, 3, 4, 5\}$: there are $5! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 = 120$. That is why you use Laplace.
+
+Q: Let $A = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}$. What are $\det(AB)$ and $\tr(AB)$?
++ $\det(AB) = 1$, $\tr(AB) = 8$.
+- $\det(AB) = 1$, $\tr(AB) = 9$.
+- $\det(AB) = 2$, $\tr(AB) = 8$.
+- $\det(AB) = 0$, $\tr(AB) = 8$.
+- $\det(AB) = 3$, $\tr(AB) = 3$.
+= Row by column, $AB = \begin{pmatrix} 1 & 1 & 0 \\ 2 & 3 & 3 \\ 0 & 1 & 4 \end{pmatrix}$: trace $1 + 3 + 4 = 8$ (not $\tr A \cdot \tr B = 9$). Along the first row: $\det(AB) = 1 \cdot (12 - 3) - 1 \cdot (8 - 0) = 1$. With lesson L10 it is quicker: $\det(AB) = \det A \det B = 1 \cdot 1$, because they are triangular with a diagonal of 1s. Similar to the exam of 16/01/2025, question 3.
+
+Q: The determinant of $\begin{pmatrix} 2 & 3 & 4 \\ 5 & 6 & 7 \\ 8 & 9 & 10 \end{pmatrix}$ is:
++ $0$
+- $\det$ is not defined.
+- $1$
+- $-3$
+- $10!$
+= With Sarrus: diagonals going down $2 \cdot 6 \cdot 10 + 3 \cdot 7 \cdot 8 + 4 \cdot 5 \cdot 9 = 120 + 168 + 180 = 468$, diagonals going up $4 \cdot 6 \cdot 8 + 2 \cdot 7 \cdot 9 + 3 \cdot 5 \cdot 10 = 192 + 126 + 150 = 468$; difference $0$. The third row is $2 \cdot (5, 6, 7) - (2, 3, 4)$: in lesson L10 you will see that then the determinant is always $0$. Similar to the exam of 10/07/2024, question 4.
+
+Q: Which of these statements is **false** for real square matrices?
++ $\det(A + B) = \det A + \det B$ for all $A, B \in M(2)$.
+- $\det({}^tA) = \det A$.
+- $\det(I_n) = 1$.
+- If a column of $A$ is zero, then $\det A = 0$.
+- $\det(-A) = \det A$ for all $A \in M(2)$.
+= With $A = I_2$ and $B = -I_2$: $\det(A + B) = \det(0) = 0$, but $\det A + \det B = 2$. The others are Propositions 9.5, 9.10, Definition 9.4 with Proposition 9.3, and Corollary 9.12 with $n = 2$.
+
+Q: Compute the determinant of $\begin{pmatrix} 3 & 1 & 0 \\ 0 & 2 & 5 \\ 1 & 0 & 4 \end{pmatrix}$.
+N: 29
+= Along the first row: $3 \cdot (2 \cdot 4 - 5 \cdot 0) - 1 \cdot (0 \cdot 4 - 5 \cdot 1) + 0 = 3 \cdot 8 - 1 \cdot (-5) = 24 + 5 = 29$.
+```
+
+## Exercises
+
+::: exercise hard Exercise 9.13 of the handouts: a complex $4 \times 4$
+Let us compute the determinant of the matrix
+$$A = \begin{pmatrix} 2 + i & 0 & -5 & 0 \\ 3 - i & 1 & 2i & 0 \\ 4 + 4i & -2 & -1 & 0 \\ -\frac 12 & i & 1 - i & i \end{pmatrix}.$$
+::: solution
+The rules are the same with complex numbers: only the calculations change (lessons L02 and L03).
+
+**Step 1: the best column.** The fourth column has a single non-zero number, $a_{44} = i$, with sign $(-1)^{4+4} = +1$. I expand along the fourth column (Corollary 9.7):
+$$\det A = i \cdot \det C_{44}, \qquad C_{44} = \begin{pmatrix} 2 + i & 0 & -5 \\ 3 - i & 1 & 2i \\ 4 + 4i & -2 & -1 \end{pmatrix}.$$
+The numbers $-\frac 12$, $i$, $1 - i$ of the last row are no longer needed.
+
+**Step 2: the $3 \times 3$ along the first row**, which has a zero (signs $+, -, +$):
+$$\det C_{44} = (2 + i) \det \begin{pmatrix} 1 & 2i \\ -2 & -1 \end{pmatrix} - 0 + (-5) \det \begin{pmatrix} 3 - i & 1 \\ 4 + 4i & -2 \end{pmatrix}.$$
+
+**Step 3: the two $2 \times 2$ determinants.**
+- $\det \begin{pmatrix} 1 & 2i \\ -2 & -1 \end{pmatrix} = 1 \cdot (-1) - 2i \cdot (-2) = -1 + 4i$;
+- $\det \begin{pmatrix} 3 - i & 1 \\ 4 + 4i & -2 \end{pmatrix} = (3 - i)(-2) - 1 \cdot (4 + 4i) = -6 + 2i - 4 - 4i = -10 - 2i$.
+
+**Step 4: the products.**
+- $(2 + i)(-1 + 4i) = -2 + 8i - i + 4i^2 = -2 + 7i - 4 = -6 + 7i$ (remember $i^2 = -1$);
+- $(-5)(-10 - 2i) = 50 + 10i$.
+
+So $\det C_{44} = (-6 + 7i) + (50 + 10i) = 44 + 17i$.
+
+**Step 5.** $\det A = i(44 + 17i) = 44i + 17i^2 = -17 + 44i$.
+:::
+
+::: exercise hard Exercise 9.14 of the handouts: roots and the imaginary unit
+Let us compute the determinant of the matrix
+$$B = \begin{pmatrix} 5i & 4\sqrt 2 & 0 & \sqrt 2 \\ 5i & 8\sqrt 2 & 0 & -\sqrt 2 \\ -5i & -4\sqrt 2 & -1 & 2\sqrt 2 \\ -10i & 4\sqrt 2 & 1 & \sqrt 2 \end{pmatrix}.$$
+::: solution
+**Step 1: take out the common factors** (Proposition 9.11, by columns). The first column is $5i \cdot {}^t(1, 1, -1, -2)$, the second is $4\sqrt 2 \cdot {}^t(1, 2, -1, 1)$, the fourth is $\sqrt 2 \cdot {}^t(1, -1, 2, 1)$. So
+$$\det B = 5i \cdot 4\sqrt 2 \cdot \sqrt 2 \cdot \det M = 40i \det M, \qquad M = \begin{pmatrix} 1 & 1 & 0 & 1 \\ 1 & 2 & 0 & -1 \\ -1 & -1 & -1 & 2 \\ -2 & 1 & 1 & 1 \end{pmatrix}$$
+(because $\sqrt 2 \cdot \sqrt 2 = 2$ and $5 \cdot 4 \cdot 2 = 40$).
+
+**Step 2: Laplace along the third column** of $M$, which has two zeros. What remains is $m_{33} = -1$ (sign $(-1)^{3+3} = +$) and $m_{43} = 1$ (sign $(-1)^{4+3} = -$):
+$$\det M = +(-1) \det C_{33} - 1 \cdot \det C_{43}.$$
+
+**Step 3: the two $3 \times 3$ determinants.**
+- $C_{33}$ (without row 3 and column 3) $= \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & -1 \\ -2 & 1 & 1 \end{pmatrix}$. Along the first row: $1 \cdot (2 + 1) - 1 \cdot (1 - 2) + 1 \cdot (1 + 4) = 3 + 1 + 5 = 9$.
+- $C_{43}$ (without row 4 and column 3) $= \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & -1 \\ -1 & -1 & 2 \end{pmatrix}$. Along the first row: $1 \cdot (4 - 1) - 1 \cdot (2 - 1) + 1 \cdot (-1 + 2) = 3 - 1 + 1 = 3$.
+
+So $\det M = -9 - 3 = -12$.
+
+**Step 4.** $\det B = 40i \cdot (-12) = -480i$.
+
+Without step 1 you can still do the calculations, but with products like $5i \cdot 8\sqrt 2 \cdot \sqrt 2$ in every row: taking out the common factors is the way not to make mistakes.
+:::
+
+::: exercise basic Four $2 \times 2$ determinants
+Compute: (a) $\det \begin{pmatrix} 3 & 1 \\ 4 & 2 \end{pmatrix}$; (b) $\det \begin{pmatrix} 2 & -3 \\ 4 & -6 \end{pmatrix}$; (c) $\det \begin{pmatrix} \cos t & -\sin t \\ \sin t & \cos t \end{pmatrix}$; (d) $\det \begin{pmatrix} 1 + i & 2 \\ 1 & 1 - i \end{pmatrix}$.
+::: solution
+(a) $3 \cdot 2 - 1 \cdot 4 = 6 - 4 = 2$.
+
+(b) $2 \cdot (-6) - (-3) \cdot 4 = -12 + 12 = 0$. The columns ${}^t(2, 4)$ and ${}^t(-3, -6)$ are multiples ($-\frac 32$ times the first): the parallelogram is squashed.
+
+(c) $\cos t \cdot \cos t - (-\sin t) \cdot \sin t = \cos^2 t + \sin^2 t = 1$ for every $t$: this matrix rotates the plane by the angle $t$, and rotations do not change areas (lesson L22).
+
+(d) $(1 + i)(1 - i) - 2 \cdot 1 = (1 - i^2) - 2 = (1 + 1) - 2 = 0$.
+:::
+
+::: exercise basic A $3 \times 3$ in two ways
+Compute $\det A$ for $A = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 3 & -1 \\ 0 & 1 & 4 \end{pmatrix}$ (a) with the formula of the six terms and (b) with Laplace along the first row.
+::: solution
+(a) Term by term, in the order of the formula:
+- $a_{11}a_{22}a_{33} = 2 \cdot 3 \cdot 4 = 24$;
+- $-a_{11}a_{23}a_{32} = -2 \cdot (-1) \cdot 1 = 2$;
+- $-a_{13}a_{22}a_{31} = -1 \cdot 3 \cdot 0 = 0$;
+- $-a_{12}a_{21}a_{33} = -0 \cdot 1 \cdot 4 = 0$;
+- $+a_{12}a_{23}a_{31} = 0 \cdot (-1) \cdot 0 = 0$;
+- $+a_{13}a_{21}a_{32} = 1 \cdot 1 \cdot 1 = 1$.
+
+Total $24 + 2 + 1 = 27$.
+
+(b) Along the first row, signs $+, -, +$, and $a_{12} = 0$:
+$$\det A = 2 \det \begin{pmatrix} 3 & -1 \\ 1 & 4 \end{pmatrix} - 0 + 1 \cdot \det \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}$$
+
+$$= 2 \cdot (12 + 1) + 1 \cdot (1 - 0) = 26 + 1 = 27.$$
+Same result: Laplace is just a tidy way of grouping the same six terms.
+:::
+
+::: exercise intermediate Permutations and terms
+(a) Find the sign of the permutations $[2\ 1\ 4\ 3]$, $[4\ 3\ 2\ 1]$ and $[2\ 3\ 4\ 1]$ of $S_4$. (b) Write, with its sign, the term of the formula of the $4 \times 4$ determinant that corresponds to $[2\ 3\ 4\ 1]$. (c) Can the product $a_{11}a_{21}a_{33}a_{44}$ appear in the formula of the $4 \times 4$ determinant?
+::: solution
+(a) With swaps of places:
+- $[2\ 1\ 4\ 3]$: from $[1\ 2\ 3\ 4]$ I swap the first two places and the last two: 2 swaps, sign $+1$.
+- $[4\ 3\ 2\ 1]$: I swap the first with the fourth place ($[4\ 2\ 3\ 1]$) and the second with the third ($[4\ 3\ 2\ 1]$): 2 swaps, sign $+1$.
+- $[2\ 3\ 4\ 1]$: $[1\ 2\ 3\ 4] \to [2\ 1\ 3\ 4] \to [2\ 3\ 1\ 4] \to [2\ 3\ 4\ 1]$: 3 swaps, sign $-1$. With inversions: $(2, 1)$, $(3, 1)$, $(4, 1)$, three, sign $-1$ ✓.
+
+(b) $\sigma(1) = 2$, $\sigma(2) = 3$, $\sigma(3) = 4$, $\sigma(4) = 1$: the term is $-a_{12}a_{23}a_{34}a_{41}$.
+
+(c) No: $a_{11}$ and $a_{21}$ are both in **column 1**. Each term takes only one number from each column.
+:::
+
+::: exercise intermediate A $4 \times 4$ with Laplace
+Compute $\det \begin{pmatrix} 1 & 2 & 0 & 3 \\ 0 & 1 & 0 & 0 \\ 4 & 1 & 2 & 1 \\ 1 & 0 & 0 & 2 \end{pmatrix}$.
+::: solution
+The second row has a single non-zero number, $a_{22} = 1$, with sign $(-1)^{2+2} = +$. Deleting row 2 and column 2:
+$$\det = 1 \cdot \det \begin{pmatrix} 1 & 0 & 3 \\ 4 & 2 & 1 \\ 1 & 0 & 2 \end{pmatrix}.$$
+In the new matrix the second column has a single non-zero number, $2$ in position $(2, 2)$, sign $+$:
+$$\det \begin{pmatrix} 1 & 0 & 3 \\ 4 & 2 & 1 \\ 1 & 0 & 2 \end{pmatrix} = 2 \det \begin{pmatrix} 1 & 3 \\ 1 & 2 \end{pmatrix} = 2 \cdot (2 - 3) = -2.$$
+The determinant we want is $-2$. Two clever expansions and a single $2 \times 2$ determinant.
+:::
+
+::: exercise intermediate Properties without calculations
+Let $A$ be a $3 \times 3$ matrix with $\det A = 5$. Compute: (a) $\det({}^tA)$; (b) $\det(2A)$; (c) $\det(-A)$; (d) the determinant of the matrix obtained from $A$ by multiplying the second row by 3; (e) the determinant of the matrix obtained from $A$ by replacing the first column with a column of zeros.
+::: solution
+(a) $\det({}^tA) = \det A = 5$ (Proposition 9.5).
+
+(b) $\det(2A) = 2^3 \cdot 5 = 40$ (Corollary 9.12, $n = 3$).
+
+(c) $\det(-A) = (-1)^3 \cdot 5 = -5$.
+
+(d) A single row multiplied by 3: $3 \cdot 5 = 15$ (Proposition 9.11).
+
+(e) $0$, because a column is zero (Proposition 9.10), whatever $A$ was.
+:::
+
+::: exercise hard Skew-symmetric matrices of odd order
+(a) Prove that every real skew-symmetric matrix $A$ of size $n \times n$ with $n$ odd has $\det A = 0$ (Martelli, Exercise 3.11). (b) Check with $N = \begin{pmatrix} 0 & 2 & -1 \\ -2 & 0 & 3 \\ 1 & -3 & 0 \end{pmatrix}$. (c) Show that for $n = 2$ it is not true.
+::: solution
+(a) Three equalities:
+1. $\det({}^tA) = \det A$ (Proposition 9.5);
+2. $A$ is skew-symmetric, that is ${}^tA = -A$, so $\det({}^tA) = \det(-A)$;
+3. $\det(-A) = (-1)^n \det A = -\det A$, because $n$ is odd (Corollary 9.12).
+
+Putting them together: $\det A = -\det A$, that is $2\det A = 0$, so $\det A = 0$.
+
+(b) With Sarrus: the diagonals going down give $0 \cdot 0 \cdot 0 + 2 \cdot 3 \cdot 1 + (-1) \cdot (-2) \cdot (-3) = 0 + 6 - 6 = 0$; those going up $(-1) \cdot 0 \cdot 1 + 0 \cdot 3 \cdot (-3) + 2 \cdot (-2) \cdot 0 = 0$. Difference $0$ ✓.
+
+(c) $\det \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} = 0 - (1)(-1) = 1 \neq 0$: with even $n$ $(-1)^n = 1$ and the argument says nothing.
+:::
+
+::: exercise exam The determinant of a $5 \times 5$
+Compute the determinant of $A = \begin{pmatrix} 2 & 1 & 0 & 0 & 0 \\ 0 & 1 & 1 & 0 & 0 \\ 0 & 0 & 1 & 2 & 0 \\ 0 & 0 & 0 & 1 & 1 \\ 1 & 0 & 0 & 0 & 3 \end{pmatrix}$. Possible answers: (a) $6$; (b) $8$; (c) $0$; (d) $4$; (e) $12$.
+::: solution
+In the first column the non-zero numbers are $a_{11} = 2$ (sign $+$) and $a_{51} = 1$ (sign $(-1)^{5+1} = +$).
+
+- Deleting row 1 and column 1: $C_{11} = \begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 1 & 2 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 3 \end{pmatrix}$, upper triangular, $\det C_{11} = 1 \cdot 1 \cdot 1 \cdot 3 = 3$.
+- Deleting row 5 and column 1: $C_{51} = \begin{pmatrix} 1 & 0 & 0 & 0 \\ 1 & 1 & 0 & 0 \\ 0 & 1 & 2 & 0 \\ 0 & 0 & 1 & 1 \end{pmatrix}$, lower triangular, $\det C_{51} = 1 \cdot 1 \cdot 2 \cdot 1 = 2$.
+
+$\det A = 2 \cdot 3 + 1 \cdot 2 = 6 + 2 = 8$: answer **(b)**. The distractor $6$ is for those who forget the second term, $4$ for those who subtract it.
+:::
+
+::: exercise exam For which $k$ is the determinant zero?
+Let $A = \begin{pmatrix} k & 1 & 0 \\ 1 & k & 1 \\ 0 & 1 & k \end{pmatrix}$ with $k \in \R$. Compute $\det A$ as a function of $k$ and find the values of $k$ for which $\det A = 0$.
+::: solution
+Along the first row (signs $+, -, +$, and $a_{13} = 0$):
+$$\det A = k \det \begin{pmatrix} k & 1 \\ 1 & k \end{pmatrix} - 1 \cdot \det \begin{pmatrix} 1 & 1 \\ 0 & k \end{pmatrix} + 0$$
+
+$$= k(k^2 - 1) - (k - 0) = k^3 - k - k = k^3 - 2k.$$
+Factoring: $\det A = k(k^2 - 2)$, which vanishes for $k = 0$ or $k^2 = 2$, that is $k = \sqrt 2$ or $k = -\sqrt 2$.
+
+Check with $k = 0$: $A = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}$ has equal first and third rows, and with Sarrus the determinant is $0 + 0 + 0 - (0 + 0 + 0) = 0$ ✓. In lesson L10 you will discover that these are exactly the $k$ for which $A$ is **not invertible**: it is the first question of many exam problems.
+:::
+
+::: exercise exam Factoring out $\pi$ and $e$
+Compute the determinant of $\begin{pmatrix} 2 & \pi & 1 \\ 4 & 3\pi & 0 \\ e & 2\pi e & e \end{pmatrix}$. Possible answers: (a) $7\pi e$; (b) $0$; (c) $\pi e$; (d) $7$; (e) $6\pi + e$.
+::: solution
+The third row has the common factor $e$: $(e, 2\pi e, e) = e \cdot (1, 2\pi, 1)$. Then the second column becomes $(\pi, 3\pi, 2\pi) = \pi \cdot (1, 3, 2)$. Taking out the two factors (Proposition 9.11):
+$$\det = \pi e \det \begin{pmatrix} 2 & 1 & 1 \\ 4 & 3 & 0 \\ 1 & 2 & 1 \end{pmatrix}.$$
+Along the third column (signs $+, -, +$, and $0$ in the middle):
+$$\det \begin{pmatrix} 2 & 1 & 1 \\ 4 & 3 & 0 \\ 1 & 2 & 1 \end{pmatrix} = 1 \cdot \det \begin{pmatrix} 4 & 3 \\ 1 & 2 \end{pmatrix} - 0 + 1 \cdot \det \begin{pmatrix} 2 & 1 \\ 4 & 3 \end{pmatrix}$$
+
+$$= (8 - 3) + (6 - 4) = 5 + 2 = 7.$$
+The determinant is $7\pi e$: answer **(a)**.
+:::
+
+::: exercise intermediate The area of a triangle (beyond the handouts)
+Use the determinant to compute the area of the triangle with vertices $P = (1, 1)$, $Q = (4, 2)$, $R = (2, 5)$.
+::: solution
+The triangle is half of the parallelogram built on the sides $Q - P = (3, 1)$ and $R - P = (1, 4)$. The area of the parallelogram is the absolute value of the determinant of the matrix that has these vectors as columns:
+$$\det \begin{pmatrix} 3 & 1 \\ 1 & 4 \end{pmatrix} = 12 - 1 = 11.$$
+Area of the triangle: $\frac{11}2 = 5.5$. The positive sign also tells you that going along $P \to Q \to R$ you turn anticlockwise.
+:::
+
+## Review questions
+
+::: question For which matrices does the determinant exist?
+Only for square $n \times n$ matrices. A $3 \times 4$ matrix has no determinant.
+:::
+
+::: question What is the formula of the $2 \times 2$ determinant and what does it measure?
+$\det \begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc$. In absolute value it is the area of the parallelogram whose sides are the columns; the sign tells the orientation.
+:::
+
+::: question What is the sign of a permutation?
+If the permutation is obtained from $[1\ 2\ \cdots\ n]$ with $k$ swaps, the sign is $(-1)^k$: $+1$ if $k$ is even, $-1$ if it is odd. Every transposition has sign $-1$, the identity $+1$.
+:::
+
+::: question How do you read Definition 9.1 of the determinant?
+It is the sum, over all the $n!$ permutations $\sigma$, of the product $a_{1\sigma(1)} \cdots a_{n\sigma(n)}$ with the sign of $\sigma$. Each product takes one number from each row and from each column.
+:::
+
+::: question How many terms does the formula have for $n = 3$ and what signs do they have?
+Six: three with plus ($a_{11}a_{22}a_{33}$, $a_{12}a_{23}a_{31}$, $a_{13}a_{21}a_{32}$) and three with minus ($a_{11}a_{23}a_{32}$, $a_{13}a_{22}a_{31}$, $a_{12}a_{21}a_{33}$), those of the three transpositions.
+:::
+
+::: question What is the determinant of a triangular matrix, and why?
+The product of the entries of the main diagonal: in the formula every term contains at least one zero, except the one of the identity permutation.
+:::
+
+::: question What is $\det I_n$?
+$1$: $I_n$ is diagonal with all 1s on the diagonal.
+:::
+
+::: question What does Proposition 9.5 say and what is it for?
+$\det({}^tA) = \det A$. It is used to carry over to the columns everything that holds for the rows, for example the Laplace expansion along a column.
+:::
+
+::: question State the Laplace expansion along row $i$.
+$\det A = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det C_{ij}$, where $C_{ij}$ is the submatrix obtained by deleting row $i$ and column $j$.
+:::
+
+::: question How do you remember the signs $(-1)^{i+j}$?
+Like a chessboard, with $+$ at the top left: $+$ when $i + j$ is even, $-$ when it is odd.
+:::
+
+::: question Which row or column should you choose for Laplace?
+The one with the most zeros: the terms with $a_{ij} = 0$ disappear and you do not need to compute their $\det C_{ij}$.
+:::
+
+::: question What happens to the determinant if you multiply a row by $c$? And if you multiply the whole matrix?
+A row times $c$: the determinant is multiplied by $c$ (Proposition 9.11). The whole $n \times n$ matrix: by $c^n$, because $n$ rows are multiplied (Corollary 9.12).
+:::
+
+::: question Why does a matrix with a zero row have zero determinant?
+Expanding along that row, every term contains a factor $0$ (Proposition 9.10).
+:::
+
+## Glossary
+
+```glossary
+Determinant $\det A$ | Number associated with a square matrix: $\sum_{\sigma \in S_n} \sgn(\sigma) a_{1\sigma(1)} \cdots a_{n\sigma(n)}$.
+Permutation | Reordering of $\{1, \dots, n\}$; it is written $[\sigma(1) \cdots \sigma(n)]$.
+$S_n$ | The set of the $n!$ permutations of $\{1, \dots, n\}$.
+Transposition | Permutation that swaps two elements and leaves the others fixed; it has sign $-1$.
+Sign $\sgn(\sigma)$ | $(-1)^k$, where $k$ is the number of swaps with which $\sigma$ is obtained.
+Inversion | Pair of numbers in which the larger comes before the smaller; the parity of the inversions gives the sign.
+Sarrus' rule | Scheme for $3 \times 3$ matrices only: diagonals going down with plus, diagonals going up with minus.
+Triangular matrix | Square matrix with zeros below (upper) or above (lower) the diagonal; the determinant is the product of the diagonal.
+Identity matrix $I_n$ | 1 on the diagonal and 0 elsewhere; $\det I_n = 1$.
+Submatrix $C_{ij}$ | The $(n - 1) \times (n - 1)$ matrix obtained by deleting row $i$ and column $j$.
+Laplace expansion | $\det A = \sum_j (-1)^{i+j} a_{ij} \det C_{ij}$ along a row, or the analogous formula along a column.
+Chessboard of signs | The arrangement of the signs $(-1)^{i+j}$, with $+$ at the top left and alternating signs.
+Zero row | If a row or column is all zeros, the determinant is $0$.
+Row multiplied by $c$ | Multiplying a row (or column) by $c$ multiplies the determinant by $c$; so $\det(cA) = c^n \det A$.
+Signed area | For real $2 \times 2$ matrices, $\det A$ is the area of the parallelogram of the columns, with the sign of the orientation.
+```
+
+## Checklist
+
+```checklist
+- I can say for which matrices the determinant exists and I recognise the trap of the non-square matrix.
+- I can compute a $2 \times 2$ determinant and explain what it measures.
+- I can find the sign of a permutation and read Definition 9.1.
+- I can write the six terms of the $3 \times 3$ determinant and use Sarrus' rule.
+- I can compute the determinant of a triangular matrix and I know that $\det I_n = 1$.
+- I know that $\det({}^tA) = \det A$ and why it lets me work on the columns too.
+- I can expand a determinant with Laplace along any row or column, with the chessboard signs.
+- I can choose the handiest row or column and reduce a $4 \times 4$ or $5 \times 5$ to a few calculations.
+- I can factor out a common factor from a row or a column.
+- I can use $\det(cA) = c^n \det A$ and avoid $\det(A + B) = \det A + \det B$.
+- I can compute determinants with complex numbers, roots, $\pi$ and $e$ without a calculator.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 9 "Matrici II", pp. 41–45: sections 9.A (determinant, triangular matrices, identity), 9.B (Laplace expansion), 9.C (properties) and 9.D (exercises) are followed in order, with the page next to each heading; definitions, propositions and examples keep their numbering (Definitions 9.1 and 9.4, Propositions 9.3, 9.5, 9.10, 9.11, Theorem 9.6, Corollaries 9.7 and 9.12, Examples 9.2, 9.8, 9.9, Exercises 9.13 and 9.14).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §3.3.1–3.3.4 (definition, colourings, Proposition 3.3.2, triangular matrices, identity, Theorem 3.3.5), §3.3.10 (positive and negative bases, area and volume), §3.4.6 (Remark 3.4.9 on the determinant of a sum), Exercises 3.10 and 3.11.
+- **Exam**: papers of the Linear Algebra exams from 24/01/2024 to 07/09/2026 (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); reported with my own solution: question 4 of 10/07/2025, question 3 of 02/09/2025 and question 2 of 03/06/2026; the others are cited by number.
+- The **"Beyond the handouts"** parts (geometric meaning, Sarrus' rule, sign with inversions, proofs of 9.5 and of the idea behind Laplace, unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L10_matrices_3.md -->
+> File: `ai_context/MDAG/lessons/L10_matrices_3.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L10
+title: Matrices III
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L10
+description: >-
+  Notes on lesson L10 of Linear Algebra and Geometry (MDAG, part 2): how the determinant changes with the Gauss
+  moves, zero determinant and dependent rows, Binet's theorem, cofactors, the inverse matrix and the invertibility
+  criterion, with exam-style quizzes and worked exercises.
+lede: >-
+  How to compute a large determinant quickly (with the Gauss moves), when it is zero, why
+  $\det(AB) = \det A \cdot \det B$, and how to find the inverse of a matrix with cofactors. At the end you can
+  answer the question that opens many exam problems: for which values of the parameter is the matrix invertible?
+material: handouts
+facts:
+  Handouts: lesson 10 · pp. 46–49
+  Book: Martelli, §3.3.5, §3.3.7, §3.4.5–3.4.7
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 10 "Matrici III"; B. Martelli, Geometria e algebra lineare, §3.3.5, §3.3.7, §3.3.9 and §3.4.5–3.4.8
+italian_file: L10_matrici_3.html
+html_notes: notes/MDAG/L10_matrices_3.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L10_matrici_3.md
+```
+
+## In brief
+
+- Three **Gauss moves** on the rows and their effect on the determinant: swapping two rows **changes the sign**; multiplying a row by $\lambda$ **multiplies** the determinant by $\lambda$; adding to a row a multiple of another **does not change it**. The same holds for columns.
+- The practical method for large determinants: with the moves you make the matrix triangular, then you multiply the diagonal, taking the swaps into account.
+- $\det A = 0$ **if and only if** a row (or a column) is a linear combination of the others. Two equal or proportional rows give $\det A = 0$ straight away.
+- **Binet's theorem**: $\det(AB) = \det A \cdot \det B$ for square matrices of the same order. So $\det(A^k) = (\det A)^k$ and $\det(AB) = \det(BA)$.
+- $A$ is **invertible** if there exists $A^{-1}$ with $AA^{-1} = A^{-1}A = I_n$. Then $\det(A^{-1}) = \frac 1{\det A}$.
+- The **cofactors** are $\mathrm{cof}_{ij} = (-1)^{i+j} \det C_{ij}$, and $A \cdot {}^t(\mathrm{cof}(A)) = \det(A) \cdot I_n$ holds.
+- A square matrix is invertible **if and only if** $\det A \neq 0$, and then $A^{-1} = \frac 1{\det A}\, {}^t(\mathrm{cof}(A))$. For $2 \times 2$ matrices: swap the diagonal, change the sign of the other two, divide by $ad - bc$.
+- At the exam: "for which $k$ is the matrix invertible?" in the problems, $\det(A^3)$ with Binet and the traps about Gauss moves in the quizzes.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## The Gauss moves and the determinant (p. 46)
+
+Take $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, which has $\det A = 4 - 6 = -2$, and change its rows in three different ways:
+
+| Move | New matrix | Determinant | Compared with $-2$ |
+|---|---|---|---|
+| I swap the two rows | $\begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix}$ | $6 - 4 = 2$ | changes sign |
+| I multiply the first row by 5 | $\begin{pmatrix} 5 & 10 \\ 3 & 4 \end{pmatrix}$ | $20 - 30 = -10$ | multiplied by 5 |
+| I subtract 3 times the first row from the second | $\begin{pmatrix} 1 & 2 \\ 0 & -2 \end{pmatrix}$ | $-2 - 0 = -2$ | the same |
+
+The third move is the most precious: it has created a zero **without changing** the determinant, and the matrix has become triangular. This is the content of the first proposition of the lesson.
+
+> [!PROP] 10.1 · The determinant and the row moves
+> Let $A$ be an $n \times n$ matrix.
+> 1. If $A'$ is obtained from $A$ by swapping two rows, then $\det(A') = -\det(A)$.
+> 2. If $A'$ is obtained from $A$ by multiplying a row of $A$ by a scalar $\lambda$, then $\det(A') = \lambda \det(A)$.
+> 3. If $A'$ is obtained from $A$ by adding to a row a multiple of another row, then $\det(A') = \det A$.
+>
+> The very same rules also hold for columns (instead of rows).
+
+The process of obtaining $A'$ from $A$ in one of the three ways above is called a **Gauss move**. In lesson L11 the moves will become the tool for solving linear systems, with this notation (where $R_i$ is the $i$-th row):
+
+| Type | Move | Written | Effect on the determinant |
+|---|---|---|---|
+| (I) | swap two rows | $R_i \leftrightarrow R_j$ | changes sign |
+| (II) | multiply a row by $\lambda \neq 0$ | $R_i \to \lambda R_i$ | multiplied by $\lambda$ |
+| (III) | add to a row a multiple of another | $R_i \to R_i + \lambda R_j$ ($j \neq i$) | unchanged |
+
+Piece by piece:
+
+- Point (2) is Proposition 9.11 of the previous lesson, and it holds for every $\lambda$. As a **Gauss move**, though, it is used only with $\lambda \neq 0$ (lesson L11): multiplying a row by $0$ would wipe out information.
+- In point (3) the row that **changes** is $R_i$, and it is changed by adding a multiple of **another** row $R_j$, which stays as it is.
+- "The very same rules also hold for columns": swapping two columns changes the sign, and so on. The reason is $\det({}^tA) = \det A$ (Proposition 9.5): the columns of $A$ are the rows of ${}^tA$.
+
+> [!PROOF] of Proposition 10.1
+> The handouts give a three-line explanation; here it is with all the steps.
+>
+> **(1) Swap.** For $n = 2$: $\det \begin{pmatrix} c & d \\ a & b \end{pmatrix} = cb - da = -(ad - bc)$. For $n \ge 3$ we use induction on the order: there is at least one row $i$ **not touched** by the swap. Expanding $\det A'$ along that row, each submatrix $C'_{ij}$ is the $C_{ij}$ of $A$ with two rows swapped, and it has order $n - 1$: by the induction hypothesis $\det C'_{ij} = -\det C_{ij}$. So every term changes sign, and so does the sum.
+>
+> **A consequence:** if $A$ has **two equal rows**, then $\det A = 0$. Indeed, swapping the two equal rows you get the same matrix, but by (1) the determinant changes sign: $\det A = -\det A$, that is $\det A = 0$.
+>
+> **(2)** It is Proposition 9.11.
+>
+> **(3) Adding a multiple.** Let $A'$ be obtained with $R_i \to R_i + \lambda R_k$. I expand $\det A'$ along row $i$; the submatrices $C_{ij}$ do not contain row $i$, so they are those of $A$:
+> $$\det A' = \sum_j (-1)^{i+j}(a_{ij} + \lambda a_{kj}) \det C_{ij} = \det A + \lambda \sum_j (-1)^{i+j} a_{kj} \det C_{ij}.$$
+> The last sum is the expansion along row $i$ of the matrix that has row $k$ **in place of** row $i$: a matrix with two equal rows, whose determinant is $0$. What remains is $\det A' = \det A$.
+>
+> **Columns:** just apply everything to ${}^tA$, because $\det({}^tA) = \det A$.
+
+> [!EXAMPLE] 10.2 · A zero determinant with two moves
+> Let
+> $$A = \begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \\ 7 & 8 & 9 \end{pmatrix}.$$
+> If we subtract the first row of $A$ from the second and from the third row ($R_2 \to R_2 - R_1$, $R_3 \to R_3 - R_1$), we get a new matrix
+> $$A' = \begin{pmatrix} 1 & 2 & 3 \\ 3 & 3 & 3 \\ 6 & 6 & 6 \end{pmatrix}.$$
+> Since these are Gauss moves of the third type, $\det(A') = \det(A)$. Now we can subtract 2 times the second row from the third ($R_3 \to R_3 - 2R_2$: $(6, 6, 6) - 2 \cdot (3, 3, 3) = (0, 0, 0)$). We get
+> $$A'' = \begin{pmatrix} 1 & 2 & 3 \\ 3 & 3 & 3 \\ 0 & 0 & 0 \end{pmatrix},$$
+> with $\det(A'') = \det(A') = \det(A)$. Since $A''$ has a row with only $0$ entries, $\det(A'') = 0$ (Proposition 9.10), and so the matrix $A$ also has determinant $0$.
+
+### Gauss's method for determinants
+
+> [!METHOD] Make it triangular and multiply the diagonal
+> 1. With moves of type (III), $R_i \to R_i + \lambda R_j$, create zeros **below** the diagonal, one column at a time: in the first column use the first row, in the second the second, and so on. The determinant does not change.
+> 2. If on the diagonal, where you need a non-zero number, there is a $0$, **swap** that row with one further down (type (I)) and **change the sign**. If below that $0$ there are only zeros, you can stop: the final triangular matrix will have a $0$ on the diagonal, so the determinant is $0$.
+> 3. If you use a move (II) for convenience (for example to divide a row by 2), **remember the factor**: $\det A' = \lambda \det A$, so $\det A = \frac 1\lambda \det A'$.
+> 4. When the matrix is triangular, the determinant is the product of the diagonal (Proposition 9.3), with the sign $(-1)^{\text{number of swaps}}$.
+> 5. If a zero row appears halfway, the determinant is $0$ and you can stop.
+>
+> You can also mix it with Laplace: after creating zeros in a column, expand along that column.
+
+> [!EXAMPLE] · A $3 \times 3$ that needs a swap
+> $$B = \begin{pmatrix} 0 & 2 & 1 \\ 1 & 1 & 1 \\ 2 & 4 & 5 \end{pmatrix}$$
+> In place $(1, 1)$ there is a $0$: I swap the first two rows (the determinant changes sign), then I create the zeros.
+> $$B \xrightarrow{R_1 \leftrightarrow R_2} \begin{pmatrix} 1 & 1 & 1 \\ 0 & 2 & 1 \\ 2 & 4 & 5 \end{pmatrix} \xrightarrow{R_3 \to R_3 - 2R_1} \begin{pmatrix} 1 & 1 & 1 \\ 0 & 2 & 1 \\ 0 & 2 & 3 \end{pmatrix} \xrightarrow{R_3 \to R_3 - R_2} \begin{pmatrix} 1 & 1 & 1 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}$$
+> The final matrix is triangular with diagonal $1, 2, 2$: determinant $4$. There was **one** swap, so $\det B = -4$. Check with Sarrus: $(0 + 4 + 4) - (2 + 0 + 10) = 8 - 12 = -4$ ✓.
+
+> [!EXAMPLE] · A $4 \times 4$ with moves of the third type only
+> $$C = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 1 & 2 & 2 & 2 \\ 1 & 2 & 3 & 3 \\ 1 & 2 & 3 & 4 \end{pmatrix} \xrightarrow{\substack{R_2 \to R_2 - R_1 \\ R_3 \to R_3 - R_1 \\ R_4 \to R_4 - R_1}} \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 1 \\ 0 & 1 & 2 & 2 \\ 0 & 1 & 2 & 3 \end{pmatrix}$$
+> $$\xrightarrow{\substack{R_3 \to R_3 - R_2 \\ R_4 \to R_4 - R_2}} \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 1 & 2 \end{pmatrix} \xrightarrow{R_4 \to R_4 - R_3} \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+> No swaps, diagonal of 1s: $\det C = 1$. With the definition it would have been 24 terms.
+
+In the tool below there is the matrix of Example 10.2. Press "Compute": the tool uses moves different from those of the handouts ($R_2 \to R_2 - 4R_1$ and $R_3 \to R_3 - 7R_1$, then $R_3 \to R_3 - 2R_2$), but the determinant is the same, $0$. Then try the matrices $B$ and $C$ of this section (`0 2 1; 1 1 1; 2 4 5` and `1 1 1 1; 1 2 2 2; 1 2 3 3; 1 2 3 4`): in the case of $B$ the tool points out the row swap and the change of sign.
+
+```widget gauss
+title: The determinant with the Gauss moves
+matrice: 1 2 3; 4 5 6; 7 8 9
+modo: determinante
+modi: determinante
+```
+
+> [!PITFALL] The move "$R_2 \to 2R_2 - R_1$" is not harmless
+> This move contains two: first $R_2 \to 2R_2$ (type (II), determinant times 2), then $R_2 \to R_2 - R_1$ (type (III), no effect). The determinant ends up **multiplied by 2**. If you use it to avoid fractions you must remember it and divide at the end. In the same way, a matrix "reduced to row echelon form" with arbitrary moves does **not** have the same determinant as the starting matrix: it is a classic quiz trap ("Towards the exam").
+
+## Zero determinant and dependent rows (p. 47)
+
+In Example 10.2 the determinant came out $0$ because the third row "depended" on the other two: $(7, 8, 9) = 2 \cdot (4, 5, 6) - (1, 2, 3)$. It is not a coincidence.
+
+> [!PROP] 10.3 · Zero determinant
+> $\det(A) = 0$ if and only if a row (or a column) of $A$ is a linear combination of the others.
+
+The handouts prove one of the two directions: if a row is a combination of the others, the determinant is zero. Suppose for example that the first row is a linear combination of the others, that is, that there are numbers $c_2, \dots, c_n$ with
+
+$$A_1 = c_2A_2 + \dots + c_nA_n.$$
+
+1. Let $A'$ be the matrix obtained from $A$ by replacing the first row with the **zero row**. By Proposition 9.10, $\det(A') = 0$.
+2. Now we apply to $A'$, one after the other, moves of the third type: we add to the first row first $c_2A_2$, then $c_3A_3$, and so on up to $c_nA_n$. The determinant never changes.
+3. At the end the first row is $0 + c_2A_2 + \dots + c_nA_n = A_1$: the final matrix is exactly $A$.
+4. So $\det(A) = \det(A') = 0$.
+
+The proposition states that the other direction holds too: if $\det A = 0$, then some row is a linear combination of the others. The handouts do not prove it.
+
+> [!NOTE] Which "Property 1"?
+> In the handouts, on p. 47, step 1 is justified with "by Property 1": it is the first property of section 9.C, that is Proposition 9.10 (a zero row gives a zero determinant), not point (1) of Proposition 10.1 (swapping two rows).
+
+> [!BEYOND] · the other direction, and the link with the rank
+> Martelli (Proposition 3.3.12) proves that for $A \in M(n, \K)$
+> $$\det A \neq 0 \iff \rk A = n,$$
+> with the Gauss moves: the moves do not change the rank and change the determinant only by non-zero factors, and for an $n \times n$ row echelon matrix both conditions say "all the numbers on the diagonal are non-zero". From this follows the other direction of Proposition 10.3: if $\det A = 0$, then $\rk A < n$; the row rank is the same (Proposition 8.6), so the $n$ rows are linearly dependent, and one of them is a linear combination of the others (Proposition 7.2). Another consequence (Martelli, Proposition 3.3.15): **$n$ vectors of $\K^n$ form a basis if and only if the matrix that has them as columns has non-zero determinant.**
+
+> [!EXAMPLE] · Zero determinants at a glance
+> $$\det \begin{pmatrix} 1 & 5 & 1 \\ 2 & 7 & 2 \\ 3 & 0 & 3 \end{pmatrix} = 0, \qquad \det \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \\ 5 & 1 & 9 \end{pmatrix} = 0, \qquad \det \begin{pmatrix} 1 & 2 & 3 & 4 \\ 5 & 6 & 7 & 8 \\ 9 & 10 & 11 & 12 \\ 13 & 14 & 15 & 16 \end{pmatrix} = 0.$$
+> In the first one the first and third **columns** are equal; in the second the second row is twice the first; in the third each row exceeds the previous one by $(4, 4, 4, 4)$, so $R_2 - R_1 = R_3 - R_2$, that is $R_3 = 2R_2 - R_1$: one row is a combination of the others.
+
+## Binet's theorem (p. 47)
+
+With $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ ($\det A = -2$) and $B = \begin{pmatrix} 2 & 0 \\ 1 & 3 \end{pmatrix}$ ($\det B = 6$):
+
+$$AB = \begin{pmatrix} 1 \cdot 2 + 2 \cdot 1 & 0 + 2 \cdot 3 \\ 3 \cdot 2 + 4 \cdot 1 & 0 + 4 \cdot 3 \end{pmatrix} = \begin{pmatrix} 4 & 6 \\ 10 & 12 \end{pmatrix}, \qquad \det(AB) = 48 - 60 = -12 = (-2) \cdot 6.$$
+
+The determinant of the product is the product of the determinants. The handouts include it without proof.
+
+> [!THEOREM] 10.4 · Binet's theorem
+> If $A$ and $B$ are square matrices of the same order, then
+> $$\det(A \cdot B) = \det(A) \cdot \det(B).$$
+
+Piece by piece, with three consequences you need to know:
+
+- You need **square matrices of the same order**, so that $AB$ exists and is square.
+- **$\det(AB) = \det(BA)$**, even though in general $AB \neq BA$: both are equal to $\det A \cdot \det B$, and between numbers the product is commutative.
+- **Powers:** $\det(A^2) = \det(A \cdot A) = (\det A)^2$ and in general $\det(A^k) = (\det A)^k$. To compute $\det(A^3)$ you do **not** compute $A^3$.
+- Careful with sums: the theorem talks only about products, and in general $\det(A + B) \neq \det A + \det B$ (lesson L09).
+
+> [!PROOF] · Binet's theorem for $2 \times 2$ matrices
+> Let $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ and $B = \begin{pmatrix} e & f \\ g & h \end{pmatrix}$. Then $AB = \begin{pmatrix} ae + bg & af + bh \\ ce + dg & cf + dh \end{pmatrix}$ and
+> $$\det(AB) = (ae + bg)(cf + dh) - (af + bh)(ce + dg).$$
+> Expanding, the terms $aecf$ and $afce$ cancel out, and so do $bgdh$ and $bhdg$. What remains is
+> $$aedh + bgcf - afdg - bhce = ad(eh - fg) - bc(eh - fg)$$
+> $$= (ad - bc)(eh - fg) = \det A \cdot \det B.$$
+> The general proof (Martelli, Theorem 3.4.7) uses the definition with permutations and the fact that a matrix with two equal rows has zero determinant.
+
+### Invertible matrices
+
+The number $\frac 12$ is the inverse of $2$ because $2 \cdot \frac 12 = 1$. For matrices the role of $1$ is played by $I_n$.
+
+> [!BEYOND] · what "invertible" means
+> The handouts use the word from here on; the definition is Martelli's (§3.4.5). A square matrix $A \in M(n)$ is **invertible** if there exists a matrix $B \in M(n)$ such that
+> $$AB = BA = I_n.$$
+> Such a $B$ is **unique** and is called the **inverse** of $A$, $A^{-1}$. Unique because, if $B$ and $B'$ both work, $B = BI_n = B(AB') = (BA)B' = I_nB' = B'$.
+
+> [!EXAMPLE] · An inverse and a matrix with no inverse
+> $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$ has inverse $A^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$ (Martelli, §3.4.7). Check:
+> $$\begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix} = \begin{pmatrix} 2 - 1 & -2 + 2 \\ 1 - 1 & -1 + 2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix},$$
+> and in the same way $A^{-1}A = I_2$.
+>
+> $N = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$ instead is **not** invertible, even though it is not zero: for every $B$, the product $NB$ has a zero second row (it is $0$ times the first row of $B$ plus $0$ times the second), so it cannot be $I_2$.
+
+> [!COROLLARY] 10.5 · Determinant of the inverse
+> Let $A$ be an invertible square matrix. Then
+> $$\det(A^{-1}) = \frac 1{\det(A)}.$$
+
+The handouts' explanation: from Binet's theorem and $AA^{-1} = I_n$,
+
+$$1 = \det(I_n) = \det(AA^{-1}) = \det(A) \det(A^{-1}),$$
+
+from which the formula follows. In particular an invertible matrix has $\det A \neq 0$: if $\det A = 0$, the product $\det(A)\det(A^{-1})$ would be $0$ and not $1$.
+
+> [!PITFALL] Binet holds only for square matrices
+> If $A$ is $3 \times 2$, writing $\det(A\,{}^tA) = \det A \cdot \det({}^tA)$ makes no sense: $\det A$ does not exist. The product $A\,{}^tA$ instead is $3 \times 3$ and has a determinant. For example with $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$ you find $\det(A\,{}^tA) = 0$ (its columns are combinations of the two columns of $A$, so the rank is at most 2), while ${}^tA\,A = \begin{pmatrix} 2 & 2 \\ 2 & 5 \end{pmatrix}$ has determinant $6$.
+
+## The cofactors of a matrix (pp. 47–48)
+
+In the Laplace expansion every number $a_{ij}$ is multiplied by $(-1)^{i+j} \det C_{ij}$: chessboard sign and determinant of the submatrix. This number has a name.
+
+> [!DEF] 10.6 · Cofactors
+> Consider a square matrix $A$. Its **cofactors** $\mathrm{cof}_{ij} := (-1)^{i+j} \det(C_{ij})$ form a square matrix of order $n$
+> $$\mathrm{cof}(A) = (\mathrm{cof}_{ij})$$
+> called the **cofactor matrix** of $A$.
+
+Piece by piece:
+
+- $C_{ij}$ is the submatrix obtained by deleting row $i$ and column $j$ (lesson L09).
+- The cofactor $\mathrm{cof}_{ij}$ is a **number**: the determinant of $C_{ij}$ with the chessboard sign.
+- The cofactor matrix has the same size as $A$: in place $(i, j)$ there is $\mathrm{cof}_{ij}$.
+
+> [!EXAMPLE] · The cofactors of a $2 \times 2$
+> With $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ the submatrices are numbers: deleting row 1 and column 1 leaves $4$, and so on.
+> $$\mathrm{cof}_{11} = +4, \quad \mathrm{cof}_{12} = -3, \quad \mathrm{cof}_{21} = -2, \quad \mathrm{cof}_{22} = +1, \qquad \mathrm{cof}(A) = \begin{pmatrix} 4 & -3 \\ -2 & 1 \end{pmatrix}.$$
+
+With cofactors the Laplace expansion along row $i$ can be rewritten compactly:
+
+$$\det A = \sum_{j=1}^n a_{ij}\, \mathrm{cof}_{ij} \qquad \forall i \in \{1, \dots, n\}.$$
+
+Numbers of row $i$ times cofactors **of the same row**. And what if you use the cofactors of **another** row instead? From the proof of point (3) of Proposition 10.1 we know that the sum of the products of the entries of any row (or column) with the cofactors of another row (or of another column) is $0$:
+
+$$0 = \sum_{j=1}^n a_{ij}\, \mathrm{cof}_{kj} \qquad \forall i, k \in \{1, \dots, n\},\ i \neq k.$$
+
+The reason: this sum is the expansion along row $k$ of the matrix that has row $i$ in place of row $k$. That matrix has two equal rows, so zero determinant.
+
+> [!EXAMPLE] · Right cofactors and "wrong" cofactors
+> $$A = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 3 & 1 \end{pmatrix}, \qquad \mathrm{cof}(A) = \begin{pmatrix} 1 & -1 & 3 \\ 3 & 2 & -6 \\ -1 & 1 & 2 \end{pmatrix}.$$
+> For example $\mathrm{cof}_{12} = -\det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = -1$ and $\mathrm{cof}_{23} = -\det \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix} = -6$.
+> - Row 1 times the cofactors of row 1: $2 \cdot 1 + 0 \cdot (-1) + 1 \cdot 3 = 5 = \det A$.
+> - Row 1 times the cofactors of row 2: $2 \cdot 3 + 0 \cdot 2 + 1 \cdot (-6) = 0$.
+> - Row 3 times the cofactors of row 3: $0 \cdot (-1) + 3 \cdot 1 + 1 \cdot 2 = 5$ again.
+
+Putting the two formulas together you get an identity between matrices.
+
+> [!PROP] 10.7
+> $$A \cdot {}^t(\mathrm{cof}(A)) = \det(A) \cdot I_n = {}^t(\mathrm{cof}(A)) \cdot A.$$
+
+Proof (from the handouts), step by step.
+
+1. Let $K = A \cdot {}^t(\mathrm{cof}(A))$. Its entry $(i, j)$ is row $i$ of $A$ times column $j$ of ${}^t(\mathrm{cof}(A))$, which is **row** $j$ of $\mathrm{cof}(A)$:
+   $$k_{ij} = \sum_\ell a_{i\ell}\, \mathrm{cof}_{j\ell}.$$
+2. If $i = j$, this is the Laplace expansion of $\det(A)$ along row $i$: $k_{ii} = \det A$.
+3. If $i \neq j$, it is the determinant of the matrix obtained by replacing row $j$ with row $i$: it is zero, because that matrix has two equal rows.
+4. So $K$ has $\det A$ on the diagonal and $0$ elsewhere: $K = \det(A) I_n$. In the same way, with columns, one proves ${}^t(\mathrm{cof}(A))A = \det(A) I_n$. $\square$
+
+With the matrix of the example: $A \cdot {}^t(\mathrm{cof}(A)) = \begin{pmatrix} 5 & 0 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 5 \end{pmatrix} = 5I_3$.
+
+## The inverse of a matrix (p. 48)
+
+If $\det A \neq 0$, just divide Proposition 10.7 by $\det A$ and you get a matrix that multiplied by $A$ gives $I_n$: the inverse.
+
+> [!PROP] 10.8 · Invertibility and formula of the inverse
+> Let $A$ be a square matrix of order $n \ge 2$. The matrix $A$ is invertible if and only if $\det(A) \neq 0$. If $A$ is invertible, then
+> $$A^{-1} = \frac 1{\det(A)} \cdot {}^t(\mathrm{cof}(A)).$$
+
+Proof (from the handouts), in both directions.
+
+- **If $A$ is invertible, then $\det A \neq 0$.** There is a matrix $B$ such that $A \cdot B = I_n$. By Binet's theorem $\det(A \cdot B) = \det(A) \cdot \det(B)$; on the other hand $\det(I_n) = 1$. We deduce $\det(A) \cdot \det(B) = 1$, so $\det(A) \neq 0$.
+- **If $\det A \neq 0$, then $A$ is invertible.** We define $B := \frac 1{\det(A)} \cdot {}^t(\mathrm{cof}(A))$. By Proposition 10.7, $A \cdot {}^t(\mathrm{cof}(A)) = \det(A) \cdot I_n = {}^t(\mathrm{cof}(A)) \cdot A$. Since $\det(A) \neq 0$ we can multiply by $\frac 1{\det(A)}$, getting $A \cdot B = I_n = B \cdot A$. So $A$ is invertible and its inverse is $B$. $\square$
+
+The hypothesis $n \ge 2$ is needed only because cofactors require deleting a row and a column. For $n = 1$ everything is simpler: $(a)$ is invertible if and only if $a \neq 0$, and $(a)^{-1} = \left(\frac 1a\right)$.
+
+> [!EXAMPLE] · The formula for $2 \times 2$ matrices
+> For $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ the cofactors are $\mathrm{cof}_{11} = d$, $\mathrm{cof}_{12} = -c$, $\mathrm{cof}_{21} = -b$, $\mathrm{cof}_{22} = a$. Transposing and dividing by the determinant:
+> $$A^{-1} = \frac 1{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix} \qquad (ad - bc \neq 0).$$
+> In words: **swap the two numbers on the diagonal, change the sign of the other two, divide by the determinant**. For example
+> $$\begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}^{-1} = \frac 1{6 - 5} \begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix} = \begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix}.$$
+> Check: $\begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix} \begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix} = \begin{pmatrix} 6 - 5 & -3 + 3 \\ 10 - 10 & -5 + 6 \end{pmatrix} = I_2$ ✓.
+
+> [!METHOD] The inverse of a $3 \times 3$ with cofactors
+> 1. Compute $\det A$. If it is $0$, the matrix is **not invertible**: stop.
+> 2. Compute the nine $2 \times 2$ determinants $\det C_{ij}$ (delete row $i$ and column $j$).
+> 3. Put in the chessboard signs: you get $\mathrm{cof}(A)$.
+> 4. **Transpose**: ${}^t(\mathrm{cof}(A))$.
+> 5. Divide everything by $\det A$.
+> 6. Check at least one row of $A \cdot A^{-1}$: it must give the corresponding row of $I_3$.
+
+> [!EXAMPLE] · A $3 \times 3$ inverse step by step
+> $$A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \\ 1 & 0 & 1 \end{pmatrix}$$
+> **1.** Along the first row: $\det A = 1 \cdot (1 - 0) - 2 \cdot (0 - 1) + 0 = 1 + 2 = 3 \neq 0$: $A$ is invertible.
+>
+> **2–3.** The nine cofactors (determinant of the submatrix, then sign):
+>
+> | | column 1 | column 2 | column 3 |
+> |---|---|---|---|
+> | row 1 | $+\det \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1$ | $-\det \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = 1$ | $+\det \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1$ |
+> | row 2 | $-\det \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} = -2$ | $+\det \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = 1$ | $-\det \begin{pmatrix} 1 & 2 \\ 1 & 0 \end{pmatrix} = 2$ |
+> | row 3 | $+\det \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix} = 2$ | $-\det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = -1$ | $+\det \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} = 1$ |
+>
+> **4–5.** $\mathrm{cof}(A) = \begin{pmatrix} 1 & 1 & -1 \\ -2 & 1 & 2 \\ 2 & -1 & 1 \end{pmatrix}$, so
+> $$A^{-1} = \frac 13 \begin{pmatrix} 1 & -2 & 2 \\ 1 & 1 & -1 \\ -1 & 2 & 1 \end{pmatrix}.$$
+> **6.** Row 1 of $A$, $(1, 2, 0)$, times the columns of ${}^t(\mathrm{cof}(A))$: $1 + 2 = 3$, $\ -2 + 2 = 0$, $\ 2 - 2 = 0$; divided by 3 it gives $(1, 0, 0)$ ✓.
+
+In the tool below there is the matrix of Exercise 10.10. The tool computes the inverse with another method, the Gauss moves on the side-by-side matrix $(A \mid I_3)$ (Martelli, §3.4.7; you will fully understand it with linear systems, lessons L11–L13). The result is the same one you find with cofactors, because the inverse is unique: compare it with the solution of the exercise. Also try a matrix with zero determinant, such as `1 2 3; 4 5 6; 7 8 9`.
+
+```widget gauss
+title: The inverse matrix, with the steps
+matrice: 2 -1 0; -2 1 1; 1 -1 3
+modo: inversa
+modi: inversa
+```
+
+> [!PITFALL] Four mistakes about the inverse
+> - **Forgetting to transpose** the cofactor matrix: for non-symmetric matrices the result is wrong (in this lesson's quiz the non-transposed cofactor matrix is one of the wrong answers).
+> - Forgetting the chessboard signs, or dividing only some entries by $\det A$.
+> - Inverting entry by entry: the inverse of $\begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}$ is **not** $\begin{pmatrix} 1/3 & 1 \\ 1/5 & 1/2 \end{pmatrix}$.
+> - Thinking that $(A + B)^{-1} = A^{-1} + B^{-1}$, or that $(AB)^{-1} = A^{-1}B^{-1}$: the right order is $(AB)^{-1} = B^{-1}A^{-1}$ (exercise 8).
+
+> [!BEYOND] · many faces of the same property
+> For a square matrix $A \in M(n, \K)$ the following are equivalent:
+> - $A$ is invertible;
+> - $\det A \neq 0$ (Proposition 10.8);
+> - no row (or column) is a linear combination of the others (Proposition 10.3);
+> - $\rk A = n$ (Martelli, Proposition 3.3.12);
+> - the columns of $A$ form a basis of $\K^n$ (Martelli, Proposition 3.3.15);
+> - for every $b \in \K^n$ the system $Ax = b$ has one and only one solution, $x = A^{-1}b$ (Martelli, §3.4.8; lessons L11–L13).
+>
+> In exam questions you keep moving from one to another.
+
+> [!BEYOND] · where to find it in the book
+> In Martelli's book: the determinant and the Gauss moves in §3.3.5 (pp. 97–98, Proposition 3.3.7); determinant and maximum rank in §3.3.7 (pp. 99–100, Proposition 3.3.12); bases and determinant in §3.3.9 (p. 101, Proposition 3.3.15); invertible matrices in §3.4.5 (pp. 106–107, Proposition 3.4.5); Binet's theorem and the determinant of the inverse in §3.4.6 (pp. 107–108, Theorem 3.4.7 and Corollary 3.4.8); the inverse with the Gauss moves and with cofactors in §3.4.7 (pp. 108–110, Propositions 3.4.10–3.4.12, Example 3.4.13); systems with an invertible matrix and Cramer's rule in §3.4.8 (p. 110).
+
+## Towards the exam
+
+The Linear Algebra and Geometry written test has 10 quiz questions with 5 answers each (you need at least 6 correct answers for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. The details are in lesson L01.
+
+This lesson is among the best "paid" at the exam:
+
+| Type of question | Exam sessions (number) | What you need |
+|---|---|---|
+| "The determinant of $A^3$ (or $A^4$) is…" | 06/09/2024 (4), 07/02/2025 (5), 05/02/2026 (5), 03/07/2026 (6) | Binet: $(\det A)^3$ |
+| determinant and trace of a product | 16/01/2025 (3) | Binet, triangular matrices |
+| determinant of $A\,{}^tA$ with $A$ not square | 03/06/2025 (9) | Binet does not apply; rank |
+| matrix "reduced to row echelon form", what you can deduce | 06/09/2024 (7) | Proposition 10.1 |
+| problem: "for which $k$ is the matrix invertible?" or "compute the determinant" | 24/01/2024, 06/09/2024, 07/02/2025, 15/01/2026, 05/02/2026, 03/07/2026 (problem 11, point 1) | $\det A \neq 0$ with a parameter |
+| problem: the matrix of the inverse map | 10/07/2024 (problem 11, point 2) | inverse with cofactors |
+
+Three real questions, with the worked solution.
+
+> [!EXAM] Exam of 06/09/2024, question 7
+> Let $A$ be a square matrix that, reduced to row echelon form with Gauss's algorithm, becomes $\begin{pmatrix} 1 & 1 & 1 \\ 0 & 2 & 3 \\ 0 & 0 & 1 \end{pmatrix}$. Which of the following is **not** necessarily true? (a) $\det A = 2$; (b) $\dim \Ker A = 0$; (c) $A$ is invertible; (d) for every $b \in \R^3$ the system $Ax = b$ has a unique solution; (e) $\mathrm{rank}(A) = 3$.
+>
+> **Solution.** The row echelon matrix has determinant $1 \cdot 2 \cdot 1 = 2$. But Gauss's algorithm can use swaps (which change the sign) and multiplications of rows by $\lambda \neq 0$ (which multiply the determinant by $\lambda$): if $s$ swaps and multiplications by $\lambda_1, \dots, \lambda_t$ were used, then $2 = (-1)^s \lambda_1 \cdots \lambda_t \det A$, that is $\det A = \frac{\pm 2}{\lambda_1 \cdots \lambda_t}$. It is not necessarily $2$: answer **(a)**. What remains true is that $\det A \neq 0$, because every move multiplies the determinant by a non-zero number. So $A$ is invertible (c), has rank 3 (e), and statements (b) and (d), which you will see in lessons L11–L16, are consequences of invertibility.
+
+> [!EXAM] Exam of 03/07/2026, question 6
+> Let $A \in M(3, \R)$ be the matrix $A = \begin{pmatrix} 1 & 0 & 2 \\ 3 & -1 & 1 \\ 2 & 0 & 5 \end{pmatrix}$. The determinant of $A^3$ is: (a) $-8$; (b) $-1$; (c) $0$; (d) $1$; (e) $8$.
+>
+> **Solution.** You do not compute $A^3$. By Binet $\det(A^3) = (\det A)^3$. The second column has a single non-zero number, $-1$ in position $(2, 2)$, with sign $+$: expanding along the second column,
+> $$\det A = -1 \cdot \det \begin{pmatrix} 1 & 2 \\ 2 & 5 \end{pmatrix} = -(5 - 4) = -1.$$
+> So $\det(A^3) = (-1)^3 = -1$: answer **(b)**. The answers $\pm 8$ are for those who mix it up with $\det(2A)$ or get the sign wrong.
+
+> [!EXAM] Exam of 15/01/2026, problem 11, point (1)
+> Consider the matrix $A = \begin{pmatrix} 1 & k^2 & 0 \\ k & k + 1 & k \\ 0 & k & 1 \end{pmatrix}$ in $M(3, \R)$, where $k$ is a real parameter. Determine for which values of $k$ the matrix $A$ is invertible.
+>
+> **Solution.** $A$ is invertible if and only if $\det A \neq 0$ (Proposition 10.8). I expand along the first row, where $a_{13} = 0$:
+> $$\det A = 1 \cdot \det \begin{pmatrix} k + 1 & k \\ k & 1 \end{pmatrix} - k^2 \det \begin{pmatrix} k & k \\ 0 & 1 \end{pmatrix}$$
+> $$= (k + 1 - k^2) - k^2 \cdot k = -k^3 - k^2 + k + 1.$$
+> I group terms to factor: $-k^3 - k^2 + k + 1 = -k^2(k + 1) + (k + 1) = (k + 1)(1 - k^2) = (k + 1)(1 - k)(1 + k)$, that is
+> $$\det A = -(k - 1)(k + 1)^2.$$
+> It vanishes only for $k = 1$ and $k = -1$. **$A$ is invertible if and only if $k \neq 1$ and $k \neq -1$.** Check with $k = 1$: $A = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 2 & 1 \\ 0 & 1 & 1 \end{pmatrix}$ and the second row is the sum of the other two, so the determinant is $0$ ✓.
+
+**The method for "for which $k$ is it invertible".**
+
+1. Write $\det A$ as a function of $k$: Laplace along the row or column with the most zeros, or first a few moves of the third type to create zeros (it does not change the determinant).
+2. **Factor** the polynomial in $k$: take out common factors, look for simple roots ($k = 0, \pm 1, \pm 2$) and divide with Ruffini (lesson L04).
+3. Write the answer in the form "$A$ is invertible if and only if $k \neq \dots$". The excluded values are the ones that, in the rest of the problem, have to be studied separately (rank, solutions, eigenvalues).
+
+**The method for $\det(A^n)$, $\det(2A^{-1})$ and the like.** Compute only $\det A$ and then combine: $\det(A^n) = (\det A)^n$, $\det(A^{-1}) = \frac 1{\det A}$, $\det(cA) = c^n \det A$ (lesson L09), $\det({}^tA) = \det A$. For example, if $A$ is $3 \times 3$ with $\det A = 4$: $\det(2A^{-1}) = 2^3 \cdot \frac 14 = 2$.
+
+Mistakes to avoid:
+
+- writing $\det(A^3) = 3\det A$;
+- believing that the row echelon matrix has the same determinant as the starting matrix;
+- applying Binet to non-square matrices;
+- forgetting the transposition in the formula of the inverse, or the signs of the cofactors;
+- stating "invertible for every $k$" without having factored the determinant.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the table of the three moves and their effect on the determinant; two proportional rows $\Rightarrow \det = 0$; Binet $\det(AB) = \det A \det B$, $\det(A^n) = (\det A)^n$, $\det(A^{-1}) = 1/\det A$; $\mathrm{cof}_{ij} = (-1)^{i+j}\det C_{ij}$; $A^{-1} = \frac 1{\det A}\,{}^t(\mathrm{cof}(A))$; the formula of the $2 \times 2$ inverse; "invertible $\iff \det \neq 0 \iff \rk = n$".
+
+## Quiz
+
+```quiz
+Q: Let $A$ be a square matrix that, reduced to row echelon form with Gauss's algorithm, becomes $\begin{pmatrix} 2 & 1 & 3 \\ 0 & 1 & 4 \\ 0 & 0 & 3 \end{pmatrix}$. Which of the following statements is **not** necessarily true?
++ $\det A = 6$.
+- $\det A \neq 0$.
+- $A$ is invertible.
+- $\rk A = 3$.
+- The rows of $A$ are linearly independent.
+= Moves of type (I) and (II) change the determinant (sign, factor $\lambda \neq 0$), so $\det A$ can be different from $2 \cdot 1 \cdot 3 = 6$. But every move multiplies the determinant by a non-zero number: $\det A \neq 0$, so $A$ is invertible, has rank 3 and independent rows. Similar to the exam of 06/09/2024, question 7.
+
+Q: Let $A = \begin{pmatrix} 1 & 0 & 2 \\ 2 & -2 & 1 \\ 1 & 0 & 3 \end{pmatrix}$. The determinant of $A^3$ is:
++ $-8$
+- $8$
+- $-6$
+- $-2$
+- $64$
+= Along the second column: $\det A = (-2) \cdot (+1) \cdot \det \begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix} = -2 \cdot 1 = -2$. By Binet $\det(A^3) = (-2)^3 = -8$. $-6 = 3\det A$ is the classic mistake. Similar to the exams of 03/07/2026 (question 6), 05/02/2026 (question 5) and 07/02/2025 (question 5).
+
+Q: Let $A = \begin{pmatrix} 2 & 5 & -1 \\ 0 & 1 & 3 \\ 0 & 0 & 1 \end{pmatrix}$ and $B = \begin{pmatrix} 1 & 0 & 0 \\ 4 & 3 & 0 \\ 7 & -2 & 1 \end{pmatrix}$. What is $\det(AB)$?
++ $6$
+- $5$
+- $1$
+- $36$
+- $0$
+= $A$ is upper triangular with diagonal $2, 1, 1$: $\det A = 2$. $B$ is lower triangular with diagonal $1, 3, 1$: $\det B = 3$. By Binet $\det(AB) = 2 \cdot 3 = 6$, without computing the product. $5$ is the sum of the determinants. Similar to the exam of 16/01/2025, question 3.
+
+Q: Let $A$ be a $3 \times 3$ matrix with $\det A = 4$. What is $\det(2A^{-1})$?
++ $2$
+- $\frac 12$
+- $8$
+- $\frac 18$
+- $32$
+= $\det(2A^{-1}) = 2^3 \det(A^{-1}) = 8 \cdot \frac 14 = 2$ (Corollary 9.12 and Corollary 10.5). $\frac 12 = 2 \cdot \frac 14$ forgets that the factor 2 multiplies all three rows.
+
+Q: The inverse of $\begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}$ is:
++ $\begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$
+- $\begin{pmatrix} -2 & 1 \\ 5 & -3 \end{pmatrix}$
+- $\begin{pmatrix} 1/3 & 1 \\ 1/5 & 1/2 \end{pmatrix}$
+- $\begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}$
+= The determinant is $6 - 5 = 1$. You swap the numbers on the diagonal, change the sign of the other two and divide by 1. Among the wrong answers: $\begin{pmatrix} 2 & -5 \\ -1 & 3 \end{pmatrix}$ is the non-transposed cofactor matrix, the one with $\frac 13$ and $\frac 15$ inverts entry by entry, $\begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}$ does not swap the diagonal. Check: $\begin{pmatrix} 3 & 1 \\ 5 & 2 \end{pmatrix}\begin{pmatrix} 2 & -1 \\ -5 & 3 \end{pmatrix} = I_2$.
+
+Q: For which $k \in \R$ is the matrix $A = \begin{pmatrix} 1 & 0 & k \\ 0 & k & 1 \\ k & 1 & 0 \end{pmatrix}$ invertible?
++ For every $k \neq -1$.
+- For every $k \neq 1$.
+- For every $k \neq 0$ and $k \neq \pm 1$.
+- For no $k$.
+- For every $k \in \R$.
+= Along the first row: $\det A = 1 \cdot (0 - 1) - 0 + k \cdot (0 - k^2) = -1 - k^3 = -(k + 1)(k^2 - k + 1)$. The factor $k^2 - k + 1$ has no real roots (discriminant $1 - 4 < 0$), so $\det A = 0$ only for $k = -1$. Similar to problems 11 of the exams of 07/02/2025 and 03/07/2026.
+
+Q: Let $A$ be a $3 \times 3$ matrix with $\det A = 5$. You swap the first and third rows, then you do $R_2 \to R_2 - 4R_1$, then $R_3 \to 2R_3$. What is the determinant of the matrix obtained?
++ $-10$
+- $10$
+- $-5$
+- $5$
+- $-40$
+= Swap: $-5$. Move of the third type: it stays $-5$. Third row times 2: $-10$ (Proposition 10.1).
+
+Q: Which of these statements holds for all matrices $A, B \in M(n)$?
++ $\det(AB) = \det(BA)$.
+- $AB = BA$.
+- $\det(A + B) = \det A + \det B$.
+- $\det(2A) = 2\det A$.
+- If $A$ and $B$ are invertible, $(AB)^{-1} = A^{-1}B^{-1}$.
+= By Binet $\det(AB) = \det A \det B = \det B \det A = \det(BA)$, even though $AB \neq BA$. The determinant is not additive, $\det(2A) = 2^n\det A$, and the inverse of a product is $B^{-1}A^{-1}$.
+
+Q: Given $A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$, the determinant of $A \cdot {}^tA$ is:
++ $0$
+- $6$
+- It cannot be computed, since $A$ is not square.
+- $36$
+- $1$
+= $A\,{}^tA$ is $3 \times 3$, so the determinant exists. Its columns are linear combinations of the two columns of $A$ (every column of $A\,{}^tA$ is $A$ times a vector), so its rank is at most 2 and the columns are dependent: $\det = 0$ (Proposition 10.3). $6$ is $\det({}^tA\,A)$, the product in the other order. Similar to the exam of 03/06/2025, question 9.
+
+Q: Let $A = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 1 & 1 \\ 1 & 0 & 1 \end{pmatrix}$. What is the entry in position $(1, 3)$ of $A^{-1}$? Write a fraction.
+N: 1/3
+= $\det A = 2 \cdot 1 - 1 \cdot (0 - 1) + 0 = 3$. By Proposition 10.8, $(A^{-1})_{13} = \frac{\mathrm{cof}_{31}}{\det A}$: watch out for the indices swapped by the transposition. $\mathrm{cof}_{31} = +\det \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = 1$, so $(A^{-1})_{13} = \frac 13$. If you use $\mathrm{cof}_{13} = -1$ you find $-\frac 13$, which is instead entry $(3, 1)$.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 10.9 of the handouts: an inverse with a parameter
+Determine for which values of the parameter $k \in \R$ the matrix $A = \begin{pmatrix} k - 5 & 3 \\ -2 & k \end{pmatrix}$ is invertible. For each $k$ for which the matrix is invertible, find the inverse matrix.
+::: solution
+**Determinant.** $\det A = (k - 5) \cdot k - 3 \cdot (-2) = k^2 - 5k + 6$. It is a second-degree polynomial with roots $k = \frac{5 \pm \sqrt{25 - 24}}2 = \frac{5 \pm 1}2$, that is $k = 3$ and $k = 2$:
+$$\det A = (k - 2)(k - 3).$$
+**Invertibility.** By Proposition 10.8, $A$ is invertible if and only if $\det A \neq 0$, that is **for $k \neq 2$ and $k \neq 3$**.
+
+**Inverse.** With the formula for $2 \times 2$ matrices (I swap the diagonal, change the sign of the other two, divide by the determinant):
+$$A^{-1} = \frac 1{(k - 2)(k - 3)} \begin{pmatrix} k & -3 \\ 2 & k - 5 \end{pmatrix}.$$
+**Check:**
+$$\begin{pmatrix} k - 5 & 3 \\ -2 & k \end{pmatrix} \begin{pmatrix} k & -3 \\ 2 & k - 5 \end{pmatrix} = \begin{pmatrix} k^2 - 5k + 6 & -3(k - 5) + 3(k - 5) \\ -2k + 2k & 6 + k^2 - 5k \end{pmatrix}$$
+
+$$= (k^2 - 5k + 6)\, I_2,$$
+and dividing by $(k - 2)(k - 3) = k^2 - 5k + 6$ you get $I_2$ ✓. For example with $k = 0$: $A = \begin{pmatrix} -5 & 3 \\ -2 & 0 \end{pmatrix}$ and $A^{-1} = \frac 16 \begin{pmatrix} 0 & -3 \\ 2 & -5 \end{pmatrix}$.
+:::
+
+::: exercise intermediate Exercise 10.10 of the handouts: an integer $3 \times 3$
+Prove that the matrix $B = \begin{pmatrix} 2 & -1 & 0 \\ -2 & 1 & 1 \\ 1 & -1 & 3 \end{pmatrix}$ is invertible and compute its inverse.
+::: solution
+**Invertibility.** Along the first row (signs $+, -, +$, and $b_{13} = 0$):
+$$\det B = 2 \det \begin{pmatrix} 1 & 1 \\ -1 & 3 \end{pmatrix} - (-1) \det \begin{pmatrix} -2 & 1 \\ 1 & 3 \end{pmatrix} + 0$$
+
+$$= 2 \cdot (3 + 1) + (-6 - 1) = 8 - 7 = 1.$$
+$\det B = 1 \neq 0$: $B$ is invertible, and $B^{-1} = {}^t(\mathrm{cof}(B))$ (you divide by 1).
+
+**The nine cofactors.**
+
+| | column 1 | column 2 | column 3 |
+|---|---|---|---|
+| row 1 | $+\det \begin{pmatrix} 1 & 1 \\ -1 & 3 \end{pmatrix} = 4$ | $-\det \begin{pmatrix} -2 & 1 \\ 1 & 3 \end{pmatrix} = 7$ | $+\det \begin{pmatrix} -2 & 1 \\ 1 & -1 \end{pmatrix} = 1$ |
+| row 2 | $-\det \begin{pmatrix} -1 & 0 \\ -1 & 3 \end{pmatrix} = 3$ | $+\det \begin{pmatrix} 2 & 0 \\ 1 & 3 \end{pmatrix} = 6$ | $-\det \begin{pmatrix} 2 & -1 \\ 1 & -1 \end{pmatrix} = 1$ |
+| row 3 | $+\det \begin{pmatrix} -1 & 0 \\ 1 & 1 \end{pmatrix} = -1$ | $-\det \begin{pmatrix} 2 & 0 \\ -2 & 1 \end{pmatrix} = -2$ | $+\det \begin{pmatrix} 2 & -1 \\ -2 & 1 \end{pmatrix} = 0$ |
+
+For example $\mathrm{cof}_{12}$: I delete row 1 and column 2, what remains is $\begin{pmatrix} -2 & 1 \\ 1 & 3 \end{pmatrix}$ with determinant $-6 - 1 = -7$; the sign in position $(1, 2)$ is $-$, so $\mathrm{cof}_{12} = 7$.
+
+**Transpose.**
+$$\mathrm{cof}(B) = \begin{pmatrix} 4 & 7 & 1 \\ 3 & 6 & 1 \\ -1 & -2 & 0 \end{pmatrix} \quad\Longrightarrow\quad B^{-1} = {}^t(\mathrm{cof}(B)) = \begin{pmatrix} 4 & 3 & -1 \\ 7 & 6 & -2 \\ 1 & 1 & 0 \end{pmatrix}.$$
+
+**Check** of $BB^{-1}$ row by row:
+- row $(2, -1, 0)$: $8 - 7 = 1$, $\ 6 - 6 = 0$, $\ -2 + 2 = 0$;
+- row $(-2, 1, 1)$: $-8 + 7 + 1 = 0$, $\ -6 + 6 + 1 = 1$, $\ 2 - 2 + 0 = 0$;
+- row $(1, -1, 3)$: $4 - 7 + 3 = 0$, $\ 3 - 6 + 3 = 0$, $\ -1 + 2 + 0 = 1$.
+
+You get $I_3$ ✓. Since $\det B = 1$, the inverse has only integer numbers.
+:::
+
+::: exercise intermediate Exercise 10.11 of the handouts: a complex inverse
+Compute the inverse of the matrix $C = \begin{pmatrix} 2 - i & 0 \\ 3 & 2 + i \end{pmatrix}$.
+::: solution
+**Determinant.** $C$ is lower triangular: $\det C = (2 - i)(2 + i) = 4 - i^2 = 4 + 1 = 5 \neq 0$. So $C$ is invertible (Proposition 10.8 holds over any field, $\C$ included).
+
+**Inverse** with the formula for $2 \times 2$ matrices ($a = 2 - i$, $b = 0$, $c = 3$, $d = 2 + i$):
+$$C^{-1} = \frac 15 \begin{pmatrix} 2 + i & 0 \\ -3 & 2 - i \end{pmatrix} = \begin{pmatrix} \frac 25 + \frac 15 i & 0 \\ -\frac 35 & \frac 25 - \frac 15 i \end{pmatrix}.$$
+
+**Check:**
+$$\begin{pmatrix} 2 - i & 0 \\ 3 & 2 + i \end{pmatrix} \begin{pmatrix} 2 + i & 0 \\ -3 & 2 - i \end{pmatrix} = \begin{pmatrix} (2 - i)(2 + i) & 0 \\ 3(2 + i) - 3(2 + i) & (2 + i)(2 - i) \end{pmatrix} = \begin{pmatrix} 5 & 0 \\ 0 & 5 \end{pmatrix},$$
+and divided by 5 it gives $I_2$ ✓. Notice that the inverse of a lower triangular matrix is again lower triangular, with the inverses on the diagonal: $\frac 1{2 - i} = \frac{2 + i}5$.
+:::
+
+::: exercise basic Determinants with the Gauss moves
+Compute with the Gauss moves: (a) $\det \begin{pmatrix} 0 & 2 & 1 \\ 1 & 1 & 1 \\ 2 & 4 & 5 \end{pmatrix}$; (b) $\det \begin{pmatrix} 1 & 2 & 1 & 0 \\ 2 & 5 & 3 & 1 \\ 1 & 2 & 2 & 1 \\ 0 & 1 & 1 & 3 \end{pmatrix}$.
+::: solution
+(a) It is the matrix $B$ of the section on the method: a swap $R_1 \leftrightarrow R_2$, then $R_3 \to R_3 - 2R_1$ and $R_3 \to R_3 - R_2$ lead to a triangular matrix with diagonal $1, 2, 2$. Determinant $-(1 \cdot 2 \cdot 2) = -4$.
+
+(b) Only moves of the third type, which do not change the determinant:
+$$\xrightarrow{\substack{R_2 \to R_2 - 2R_1 \\ R_3 \to R_3 - R_1}} \begin{pmatrix} 1 & 2 & 1 & 0 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 1 & 1 & 3 \end{pmatrix} \xrightarrow{R_4 \to R_4 - R_2} \begin{pmatrix} 1 & 2 & 1 & 0 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 2 \end{pmatrix}.$$
+Triangular with diagonal $1, 1, 1, 2$: the determinant is $2$.
+:::
+
+::: exercise basic Zero determinants without calculations
+Explain why these matrices have zero determinant, without computing it:
+$$A = \begin{pmatrix} 3 & 1 & 4 \\ 1 & 5 & 9 \\ 3 & 1 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 2 & -6 & 1 \\ 1 & -3 & 7 \\ 0 & 0 & 2 \end{pmatrix}, \quad C = \begin{pmatrix} 1 & 0 & 1 \\ 2 & 1 & 3 \\ 3 & 1 & 4 \end{pmatrix}.$$
+::: solution
+- $A$: the first and third rows are equal. The first is a combination of the others ($A_1 = 0 \cdot A_2 + 1 \cdot A_3$), so $\det A = 0$ (Proposition 10.3). Or: $R_3 \to R_3 - R_1$ creates a zero row without changing the determinant.
+- $B$: the second column is $-3$ times the first, ${}^t(-6, -3, 0) = -3 \cdot {}^t(2, 1, 0)$. A column that is a combination of the others: $\det B = 0$.
+- $C$: the third row is the sum of the first two, $(1 + 2, 0 + 1, 1 + 3) = (3, 1, 4)$. So $\det C = 0$. Here the third column is also the sum of the first two. In general, if the rows of a square matrix are dependent so are the columns, because row rank and column rank are equal (Proposition 8.6), even though the relation between the columns can have different coefficients.
+:::
+
+::: exercise intermediate Binet and its consequences
+Let $A, B \in M(3, \R)$ with $\det A = 2$ and $\det B = -3$. Compute: (a) $\det(AB)$; (b) $\det(A^2B)$; (c) $\det(A^{-1})$; (d) $\det({}^tA\,B^{-1})$; (e) $\det(3AB)$; (f) $\det(B^4)$.
+::: solution
+(a) Binet: $2 \cdot (-3) = -6$.
+
+(b) $\det(A^2B) = (\det A)^2 \det B = 4 \cdot (-3) = -12$.
+
+(c) $\det(A^{-1}) = \frac 12$ (Corollary 10.5).
+
+(d) $\det({}^tA) = 2$ and $\det(B^{-1}) = -\frac 13$, so $\det({}^tA\,B^{-1}) = 2 \cdot \left(-\frac 13\right) = -\frac 23$.
+
+(e) $3AB$ is $3 \times 3$: $\det(3AB) = 3^3 \det(AB) = 27 \cdot (-6) = -162$.
+
+(f) $\det(B^4) = (-3)^4 = 81$.
+:::
+
+::: exercise hard Matrices with $A^2 = A$ and with $A^2 = 0$
+(a) Prove that if $A^2 = 0$ then $A$ is not invertible, and find a $2 \times 2$ example with $A \neq 0$. (b) Prove that if $A^2 = A$ then $\det A$ is $0$ or $1$. (c) Prove that if $A^2 = A$ and $A$ is invertible, then $A = I_n$.
+::: solution
+(a) By Binet $(\det A)^2 = \det(A^2) = \det(0) = 0$, so $\det A = 0$ and $A$ is not invertible (Proposition 10.8). Example: $A = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$, with $A^2 = \begin{pmatrix} 0 \cdot 0 + 1 \cdot 0 & 0 \cdot 1 + 1 \cdot 0 \\ 0 & 0 \end{pmatrix} = 0$.
+
+(b) $(\det A)^2 = \det(A^2) = \det A$, that is $\det A(\det A - 1) = 0$: $\det A = 0$ or $\det A = 1$.
+
+(c) I multiply $A^2 = A$ on the left by $A^{-1}$: $A^{-1}(AA) = A^{-1}A$. On the left, by associativity, $(A^{-1}A)A = I_nA = A$; on the right $I_n$. So $A = I_n$. Example of $A^2 = A$ that is not invertible: $\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$, which has determinant $0$.
+:::
+
+::: exercise hard The inverse of a product and of the transpose
+Let $A, B \in M(n)$ be invertible. Prove that (a) $AB$ is invertible and $(AB)^{-1} = B^{-1}A^{-1}$; (b) ${}^tA$ is invertible and $({}^tA)^{-1} = {}^t(A^{-1})$ (Martelli, Exercise 3.9).
+::: solution
+(a) It is enough to check that $B^{-1}A^{-1}$ works as an inverse, on both sides (Martelli, Proposition 3.4.5):
+$$(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AI_nA^{-1} = AA^{-1} = I_n,$$
+$$(B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}B = I_n.$$
+Only associativity is used. With determinants you also see that $\det(AB) = \det A \det B \neq 0$.
+
+(b) I use ${}^t(XY) = {}^tY\,{}^tX$ (Exercise 8.14):
+$${}^tA\ {}^t(A^{-1}) = {}^t(A^{-1}A) = {}^tI_n = I_n, \qquad {}^t(A^{-1})\ {}^tA = {}^t(AA^{-1}) = {}^tI_n = I_n.$$
+So ${}^t(A^{-1})$ is the inverse of ${}^tA$.
+:::
+
+::: exercise intermediate Proposition 10.7 on an example
+Let $A = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 3 & 1 \end{pmatrix}$. (a) Compute $\mathrm{cof}(A)$. (b) Check that $A \cdot {}^t(\mathrm{cof}(A)) = \det(A) I_3$. (c) Write $A^{-1}$.
+::: solution
+(a) Cofactor by cofactor (I delete row $i$ and column $j$, then chessboard sign):
+- row 1: $+\det \begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix} = 1$, $\ -\det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = -1$, $\ +\det \begin{pmatrix} 1 & 1 \\ 0 & 3 \end{pmatrix} = 3$;
+- row 2: $-\det \begin{pmatrix} 0 & 1 \\ 3 & 1 \end{pmatrix} = -(0 - 3) = 3$, $\ +\det \begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2$, $\ -\det \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix} = -6$;
+- row 3: $+\det \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1$, $\ -\det \begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix} = -(0 - 1) = 1$, $\ +\det \begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix} = 2$.
+
+$$\mathrm{cof}(A) = \begin{pmatrix} 1 & -1 & 3 \\ 3 & 2 & -6 \\ -1 & 1 & 2 \end{pmatrix}, \qquad {}^t(\mathrm{cof}(A)) = \begin{pmatrix} 1 & 3 & -1 \\ -1 & 2 & 1 \\ 3 & -6 & 2 \end{pmatrix}.$$
+
+(b) $\det A = 2 \cdot 1 - 0 + 1 \cdot 3 = 5$ (first row times its cofactors). The product, row by column:
+- row $(2, 0, 1)$: $2 + 3 = 5$, $\ 6 - 6 = 0$, $\ -2 + 2 = 0$;
+- row $(1, 1, 0)$: $1 - 1 = 0$, $\ 3 + 2 = 5$, $\ -1 + 1 = 0$;
+- row $(0, 3, 1)$: $-3 + 3 = 0$, $\ 6 - 6 = 0$, $\ 3 + 2 = 5$.
+
+$A \cdot {}^t(\mathrm{cof}(A)) = 5I_3$ ✓: on the diagonal the Laplace expansions, off the diagonal the sums with the cofactors "of another row", which give $0$.
+
+(c) $A^{-1} = \frac 15 \begin{pmatrix} 1 & 3 & -1 \\ -1 & 2 & 1 \\ 3 & -6 & 2 \end{pmatrix}$.
+:::
+
+::: exercise exam Invertibility with a parameter and inverse
+Consider the matrix $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 2 & 2 \\ k & 0 & 3 \end{pmatrix}$, with $k \in \R$ (tutoring exercise sheet 1, 2025, exercise 9). (1) Determine for which $k$ the matrix is invertible. (2) For those values compute $A^{-1}$. (3) Check $AA^{-1} = I_3$ for $k = 0$.
+::: solution
+(1) Along the first column (signs $+, -, +$, and $a_{21} = 0$):
+$$\det A = 1 \cdot \det \begin{pmatrix} 2 & 2 \\ 0 & 3 \end{pmatrix} - 0 + k \det \begin{pmatrix} 1 & 0 \\ 2 & 2 \end{pmatrix} = 6 + 2k = 2(k + 3).$$
+$A$ is invertible if and only if $k \neq -3$.
+
+(2) The cofactors:
+- row 1: $+\det \begin{pmatrix} 2 & 2 \\ 0 & 3 \end{pmatrix} = 6$, $\ -\det \begin{pmatrix} 0 & 2 \\ k & 3 \end{pmatrix} = -(0 - 2k) = 2k$, $\ +\det \begin{pmatrix} 0 & 2 \\ k & 0 \end{pmatrix} = -2k$;
+- row 2: $-\det \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix} = -3$, $\ +\det \begin{pmatrix} 1 & 0 \\ k & 3 \end{pmatrix} = 3$, $\ -\det \begin{pmatrix} 1 & 1 \\ k & 0 \end{pmatrix} = -(0 - k) = k$;
+- row 3: $+\det \begin{pmatrix} 1 & 0 \\ 2 & 2 \end{pmatrix} = 2$, $\ -\det \begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix} = -2$, $\ +\det \begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix} = 2$.
+
+Transposing and dividing by $2(k + 3)$:
+$$A^{-1} = \frac 1{2(k + 3)} \begin{pmatrix} 6 & -3 & 2 \\ 2k & 3 & -2 \\ -2k & k & 2 \end{pmatrix}, \qquad k \neq -3.$$
+
+(3) With $k = 0$: $A = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 2 & 2 \\ 0 & 0 & 3 \end{pmatrix}$ and $A^{-1} = \frac 16 \begin{pmatrix} 6 & -3 & 2 \\ 0 & 3 & -2 \\ 0 & 0 & 2 \end{pmatrix}$. Product $A \cdot \begin{pmatrix} 6 & -3 & 2 \\ 0 & 3 & -2 \\ 0 & 0 & 2 \end{pmatrix}$:
+- row $(1, 1, 0)$: $6$, $\ -3 + 3 = 0$, $\ 2 - 2 = 0$;
+- row $(0, 2, 2)$: $0$, $\ 6$, $\ -4 + 4 = 0$;
+- row $(0, 0, 3)$: $0$, $0$, $6$.
+
+It is $6I_3$, and divided by 6 it gives $I_3$ ✓.
+:::
+
+::: exercise exam For which $k$ is it invertible? And the inverse for $k = 1$
+Let $A = \begin{pmatrix} 1 & k & 0 \\ k & 1 & k \\ 0 & k & 1 \end{pmatrix}$ with $k \in \R$. (1) Determine for which $k$ the matrix $A$ is invertible. (2) Setting $k = 1$, compute $A^{-1}$.
+::: solution
+(1) Along the first row:
+$$\det A = 1 \cdot \det \begin{pmatrix} 1 & k \\ k & 1 \end{pmatrix} - k \det \begin{pmatrix} k & k \\ 0 & 1 \end{pmatrix} + 0 = (1 - k^2) - k \cdot k = 1 - 2k^2.$$
+It vanishes for $k^2 = \frac 12$, that is $k = \pm \frac 1{\sqrt 2} = \pm \frac{\sqrt 2}2$. **$A$ is invertible if and only if $k \neq \frac{\sqrt 2}2$ and $k \neq -\frac{\sqrt 2}2$.**
+
+(2) With $k = 1$: $A = \begin{pmatrix} 1 & 1 & 0 \\ 1 & 1 & 1 \\ 0 & 1 & 1 \end{pmatrix}$ and $\det A = 1 - 2 = -1$. The cofactors:
+- row 1: $+(1 - 1) = 0$, $\ -(1 - 0) = -1$, $\ +(1 - 0) = 1$;
+- row 2: $-(1 - 0) = -1$, $\ +(1 - 0) = 1$, $\ -(1 - 0) = -1$;
+- row 3: $+(1 - 0) = 1$, $\ -(1 - 0) = -1$, $\ +(1 - 1) = 0$.
+
+$\mathrm{cof}(A) = \begin{pmatrix} 0 & -1 & 1 \\ -1 & 1 & -1 \\ 1 & -1 & 0 \end{pmatrix}$ is symmetric (like $A$), so transposing changes nothing. Dividing by $-1$:
+$$A^{-1} = \begin{pmatrix} 0 & 1 & -1 \\ 1 & -1 & 1 \\ -1 & 1 & 0 \end{pmatrix}.$$
+Check of the first row of $AA^{-1}$: $(1, 1, 0)$ times the columns gives $0 + 1 = 1$, $\ 1 - 1 = 0$, $\ -1 + 1 = 0$ ✓.
+:::
+
+::: exercise exam The matrix of a transformation and its inverse
+Let $A = \begin{pmatrix} 1 & 0 & 1 \\ 2 & 1 & 0 \\ 0 & 1 & 1 \end{pmatrix}$, the matrix that sends the vector ${}^t(x, y, z)$ to ${}^t(x + z,\ 2x + y,\ y + z)$. (1) Determine whether $A$ is invertible. (2) Compute $A^{-1}$. (3) Find the vector ${}^t(x, y, z)$ that is sent to ${}^t(1, 1, 1)$.
+::: solution
+(1) Along the first row: $\det A = 1 \cdot (1 - 0) - 0 + 1 \cdot (2 - 0) = 3 \neq 0$: invertible.
+
+(2) The cofactors:
+- row 1: $+\det \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix} = 1$, $\ -\det \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} = -2$, $\ +\det \begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = 2$;
+- row 2: $-\det \begin{pmatrix} 0 & 1 \\ 1 & 1 \end{pmatrix} = 1$, $\ +\det \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = 1$, $\ -\det \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = -1$;
+- row 3: $+\det \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = -1$, $\ -\det \begin{pmatrix} 1 & 1 \\ 2 & 0 \end{pmatrix} = 2$, $\ +\det \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} = 1$.
+
+$$\mathrm{cof}(A) = \begin{pmatrix} 1 & -2 & 2 \\ 1 & 1 & -1 \\ -1 & 2 & 1 \end{pmatrix}, \qquad A^{-1} = \frac 13 \begin{pmatrix} 1 & 1 & -1 \\ -2 & 1 & 2 \\ 2 & -1 & 1 \end{pmatrix}.$$
+Check of the first row of $AA^{-1}$ (without the factor $\frac 13$): $(1, 0, 1)$ times the columns gives $1 + 2 = 3$, $\ 1 - 1 = 0$, $\ -1 + 1 = 0$ ✓.
+
+(3) I look for $v$ with $Av = {}^t(1, 1, 1)$: multiplying on the left by $A^{-1}$, $v = A^{-1}\,{}^t(1, 1, 1) = \frac 13\,{}^t(1 + 1 - 1,\ -2 + 1 + 2,\ 2 - 1 + 1) = {}^t\left(\frac 13, \frac 13, \frac 23\right)$. Check: $x + z = \frac 13 + \frac 23 = 1$, $2x + y = \frac 23 + \frac 13 = 1$, $y + z = \frac 13 + \frac 23 = 1$ ✓. In lessons L14–L16 this matrix will be the matrix associated with a linear map, and $A^{-1}$ that of the inverse map, as in problem 11 of the exam of 10/07/2024.
+:::
+
+## Review questions
+
+::: question How does the determinant change with the three Gauss moves?
+Swapping two rows changes its sign; multiplying a row by $\lambda$ multiplies it by $\lambda$; adding to a row a multiple of another does not change it. The same rules hold for columns.
+:::
+
+::: question Why does a matrix with two equal rows have zero determinant?
+Swapping the two equal rows the matrix does not change, but the determinant changes sign: $\det A = -\det A$, so $\det A = 0$.
+:::
+
+::: question How do you compute a determinant with Gauss's method?
+You make the matrix triangular with moves of the third type (and swaps if needed), you multiply the diagonal and change the sign for every swap; if you used moves of the second type you divide by their factors.
+:::
+
+::: question What does Proposition 10.3 say?
+$\det A = 0$ if and only if a row (or a column) of $A$ is a linear combination of the others.
+:::
+
+::: question State Binet's theorem and two of its consequences.
+If $A$ and $B$ are square of the same order, $\det(AB) = \det A \cdot \det B$. Consequences: $\det(A^k) = (\det A)^k$ and $\det(AB) = \det(BA)$; moreover $\det(A^{-1}) = \frac 1{\det A}$.
+:::
+
+::: question What does it mean that a matrix is invertible?
+That it is square and there exists $B$ with $AB = BA = I_n$; this $B$ is unique and is written $A^{-1}$.
+:::
+
+::: question Why does an invertible matrix have non-zero determinant?
+From $AA^{-1} = I_n$ and Binet: $\det A \cdot \det(A^{-1}) = \det I_n = 1$, and a product equal to 1 cannot have a zero factor.
+:::
+
+::: question What is the cofactor $\mathrm{cof}_{ij}$?
+The number $(-1)^{i+j}\det C_{ij}$, where $C_{ij}$ is the submatrix obtained by deleting row $i$ and column $j$. With cofactors the Laplace expansion becomes $\det A = \sum_j a_{ij}\,\mathrm{cof}_{ij}$.
+:::
+
+::: question What is $\sum_j a_{ij}\,\mathrm{cof}_{kj}$ with $i \neq k$, and why?
+It is $0$: it is the expansion along row $k$ of the matrix with row $i$ in place of row $k$, which has two equal rows.
+:::
+
+::: question What does Proposition 10.7 say?
+$A \cdot {}^t(\mathrm{cof}(A)) = \det(A) I_n = {}^t(\mathrm{cof}(A)) \cdot A$.
+:::
+
+::: question When is a square matrix invertible, and what is the formula of the inverse?
+If and only if $\det A \neq 0$; then $A^{-1} = \frac 1{\det A}\,{}^t(\mathrm{cof}(A))$ (Proposition 10.8, for $n \ge 2$).
+:::
+
+::: question What is the inverse of a $2 \times 2$ matrix?
+$\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac 1{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$, if $ad - bc \neq 0$.
+:::
+
+::: question How do you answer "for which $k$ is the matrix invertible"?
+You compute $\det A$ as a function of $k$, factor it, find the $k$ that make it zero and answer "invertible if and only if $k$ is different from those values".
+:::
+
+## Glossary
+
+```glossary
+Gauss move | One of the three row operations: swap ($R_i \leftrightarrow R_j$), multiplication by $\lambda$ ($R_i \to \lambda R_i$), adding a multiple of another row ($R_i \to R_i + \lambda R_j$).
+Effect on the determinant | Swap: changes sign; row times $\lambda$: determinant times $\lambda$; adding a multiple: unchanged.
+Gauss's method for the determinant | Making the matrix triangular with the moves and multiplying the diagonal, taking swaps and factors into account.
+Dependent rows | Rows one of which is a linear combination of the others; it happens if and only if $\det A = 0$.
+Binet's theorem | $\det(AB) = \det A \cdot \det B$ for square matrices of the same order.
+Invertible matrix | Square matrix $A$ for which there exists $B$ with $AB = BA = I_n$.
+Inverse matrix $A^{-1}$ | The only $B$ with $AB = BA = I_n$; $\det(A^{-1}) = 1/\det A$.
+Cofactor $\mathrm{cof}_{ij}$ | $(-1)^{i+j}\det C_{ij}$: the coefficient of $a_{ij}$ in the Laplace expansion.
+Cofactor matrix $\mathrm{cof}(A)$ | The matrix that has $\mathrm{cof}_{ij}$ in place $(i, j)$.
+Proposition 10.7 | $A\,{}^t(\mathrm{cof}(A)) = \det(A)I_n = {}^t(\mathrm{cof}(A))\,A$.
+Invertibility criterion | A square $A$ is invertible if and only if $\det A \neq 0$.
+Formula of the inverse | $A^{-1} = \frac 1{\det A}\,{}^t(\mathrm{cof}(A))$; for $2 \times 2$ matrices, $\frac 1{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$.
+Inverse of a product | $(AB)^{-1} = B^{-1}A^{-1}$, with the order reversed.
+Maximum rank | For $A \in M(n)$: $\rk A = n$ if and only if $\det A \neq 0$.
+```
+
+## Checklist
+
+```checklist
+- I know how the determinant changes with each of the three Gauss moves, for rows and for columns.
+- I can compute a $3 \times 3$ or $4 \times 4$ determinant by making the matrix triangular, counting the swaps.
+- I recognise at a glance rows or columns that are equal, proportional or sums of others, and I know that then $\det A = 0$.
+- I can state Binet's theorem and use it for $\det(A^k)$, $\det(AB)$, $\det(BA)$.
+- I know what invertible means and that $\det(A^{-1}) = 1/\det A$.
+- I can compute the cofactor matrix and check $A\,{}^t(\mathrm{cof}(A)) = \det(A)I_n$.
+- I can invert a $2 \times 2$ from memory and a $3 \times 3$ with cofactors, with the final check.
+- I can say for which values of a parameter a matrix is invertible, by factoring the determinant.
+- I can avoid the traps: row echelon matrix, Binet with non-square matrices, forgotten transposition.
+- I can combine $\det(cA) = c^n \det A$, Binet and the inverse in a single formula, such as $\det(2A^{-1})$.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 10 "Matrici III", pp. 46–49: sections 10.A (more properties of the determinant), 10.B (cofactors), 10.C (the inverse of a matrix) and 10.D (exercises) are followed in order, with the page next to each heading; propositions, theorems, examples and exercises keep their numbering (Propositions 10.1, 10.3, 10.7, 10.8, Theorem 10.4, Corollary 10.5, Definition 10.6, Example 10.2, Exercises 10.9, 10.10, 10.11). For the recaps: lesson 9 (Propositions 9.3, 9.5, 9.10, 9.11, Corollary 9.12) and lesson 11 (notation of the Gauss moves, Definition 11.2).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §3.3.5 (Proposition 3.3.7), §3.3.7 (Proposition 3.3.12), §3.3.9 (Proposition 3.3.15), §3.4.5 (invertible matrices, Proposition 3.4.5), §3.4.6 (Theorem 3.4.7, Corollary 3.4.8), §3.4.7 (Propositions 3.4.10–3.4.12, Example 3.4.13), §3.4.8, Exercise 3.9.
+- **Exam**: papers of the Linear Algebra exams from 24/01/2024 to 07/09/2026 (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); reported with my own solution: question 7 of 06/09/2024, question 6 of 03/07/2026 and problem 11 (point 1) of 15/01/2026; the others are cited by number. Tutoring exercise sheet 1 (27/10/2025), exercise 9.
+- The **"Beyond the handouts"** parts (definition of invertible matrix and uniqueness of the inverse, link with the rank, check of Binet for $2 \times 2$ matrices, methods for the exam, unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L11_linear_systems_1.md -->
+> File: `ai_context/MDAG/lessons/L11_linear_systems_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L11
+title: Linear systems I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L11
+description: >-
+  Notes on lesson L11 of Linear Algebra and Geometry (MDAG, part 2): linear systems and augmented matrix, Gauss
+  moves, pivots and row echelon matrices, the Gauss and Gauss–Jordan algorithms, how to write all the solutions of
+  a system, with exam-style quizzes and worked exercises.
+lede: >-
+  How to solve any linear system, with any number of equations and unknowns: you write the augmented matrix
+  $(A \mid b)$, bring it to row echelon form with three moves that do not change the solutions, and then you read
+  off the solutions: exactly one, none, or infinitely many with their free parameters. It is the calculation that
+  comes back in almost every exam paper.
+material: handouts
+facts:
+  Handouts: lesson 11 · pp. 50–55
+  Book: Martelli, §3.1
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 11 "Sistemi lineari I"; B. Martelli, Geometria e algebra lineare, §3.1
+italian_file: L11_sistemi_lineari_1.html
+html_notes: notes/MDAG/L11_linear_systems_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L11_sistemi_lineari_1.md
+```
+
+## In brief
+
+- A **linear system** is a list of first-degree equations in the same unknowns $x_1, \dots, x_n$. It is written compactly with the **augmented matrix** $C = (A \mid b)$: the coefficients to the left of the bar, the constant terms to the right.
+- Solving the system means finding the set $S \subset \K^n$ of **all** the vectors that satisfy **all** the equations together.
+- Three **Gauss moves** on the rows do not change $S$: swapping two rows, multiplying a row by a number $\lambda \neq 0$, adding to a row a multiple of another row.
+- The **pivot** of a row is its first non-zero entry. A matrix is in **row echelon form** if the zero rows are at the bottom and each pivot is strictly to the right of the pivot of the row above.
+- **Gauss's algorithm** brings any matrix to row echelon form, column after column. The **Gauss–Jordan algorithm** goes on until the pivots are 1 and above the pivots there are only zeros.
+- From the reduced form you read off the solutions straight away. A pivot in the column of the constant terms is the equation $0 = 1$: **no solution**.
+- Otherwise each unknown whose column has no pivot becomes a **free parameter** $t_1, t_2, \dots$ and the others are obtained from those: there are as many parameters as unknowns minus pivots.
+- At the exam the quiz "the linear system with augmented matrix … has a number of solutions equal to" came up in 9 exam sessions out of 15, and almost every open problem ends with a Gauss reduction.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## What a linear system is (p. 50)
+
+Start from a school riddle: *two numbers have sum 5 and difference 1; what are they?* You call the two numbers $x$ and $y$ and translate the two sentences into two equations:
+
+$$\begin{cases} x + y = 5 \\ x - y = 1 \end{cases}$$
+
+Adding the two equations side by side you get $2x = 6$, so $x = 3$; from the first, $y = 5 - 3 = 2$. Check: $3 + 2 = 5$ and $3 - 2 = 1$. The pair $(3, 2)$ solves **both** equations at the same time: it is a **solution of the system**.
+
+This is a **linear** system because the unknowns appear only **to the first power**, multiplied by numbers and added together. No squares, no products of unknowns, no roots or sines.
+
+| Equation | Linear? | Why |
+|---|---|---|
+| $2x - 3y + z = 7$ | yes | each unknown to the first power, times a number |
+| $x_1 + x_4 = 0$ | yes | the missing unknowns have coefficient $0$ |
+| $\sqrt 2\, x - \pi y = \frac 13$ | yes | the coefficients can be any numbers |
+| $x^2 + y = 1$ | no | $x$ appears squared |
+| $xy = 4$ | no | there is a product of two unknowns |
+| $x + \sin y = 0$ | no | the unknown $y$ is inside a function |
+
+### The definition
+
+> [!DEF] 11.1 · Linear system
+> A **linear system** is a set of $k$ linear equations in $n$ variables
+> $$\begin{cases} a_{11}x_1 + \cdots + a_{1n}x_n = b_1, \\ \qquad \vdots \\ a_{k1}x_1 + \cdots + a_{kn}x_n = b_k. \end{cases}$$
+> The numbers $a_{ij}$ are the **coefficients** and the $b_i$ are the **constant terms** of the system. The coefficients, the constant terms and the variables all lie in some fixed field $\K$. We can group the coefficients and the constant terms into a $k \times n$ matrix and a column vector:
+> $$A = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{k1} & \cdots & a_{kn} \end{pmatrix}, \qquad b = \begin{pmatrix} b_1 \\ \vdots \\ b_k \end{pmatrix}.$$
+> We speak of the **coefficient matrix** and of the **vector of constant terms**. We can then put everything together into a single matrix $k \times (n + 1)$
+> $$C = (A \mid b),$$
+> called the **augmented matrix**.
+
+Piece by piece:
+
+- $k$ is the number of **equations** (the rows), $n$ the number of **unknowns** (the variables $x_1, \dots, x_n$). They can be different: 2 equations in 4 unknowns, 3 equations in 2 unknowns, and so on.
+- $a_{ij}$ has two indices: the first, $i$, says **which equation** you are in (the row); the second, $j$, says **which unknown** it multiplies (the column). For example $a_{23}$ is the coefficient of $x_3$ in the second equation.
+- $b_i$ is the number to the right of the equals sign in the $i$-th equation.
+- $\K$ is the field you are working in (lessons L01 and L05): almost always $\K = \R$, sometimes $\K = \C$.
+- The **augmented matrix** $C = (A \mid b)$ is the matrix $A$ with, in addition, the column $b$ on the right. The vertical bar is only there to remind you where the coefficients end: for the calculations $C$ is a $k \times (n + 1)$ matrix like any other.
+
+> [!EXAMPLE] From the system to the augmented matrix
+> The system of the riddle has $k = 2$ equations and $n = 2$ unknowns:
+> $$\begin{cases} x + y = 5 \\ x - y = 1 \end{cases} \qquad A = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}, \quad b = \begin{pmatrix} 5 \\ 1 \end{pmatrix}, \quad C = \left(\begin{array}{cc|c} 1 & 1 & 5 \\ 1 & -1 & 1 \end{array}\right).$$
+> A system with 3 equations and 3 unknowns:
+> $$\begin{cases} x + y + 2z = 9 \\ 2x + 4y - 3z = 1 \\ 3x + 6y - 5z = 0 \end{cases} \qquad C = \left(\begin{array}{ccc|c} 1 & 1 & 2 & 9 \\ 2 & 4 & -3 & 1 \\ 3 & 6 & -5 & 0 \end{array}\right).$$
+> Each row of $C$ is an equation; each column before the bar is an unknown ($x$, $y$, $z$ in this order); the last column contains the constant terms.
+
+> [!PITFALL] Before writing the matrix, put the system in order
+> Three frequent mistakes when going from the system to the matrix:
+> 1. the unknowns must be written **in the same order** in every row;
+> 2. an unknown that is **missing** from an equation has coefficient $0$, and that $0$ must be written in the matrix;
+> 3. the numbers without an unknown must be moved **to the right** of the equals sign, changing their sign.
+>
+> For example $\begin{cases} 2x - y = 3 - z \\ x = 4y \\ 5 + z = 2 \end{cases}$ first becomes $\begin{cases} 2x - y + z = 3 \\ x - 4y = 0 \\ z = -3 \end{cases}$ and then $\left(\begin{array}{ccc|c} 2 & -1 & 1 & 3 \\ 1 & -4 & 0 & 0 \\ 0 & 0 & 1 & -3 \end{array}\right)$.
+
+### The set of solutions
+
+A **solution** of the system is a vector $x = (x_1, \dots, x_n) \in \K^n$ that makes **all** the $k$ equations true. The handouts call $S \subset \K^n$ the set of **all** the solutions: the aim of the lesson is to describe $S$ exactly.
+
+For the system of the riddle $S = \{(3, 2)\}$. The vector $(4, 1)$ instead is **not** a solution: it satisfies the first equation ($4 + 1 = 5$) but not the second ($4 - 1 = 3 \neq 1$). A single false equation is enough to rule a vector out.
+
+> [!BEYOND] three possible situations, seen in the plane
+> With two unknowns each linear equation is a **line** of the plane, and the solutions of the system are the points common to all the lines. With two equations one of these three things always happens: the lines meet at **one point** (one solution), they are **parallel** and distinct (no solution), or they are **the same line** (infinitely many solutions). In lesson L12 the Rouché–Capelli theorem will say that even with more unknowns the possibilities are always and only these three: none, one, infinitely many.
+
+```graph
+title: $x + y = 5$ and $x - y = 1$ meet at one point: exactly one solution, $(3, 2)$
+x: -1 6
+y: -2 5
+line: 0 5 4.5 0.5 | accent | $x + y = 5$ | ne
+line: 1 0 4 3 | blue | $x - y = 1$ | se
+point: 3 2 | amber | $(3, 2)$ | e
+```
+
+```graph
+title: $x + y = 2$ and $x + y = 4$ are parallel: no common point, no solution
+x: -1 5
+y: -1 5
+line: 2 0 0 2 | accent | $x + y = 2$ | ne
+line: 4 0 0.5 3.5 | blue | $x + y = 4$ | ne
+```
+
+```graph
+title: $x + y = 2$ and $2x + 2y = 4$ are the same line: infinitely many solutions
+x: -1 5
+y: -1 5
+line: 2 0 0 2 | accent | thick | $x + y = 2$ | ne
+line: 0 2 1.5 0.5 | blue | dashed | $2x + 2y = 4$ | ne
+```
+
+## The Gauss moves (pp. 50–51)
+
+To solve the riddle you added the two equations. It is a legitimate move: it neither adds nor removes solutions. The handouts list exactly **three** moves of this kind, and with these three you solve **every** linear system.
+
+> [!DEF] 11.2 · Gauss moves
+> The moves that do not change the set of solutions are the following and are known as **Gauss moves**:
+> - (I) swapping two rows;
+> - (II) multiplying a row by a number $\lambda \neq 0$;
+> - (III) adding to a row another row multiplied by any $\lambda$.
+>
+> Denoting by $R_i$ the $i$-th row of $C$, we can write the moves like this:
+> $$\text{(I)}\ R_i \longleftrightarrow R_j, \qquad \text{(II)}\ R_i \longrightarrow \lambda R_i,\ \lambda \neq 0, \qquad \text{(III)}\ R_i \longrightarrow R_i + \lambda R_j.$$
+
+Piece by piece:
+
+- The moves act on the **whole rows** of $C$, **including the last column** of constant terms: each row is an equation and is transformed as a whole.
+- (I) **swap**: $R_1 \leftrightarrow R_3$ means that the first and the third equations swap places.
+- (II) **rescaling**: $R_2 \to 3R_2$ multiplies every number of the second row by 3. The number must be **non-zero**: multiplying by $0$ would turn the equation into $0 = 0$, and the information it contained would be lost.
+- (III) **replacement**: $R_2 \to R_2 - 4R_1$ means "take 4 times the first row away from the second row". Here $\lambda$ can be any number (with $\lambda = 0$ the move does nothing), but the two rows must be **different**: $j \neq i$.
+
+> [!EXAMPLE] 11.3 · Three moves in a row
+> One move of type (I), one of type (II) and one of type (III):
+> $$\begin{pmatrix} 1 & 2 \\ 3 & 0 \\ 4 & -2 \end{pmatrix} \xrightarrow{R_1 \leftrightarrow R_3} \begin{pmatrix} 4 & -2 \\ 3 & 0 \\ 1 & 2 \end{pmatrix}$$
+> $$\xrightarrow{R_1 \to \frac 12 R_1} \begin{pmatrix} 2 & -1 \\ 3 & 0 \\ 1 & 2 \end{pmatrix} \xrightarrow{R_2 \to R_2 + 2R_3} \begin{pmatrix} 2 & -1 \\ 5 & 4 \\ 1 & 2 \end{pmatrix}.$$
+> The calculations, one per move:
+> 1. $R_1 \leftrightarrow R_3$: the first row $(1, 2)$ and the third $(4, -2)$ swap places.
+> 2. $R_1 \to \frac 12 R_1$: the new first row is $\frac 12 (4, -2) = (2, -1)$.
+> 3. $R_2 \to R_2 + 2R_3$: the new second row is $(3, 0) + 2 \cdot (1, 2) = (3 + 2,\ 0 + 4) = (5, 4)$. The third row, used for the calculation, stays as it was.
+
+### Why the moves do not change the solutions
+
+> [!PROP] 11.4
+> The Gauss moves on $C = (A \mid b)$ do not change the set $S \subset \K^n$ of solutions of the linear system.
+
+The proof checks the three moves one at a time. In each case two things must be shown: whoever solved the old system solves the new one, and vice versa.
+
+1. **Move (I).** Swapping two rows means writing the same equations in another order. A vector makes all the equations true before the swap if and only if it makes them true after: $S$ does not change.
+2. **Move (II).** Row $i$, that is the equation $a_{i1}x_1 + \cdots + a_{in}x_n = b_i$, becomes
+   $$\lambda a_{i1}x_1 + \cdots + \lambda a_{in}x_n = \lambda b_i.$$
+   If $x$ solves the old equation, multiplying both sides by $\lambda$ it solves the new one. Conversely, if $x$ solves the new one, multiplying by $\frac 1\lambda$ you get back the old one: here you need $\lambda \neq 0$, because $\frac 1\lambda$ must exist. The other equations do not change.
+3. **Move (III).** Only row $i$ changes. The two equations $i$ and $j$
+   $$a_{i1}x_1 + \cdots + a_{in}x_n = b_i, \qquad a_{j1}x_1 + \cdots + a_{jn}x_n = b_j$$
+   become
+   $$(a_{i1} + \lambda a_{j1})x_1 + \cdots + (a_{in} + \lambda a_{jn})x_n = b_i + \lambda b_j,$$
+   $$a_{j1}x_1 + \cdots + a_{jn}x_n = b_j.$$
+   - If $x$ solves the two old ones, adding to equation $i$ equation $j$ multiplied by $\lambda$ you get exactly the new row $i$.
+   - Conversely, if $x$ solves the two new ones, taking away from the new row $i$ row $j$ multiplied by $\lambda$ you find the old row $i$ again. This works because row $j$ has stayed **untouched**: that is why you need $j \neq i$.
+4. In all three cases the vectors that solve the system are the same: $S$ does not change. $\square$
+
+> [!IDEA] every move can be undone
+> The heart of the proof is that every move has an **inverse move** of the same type, which puts everything back as it was: (I) is undone by repeating the same swap; (II) with $\lambda$ is undone by (II) with $\frac 1\lambda$; (III) $R_i \to R_i + \lambda R_j$ is undone by $R_i \to R_i - \lambda R_j$. A transformation that can always be undone can neither lose nor create solutions.
+
+> [!EXAMPLE] The riddle solved with the moves
+> $$\left(\begin{array}{cc|c} 1 & 1 & 5 \\ 1 & -1 & 1 \end{array}\right) \xrightarrow{R_2 \to R_2 - R_1} \left(\begin{array}{cc|c} 1 & 1 & 5 \\ 0 & -2 & -4 \end{array}\right)$$
+> $$\xrightarrow{R_2 \to -\frac 12 R_2} \left(\begin{array}{cc|c} 1 & 1 & 5 \\ 0 & 1 & 2 \end{array}\right) \xrightarrow{R_1 \to R_1 - R_2} \left(\begin{array}{cc|c} 1 & 0 & 3 \\ 0 & 1 & 2 \end{array}\right)$$
+> The calculations: $(1, -1, 1) - (1, 1, 5) = (0, -2, -4)$; then $-\frac 12 (0, -2, -4) = (0, 1, 2)$; then $(1, 1, 5) - (0, 1, 2) = (1, 0, 3)$. The last matrix says $x = 3$ and $y = 2$: it is the same calculation as before, written with the moves.
+
+> [!PITFALL] One move at a time
+> Do not make two moves **at the same time** using the old rows. Start from $\left(\begin{array}{cc|c} 1 & 1 & 5 \\ 1 & -1 & 1 \end{array}\right)$ and do $R_1 \to R_1 - R_2$ and $R_2 \to R_2 - R_1$ together, both computed with the starting rows:
+> $$\left(\begin{array}{cc|c} 0 & 2 & 4 \\ 0 & -2 & -4 \end{array}\right).$$
+> Now the system only says $2y = 4$: $y = 2$ and any $x$, that is infinitely many solutions. But the starting system had **only one**, $(3, 2)$. What happened? The new second row is $-1$ times the first: an equation has been lost. The rule: after each move, the next move uses the **new** rows. You can make several moves in the same step only if the row used to change the others stays fixed, as in step (2) of Gauss's algorithm.
+
+> [!PITFALL] Only rows, never columns
+> To solve a system the moves are made on the **rows**. A move on the columns mixes the unknowns with each other (column 1 is $x$, column 2 is $y$) or mixes an unknown with the constant terms, and it changes the solutions. For example, adding the first column to the column of the constant terms turns $x + y = 5$, $x - y = 1$ into $x + y = 6$, $x - y = 2$, which has the solution $(4, 2)$ instead of $(3, 2)$.
+
+## Row echelon matrices (pp. 51–52)
+
+Why transform the matrix? Because some systems almost solve themselves. Look at this one:
+
+$$\begin{cases} x + 2y - z = 2 \\ \phantom{x + {}} y + 3z = 5 \\ \phantom{x + y + {}} 2z = 4 \end{cases}$$
+
+You start **from the bottom**: the last equation gives $z = 2$. The second becomes $y + 6 = 5$, so $y = -1$. The first becomes $x + 2 \cdot (-1) - 2 = 2$, so $x = 6$. Check: $6 - 2 - 2 = 2$, $-1 + 6 = 5$, $2 \cdot 2 = 4$. This way of solving is called **back substitution**. It works because each equation has **one unknown fewer** than the one above: the augmented matrix has the shape of a **staircase**.
+
+$$\left(\begin{array}{ccc|c} \boxed{1} & 2 & -1 & 2 \\ 0 & \boxed{1} & 3 & 5 \\ 0 & 0 & \boxed{2} & 4 \end{array}\right)$$
+
+> [!DEF] 11.5 · Pivot and row echelon matrix
+> Let $C$ be any matrix. For each row $R_i$ of $C$ we call **pivot** the first non-zero entry of the row. A **row echelon matrix** is a matrix in which all the zero rows are at the bottom and the pivot of each non-zero row is strictly to the right of the pivot of the previous non-zero row.
+
+Piece by piece:
+
+- The **pivot** is found by reading the row from the left: it is the first number other than $0$. In the row $(0, 0, 3, 5)$ the pivot is the $3$, in the third column. A row made **only of zeros** has no pivot.
+- "The zero rows are at the bottom": a row of zeros cannot be above a row that has a pivot.
+- "**Strictly** to the right": going down one row, the pivot moves **at least** one column to the right. It can also skip several columns: the steps can be wide.
+- As a consequence, below each pivot there are only zeros.
+
+> [!EXAMPLE] 11.6 · Echelon yes, echelon no
+> These are row echelon matrices:
+> $$\begin{pmatrix} 1 & 0 & 5 \\ 0 & -1 & -1 \end{pmatrix}, \qquad \begin{pmatrix} 7 & -2 & 9 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}.$$
+> In the first the pivots are $1$ (column 1) and $-1$ (column 2). In the second the pivots are $7$ (column 1) and $1$ (column 3): the step skips column 2, and that is allowed; the zero row is at the bottom.
+>
+> These are not row echelon matrices:
+> $$\begin{pmatrix} 1 & 2 & -1 \\ 4 & 0 & 6 \\ 0 & 7 & 0 \end{pmatrix}, \qquad \begin{pmatrix} 0 & 8 \\ 0 & 1 \\ 0 & 0 \\ 0 & 0 \end{pmatrix}.$$
+> In the first the pivot of the second row is the $4$, in column 1: it is not to the right of the pivot $1$ of the first row, which is also in column 1. In the second the pivots of the first two rows, $8$ and $1$, are both in column 2: the second is not **strictly** to the right.
+
+| Matrix | Row echelon? | Reason |
+|---|---|---|
+| $\begin{pmatrix} 2 & 1 & 0 & 3 \\ 0 & 0 & 5 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$ | yes | pivots in columns 1 and 3, zero row at the bottom |
+| $\begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 0 \\ 0 & 4 & 5 \end{pmatrix}$ | no | the zero row is not at the bottom |
+| $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}$ | no | the pivot of row 3 (column 2) is to the left of that of row 2 (column 3) |
+| $\begin{pmatrix} 0 & 3 & 1 \\ 0 & 0 & 2 \end{pmatrix}$ | yes | the first column can be all zero: the pivots are in columns 2 and 3 |
+
+> [!PITFALL] The steps do not have to lie on the diagonal
+> In a row echelon matrix the pivots do **not** have to be in positions $(1,1), (2,2), (3,3), \dots$ All that matters is that going down they move to the right. Conversely, a matrix with the right numbers on the diagonal may not be in row echelon form, if something below is wrong (third row of the table).
+
+## Gauss's algorithm (pp. 52–53)
+
+Gauss's algorithm turns **any** matrix into a row echelon matrix using only the three moves. The idea: you fix the first column (a pivot at the top and zeros below), then you ignore the first row and the first column and repeat on the rest.
+
+> [!METHOD] Gauss's algorithm (p. 52)
+> 1. If $C_{11} = 0$ and $C_{i1} \neq 0$ for some $i$, we swap the first row with a row so as to get $C_{11} \neq 0$. If instead $C_{i1} = 0$ for all $i$, we continue from point (1) working on the submatrix obtained by removing only the first column.
+> 2. For each row $R_i$ with $i \ge 2$ and with $C_{i1} \neq 0$ we replace $R_i$ with the row
+>    $$R_i - \frac{C_{i1}}{C_{11}} R_1.$$
+>    In this way the new row $R_i$ will have $C_{i1} = 0$.
+> 3. We have obtained $C_{i1} = 0$ for all $i \ge 2$. We continue from point (1) working on the submatrix obtained by removing the first row and the first column.
+
+What each step does:
+
+- $C_{ij}$ denotes the number in row $i$ and column $j$ of the matrix (the current one: after each move the matrix is still called $C$).
+- **Step (1)** looks for a pivot for the first column. If there is a zero at the top it is swapped with a row below that has a non-zero number (move I). If the column is **all zero** there is nothing to do: you move on to the next column, still starting from the same row.
+- **Step (2)** puts zeros below the pivot with moves of type (III). The number to take away is chosen on purpose: the new entry in column 1 is
+  $$C_{i1} - \frac{C_{i1}}{C_{11}} \cdot C_{11} = C_{i1} - C_{i1} = 0.$$
+  Here row $R_1$ stays fixed and is used to change all the others: that is why they can all be done together.
+- **Step (3)** "forgets" the first row and the first column, now in place, and starts again on the piece that remains. When nothing remains the matrix is in row echelon form.
+
+> [!EXAMPLE] 11.7 · Gauss step by step
+> We start from the matrix
+> $$C = \begin{pmatrix} 0 & 1 & 1 & 0 \\ 1 & 1 & 2 & -3 \\ -1 & 2 & 1 & 1 \end{pmatrix}.$$
+> 1. $C_{11} = 0$, but $C_{21} = 1 \neq 0$: we swap $R_1$ and $R_2$ (step 1).
+>    $$C = \begin{pmatrix} 1 & 1 & 2 & -3 \\ 0 & 1 & 1 & 0 \\ -1 & 2 & 1 & 1 \end{pmatrix}.$$
+> 2. Below the pivot $C_{11} = 1$: row 2 already has $0$; row 3 has $C_{31} = -1 \neq 0$. Step 2 says $R_3 \to R_3 - \frac{-1}{1} R_1 = R_3 + R_1$:
+>    $$(-1, 2, 1, 1) + (1, 1, 2, -3) = (0, 3, 3, -2), \qquad C = \begin{pmatrix} 1 & 1 & 2 & -3 \\ 0 & 1 & 1 & 0 \\ 0 & 3 & 3 & -2 \end{pmatrix}.$$
+> 3. The first row and the first column are in place: we work on the rest. The new "corner" is $C_{22} = 1 \neq 0$; below it there is $C_{32} = 3$. Move $R_3 \to R_3 - 3R_2$:
+>    $$(0, 3, 3, -2) - 3 \cdot (0, 1, 1, 0) = (0, 0, 0, -2), \qquad C = \begin{pmatrix} 1 & 1 & 2 & -3 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & -2 \end{pmatrix}.$$
+> 4. What remains is the submatrix made of row 3 without the first two columns, that is $(0, -2)$: column 3 is zero, you move on to column 4, where there is the pivot $-2$. There are no rows below: the matrix is in row echelon form and the algorithm ends. The pivots are $1$, $1$, $-2$, in columns 1, 2 and 4.
+
+```widget gauss
+title: Try the algorithm on the matrix of Example 11.7, then change the numbers
+matrice: 0 1 1 0; 1 1 2 -3; -1 2 1 1
+modo: scala
+modi: scala ridotta
+```
+
+In the tool above press "Compute": you will see the same moves as in the handouts, one per line, with the changed rows highlighted. Then try putting a zero somewhere else, for example `1 1 2; 2 2 5; 3 3 1`: the second column, below the first row, becomes all zero and the algorithm jumps to the third column, as step (1) says.
+
+> [!BEYOND] how to do fewer calculations by hand
+> Martelli (§3.1.3) remarks that you do not need to follow the algorithm to the letter: **any** sequence of Gauss moves is fine, as long as you reach a row echelon matrix. Three useful tricks without a calculator:
+> 1. if there is a $1$ (or a $-1$) in the first column, bring that row to the top with a swap: the multipliers $\frac{C_{i1}}{C_{11}}$ become integers;
+> 2. to avoid fractions you can combine moves (II) and (III) into one, $R_i \to a R_i - c R_1$ with $a \neq 0$: for example with pivot $2$ and a $3$ below it, the move $R_2 \to 2R_2 - 3R_1$ puts the zero in without fractions;
+> 3. if a row has all its numbers divisible by the same integer, divide it straight away (move II): the calculations afterwards are smaller.
+
+## The Gauss–Jordan algorithm (pp. 53–54)
+
+A row echelon matrix can already be solved with back substitution. But you can go further and reach a form in which the solutions are **read off** without any more calculations: above each pivot only zeros, and each pivot equal to 1. You get it with more Gauss moves:
+
+- the zeros **above** the pivots are obtained with moves (III), taking away from the rows above a suitable multiple of the pivot's row;
+- the pivots become $1$ with moves (II), dividing each row by its pivot.
+
+> [!EXAMPLE] 11.8 · Zeros above the pivots
+> In the matrix obtained in Example 11.7 the second pivot is $C_{22} = 1$ and above it there is $C_{12} = 1 \neq 0$. With $R_1 \to R_1 - R_2$:
+> $$(1, 1, 2, -3) - (0, 1, 1, 0) = (1, 0, 1, -3), \qquad C = \begin{pmatrix} 1 & 0 & 1 & -3 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & -2 \end{pmatrix}.$$
+> The third pivot is $C_{34} = -2$ and above it there is $C_{14} = -3 \neq 0$ (while $C_{24}$ is already $0$). With $R_1 \to R_1 - \frac 32 R_3$:
+> $$(1, 0, 1, -3) - \frac 32 \cdot (0, 0, 0, -2) = (1, 0, 1, -3 + 3) = (1, 0, 1, 0), \qquad C = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & -2 \end{pmatrix}.$$
+
+> [!EXAMPLE] 11.9 · Pivots equal to 1
+> In the previous matrix the pivots $C_{11}$ and $C_{22}$ are already $1$, while $C_{34} = -2$. We divide the third row by $-2$, that is $R_3 \to -\frac 12 R_3$ (move II):
+> $$C = \begin{pmatrix} 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}.$$
+
+> [!METHOD] The Gauss–Jordan algorithm (p. 54)
+> The algorithm just described is called the **Gauss–Jordan algorithm** and it consists of two phases:
+> 1. transform the matrix into row echelon form with Gauss's algorithm;
+> 2. get only zeros above the pivots with moves (III) and all pivots equal to $1$ with moves (II).
+
+The matrix you get at the end (row echelon, pivots equal to 1, zeros above and below each pivot) is often called the **reduced row echelon form**. In the pivot columns there is a single $1$ and then all zeros.
+
+> [!EXAMPLE] 11.10 · Gauss–Jordan with the moves above the arrows
+> $$\begin{pmatrix} 1 & -1 & 3 \\ 0 & 2 & 2 \\ 1 & 0 & 4 \end{pmatrix} \xrightarrow{R_3 \to R_3 - R_1} \begin{pmatrix} 1 & -1 & 3 \\ 0 & 2 & 2 \\ 0 & 1 & 1 \end{pmatrix} \xrightarrow{R_3 \to R_3 - \frac 12 R_2} \begin{pmatrix} 1 & -1 & 3 \\ 0 & 2 & 2 \\ 0 & 0 & 0 \end{pmatrix}$$
+> $$\xrightarrow{R_1 \to R_1 + \frac 12 R_2} \begin{pmatrix} 1 & 0 & 4 \\ 0 & 2 & 2 \\ 0 & 0 & 0 \end{pmatrix} \xrightarrow{R_2 \to \frac 12 R_2} \begin{pmatrix} 1 & 0 & 4 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}$$
+> The calculations row by row:
+> 1. $R_3 - R_1 = (1, 0, 4) - (1, -1, 3) = (0, 1, 1)$;
+> 2. $R_3 - \frac 12 R_2 = (0, 1, 1) - (0, 1, 1) = (0, 0, 0)$: the matrix is in row echelon form, with pivots $1$ and $2$ in columns 1 and 2 (end of phase 1);
+> 3. $R_1 + \frac 12 R_2 = (1, -1, 3) + (0, 1, 1) = (1, 0, 4)$: zero above the second pivot;
+> 4. $\frac 12 R_2 = (0, 1, 1)$: the second pivot becomes $1$ (end of phase 2).
+
+> [!BEYOND] the row echelon form is not unique, the reduced one is
+> With different moves you reach different row echelon matrices: in Example 11.7, multiplying the second row by 5 at the end you get another row echelon matrix, just as valid. The reduced Gauss–Jordan form instead is **always the same**, whatever route you take (it is a theorem that the course does not prove). One thing, though, never changes, not even between different row echelon forms: the **number** of pivots and the **columns** they are in. In lesson L12 that number will become the rank.
+
+## Reading the solutions (pp. 54–55)
+
+Now you have everything to solve a system. With Gauss–Jordan you bring $C = (A \mid b)$ to reduced form; then you look at **where** the pivots are. The handouts show a "typical" matrix, in which the question marks are any numbers:
+
+$$\left(\begin{array}{cccccc|c} 0 & 1 & ? & 0 & 0 & ? & ? \\ 0 & 0 & 0 & 1 & 0 & ? & ? \\ 0 & 0 & 0 & 0 & 1 & ? & ? \end{array}\right)$$
+
+Here the pivots are in columns 2, 4 and 5. Every column with a pivot contains a $1$ in place of the pivot and $0$ in all the other entries. There are two cases.
+
+### First case: a pivot in the column of the constant terms
+
+If the column $b$ contains a pivot, the matrix is of this kind:
+
+$$\left(\begin{array}{cccccc|c} 0 & 1 & ? & 0 & 0 & ? & ? \\ 0 & 0 & 0 & 1 & 0 & ? & ? \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 \end{array}\right)$$
+
+The last row represents the equation $0x_1 + 0x_2 + \cdots + 0x_6 = 1$, that is $0 = 1$, which has no solution at all. So the system has no solutions: $S = \emptyset$ (the empty set).
+
+> [!EXAMPLE] The matrix of Example 11.7 as a system
+> Think of the matrix $C$ of Example 11.7 as the augmented matrix of a system in three unknowns:
+> $$\begin{cases} y + z = 0 \\ x + y + 2z = -3 \\ -x + 2y + z = 1 \end{cases}$$
+> Gauss–Jordan (Examples 11.7–11.9) brought it to $\left(\begin{array}{ccc|c} 1 & 0 & 1 & 0 \\ 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{array}\right)$. The last row says $0 = 1$: the system **has no solutions**. The row echelon form of Example 11.7 already said so, with the row $(0, 0, 0 \mid -2)$, that is $0 = -2$: when a pivot appears in the last column you can stop.
+
+### Second case: no pivot in the last column
+
+If the last column contains no pivot, the matrix is of this kind:
+
+$$\left(\begin{array}{cccccc|c} 0 & 1 & a_{13} & 0 & 0 & a_{16} & b_1 \\ 0 & 0 & 0 & 1 & 0 & a_{26} & b_2 \\ 0 & 0 & 0 & 0 & 1 & a_{36} & b_3 \end{array}\right)$$
+
+Each column corresponds to an unknown $x_1, \dots, x_6$, except the last, which contains the constant terms. The handouts' recipe:
+
+1. assign a **parameter** $t_1, t_2, \dots$ to each unknown whose column does **not** contain a pivot. Here the columns without a pivot are 1, 3 and 6: $x_1 = t_1$, $x_3 = t_2$, $x_6 = t_3$;
+2. rewrite the system with the parameters:
+   $$\begin{cases} x_2 + a_{13}t_2 + a_{16}t_3 = b_1 \\ x_4 + a_{26}t_3 = b_2 \\ x_5 + a_{36}t_3 = b_3 \end{cases}$$
+3. move the parameters to the right of the equals sign:
+   $$\begin{cases} x_2 = b_1 - a_{13}t_2 - a_{16}t_3 \\ x_4 = b_2 - a_{26}t_3 \\ x_5 = b_3 - a_{36}t_3 \end{cases}$$
+4. add the equations of the parameters and write all the unknowns in order:
+   $$\begin{cases} x_1 = t_1 \\ x_2 = b_1 - a_{13}t_2 - a_{16}t_3 \\ x_3 = t_2 \\ x_4 = b_2 - a_{26}t_3 \\ x_5 = b_3 - a_{36}t_3 \\ x_6 = t_3 \end{cases}$$
+
+The system is solved. The parameters $t_1, t_2, \dots$ are **free**: they can take any value in $\K$, and each choice of the parameters gives a different solution. The other unknowns depend on the parameters as shown.
+
+Piece by piece:
+
+- The unknowns with a pivot (here $x_2, x_4, x_5$) are often called **dependent variables**; those without a pivot (here $x_1, x_3, x_6$) **free variables**.
+- The number of parameters is
+  $$\text{number of unknowns} - \text{number of pivots} = 6 - 3 = 3.$$
+- If **every** column of $A$ has a pivot there are no parameters: there is **only one** solution, and you read it in the last column.
+- The rows made only of zeros, $(0, \dots, 0 \mid 0)$, say $0 = 0$: they are always true and can be ignored.
+
+> [!EXAMPLE] Exactly one solution: the matrix of Example 11.10
+> Think of the matrix of Example 11.10 as the augmented matrix of a system of 3 equations in 2 unknowns:
+> $$\begin{cases} x - y = 3 \\ 2y = 2 \\ x = 4 \end{cases} \qquad \longrightarrow \qquad \left(\begin{array}{cc|c} 1 & 0 & 4 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{array}\right).$$
+> No pivot in the last column, and both columns of $A$ have a pivot: no parameters. There is only one solution, $x = 4$, $y = 1$. Check: $4 - 1 = 3$, $2 \cdot 1 = 2$, $x = 4$. Three equations in two unknowns can perfectly well have one solution: here the third says nothing new.
+
+> [!EXAMPLE] Infinitely many solutions with one parameter
+> Let us solve
+> $$\begin{cases} x + 2y + z = 1 \\ 2x + 4y + 3z = 3 \\ 3x + 6y + 5z = 5 \end{cases}$$
+> Gauss: $R_2 \to R_2 - 2R_1$ and $R_3 \to R_3 - 3R_1$ (row 1 stays fixed):
+> $$\left(\begin{array}{ccc|c} 1 & 2 & 1 & 1 \\ 2 & 4 & 3 & 3 \\ 3 & 6 & 5 & 5 \end{array}\right) \longrightarrow \left(\begin{array}{ccc|c} 1 & 2 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 2 & 2 \end{array}\right)$$
+> $$\xrightarrow{R_3 \to R_3 - 2R_2} \left(\begin{array}{ccc|c} 1 & 2 & 1 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$$
+> The calculations: $(2, 4, 3, 3) - 2(1, 2, 1, 1) = (0, 0, 1, 1)$; $(3, 6, 5, 5) - 3(1, 2, 1, 1) = (0, 0, 2, 2)$; $(0, 0, 2, 2) - 2(0, 0, 1, 1) = 0$. In the second column, below the first row, there are only zeros: the step jumps to the third column. Gauss–Jordan: $R_1 \to R_1 - R_2$ gives $(1, 2, 0, 0)$:
+> $$\left(\begin{array}{ccc|c} 1 & 2 & 0 & 0 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right).$$
+> Pivots in columns 1 and 3, none in the last. Column 2 ($y$) has no pivot: $y = t$. Then $z = 1$ and $x + 2t = 0$, that is
+> $$x = -2t, \qquad y = t, \qquad z = 1, \qquad t \in \R.$$
+> Check in the second equation: $2(-2t) + 4t + 3 \cdot 1 = 3$. For $t = 0$ the solution $(0, 0, 1)$, for $t = 1$ the solution $(-2, 1, 1)$, and so on: infinitely many solutions, which depend on **one** parameter ($3$ unknowns $- 2$ pivots).
+
+> [!EXAMPLE] Two parameters (from Martelli's book, Example 3.1.2)
+> The system $\begin{cases} x_1 + 3x_2 + 4x_5 = 1 \\ x_3 - 2x_4 = 3 \end{cases}$ is already in reduced form: the augmented matrix is
+> $$\left(\begin{array}{ccccc|c} 1 & 3 & 0 & 0 & 4 & 1 \\ 0 & 0 & 1 & -2 & 0 & 3 \end{array}\right).$$
+> Pivots in columns 1 and 3; the free unknowns are $x_2$, $x_4$, $x_5$: three parameters ($5 - 2 = 3$). With $x_2 = t_1$, $x_4 = t_2$, $x_5 = t_3$:
+> $$\begin{cases} x_1 = 1 - 3t_1 - 4t_3 \\ x_2 = t_1 \\ x_3 = 3 + 2t_2 \\ x_4 = t_2 \\ x_5 = t_3 \end{cases}$$
+> Notice the signs: $3x_2$ and $4x_5$, moved to the right, become $-3t_1$ and $-4t_3$; $-2x_4$ becomes $+2t_2$.
+
+```widget gauss
+title: Solve a system: the last column is the one of the constant terms
+matrice: 1 2 1 1; 2 4 3 3; 3 6 5 5
+modo: sistema
+```
+
+The tool runs Gauss–Jordan on the augmented matrix, says whether there are solutions and writes them with the parameters $t_1, t_2, \dots$ Here you find the system of the example with one parameter. Try changing the last number from $5$ to $6$: the third equation is no longer compatible with the others and the row $0 = 1$ appears.
+
+> [!PITFALL] The parameters: how many and to whom
+> Two classic mistakes. (1) **Forgetting a free unknown.** If an unknown appears in no equation, its column in $A$ is all zeros, has no pivot and gets a parameter too. In $\R^3$ the system made of the single equation $x + z = 1$ has matrix $\left(\begin{array}{ccc|c} 1 & 0 & 1 & 1 \end{array}\right)$: columns 2 and 3 have no pivot, so $y = t_1$, $z = t_2$, $x = 1 - t_2$, with **two** parameters. (2) **Counting the unknowns from the columns of $C$** instead of those of $A$: the column of the constant terms is **not** an unknown. A $3 \times 5$ augmented matrix has **4** unknowns.
+
+> [!BEYOND] the solutions written as vectors
+> Martelli (p. 84) also writes the solutions in **vector form**, collecting the parameters. In the example with one parameter:
+> $$\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} -2t \\ t \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} + t \begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}.$$
+> It is a **line** of $\R^3$: the point $(0, 0, 1)$ plus all the multiples of the vector $(-2, 1, 0)$. In general the solutions have the form $x_0 + t_1 v_1 + \cdots + t_h v_h$, with one vector $v_i$ for each parameter. In lesson L12 you will see what $x_0$ (a "particular solution") and the $v_i$ (the solutions of the system with all the constant terms equal to zero) are.
+
+> [!BEYOND] where to find it in the book
+> The whole lesson follows Martelli's book, **§3.1 "Algoritmi di risoluzione"** (pp. 79–85 of the book): Gauss moves and Proposition 3.1.1 (pp. 79–80), Gauss's algorithm (pp. 80–82), Gauss–Jordan algorithm (pp. 82–83), solving a system and vector form of the solutions (pp. 83–85, with Example 3.1.2). In the book the rows are called $C_i$ instead of $R_i$.
+
+## Towards the exam
+
+The AG written test has 10 quiz questions with 5 answers each (you need at least 6 points for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+1. **The quiz on the number of solutions.** In the 15 exam sessions from 2023/24 to 2025/26 the question "The linear system with augmented matrix … has a number of solutions equal to" came up 9 times: exams of 24/01/2024 (question 10), 10/06/2024 (question 7), 10/07/2024 (question 5), 16/01/2025 (question 10), 03/06/2025 (question 4), 10/07/2025 (question 5), 02/09/2025 (question 1), 15/01/2026 (question 6) and 03/06/2026 (question 7). The five answers are always the same: one, zero, infinitely many with 1 parameter, infinitely many with 2 parameters, a finite number greater than 1. In the exam of 07/09/2026 (question 3) the same idea comes back with a parameter: "for which $k$ does the system have no solutions?" (lesson L12).
+2. **Finding all the solutions.** In the exam of 10/07/2024 (question 6) you had to choose, among five, the right description of all the solutions of a $3 \times 3$ system (it is the same system as Exercise 12.11 of the handouts, in lesson L12).
+3. **The open problems.** Systems with a parameter (lesson L12) are one of the two problems worth 11 points in many exam sessions (07/02/2025, 05/02/2026, 03/07/2026), and almost all the other problems (eigenspaces, kernels, intersections of planes) end with a Gauss reduction. Doing Gauss without calculation mistakes is worth half the test.
+
+> [!METHOD] The quiz "how many solutions?"
+> 1. Reduce the augmented matrix **to row echelon form** with Gauss: to count the solutions you do not need Gauss–Jordan.
+> 2. If a row becomes $(0, \dots, 0 \mid c)$ with $c \neq 0$, there is a pivot in the last column: **zero** solutions.
+> 3. Otherwise count the pivots, $r$, and the unknowns, $n$ (the columns **before** the bar). If $r = n$: **one** solution. If $r < n$: **infinitely many**, depending on $n - r$ parameters.
+> 4. The answer "a finite number, greater than 1" with real coefficients is always wrong: the reason is Corollary 12.7 (lesson L12).
+> 5. Before starting, look for **proportional rows**: in the exam of 02/09/2025 (question 1) the three rows were multiples of $(1, 4, 2 \mid 7)$, so a single pivot and $3 - 1 = 2$ parameters, without any calculation.
+
+> [!PITFALL] The mistakes that cost points
+> - Making a move and **forgetting the last column**: the move must be applied to the whole row.
+> - Making two moves **together** with the old rows (see the pitfall in the section on the moves).
+> - Counting the unknowns from the columns of $C$: in the exam of 16/01/2025 (question 10) the augmented matrix was $3 \times 5$, so the unknowns were **4**, and the right answer was "infinitely many, depending on 2 parameters".
+> - Sign mistakes when moving the parameters to the right of the equals sign. Remedy: at the end **substitute** a solution (for example with all the parameters equal to zero) into the starting equations.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the three Gauss moves (with $\lambda \neq 0$ in II and $j \neq i$ in III); the definition of pivot and of row echelon matrix; the reading rule "pivot in the last column $\Rightarrow$ no solution; otherwise $n - r$ parameters, one for each column of $A$ without a pivot".
+
+## Quiz
+
+```quiz
+Q: Which of these is a Gauss move on the augmented matrix of a linear system?
++ The move $R_2 \to R_2 - 3R_1$.
+- The move $R_2 \to 0 \cdot R_2$.
+- Adding $1$ to all the numbers of the first row.
+- Swapping the first and the last column.
+- Squaring all the numbers of the second row.
+= $R_2 \to R_2 - 3R_1$ is a move of type (III). Multiplying by $0$ is not allowed (move II needs $\lambda \neq 0$), adding a number or squaring are not moves, and the moves are made on the rows, not on the columns.
+
+Q: Which of these five matrices is in row echelon form? $M_1 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 0 & 0 \\ 0 & 4 & 5 \end{pmatrix}$, $M_2 = \begin{pmatrix} 2 & 1 & 0 & 3 \\ 0 & 0 & 5 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}$, $M_3 = \begin{pmatrix} 1 & 2 \\ 3 & 0 \end{pmatrix}$, $M_4 = \begin{pmatrix} 0 & 1 & 2 \\ 0 & 3 & 4 \\ 0 & 0 & 5 \end{pmatrix}$, $M_5 = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}$.
+- The first.
++ The second.
+- The third.
+- The fourth.
+- The fifth.
+= $M_2$ has the pivots $2$ (column 1) and $5$ (column 3) and the zero row at the bottom. In $M_1$ the zero row is not at the bottom; in $M_3$ and in $M_4$ the pivot of the second row is in the same column as that of the first; in $M_5$ the pivot of the third row (column 2) is to the left of that of the second (column 3).
+
+Q: The linear system with augmented matrix $\left(\begin{array}{ccc|c} 1 & 2 & 3 & 10 \\ 4 & 5 & 6 & 11 \\ 7 & 8 & 9 & 12 \end{array}\right)$ has a number of solutions equal to:
+- One.
++ Infinitely many, depending on 1 parameter.
+- Zero.
+- Infinitely many, depending on 2 parameters.
+- A finite number, greater than 1.
+= Exam of 24/01/2024, question 10. $R_2 \to R_2 - 4R_1$ gives $(0, -3, -6 \mid -29)$, $R_3 \to R_3 - 7R_1$ gives $(0, -6, -12 \mid -58)$, then $R_3 \to R_3 - 2R_2$ gives the zero row. Two pivots, in columns 1 and 2, none in the last: infinitely many solutions with $3 - 2 = 1$ parameter.
+
+Q: The linear system with augmented matrix $\left(\begin{array}{ccc|c} 3 & 12 & 6 & 21 \\ 5 & 20 & 10 & 35 \\ 4 & 16 & 8 & 28 \end{array}\right)$ has a number of solutions equal to:
+- Zero.
++ Infinitely many, depending on 2 parameters.
+- A finite number, greater than 1.
+- One.
+- Infinitely many, depending on 1 parameter.
+= Exam of 02/09/2025, question 1. The rows are $3$, $5$ and $4$ times the row $(1, 4, 2 \mid 7)$: after Gauss a single non-zero row remains, with a single pivot and no pivot in the last column. There are 3 unknowns, so $3 - 1 = 2$ parameters.
+
+Q: The linear system with augmented matrix $\left(\begin{array}{ccc|c} 1 & 2 & 3 & 4 \\ 2 & 3 & 4 & 5 \\ 3 & 4 & 5 & 7 \end{array}\right)$ has a number of solutions equal to:
++ Zero.
+- One.
+- Infinitely many, depending on 1 parameter.
+- Infinitely many, depending on 2 parameters.
+- A finite number, greater than 1.
+= Similar to the exam of 10/07/2024, question 5. $R_2 - 2R_1 = (0, -1, -2 \mid -3)$, $R_3 - 3R_1 = (0, -2, -4 \mid -5)$, then $R_3 - 2R_2 = (0, 0, 0 \mid 1)$: the row says $0 = 1$, there is a pivot in the last column and the system has no solutions.
+
+Q: The reduced form of the augmented matrix of a system in the unknowns $x, y, z$ is $\left(\begin{array}{ccc|c} 1 & 0 & 2 & 3 \\ 0 & 1 & -1 & 1 \end{array}\right)$. What is the set of all the solutions ($t \in \R$)?
++ $x = 3 - 2t,\ y = 1 + t,\ z = t$
+- $x = 3 + 2t,\ y = 1 - t,\ z = t$
+- Only $x = 3,\ y = 1,\ z = 0$
+- $x = -2t,\ y = t,\ z = t$
+- The system has no solutions.
+= Similar to the exam of 10/07/2024, question 6. The column of $z$ has no pivot: $z = t$. The rows say $x + 2z = 3$ and $y - z = 1$, so $x = 3 - 2t$ and $y = 1 + t$. The third answer gives a single solution (the one with $t = 0$), not all of them; the second gets the signs wrong when moving $t$ to the right.
+
+Q: Reducing to row echelon form the augmented matrix of a system in 3 unknowns, the row $(0, 0, 0 \mid 5)$ appears. What can you conclude?
++ The system has no solutions.
+- $z = 5$.
+- The system has infinitely many solutions.
+- The row can be deleted and you carry on.
+- The only solution is $x = y = z = 0$.
+= The row represents the equation $0x + 0y + 0z = 5$, that is $0 = 5$, false for every choice of the unknowns. There is a pivot in the last column, so $S = \emptyset$. What you delete instead is a row $(0, 0, 0 \mid 0)$, which says $0 = 0$.
+
+Q: In the matrix $\left(\begin{array}{cc|c} 1 & 2 & 4 \\ 3 & 1 & 7 \end{array}\right)$ you make the move $R_2 \to R_2 - 3R_1$. What does the second row become?
++ $(0, -5 \mid -5)$
+- $(0, -5 \mid 5)$
+- $(0, 5 \mid 5)$
+- $(0, -5 \mid 19)$
+- $(2, -1 \mid 3)$
+= $(3, 1, 7) - 3 \cdot (1, 2, 4) = (3 - 3,\ 1 - 6,\ 7 - 12) = (0, -5, -5)$. The move is applied to the last column too; $(2, -1 \mid 3)$ is $R_2 - R_1$, not $R_2 - 3R_1$.
+
+Q: A system of 3 equations in 5 unknowns, reduced to row echelon form, has 3 pivots and none of them is in the last column. How many solutions are there?
++ Infinitely many, depending on 2 parameters.
+- Infinitely many, depending on 3 parameters.
+- One.
+- Zero.
+- Infinitely many, depending on 5 parameters.
+= Similar to the exam of 16/01/2025, question 10 (where there were 4 unknowns). No pivot in the last column, so there are solutions; there are as many parameters as unknowns without a pivot: $5 - 3 = 2$.
+
+Q: Solve the row echelon system $x - y + 2z = 5$, $3y - z = 1$, $2z = 4$. What is $x$?
+N: 2
+= From the bottom: $z = 2$; then $3y - 2 = 1$, so $y = 1$; finally $x - 1 + 4 = 5$, so $x = 2$.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 11.11 of the handouts: a 3 × 3 system
+Solve the linear system
+$$\begin{cases} x + y + 2z = 9 \\ 2x + 4y - 3z = 1 \\ 3x + 6y - 5z = 0 \end{cases}$$
+::: solution
+**Augmented matrix and phase 1 (Gauss).** The pivot of the first column is already $1$. I take $2R_1$ away from the second row and $3R_1$ away from the third:
+$$\left(\begin{array}{ccc|c} 1 & 1 & 2 & 9 \\ 2 & 4 & -3 & 1 \\ 3 & 6 & -5 & 0 \end{array}\right) \longrightarrow \left(\begin{array}{ccc|c} 1 & 1 & 2 & 9 \\ 0 & 2 & -7 & -17 \\ 0 & 3 & -11 & -27 \end{array}\right)$$
+The calculations: $(2, 4, -3, 1) - 2(1, 1, 2, 9) = (0, 2, -7, -17)$ and $(3, 6, -5, 0) - 3(1, 1, 2, 9) = (0, 3, -11, -27)$.
+
+Now the pivot of the second column is $2$ and below it there is $3$. To avoid fractions I use $R_3 \to 2R_3 - 3R_2$ (a move II followed by a move III):
+$$2 \cdot (0, 3, -11, -27) - 3 \cdot (0, 2, -7, -17) = (0,\ 6 - 6,\ -22 + 21,\ -54 + 51) = (0, 0, -1, -3).$$
+$$\left(\begin{array}{ccc|c} 1 & 1 & 2 & 9 \\ 0 & 2 & -7 & -17 \\ 0 & 0 & -1 & -3 \end{array}\right)$$
+(Following the algorithm to the letter, $R_3 \to R_3 - \frac 32 R_2$, the third row comes out $(0, 0, -\frac 12, -\frac 32)$: it is the same equation divided by 2.)
+
+**Reading.** Three pivots in three columns of $A$, none in the last column: exactly one solution. Back substitution:
+1. $-z = -3$, so $z = 3$;
+2. $2y - 7 \cdot 3 = -17$, that is $2y = 4$, so $y = 2$;
+3. $x + 2 + 2 \cdot 3 = 9$, so $x = 1$.
+
+**Check** in the starting equations: $1 + 2 + 6 = 9$; $2 + 8 - 9 = 1$; $3 + 12 - 15 = 0$. The solution is $(x, y, z) = (1, 2, 3)$, as the handouts say.
+:::
+
+::: exercise basic From the system to the augmented matrix
+Write the coefficient matrix, the vector of constant terms and the augmented matrix of the systems
+$$\text{(a)} \begin{cases} 3x - z = 2 \\ y + 4z = -1 \end{cases} \qquad \text{(b)} \begin{cases} x_1 + x_2 = x_3 \\ 2x_3 - 7 = x_1 \\ x_2 = 5 \end{cases}$$
+How many equations and how many unknowns are there?
+::: solution
+(a) Two equations ($k = 2$) in three unknowns ($n = 3$, in the order $x, y, z$). In the first $y$ is missing, in the second $x$ is missing: coefficients $0$.
+$$A = \begin{pmatrix} 3 & 0 & -1 \\ 0 & 1 & 4 \end{pmatrix}, \quad b = \begin{pmatrix} 2 \\ -1 \end{pmatrix}, \quad C = \left(\begin{array}{ccc|c} 3 & 0 & -1 & 2 \\ 0 & 1 & 4 & -1 \end{array}\right).$$
+
+(b) First you put it in order: the unknowns on the left, in the order $x_1, x_2, x_3$, the numbers on the right.
+$$\begin{cases} x_1 + x_2 - x_3 = 0 \\ -x_1 + 2x_3 = 7 \\ x_2 = 5 \end{cases} \qquad C = \left(\begin{array}{ccc|c} 1 & 1 & -1 & 0 \\ -1 & 0 & 2 & 7 \\ 0 & 1 & 0 & 5 \end{array}\right).$$
+Three equations in three unknowns. Notice the $-7$ moved to the right, which becomes $+7$, and the two zeros for the missing unknowns.
+:::
+
+::: exercise basic Pivots and echelons
+For each matrix say whether it is in row echelon form and, if it is, give the pivots and the columns they are in.
+$$M_1 = \begin{pmatrix} 0 & 2 & 1 & 4 \\ 0 & 0 & 0 & 3 \\ 0 & 0 & 0 & 0 \end{pmatrix}, \quad M_2 = \begin{pmatrix} 1 & 5 \\ 0 & 0 \\ 0 & 2 \end{pmatrix}, \quad M_3 = \begin{pmatrix} 3 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}, \quad M_4 = \begin{pmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 0 & 6 & 7 \end{pmatrix}.$$
+::: solution
+- $M_1$: yes. Pivot $2$ in column 2 and $3$ in column 4; the zero row is at the bottom. The all-zero first column does no harm.
+- $M_2$: no. The zero row $(0, 0)$ is above the row $(0, 2)$, which has a pivot. Swapping the last two rows it becomes row echelon.
+- $M_3$: yes. A single pivot, $3$, in column 1, and the zero row at the bottom.
+- $M_4$: no. The pivot of the third row, $6$, is in column 2 like that of the second. With $R_3 \to R_3 - \frac 32 R_2$ the third row becomes $(0, 0, 7 - \frac{15}2) = (0, 0, -\frac 12)$ and the matrix is in row echelon form.
+:::
+
+::: exercise intermediate Full Gauss–Jordan, with a column without a pivot
+Solve with the Gauss–Jordan algorithm the system with augmented matrix
+$$\left(\begin{array}{ccc|c} 1 & 2 & -1 & 3 \\ 2 & 4 & 1 & 0 \\ 1 & 2 & 2 & -3 \end{array}\right).$$
+::: solution
+**Phase 1.** $R_2 \to R_2 - 2R_1$ and $R_3 \to R_3 - R_1$:
+$$(2, 4, 1, 0) - 2(1, 2, -1, 3) = (0, 0, 3, -6), \qquad (1, 2, 2, -3) - (1, 2, -1, 3) = (0, 0, 3, -6).$$
+The second column below the first row is all zero: you move on to the third, where the pivot is $3$. $R_3 \to R_3 - R_2$ gives the zero row:
+$$\left(\begin{array}{ccc|c} 1 & 2 & -1 & 3 \\ 0 & 0 & 3 & -6 \\ 0 & 0 & 0 & 0 \end{array}\right).$$
+**Phase 2.** $R_2 \to \frac 13 R_2$ gives $(0, 0, 1, -2)$; then $R_1 \to R_1 + R_2$ gives $(1, 2, 0, 1)$:
+$$\left(\begin{array}{ccc|c} 1 & 2 & 0 & 1 \\ 0 & 0 & 1 & -2 \\ 0 & 0 & 0 & 0 \end{array}\right).$$
+**Reading.** Pivots in columns 1 and 3, none in the last. Column 2 has no pivot: $y = t$. Then $z = -2$ and $x = 1 - 2t$:
+$$(x, y, z) = (1 - 2t,\ t,\ -2), \qquad t \in \R.$$
+**Check** with $t = 0$, that is $(1, 0, -2)$: $1 + 0 + 2 = 3$; $2 + 0 - 2 = 0$; $1 + 0 - 4 = -3$.
+:::
+
+::: exercise intermediate Two equations, four unknowns
+Find all the solutions of
+$$\begin{cases} x_1 + x_2 - x_3 + 2x_4 = 1 \\ 2x_1 + 2x_2 + x_3 + x_4 = 5 \end{cases}$$
+::: solution
+$R_2 \to R_2 - 2R_1$: $(2, 2, 1, 1, 5) - 2(1, 1, -1, 2, 1) = (0, 0, 3, -3, 3)$. Then $R_2 \to \frac 13 R_2$ gives $(0, 0, 1, -1, 1)$ and $R_1 \to R_1 + R_2$ gives $(1, 1, 0, 1, 2)$:
+$$\left(\begin{array}{cccc|c} 1 & 1 & 0 & 1 & 2 \\ 0 & 0 & 1 & -1 & 1 \end{array}\right).$$
+Pivots in columns 1 and 3. Columns 2 and 4 have no pivot: $x_2 = s$, $x_4 = t$. The rows say $x_1 + s + t = 2$ and $x_3 - t = 1$:
+$$x_1 = 2 - s - t, \qquad x_2 = s, \qquad x_3 = 1 + t, \qquad x_4 = t, \qquad s, t \in \R.$$
+Infinitely many solutions, with $4 - 2 = 2$ parameters. **Check** in the second equation: $2(2 - s - t) + 2s + (1 + t) + t = 4 - 2s - 2t + 2s + 1 + 2t = 5$.
+:::
+
+::: exercise intermediate An impossible system
+Show that the system $\begin{cases} x + y + z = 1 \\ x - y + 2z = 0 \\ 2x + 3z = 2 \end{cases}$ has no solutions.
+::: solution
+$$\left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 1 & -1 & 2 & 0 \\ 2 & 0 & 3 & 2 \end{array}\right) \xrightarrow[R_3 \to R_3 - 2R_1]{R_2 \to R_2 - R_1} \left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & -2 & 1 & -1 \\ 0 & -2 & 1 & 0 \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 - R_2} \left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & -2 & 1 & -1 \\ 0 & 0 & 0 & 1 \end{array}\right)$$
+The calculations: $(1, -1, 2, 0) - (1, 1, 1, 1) = (0, -2, 1, -1)$; $(2, 0, 3, 2) - 2(1, 1, 1, 1) = (0, -2, 1, 0)$; $(0, -2, 1, 0) - (0, -2, 1, -1) = (0, 0, 0, 1)$.
+
+The last row says $0 = 1$: pivot in the last column, $S = \emptyset$. You can also see it at a glance: the third equation minus the sum of the first two gives $0 = 1$, because $(2x + 3z) - (x + y + z) - (x - y + 2z) = 0$ while $2 - 1 - 0 = 1$.
+:::
+
+::: exercise intermediate Where is the mistake?
+A student solves $\begin{cases} 2x + y = 4 \\ x + 3y = 7 \end{cases}$ by doing in the same step $R_1 \to R_1 - 2R_2$ and $R_2 \to R_2 - \frac 12 R_1$, both with the starting rows. What do they get? Why is it wrong? Solve it correctly.
+::: solution
+**The student's calculation**, with the starting rows $R_1 = (2, 1 \mid 4)$ and $R_2 = (1, 3 \mid 7)$:
+$$R_1 - 2R_2 = (0, -5 \mid -10), \qquad R_2 - \tfrac 12 R_1 = (0, \tfrac 52 \mid 5).$$
+The two new rows are multiples of each other (the second is $-\frac 12$ times the first): what remains is the single equation $y = 2$ and $x$ looks free, that is "infinitely many solutions".
+
+**Why it is wrong.** Each of the two moves, on its own, is legitimate; done together they are not, because the second uses the row $R_1$ which in the meantime has been changed by the first. The result can no longer be brought back: an equation has been lost.
+
+**Correctly**, one move at a time: $R_1 \leftrightarrow R_2$, then $R_2 \to R_2 - 2R_1$:
+$$\left(\begin{array}{cc|c} 1 & 3 & 7 \\ 2 & 1 & 4 \end{array}\right) \longrightarrow \left(\begin{array}{cc|c} 1 & 3 & 7 \\ 0 & -5 & -10 \end{array}\right)$$
+So $y = 2$ and $x = 7 - 6 = 1$. Check: $2 + 2 = 4$, $1 + 6 = 7$. There is only one solution, $(1, 2)$.
+:::
+
+::: exercise intermediate The homogeneous system of Example 11.10
+Use the matrix of Example 11.10 as the coefficient matrix of the system in three unknowns with all constant terms equal to zero:
+$$\begin{cases} x_1 - x_2 + 3x_3 = 0 \\ 2x_2 + 2x_3 = 0 \\ x_1 + 4x_3 = 0 \end{cases}$$
+Find all the solutions.
+::: solution
+The column of the constant terms is all zeros and no Gauss move changes it (combinations of zeros give zero): it is enough to reduce the coefficient matrix. Example 11.10 has already done it:
+$$\begin{pmatrix} 1 & -1 & 3 \\ 0 & 2 & 2 \\ 1 & 0 & 4 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 0 & 4 \\ 0 & 1 & 1 \\ 0 & 0 & 0 \end{pmatrix}.$$
+Pivots in columns 1 and 2: column 3 is free, $x_3 = t$. The rows say $x_1 + 4t = 0$ and $x_2 + t = 0$:
+$$(x_1, x_2, x_3) = (-4t, -t, t) = t\,(-4, -1, 1), \qquad t \in \R.$$
+**Check** with $t = 1$: $-4 + 1 + 3 = 0$; $-2 + 2 = 0$; $-4 + 4 = 0$. The solutions are the multiples of one vector: a line through the origin. In lesson L12 this will be called the **homogeneous system**, and you will see that its solutions always form a subspace.
+:::
+
+::: exercise hard When the system depends on a number
+For which values of $a \in \R$ does the system $\begin{cases} x + y = 1 \\ x + ay = 2 \end{cases}$ have solutions? When there are some, find them.
+::: solution
+$R_2 \to R_2 - R_1$: $(1, a, 2) - (1, 1, 1) = (0, a - 1, 1)$.
+$$\left(\begin{array}{cc|c} 1 & 1 & 1 \\ 0 & a - 1 & 1 \end{array}\right)$$
+Now you have to distinguish cases, because the second pivot is $a - 1$ and **it can be zero**.
+
+- **If $a = 1$** the second row is $(0, 0 \mid 1)$: $0 = 1$, no solution. Indeed the system becomes $x + y = 1$ and $x + y = 2$: two parallel lines.
+- **If $a \neq 1$** the pivot $a - 1$ is non-zero and I can divide: $y = \frac 1{a - 1}$, then $x = 1 - y = \frac{a - 2}{a - 1}$. Exactly one solution.
+
+**Check** in the second equation: $x + ay = \frac{a - 2}{a - 1} + \frac a{a - 1} = \frac{2a - 2}{a - 1} = 2$. For example with $a = 3$: $y = \frac 12$, $x = \frac 12$, and indeed $\frac 12 + \frac 32 = 2$.
+
+The trap: dividing by $a - 1$ without asking yourself whether it can be zero. With parameters, every time a pivot contains the parameter you study separately the case in which it vanishes (lesson L12).
+:::
+
+::: exercise exam As at the exam: how many solutions? (exam of 15/01/2026, question 6)
+The linear system with augmented matrix
+$$\left(\begin{array}{ccc|c} 0 & 1 & 2 & 3 \\ 4 & 5 & 6 & 7 \\ 8 & 9 & 10 & 11 \end{array}\right)$$
+has a number of solutions equal to: (a) a finite number, greater than 1; (b) zero; (c) infinitely many, depending on 2 parameters; (d) infinitely many, depending on 1 parameter; (e) one. Then find all the solutions.
+::: solution
+**Step (1) of the algorithm.** $C_{11} = 0$: I swap $R_1 \leftrightarrow R_2$.
+$$\left(\begin{array}{ccc|c} 4 & 5 & 6 & 7 \\ 0 & 1 & 2 & 3 \\ 8 & 9 & 10 & 11 \end{array}\right) \xrightarrow{R_3 \to R_3 - 2R_1} \left(\begin{array}{ccc|c} 4 & 5 & 6 & 7 \\ 0 & 1 & 2 & 3 \\ 0 & -1 & -2 & -3 \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 + R_2} \left(\begin{array}{ccc|c} 4 & 5 & 6 & 7 \\ 0 & 1 & 2 & 3 \\ 0 & 0 & 0 & 0 \end{array}\right)$$
+The calculations: $(8, 9, 10, 11) - 2(4, 5, 6, 7) = (0, -1, -2, -3)$; then adding $R_2$ you get the zero row.
+
+**Answer to the quiz.** Two pivots (columns 1 and 2), none in the last column, three unknowns: infinitely many solutions with $3 - 2 = 1$ parameter, answer **(d)**.
+
+**All the solutions.** $z = t$. From the second row $y = 3 - 2t$. From the first $4x = 7 - 5(3 - 2t) - 6t = 7 - 15 + 10t - 6t = -8 + 4t$, so $x = -2 + t$:
+$$(x, y, z) = (-2 + t,\ 3 - 2t,\ t), \qquad t \in \R.$$
+**Check** with $t = 0$, that is $(-2, 3, 0)$: $0 + 3 + 0 = 3$; $-8 + 15 + 0 = 7$; $-16 + 27 + 0 = 11$.
+:::
+
+::: exercise exam As at the exam: finding all the solutions
+Find all the solutions of the system
+$$\begin{cases} x + 2y + 3z = 1 \\ 2x + 5y + 7z = 3 \\ x + 3y + 4z = 2 \end{cases}$$
+and choose the right answer among: (a) no solution; (b) $x = -1 - t,\ y = 1 - t,\ z = t$; (c) $x = 1,\ y = 0,\ z = 0$; (d) $x = -1 + t,\ y = 1 + t,\ z = t$; (e) $x = 1 - 2s,\ y = s,\ z = 0$.
+::: solution
+**Gauss.** $R_2 \to R_2 - 2R_1$ and $R_3 \to R_3 - R_1$:
+$$(2, 5, 7, 3) - 2(1, 2, 3, 1) = (0, 1, 1, 1), \qquad (1, 3, 4, 2) - (1, 2, 3, 1) = (0, 1, 1, 1).$$
+The two rows are equal: $R_3 \to R_3 - R_2$ gives the zero row. Gauss–Jordan: $R_1 \to R_1 - 2R_2$ gives $(1, 0, 1, -1)$.
+$$\left(\begin{array}{ccc|c} 1 & 0 & 1 & -1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{array}\right)$$
+**Reading.** $z = t$ (column without a pivot), $x = -1 - t$, $y = 1 - t$: answer **(b)**.
+
+**How to rule out the others without redoing the calculations** (useful in the quiz): is (c) a solution? In the first equation $1 + 0 + 0 = 1$ yes, in the second $2 \neq 3$: no. (d) with $t = 1$ gives $(0, 2, 1)$: in the first $0 + 4 + 3 = 7 \neq 1$, no. (e) with $s = 0$ gives $(1, 0, 0)$, already ruled out. (a) is false because (b) works: with $t = 0$, $(-1, 1, 0)$ gives $-1 + 2 = 1$, $-2 + 5 = 3$, $-1 + 3 = 2$.
+:::
+
+## Review questions
+
+::: question What is a linear system and what is its augmented matrix?
+A set of $k$ first-degree equations in the same $n$ unknowns, with coefficients and constant terms in a field $\K$. The augmented matrix $C = (A \mid b)$ is the $k \times (n + 1)$ matrix that has the coefficients $a_{ij}$ on the left (row = equation, column = unknown) and the constant terms $b_i$ in the last column.
+:::
+
+::: question What is the set $S$ of solutions?
+The set of all the vectors $x \in \K^n$ that make all the equations of the system true together. It can be empty, have a single element or have infinitely many.
+:::
+
+::: question What are the three Gauss moves?
+(I) swapping two rows, $R_i \leftrightarrow R_j$; (II) multiplying a row by $\lambda \neq 0$, $R_i \to \lambda R_i$; (III) adding to a row a multiple of another row, $R_i \to R_i + \lambda R_j$ with $j \neq i$ and any $\lambda$.
+:::
+
+::: question Why does move (II) need $\lambda \neq 0$?
+Because multiplying by $0$ the equation becomes $0 = 0$ and the information it contained is lost: the solutions can increase. With $\lambda \neq 0$ instead the move is undone by multiplying by $\frac 1\lambda$.
+:::
+
+::: question Why do the Gauss moves not change the solutions (Proposition 11.4)?
+Because each move turns true equations into true equations, and each move can be undone by another move of the same type (the same swap, multiplication by $\frac 1\lambda$, the move $R_i \to R_i - \lambda R_j$). So a vector solves the system before the move if and only if it solves it after.
+:::
+
+::: question What is a pivot? When is a matrix in row echelon form?
+The pivot of a row is its first non-zero entry, reading from the left. A matrix is in row echelon form if the zero rows are at the bottom and each pivot is strictly to the right of the pivot of the non-zero row above.
+:::
+
+::: question How does Gauss's algorithm work?
+(1) You look for a non-zero entry in the first column and bring it to the top with a swap; if the column is all zero you move on to the next one. (2) You put zeros below the pivot with the moves $R_i \to R_i - \frac{C_{i1}}{C_{11}} R_1$. (3) You repeat on the submatrix without the first row and the first column.
+:::
+
+::: question What does the Gauss–Jordan algorithm add?
+After the row echelon form, it also puts zeros above the pivots (moves III) and makes all the pivots equal to $1$ (moves II). From the reduced form you read off the solutions without any more calculations.
+:::
+
+::: question How do you recognise from the row echelon form that a system has no solutions?
+There is a pivot in the column of the constant terms, that is a row $(0, \dots, 0 \mid c)$ with $c \neq 0$: it represents the equation $0 = c$, impossible. Then $S = \emptyset$.
+:::
+
+::: question If there is no pivot in the last column, how do you write the solutions?
+You give a parameter $t_1, t_2, \dots$ to each unknown whose column has no pivot; from the rows you get the unknowns with a pivot, moving the parameters to the right of the equals sign. The parameters are $n - r$, where $n$ is the number of unknowns and $r$ the number of pivots; if $r = n$ there is only one solution.
+:::
+
+::: question What is the difference between a row $(0, 0, 0 \mid 0)$ and a row $(0, 0, 0 \mid 3)$?
+The first says $0 = 0$, always true: it removes no solutions and can be ignored. The second says $0 = 3$, always false: the system has no solutions.
+:::
+
+::: question Why can you not do $R_1 \to R_1 - R_2$ and $R_2 \to R_2 - R_1$ together?
+Because the second move would use the old row $R_1$, which in the meantime has changed: the result does not correspond to a sequence of Gauss moves and equations can be lost (the two new rows are opposite to each other). After each move you work with the new rows.
+:::
+
+## Glossary
+
+```glossary
+Linear system | Set of $k$ first-degree equations in the same $n$ unknowns, with coefficients and constant terms in a field $\K$.
+Coefficient $a_{ij}$ | The number that multiplies the unknown $x_j$ in equation $i$.
+Constant term $b_i$ | The number to the right of the equals sign in equation $i$.
+Coefficient matrix $A$ | The $k \times n$ matrix of the coefficients $a_{ij}$.
+Vector of constant terms $b$ | The column vector $(b_1, \dots, b_k)$.
+Augmented matrix $C = (A \mid b)$ | The $k \times (n + 1)$ matrix made of $A$ with the column $b$ added on the right.
+Solution | A vector of $\K^n$ that makes all the equations of the system true.
+Set of solutions $S$ | The subset of $\K^n$ of all the solutions; it can be empty.
+Gauss moves | Swapping two rows; multiplying a row by $\lambda \neq 0$; adding to a row a multiple of another row.
+Pivot | The first non-zero entry of a row.
+Row echelon matrix | Matrix with the zero rows at the bottom and each pivot strictly to the right of the pivot of the row above.
+Back substitution | Solving a row echelon system starting from the last equation and going up.
+Gauss's algorithm | Procedure that brings any matrix to row echelon form, fixing one column at a time.
+Gauss–Jordan algorithm | Gauss, plus zeros above the pivots and pivots equal to 1.
+Reduced row echelon form | The result of Gauss–Jordan: pivots equal to 1, the only non-zero entries of their column.
+Free variable (parameter) | Unknown whose column contains no pivot: it can take any value.
+Impossible system | System with no solutions ($S = \emptyset$); in row echelon form it has a pivot in the last column.
+```
+
+## Checklist
+
+```checklist
+- I can write the augmented matrix of a system, putting in order the unknowns, the zeros and the constant terms.
+- I can list the three Gauss moves with their conditions ($\lambda \neq 0$ in II, $j \neq i$ in III).
+- I can explain why the Gauss moves do not change the set of solutions.
+- I can find the pivots and say whether a matrix is in row echelon form.
+- I can apply Gauss's algorithm, also when $C_{11} = 0$ or a column is all zero.
+- I can complete with Gauss–Jordan: zeros above the pivots and pivots equal to 1.
+- I can recognise an impossible system from the row $(0, \dots, 0 \mid c)$ with $c \neq 0$.
+- I can write all the solutions with the free parameters, one for each column of $A$ without a pivot.
+- I can answer the quiz "how many solutions?" in a few minutes by counting pivots and unknowns.
+- I can check a solution by substituting it into the starting equations.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 11 "Sistemi Lineari I", pp. 50–55: sections 11.A–11.E are followed in order, with the page next to each heading; definitions, proposition and examples keep their numbering (Definitions 11.1, 11.2 and 11.5, Proposition 11.4, Examples 11.3 and 11.6–11.10, Exercise 11.11).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §3.1 "Algoritmi di risoluzione" (pp. 79–85), which is also the source of Example 3.1.2, the vector form of the solutions and the remark on the freedom in the choice of moves.
+- **Exam papers** of Linear Algebra 2023/24–2025/26 with official solutions (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): reported: question 10 of 24/01/2024, question 1 of 02/09/2025 and question 6 of 15/01/2026; cited: the questions on the number of solutions of the other exam sessions and question 6 of 10/07/2024. The solutions here are written from scratch.
+- The **"Beyond the handouts"** parts (the three situations in the plane, the tricks for calculations by hand, the uniqueness of the reduced form, the vector form of the solutions, the unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L12_linear_systems_2.md -->
+> File: `ai_context/MDAG/lessons/L12_linear_systems_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L12
+title: Linear systems II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L12
+description: >-
+  Notes on lesson L12 of Linear Algebra and Geometry (MDAG, part 2): associated homogeneous system, particular
+  solution, affine subspaces, rank and pivots, the Rouché–Capelli theorem, square systems and systems with a
+  parameter, with exam-style quizzes and worked exercises.
+lede: >-
+  Why a linear system always has zero, one or infinitely many solutions and never two: the solutions are any one
+  solution plus those of the system with zero constant terms, and the Rouché–Capelli theorem tells you, by comparing
+  two ranks, whether they exist and how many parameters are needed. At the end, the method for systems with a
+  parameter $k$, one of the two problems worth 11 points in many exam sessions.
+material: handouts
+facts:
+  Handouts: lesson 12 · pp. 56–61
+  Book: Martelli, §3.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 12 "Sistemi lineari II"; B. Martelli, Geometria e algebra lineare, §3.2
+italian_file: L12_sistemi_lineari_2.html
+html_notes: notes/MDAG/L12_linear_systems_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L12_sistemi_lineari_2.md
+```
+
+## In brief
+
+- The **associated homogeneous system** is obtained by setting all the constant terms to zero. Its solutions $S_0$ always form a **vector subspace** of $\K^n$: there is always at least the zero solution.
+- The solutions $S$ of the starting system, if there are any, are obtained by adding to **one** solution (the **particular solution**) all the solutions of the homogeneous system: $S = x + S_0$.
+- A set of the form $x + W$, with $W$ a vector subspace, is an **affine subspace**: a point, a line, a plane that do not necessarily pass through the origin. Its dimension is $\dim W$.
+- A system can also be read as $x_1A^1 + \cdots + x_nA^n = b$: it has solutions if and only if $b$ is a linear combination of the columns of $A$.
+- The **rank** of a matrix is the number of pivots of any row echelon form of it: the Gauss moves do not change it.
+- **Rouché–Capelli theorem**: the system has solutions if and only if $\rk(A \mid b) = \rk(A)$; in this case the solutions form an affine subspace of dimension $n - \rk(A)$.
+- Over $\Q$, $\R$, $\C$ the solutions are $0$, $1$ or infinitely many: never two, never "a finite number greater than 1".
+- With square $A$: exactly one solution if and only if $\det A \neq 0$, and then $x = A^{-1}b$. If $\det A = 0$ the solutions are zero **or** infinitely many: you check with the ranks.
+- In systems with a parameter $k$ you do Gauss keeping $k$ as a letter and you study separately the values of $k$ that make a pivot zero.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## The associated homogeneous system (p. 56)
+
+In lesson L11 you learned to **solve** a system with the Gauss–Jordan algorithm. This lesson looks at the problem from above: what **shape** the set of solutions has, and how you can tell in advance whether there are solutions and how many.
+
+Start from a single equation in two unknowns, $x + y = 2$. The solutions are all the pairs with $x = 2 - t$, $y = t$: a line of the plane. Now set the constant term to zero: $x + y = 0$. The solutions are $x = -t$, $y = t$: another line, **parallel** to the first, which passes through the origin. Look at the drawing: every solution of the first is obtained from a solution of the second by moving it by the vector $(2, 0)$, which is itself a solution of the first ($2 + 0 = 2$). In formulas:
+
+$$(2 - t,\ t) = (2, 0) + (-t,\ t).$$
+
+The whole lesson is in this line.
+
+```graph
+title: The solutions of $x + y = 2$ (line $S$) are those of $x + y = 0$ (line $S_0$) moved by the vector $(2, 0)$
+x: -3 4
+y: -3 4
+line: 2 0 0 2 | accent | $S$ | ne
+line: 0 0 -2 2 | blue | $S_0$ | ne
+vector: 2 0 | amber | $(2, 0)$ | se
+vector: 0 0 -1 1 | green | $(-1, 1)$ | sw
+vector: 2 0 1 1 | green | dashed
+```
+
+We write the general system, as in lesson L11:
+
+$$\begin{cases} a_{11}x_1 + \cdots + a_{1n}x_n = b_1, \\ \qquad \vdots \\ a_{k1}x_1 + \cdots + a_{kn}x_n = b_k. \end{cases} \qquad (12.1)$$
+
+> [!DEF] 12.1 · Associated homogeneous system
+> The **associated homogeneous system** is the one obtained simply by setting all the constant terms $b_i$ to zero, that is:
+> $$\begin{cases} a_{11}x_1 + \cdots + a_{1n}x_n = 0, \\ \qquad \vdots \\ a_{k1}x_1 + \cdots + a_{kn}x_n = 0. \end{cases} \qquad (12.2)$$
+
+Piece by piece:
+
+- **Homogeneous** means "with all the constant terms equal to zero". The coefficients $a_{ij}$ stay **the same** as in the starting system: only the right-hand column changes.
+- If $A = (a_{ij})$ is the coefficient matrix and $b = (b_i)$ the vector of constant terms, system (12.1) has augmented matrix $C = (A \mid b)$; the homogeneous system (12.2) has augmented matrix $(A \mid 0)$, or, more briefly, it is denoted by $A$: the column of zeros does not change with the Gauss moves, so there is no need to write it.
+- The handouts call $S \subset \K^n$ the set of solutions of system (12.1) and $S_0 \subset \K^n$ that of the solutions of the homogeneous system (12.2).
+
+> [!EXAMPLE] A system and its homogeneous one
+> $$\begin{cases} x + 2y - z = 3 \\ 2x + 4y + z = 3 \end{cases} \quad \longrightarrow \quad \begin{cases} x + 2y - z = 0 \\ 2x + 4y + z = 0 \end{cases}$$
+> The matrices are $(A \mid b) = \left(\begin{array}{ccc|c} 1 & 2 & -1 & 3 \\ 2 & 4 & 1 & 3 \end{array}\right)$ and $(A \mid 0) = \left(\begin{array}{ccc|c} 1 & 2 & -1 & 0 \\ 2 & 4 & 1 & 0 \end{array}\right)$: the same $A$, another column on the right.
+
+### The solutions of the homogeneous system form a subspace
+
+> [!PROP] 12.2
+> The solutions $S_0 \subset \K^n$ form a vector subspace of $\K^n$.
+
+You have to check the three subspace axioms (Definition 6.2, lesson L06): containing zero, being closed under the sum, being closed under the product by a scalar. We write the $i$-th equation of (12.2) as $a_{i1}x_1 + \cdots + a_{in}x_n = 0$ and check, for every $i$:
+
+1. **Zero is a solution.** With $x = 0$: $a_{i1} \cdot 0 + \cdots + a_{in} \cdot 0 = 0$. So $0 \in S_0$.
+2. **Sum.** If $x$ and $y$ are solutions, so is $x + y$: collecting terms,
+   $$a_{i1}(x_1 + y_1) + \cdots + a_{in}(x_n + y_n) = (a_{i1}x_1 + \cdots + a_{in}x_n) + (a_{i1}y_1 + \cdots + a_{in}y_n) = 0 + 0 = 0.$$
+3. **Multiples.** If $x$ is a solution and $\lambda \in \K$, so is $\lambda x$:
+   $$a_{i1}(\lambda x_1) + \cdots + a_{in}(\lambda x_n) = \lambda(a_{i1}x_1 + \cdots + a_{in}x_n) = \lambda \cdot 0 = 0.$$
+
+So $S_0$ is a vector subspace of $\K^n$. $\square$
+
+### The starting system instead is not
+
+The set $S$ of solutions of (12.1) is **not** a subspace, because it does not contain the origin, unless the system is already homogeneous (and then $S = S_0$). The reason: if some $b_i$ is non-zero, substituting $x = 0$ into the $i$-th equation you get $0 = b_i$, false.
+
+Closure under the sum breaks too: if $x$ and $y$ solve $x + 2y - z = 3$, their sum gives $3 + 3 = 6 \neq 3$. For example $(3, 0, 0)$ and $(1, 1, 0)$ solve the first equation of the example above, but their sum $(4, 1, 0)$ gives $4 + 2 - 0 = 6$.
+
+> [!PITFALL] The homogeneous system is never impossible
+> A homogeneous system **always** has at least the zero solution $x = 0$: it can never have zero solutions. In the row echelon form of $(A \mid 0)$ the right-hand column stays all zeros, so there cannot be a pivot in the last column. The interesting question, for a homogeneous system, is another one: is there **only** the zero solution, or are there others?
+
+## Particular solution and affine subspaces (pp. 57–58)
+
+The two sets $S$ and $S_0$ are closely linked, as in the opening drawing.
+
+> [!PROP] 12.3
+> If $S \neq \emptyset$, then $S$ is obtained by taking any solution $x \in S$ and adding to it all the vectors of $S_0$.
+
+Let us see why it holds, in two steps. Fix a solution $x \in S$ of system (12.1).
+
+1. **A solution plus a solution of the homogeneous system is a solution.** If $x' \in S_0$, then $x + x'$ solves (12.1): for each equation
+   $$a_{i1}(x_1 + x'_1) + \cdots + a_{in}(x_n + x'_n) = (a_{i1}x_1 + \cdots + a_{in}x_n) + (a_{i1}x'_1 + \cdots + a_{in}x'_n) = b_i + 0 = b_i.$$
+2. **Every solution is obtained like this.** If $x''$ is another solution of (12.1), the difference $x' = x'' - x$ solves the homogeneous system:
+   $$a_{i1}(x''_1 - x_1) + \cdots + a_{in}(x''_n - x_n) = b_i - b_i = 0.$$
+   So $x'' = x + x'$ with $x' \in S_0$.
+
+Point 1 says that all the vectors $x + x'$ with $x' \in S_0$ lie in $S$; point 2 says that there is nothing else in $S$. So the solutions of (12.1) are **exactly** those you get by adding to a fixed solution $x$ the solutions $x' \in S_0$ of (12.2). $\square$
+
+The fixed solution $x$ is called a **particular solution**. In one sentence:
+
+> [!IDEA] the formula to remember
+> **All the solutions = one particular solution + all the solutions of the associated homogeneous system.** In symbols $S = x + S_0$, if $S \neq \emptyset$. The particular solution can be **any** element of $S$: changing it, the set $S$ stays the same.
+
+> [!EXAMPLE] 12.4 · A line of solutions in $\R^3$
+> Consider the system in $\R^3$
+> $$\begin{cases} x - y + z = 1 \\ y - z = 2 \end{cases}$$
+> **The associated homogeneous system** is $x - y + z = 0$, $y - z = 0$. From the second $y = z$; in the first $x - z + z = 0$, that is $x = 0$. With $z = t$ the solutions are precisely the vectors
+> $$S_0 = \left\{ \begin{pmatrix} 0 \\ t \\ t \end{pmatrix} \ \middle|\ t \in \R \right\} = \Span\left(\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}\right).$$
+> **A particular solution** is $(3, 0, -2)$: check $3 - 0 + (-2) = 1$ and $0 - (-2) = 2$.
+>
+> **All the solutions** are obtained by adding:
+> $$\begin{pmatrix} 3 \\ 0 \\ -2 \end{pmatrix} + \begin{pmatrix} 0 \\ t \\ t \end{pmatrix} = \begin{pmatrix} 3 \\ t \\ t - 2 \end{pmatrix}, \qquad t \in \R.$$
+
+Where does the particular solution come from? From solving the system with Gauss–Jordan, as in lesson L11:
+
+$$\left(\begin{array}{ccc|c} 1 & -1 & 1 & 1 \\ 0 & 1 & -1 & 2 \end{array}\right) \xrightarrow{R_1 \to R_1 + R_2} \left(\begin{array}{ccc|c} 1 & 0 & 0 & 3 \\ 0 & 1 & -1 & 2 \end{array}\right)$$
+
+The column of $z$ has no pivot: $z = u$, then $x = 3$ and $y = 2 + u$. In vector form
+
+$$\begin{pmatrix} 3 \\ 2 + u \\ u \end{pmatrix} = \begin{pmatrix} 3 \\ 2 \\ 0 \end{pmatrix} + u \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}.$$
+
+With $u = 0$ you find the particular solution $(3, 2, 0)$, different from the handouts' one; the part with $u$ is exactly $S_0$. It is **the same set** as before: the handouts' solution $(3, t, t - 2)$ is the one with $u = t - 2$ (Martelli, p. 87, makes exactly this comparison). The handouts' solution $(3, 0, -2)$ is the one with $u = -2$.
+
+> [!METHOD] Particular solution and $S_0$ in one go
+> Solve the system with Gauss–Jordan and write the solutions in vector form, $x = x_0 + t_1 v_1 + \cdots + t_h v_h$. Then:
+> 1. $x_0$ (all the parameters equal to zero) is a particular solution;
+> 2. $S_0 = \Span(v_1, \dots, v_h)$: the part with the parameters solves the homogeneous system.
+
+### Affine subspaces
+
+> [!DEF] 12.5 · Affine subspace
+> Geometrically, $S$ is an affine subspace. Let $V$ be a vector space. An **affine subspace** of $V$ is any subset of the form
+> $$S = \{x + v \mid v \in W\} =: x + W$$
+> where $x$ is a fixed point of $V$ and $W \subset V$ is a vector subspace. The **dimension of $S$** is the dimension of the subspace $W$.
+
+Piece by piece:
+
+- $x + W$ is the subspace $W$ **translated** by the vector $x$: take every vector $v$ of $W$ and add $x$ to it.
+- The symbol $=:$ means "and we call this set": it defines the shorthand $x + W$.
+- The dimension is that of $W$, it does not depend on $x$: moving a line does not turn it into a plane.
+- Typical cases: $W = \{0\}$ gives a single **point** (dimension 0); $W = \Span(v)$ with $v \neq 0$ gives a **line** through $x$ with direction $v$ (dimension 1); $W = \Span(v, w)$ with $v, w$ independent gives a **plane** (dimension 2).
+- Martelli calls $W$ the **direction space** (*giacitura*) of $S$. For the solutions of a system the direction space is $S_0$, and $\dim S = \dim S_0$.
+
+> [!EXAMPLE] The same line written in two ways (from Martelli's book, Example 3.2.5)
+> Let $W = \Span\big((1, 1)\big)$ in $\R^2$. The two affine lines
+> $$r_1 = (1, 0) + W = \{(1 + t,\ t) \mid t \in \R\},$$
+> $$r_2 = (0, -1) + W = \{(u,\ u - 1) \mid u \in \R\}$$
+> are **the same line**, with equation $y = x - 1$: in the first $y = t = x - 1$, in the second $y = u - 1 = x - 1$. The starting point changes, the direction space $W$ does not. It works because the difference of the two points, $(1, 0) - (0, -1) = (1, 1)$, lies in $W$.
+
+```graph
+title: The line $y = x - 1$ is $(1, 0) + W$ but also $(0, -1) + W$, with $W = \Span((1, 1))$ dashed
+x: -3 4
+y: -3 4
+line: 0 0 1 1 | grey | dashed | $W$ | nw
+line: 1 0 3 2 | accent | $y = x - 1$ | se
+point: 1 0 | blue | $(1, 0)$ | se
+point: 0 -1 | blue | $(0, -1)$ | e
+vector: 1 0 2 1 | amber | $(1, 1)$ | n
+```
+
+> [!BEYOND] when an affine subspace is a vector subspace
+> $x + W$ passes through the origin if and only if $x \in W$, and in that case $x + W = W$: it is a vector subspace. For example $(2, 2) + \Span\big((1, 1)\big)$ is the line $y = x$, which passes through the origin. For systems: $S$ is a vector subspace exactly when $0 \in S$, that is when the system is homogeneous.
+
+## The system read by columns, and the rank (p. 58)
+
+Take again the riddle of lesson L11, $x + y = 5$, $x - y = 1$, and write it highlighting the columns of $A$:
+
+$$x \begin{pmatrix} 1 \\ 1 \end{pmatrix} + y \begin{pmatrix} 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 5 \\ 1 \end{pmatrix}.$$
+
+Solving the system means looking for **the coefficients** with which the columns of $A$ combine to give $b$. With $x = 3$ and $y = 2$: $3(1, 1) + 2(1, -1) = (5, 1)$.
+
+In general, denoting by $A^1, \dots, A^n$ the columns of $A$ (with the index at the top, as in lesson L08), system (12.1) can be rewritten
+
+$$x_1A^1 + \cdots + x_nA^n = b.$$
+
+So there are solutions **if and only if** $b$ is a linear combination of the columns $A^1, \dots, A^n$, with coefficients $x_1, \dots, x_n$. In other words: system (12.1) has solutions if and only if
+
+$$b \in \Span\left(A^1, \dots, A^n\right).$$
+
+> [!EXAMPLE] When $b$ leaves the Span of the columns
+> The system $x + 2y = 1$, $2x + 4y = 3$ is written $x(1, 2) + y(2, 4) = (1, 3)$. The two columns are multiples of each other, $(2, 4) = 2 \cdot (1, 2)$, so $\Span(A^1, A^2) = \Span\big((1, 2)\big)$: the line $y = 2x$. The vector $b = (1, 3)$ is not on this line ($3 \neq 2 \cdot 1$): **no** combination of the columns gives $b$, and the system has no solutions. With Gauss: $R_2 \to R_2 - 2R_1$ gives $(0, 0 \mid 1)$, that is $0 = 1$.
+
+```graph
+title: The columns $A^1 = (1, 2)$ and $A^2 = (2, 4)$ span only the dashed line; $b = (1, 3)$ is outside it
+x: -1 5
+y: -1 5
+line: 0 0 1 2 | grey | dashed
+vector: 2 4 | blue | $A^2$ | e
+vector: 1 2 | accent | thick | $A^1$ | e
+vector: 1 3 | amber | $b$ | nw
+```
+
+### The rank is counted with the pivots
+
+In lesson L08 the **rank** $\rk(A)$ was defined as the dimension of the space spanned by the columns (Definition 8.3), which is the maximum number of linearly independent columns of $A$ (Proposition 8.4). Now a practical way to compute it is needed. The handouts derive it in three steps.
+
+1. **The Gauss moves do not change the space spanned by the rows.** Every new row is a combination of the old rows, so the space of the new rows lies inside that of the old ones. Since every move can be undone (lesson L11), the converse also holds: the two spaces coincide. So the moves do not change the **row rank**, which by Proposition 8.6 is equal to the (column) rank.
+2. **In the reduced form you see everything.** With Gauss–Jordan the columns that contain the pivots become the first vectors $e_1, e_2, \dots$ of the standard basis, and all the other columns are linear combinations of these.
+3. **So** the space of the columns of the reduced form is spanned by the vectors $e_1, \dots, e_r$, where $r$ is the number of pivots, and it has dimension $r$.
+
+> [!PROP] Rank and pivots (p. 58)
+> The rank of $A$ is the number of pivots in any row echelon reduction of it.
+
+> [!EXAMPLE] The rank read off the reduced form
+> In the reduced matrix $R = \begin{pmatrix} 1 & 2 & 0 & 3 \\ 0 & 0 & 1 & 4 \\ 0 & 0 & 0 & 0 \end{pmatrix}$ the pivots are in columns 1 and 3, which are $e_1 = (1, 0, 0)$ and $e_2 = (0, 1, 0)$. The other columns are combinations of these: $R^2 = (2, 0, 0) = 2e_1$ and $R^4 = (3, 4, 0) = 3e_1 + 4e_2$. The space of the columns is $\Span(e_1, e_2)$, of dimension $2$: $\rk(R) = 2$, the number of pivots.
+
+> [!NOTE] Watch the letters
+> In this passage the handouts write that the columns with the pivots become "the first $k$ vectors $e_1, \dots, e_k$ of the standard basis of $\K^m$": here $k$ is the **number of pivots** and $m$ the **number of rows** of $A$ (the space in which the columns live). In system (12.1), instead, $k$ was the number of equations. It is only a change of letters, but it is worth knowing when you reread page 58.
+
+```widget gauss
+title: Compute the rank with the pivots
+matrice: 1 2 0 1; 2 4 1 3; 3 6 1 4
+modo: rango
+modi: rango scala ridotta
+```
+
+Press "Compute": the matrix has 3 rows and 4 columns, but after Gauss only 2 non-zero rows remain, so the rank is 2. Then try changing the last number from $4$ to $5$: the third row is no longer the sum of the first two and the rank goes up to 3.
+
+## The Rouché–Capelli theorem (pp. 58–59)
+
+Now the criterion that tells you in advance whether a system has solutions, and how many. It is the most important theorem of the lesson.
+
+> [!THEOREM] 12.6 · Rouché–Capelli
+> System (12.1) has solutions if and only if
+> $$\rk(A \mid b) = \rk(A).$$
+> If so, the space of solutions $S \subset \K^n$ is an affine subspace of dimension $n - \rk(A)$.
+
+Piece by piece:
+
+- $\rk(A)$ is the rank of the coefficient matrix; $\rk(A \mid b)$ is the rank of the augmented matrix, which has one more column.
+- Adding a column cannot lower the rank, and it raises it by at most $1$ (the space of the columns gains at most one vector). So there is always $\rk(A) \le \rk(A \mid b) \le \rk(A) + 1$: either the two ranks are **equal**, or the augmented one is larger **by one**.
+- $n$ is the number of **unknowns** (the columns of $A$). The dimension $n - \rk(A)$ is the number of **free parameters** of lesson L11.
+- In the language of lesson L11: $\rk(A \mid b) = \rk(A) + 1$ means exactly that in the row echelon form there is a **pivot in the last column**.
+
+**Proof**, step by step.
+
+1. The system has solutions if and only if $b \in \Span(A^1, \dots, A^n)$ (previous section).
+2. This happens if and only if adding $b$ to the columns does not enlarge the space spanned:
+   $$\Span\left(A^1, \dots, A^n, b\right) = \Span\left(A^1, \dots, A^n\right).$$
+   If $b$ is a combination of the columns, every combination of $A^1, \dots, A^n, b$ is already a combination of the $A^j$ alone; if instead $b$ is not, the Span with $b$ is strictly larger.
+3. Two subspaces one inside the other coincide if and only if they have the same dimension; the dimensions here are the two ranks. So there is a solution if and only if $\rk(A \mid b) = \rk(A)$.
+4. If there are solutions, $S = x + S_0$ (Proposition 12.3), so $\dim S = \dim S_0$ (Definition 12.5).
+5. It remains to count $\dim S_0$. With Gauss–Jordan (lesson L11) the solutions of the homogeneous system are written $t_1v_1 + \cdots + t_hv_h$, with one vector for each column without a pivot: $h = n - (\text{number of pivots}) = n - \rk(A)$. These vectors **span** $S_0$ and are **independent**: $v_i$ has a $1$ in the place of the $i$-th free unknown and $0$ in the places of the other free unknowns, so if $t_1v_1 + \cdots + t_hv_h = 0$, looking at the place of the $i$-th free unknown you find $t_i = 0$.
+6. So $\dim S = \dim S_0 = n - \rk(A)$. $\square$
+
+> [!EXAMPLE] Three systems, three verdicts
+> 1. $\left(\begin{array}{cc|c} 1 & 1 & 5 \\ 1 & -1 & 1 \end{array}\right)$: $\rk(A) = \rk(A \mid b) = 2 = n$. Solutions, and $\dim S = 2 - 2 = 0$: a point, $(3, 2)$.
+> 2. $\left(\begin{array}{cc|c} 1 & 2 & 1 \\ 2 & 4 & 3 \end{array}\right)$: after $R_2 \to R_2 - 2R_1$ it becomes $\left(\begin{array}{cc|c} 1 & 2 & 1 \\ 0 & 0 & 1 \end{array}\right)$. $\rk(A) = 1$ (one pivot in the first two columns), $\rk(A \mid b) = 2$: no solution.
+> 3. Example 12.4: $\left(\begin{array}{ccc|c} 1 & -1 & 1 & 1 \\ 0 & 1 & -1 & 2 \end{array}\right)$ is already in row echelon form, $\rk(A) = \rk(A \mid b) = 2$, $n = 3$: solutions, and $\dim S = 3 - 2 = 1$, a line.
+
+### Zero, one or infinitely many
+
+In the following corollary the field $\K$ is **infinite**, like $\Q$, $\R$ and $\C$.
+
+> [!COROLLARY] 12.7
+> System (12.1) has $0$, $1$ or $\infty$ solutions. More precisely, the solutions are
+> - $0$ if $\rk(A \mid b) > \rk A$,
+> - $1$ if $\rk(A \mid b) = \rk A = n$,
+> - $\infty$ if $\rk(A \mid b) = \rk A < n$.
+
+Why: if the ranks are different there are no solutions (Rouché–Capelli). If they are equal, $S$ is an affine subspace of dimension $n - \rk A$. Dimension $0$ means a single point; dimension at least $1$ means at least one free parameter, which can take **infinitely many** values in $\K$, and different values give different solutions.
+
+| $\rk(A)$ | $\rk(A \mid b)$ | Solutions | Parameters |
+|---|---|---|---|
+| $r$ | $r + 1$ | none | — |
+| $n$ | $n$ | exactly one | $0$ |
+| $r < n$ | $r$ | infinitely many | $n - r$ |
+
+> [!BEYOND] why an infinite field is needed
+> In the Discrete Mathematics part you also work with finite fields, such as $\Z_2 = \{0, 1\}$. There a free parameter can take only 2 values, and a system with $h$ parameters has exactly $2^h$ solutions: for example $x + y = 1$ over $\Z_2$ has the two solutions $(1, 0)$ and $(0, 1)$. Over $\R$ and $\C$, the fields of the exam, this does not happen: the answer "a finite number, greater than 1" in the quizzes is always wrong.
+
+### Square systems
+
+> [!COROLLARY] 12.8
+> If $A$ is a square matrix (so the number of equations is equal to the number of variables), the system $Ax = b$ has exactly one solution if $\rk A = n \Leftrightarrow \det A \neq 0$. In this case $A$ is invertible and the solution is $x = A^{-1}b$.
+
+Piece by piece:
+
+- $Ax = b$ is the system written with the row-by-column product (lesson L08): row $i$ of $A$ times the column vector $x$ gives the left-hand side of equation $i$.
+- $\rk A = n \Leftrightarrow \det A \neq 0$: the determinant is zero exactly when a column is a combination of the others (Proposition 10.3, lesson L10), that is when the $n$ columns are not independent.
+- If $\rk A = n$, also $\rk(A \mid b) = n$: the augmented matrix has only $n$ rows and the rank cannot exceed the number of rows. By Corollary 12.7 there is exactly one solution.
+- The formula: $A$ is invertible (Proposition 10.8), and multiplying $Ax = b$ on the left by $A^{-1}$ you get $x = A^{-1}Ax = A^{-1}b$.
+
+> [!EXAMPLE] A 2 × 2 system solved with the inverse
+> $\begin{cases} x + 2y = 5 \\ 3x + 4y = 6 \end{cases}$, that is $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$, $b = \begin{pmatrix} 5 \\ 6 \end{pmatrix}$.
+> 1. $\det A = 1 \cdot 4 - 2 \cdot 3 = -2 \neq 0$: exactly one solution.
+> 2. For $2 \times 2$ matrices: $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac 1{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$, so $A^{-1} = -\frac 12 \begin{pmatrix} 4 & -2 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} -2 & 1 \\ \frac 32 & -\frac 12 \end{pmatrix}$.
+> 3. $x = A^{-1}b = \begin{pmatrix} -2 \cdot 5 + 1 \cdot 6 \\ \frac 32 \cdot 5 - \frac 12 \cdot 6 \end{pmatrix} = \begin{pmatrix} -4 \\ \frac 92 \end{pmatrix}$.
+> 4. Check: $-4 + 2 \cdot \frac 92 = -4 + 9 = 5$ and $3 \cdot (-4) + 4 \cdot \frac 92 = -12 + 18 = 6$.
+
+> [!PITFALL] $\det A = 0$ does not mean "no solution"
+> Corollary 12.8 talks only about the case $\det A \neq 0$. If $\det A = 0$ the solutions are **zero or infinitely many**, and it depends on $b$: you have to compare $\rk(A)$ and $\rk(A \mid b)$. With $A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$ ($\det A = 0$): with $b = (1, 1)$ the two equations are equal and there are infinitely many solutions; with $b = (1, 2)$ the equations $x + y = 1$ and $x + y = 2$ contradict each other and there are none.
+
+> [!BEYOND] the homogeneous case, to keep in mind for eigenvectors
+> For a homogeneous system $Ax = 0$ the two ranks are always equal (the column of zeros adds nothing): there are always solutions and they form a vector subspace of dimension $n - \rk(A)$ (Martelli, Corollary 3.2.16). If $A$ is square, there are **non-zero** solutions if and only if $\det A = 0$. This sentence will come back in lessons L17–L18: eigenvectors are exactly the non-zero solutions of $(A - \lambda I)x = 0$.
+
+> [!NOTE] Link with computer science: linear programming and the simplex method (p. 59)
+> The handouts hint at a problem that is studied in a later optimisation course: finding the maximum of ${}^tc\,x$ among the vectors with $Ax = b$ and $x \ge 0$ (**linear programming**). The **simplex method** uses all the concepts seen so far. If $A$ has $m$ rows and rank $m$, a simplex *basis* is a choice of $m$ linearly independent columns of $A$: they form an invertible square matrix $A_B$. You set to zero the variables of the other columns and get the "basic" variables by solving $A_Bx_B = b$, that is $x_B = A_B^{-1}b$.
+>
+> A small example: $A = \begin{pmatrix} 1 & 1 & 1 & 0 \\ 1 & -1 & 0 & 1 \end{pmatrix}$, $b = \begin{pmatrix} 4 \\ 2 \end{pmatrix}$. Choosing columns 1 and 2, $A_B = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$ has determinant $-2 \neq 0$ and $x_B = A_B^{-1}b = (3, 1)$: the vector $x = (3, 1, 0, 0)$ solves $Ax = b$. Choosing columns 3 and 4, $A_B$ is the identity and $x = (0, 0, 4, 2)$. Independence, rank, invertible matrices and linear systems all work together in one of the fundamental algorithms of optimisation.
+
+## Systems with a parameter (p. 60)
+
+At the exam the systems often contain a letter, usually $k$, and the question is: **as $k$ varies**, how many solutions are there? You use Rouché–Capelli, with one extra precaution.
+
+> [!EXAMPLE] 12.9 · A system that depends on $k$
+> Consider the system, depending on a parameter $k \in \R$,
+> $$\begin{cases} x + ky = 4 - k \\ kx + 4y = 4 \end{cases}$$
+> (a) We want to know, as $k \in \R$ varies, whether there are solutions and, if so, what dimension they have. (b) We want to solve the system for $k = 1$.
+>
+> **(a)** We apply Gauss's algorithm to $(A \mid b)$, with the move $R_2 \to R_2 - kR_1$:
+> $$\left(\begin{array}{cc|c} 1 & k & 4 - k \\ k & 4 & 4 \end{array}\right) \longrightarrow \left(\begin{array}{cc|c} 1 & k & 4 - k \\ 0 & 4 - k^2 & 4 - 4k + k^2 \end{array}\right)$$
+> The calculation of the second row: $(k,\ 4,\ 4) - k\,(1,\ k,\ 4 - k) = (0,\ 4 - k^2,\ 4 - 4k + k^2)$. To compute the ranks you can stop here: Gauss–Jordan is only needed to write the solutions.
+>
+> Notice that $4 - 4k + k^2 = (k - 2)^2$ and $4 - k^2 = (2 - k)(2 + k)$. The matrix is in row echelon form for every $k \in \R$ and there are always two pivots, except for $k = 2$, where there is only one. So the rank of $(A \mid b)$ is $1$ for $k = 2$ and $2$ for $k \neq 2$. The coefficient matrix has become
+> $$\begin{pmatrix} 1 & k \\ 0 & 4 - k^2 \end{pmatrix}$$
+> and it has rank $1$ for $k = \pm 2$ and rank $2$ for $k \neq \pm 2$. So:
+> - if $k = -2$, then $\rk(A \mid b) \neq \rk(A)$ and there are no solutions;
+> - if $k = 2$, then $\rk(A \mid b) = \rk(A) = 1$, so the solutions form an affine subspace of $\R^2$ of dimension $2 - 1 = 1$, that is an affine line: infinitely many solutions;
+> - if $k \neq \pm 2$, then $\rk(A \mid b) = \rk(A) = 2$, so the solutions form an affine subspace of $\R^2$ of dimension $2 - 2 = 0$, that is a point: exactly one solution.
+>
+> **(b)** For $k = 1$ the reduced matrix becomes $\left(\begin{array}{cc|c} 1 & 1 & 3 \\ 0 & 3 & 1 \end{array}\right)$. From the second row $3y = 1$, so $y = \frac 13$; from the first $x = 3 - y = 3 - \frac 13 = \frac 83$.
+
+To complete the picture, the two special cases written out in full:
+
+- $k = -2$: the second row becomes $(0,\ 4 - 4,\ 4 + 8 + 4) = (0, 0 \mid 16)$, that is $0 = 16$. No solution.
+- $k = 2$: the second row becomes $(0, 0 \mid 0)$ and only the equation $x + 2y = 2$ remains: with $y = t$, the solutions are $(2 - 2t,\ t)$, that is the line $(2, 0) + \Span\big((-2, 1)\big)$.
+
+Check of (b) in the starting system with $k = 1$: $\frac 83 + \frac 13 = 3 = 4 - 1$ and $\frac 83 + \frac 43 = 4$.
+
+> [!BEYOND] the solution for every $k \neq \pm 2$, and a check with the determinant
+> The matrix $A$ is square and $\det A = 1 \cdot 4 - k \cdot k = 4 - k^2$: by Corollary 12.8 there is exactly one solution precisely when $k \neq \pm 2$, as found above. Finishing the calculations, for $k \neq \pm 2$:
+> $$y = \frac{(k - 2)^2}{(2 - k)(2 + k)} = \frac{2 - k}{2 + k}, \qquad x = 4 - k - ky = \frac 8{2 + k}.$$
+> With $k = 1$ you find again $x = \frac 83$ and $y = \frac 13$.
+
+> [!METHOD] Discussing a system with a parameter $k$
+> 1. **If $A$ is square**, start from the determinant: for the $k$ with $\det A \neq 0$ there is exactly one solution (Corollary 12.8). Only the values that make $\det A$ zero remain to be studied.
+> 2. **Otherwise** (or as a check) do Gauss on $(A \mid b)$ keeping $k$ as a letter. Choose the pivots among the numbers **without** $k$ when you can: you avoid dangerous divisions.
+> 3. Look at the pivots that contain $k$: find the values of $k$ that make them zero. They are the **special cases**.
+> 4. For each special case **substitute the number** into the matrix and redo the calculation: compare $\rk(A)$ and $\rk(A \mid b)$.
+> 5. Write the conclusion for **all** $k$: no solution for…, infinitely many with … parameters for…, exactly one for all the other values.
+
+> [!PITFALL] Dividing by an expression that can be zero
+> Writing $y = \frac{(k - 2)^2}{4 - k^2}$ without comment is the typical mistake: for $k = \pm 2$ that division cannot be done, and those are exactly the interesting cases. Every time you divide by an expression in $k$, first set aside the values that make it zero.
+
+```widget gauss
+title: The system of the exam of 05/02/2026 with $k = 1$ (also try $k = -1$ and $k = 2$)
+matrice: 1 2 1 1; -1 1 -1 2; 1 1 1 0
+modo: sistema
+```
+
+In the tool there is the augmented matrix of the system $x + 2y + kz = 1$, $-x + y - kz = 2$, $kx + ky + z = k - 1$ (problem 11 of the exam of 05/02/2026, worked out in the exercises) with $k = 1$: infinitely many solutions. Substitute $k = -1$, that is `1 2 -1 1; -1 1 1 2; -1 -1 1 -2`: the row $0 = 1$ appears. With $k = 2$, that is `1 2 2 1; -1 1 -2 2; 2 2 1 1`, there is exactly one solution.
+
+> [!BEYOND] where to find it in the book
+> The whole lesson follows Martelli's book, **§3.2 "Teorema di Rouché–Capelli"** (pp. 85–93 of the book): associated homogeneous system and Proposition 3.2.1 (pp. 85–86), affine subspaces and direction space (pp. 87–88, with Examples 3.2.2 and 3.2.5), rank and pivots (Proposition 3.2.9 and Corollary 3.2.10, p. 89), Rouché–Capelli with Corollary 3.2.14 and the example with the parameter (pp. 90–91), homogeneous systems (Corollary 3.2.16, p. 91).
+
+## Towards the exam
+
+The AG written test has 10 quiz questions with 5 answers each (you need at least 6 points for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+1. **The 11-point problem on the system with a parameter.** It came up in the exams of 07/02/2025, 05/02/2026 and 03/07/2026 (always problem 11), with almost fixed questions: (1) for which $k$ the coefficient matrix is invertible, or what its determinant is; (2) as $k$ varies, how many solutions the system has; (3) the solutions for one or two given values of $k$. Two of these problems are worked out in full in the exercises.
+2. **The same theme in the problems on a linear map.** In the exams of 08/02/2024 and 10/07/2025 (problem 12) you were asked to find **all** the vectors with $T(v) = w$ and the values of $k$ for which a vector $w$ depending on $k$ lies in the image of $T$, or for which $T(v) = w$ has infinitely many solutions: they are systems, and they are solved with Rouché–Capelli (lesson L14).
+3. **The quizzes.** Besides the question "how many solutions?" (lesson L11), the exam of 07/09/2026 (question 3) asked for which $k$ a $3 \times 3$ system has no solutions; the exam of 10/07/2024 (question 6) required recognising all the solutions of the system of Exercise 12.11 of the handouts.
+
+> [!METHOD] The problem "discuss as $k$ varies", how to write it on the sheet
+> 1. **Determinant** (if $A$ is square): compute it and **factor** it, for example $\det A = -3(k - 1)(k + 1)$. First conclusion: for $k$ different from the roots, $A$ is invertible and there is **exactly one** solution (Corollary 12.8).
+> 2. **Special cases**: for each root substitute the value of $k$, write the numerical augmented matrix and reduce it to row echelon form. Write the two ranks explicitly and quote the theorem: "$\rk(A) = 2 < 3 = \rk(A \mid b)$, so by Rouché–Capelli there are no solutions" or "$\rk(A) = \rk(A \mid b) = 2 < 3 = n$: infinitely many solutions, depending on $3 - 2 = 1$ parameter".
+> 3. **Required solutions**: Gauss–Jordan on the numerical matrix, parameters for the columns without a pivot, and a **check** by substituting into the starting system.
+> 4. **Final summary** in one line for each case: the markers look for the conclusion, make it easy to find.
+
+> [!PITFALL] The most frequent mistakes
+> - Concluding "no solution" just because $\det A = 0$: with $\det A = 0$ there can also be infinitely many solutions (in the exam of 05/02/2026: for $k = 1$ infinitely many, for $k = -1$ none, and the determinant is zero in both cases).
+> - Forgetting a special case, for example because you divided by $k - 1$ without saying so.
+> - Confusing $n$ (the number of unknowns) with the number of equations in computing $n - \rk(A)$.
+> - Saying that the solutions of $Ax = b$ with $b \neq 0$ form a vector subspace: they are an **affine** subspace.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: $S = x_0 + S_0$; the statement of Rouché–Capelli with the "$0$ / $1$ / $\infty$" table of Corollary 12.7; "square $A$: $\det A \neq 0 \Leftrightarrow$ exactly one solution, $x = A^{-1}b$; $\det A = 0 \Rightarrow$ zero or infinitely many"; the formula of the $2 \times 2$ inverse; the five steps of the method for the parameter.
+
+## Quiz
+
+```quiz
+Q: Let $Ax = b$ be any linear system and $Ax = 0$ its associated homogeneous system. Which statement is always true?
++ The homogeneous system has at least the solution $x = 0$.
+- The homogeneous system has exactly one solution.
+- The homogeneous system has the same solutions as $Ax = b$.
+- If $Ax = b$ has no solutions, neither does the homogeneous system.
+- The solutions of $Ax = b$ always form a vector subspace.
+= $A \cdot 0 = 0$, so zero always solves the homogeneous system (Proposition 12.2). It can also have other solutions (not "exactly one"), it has solutions different from those of $Ax = b$ if $b \neq 0$, and it is never impossible. The solutions of $Ax = b$ with $b \neq 0$ do not contain zero: they are not a vector subspace.
+
+Q: In a system in 3 unknowns we have $\rk(A) = 2$ and $\rk(A \mid b) = 3$. The system has:
++ Zero solutions.
+- One solution.
+- Infinitely many solutions, depending on 1 parameter.
+- Infinitely many solutions, depending on 2 parameters.
+- A finite number of solutions, greater than 1.
+= Similar to the exam of 10/06/2024, question 7. The two ranks are different: by Rouché–Capelli there are no solutions. In the row echelon form there is a pivot in the last column.
+
+Q: A system of 3 equations in 4 unknowns has $\rk(A) = \rk(A \mid b) = 2$. Its solutions form:
++ An affine subspace of dimension 2.
+- An affine subspace of dimension 1.
+- An affine subspace of dimension 3.
+- A single point.
+- The empty set.
+= Similar to the exam of 16/01/2025, question 10. The ranks are equal, so there are solutions; the dimension is $n - \rk(A) = 4 - 2 = 2$. The number of equations (3) does not enter the calculation.
+
+Q: For which $k \in \R$ does the linear system with augmented matrix $\left(\begin{array}{ccc|c} 1 & 2 & k & 1 \\ 2 & 3 & -1 & 3 \\ 3 & 2 & 1 & 0 \end{array}\right)$ have no real solutions?
+- The system always has real solutions.
+- $k = \pm 2$
++ $k = -1$
+- $k = 0$
+- $k \in \{1, 2, 3\}$
+= Exam of 07/09/2026, question 3. $\det A = 1 \cdot (3 + 2) - 2 \cdot (2 + 3) + k \cdot (4 - 9) = -5 - 5k = -5(k + 1)$. For $k \neq -1$ there is exactly one solution. For $k = -1$: $R_2 - 2R_1 = (0, -1, 1 \mid 1)$, $R_3 - 3R_1 = (0, -4, 4 \mid -3)$, $R_3 - 4R_2 = (0, 0, 0 \mid -7)$: $\rk(A) = 2 < 3 = \rk(A \mid b)$, no solution.
+
+Q: The vector $(1, 2, 3)$ is a solution of $Ax = b$ and the solutions of the associated homogeneous system are $S_0 = \Span\big((1, 0, -1)\big)$. Which of these vectors is another solution of $Ax = b$?
++ $(3, 2, 1)$
+- $(1, 0, -1)$
+- $(2, 4, 6)$
+- $(0, 0, 0)$
+- $(2, 2, 4)$
+= By Proposition 12.3 the solutions are $(1, 2, 3) + t(1, 0, -1) = (1 + t,\ 2,\ 3 - t)$. With $t = 2$ you get $(3, 2, 1)$. The other vectors do not have this form: the second coordinate must be $2$ and the sum of the first and third must be $4$.
+
+Q: Let $A \in M(3, \R)$ with $\det A = 5$. Then the system $Ax = b$:
++ Has exactly one solution for every $b \in \R^3$.
+- Has infinitely many solutions for every $b$.
+- For some $b$ has no solutions.
+- Has solutions only if $b = 0$.
+- Has exactly 5 solutions.
+= Similar to the exam of 07/02/2025, problem 11 (point 1). With $\det A \neq 0$ the matrix is invertible and, by Corollary 12.8, for every $b$ there is exactly one solution, $x = A^{-1}b$. The value of the determinant does not count the solutions.
+
+Q: Let $A \in M(2, \R)$ with $\det A = 0$. Then the system $Ax = b$:
++ Has zero or infinitely many solutions, depending on $b$.
+- Never has solutions.
+- Always has infinitely many solutions.
+- Always has exactly one solution.
+- Has exactly two solutions.
+= With $\det A = 0$ we have $\rk(A) < 2$: if $\rk(A \mid b) = \rk(A)$ there are infinitely many solutions, otherwise there are none. Example: with $A = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, $b = (1, 1)$ gives infinitely many solutions and $b = (1, 2)$ none.
+
+Q: For which value of $k \in \R$ does the system $\begin{cases} x + ky = 1 \\ kx + y = 1 \end{cases}$ have infinitely many solutions?
++ $k = 1$
+- $k = -1$
+- $k = 0$
+- For every $k \neq \pm 1$.
+- For no value of $k$.
+= Similar to Example 12.9 and to the exam of 07/09/2026, question 3. $\det A = 1 - k^2$: for $k \neq \pm 1$ exactly one solution. With $k = 1$ the two equations are both $x + y = 1$: infinitely many solutions. With $k = -1$ they become $x - y = 1$ and $-x + y = 1$; adding them you get $0 = 2$: no solution.
+
+Q: The solutions of a system $Ax = b$ in 5 unknowns, with $b \neq 0$ and $\rk(A) = \rk(A \mid b) = 3$, form:
++ An affine subspace of dimension 2 that does not pass through the origin.
+- A vector subspace of dimension 2.
+- An affine subspace of dimension 3.
+- A vector subspace of dimension 3.
+- A point.
+= Rouché–Capelli: $\dim S = 5 - 3 = 2$. Since $b \neq 0$, zero is not a solution ($A \cdot 0 = 0 \neq b$), so $S$ is an affine subspace but not a vector subspace.
+
+Q: What is the dimension of the space of solutions of the system $\begin{cases} x + y + z + w = 1 \\ x - y + z - w = 3 \end{cases}$ in $\R^4$?
+N: 2
+= The rows $(1, 1, 1, 1)$ and $(1, -1, 1, -1)$ are not proportional: $\rk(A) = 2$, and also $\rk(A \mid b) = 2$ (there are only two rows). So $\dim S = 4 - 2 = 2$.
+```
+
+## Exercises
+
+::: exercise basic Exercise 12.10 of the handouts: how many solutions?
+How many solutions does the linear system with augmented matrix
+$$\left(\begin{array}{ccc|c} 1 & 3 & 5 & 2 \\ 7 & 9 & 11 & 2 \\ 13 & 15 & 17 & 0 \end{array}\right)?$$
+have?
+::: solution
+**Gauss.** $R_2 \to R_2 - 7R_1$ and $R_3 \to R_3 - 13R_1$:
+$$(7, 9, 11, 2) - 7(1, 3, 5, 2) = (0, -12, -24, -12), \qquad (13, 15, 17, 0) - 13(1, 3, 5, 2) = (0, -24, -48, -26).$$
+Then $R_3 \to R_3 - 2R_2$: $(0, -24, -48, -26) - 2(0, -12, -24, -12) = (0, 0, 0, -2)$.
+$$\left(\begin{array}{ccc|c} 1 & 3 & 5 & 2 \\ 0 & -12 & -24 & -12 \\ 0 & 0 & 0 & -2 \end{array}\right)$$
+**Ranks.** In the part $A$ there are 2 pivots: $\rk(A) = 2$. The augmented matrix also has a pivot in the last column: $\rk(A \mid b) = 3$. By Rouché–Capelli the system **has no solutions**: the last row says $0 = -2$.
+
+Note: the third row of $A$ is $2 \cdot (7, 9, 11) - (1, 3, 5) = (13, 15, 17)$, but for the constant terms $2 \cdot 2 - 2 = 2 \neq 0$. It is this inconsistency that makes the system impossible.
+:::
+
+::: exercise intermediate Exercise 12.11 of the handouts: all the solutions
+Find all the solutions of the linear system
+$$\begin{cases} 2x - y - z = 3 \\ x - y + z = 2 \\ 3x - y - 3z = 4 \end{cases}$$
+::: solution
+**Gauss.** I swap $R_1 \leftrightarrow R_2$ to have a pivot equal to $1$, then I take away multiples of the first row:
+$$\left(\begin{array}{ccc|c} 1 & -1 & 1 & 2 \\ 2 & -1 & -1 & 3 \\ 3 & -1 & -3 & 4 \end{array}\right) \xrightarrow[R_3 \to R_3 - 3R_1]{R_2 \to R_2 - 2R_1} \left(\begin{array}{ccc|c} 1 & -1 & 1 & 2 \\ 0 & 1 & -3 & -1 \\ 0 & 2 & -6 & -2 \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 - 2R_2} \left(\begin{array}{ccc|c} 1 & -1 & 1 & 2 \\ 0 & 1 & -3 & -1 \\ 0 & 0 & 0 & 0 \end{array}\right)$$
+The calculations: $(2, -1, -1, 3) - 2(1, -1, 1, 2) = (0, 1, -3, -1)$; $(3, -1, -3, 4) - 3(1, -1, 1, 2) = (0, 2, -6, -2)$; the third row is twice the second.
+
+**Rouché–Capelli.** $\rk(A) = \rk(A \mid b) = 2 < 3$: infinitely many solutions, one parameter.
+
+**Solutions.** Gauss–Jordan: $R_1 \to R_1 + R_2$ gives $(1, 0, -2, 1)$. With $z = t$: $y = -1 + 3t$ and $x = 1 + 2t$.
+$$(x, y, z) = (1 + 2t,\ -1 + 3t,\ t) = (1, -1, 0) + t\,(2, 3, 1), \qquad t \in \R.$$
+**Check** with $t = 1$, that is $(3, 2, 1)$: $6 - 2 - 1 = 3$; $3 - 2 + 1 = 2$; $9 - 2 - 3 = 4$.
+
+The solutions are a line of $\R^3$: the point $(1, -1, 0)$ (particular solution) plus $S_0 = \Span\big((2, 3, 1)\big)$. This same system was question 6 of the exam of 10/07/2024, with the answer $x = 2t + 1$, $y = 3t - 1$, $z = t$.
+:::
+
+::: exercise intermediate Particular solution and homogeneous system
+For the system $\begin{cases} x + 2y - z = 3 \\ 2x + 4y + z = 3 \end{cases}$ find: (a) all the solutions $S$; (b) the solutions $S_0$ of the associated homogeneous system; (c) a particular solution, and check that $S = x_0 + S_0$.
+::: solution
+(a) $R_2 \to R_2 - 2R_1$: $(2, 4, 1, 3) - 2(1, 2, -1, 3) = (0, 0, 3, -3)$, so $z = -1$. The column of $y$ has no pivot: $y = t$, and from the first row $x = 3 - 2t + z = 2 - 2t$.
+$$S = \{(2 - 2t,\ t,\ -1) \mid t \in \R\} = (2, 0, -1) + \Span\big((-2, 1, 0)\big).$$
+(b) The homogeneous system has the same $A$ and zero constant terms: with the same moves, $3z = 0$, so $z = 0$, and $x = -2t$, $y = t$:
+$$S_0 = \Span\big((-2, 1, 0)\big).$$
+Check: $-2 + 2 - 0 = 0$ and $-4 + 4 + 0 = 0$.
+
+(c) With $t = 0$: $x_0 = (2, 0, -1)$. Check: $2 + 0 + 1 = 3$ and $4 + 0 - 1 = 3$. Then $x_0 + S_0 = \{(2, 0, -1) + t(-2, 1, 0)\} = \{(2 - 2t, t, -1)\} = S$. $(0, 1, -1)$ (with $t = 1$) would also be a valid particular solution.
+:::
+
+::: exercise basic Subspace or not?
+Decide whether they are vector subspaces of $\R^3$: (a) $U = \{(x, y, z) \mid x + y - z = 0\}$; (b) $V = \{(x, y, z) \mid x + y - z = 1\}$. For the one that is not, say what it is.
+::: solution
+(a) $U$ is the set of solutions of a **homogeneous** system (a single equation, constant term $0$): by Proposition 12.2 it is a vector subspace. Its dimension is $3 - \rk(1\ 1\ {-1}) = 3 - 1 = 2$: a plane through the origin.
+
+(b) $V$ does not contain zero: $0 + 0 - 0 = 0 \neq 1$. So it is not a vector subspace. It is not closed under the sum either: $(1, 0, 0)$ and $(0, 1, 0)$ lie in $V$, but $(1, 1, 0)$ gives $1 + 1 - 0 = 2 \neq 1$. It is an **affine subspace**: $V = (1, 0, 0) + U$, a plane parallel to $U$ that does not pass through the origin, of dimension 2.
+:::
+
+::: exercise basic The rank with the pivots
+Compute the rank of $A = \begin{pmatrix} 1 & 2 & 0 & 1 \\ 2 & 4 & 1 & 3 \\ 3 & 6 & 1 & 4 \end{pmatrix}$ and find a maximal set of independent columns.
+::: solution
+$R_2 \to R_2 - 2R_1$ gives $(0, 0, 1, 1)$; $R_3 \to R_3 - 3R_1$ gives $(0, 0, 1, 1)$; $R_3 \to R_3 - R_2$ gives the zero row:
+$$\begin{pmatrix} 1 & 2 & 0 & 1 \\ 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}.$$
+Two pivots: $\rk(A) = 2$. The pivots are in columns 1 and 3, so columns 1 and 3 **of the starting matrix**, $(1, 2, 3)$ and $(0, 1, 1)$, are independent and span the space of the columns. Indeed $A^2 = 2A^1$ and $A^4 = A^1 + A^3$: $(1, 3, 4) = (1, 2, 3) + (0, 1, 1)$. (The Gauss moves on the rows preserve the relations between the columns, which is why you read them off the row echelon form: you will see it better in lesson L13.)
+:::
+
+::: exercise intermediate A square system with the inverse
+Solve $\begin{cases} 2x + y = 3 \\ 5x + 3y = 7 \end{cases}$ using Corollary 12.8, then use the same inverse to solve the system with constant terms $(1, 0)$.
+::: solution
+$A = \begin{pmatrix} 2 & 1 \\ 5 & 3 \end{pmatrix}$, $\det A = 6 - 5 = 1 \neq 0$: exactly one solution for every constant term.
+$$A^{-1} = \frac 11 \begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}, \qquad A^{-1}\begin{pmatrix} 3 \\ 7 \end{pmatrix} = \begin{pmatrix} 9 - 7 \\ -15 + 14 \end{pmatrix} = \begin{pmatrix} 2 \\ -1 \end{pmatrix}.$$
+Check: $4 - 1 = 3$ and $10 - 3 = 7$.
+
+With $b = (1, 0)$: $A^{-1}b = (3, -5)$, that is the first column of $A^{-1}$. Check: $6 - 5 = 1$ and $15 - 15 = 0$. The advantage of the inverse: once computed, it solves the system for **any** constant term with a single product.
+:::
+
+::: exercise hard A system with a parameter (tutoring Sheet 2, exercise 10)
+Solve, as $k \in \R$ varies, the system $\begin{cases} x + 2y + 2z = 1 \\ x + 4y + 3z = k + 1 \\ -x + 2y + kz = 2 \end{cases}$
+::: solution
+**Gauss with $k$ as a letter.** $R_2 \to R_2 - R_1$ and $R_3 \to R_3 + R_1$ (the pivots chosen do not contain $k$):
+$$\left(\begin{array}{ccc|c} 1 & 2 & 2 & 1 \\ 0 & 2 & 1 & k \\ 0 & 4 & k + 2 & 3 \end{array}\right) \xrightarrow{R_3 \to R_3 - 2R_2} \left(\begin{array}{ccc|c} 1 & 2 & 2 & 1 \\ 0 & 2 & 1 & k \\ 0 & 0 & k & 3 - 2k \end{array}\right)$$
+The calculations: $(1, 4, 3, k + 1) - (1, 2, 2, 1) = (0, 2, 1, k)$; $(-1, 2, k, 2) + (1, 2, 2, 1) = (0, 4, k + 2, 3)$; $(0, 4, k + 2, 3) - 2(0, 2, 1, k) = (0, 0, k, 3 - 2k)$.
+
+**Special case $k = 0$.** The last row is $(0, 0, 0 \mid 3)$: $\rk(A) = 2 < 3 = \rk(A \mid b)$, **no solution**.
+
+**Case $k \neq 0$.** Three pivots: exactly one solution. From the bottom:
+$$z = \frac{3 - 2k}k, \qquad y = \frac{k - z}2 = \frac{k^2 + 2k - 3}{2k} = \frac{(k + 3)(k - 1)}{2k}, \qquad x = 1 - 2y - 2z = \frac{-k^2 + 3k - 3}k.$$
+For the calculation of $x$: $1 - \frac{k^2 + 2k - 3}k - \frac{6 - 4k}k = \frac{k - k^2 - 2k + 3 - 6 + 4k}k = \frac{-k^2 + 3k - 3}k$.
+
+**Check** with $k = 1$: $x = -1$, $y = 0$, $z = 1$. In the system: $-1 + 0 + 2 = 1$; $-1 + 0 + 3 = 2 = k + 1$; $1 + 0 + 1 = 2$. Consistent with the determinant too: $\det A = 2k$ (product of the pivots $1 \cdot 2 \cdot k$, since I used only moves of type III), zero only for $k = 0$.
+:::
+
+::: exercise exam As at the exam: exam of 05/02/2026, problem 11
+Consider the linear system in the unknowns $x, y, z$, with a parameter $k \in \R$:
+$$\begin{cases} x + 2y + kz = 1 \\ -x + y - kz = 2 \\ kx + ky + z = k - 1 \end{cases}$$
+(1) Compute the determinant of the coefficient matrix $A$. (2) As $k \in \R$ varies, discuss how many solutions the system has. (3) For $k = 1$, find all the solutions. (4) For $k = 2$, find all the solutions.
+::: solution
+**(1)** With $R_2 \to R_2 + R_1$ (which does not change the determinant, lesson L10) the second row becomes $(0, 3, 0)$:
+$$\det \begin{pmatrix} 1 & 2 & k \\ -1 & 1 & -k \\ k & k & 1 \end{pmatrix} = \det \begin{pmatrix} 1 & 2 & k \\ 0 & 3 & 0 \\ k & k & 1 \end{pmatrix} = 3 \cdot \det \begin{pmatrix} 1 & k \\ k & 1 \end{pmatrix} = 3(1 - k^2).$$
+I expanded along the second row: the only non-zero entry is the $3$ in position $(2, 2)$, with sign $(-1)^{2 + 2} = +1$. So $\det A = 3(1 - k)(1 + k)$.
+
+**(2)** For $k \neq \pm 1$, $\det A \neq 0$: **exactly one solution** (Corollary 12.8). For the two special cases I reduce the augmented matrix with generic $k$: $R_2 \to R_2 + R_1$ gives $(0, 3, 0 \mid 3)$; $R_3 \to R_3 - kR_1$ gives $(0, -k, 1 - k^2 \mid -1)$; finally $R_3 \to R_3 + \frac k3 R_2$ gives $(0, 0, 1 - k^2 \mid k - 1)$.
+$$\left(\begin{array}{ccc|c} 1 & 2 & k & 1 \\ 0 & 3 & 0 & 3 \\ 0 & 0 & 1 - k^2 & k - 1 \end{array}\right)$$
+- $k = 1$: the last row is $(0, 0, 0 \mid 0)$. $\rk(A) = \rk(A \mid b) = 2 < 3$: **infinitely many** solutions, with $3 - 2 = 1$ parameter.
+- $k = -1$: the last row is $(0, 0, 0 \mid -2)$. $\rk(A) = 2 < 3 = \rk(A \mid b)$: **no** solution.
+
+**(3)** $k = 1$: the non-zero rows say $x + 2y + z = 1$ and $3y = 3$. So $y = 1$ and, with $z = t$, $x = 1 - 2 - t = -1 - t$:
+$$(x, y, z) = (-1 - t,\ 1,\ t), \qquad t \in \R.$$
+Check with $t = 0$, that is $(-1, 1, 0)$, in the system with $k = 1$: $-1 + 2 + 0 = 1$; $1 + 1 - 0 = 2$; $-1 + 1 + 0 = 0 = k - 1$.
+
+**(4)** $k = 2$: the last row is $(0, 0, -3 \mid 1)$, so $z = -\frac 13$; then $y = 1$ and $x = 1 - 2y - 2z = 1 - 2 + \frac 23 = -\frac 13$:
+$$(x, y, z) = \left(-\tfrac 13,\ 1,\ -\tfrac 13\right).$$
+Check: $-\frac 13 + 2 - \frac 23 = 1$; $\frac 13 + 1 + \frac 23 = 2$; $-\frac 23 + 2 - \frac 13 = 1 = k - 1$.
+:::
+
+::: exercise exam As at the exam: exam of 03/07/2026, problem 11
+Consider the linear system
+$$\begin{cases} x + ky + z = 1 \\ (k + 1)x + (k + 1)y + 2z = k + 1 \\ x + y + kz = k^2 \end{cases}$$
+(1) Determine for which $k \in \R$ the coefficient matrix is invertible. (2) As $k$ varies, discuss the number of solutions. (3) Find the set of solutions in the cases $k = 0$ and $k = 1$.
+::: solution
+**(1)** I expand along the first row:
+$$\det A = 1 \cdot \big((k + 1)k - 2\big) - k \cdot \big((k + 1)k - 2\big) + 1 \cdot \big((k + 1) - (k + 1)\big) = (1 - k)(k^2 + k - 2).$$
+Since $k^2 + k - 2 = (k + 2)(k - 1)$, we have $\det A = -(k - 1)^2(k + 2)$. The matrix is **invertible for $k \neq 1$ and $k \neq -2$**.
+
+**(2)** For $k \neq 1, -2$: **exactly one solution**. Special cases:
+- $k = 1$: the three equations become $x + y + z = 1$, $2x + 2y + 2z = 2$, $x + y + z = 1$, all the same. $\rk(A) = \rk(A \mid b) = 1$: **infinitely many** solutions, with $3 - 1 = 2$ parameters.
+- $k = -2$: the augmented matrix is $\left(\begin{array}{ccc|c} 1 & -2 & 1 & 1 \\ -1 & -1 & 2 & -1 \\ 1 & 1 & -2 & 4 \end{array}\right)$. With $R_2 \to R_2 + R_1$ you get $(0, -3, 3 \mid 0)$, with $R_3 \to R_3 - R_1$ you get $(0, 3, -3 \mid 3)$, and $R_3 \to R_3 + R_2$ gives $(0, 0, 0 \mid 3)$. $\rk(A) = 2 < 3 = \rk(A \mid b)$: **no** solution.
+
+**(3)** $k = 0$: the system is $x + z = 1$, $x + y + 2z = 1$, $x + y = 0$. From the third $y = -x$; in the second $x - x + 2z = 1$, so $z = \frac 12$; from the first $x = \frac 12$ and so $y = -\frac 12$. Unique solution $\left(\frac 12, -\frac 12, \frac 12\right)$; check in the second: $\frac 12 - \frac 12 + 1 = 1$.
+
+$k = 1$: only the equation $x + y + z = 1$ remains. Columns without a pivot: $y = s$, $z = t$:
+$$S = \{(1 - s - t,\ s,\ t) \mid s, t \in \R\} = (1, 0, 0) + \Span\big((-1, 1, 0),\ (-1, 0, 1)\big),$$
+an affine plane of $\R^3$.
+:::
+
+::: exercise exam As at the exam: when there are infinitely many solutions
+Find all the values of $k \in \R$ for which the system $\begin{cases} x + y + z = 1 \\ x + 2y + 3z = k \\ x + 3y + 5z = k^2 \end{cases}$ has infinitely many solutions, and write them. For the other values how many solutions are there?
+::: solution
+Here the parameter is only in the constant terms, and the coefficient matrix is not invertible: $\det A = 0$ for every $k$ (the third column is $2A^2 - A^1$). Gauss is needed.
+$$\left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 1 & 2 & 3 & k \\ 1 & 3 & 5 & k^2 \end{array}\right) \xrightarrow[R_3 \to R_3 - R_1]{R_2 \to R_2 - R_1} \left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & k - 1 \\ 0 & 2 & 4 & k^2 - 1 \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 - 2R_2} \left(\begin{array}{ccc|c} 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & k - 1 \\ 0 & 0 & 0 & (k - 1)^2 \end{array}\right)$$
+The last term: $k^2 - 1 - 2(k - 1) = k^2 - 2k + 1 = (k - 1)^2$.
+
+- $\rk(A) = 2$ for every $k$.
+- If $k \neq 1$, $(k - 1)^2 \neq 0$: $\rk(A \mid b) = 3$, **no** solution.
+- If $k = 1$: $\rk(A \mid b) = 2$, **infinitely many** solutions with $3 - 2 = 1$ parameter. The rows say $x + y + z = 1$ and $y + 2z = 0$: with $z = t$, $y = -2t$ and $x = 1 + 2t - t = 1 + t$.
+$$S = \{(1 + t,\ -2t,\ t) \mid t \in \R\}, \qquad k = 1.$$
+Check with $t = 1$, that is $(2, -2, 1)$: $2 - 2 + 1 = 1$; $2 - 4 + 3 = 1 = k$; $2 - 6 + 5 = 1 = k^2$. There is no $k$ with exactly one solution. The scheme is that of problem 12 (point 3) of the exam of 10/07/2025.
+:::
+
+## Review questions
+
+::: question What is the homogeneous system associated with a linear system?
+It is the system with the same coefficients $a_{ij}$ and all the constant terms equal to zero. If the starting system has augmented matrix $(A \mid b)$, the homogeneous one has matrix $(A \mid 0)$, also written simply $A$.
+:::
+
+::: question Why do the solutions $S_0$ of the homogeneous system form a subspace?
+Because they satisfy the three axioms: $0$ is a solution; the sum of two solutions is a solution ($0 + 0 = 0$ in every equation); a multiple of a solution is a solution ($\lambda \cdot 0 = 0$).
+:::
+
+::: question Why, if $b \neq 0$, is the set $S$ of solutions of $Ax = b$ not a subspace?
+Because it does not contain the origin: substituting $x = 0$ into an equation with $b_i \neq 0$ you get $0 = b_i$, false. Moreover the sum of two solutions solves $Ax = 2b$, not $Ax = b$.
+:::
+
+::: question How do you get all the solutions starting from a single one?
+You add to the particular solution $x$ all the solutions of the homogeneous system: $S = x + S_0$ (Proposition 12.3). Any solution can act as the particular solution.
+:::
+
+::: question What is an affine subspace and what is its dimension?
+A set $x + W = \{x + v \mid v \in W\}$, with $x$ a fixed point and $W$ a vector subspace: $W$ translated by $x$. Its dimension is $\dim W$. Arbitrary points, lines and planes are affine subspaces of dimension 0, 1 and 2.
+:::
+
+::: question How do you write a system as a combination of the columns, and what do you get from it?
+$x_1A^1 + \cdots + x_nA^n = b$. The system has solutions if and only if $b$ is a linear combination of the columns of $A$, that is $b \in \Span(A^1, \dots, A^n)$.
+:::
+
+::: question How do you compute the rank with Gauss, and why does it work?
+You reduce the matrix to row echelon form and count the pivots. It works because the Gauss moves do not change the space spanned by the rows (so not the rank either), and in the reduced form the pivot columns are standard basis vectors that span all the other columns.
+:::
+
+::: question What does the Rouché–Capelli theorem say?
+The system $Ax = b$ has solutions if and only if $\rk(A \mid b) = \rk(A)$. In this case the solutions form an affine subspace of $\K^n$ of dimension $n - \rk(A)$, where $n$ is the number of unknowns.
+:::
+
+::: question Why can a real system not have exactly two solutions?
+Because if it has more than one solution, by Rouché–Capelli the solutions form an affine subspace of dimension at least 1: there is a free parameter that can take infinitely many real values. So the solutions are 0, 1 or infinitely many (Corollary 12.7).
+:::
+
+::: question What can you say about a square system $Ax = b$ with $\det A \neq 0$? And with $\det A = 0$?
+With $\det A \neq 0$: exactly one solution for every $b$, $x = A^{-1}b$ (Corollary 12.8). With $\det A = 0$: zero or infinitely many solutions, depending on $b$; you decide by comparing $\rk(A)$ and $\rk(A \mid b)$.
+:::
+
+::: question How do you discuss a system with a parameter $k$?
+If $A$ is square you start from $\det A$: for the $k$ that do not make it zero there is exactly one solution. Otherwise you do Gauss keeping $k$ as a letter. The values of $k$ that make the determinant (or a pivot) zero are studied separately, by substituting them and comparing the two ranks.
+:::
+
+::: question How do you find a particular solution and a basis of $S_0$ from the general solution?
+You write the general solution in vector form $x_0 + t_1v_1 + \cdots + t_hv_h$: with all the parameters equal to zero you have the particular solution $x_0$, and the vectors $v_1, \dots, v_h$ are a basis of $S_0$.
+:::
+
+## Glossary
+
+```glossary
+Homogeneous system | Linear system with all the constant terms equal to zero.
+Associated homogeneous system | The same system with the constant terms set to zero; matrix $(A \mid 0)$, or simply $A$.
+$S$ and $S_0$ | The sets of solutions of the starting system and of its associated homogeneous system.
+Particular solution | Any fixed solution of the system $Ax = b$.
+Affine subspace | Set $x + W = \{x + v \mid v \in W\}$ with $W$ a vector subspace: $W$ translated by $x$.
+Direction space (giacitura) | The vector subspace $W$ of an affine subspace $x + W$; for the solutions of a system it is $S_0$.
+Dimension of an affine subspace | The dimension of its direction space $W$.
+Affine line and plane | Affine subspaces of dimension 1 and 2.
+Columns $A^1, \dots, A^n$ | The columns of the matrix $A$; the system is written $x_1A^1 + \cdots + x_nA^n = b$.
+Rank $\rk(A)$ | The dimension of the space spanned by the columns; it is computed by counting the pivots of a row echelon form.
+Rouché–Capelli theorem | The system has solutions if and only if $\rk(A \mid b) = \rk(A)$; then the solutions form an affine subspace of dimension $n - \rk(A)$.
+Corollary 12.7 | Over an infinite field the solutions are $0$, $1$ or infinitely many.
+Square system | System with as many equations as unknowns: $A$ is an $n \times n$ matrix.
+Corollary 12.8 | If $A$ is square with $\det A \neq 0$, the system $Ax = b$ has exactly one solution, $x = A^{-1}b$.
+Parameter of a system | Letter (usually $k$) in the coefficients or in the constant terms; you discuss the system as $k$ varies.
+Special case | Value of the parameter that makes the determinant or a pivot zero: it must be studied separately.
+```
+
+## Checklist
+
+```checklist
+- I can write the associated homogeneous system and prove that its solutions form a subspace.
+- I can explain why the solutions of $Ax = b$ with $b \neq 0$ do not form a vector subspace.
+- I can use $S = x_0 + S_0$: I find a particular solution and the solutions of the homogeneous system from the general solution.
+- I can say what an affine subspace is and what its dimension is, with examples in $\R^2$ and $\R^3$.
+- I can rewrite a system as a combination of the columns and say when it has solutions.
+- I can compute the rank by counting the pivots and explain why the Gauss moves do not change it.
+- I can state the Rouché–Capelli theorem and use it to count solutions and parameters.
+- I can explain why the solutions are 0, 1 or infinitely many (Corollary 12.7).
+- I can solve a square system with $\det A \neq 0$ using the inverse, and I know that with $\det A = 0$ the solutions are zero or infinitely many.
+- I can discuss a system with a parameter, without forgetting the special cases.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 12 "Sistemi Lineari II", pp. 56–61: sections 12.A–12.C are followed in order, with the page next to each heading; definitions, propositions, theorem, corollaries and examples keep their numbering (Definitions 12.1 and 12.5, Propositions 12.2 and 12.3, Theorem 12.6, Corollaries 12.7 and 12.8, Examples 12.4 and 12.9, Exercises 12.10 and 12.11), including the box "Link with computer science" on linear programming.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §3.2 "Teorema di Rouché–Capelli" (pp. 85–93), in particular Examples 3.2.2 and 3.2.5, the direction space, Proposition 3.2.9 and Corollary 3.2.16 on homogeneous systems.
+- **Exam papers** of Linear Algebra 2023/24–2025/26 with official solutions (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): reported: question 3 of 07/09/2026 and problems 11 of 05/02/2026 and 03/07/2026; cited: problem 11 of 07/02/2025, problems 12 of 08/02/2024 and 10/07/2025 and the questions of 10/06/2024, 10/07/2024 and 16/01/2025. The solutions here are written from scratch. The exercise with a parameter is exercise 10 of tutoring Sheet 2 (MDAG2 Moodle).
+- The **"Beyond the handouts"** parts (affine subspaces that pass through the origin, finite fields, homogeneous systems and eigenvectors, the general solution of Example 12.9, the unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L13_linear_systems_3.md -->
+> File: `ai_context/MDAG/lessons/L13_linear_systems_3.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L13
+title: Linear systems III
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L13
+description: >-
+  Notes on lesson L13 of Linear Algebra and Geometry (MDAG, part 2): linear independence, generators, bases and
+  coordinates with respect to a basis studied with linear systems, the rank and the determinant, plus a code that
+  corrects transmission errors, with exam-style quizzes and worked exercises.
+lede: >-
+  The questions of lesson L07 (are these vectors independent? do they span the whole space? are they a basis?) become
+  linear systems, and the answers are read off the rank or the determinant of the matrix that has the vectors as
+  columns. Then the coordinates of a vector with respect to a basis, which you find by solving a system, and an
+  application: how two extra numbers make it possible to find and correct an error in a message.
+material: handouts
+facts:
+  Handouts: lesson 13 · pp. 62–67
+  Book: Martelli, §2.3 and §3.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 13 "Sistemi lineari III"; B. Martelli, Geometria e algebra lineare, §2.3 and §3.2
+italian_file: L13_sistemi_lineari_3.html
+html_notes: notes/MDAG/L13_linear_systems_3.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L13_sistemi_lineari_3.md
+```
+
+## In brief
+
+- You put the vectors $v_1, \dots, v_k \in \K^m$ as **columns** of a matrix $A = (v_1 \mid \cdots \mid v_k)$: independence, generators and coordinates become questions about a linear system with matrix $A$.
+- $v_1, \dots, v_k$ are **independent** if and only if the homogeneous system $\lambda_1v_1 + \cdots + \lambda_kv_k = 0$ has only the zero solution, that is if and only if $\rk(A) = k$.
+- $v_1, \dots, v_k$ **span** $\K^m$ if and only if the system $\lambda_1v_1 + \cdots + \lambda_kv_k = v$ has a solution for every $v$, that is if and only if $\rk(A) = m$.
+- With $n$ vectors in $\K^n$ the matrix is square: they are a **basis** if and only if $\det A \neq 0$. If $\dim V = n$, for $n$ vectors it is enough to check only one of the two conditions.
+- With respect to a basis every vector is written **in only one way** as a combination of the basis vectors (Proposition 13.4): the coefficients are its **coordinates**.
+- Coordinates are found by solving a system: $\lambda = A^{-1}v$, or Gauss–Jordan on the matrix $(A \mid v)$.
+- Link with computer science: by adding to a message two numbers chosen with a linear system you can detect and correct a transmission error.
+- At the exam: quizzes "generators and/or linearly independent?", "coordinate vector", "rank of the matrix".
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## From linear independence to a homogeneous system (pp. 62–63)
+
+In lesson L07 you saw that two vectors of the plane are dependent when one is a multiple of the other: $v_1 = (1, 2)$ and $v_2 = (2, 4)$ are, because $2v_1 - v_2 = 0$. With three vectors in $\R^3$, though, the eye is no longer enough: it may be that none is a multiple of another and that they are dependent all the same. This lesson turns the question into a **linear system**, which we can always solve (lessons L11 and L12).
+
+The handouts recall the definition of lesson L07.
+
+> [!DEF] Linear dependence and independence (p. 62)
+> Let $V$ be a vector space over $\K$ and let $v_1, \dots, v_k \in V$. These vectors are **linearly dependent** if there exist coefficients $\lambda_1, \dots, \lambda_k \in \K$, not all zero, such that
+> $$\lambda_1v_1 + \cdots + \lambda_kv_k = 0. \qquad (13.1)$$
+> Instead $v_1, \dots, v_k$ are **linearly independent** if the only solution of (13.1) is $\lambda_1 = \cdots = \lambda_k = 0$.
+
+### The idea: equation (13.1) is a system
+
+Look at (13.1) with new eyes: the **unknowns** are the coefficients $\lambda_1, \dots, \lambda_k$, the vectors $v_j$ are given. If the vectors lie in $\K^m$, equality (13.1) holds component by component: there are $m$ equations. The $i$-th says
+
+$$\lambda_1 (v_1)_i + \lambda_2 (v_2)_i + \cdots + \lambda_k (v_k)_i = 0,$$
+
+where $(v_j)_i$ is the $i$-th component of $v_j$. It is a **homogeneous linear system** in $\lambda_1, \dots, \lambda_k$, and its coefficient matrix has the vectors **as columns**:
+
+$$A = (v_1 \mid v_2 \mid \cdots \mid v_k).$$
+
+- The solution $\lambda = 0$ always exists (lesson L12: a homogeneous system is never impossible).
+- The vectors are **independent** if and only if this is the **only** solution.
+- By Rouché–Capelli the solutions form a subspace of dimension $k - \rk(A)$: there is only zero if and only if $k - \rk(A) = 0$.
+
+> [!METHOD] Independent or not?
+> 1. Write the matrix $A = (v_1 \mid \cdots \mid v_k)$ with the vectors as columns.
+> 2. Compute $\rk(A)$ with Gauss (lesson L12): the vectors are independent if and only if $\rk(A) = k$, that is if there is a pivot in **every** column.
+> 3. If $k = m$ (as many vectors as components) $A$ is square, and the determinant is enough: independent if and only if $\det A \neq 0$ (Corollary 12.8: exactly one solution, the zero one).
+> 4. If they are dependent, solve the homogeneous system: every non-zero solution is a **relation** between the vectors.
+
+> [!EXAMPLE] 13.1 · Three dependent vectors of $\R^3$
+> Consider
+> $$v_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \qquad v_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \qquad v_3 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}.$$
+> We must study the solutions of $\lambda_1v_1 + \lambda_2v_2 + \lambda_3v_3 = 0$, that is of the homogeneous linear system
+> $$\begin{cases} \lambda_1 + \lambda_3 = 0 \\ \lambda_1 + \lambda_2 = 0 \\ \lambda_2 - \lambda_3 = 0 \end{cases} \qquad A = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & -1 \end{pmatrix} = (v_1 \mid v_2 \mid v_3).$$
+> **With the determinant.** The system has a unique solution if $\det A \neq 0$. Expanding along the first row (the middle term has coefficient $0$):
+> $$\det A = 1 \cdot \det \begin{pmatrix} 1 & 0 \\ 1 & -1 \end{pmatrix} + 1 \cdot \det \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -1 + 1 = 0.$$
+> So there are infinitely many solutions and the vectors are **linearly dependent**.
+>
+> **With the Gauss moves.**
+> $$A \xrightarrow{A_2 \to A_2 - A_1} \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & -1 \\ 0 & 1 & -1 \end{pmatrix} \xrightarrow{A_3 \to A_3 - A_2} \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 0 \end{pmatrix}$$
+> $A$ has rank $2 < 3$: again infinitely many solutions $(\lambda_1, \lambda_2, \lambda_3)$, and the vectors are dependent.
+>
+> **With the Span.** If $A$ has rank 2, $\Span(v_1, v_2, v_3)$ has dimension 2; three independent vectors would span a space of dimension 3. So they are dependent.
+
+Here the handouts call the rows of the matrix $A_1, A_2, A_3$ (with the index at the bottom, as in lesson L08) instead of $R_1, R_2, R_3$: $A_2 \to A_2 - A_1$ is the usual move of type (III).
+
+The handouts stop at "they are dependent". It is worth finding **the relation**: from the row echelon form, $\lambda_3 = t$ is free, the second row gives $\lambda_2 = t$ and the first $\lambda_1 = -t$. With $t = 1$:
+
+$$-v_1 + v_2 + v_3 = 0, \qquad \text{that is} \qquad v_3 = v_1 - v_2.$$
+
+Check: $-(1, 1, 0) + (0, 1, 1) + (1, 0, -1) = (0, 0, 0)$. None of the three vectors is a multiple of another, and yet the third is obtained from the first two: it is the case that lesson L07 pointed out (not being pairwise multiples is necessary but not enough).
+
+```widget gauss
+title: Put the vectors in columns and count the pivots (here $v_1, v_2, v_3$ of Example 13.1)
+matrice: 1 0 1; 1 1 0; 0 1 -1
+modo: rango
+modi: rango nucleo
+```
+
+Press "Compute": two pivots, rank 2, so the three vectors are dependent. Then choose "kernel and image": the kernel is spanned by $(-1, 1, 1)$, exactly the coefficients of the relation $-v_1 + v_2 + v_3 = 0$. Try changing the last number from $-1$ to $1$: the rank becomes 3 and the vectors become independent.
+
+> [!PITFALL] Too many vectors are always dependent
+> In $\K^m$ the rank of a matrix with $m$ rows is at most $m$. So **more than $m$ vectors of $\K^m$ are always dependent**: 4 vectors of $\R^3$ cannot be independent, whatever they are. In the quiz you need no calculation to rule out independence; what remains is to find out whether they span.
+
+> [!PITFALL] Columns, not rows (for systems)
+> For **independence** you could also put the vectors in rows, because $\rk(A) = \rk({}^tA)$ (Proposition 8.6). But for **generators** and for **coordinates**, where you solve a system with a constant term, the vectors go in **columns**: the unknowns $\lambda_j$ multiply the columns. Get used to always putting them in columns.
+
+## Span: when the vectors span everything (pp. 63–64)
+
+Now the other question: do the vectors $v_1, \dots, v_k$ **span** $V$? The handouts recall that it means $\Span(v_1, \dots, v_k) = V$: every vector $v \in V$ is a linear combination of $v_1, \dots, v_k$, that is for every $v$ there are $\lambda_1, \dots, \lambda_k \in \K$ with
+
+$$\lambda_1v_1 + \cdots + \lambda_kv_k = v. \qquad (13.2)$$
+
+In $\K^m$ (13.2) is also a linear system in the unknowns $\lambda_j$, with the same matrix $A = (v_1 \mid \cdots \mid v_k)$ and with **constant term** $v$. So:
+
+- $v \in \Span(v_1, \dots, v_k)$ if and only if the system $(A \mid v)$ has a solution, that is (Rouché–Capelli) if and only if $\rk(A \mid v) = \rk(A)$;
+- the vectors **span** $\K^m$ if and only if the system has a solution **for every** $v$, and this happens exactly when $\rk(A) = m$.
+
+Why the last sentence: if $\rk(A) = m$, the matrix $(A \mid v)$ has only $m$ rows and so rank at most $m$; but it has at least the rank of $A$, that is $m$: the two ranks coincide for every $v$. If instead $\rk(A) < m$, the Span has dimension $\rk(A) < m$ and cannot be the whole of $\K^m$.
+
+> [!EXAMPLE] 13.2 · Three vectors that span $\R^3$
+> Consider
+> $$w_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \qquad w_2 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}, \qquad w_3 = \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}.$$
+> Given any vector $v = (a, b, c)$, we must study the solutions of $\lambda_1w_1 + \lambda_2w_2 + \lambda_3w_3 = v$, that is of the system
+> $$\begin{cases} \lambda_1 + \lambda_3 = a \\ \lambda_1 + \lambda_2 + \lambda_3 = b \\ \lambda_2 - \lambda_3 = c \end{cases} \qquad A = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 1 \\ 0 & 1 & -1 \end{pmatrix} = (w_1 \mid w_2 \mid w_3).$$
+> **With the determinant**, along the first row:
+> $$\det A = 1 \cdot \det \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} + 1 \cdot \det \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = -2 + 1 = -1 \neq 0.$$
+> $A$ is invertible (so it has rank 3) and the system always has a solution, for any $v$. Then $\Span(w_1, w_2, w_3) = \R^3$.
+>
+> **With the Gauss moves.**
+> $$A \xrightarrow{A_2 \to A_2 - A_1} \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 1 & -1 \end{pmatrix} \xrightarrow{A_3 \to A_3 - A_2} \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & -1 \end{pmatrix}$$
+> $A$ has rank 3, so $\Span(w_1, w_2, w_3)$ has dimension 3 and is the whole of $\R^3$: every other subspace of $\R^3$ has dimension strictly less than 3.
+
+You can also write the combination **explicitly**. Solving the system with a generic $v = (a, b, c)$ (or with the inverse, which you find in Example 13.6):
+
+$$\lambda_1 = 2a - b + c, \qquad \lambda_2 = -a + b, \qquad \lambda_3 = -a + b - c.$$
+
+For example $(1, 0, 0) = 2w_1 - w_2 - w_3$. Check: $2(1, 1, 0) - (0, 1, 1) - (1, 1, -1) = (2 - 0 - 1,\ 2 - 1 - 1,\ 0 - 1 + 1) = (1, 0, 0)$.
+
+### When the vectors do not span: the equation of the Span
+
+The vectors $v_1, v_2, v_3$ of Example 13.1 have rank 2: they do **not** span $\R^3$. But what do they span? You find out by doing Gauss with the generic constant term $v = (a, b, c)$:
+
+$$\left(\begin{array}{ccc|c} 1 & 0 & 1 & a \\ 1 & 1 & 0 & b \\ 0 & 1 & -1 & c \end{array}\right) \xrightarrow{R_2 \to R_2 - R_1} \left(\begin{array}{ccc|c} 1 & 0 & 1 & a \\ 0 & 1 & -1 & b - a \\ 0 & 1 & -1 & c \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 - R_2} \left(\begin{array}{ccc|c} 1 & 0 & 1 & a \\ 0 & 1 & -1 & b - a \\ 0 & 0 & 0 & a - b + c \end{array}\right)$$
+
+The last row says $0 = a - b + c$. The system has a solution, that is $v \in \Span(v_1, v_2, v_3)$, **if and only if** $a - b + c = 0$. So
+
+$$\Span(v_1, v_2, v_3) = \{(x, y, z) \in \R^3 \mid x - y + z = 0\},$$
+
+a plane through the origin. Check: $v_1$ gives $1 - 1 + 0 = 0$, $v_2$ gives $0 - 1 + 1 = 0$, $v_3$ gives $1 - 0 - 1 = 0$. Instead $(1, 0, 0)$ gives $1 \neq 0$: it is not a combination of $v_1, v_2, v_3$.
+
+> [!METHOD] Does a vector lie in the Span? And what equations does the Span have?
+> 1. Write $(v_1 \mid \cdots \mid v_k \mid v)$ with a **generic** $v = (a, b, c, \dots)$.
+> 2. Reduce to row echelon form: the letters $a, b, c$ travel in the last column.
+> 3. Every row that becomes zero on the left gives a condition "expression in $a, b, c = 0$": they are the **equations** of the Span.
+> 4. A numerical vector lies in the Span if and only if it satisfies all the equations.
+
+> [!BEYOND] a basis of the Span with no extra calculations
+> The Gauss moves on the rows do not change the relations between the columns: a relation $\lambda_1A^1 + \cdots + \lambda_kA^k = 0$ is a solution of the homogeneous system, and the moves do not change the solutions (Proposition 11.4). So the vectors $v_j$ whose columns have a pivot in the row echelon form are **a basis** of $\Span(v_1, \dots, v_k)$. In Example 13.1 the pivots are in columns 1 and 2: $v_1, v_2$ are a basis of the plane $x - y + z = 0$. Careful: you take the **starting** vectors, not the columns of the reduced matrix. It is Martelli's "extraction algorithm" (§2.3.6), done with Gauss.
+
+> [!PITFALL] Too few vectors never span
+> The Span of $k$ vectors has dimension at most $k$. So **fewer than $m$ vectors cannot span $\K^m$**: two vectors of $\R^3$ span at most a plane.
+
+## Bases (p. 64)
+
+The handouts recall the definition of lesson L07.
+
+> [!DEF] Basis (p. 64)
+> A sequence $v_1, \dots, v_n \in V$ of vectors is a **basis** if both these conditions are satisfied:
+> 1. the vectors $v_1, \dots, v_n$ are independent;
+> 2. the vectors $v_1, \dots, v_n$ span $V$.
+>
+> If we already know that $V$ has dimension $n$, it is enough to check **one** of the two properties: the other follows automatically (Theorem 7.12).
+
+> [!EXAMPLE] 13.3 · A basis yes, a basis no
+> $v_1, v_2, v_3$ of Example 13.1 do **not** form a basis of $\R^3$, because they are not linearly independent. Instead $w_1, w_2, w_3$ of Example 13.2 form a basis of $\R^3$: they are generators and they are three vectors, and $\R^3$ has dimension 3. They must then necessarily be linearly independent (Theorem 7.12), a fact that can also be checked directly: the homogeneous system with $\det A = -1 \neq 0$ has only the zero solution.
+
+With the rank, all three questions have a single answer. If $A = (v_1 \mid \cdots \mid v_k)$ has $m$ rows and $r = \rk(A)$:
+
+| Question | Answer | It requires |
+|---|---|---|
+| independent? | yes if and only if $r = k$ | $k \le m$ |
+| do they span $\K^m$? | yes if and only if $r = m$ | $k \ge m$ |
+| basis of $\K^m$? | yes if and only if $r = k = m$ | $k = m$, that is $\det A \neq 0$ |
+
+| How many vectors in $\K^m$ | Independent? | Generators? |
+|---|---|---|
+| $k < m$ | possible | **never** |
+| $k = m$ | if and only if $\det A \neq 0$ | if and only if $\det A \neq 0$ |
+| $k > m$ | **never** | possible |
+
+> [!EXAMPLE] Four polynomials of $\R_2[x]$
+> Are the polynomials $1 + x$, $x + x^2$, $1 + x^2$, $1$ of $\R_2[x]$ (the space of polynomials of degree at most 2, of dimension 3) generators and/or independent? A polynomial $a_0 + a_1x + a_2x^2$ is written with its three coefficients $(a_0, a_1, a_2)$ (they are its coordinates with respect to the basis $1, x, x^2$: see the next section). The matrix with the polynomials in columns is
+> $$A = \begin{pmatrix} 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix}.$$
+> The first three columns have determinant $1 \cdot (1 - 0) - 0 + 1 \cdot (1 - 0) = 2 \neq 0$: they are already a basis, so $\rk(A) = 3$ and the four polynomials **span** $\R_2[x]$. But they are 4 in a space of dimension 3: they are **not** independent. Indeed $1 = \frac 12\big((1 + x) - (x + x^2) + (1 + x^2)\big)$.
+
+## Coordinates (pp. 64–65)
+
+A basis is used to **give a name** to every vector. In the plane take the basis $v_1 = (1, 1)$, $v_2 = (-1, 1)$ and the vector $w = (2, 0)$. We have
+
+$$w = 1 \cdot v_1 + (-1) \cdot v_2, \qquad \text{indeed } (1, 1) - (-1, 1) = (2, 0).$$
+
+To reach $w$ you take one step along $v_1$ and one step backwards along $v_2$: in the basis $v_1, v_2$ the vector $w$ has "address" $(1, -1)$. They are its **coordinates** (example from Martelli's book, Example 2.3.12).
+
+```graph
+title: $w = (2, 0)$ is reached with one step along $v_1$ and one step backwards along $v_2$: coordinates $(1, -1)$
+x: -2 3
+y: -1.5 2
+vector: 1 1 | accent | $v_1$ | n
+vector: -1 1 | blue | $v_2$ | n
+vector: 2 0 | amber | thick | $w$ | s
+vector: 1 1 2 0 | blue | dashed | $-v_2$ | ne
+```
+
+For the address to be well defined it must be **unique**. And this is where independence is needed.
+
+> [!PROP] 13.4
+> Let $V$ be a vector space and let $v_1, \dots, v_n$ be a basis of $V$. Every vector $v \in V$ can be written in a unique way as
+> $$v = \lambda_1v_1 + \cdots + \lambda_nv_n.$$
+
+**Proof**, in three steps.
+
+1. **An expression exists.** The vectors $v_1, \dots, v_n$ span $V$, so $v$ can be written as a linear combination of them.
+2. **Suppose there are two**: $v = \lambda_1v_1 + \cdots + \lambda_nv_n = \mu_1v_1 + \cdots + \mu_nv_n$. Moving everything to the left:
+   $$(\lambda_1 - \mu_1)v_1 + \cdots + (\lambda_n - \mu_n)v_n = 0.$$
+3. **The vectors are independent**, so all the coefficients of this combination are zero: $\lambda_i - \mu_i = 0$, that is $\mu_i = \lambda_i$ for every $i$. The two expressions are the same. $\square$
+
+> [!DEF] 13.5 · Coordinates
+> The coefficients $\lambda_1, \dots, \lambda_n$ are the **coordinates** of $v$ with respect to the basis $v_1, \dots, v_n$. The **column vector of coordinates** is the vector
+> $$\begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix}.$$
+
+Piece by piece:
+
+- The coordinates depend on the **basis**: the same vector has different coordinates in different bases.
+- They also depend on the **order** of the basis vectors: $\lambda_1$ is the coefficient of the first vector, $\lambda_2$ of the second, and so on. Swapping $v_1$ and $v_2$ swaps the first two coordinates.
+- Coordinates are **numbers** (in $\K$): the coordinate vector lies in $\K^n$ even when $V$ is made of polynomials or matrices.
+- For the standard basis of $\K^n$ the coordinates are the components of the vector; for the basis $1, x, \dots, x^n$ of $\K_n[x]$ they are the coefficients of the polynomial, from the constant term upwards.
+
+> [!EXAMPLE] 13.6 · The same vector in two bases
+> Let $e_1, e_2, e_3$ be the standard basis of $\R^3$ and let $v = (3, 4, 5)$. The coordinates with respect to the standard basis are exactly the components of $v$, since
+> $$3e_1 + 4e_2 + 5e_3 = 3\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} + 4\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} + 5\begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix}.$$
+> So the coordinate vector of $v$ is exactly $v$. This is no longer true with another basis. Let for example $w_1, w_2, w_3$ be the basis of Example 13.2. To find the coordinates of $v$ in this basis we must solve the system
+> $$\lambda_1 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} + \lambda_2 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} + \lambda_3 \begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix} = \begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix}.$$
+> In Example 13.2 we saw that the solution is always unique, because $\det A = -1$. The coordinate vector of $v$ in this basis is
+> $$A^{-1}\begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix} = \begin{pmatrix} 2 & -1 & 1 \\ -1 & 1 & 0 \\ -1 & 1 & -1 \end{pmatrix}\begin{pmatrix} 3 \\ 4 \\ 5 \end{pmatrix} = \begin{pmatrix} 7 \\ 1 \\ -4 \end{pmatrix}.$$
+> Alternatively you can solve the system with the Gauss–Jordan algorithm.
+
+The calculations the handouts leave to you.
+
+- **The product:** first row $2 \cdot 3 - 1 \cdot 4 + 1 \cdot 5 = 7$; second $-3 + 4 + 0 = 1$; third $-3 + 4 - 5 = -4$.
+- **Is the inverse right?** $A \cdot A^{-1}$ must give the identity. First row of $A$, $(1, 0, 1)$, times the columns of $A^{-1}$: $2 - 1 = 1$, $-1 + 1 = 0$, $1 - 1 = 0$. The other rows are checked in the same way.
+- **Check of the result:** $7w_1 + w_2 - 4w_3 = (7, 7, 0) + (0, 1, 1) - (4, 4, -4) = (3, 4, 5)$.
+- **With Gauss–Jordan**, without the inverse:
+  $$\left(\begin{array}{ccc|c} 1 & 0 & 1 & 3 \\ 1 & 1 & 1 & 4 \\ 0 & 1 & -1 & 5 \end{array}\right) \xrightarrow{R_2 \to R_2 - R_1} \left(\begin{array}{ccc|c} 1 & 0 & 1 & 3 \\ 0 & 1 & 0 & 1 \\ 0 & 1 & -1 & 5 \end{array}\right)$$
+  $$\xrightarrow{R_3 \to R_3 - R_2} \left(\begin{array}{ccc|c} 1 & 0 & 1 & 3 \\ 0 & 1 & 0 & 1 \\ 0 & 0 & -1 & 4 \end{array}\right)$$
+  Then $R_3 \to -R_3$ gives $(0, 0, 1 \mid -4)$ and $R_1 \to R_1 - R_3$ gives $(1, 0, 0 \mid 7)$: the last column of the reduced form is $(7, 1, -4)$.
+
+```widget gauss
+title: Coordinates of $v = (3, 4, 5)$ in the basis $w_1, w_2, w_3$: the first three columns are the basis, the last is $v$
+matrice: 1 0 1 3; 1 1 1 4; 0 1 -1 5
+modo: sistema
+```
+
+The tool solves the system $(w_1 \mid w_2 \mid w_3 \mid v)$ and finds $x_1 = 7$, $x_2 = 1$, $x_3 = -4$: they are the coordinates. Change the last column to another vector, for example `1 0 0` instead of `3 4 5`: you find $(2, -1, -1)$, the first column of $A^{-1}$.
+
+> [!METHOD] The coordinates of $v$ with respect to a basis
+> 1. **In $\K^n$:** write $(v_1 \mid \cdots \mid v_n \mid v)$ and do Gauss–Jordan; the last column of the reduced form is the coordinate vector. With $n = 2$ or if you already have the inverse, use $A^{-1}v$.
+> 2. **With polynomials:** write $\lambda_1p_1 + \cdots + \lambda_np_n = p$, collect the powers of $x$ and set equal the coefficients of $1, x, x^2, \dots$ on the left and on the right: you get a linear system in the $\lambda_i$.
+> 3. **Always check**: rebuild $\lambda_1v_1 + \cdots + \lambda_nv_n$ and check that it gives $v$.
+
+> [!EXAMPLE] Coordinates of a polynomial
+> The coordinates of $p = 2 + 3x + 4x^2$ with respect to the basis $1,\ 1 + x,\ 1 + x + x^2$ of $\R_2[x]$. I write
+> $$\lambda_1 \cdot 1 + \lambda_2(1 + x) + \lambda_3(1 + x + x^2) = (\lambda_1 + \lambda_2 + \lambda_3) + (\lambda_2 + \lambda_3)x + \lambda_3x^2$$
+> and set the coefficients equal to those of $p$: $\lambda_3 = 4$ (from $x^2$), $\lambda_2 + \lambda_3 = 3$ so $\lambda_2 = -1$ (from $x$), $\lambda_1 + \lambda_2 + \lambda_3 = 2$ so $\lambda_1 = -1$ (constant term). The coordinates are $(-1, -1, 4)$. Check: $-1 - (1 + x) + 4(1 + x + x^2) = 2 + 3x + 4x^2$.
+
+> [!PITFALL] Coordinates are numbers, in order
+> In the quiz of the exam of 08/02/2024 (question 3), among the answers there were expressions like $(2p_1, -p_2, p_3)$ and $(x^2, 2x, 1)$: they are wrong by construction, because the coordinates are the **numbers** $\lambda_i$, not the vectors $\lambda_iv_i$ nor the monomials. And the order matters: with respect to the ordered basis $x^2, x, 1$ the polynomial $2 + 3x - x^2$ has coordinates $(-1, 3, 2)$, not $(2, 3, -1)$.
+
+> [!BEYOND] the coordinate map
+> Once a basis $B$ of $V$ is fixed, the function that sends $v$ to its coordinate vector, often written $[v]_B$, respects sums and multiples: the coordinates of $v + w$ are the sum of the coordinates, those of $\lambda v$ are $\lambda$ times those of $v$ (exercise 11). It is the first example of a **linear map** between different spaces (lesson L14): thanks to it every space of dimension $n$ can be studied like $\K^n$ (Martelli, Example 4.1.17).
+
+## Link with computer science: codes that correct errors (pp. 66–67)
+
+When a message travels (on a cable, by radio, on a disk that deteriorates) some number can arrive wrong. Linear algebra makes it possible to add **redundant information**, that is extra numbers computed from the message, so as to **detect** and in some cases **correct** the errors. The handouts show a model reduced to the bone, which you follow here step by step.
+
+### Encoding: two check numbers
+
+We want to transmit the four numbers $2, -7, 8, -2$. We add two numbers $a$, $b$ and read the six numbers as the coefficients of a polynomial of degree 5:
+
+$$s(x) = 2x^5 - 7x^4 + 8x^3 - 2x^2 + ax + b.$$
+
+We choose $a$ and $b$ by imposing two **check conditions**: $s(1) = 0$ and $s(2) = 0$.
+
+- $s(1) = 2 - 7 + 8 - 2 + a + b = 1 + a + b$;
+- $s(2) = 2 \cdot 32 - 7 \cdot 16 + 8 \cdot 8 - 2 \cdot 4 + 2a + b = 64 - 112 + 64 - 8 + 2a + b = 8 + 2a + b$.
+
+The conditions give a **linear system** in the unknowns $a, b$:
+
+$$\begin{cases} a + b = -1 \\ 2a + b = -8 \end{cases}$$
+
+Taking the first equation away from the second: $a = -7$; then $b = -1 - a = 6$. So we transmit the six numbers
+
+$$(2, -7, 8, -2, -7, 6).$$
+
+Check: $s(1) = 2 - 7 + 8 - 2 - 7 + 6 = 0$ and $s(2) = 64 - 112 + 64 - 8 - 14 + 6 = 0$.
+
+> [!NOTE] Curly brackets and order
+> The handouts write the messages in curly brackets, $\{2, -7, 8, -2\}$. Here, though, **the order matters** (the first number is the coefficient of $x^5$, the second of $x^4$, …) and the numbers can repeat, like the two $-7$: as lesson L01 reminded you, in a set order and repetitions do not matter. That is why in these notes the messages are written in round brackets, as sequences.
+
+### Detecting an error
+
+The receiver rebuilds the polynomial and checks that $s(1) = s(2) = 0$. If one of the two equalities does not hold, they know there has been an error. Suppose we receive
+
+$$(2, -7, 8, 4, -7, 6),$$
+
+with the fourth number altered ($4$ instead of $-2$). The received polynomial $r(x) = 2x^5 - 7x^4 + 8x^3 + 4x^2 - 7x + 6$ gives $r(1) = 6 \neq 0$: error detected.
+
+### Correcting it
+
+If we know that **only one** number is wrong but we do not know which, we replace each position in turn with an unknown $k$ and impose $s(1) = s(2) = 0$ again. Each time we get a system of **two equations in one unknown**. Putting $k$ in the fourth place:
+
+$$s(x) = 2x^5 - 7x^4 + 8x^3 + kx^2 - 7x + 6, \qquad \begin{cases} s(1) = k + 2 = 0 \\ s(2) = 4k + 8 = 0 \end{cases}$$
+
+which has the unique solution $k = -2$. For the other positions the system is **inconsistent**:
+
+| Position of $k$ | $s(1) = 0$ | $s(2) = 0$ | Outcome |
+|---|---|---|---|
+| 1st (coefficient of $x^5$) | $k + 4 = 0$ | $32k - 40 = 0$ | $k = -4$ and $k = \frac 54$: inconsistent |
+| 2nd ($x^4$) | $k + 13 = 0$ | $16k + 136 = 0$ | $k = -13$ and $k = -\frac{17}2$: inconsistent |
+| 3rd ($x^3$) | $k - 2 = 0$ | $8k - 40 = 0$ | $k = 2$ and $k = 5$: inconsistent |
+| 4th ($x^2$) | $k + 2 = 0$ | $4k + 8 = 0$ | $k = -2$: **consistent** |
+| 5th ($x$) | $k + 13 = 0$ | $2k + 38 = 0$ | $k = -13$ and $k = -19$: inconsistent |
+| 6th (constant term) | $k = 0$ | $k + 18 = 0$ | $k = 0$ and $k = -18$: inconsistent |
+
+So we locate the position of the error and rebuild the correct datum: the fourth number was $-2$.
+
+> [!IDEA] why it works, in one line
+> If the wrong number is the coefficient of $x^j$ and it is off by $d$, the received polynomial is $r(x) = s(x) + d\,x^j$, so $r(1) = d$ and $r(2) = d \cdot 2^j$. Here $r(1) = 6$ and $r(2) = 24$: then $d = 6$ and $2^j = \frac{24}6 = 4$, that is $j = 2$. The ratio $\frac{r(2)}{r(1)}$ tells you **where** the error is, $r(1)$ tells you **by how much**: the received coefficient of $x^2$, $4$, must be corrected to $4 - 6 = -2$.
+
+Adding more redundant information you correct more errors. For example, adding **four** coefficients and imposing $s(1) = s(2) = s(3) = s(4) = 0$ you get a linear system of four equations in the four added coefficients; the four conditions then provide enough checks to find and correct, in this model, up to two wrong coefficients.
+
+**Reed–Solomon codes**, used among other things in QR codes and in many digital storage and transmission systems, exploit closely related ideas: the data become polynomials, redundancy is added and algebraic equations are used to locate and correct the errors. Real Reed–Solomon codes work over finite fields, but this example already shows the concrete role of polynomials and linear systems.
+
+> [!BEYOND] where to find it in the book
+> In Martelli's book: linear independence, bases and coordinates are in **§2.3 "Dimensione"** (pp. 60–75): linear (in)dependence §2.3.1 (p. 60), bases §2.3.2 (p. 62), coordinates §2.3.3 with Proposition 2.3.11 and Examples 2.3.12–2.3.15 (pp. 64–65), extraction algorithm §2.3.6 (p. 68). The use of the rank and of Rouché–Capelli to answer these questions is in **§3.2** (pp. 85–93). The correcting code is an addition of the 2026 handouts.
+
+## Towards the exam
+
+The AG written test has 10 quiz questions with 5 answers each (you need at least 6 points for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+1. **"Are they generators and/or linearly independent?"** Quiz question with five fixed answers (independent but not generators; neither; ill-posed question; generators but not independent; both): exams of 06/09/2024 (question 2, four vectors of $\R^3$) and 16/01/2025 (question 2, four polynomials of $\R_2[x]$). In the exam of 07/09/2026 (question 2) you were asked which set of matrices was a basis of $M(2, \R)$.
+2. **"The coordinate vector of … in the basis … is"**: exams of 08/02/2024 (question 3, polynomials), 16/01/2025 (question 8, in $\R^2$), 05/02/2026 (question 6, the coordinates of $T(v_1)$: lesson L14 is needed too).
+3. **"Find the rank of the matrix"**: exams of 16/01/2025 (question 6), 07/02/2025 (question 4), 05/02/2026 (question 4). You answer by counting the pivots (lesson L12).
+4. **In the open problems** coordinates come back in changes of basis and in associated matrices (for example exam of 07/09/2026, problem 11): lessons L15 and L16.
+
+> [!METHOD] The quiz "generators and/or independent?" in three steps
+> 1. Count the vectors, $k$, and the dimension of the space, $m$ (for $\R_n[x]$ it is $n + 1$, for $M(p, q, \R)$ it is $pq$). If $k > m$ they are not independent; if $k < m$ they are not generators: half of the answers fall straight away.
+> 2. Write the vectors (or the coefficients of the polynomials, or the four entries of the $2 \times 2$ matrices) **in columns** and compute the rank $r$.
+> 3. Independent $\Leftrightarrow r = k$; generators $\Leftrightarrow r = m$. The answer "the question is ill-posed" is never the right one: the question makes sense with any number of vectors.
+
+> [!PITFALL] The mistakes to avoid
+> - Swapping rows and columns when setting up the coordinates: the unknowns $\lambda_i$ multiply the **basis vectors**, which go in columns.
+> - Answering with the vectors $\lambda_iv_i$ instead of the numbers $\lambda_i$.
+> - Forgetting the order of the basis, above all with polynomials (a basis written $x^2, x, 1$ is not $1, x, x^2$).
+> - In the quiz on coordinates, not checking: rebuilding $\lambda_1v_1 + \lambda_2v_2$ takes ten seconds and removes every doubt.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: "vectors in columns $\to$ rank $r$: independent $\Leftrightarrow r = k$, generators of $\K^m \Leftrightarrow r = m$, basis $\Leftrightarrow \det \neq 0$"; the two tables of the section on bases; the method for coordinates with polynomials; the $2 \times 2$ inverse for coordinates in $\R^2$.
+
+## Quiz
+
+```quiz
+Q: Are the vectors $(1, 1, 1)$, $(0, 1, 2)$, $(1, 2, 3)$, $(0, 0, 1)$ of $\R^3$ generators and/or linearly independent?
+- They are linearly independent, but not generators.
+- They are neither linearly independent nor generators.
+- The question is ill-posed: the vectors are 4 and not 3.
++ They are generators, but not linearly independent.
+- They are both generators and linearly independent.
+= Exam of 06/09/2024, question 2. Four vectors of $\R^3$ cannot be independent; indeed $(1, 2, 3) = (1, 1, 1) + (0, 1, 2)$. They span: $(1, 1, 1)$, $(0, 1, 2)$, $(0, 0, 1)$ in columns give a triangular matrix with determinant $1 \cdot 1 \cdot 1 = 1 \neq 0$, so the rank is 3.
+
+Q: The vectors $v_1 = (2, 3)$ and $v_2 = (3, 2)$ form a basis of $\R^2$. The coordinate vector of $w = (7, 3)$ in this basis is:
+- $(2, 3)$
+- $(17, 23)$
+- $(-17, 23)$
++ $(-1, 3)$
+- $(7, 3)$
+= Exam of 16/01/2025, question 8. You solve $2\lambda_1 + 3\lambda_2 = 7$, $3\lambda_1 + 2\lambda_2 = 3$: taking the first multiplied by 3 away from the second multiplied by 2 you get $-5\lambda_2 = -15$, so $\lambda_2 = 3$ and $\lambda_1 = -1$. Check: $-(2, 3) + 3(3, 2) = (7, 3)$. $(7, 3)$ would be the coordinates in the standard basis.
+
+Q: The polynomials $p_1(x) = x^2 + x + 1$, $p_2(x) = x^2 + x - 1$, $p_3(x) = x - 2$ form a basis of $\R_2[x]$. The coordinate vector of $q(x) = (x + 1)^2$ in this basis is:
+- $(1, 2, 1)$
+- $(2p_1, -p_2, p_3)$
+- $(3, -2, -1)$
++ $(2, -1, 1)$
+- $(x^2, 2x, 1)$
+= Exam of 08/02/2024, question 3. $ap_1 + bp_2 + cp_3 = (a + b)x^2 + (a + b + c)x + (a - b - 2c)$ and $q = x^2 + 2x + 1$: so $a + b = 1$, $c = 1$, $a - b = 3$, from which $a = 2$, $b = -1$. $(1, 2, 1)$ are the coordinates in the standard basis; the answers with $p_i$ or with $x$ are not vectors of numbers.
+
+Q: The rank of the matrix $\begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 7 \\ 3 & 6 & 10 \end{pmatrix}$ is:
+- $0$
+- $1$
++ $2$
+- $3$
+- $4$
+= Similar to the exam of 16/01/2025, question 6. $R_2 - 2R_1 = (0, 0, 1)$ and $R_3 - 3R_1 = (0, 0, 1)$; then $R_3 - R_2$ is zero. Two pivots remain, in columns 1 and 3: rank 2. A rank of 4 is impossible for a matrix with 3 rows.
+
+Q: For which $k \in \R$ are the vectors $(1, 0, k)$, $(0, 1, 1)$, $(k, 1, 2)$ linearly dependent?
++ $k = 1$ or $k = -1$
+- only $k = 0$
+- only $k = 1$
+- only $k = -1$
+- for no value of $k$
+= Three vectors of $\R^3$: you use the determinant of the matrix that has them in columns. Expanding along the first row, $\det\begin{pmatrix} 1 & 0 & k \\ 0 & 1 & 1 \\ k & 1 & 2 \end{pmatrix} = 1 \cdot (2 - 1) + k \cdot (0 - k) = 1 - k^2$, which vanishes for $k = \pm 1$.
+
+Q: Let $W = \Span(v_1, v_2, v_3)$ with $v_1 = (1, 1, 0)$, $v_2 = (0, 1, 1)$, $v_3 = (1, 0, -1)$ (Example 13.1). Which of these vectors lies in $W$?
++ $(1, 2, 1)$
+- $(1, 0, 0)$
+- $(1, 1, 1)$
+- $(0, 0, 1)$
+- $(2, 1, 0)$
+= With Gauss on $(v_1 \mid v_2 \mid v_3 \mid v)$ you find that $W$ is the plane $x - y + z = 0$. Only $(1, 2, 1)$ satisfies it: $1 - 2 + 1 = 0$; indeed $(1, 2, 1) = v_1 + v_2$. The others give $1$, $1$, $1$ and $1$.
+
+Q: Three linearly independent vectors of $\R^3$:
++ always form a basis of $\R^3$.
+- may not span $\R^3$.
+- span at most a plane.
+- always have zero determinant, put in columns.
+- are always pairwise perpendicular.
+= $\dim \R^3 = 3$: by Theorem 7.12 three independent vectors are automatically also generators, so a basis. Put in columns they have non-zero determinant. Independence requires no perpendicularity.
+
+Q: With respect to the ordered basis $x^2, x, 1$ of $\R_2[x]$, the polynomial $p(x) = 2 + 3x - x^2$ has coordinates:
+- $(2, 3, -1)$
++ $(-1, 3, 2)$
+- $(1, 3, -2)$
+- $(-x^2, 3x, 2)$
+- $(3, 2, -1)$
+= Similar to the exam of 08/02/2024, question 3. $p = (-1) \cdot x^2 + 3 \cdot x + 2 \cdot 1$: the coordinates follow the order of the basis, so $(-1, 3, 2)$. $(2, 3, -1)$ would be the coordinates in the basis $1, x, x^2$.
+
+Q: With the handouts' code, to transmit the message $(0, 0, 1, -1)$ you add $a$ and $b$ so that $s(x) = x^3 - x^2 + ax + b$ satisfies $s(1) = s(2) = 0$. What are $a$ and $b$?
++ $a = -4$, $b = 4$
+- $a = 4$, $b = -4$
+- $a = -4$, $b = -4$
+- $a = 0$, $b = 0$
+- $a = 4$, $b = 4$
+= $s(1) = 1 - 1 + a + b = a + b$ and $s(2) = 8 - 4 + 2a + b = 4 + 2a + b$. The system $a + b = 0$, $2a + b = -4$ gives $a = -4$ and $b = 4$. Check: $s(x) = x^3 - x^2 - 4x + 4 = (x - 1)(x - 2)(x + 2)$.
+
+Q: In the basis $w_1 = (1, 1, 0)$, $w_2 = (0, 1, 1)$, $w_3 = (1, 1, -1)$ of Example 13.2, what is the first coordinate of the vector $(1, 0, 0)$?
+N: 2
+= With $v = (a, b, c) = (1, 0, 0)$ the formula $\lambda_1 = 2a - b + c$ gives $2$ (it is the first column of $A^{-1}$). Indeed $(1, 0, 0) = 2w_1 - w_2 - w_3$.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 13.7 of the handouts: finding and correcting the error
+We receive the sequence of six numbers $(1, -2, 3, 0, -1, 2)$. The first four contain the information, the last two are the check numbers of the code seen above. The six numbers are the coefficients of $s(x) = a_5x^5 + a_4x^4 + a_3x^3 + a_2x^2 + a_1x + a_0$ and, if the transmission is correct, $s(1) = s(2) = 0$. We know that **exactly one** of the six numbers has been changed. Which one? What is its correct value?
+::: solution
+**Check.** The received polynomial is $r(x) = x^5 - 2x^4 + 3x^3 - x + 2$ (the coefficient of $x^2$ is $0$). Then
+$$r(1) = 1 - 2 + 3 + 0 - 1 + 2 = 3, \qquad r(2) = 32 - 32 + 24 + 0 - 2 + 2 = 24.$$
+$r(1) \neq 0$: there is an error.
+
+**Position by position.** I put an unknown $k$ in place of each number, in turn, and impose $s(1) = s(2) = 0$:
+
+| Position of $k$ | $s(1) = 0$ | $s(2) = 0$ | Outcome |
+|---|---|---|---|
+| 1st ($x^5$) | $k + 2 = 0$ | $32k - 8 = 0$ | $k = -2$ and $k = \frac 14$: inconsistent |
+| 2nd ($x^4$) | $k + 5 = 0$ | $16k + 56 = 0$ | $k = -5$ and $k = -\frac 72$: inconsistent |
+| 3rd ($x^3$) | $k = 0$ | $8k = 0$ | $k = 0$: **consistent** |
+| 4th ($x^2$) | $k + 3 = 0$ | $4k + 24 = 0$ | $k = -3$ and $k = -6$: inconsistent |
+| 5th ($x$) | $k + 4 = 0$ | $2k + 26 = 0$ | $k = -4$ and $k = -13$: inconsistent |
+| 6th (constant term) | $k + 1 = 0$ | $k + 22 = 0$ | $k = -1$ and $k = -22$: inconsistent |
+
+For example, in the third row: with $k$ in place of the $3$, $s(1) = 1 - 2 + k + 0 - 1 + 2 = k$ and $s(2) = 32 - 32 + 8k + 0 - 2 + 2 = 8k$.
+
+**Conclusion.** The wrong number is the **third** (the coefficient of $x^3$): the correct value is $0$ instead of $3$. The transmitted sequence was $(1, -2, 0, 0, -1, 2)$. Check: $s(x) = x^5 - 2x^4 - x + 2$ gives $s(1) = 1 - 2 - 1 + 2 = 0$ and $s(2) = 32 - 32 - 2 + 2 = 0$.
+
+**With the idea of the box.** $\frac{r(2)}{r(1)} = \frac{24}3 = 8 = 2^3$: the error is in the coefficient of $x^3$, and it is off by $r(1) = 3$: $3 - 3 = 0$.
+:::
+
+::: exercise basic Independent or not? And with which relation?
+Decide whether $v_1 = (1, 2, 1)$, $v_2 = (2, 1, 0)$, $v_3 = (-1, 4, 3)$ are linearly independent. If they are not, write a dependence relation.
+::: solution
+I put the vectors in columns and reduce:
+$$\begin{pmatrix} 1 & 2 & -1 \\ 2 & 1 & 4 \\ 1 & 0 & 3 \end{pmatrix} \xrightarrow[R_3 \to R_3 - R_1]{R_2 \to R_2 - 2R_1} \begin{pmatrix} 1 & 2 & -1 \\ 0 & -3 & 6 \\ 0 & -2 & 4 \end{pmatrix}$$
+$$\xrightarrow{R_3 \to R_3 - \frac 23 R_2} \begin{pmatrix} 1 & 2 & -1 \\ 0 & -3 & 6 \\ 0 & 0 & 0 \end{pmatrix}$$
+The calculations: $(2, 1, 4) - 2(1, 2, -1) = (0, -3, 6)$; $(1, 0, 3) - (1, 2, -1) = (0, -2, 4)$; $(0, -2, 4) - \frac 23(0, -3, 6) = (0, 0, 0)$.
+
+Rank 2 < 3: **dependent**. The relation: $\lambda_3 = t$; from the second row $-3\lambda_2 + 6t = 0$, so $\lambda_2 = 2t$; from the first $\lambda_1 + 4t - t = 0$, so $\lambda_1 = -3t$. With $t = 1$:
+$$-3v_1 + 2v_2 + v_3 = 0, \qquad \text{that is} \qquad v_3 = 3v_1 - 2v_2.$$
+Check: $3(1, 2, 1) - 2(2, 1, 0) = (3 - 4, 6 - 2, 3 - 0) = (-1, 4, 3)$.
+:::
+
+::: exercise intermediate The equation of a Span
+Let $W = \Span\big((1, 0, 2), (0, 1, -1)\big) \subset \R^3$. (a) Find an equation of $W$. (b) Does the vector $(1, 1, 1)$ lie in $W$? And $(1, 1, 2)$?
+::: solution
+(a) I reduce $(v_1 \mid v_2 \mid v)$ with a generic $v = (a, b, c)$:
+$$\left(\begin{array}{cc|c} 1 & 0 & a \\ 0 & 1 & b \\ 2 & -1 & c \end{array}\right) \xrightarrow{R_3 \to R_3 - 2R_1} \left(\begin{array}{cc|c} 1 & 0 & a \\ 0 & 1 & b \\ 0 & -1 & c - 2a \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 + R_2} \left(\begin{array}{cc|c} 1 & 0 & a \\ 0 & 1 & b \\ 0 & 0 & c - 2a + b \end{array}\right)$$
+The system has a solution if and only if $c - 2a + b = 0$. So $W = \{(x, y, z) \mid 2x - y - z = 0\}$. Check on the generators: $2 - 0 - 2 = 0$ and $0 - 1 + 1 = 0$.
+
+(b) $(1, 1, 1)$: $2 - 1 - 1 = 0$, it lies in $W$; indeed $(1, 1, 1) = (1, 0, 2) + (0, 1, -1)$. $(1, 1, 2)$: $2 - 1 - 2 = -1 \neq 0$, it does not lie in $W$.
+:::
+
+::: exercise intermediate Basis and coordinates in $\R^3$ (tutoring Sheet 2, exercise 6)
+Check that $v_1 = (1, 0, 1)$, $v_2 = (0, 1, 2)$, $v_3 = (2, 1, 0)$ are a basis of $\R^3$ and compute the coordinate vector of $v = (0, 9, -2)$ with respect to this basis.
+::: solution
+**Basis.** Three vectors in $\R^3$: the determinant of the matrix with the vectors in columns is enough. Expanding along the first row:
+$$\det\begin{pmatrix} 1 & 0 & 2 \\ 0 & 1 & 1 \\ 1 & 2 & 0 \end{pmatrix} = 1 \cdot (0 - 2) - 0 + 2 \cdot (0 - 1) = -2 - 2 = -4 \neq 0.$$
+They are a basis.
+
+**Coordinates.** Gauss–Jordan on $(v_1 \mid v_2 \mid v_3 \mid v)$:
+$$\left(\begin{array}{ccc|c} 1 & 0 & 2 & 0 \\ 0 & 1 & 1 & 9 \\ 1 & 2 & 0 & -2 \end{array}\right) \xrightarrow{R_3 \to R_3 - R_1} \left(\begin{array}{ccc|c} 1 & 0 & 2 & 0 \\ 0 & 1 & 1 & 9 \\ 0 & 2 & -2 & -2 \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 - 2R_2} \left(\begin{array}{ccc|c} 1 & 0 & 2 & 0 \\ 0 & 1 & 1 & 9 \\ 0 & 0 & -4 & -20 \end{array}\right)$$
+From the bottom: $\lambda_3 = 5$; $\lambda_2 = 9 - 5 = 4$; $\lambda_1 = 0 - 2 \cdot 5 = -10$. Coordinates $(-10, 4, 5)$.
+
+**Check:** $-10(1, 0, 1) + 4(0, 1, 2) + 5(2, 1, 0) = (-10 + 10,\ 4 + 5,\ -10 + 8) = (0, 9, -2)$.
+:::
+
+::: exercise intermediate Coordinates of a polynomial (tutoring Sheet 2, exercise 7)
+Given the basis $p_1 = x - 1$, $p_2 = x + 1$, $p_3 = x^2 + x$ of $\R_2[x]$, compute the coordinate vector of $p = 3x^2 + 5x - 1$.
+::: solution
+$$ap_1 + bp_2 + cp_3 = a(x - 1) + b(x + 1) + c(x^2 + x) = cx^2 + (a + b + c)x + (-a + b).$$
+I set the coefficients equal to those of $3x^2 + 5x - 1$:
+1. $x^2$: $c = 3$;
+2. $x$: $a + b + c = 5$, so $a + b = 2$;
+3. constant term: $-a + b = -1$.
+
+Adding the last two: $2b = 1$, that is $b = \frac 12$, and $a = \frac 32$. Coordinates $\left(\frac 32, \frac 12, 3\right)$.
+
+**Check:** $\frac 32(x - 1) + \frac 12(x + 1) + 3(x^2 + x) = 3x^2 + \left(\frac 32 + \frac 12 + 3\right)x + \left(-\frac 32 + \frac 12\right) = 3x^2 + 5x - 1$. The coordinates can be fractions even when all the data are integers.
+:::
+
+::: exercise hard A basis that depends on $k$
+For which $k \in \R$ do the vectors $u_1 = (1, k, 0)$, $u_2 = (0, 1, k)$, $u_3 = (k, 0, 1)$ form a basis of $\R^3$? For the excluded values, write a dependence relation.
+::: solution
+Matrix with the vectors in columns and expansion along the first row:
+$$\det\begin{pmatrix} 1 & 0 & k \\ k & 1 & 0 \\ 0 & k & 1 \end{pmatrix} = 1 \cdot (1 - 0) - 0 + k \cdot (k^2 - 0) = 1 + k^3.$$
+$1 + k^3 = (k + 1)(k^2 - k + 1)$, and $k^2 - k + 1$ never vanishes in $\R$ (the discriminant is $1 - 4 = -3 < 0$). So $\det = 0$ only for $k = -1$: the vectors are a basis **for every $k \neq -1$**.
+
+For $k = -1$: $u_1 = (1, -1, 0)$, $u_2 = (0, 1, -1)$, $u_3 = (-1, 0, 1)$, and $u_1 + u_2 + u_3 = (0, 0, 0)$. A relation is $u_1 + u_2 + u_3 = 0$.
+:::
+
+::: exercise basic Encoding a message
+With the handouts' code, which two check numbers are added to the message $(0, 1, 0, -4)$? Check the result.
+::: solution
+$s(x) = 0 \cdot x^5 + x^4 + 0 \cdot x^3 - 4x^2 + ax + b = x^4 - 4x^2 + ax + b$.
+- $s(1) = 1 - 4 + a + b = -3 + a + b$;
+- $s(2) = 16 - 16 + 2a + b = 2a + b$.
+
+System: $a + b = 3$ and $2a + b = 0$. Taking the first away from the second: $a = -3$; then $b = 6$. You transmit $(0, 1, 0, -4, -3, 6)$.
+
+**Check:** $s(x) = x^4 - 4x^2 - 3x + 6$; $s(1) = 1 - 4 - 3 + 6 = 0$; $s(2) = 16 - 16 - 6 + 6 = 0$.
+:::
+
+::: exercise exam As at the exam: generators and/or independent?
+The polynomials $1 + x$, $x + x^2$, $1 + x^2$ and $1$ of $\R_2[x]$ are: (a) linearly independent, but not generators; (b) neither linearly independent nor generators; (c) the question is ill-posed: the polynomials are 4 and the space has dimension 3; (d) generators, but not linearly independent; (e) both generators and linearly independent.
+::: solution
+**Step 1.** Four polynomials in $\R_2[x]$, which has dimension 3: they cannot be independent. (b) and (d) remain; (c) is wrong because the question makes sense with any number of vectors.
+
+**Step 2.** In columns the coefficients with respect to $1, x, x^2$:
+$$\begin{pmatrix} 1 & 0 & 1 & 1 \\ 1 & 1 & 0 & 0 \\ 0 & 1 & 1 & 0 \end{pmatrix}.$$
+The first three columns have determinant $1 \cdot (1 \cdot 1 - 0 \cdot 1) - 0 + 1 \cdot (1 \cdot 1 - 1 \cdot 0) = 2 \neq 0$: rank 3, so the polynomials **span** $\R_2[x]$. Answer **(d)**.
+
+The dependence relation: $(1 + x) - (x + x^2) + (1 + x^2) = 2$, so $2 \cdot 1 = (1 + x) - (x + x^2) + (1 + x^2)$. It is the scheme of questions 2 of the exams of 06/09/2024 and 16/01/2025.
+:::
+
+::: exercise exam As at the exam: the coordinate vector
+The polynomials $q_1 = 1 + x$, $q_2 = x + x^2$, $q_3 = 1 + x^2$ form a basis of $\R_2[x]$. The coordinate vector of $p = 2 + 4x + 6x^2$ in this basis is: (a) $(2, 4, 6)$; (b) $(0, 4, 2)$; (c) $(4, 2, 0)$; (d) $(0, 4q_2, 2q_3)$; (e) $(1, 2, 3)$.
+::: solution
+$$aq_1 + bq_2 + cq_3 = (a + c) + (a + b)x + (b + c)x^2.$$
+I set the coefficients equal: $a + c = 2$, $a + b = 4$, $b + c = 6$. Adding the three equations, $2(a + b + c) = 12$, so $a + b + c = 6$; subtracting each equation in turn: $b = 6 - 2 = 4$, $c = 6 - 4 = 2$, $a = 6 - 6 = 0$. Answer **(b)**, $(0, 4, 2)$.
+
+**Check:** $0 \cdot (1 + x) + 4(x + x^2) + 2(1 + x^2) = 2 + 4x + 6x^2$. (a) are the coordinates in the standard basis, (d) is not a vector of numbers, (c) has the wrong order. Scheme of the questions of the exams of 08/02/2024 (question 3) and 16/01/2025 (question 8).
+:::
+
+::: exercise intermediate Three vectors of $\R^4$
+Decide whether $u_1 = (1, 1, 2, 3)$, $u_2 = (0, 1, -1, 0)$, $u_3 = (3, 1, 8, 9)$ are linearly independent in $\R^4$ and whether they span $\R^4$ (tutoring Sheet 2, exercise 3.3).
+::: solution
+**Do they span?** No, without calculations: they are 3 vectors and $\dim \R^4 = 4$.
+
+**Independent?** In columns and Gauss:
+$$\begin{pmatrix} 1 & 0 & 3 \\ 1 & 1 & 1 \\ 2 & -1 & 8 \\ 3 & 0 & 9 \end{pmatrix} \longrightarrow \begin{pmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & -1 & 2 \\ 0 & 0 & 0 \end{pmatrix}$$
+$$\xrightarrow{R_3 \to R_3 + R_2} \begin{pmatrix} 1 & 0 & 3 \\ 0 & 1 & -2 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}$$
+(first move: $R_2 - R_1$, $R_3 - 2R_1$, $R_4 - 3R_1$). Rank 2 < 3: **dependent**. From the reduced form: $\lambda_3 = t$, $\lambda_2 = 2t$, $\lambda_1 = -3t$, that is $-3u_1 + 2u_2 + u_3 = 0$, or $u_3 = 3u_1 - 2u_2$. Check: $3(1, 1, 2, 3) - 2(0, 1, -1, 0) = (3, 1, 8, 9)$.
+:::
+
+::: exercise hard Coordinates respect sums and multiples
+Let $v_1, \dots, v_n$ be a basis of $V$ and denote by $[v]$ the coordinate vector of $v$. Prove that $[v + w] = [v] + [w]$ and $[\lambda v] = \lambda[v]$ for all $v, w \in V$ and $\lambda \in \K$.
+::: solution
+Let $[v] = (\lambda_1, \dots, \lambda_n)$ and $[w] = (\mu_1, \dots, \mu_n)$, that is $v = \sum_i \lambda_iv_i$ and $w = \sum_i \mu_iv_i$.
+
+1. Adding and collecting: $v + w = (\lambda_1 + \mu_1)v_1 + \cdots + (\lambda_n + \mu_n)v_n$. This is **one** expression of $v + w$ as a combination of the basis; by Proposition 13.4 it is **the only one**, so the coordinates of $v + w$ are $(\lambda_1 + \mu_1, \dots, \lambda_n + \mu_n) = [v] + [w]$.
+2. In the same way $\lambda v = (\lambda\lambda_1)v_1 + \cdots + (\lambda\lambda_n)v_n$, and by uniqueness $[\lambda v] = \lambda[v]$.
+
+Uniqueness is the key point: without Proposition 13.4 you would only know that *one* expression of $v + w$ has those coefficients. In the language of lesson L14, the function $v \mapsto [v]$ is a linear map $V \to \K^n$.
+:::
+
+## Review questions
+
+::: question How do you turn the question "are $v_1, \dots, v_k$ independent?" into a linear system?
+The equation $\lambda_1v_1 + \cdots + \lambda_kv_k = 0$ is a homogeneous system in the unknowns $\lambda_j$, with coefficient matrix $A = (v_1 \mid \cdots \mid v_k)$ (the vectors in columns). The vectors are independent if and only if the only solution is the zero one.
+:::
+
+::: question What is the rank criterion for independence? And when can you use the determinant?
+Independent if and only if $\rk(A) = k$, the number of vectors. If there are $n$ vectors in $\K^n$, $A$ is square and they are independent if and only if $\det A \neq 0$.
+:::
+
+::: question How do you find a dependence relation between dependent vectors?
+You solve the homogeneous system with Gauss–Jordan: every non-zero solution $(\lambda_1, \dots, \lambda_k)$ gives the relation $\lambda_1v_1 + \cdots + \lambda_kv_k = 0$. In Example 13.1: $-v_1 + v_2 + v_3 = 0$.
+:::
+
+::: question When do $v_1, \dots, v_k$ span $\K^m$?
+When the system $\lambda_1v_1 + \cdots + \lambda_kv_k = v$ has a solution for every $v \in \K^m$, that is when $\rk(v_1 \mid \cdots \mid v_k) = m$.
+:::
+
+::: question How do you find an equation of $\Span(v_1, \dots, v_k)$?
+You reduce $(v_1 \mid \cdots \mid v_k \mid v)$ to row echelon form with a generic $v = (a, b, c, \dots)$. Every row that vanishes on the left gives a linear condition on $a, b, c, \dots$: they are the equations of the Span.
+:::
+
+::: question Why are more than $m$ vectors of $\K^m$ always dependent, and fewer than $m$ never span?
+Because the rank of a matrix with $m$ rows is at most $m$: with $k > m$ vectors you have $\rk \le m < k$. And the Span of $k$ vectors has dimension at most $k$: with $k < m$ it cannot be the whole of $\K^m$.
+:::
+
+::: question What does Theorem 7.12 say and why is it handy?
+If $\dim V = n$, $n$ vectors of $V$ are a basis as soon as they are independent or as soon as they span: the other condition follows on its own. So a single check is enough, for example $\det \neq 0$.
+:::
+
+::: question State and prove Proposition 13.4.
+With respect to a basis $v_1, \dots, v_n$ every vector can be written in a unique way as a combination. An expression exists because the $v_i$ span; if there were two, subtracting them you would have $\sum (\lambda_i - \mu_i)v_i = 0$ and by independence $\lambda_i = \mu_i$ for every $i$.
+:::
+
+::: question What are the coordinates of a vector with respect to a basis?
+They are the coefficients $\lambda_1, \dots, \lambda_n$ of the unique expression $v = \lambda_1v_1 + \cdots + \lambda_nv_n$, collected in the column vector $(\lambda_1, \dots, \lambda_n)$. They depend on the basis and on the order of its vectors.
+:::
+
+::: question How do you compute coordinates in practice?
+In $\K^n$: you solve $(v_1 \mid \cdots \mid v_n \mid v)$ with Gauss–Jordan, or you compute $A^{-1}v$. With polynomials: you set equal the coefficients of the powers of $x$ in $\lambda_1p_1 + \cdots + \lambda_np_n = p$. At the end you rebuild the vector to check.
+:::
+
+::: question How does the handouts' code detect an error, and how does it correct it?
+The message is completed with two numbers chosen (by solving a 2 × 2 system) so that the polynomial of the six coefficients vanishes at $1$ and at $2$. If on arrival $s(1)$ or $s(2)$ is not zero there is an error. To correct one you put an unknown in turn in each position and impose $s(1) = s(2) = 0$ again: only the wrong position gives a consistent system, and its solution is the right value.
+:::
+
+## Glossary
+
+```glossary
+Vectors in columns | The matrix $A = (v_1 \mid \cdots \mid v_k)$ that has the given vectors as columns: the basis of all the calculations of the lesson.
+Linearly dependent | There is a combination $\lambda_1v_1 + \cdots + \lambda_kv_k = 0$ with coefficients not all zero.
+Linearly independent | The only zero combination is the one with all coefficients zero; for vectors of $\K^m$: $\rk(A) = k$.
+Dependence relation | A non-zero solution of the homogeneous system $\lambda_1v_1 + \cdots + \lambda_kv_k = 0$.
+Generators | Vectors whose Span is the whole space; in $\K^m$: $\rk(A) = m$.
+Equations of the Span | The conditions on the generic vector $(a, b, c, \dots)$ that come out of Gauss on $(A \mid v)$; they describe the Span.
+Basis | Sequence of independent vectors that span; with $n$ vectors in $\K^n$: $\det A \neq 0$.
+Theorem 7.12 | If $\dim V = n$, $n$ independent vectors (or generators) are already a basis.
+Coordinates | The coefficients of the unique expression of a vector as a combination of the vectors of a basis.
+Column vector of coordinates | The column $(\lambda_1, \dots, \lambda_n)$ of the coordinates; it lies in $\K^n$.
+Ordered basis | Basis with a fixed order of the vectors; the order decides the order of the coordinates.
+Redundant information | Numbers added to a message, computed from the message itself, to detect or correct errors.
+Check conditions | In the handouts' code: $s(1) = 0$ and $s(2) = 0$ for the polynomial of the transmitted coefficients.
+Reed–Solomon codes | Correcting codes used in QR codes and in digital memories: polynomials over finite fields.
+```
+
+## Checklist
+
+```checklist
+- I can turn "independent?" into a homogeneous system with the vectors in columns.
+- I can decide independence with the rank ($\rk = k$) and, for $n$ vectors in $\K^n$, with the determinant.
+- I can find a dependence relation by solving the homogeneous system.
+- I can decide whether some vectors span $\K^m$ ($\rk = m$) and find the equations of a Span.
+- I can say without calculations that more than $m$ vectors of $\K^m$ are dependent and fewer than $m$ do not span.
+- I can use Theorem 7.12 to check a basis with a single criterion.
+- I can prove that the coordinates with respect to a basis are unique (Proposition 13.4).
+- I can compute coordinates in $\K^n$ (with Gauss–Jordan or with the inverse) and with polynomials (by setting the coefficients equal).
+- I can encode a message with the handouts' code and correct an error.
+- I can answer the quizzes "generators and/or independent?" and "coordinate vector" without getting format and order wrong.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 13 "Sistemi Lineari III", pp. 62–67: sections 13.A–13.E are followed in order, with the page next to each heading; proposition, definition and examples keep their numbering (Examples 13.1, 13.2, 13.3 and 13.6, Proposition 13.4, Definition 13.5, Exercise 13.7), including the box "Link with computer science" on error-correcting codes. The recaps of linear dependence and of basis take up Definitions 7.1 and 7.7 and Theorem 7.12 of lesson 7.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §2.3 "Dimensione" (pp. 60–75: independence, bases, coordinates with Example 2.3.12, extraction algorithm) and §3.2 (rank and Rouché–Capelli), plus Example 4.1.17 on the coordinate map.
+- **Exam papers** of Linear Algebra 2023/24–2025/26 with official solutions (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): reported: question 3 of 08/02/2024, question 2 of 06/09/2024 and question 8 of 16/01/2025; cited: the questions on the rank (16/01/2025, 07/02/2025, 05/02/2026), question 2 of 16/01/2025 and of 07/09/2026, question 6 of 05/02/2026 and problem 11 of 07/09/2026. The solutions here are written from scratch. Exercises 3.3, 6 and 7 of tutoring Sheet 2 (MDAG2 Moodle) are worked out in the exercises.
+- The **"Beyond the handouts"** parts (the explicit dependence relation, the equations of the Span, the extraction of a basis with the pivots, the tables on the number of vectors, the coordinate map, the unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L14_linear_maps_1.md -->
+> File: `ai_context/MDAG/lessons/L14_linear_maps_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L14
+title: Linear maps I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L14
+description: >-
+  Notes on lesson L14 of Linear Algebra and Geometry (MDAG, part 2): linear maps, examples and non-examples, the map
+  associated with a matrix, kernel and image, injectivity and surjectivity, rank–nullity theorem, with exam-style
+  quizzes and worked exercises.
+lede: >-
+  The functions that respect sums and multiples: what they are, how to recognise them in a moment, why every matrix
+  $A$ defines one ($x \mapsto Ax$). Then the two subspaces that tell you everything about a linear map, the kernel
+  and the image, and the rank–nullity theorem, which links their dimensions and is, for matrices, the
+  Rouché–Capelli theorem seen from another side.
+material: handouts
+facts:
+  Handouts: lesson 14 · pp. 68–73
+  Book: Martelli, §4.1 and §4.2
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 120–150 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 14 "Applicazioni lineari I"; B. Martelli, Geometria e algebra lineare, §4.1 and §4.2
+italian_file: L14_applicazioni_lineari_1.html
+html_notes: notes/MDAG/L14_linear_maps_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L14_applicazioni_lineari_1.md
+```
+
+## In brief
+
+- A **linear map** $f: V \to W$ between two vector spaces over the same field respects sums and multiples: $f(v + w) = f(v) + f(w)$ and $f(\lambda v) = \lambda f(v)$.
+- Consequences: $f(0) = 0$, and $f$ sends every linear combination to the linear combination of the images, **with the same coefficients**.
+- Quick test: if $f(0) \neq 0$ the function is not linear; squares, products of unknowns and added constants are the typical signs of a non-linear function.
+- Every matrix $A$ of size $m \times n$ defines the linear map $L_A: \K^n \to \K^m$, $L_A(x) = Ax$. The columns of $A$ are the images of the vectors $e_1, \dots, e_n$ of the standard basis.
+- The **kernel** $\Ker f$ (the vectors sent to $0$) is a subspace of the domain; the **image** $\Imm f$ (the vectors reached) is a subspace of the codomain.
+- $f$ is **injective** if and only if $\Ker f = \{0\}$; it is **surjective** if and only if $\Imm f = W$.
+- For matrices: $\Ker L_A$ is the set of solutions of $Ax = 0$, $\Imm L_A$ is the Span of the columns, and $\rk(A) = \dim \Imm L_A$.
+- **Rank–nullity theorem**: $\dim \Ker f + \dim \Imm f = \dim V$. For $L_A$ it is the Rouché–Capelli theorem.
+- Consequences for the quizzes: $\dim \Imm f \le \dim V$; if $\dim V > \dim W$, $f$ cannot be injective; if $\dim V < \dim W$, it cannot be surjective.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## What a linear map is (p. 68)
+
+Start from three functions from $\R$ to $\R$ and do two tests: (1) does it matter whether you add before applying the function or after? (2) does it matter whether you multiply by a number before or after?
+
+| Function | $f(2 + 5)$ | $f(2) + f(5)$ | $f(4 \cdot 2)$ | $4 \cdot f(2)$ | Does it respect sums and multiples? |
+|---|--:|--:|--:|--:|---|
+| $f(x) = 3x$ | $21$ | $6 + 15 = 21$ | $24$ | $24$ | yes |
+| $g(x) = 2x + 1$ | $15$ | $5 + 11 = 16$ | $17$ | $20$ | no |
+| $h(x) = x^2$ | $49$ | $4 + 25 = 29$ | $64$ | $16$ | no |
+
+Only $f(x) = 3x$ passes both tests, and for any numbers: $f(x + x') = 3x + 3x' = f(x) + f(x')$ and $f(\lambda x) = 3\lambda x = \lambda f(x)$. Its graph is a line **through the origin**. The graph of $g$ is also a line, but it does not pass through the origin, and that is enough to spoil everything.
+
+```graph
+title: $f(x) = 3x$ is linear; $g(x) = 2x + 1$ is not: its graph is a line, but it does not pass through the origin
+proportions: free
+x: -2 2
+y: -4 5
+line: 0 0 1.2 3.6 | accent | $f(x) = 3x$ | w
+line: 0 1 -1.2 -1.4 | blue | $g(x) = 2x + 1$ | se
+point: 0 0 | accent
+point: 0 1 | blue
+```
+
+The functions that respect sums and multiples are called **linear**, and they make sense between any vector spaces: vectors, polynomials, matrices.
+
+> [!DEF] 14.1 · Linear map
+> Let $V$ and $W$ be two vector spaces over the same field $\K$. A **linear map** is a function
+> $$f: V \longrightarrow W$$
+> such that
+> 1. $f(v + w) = f(v) + f(w)$ for all $v, w \in V$;
+> 2. $f(\lambda v) = \lambda f(v)$ for all $v \in V$ and $\lambda \in \K$.
+
+Piece by piece:
+
+- $f: V \to W$ is read "$f$ goes from $V$ to $W$": to each vector $v$ of the **domain** $V$ it associates a vector $f(v)$ of the **codomain** $W$. $f(v)$ is called the **image** of $v$.
+- **Same field**: you need the same scalars $\lambda$ on both sides, otherwise condition (2) would make no sense.
+- Condition (1): "adding and then applying $f$" gives the same result as "applying $f$ and then adding". On the left the sum is that of $V$, on the right that of $W$.
+- Condition (2): the same with multiples.
+- In mathematics **function**, **map** and **mapping** are synonyms; "map" is used above all for linear ones.
+
+### Two consequences of the definition
+
+**Zero goes to zero.** From condition (2) with $\lambda = 0$:
+
+$$f(0) = f(0 \cdot 0) = 0 \cdot f(0) = 0.$$
+
+Watch out for the three different zeros that appear here: the zero vector of $V$ (inside $f$), the scalar $0 \in \K$ (the number that multiplies) and the zero vector of $W$ (the result). In words: a linear map sends the origin of $V$ to the origin of $W$.
+
+**Linear combinations go to linear combinations.** If $v = \lambda_1v_1 + \cdots + \lambda_kv_k$, using condition (1) $k - 1$ times and then (2) on each piece:
+
+$$f(v) = f(\lambda_1v_1 + \cdots + \lambda_kv_k) = f(\lambda_1v_1) + \cdots + f(\lambda_kv_k) = \lambda_1f(v_1) + \cdots + \lambda_kf(v_k).$$
+
+$f$ sends a linear combination of the vectors $v_1, \dots, v_k$ to the linear combination **with the same coefficients** of their images $f(v_1), \dots, f(v_k)$. This is the property you will use the most: if you know $f$ on a few vectors, you know it on all their combinations.
+
+> [!METHOD] Is it linear or not?
+> 1. **Zero test**: compute $f(0)$. If it is not the zero vector, $f$ is **not** linear (Example 14.3).
+> 2. **Look at the formula**: squares, products of coordinates, absolute values, roots, sines, added constants are signs of non-linearity.
+> 3. If you suspect it is **not** linear, **one counterexample with numbers** is enough: two vectors for which $f(v + w) \neq f(v) + f(w)$, or a $v$ and a $\lambda$ for which $f(\lambda v) \neq \lambda f(v)$ (Example 14.4).
+> 4. If it looks linear, prove the two conditions **with letters**, for generic vectors (Example 14.2). Shortcut: if every coordinate of $f(v)$ is a combination of the coordinates of $v$ with fixed coefficients, $f$ is of the form $L_A$ and it is linear (Example 14.6).
+
+> [!PITFALL] $f(0) = 0$ is not enough
+> The zero test is only for **ruling out**. A function can send $0$ to $0$ and not be linear: in Example 14.4 $T(0) = 0$, and yet $T$ does not respect sums.
+
+## Examples and non-examples (pp. 68–69)
+
+The handouts' examples all have $\K = \R$ and $V = W = \R^2$.
+
+> [!EXAMPLE] 14.2 · A linear function
+> $T: \R^2 \to \R^2$ defined by $T\begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} 2a + b \\ a + 3b \end{pmatrix}$. For $v = \begin{pmatrix} a_1 \\ b_1 \end{pmatrix}$, $w = \begin{pmatrix} a_2 \\ b_2 \end{pmatrix}$ and $\lambda \in \R$:
+> $$T(v + w) = T\begin{pmatrix} a_1 + a_2 \\ b_1 + b_2 \end{pmatrix} = \begin{pmatrix} 2(a_1 + a_2) + (b_1 + b_2) \\ (a_1 + a_2) + 3(b_1 + b_2) \end{pmatrix} = \begin{pmatrix} 2a_1 + b_1 \\ a_1 + 3b_1 \end{pmatrix} + \begin{pmatrix} 2a_2 + b_2 \\ a_2 + 3b_2 \end{pmatrix} = T(v) + T(w)$$
+> and
+> $$T(\lambda v) = T\begin{pmatrix} \lambda a_1 \\ \lambda b_1 \end{pmatrix} = \begin{pmatrix} 2\lambda a_1 + \lambda b_1 \\ \lambda a_1 + 3\lambda b_1 \end{pmatrix} = \lambda\begin{pmatrix} 2a_1 + b_1 \\ a_1 + 3b_1 \end{pmatrix} = \lambda T(v).$$
+> So $T$ is linear.
+
+The key step of the first calculation is **redistributing**: $2(a_1 + a_2) + (b_1 + b_2) = (2a_1 + b_1) + (2a_2 + b_2)$, and the same for the second coordinate. In the second you factor out $\lambda$.
+
+> [!EXAMPLE] 14.3 · A translation is not linear
+> $T: \R^2 \to \R^2$ defined by $T\begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} a + 2 \\ a + b - 1 \end{pmatrix}$. We have $T(0) = \begin{pmatrix} 0 + 2 \\ 0 + 0 - 1 \end{pmatrix} = \begin{pmatrix} 2 \\ -1 \end{pmatrix} \neq 0$, so $T$ is not linear.
+
+> [!EXAMPLE] 14.4 · A square spoils the sum
+> $T: \R^2 \to \R^2$ defined by $T\begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} a^2 \\ a + b \end{pmatrix}$. Let for example $v = \begin{pmatrix} 2 \\ 1 \end{pmatrix}$ and $w = \begin{pmatrix} 2 \\ 0 \end{pmatrix}$. We have
+> $$T(v + w) = T\begin{pmatrix} 4 \\ 1 \end{pmatrix} = \begin{pmatrix} 16 \\ 5 \end{pmatrix}, \qquad \text{but} \qquad T(v) + T(w) = \begin{pmatrix} 4 \\ 3 \end{pmatrix} + \begin{pmatrix} 4 \\ 2 \end{pmatrix} = \begin{pmatrix} 8 \\ 5 \end{pmatrix}.$$
+> So $T$ is not linear. Notice that here $T(0) = (0, 0)$: the zero test was not enough.
+
+The two linear maps of the next example exist for **every** vector space.
+
+> [!EXAMPLE] 14.5 · The zero function and the identity
+> Given any two vector spaces $V$, $W$ over $\K$, the **zero function** is the function $f: V \to W$ that is constantly zero, that is such that $f(v) = 0$ for every $v$. The zero function is linear.
+>
+> Given any vector space $V$, the **identity function** is the function $\id: V \to V$ that sends every vector to itself, that is $\id(v) = v$ for every $v \in V$. The identity function is linear too.
+
+The checks are one line each, and it is worth writing them down:
+
+- zero function: $f(v + w) = 0 = 0 + 0 = f(v) + f(w)$ and $f(\lambda v) = 0 = \lambda \cdot 0 = \lambda f(v)$;
+- identity: $\id(v + w) = v + w = \id(v) + \id(w)$ and $\id(\lambda v) = \lambda v = \lambda\,\id(v)$.
+
+More examples, from $\R^2$ to $\R^2$, to train your eye:
+
+| $T(x, y)$ | Linear? | Why |
+|---|---|---|
+| $(x - y,\ 2y)$ | yes | each coordinate is a combination of $x$ and $y$ |
+| $(0,\ 5x)$ | yes | coefficients equal to $0$ are fine too |
+| $(x + 1,\ y)$ | no | $T(0, 0) = (1, 0) \neq 0$ |
+| $(xy,\ x)$ | no | $T(2, 2) = (4, 2)$ but $2\,T(1, 1) = (2, 2)$ |
+| $(\lvert x \rvert,\ y)$ | no | $T(-1, 0) = (1, 0)$ but $-T(1, 0) = (-1, 0)$ |
+| $(\sin x,\ y)$ | no | $T(\pi, 0) = (0, 0)$ but $2\,T\big(\frac\pi 2, 0\big) = (2, 0)$ |
+
+## The map associated with a matrix (pp. 69–70)
+
+The most important example of the course: every matrix is a linear map.
+
+> [!EXAMPLE] 14.6 · $L_A$
+> We take a matrix $A = (a_{ij})$ of size $m \times n$ and define
+> $$L_A: \K^n \longrightarrow \K^m$$
+> using the product of matrices and vectors, $L_A(x) = Ax$. In detail:
+> $$L_A(x) = Ax = \begin{pmatrix} a_{11} & \cdots & a_{1n} \\ \vdots & \ddots & \vdots \\ a_{m1} & \cdots & a_{mn} \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} a_{11}x_1 + \cdots + a_{1n}x_n \\ \vdots \\ a_{m1}x_1 + \cdots + a_{mn}x_n \end{pmatrix}.$$
+> The letter $L$ stands for *left*, because we multiply by $A$ on the left. The linearity of $L_A$ follows from the properties of matrices:
+> 1. $L_A(x + x') = A(x + x') = Ax + Ax' = L_A(x) + L_A(x')$;
+> 2. $L_A(\lambda x) = A(\lambda x) = \lambda Ax = \lambda L_A(x)$.
+
+Piece by piece:
+
+- **The sizes.** $A$ has $m$ rows and $n$ columns. The vector $x$ must have $n$ components (as many as the **columns**), and $Ax$ has $m$ of them (as many as the **rows**). So $L_A$ goes from $\K^n$ (domain) to $\K^m$ (codomain): watch the order, $n$ before $m$.
+- **The two properties used** are those of the matrix product of lesson L08 (Proposition 8.11): distributivity $A(B + C) = AB + AC$ and $\lambda(AB) = A(\lambda B)$, with $B = x$ and $C = x'$ column matrices.
+- **Reading $Ax$ by columns.** Collecting the $x_j$, the vector $Ax$ is
+  $$Ax = x_1A^1 + x_2A^2 + \cdots + x_nA^n,$$
+  the combination of the columns of $A$ with coefficients $x_1, \dots, x_n$: it is the same reading as for the system $Ax = b$ of lesson L12.
+
+> [!EXAMPLE] 14.7 · The matrix of Example 14.2
+> If in the previous example we choose $A = \begin{pmatrix} 2 & 1 \\ 1 & 3 \end{pmatrix}$, we get the function $L_A: \R^2 \to \R^2$ given by
+> $$L_A\begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 1 & 3 \end{pmatrix}\begin{pmatrix} a \\ b \end{pmatrix} = \begin{pmatrix} 2a + b \\ a + 3b \end{pmatrix},$$
+> that is exactly the linear map of Example 14.2.
+
+### The columns are the images of the standard basis
+
+Compute $L_A$ on the vectors of the standard basis $e_1 = (1, 0)$ and $e_2 = (0, 1)$, with the matrix of Example 14.7:
+
+$$L_A(e_1) = \begin{pmatrix} 2 \cdot 1 + 1 \cdot 0 \\ 1 \cdot 1 + 3 \cdot 0 \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \end{pmatrix} = A^1,$$
+
+$$L_A(e_2) = \begin{pmatrix} 2 \cdot 0 + 1 \cdot 1 \\ 1 \cdot 0 + 3 \cdot 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 3 \end{pmatrix} = A^2.$$
+
+In general $L_A(e_i) = A^i$, the $i$-th column (the handouts use this on p. 72). And so, by linearity, $L_A$ is determined by its columns:
+
+$$L_A\begin{pmatrix} a \\ b \end{pmatrix} = L_A(a\,e_1 + b\,e_2) = a\,L_A(e_1) + b\,L_A(e_2) = a\begin{pmatrix} 2 \\ 1 \end{pmatrix} + b\begin{pmatrix} 1 \\ 3 \end{pmatrix}.$$
+
+```widget matrice
+title: The matrix of Examples 14.2 and 14.7 as a transformation of the plane
+a: 2 1; 1 3
+x: 1 1
+raggio: 5
+```
+
+In the tool the square grid of the plane is transformed by $L_A$ into a grid of parallelograms: lines stay lines, the origin stays still, parallel and evenly spaced lines stay parallel and evenly spaced. The arrows $Ae_1$ and $Ae_2$ are the two columns, $(2, 1)$ and $(1, 3)$. Drag the vector $x$ and see where $Ax$ ends up; also try changing the matrix to `1 2; 2 4`: the whole plane gets squashed onto a line (you meet it again in the section on the kernel).
+
+> [!BEYOND] every linear map from $\K^n$ to $\K^m$ is an $L_A$
+> The converse also holds (Martelli, Proposition 4.1.19): if $T: \K^n \to \K^m$ is linear, there is exactly one matrix $A$ with $T = L_A$, and it is the matrix that has **as columns** $T(e_1), \dots, T(e_n)$. For example, for $T(x, y, z) = (x - z,\ y + 2z)$: $T(e_1) = (1, 0)$, $T(e_2) = (0, 1)$, $T(e_3) = (-1, 2)$, so $A = \begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 2 \end{pmatrix}$. In practice: **the rows of $A$ are the coefficients of the coordinates of $T$**. It is the "matrix associated with $T$ with respect to the standard basis" that the exam papers often ask for (lesson L15).
+
+> [!NOTE] Link with computer science: neural networks (p. 70)
+> One of the fundamental operations of a neural network is the matrix–vector multiplication. A single layer typically uses a transformation of the form $x \mapsto Ax + b$, where the numbers of $A$ and $b$ are parameters that are changed during training. The part $x \mapsto Ax$ is precisely the linear map $L_A$; if $b \neq 0$, the function $x \mapsto Ax + b$ is **not** linear but **affine** (it sends $0$ to $b \neq 0$, as in Example 14.3). The layers of a network alternate transformations of this kind with non-linear operations: that is why matrices, vectors and linear maps are the basic language of many *machine learning* models.
+
+### The trace
+
+> [!EXAMPLE] 14.8 · The trace is linear
+> $\tr: M(n, \K) \to \K$ is a linear map. For $A = (a_{ij})$ and $B = (b_{ij})$ we have $A + B = (a_{ij} + b_{ij})$, so on the diagonal of $A + B$ there are the numbers $a_{11} + b_{11}, \dots, a_{nn} + b_{nn}$. We conclude
+> $$\tr(A + B) = (a_{11} + b_{11}) + \cdots + (a_{nn} + b_{nn}) = \tr(A) + \tr(B).$$
+> Similarly $\tr(\lambda A) = \lambda a_{11} + \cdots + \lambda a_{nn} = \lambda \cdot \tr(A)$.
+
+The trace $\tr A$ is the sum of the entries on the diagonal (Definition 8.12, lesson L08; in this example the handouts write it $\operatorname{Tr}$). Here the domain is the space of matrices $M(n, \K)$ and the codomain is the field $\K$, which is a vector space of dimension 1. With numbers: for $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $B = \begin{pmatrix} 5 & 0 \\ 1 & -2 \end{pmatrix}$ we have $\tr(A + B) = \tr\begin{pmatrix} 6 & 2 \\ 4 & 2 \end{pmatrix} = 8 = 5 + 3 = \tr A + \tr B$, and $\tr(3A) = 3 + 12 = 15 = 3 \tr A$.
+
+> [!PITFALL] The determinant is not linear
+> In the quizzes functions between spaces of matrices or of polynomials often appear. The **determinant** is not linear: with $A = B = I_2$, $\det(A + B) = \det(2I_2) = 4$ but $\det A + \det B = 2$; and in general $\det(\lambda A) = \lambda^n \det A$, not $\lambda \det A$. Linear ones instead are the trace, the **transposition** $A \mapsto {}^tA$ (because ${}^t(A + B) = {}^tA + {}^tB$ and ${}^t(\lambda A) = \lambda\,{}^tA$), the **evaluation** $p \mapsto p(x_0)$ of a polynomial at a fixed point and the **derivative** $p \mapsto p'$ (Martelli, Examples 4.1.10, 4.1.13 and 4.1.15).
+
+## Kernel and image (pp. 70–71)
+
+Take $T: \R^2 \to \R^2$, $T(x, y) = (x + y,\ 2x + 2y)$, and ask two questions.
+
+- **Which vectors end up in zero?** $T(x, y) = (0, 0)$ when $x + y = 0$: they are the vectors $(t, -t)$, the line $\Span\big((1, -1)\big)$.
+- **Which vectors are reached?** $T(x, y) = (x + y)\,(1, 2)$: always multiples of $(1, 2)$, and all the multiples are reached (for example $T(s, 0) = s(1, 2)$). It is the line $\Span\big((1, 2)\big)$.
+
+The first line lives in the **domain**, the second in the **codomain** (here both are $\R^2$, which is why they can be drawn together).
+
+```graph
+title: For $T(x, y) = (x + y,\ 2x + 2y)$ the kernel (blue) is the line $y = -x$ of the domain, the image (amber) is the line $y = 2x$ of the codomain
+x: -3 3
+y: -3 3
+line: 0 0 -1.5 1.5 | blue | thick | $\Ker T$ | nw
+line: 0 0 1.2 2.4 | amber | thick | $\Imm T$ | e
+point: 1 -1 | blue
+point: 1 2 | amber
+```
+
+> [!DEF] 14.9 · Kernel and image
+> Let $f: V \to W$ be a linear map. The **kernel** of $f$ is the subset of $V$ defined by
+> $$\Ker f = \{v \in V \mid f(v) = 0\}.$$
+> The **image** of $f$ is the subset of $W$ defined by
+> $$\Imm f = \{w \in W \mid \exists\, v \in V \text{ with } f(v) = w\}.$$
+
+Piece by piece:
+
+- $\Ker$ comes from *kernel*; $\Imm$ is read "image".
+- The kernel lies in the **domain** $V$: they are the inputs that $f$ "squashes" onto zero.
+- The image lies in the **codomain** $W$: they are the outputs that $f$ actually produces. The symbol $\exists$ is read "there exists" (lesson L01): $w$ lies in the image if **there exists at least one** $v$ that goes to $w$.
+- Zero is always in both, because $f(0) = 0$.
+
+> [!PROP] 14.10
+> The kernel $\Ker f$ is a vector subspace of $V$, the image $\Imm f$ is a subspace of $W$.
+
+You have to check the three subspace axioms (Definition 6.2) for both.
+
+**Kernel.**
+1. $0 \in \Ker f$, because $f(0) = 0$.
+2. If $v, w \in \Ker f$ then $v + w \in \Ker f$: indeed $f(v + w) = f(v) + f(w) = 0 + 0 = 0$.
+3. If $v \in \Ker f$ and $\lambda \in \K$ then $\lambda v \in \Ker f$: indeed $f(\lambda v) = \lambda f(v) = \lambda \cdot 0 = 0$.
+
+**Image.**
+1. $0 \in \Imm f$, because $f(0) = 0$: the zero of $W$ is reached from the zero of $V$.
+2. If $f(v)$ and $f(v')$ lie in $\Imm f$, so does their sum: $f(v) + f(v') = f(v + v')$ is reached from $v + v'$.
+3. If $f(v) \in \Imm f$ and $\lambda \in \K$, also $\lambda f(v)$: indeed $\lambda f(v) = f(\lambda v)$ is reached from $\lambda v$. $\square$
+
+### Injective, surjective
+
+Two words from the theory of functions (you see them in Discrete Mathematics too):
+
+- $f$ is **injective** if it sends different vectors to different vectors: $v \neq v' \Rightarrow f(v) \neq f(v')$. No output is "reached twice".
+- $f$ is **surjective** if every vector of the codomain is reached: for every $w \in W$ there is $v$ with $f(v) = w$.
+
+Examples: $T(x, y) = (x, y, 0)$ from $\R^2$ to $\R^3$ is injective but not surjective (it does not reach $(0, 0, 1)$); $P(x, y, z) = (x, y)$ from $\R^3$ to $\R^2$ is surjective but not injective ($P(0, 0, 1) = P(0, 0, 2)$).
+
+> [!PROP] 14.11
+> The function $f: V \to W$ is injective $\Longleftrightarrow \Ker f = \{0\}$. The function $f$ is surjective $\Longleftrightarrow \Imm f = W$.
+
+**Proof.** For surjectivity there is nothing to prove: "every $w \in W$ is reached" means exactly $\Imm f = W$. For injectivity two arrows are needed.
+
+1. ($\Rightarrow$) We already know that $f(0) = 0$. If $f$ is injective, a vector $v \neq 0$ cannot go where $0$ goes, so $f(v) \neq 0$. Then the only vector with zero image is $0$: $\Ker f = \{0\}$.
+2. ($\Leftarrow$) Let $v, v' \in V$ be different. Then $v - v' \neq 0$ and, since $\Ker f = \{0\}$, $f(v - v') \neq 0$. By linearity $f(v) - f(v') = f(v - v') \neq 0$, so $f(v) \neq f(v')$. $\square$
+
+The advantage is huge: for injectivity you do not need to compare all the pairs of vectors, it is enough to solve $f(v) = 0$. In the opening example $\Ker T = \Span\big((1, -1)\big) \neq \{0\}$, so $T$ is not injective: indeed $T(1, 0) = T(0, 1) = (1, 2)$. And it is not surjective, because $(1, 0)$ is not a multiple of $(1, 2)$.
+
+> [!NOTE] Link with computer science: the kernel as the set of admissible directions (p. 71)
+> Suppose that a vector $x$ must satisfy a linear constraint $Ax = b$. If you want to move from $x$ in the direction $y$ without violating the constraint, you consider the points $x + ty$. Since $A(x + ty) = Ax + tAy = b + tAy$, we have $A(x + ty) = b$ for every $t$ precisely when $Ay = 0$, that is when $y \in \Ker A$ (the kernel of $L_A$). The kernel describes all the directions along which you can move while keeping the equality constraints, an idea used directly in linear optimisation algorithms.
+>
+> With numbers: the constraint $x_1 + x_2 + x_3 = 3$ is $Ax = b$ with $A = (1\ 1\ 1)$. From $x = (1, 1, 1)$, moving along $y = (1, -1, 0) \in \Ker A$ you stay on the constraint: $(1 + t) + (1 - t) + 1 = 3$ for every $t$. It is Proposition 12.3 seen through the eyes of the kernel: the solutions of $Ax = b$ are $x + \Ker A$.
+
+### The image is spanned by the images of the generators
+
+> [!REMARK] Generators of the image (p. 72)
+> If $v_1, \dots, v_n$ are generators of $V$, then $f(v_1), \dots, f(v_n)$ are generators of $\Imm f$. In particular, if $A$ is an $m \times n$ matrix, the image of $L_A: \K^n \to \K^m$ is the space spanned by the columns,
+> $$\Imm L_A = \Span\left(A^1, \dots, A^n\right),$$
+> and for every matrix $A$
+> $$\rk(A) = \dim \Span\left(A^1, \dots, A^n\right) = \dim \Imm L_A.$$
+
+Why it holds, step by step:
+
+1. Let $w \in \Imm f$: there exists $v \in V$ with $f(v) = w$.
+2. The $v_i$ span $V$, so $v = \lambda_1v_1 + \cdots + \lambda_nv_n$ for some $\lambda_1, \dots, \lambda_n$.
+3. By linearity $w = f(v) = \lambda_1f(v_1) + \cdots + \lambda_nf(v_n) \in \Span\big(f(v_1), \dots, f(v_n)\big)$.
+4. This holds for every $w$, so $\Imm f \subset \Span\big(f(v_1), \dots, f(v_n)\big)$; the other inclusion holds because $\Imm f$ is a subspace (Proposition 14.10) that contains all the $f(v_i)$. So $\Imm f = \Span\big(f(v_1), \dots, f(v_n)\big)$.
+5. For $L_A$: the vectors $e_1, \dots, e_n$ span $\K^n$ and $L_A(e_i) = A^i$. So $\Imm L_A$ is the Span of the columns, and its dimension is the rank (Definition 8.3).
+
+> [!METHOD] Kernel and image of $L_A$
+> 1. **Kernel** = solutions of the homogeneous system $Ax = 0$. Gauss–Jordan on $A$; one free unknown for each column without a pivot; one basis vector for each free unknown (lesson L12).
+> 2. **Image** = Span of the columns. A basis: the columns **of the starting matrix** $A$ that contain a pivot in the row echelon form (lesson L13). $\dim \Imm L_A = \rk(A)$.
+> 3. **Check**: $\dim \Ker L_A + \dim \Imm L_A$ must give $n$, the number of columns (rank–nullity theorem, next section).
+
+> [!EXAMPLE] Kernel and image, the whole calculation
+> $A = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 4 & 1 \\ 1 & 2 & 1 \end{pmatrix}$, $L_A: \R^3 \to \R^3$.
+> 1. **Gauss–Jordan.** $R_2 \to R_2 - 2R_1$ gives $(0, 0, 1)$; $R_3 \to R_3 - R_1$ gives $(0, 0, 1)$; $R_3 \to R_3 - R_2$ gives the zero row:
+>    $$\begin{pmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}.$$
+>    It is already reduced. Pivots in columns 1 and 3.
+> 2. **Kernel.** Column 2 has no pivot: $x_2 = t$. The rows say $x_1 + 2t = 0$ and $x_3 = 0$. So $\Ker L_A = \{(-2t, t, 0)\} = \Span\big((-2, 1, 0)\big)$, of dimension 1. Check: $A(-2, 1, 0) = (-2 + 2,\ -4 + 4,\ -2 + 2) = (0, 0, 0)$.
+> 3. **Image.** Columns 1 and 3 **of $A$**: $\Imm L_A = \Span\big((1, 2, 1),\ (0, 1, 1)\big)$, of dimension 2 (column 2 is twice the first).
+> 4. **Check**: $1 + 2 = 3$, the number of columns.
+
+```widget gauss
+title: Kernel and image of $L_A$ with the steps (here the matrix of the example)
+matrice: 1 2 0; 2 4 1; 1 2 1
+modo: nucleo
+```
+
+The tool reduces the matrix, writes a basis of the kernel and takes as a basis of the image the columns of the starting matrix where the pivots are. Try with the matrix `1 2; 2 4` of the pitfall below, and with an invertible matrix such as `2 1; 1 3`: the kernel shrinks to the zero vector alone.
+
+> [!PITFALL] The image is read off the starting columns
+> The Gauss moves on the rows change the columns, and with them the space they span. With $A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$ the reduced form is $\begin{pmatrix} 1 & 2 \\ 0 & 0 \end{pmatrix}$, whose first column is $(1, 0)$; but $\Imm L_A = \Span\big((1, 2)\big)$ and $(1, 0)$ does **not** lie in it. From the reduced form you read the **positions** of the pivots; the columns must be taken from the **original** matrix.
+
+## The rank–nullity theorem (p. 72)
+
+In the example $T(x, y) = (x + y, 2x + 2y)$ the kernel and the image are two lines: $1 + 1 = 2 = \dim \R^2$. It is a case of a general rule: **what the kernel "squashes" is lost, what remains forms the image.**
+
+| $f$ | $\dim V$ | $\dim \Ker f$ | $\dim \Imm f$ |
+|---|--:|--:|--:|
+| $T(x, y) = (x + y,\ 2x + 2y)$ | 2 | 1 | 1 |
+| $P(x, y, z) = (x, y)$ | 3 | 1 (the $z$-axis) | 2 |
+| zero function $V \to W$ | $n$ | $n$ | 0 |
+| identity $V \to V$ | $n$ | 0 | $n$ |
+
+> [!THEOREM] 14.12 · Rank–nullity theorem
+> Let $f: V \to W$ be a linear function. If $V$ has finite dimension $n$, then
+> $$\dim \Ker f + \dim \Imm f = n.$$
+
+Piece by piece:
+
+- On the right there is the dimension of the **domain** $V$, not that of the codomain.
+- $W$ can be anything; you only need $V$ to have finite dimension.
+- So it is enough to compute **one** of the two dimensions: the other comes by difference.
+
+The idea of the proof, in the handouts: you take a basis $v_1, \dots, v_k$ of $\Ker f$ and complete it to a basis $v_1, \dots, v_n$ of $V$. Then $f(v_{k+1}), \dots, f(v_n)$ form a basis of $\Imm f$, so $\dim \Imm f = n - k$, and the formula follows.
+
+> [!PROOF] of Theorem 14.12, with all the steps (from Martelli's book, Theorem 4.2.9)
+> Let $v_1, \dots, v_k$ be a basis of $\Ker f$, completed to a basis $v_1, \dots, v_n$ of $V$ (it can always be done: it is the completion algorithm of Martelli's book, §2.3.5). It is enough to prove that $f(v_{k+1}), \dots, f(v_n)$ are a basis of $\Imm f$: then $\dim \Ker f = k$ and $\dim \Imm f = n - k$.
+>
+> **They span.** By the remark on p. 72, $f(v_1), \dots, f(v_n)$ span $\Imm f$. But $f(v_1) = \cdots = f(v_k) = 0$, because $v_1, \dots, v_k$ lie in the kernel: removing them from the list, $f(v_{k+1}), \dots, f(v_n)$ still span $\Imm f$.
+>
+> **They are independent.** Suppose $\lambda_{k+1}f(v_{k+1}) + \cdots + \lambda_nf(v_n) = 0$. By linearity $f(\lambda_{k+1}v_{k+1} + \cdots + \lambda_nv_n) = 0$, that is $\lambda_{k+1}v_{k+1} + \cdots + \lambda_nv_n \in \Ker f$. Since $v_1, \dots, v_k$ is a basis of $\Ker f$, there exist $\alpha_1, \dots, \alpha_k$ with
+> $$\lambda_{k+1}v_{k+1} + \cdots + \lambda_nv_n = \alpha_1v_1 + \cdots + \alpha_kv_k.$$
+> Bringing everything to the left, $-\alpha_1v_1 - \cdots - \alpha_kv_k + \lambda_{k+1}v_{k+1} + \cdots + \lambda_nv_n = 0$. But $v_1, \dots, v_n$ are independent (they are a basis), so all the coefficients are zero, in particular $\lambda_{k+1} = \cdots = \lambda_n = 0$. $\square$
+
+### For matrices it is Rouché–Capelli
+
+In the case of $L_A: \K^n \to \K^m$ the kernel is
+
+$$\Ker L_A = \{x \in \K^n \mid L_A(x) = 0\} = \{x \in \K^n \mid Ax = 0\} = S,$$
+
+the space of solutions of the homogeneous system $Ax = 0$. With the remark on p. 72, $\dim \Imm L_A = \rk(A)$, and the rank–nullity theorem becomes
+
+$$\dim S = n - \rk(A):$$
+
+which is exactly the Rouché–Capelli theorem for homogeneous systems (lesson L12). Two very different routes, one with the Gauss moves and one with bases, lead to the same result.
+
+> [!COROLLARY] 14.13
+> Let $f: V \to W$ be a linear map. Then
+> $$\dim \Imm f \le \dim V.$$
+> Moreover:
+> 1. $f$ injective $\Longleftrightarrow \dim \Imm f = \dim V$;
+> 2. $f$ surjective $\Longleftrightarrow \dim \Imm f = \dim W$.
+
+**Explanation.** From the rank–nullity theorem $\dim \Imm f = \dim V - \dim \Ker f \le \dim V$. Moreover:
+
+1. $f$ is injective if and only if $\Ker f = \{0\}$ (Proposition 14.11), that is $\dim \Ker f = 0$, that is (rank–nullity theorem) $\dim \Imm f = \dim V$;
+2. $f$ is surjective if and only if $\Imm f = W$. Since $\Imm f$ is a subspace of $W$, and a subspace with the same (finite) dimension as the space that contains it is the whole space, this happens if and only if $\dim \Imm f = \dim W$.
+
+Here, as in the theorem, the dimensions are finite.
+
+> [!BEYOND] the consequences you need in the quizzes
+> From Corollary 14.13 follow three rules that are used without calculations (Martelli, Corollary 4.2.23 and Proposition 4.2.24):
+> 1. if $\dim V > \dim W$, $f$ **cannot be injective** ($\dim \Imm f \le \dim W < \dim V$);
+> 2. if $\dim V < \dim W$, $f$ **cannot be surjective** ($\dim \Imm f \le \dim V < \dim W$);
+> 3. if $\dim V = \dim W$, $f$ is injective **if and only if** it is surjective.
+>
+> For matrices: $L_A: \K^n \to \K^m$ is injective if and only if $\rk(A) = n$, surjective if and only if $\rk(A) = m$ (Martelli, Example 4.2.16).
+
+> [!EXAMPLE] The rank–nullity theorem instead of calculations (from Martelli's book, Example 4.2.12)
+> What is the dimension of $W = \{p \in \R_2[x] \mid p(1) = 0\}$? $W$ is the kernel of the evaluation $f: \R_2[x] \to \R$, $f(p) = p(1)$, which is linear. $f$ is surjective: the constant polynomial $\lambda$ goes to $\lambda$. So $\dim \Imm f = 1$ and
+> $$\dim W = \dim \Ker f = \dim \R_2[x] - \dim \Imm f = 3 - 1 = 2.$$
+> The polynomials $x - 1$ and $x^2 - 1$ lie in $W$ (they are $0$ at $1$) and are independent (neither is a multiple of the other): two independent vectors in a space of dimension 2 are a basis (Theorem 7.12). So $W = \Span(x - 1,\ x^2 - 1)$.
+
+> [!BEYOND] where to find it in the book
+> In Martelli's book: **§4.1 "Introduzione"** (pp. 115–123): the definition (where $f(0) = 0$ appears as the first axiom, while the handouts derive it from the other two), the basic examples, $L_A$ with Proposition 4.1.6 and Corollary 4.1.7 ($L_A(e_i) = A^i$), transposition, evaluation, derivative, coordinates, and Proposition 4.1.19. **§4.2 "Nucleo e immagine"** (pp. 123–130): Propositions 4.2.1, 4.2.2, 4.2.5, 4.2.6, Corollaries 4.2.7 and 4.2.8, the rank–nullity theorem with the complete proof (Theorem 4.2.9, pp. 124–125), Examples 4.2.10–4.2.13 and Corollary 4.2.14.
+
+## Towards the exam
+
+The AG written test has 10 quiz questions with 5 answers each (you need at least 6 points for the 2 problems worth 11 points to be marked), it lasts 2 hours, with no calculator and only 4 handwritten pages of notes; the 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam** (almost every exam session has at least one question on these topics)
+
+1. **"Is it linear?"**: exams of 10/07/2024 (question 7, which formula defines a linear map $\R^3 \to \R^2$) and 10/07/2025 (question 3, the evaluation $p \mapsto p(7)$).
+2. **The kernel**: exams of 24/01/2024 (question 8, on $\R_2[x]$), 08/02/2024 (question 6, $A \mapsto A + {}^tA$ on matrices) and 15/01/2026 (question 10, kernel of a composition).
+3. **The image**: exams of 07/02/2025 (question 7), 10/07/2025 (question 7), 05/02/2026 (question 7), 07/09/2026 (question 4), almost always for a map $\R_2[x] \to \R_2[x]$; exams of 03/06/2025 (question 7, the rank of $T$) and 03/07/2026 (question 4, $\dim \Imm T$).
+4. **Rank–nullity theorem without calculations**: exams of 06/09/2024 (question 3: $T: \R^6 \to \R_3[x]$ surjective, what is $\dim \Ker T$?) and 02/09/2025 (question 5). The dimension of subspaces of polynomials defined by conditions such as $p(2) = p(-2) = 0$ (exam of 03/07/2026, question 1) is also found as the dimension of a kernel.
+5. **Open problems**: in the exams of 08/02/2024 and 10/07/2025 (problem 12) you are asked for the matrix of $T$ with respect to the standard basis, the rank of $T$, all the $v$ with $T(v) = w$ and the values of $k$ for which a vector depending on $k$ lies in $\Imm T$; in the exam of 06/09/2024 (problem 11) a basis of $\Ker A$ as $k$ varies. Two exercises below follow these schemes.
+
+> [!METHOD] The image of $T: \R_2[x] \to \R_2[x]$ in the quiz
+> 1. Write $T(ax^2 + bx + c)$ **collecting** $a$, $b$, $c$: for example $(a - b)x^2 + (b - a)x + c = a(x^2 - x) + b(-x^2 + x) + c \cdot 1$.
+> 2. The polynomials that multiply $a$, $b$, $c$ are $T(x^2)$, $T(x)$, $T(1)$: they span the image (remark on p. 72). Here $\Imm T = \Span(x^2 - x,\ 1)$.
+> 3. Remove the dependent ones and count: $\dim \Imm T$. If you get $3$, the image is the whole of $\R_2[x]$.
+> 4. Compare with the answers: two Spans are equal if every generator of one lies in the other and the dimensions coincide.
+
+> [!PITFALL] The typical mistakes
+> - Confusing domain and codomain: the kernel lies in the **domain**, the image in the **codomain**; in the rank–nullity theorem you use $\dim V$, the dimension of the domain.
+> - Taking the columns of the reduced matrix as a basis of the image.
+> - Saying that a function is linear just because $f(0) = 0$.
+> - Forgetting that the dimensions of the spaces of polynomials are $\dim \R_n[x] = n + 1$ and that $\dim M(m, n, \R) = mn$: $\dim \R_3[x] = 4$, $\dim M(2, \R) = 4$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: the two linearity conditions and the test $f(0) = 0$; "$L_A(e_i) = A^i$, $\Imm L_A = \Span$ of the columns, $\rk A = \dim \Imm L_A$, $\Ker L_A$ = solutions of $Ax = 0$"; $\dim \Ker f + \dim \Imm f = \dim V$; injective $\Leftrightarrow \Ker f = \{0\}$; the three rules "$\dim V > \dim W \Rightarrow$ not injective", "$\dim V < \dim W \Rightarrow$ not surjective", "$\dim V = \dim W$: injective $\Leftrightarrow$ surjective".
+
+## Quiz
+
+```quiz
+Q: Which of the functions below defines a linear map $T: \R^3 \to \R^2$?
++ $T(x, y, z) = (2x + 3y,\ x + 2z)$
+- $T(x, y) = (2x - 3y,\ x + 2y)$
+- $T(x, y, z) = (x^2 + y,\ x - 2z^2)$
+- $T(x, y, z) = (2x + 1,\ y + z)$
+- $T(x, y) = (x + 2y,\ y + 2z,\ x - 3z)$
+= Exam of 10/07/2024, question 7. The first has domain $\R^3$, codomain $\R^2$ and coordinates that are combinations of $x, y, z$: it is $L_A$ with $A = \begin{pmatrix} 2 & 3 & 0 \\ 1 & 0 & 2 \end{pmatrix}$. The second goes from $\R^2$, not from $\R^3$; the last has two variables but also uses $z$ and gives three coordinates; the third has squares; the fourth sends $0$ to $(1, 0)$.
+
+Q: Let $f: V \to W$ be a linear map, with $\dim V = 4$ and $\dim W = 2$. Which of the following is necessarily true?
+- $f$ must be surjective.
+- $f$ cannot be surjective.
++ $f$ cannot be injective.
+- $f$ must be injective.
+- $f$ is an isomorphism.
+= Exam of 02/09/2025, question 5. $\dim \Imm f \le \dim W = 2$, so $\dim \Ker f = 4 - \dim \Imm f \ge 2 > 0$: the kernel is not $\{0\}$ and $f$ is not injective. It can be surjective (for example $(x_1, x_2, x_3, x_4) \mapsto (x_1, x_2)$) but also not (the zero function).
+
+Q: The kernel of the linear map $T: \R_2[x] \to \R_2[x]$, $T(ax^2 + bx + c) = bx^2 + cx$, is:
+- $\{\}$
+- $\R_1[x]$
+- $\Span(x + 1,\ x - 1)$
++ $\Span(x^2)$
+- $\R_2[x] \setminus \R_1[x]$
+= Exam of 24/01/2024, question 8. $T(ax^2 + bx + c) = 0$ if and only if $b = 0$ and $c = 0$, with any $a$: the kernel is $\{ax^2\} = \Span(x^2)$. It is not empty (it always contains zero), and $\R_2[x] \setminus \R_1[x]$ does not contain zero, so it is not even a subspace.
+
+Q: The image of the linear map $T: \R_2[x] \to \R_2[x]$, $T(ax^2 + bx + c) = (a - b)x^2 + (b - a)x + c$, is:
+- $\R_2[x]$
++ $\Span(x^2 - x,\ 1)$
+- $\Span(x^2,\ x)$
+- $\R_1[x]$
+- $\{p \in \R_2[x] \mid p(0) = 0\}$
+= Similar to the exam of 07/09/2026, question 4. Collecting terms, $T(ax^2 + bx + c) = (a - b)(x^2 - x) + c \cdot 1$: the image is $\Span(x^2 - x, 1)$, of dimension 2 (so it is not $\R_2[x]$). $\Span(x^2, x)$ and $\{p \mid p(0) = 0\}$ do not contain $1$; $\R_1[x]$ does not contain $x^2 - x$.
+
+Q: Let $T: \R^5 \to \R_2[x]$ be a surjective linear map. Then $\Ker T$ has dimension:
+- $1$
++ $2$
+- $3$
+- $5$
+- $0$
+= Similar to the exam of 06/09/2024, question 3. $T$ surjective means $\dim \Imm T = \dim \R_2[x] = 3$. By the rank–nullity theorem $\dim \Ker T = 5 - 3 = 2$.
+
+Q: Which of these functions is **not** linear?
++ $\det: M(2, \R) \to \R$
+- $\tr: M(2, \R) \to \R$
+- $M(2, \R) \to M(2, \R)$, $A \mapsto {}^tA$
+- $\R_2[x] \to \R$, $p \mapsto p(3)$
+- $M(2, \R) \to M(2, \R)$, $A \mapsto 2A$
+= $\det(I + I) = \det(2I) = 4$, while $\det I + \det I = 2$: the determinant does not respect sums. Trace, transposition, evaluation at a point and multiplication by 2 respect sums and multiples.
+
+Q: Let $A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$. The kernel of $L_A: \R^2 \to \R^2$ is:
++ $\Span((-2, 1))$
+- $\Span((1, 2))$
+- $\Span((1, -2))$
+- $\{0\}$
+- $\R^2$
+= $Ax = 0$ reduces to the equation $x_1 + 2x_2 = 0$: with $x_2 = t$, $x_1 = -2t$. Check: $A(-2, 1) = (-2 + 2,\ -4 + 4) = (0, 0)$. $(1, 2)$ spans the image, not the kernel; $A(1, -2) = (-3, -6) \neq 0$.
+
+Q: Let $A = \begin{pmatrix} 1 & 2 & 3 \\ 2 & 4 & 6 \end{pmatrix}$. What is the dimension of the image of $L_A: \R^3 \to \R^2$?
+- $0$
++ $1$
+- $2$
+- $3$
+- $6$
+= Similar to the exam of 03/07/2026, question 4. $\dim \Imm L_A = \rk(A)$. The second row is twice the first: a single pivot, rank 1. The image is the line $\Span\big((1, 2)\big)$, and the kernel has dimension $3 - 1 = 2$.
+
+Q: Let $f: \R^3 \to \R^3$ be linear with $\Ker f = \{0\}$. Then:
++ $f$ is also surjective.
+- $f$ is the zero function.
+- $\dim \Imm f = 0$.
+- $f$ cannot be surjective.
+- $\dim \Imm f = 2$.
+= Similar to the exam of 02/09/2025, question 5. $\dim \Imm f = 3 - 0 = 3 = \dim \R^3$: the image is the whole codomain. With domain and codomain of the same dimension, injective and surjective are the same thing.
+
+Q: A matrix $A$ of size $3 \times 5$ has rank 2. What is the dimension of the kernel of $L_A: \R^5 \to \R^3$?
+N: 3
+= Rank–nullity theorem: $\dim \Ker L_A = 5 - \dim \Imm L_A = 5 - \rk(A) = 5 - 2 = 3$. The number that counts is that of the columns, that is the dimension of the domain.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 14.14 of the handouts, point 1
+Let $f_1: \R^3 \to \R^2$, $f_1(x, y, z) = (x + y + z,\ 2x + 3y + 4z)$. Check that $f_1$ is linear, find $\Ker f_1$ and $\Imm f_1$ and verify the rank–nullity theorem.
+::: solution
+**Linear.** Each coordinate is a combination of $x, y, z$ with fixed coefficients: $f_1 = L_A$ with
+$$A = \begin{pmatrix} 1 & 1 & 1 \\ 2 & 3 & 4 \end{pmatrix},$$
+so it is linear (Example 14.6). Check on the columns: $f_1(e_1) = (1, 2)$, $f_1(e_2) = (1, 3)$, $f_1(e_3) = (1, 4)$.
+
+**Kernel.** $R_2 \to R_2 - 2R_1$ gives $(0, 1, 2)$, then $R_1 \to R_1 - R_2$ gives $(1, 0, -1)$:
+$$\begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 2 \end{pmatrix}.$$
+$z = t$ free, $x = t$, $y = -2t$: $\Ker f_1 = \Span\big((1, -2, 1)\big)$, dimension 1. Check: $f_1(1, -2, 1) = (1 - 2 + 1,\ 2 - 6 + 4) = (0, 0)$.
+
+**Image.** Two pivots, $\rk A = 2$: $\dim \Imm f_1 = 2 = \dim \R^2$, so $\Imm f_1 = \R^2$ ($f_1$ is surjective). A basis: $(1, 2), (1, 3)$, the pivot columns.
+
+**Rank–nullity theorem:** $1 + 2 = 3 = \dim \R^3$.
+:::
+
+::: exercise intermediate Exercise 14.14 of the handouts, point 2
+Let $f_2: \R_2[x] \to \R$, $f_2(p(x)) = p(1) + p(-1)$. Check that $f_2$ is linear, find $\Ker f_2$ and $\Imm f_2$ and verify the rank–nullity theorem.
+::: solution
+**Linear.** For $p, q \in \R_2[x]$ and $\lambda \in \R$ (the sum of polynomials is evaluated point by point):
+$$f_2(p + q) = (p + q)(1) + (p + q)(-1) = p(1) + q(1) + p(-1) + q(-1) = f_2(p) + f_2(q),$$
+$$f_2(\lambda p) = \lambda p(1) + \lambda p(-1) = \lambda f_2(p).$$
+
+**A handy formula.** With $p = a_0 + a_1x + a_2x^2$: $p(1) = a_0 + a_1 + a_2$ and $p(-1) = a_0 - a_1 + a_2$, so
+$$f_2(p) = 2a_0 + 2a_2.$$
+
+**Kernel.** $f_2(p) = 0$ if and only if $a_2 = -a_0$, with $a_1$ free: $p = a_0(1 - x^2) + a_1x$. So $\Ker f_2 = \Span(1 - x^2,\ x)$, of dimension 2 (the two polynomials are not multiples of each other). Check: $f_2(1 - x^2) = 0 + 0 = 0$, $f_2(x) = 1 + (-1) = 0$.
+
+**Image.** $f_2\!\left(\tfrac 12\right) = \tfrac 12 + \tfrac 12 = 1$, so $1 \in \Imm f_2$ and, being a subspace, $\Imm f_2 = \R$: dimension 1, $f_2$ surjective.
+
+**Rank–nullity theorem:** $2 + 1 = 3 = \dim \R_2[x]$.
+:::
+
+::: exercise intermediate Exercise 14.14 of the handouts, point 3
+Let $f_3: M_2(\R) \to M_2(\R)$, $f_3(A) = A - {}^tA$ (where $M_2(\R) = M(2, \R)$ are the real $2 \times 2$ matrices). Check that $f_3$ is linear, find $\Ker f_3$ and $\Imm f_3$ and verify the rank–nullity theorem.
+::: solution
+**Linear.** The transpose respects sums and multiples (lesson L08), so
+$$f_3(A + B) = (A + B) - {}^t(A + B) = A - {}^tA + B - {}^tB = f_3(A) + f_3(B), \qquad f_3(\lambda A) = \lambda A - \lambda\,{}^tA = \lambda f_3(A).$$
+
+**Formula.** With $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$:
+$$f_3(A) = \begin{pmatrix} a & b \\ c & d \end{pmatrix} - \begin{pmatrix} a & c \\ b & d \end{pmatrix} = \begin{pmatrix} 0 & b - c \\ c - b & 0 \end{pmatrix}.$$
+
+**Kernel.** $f_3(A) = 0$ if and only if $b = c$: they are the **symmetric** matrices $\begin{pmatrix} a & b \\ b & d \end{pmatrix} = a\begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + b\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} + d\begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}$. The three matrices are independent (each has a 1 where the others have 0): $\dim \Ker f_3 = 3$.
+
+**Image.** All the matrices $\begin{pmatrix} 0 & s \\ -s & 0 \end{pmatrix}$ with $s = b - c$ (and every $s$ is obtained, for example with $b = s$, $c = 0$): they are the **skew-symmetric** matrices, $\Imm f_3 = \Span\left(\begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}\right)$, of dimension 1.
+
+**Rank–nullity theorem:** $3 + 1 = 4 = \dim M_2(\R)$.
+:::
+
+::: exercise hard Exercise 14.15 of the handouts
+Let $f: \R^4 \to \R^3$ be the linear map $f(x_1, x_2, x_3, x_4) = (x_1 + x_2 + x_3,\ x_2 + x_3 + x_4,\ x_1 - x_4)$. (1) Find a basis of $\Ker f$. (2) Find $\dim \Imm f$ with the rank–nullity theorem. (3) Find a basis of $\Imm f$. (4) Decide whether $f$ is injective and whether it is surjective.
+::: solution
+The matrix (rows = coefficients of the three coordinates):
+$$A = \begin{pmatrix} 1 & 1 & 1 & 0 \\ 0 & 1 & 1 & 1 \\ 1 & 0 & 0 & -1 \end{pmatrix}.$$
+**Gauss–Jordan.** $R_3 \to R_3 - R_1$ gives $(0, -1, -1, -1)$; $R_3 \to R_3 + R_2$ gives the zero row; $R_1 \to R_1 - R_2$ gives $(1, 0, 0, -1)$:
+$$\begin{pmatrix} 1 & 0 & 0 & -1 \\ 0 & 1 & 1 & 1 \\ 0 & 0 & 0 & 0 \end{pmatrix}.$$
+
+**(1)** Pivots in columns 1 and 2; free $x_3 = s$ and $x_4 = t$. The rows say $x_1 = t$ and $x_2 = -s - t$:
+$$(x_1, x_2, x_3, x_4) = s\,(0, -1, 1, 0) + t\,(1, -1, 0, 1).$$
+A basis of $\Ker f$ is $(0, -1, 1, 0),\ (1, -1, 0, 1)$. Check: $f(0, -1, 1, 0) = (0, 0, 0)$ and $f(1, -1, 0, 1) = (1 - 1 + 0,\ -1 + 0 + 1,\ 1 - 1) = (0, 0, 0)$.
+
+**(2)** $\dim \Imm f = 4 - \dim \Ker f = 4 - 2 = 2$.
+
+**(3)** Columns 1 and 2 of the **starting** matrix: $(1, 0, 1)$ and $(1, 1, 0)$. They are two independent vectors in the image, which has dimension 2: they are a basis.
+
+**(4)** Not injective: $\Ker f \neq \{0\}$. Not surjective: $\dim \Imm f = 2 < 3 = \dim \R^3$. (For example $(0, 0, 1)$ is not in the image: $\Imm f$ is the plane through the origin spanned by $(1, 0, 1)$ and $(1, 1, 0)$, that is $x - y - z = 0$, and $0 - 0 - 1 \neq 0$.)
+:::
+
+::: exercise basic Linear or not?
+Decide which are linear; for the others give a counterexample. (a) $T: \R^2 \to \R^2$, $T(x, y) = (3x - y,\ 0)$. (b) $T: \R^2 \to \R^2$, $T(x, y) = (x + y,\ 1)$. (c) $T: \R^3 \to \R^2$, $T(x, y, z) = (xz,\ y)$. (d) $T: \R_2[x] \to \R$, $T(p) = p(0) \cdot p(1)$.
+::: solution
+(a) **Linear**: it is $L_A$ with $A = \begin{pmatrix} 3 & -1 \\ 0 & 0 \end{pmatrix}$.
+
+(b) **Not linear**: $T(0, 0) = (0, 1) \neq 0$.
+
+(c) **Not linear**: $T(2 \cdot (1, 0, 1)) = T(2, 0, 2) = (4, 0)$, but $2\,T(1, 0, 1) = 2 \cdot (1, 0) = (2, 0)$.
+
+(d) **Not linear**: for the constant polynomial $1$, $T(2 \cdot 1) = 2 \cdot 2 = 4$, but $2\,T(1) = 2 \cdot (1 \cdot 1) = 2$. Here $T(0) = 0$: the zero test was not enough, the counterexample was needed.
+:::
+
+::: exercise basic Knowing $T$ from its values on the basis
+(a) $T: \R^2 \to \R^2$ is linear, with $T(1, 0) = (2, 1)$ and $T(0, 1) = (-1, 3)$. Compute $T(3, -2)$ and the matrix $A$ with $T = L_A$. (b) If instead you know that $T(1, 1) = (3, 0)$ and $T(1, -1) = (1, 2)$, what is $T(1, 0)$?
+::: solution
+(a) By linearity, $T(3, -2) = T(3e_1 - 2e_2) = 3T(e_1) - 2T(e_2) = 3(2, 1) - 2(-1, 3) = (6 + 2,\ 3 - 6) = (8, -3)$. The matrix has as columns $T(e_1)$ and $T(e_2)$: $A = \begin{pmatrix} 2 & -1 \\ 1 & 3 \end{pmatrix}$. Check: $A(3, -2) = (6 + 2,\ 3 - 6) = (8, -3)$.
+
+(b) $(1, 0) = \frac 12\big((1, 1) + (1, -1)\big)$, so $T(1, 0) = \frac 12\big((3, 0) + (1, 2)\big) = \frac 12 (4, 2) = (2, 1)$.
+:::
+
+::: exercise basic Kernel and image of an oblique projection
+Find kernel and image of $T: \R^3 \to \R^2$, $T(x, y, z) = (x - z,\ y + z)$, and say whether $T$ is injective or surjective.
+::: solution
+$A = \begin{pmatrix} 1 & 0 & -1 \\ 0 & 1 & 1 \end{pmatrix}$ is already in reduced form, with pivots in columns 1 and 2: $\rk A = 2$.
+- **Kernel**: $z = t$, $x = t$, $y = -t$: $\Ker T = \Span\big((1, -1, 1)\big)$. Check: $T(1, -1, 1) = (0, 0)$.
+- **Image**: $\dim \Imm T = 2 = \dim \R^2$, so $\Imm T = \R^2$.
+- $T$ is **surjective** but **not injective**; and indeed $1 + 2 = 3$. From $\R^3$ to $\R^2$ it could not be injective anyway ($3 > 2$).
+:::
+
+::: exercise intermediate A subspace of polynomials as a kernel
+Let $W = \{p \in \R_3[x] \mid p(0) = 0,\ p(1) = 0\}$. Find $\dim W$ with the rank–nullity theorem and then a basis of $W$.
+::: solution
+$W$ is the kernel of $f: \R_3[x] \to \R^2$, $f(p) = (p(0),\ p(1))$, which is linear (evaluations at two points).
+
+**$f$ is surjective**: $f(1 - x) = (1, 0)$ and $f(x) = (0, 1)$, and these two vectors span $\R^2$. So $\dim \Imm f = 2$ and
+$$\dim W = \dim \R_3[x] - 2 = 4 - 2 = 2.$$
+**Basis.** $x^2 - x = x(x - 1)$ and $x^3 - x = x(x - 1)(x + 1)$ vanish at $0$ and at $1$, so they lie in $W$; they have different degrees, so neither is a multiple of the other: they are independent. Two independent vectors in a space of dimension 2 are a basis: $W = \Span(x^2 - x,\ x^3 - x)$. It is the scheme of question 1 of the exam of 03/07/2026.
+:::
+
+::: exercise exam As at the exam: rank, preimages and image with a parameter
+Let $T: \R^3 \to \R^3$, $T(x, y, z) = (x + y + 2z,\ 2x + y + 3z,\ x + 2y + 3z)$. (1) Write the matrix $A$ with $T = L_A$ and compute the rank of $T$. (2) Find all the vectors $v$ with $T(v) = (3, 4, 5)$. (3) For which $k \in \R$ does the vector $(k, k^2, 2)$ belong to the image of $T$? (4) Find a basis of $\Ker T$ and say whether $T$ is injective or surjective.
+::: solution
+**(1)** The rows of $A$ are the coefficients of the three coordinates:
+$$A = \begin{pmatrix} 1 & 1 & 2 \\ 2 & 1 & 3 \\ 1 & 2 & 3 \end{pmatrix}.$$
+For questions (2) and (3) it pays to reduce the augmented matrix straight away with a generic constant term $(a, b, c)$:
+$$\left(\begin{array}{ccc|c} 1 & 1 & 2 & a \\ 2 & 1 & 3 & b \\ 1 & 2 & 3 & c \end{array}\right) \xrightarrow[R_3 \to R_3 - R_1]{R_2 \to R_2 - 2R_1} \left(\begin{array}{ccc|c} 1 & 1 & 2 & a \\ 0 & -1 & -1 & b - 2a \\ 0 & 1 & 1 & c - a \end{array}\right)$$
+$$\xrightarrow{R_3 \to R_3 + R_2} \left(\begin{array}{ccc|c} 1 & 1 & 2 & a \\ 0 & -1 & -1 & b - 2a \\ 0 & 0 & 0 & b + c - 3a \end{array}\right)$$
+Two pivots on the left: $\rk T = \rk A = 2$.
+
+**(2)** With $(a, b, c) = (3, 4, 5)$: $b + c - 3a = 4 + 5 - 9 = 0$, so there are solutions (Rouché–Capelli), with $3 - 2 = 1$ parameter. The rows say $x + y + 2z = 3$ and $-y - z = 4 - 6 = -2$. With $z = t$: $y = 2 - t$ and $x = 3 - (2 - t) - 2t = 1 - t$.
+$$v = (1 - t,\ 2 - t,\ t), \qquad t \in \R.$$
+Check with $t = 0$: $T(1, 2, 0) = (1 + 2,\ 2 + 2,\ 1 + 4) = (3, 4, 5)$.
+
+**(3)** A vector $(a, b, c)$ lies in $\Imm T$ if and only if the system has a solution, that is if and only if $b + c - 3a = 0$ (it is the equation of the plane $\Imm T$). For $(k, k^2, 2)$: $k^2 + 2 - 3k = 0$, that is $(k - 1)(k - 2) = 0$. So **$k = 1$ or $k = 2$**. Check: $(1, 1, 2)$ gives $1 + 2 - 3 = 0$ and $(2, 4, 2)$ gives $4 + 2 - 6 = 0$.
+
+**(4)** Zero constant term: $z = t$, $y = -t$, $x = -y - 2z = -t$. $\Ker T = \Span\big((-1, -1, 1)\big)$, of dimension 1. Check: $T(-1, -1, 1) = (-1 - 1 + 2,\ -2 - 1 + 3,\ -1 - 2 + 3) = (0, 0, 0)$. $T$ is **not injective** (non-zero kernel) and **not surjective** ($\dim \Imm T = 2 < 3$). Check of the theorem: $1 + 2 = 3$. The scheme is that of problems 12 of the exams of 08/02/2024 and 10/07/2025.
+:::
+
+::: exercise exam As at the exam: the kernel as $k$ varies
+Let $A = \begin{pmatrix} 1 & 1 & k \\ 1 & k & 1 \\ k & 1 & 1 \end{pmatrix}$ with $k \in \R$. As $k$ varies, find a basis of $\Ker L_A$ and say for which $k$ the map $L_A: \R^3 \to \R^3$ is injective.
+::: solution
+**Determinant.** Expanding along the first row:
+$$\det A = 1 \cdot (k - 1) - 1 \cdot (1 - k) + k \cdot (1 - k^2) = 2(k - 1) - k(k - 1)(k + 1) = -(k - 1)(k^2 + k - 2) = -(k - 1)^2(k + 2).$$
+(I factored out $k - 1$: $2(k - 1) + k(1 - k)(1 + k) = (k - 1)(2 - k - k^2)$, and $k^2 + k - 2 = (k - 1)(k + 2)$.)
+
+**If $k \neq 1$ and $k \neq -2$**: $\det A \neq 0$, the system $Ax = 0$ has only the zero solution: $\Ker L_A = \{0\}$ (no basis, dimension 0) and $L_A$ is **injective**, and so also surjective.
+
+**If $k = 1$**: all the rows are $(1, 1, 1)$, rank 1. The kernel is the plane $x + y + z = 0$: with $y = s$, $z = t$, $x = -s - t$, a basis is $(-1, 1, 0),\ (-1, 0, 1)$. Dimension $3 - 1 = 2$.
+
+**If $k = -2$**: $A = \begin{pmatrix} 1 & 1 & -2 \\ 1 & -2 & 1 \\ -2 & 1 & 1 \end{pmatrix}$. $R_2 \to R_2 - R_1$ gives $(0, -3, 3)$, $R_3 \to R_3 + 2R_1$ gives $(0, 3, -3)$, and $R_3 \to R_3 + R_2$ gives the zero row: rank 2. With $z = t$: $y = t$ and $x = -t + 2t = t$. A basis of the kernel is $(1, 1, 1)$ (indeed every row of $A$ has sum zero). Dimension $3 - 2 = 1$.
+
+**$L_A$ is injective exactly for $k \neq 1, -2$.** The scheme is that of problem 11, point 2, of the exam of 06/09/2024.
+:::
+
+::: exercise hard What a linear map does to dependent and independent vectors
+Let $f: V \to W$ be linear and let $v_1, \dots, v_k \in V$. (a) Prove that if $v_1, \dots, v_k$ are dependent, so are $f(v_1), \dots, f(v_k)$. (b) Prove that if $f$ is injective and $v_1, \dots, v_k$ are independent, then $f(v_1), \dots, f(v_k)$ are independent too. (c) Show with an example that injectivity is needed in (b).
+::: solution
+(a) There are $\lambda_1, \dots, \lambda_k$ not all zero with $\sum \lambda_iv_i = 0$. Applying $f$ and using linearity: $\sum \lambda_if(v_i) = f\big(\sum \lambda_iv_i\big) = f(0) = 0$. The same coefficients, not all zero, give a relation between the images.
+
+(b) Suppose $\sum \lambda_if(v_i) = 0$. By linearity $f\big(\sum \lambda_iv_i\big) = 0$, that is $\sum \lambda_iv_i \in \Ker f$. Since $f$ is injective, $\Ker f = \{0\}$ (Proposition 14.11), so $\sum \lambda_iv_i = 0$; and since the $v_i$ are independent, all the $\lambda_i$ are zero.
+
+(c) $f: \R^2 \to \R^2$, $f(x, y) = (x + y,\ 2x + 2y)$ is not injective: $e_1, e_2$ are independent, but $f(e_1) = f(e_2) = (1, 2)$ are dependent.
+:::
+
+## Review questions
+
+::: question What is a linear map?
+A function $f: V \to W$ between vector spaces over the same field such that $f(v + w) = f(v) + f(w)$ and $f(\lambda v) = \lambda f(v)$ for all $v, w \in V$ and all $\lambda \in \K$.
+:::
+
+::: question Why does a linear map send $0$ to $0$? Which three zeros appear?
+$f(0) = f(0 \cdot 0) = 0 \cdot f(0) = 0$. Inside $f$ there is the zero vector of $V$ written as the scalar $0$ times a vector; the scalar $0 \in \K$ comes out by the second condition; the result is the zero vector of $W$.
+:::
+
+::: question How do you prove that a function is not linear?
+One counterexample with numbers is enough: $f(0) \neq 0$, or two vectors with $f(v + w) \neq f(v) + f(w)$, or a vector and a scalar with $f(\lambda v) \neq \lambda f(v)$. The zero test on its own may not be enough.
+:::
+
+::: question What is $L_A$ and why is it linear?
+For a matrix $A$ of size $m \times n$, $L_A: \K^n \to \K^m$ is $L_A(x) = Ax$. It is linear because of the properties of the matrix product: $A(x + x') = Ax + Ax'$ and $A(\lambda x) = \lambda Ax$.
+:::
+
+::: question What are the columns of $A$ for the map $L_A$?
+They are the images of the vectors of the standard basis: $L_A(e_i) = A^i$. By linearity $L_A(x) = x_1A^1 + \cdots + x_nA^n$.
+:::
+
+::: question What are kernel and image, and where do they live?
+$\Ker f = \{v \in V \mid f(v) = 0\}$ is a subspace of the domain $V$; $\Imm f = \{f(v) \mid v \in V\}$ is a subspace of the codomain $W$.
+:::
+
+::: question Why is $f$ injective if and only if $\Ker f = \{0\}$?
+If $f$ is injective, only $0$ goes to $0$. Conversely, if $\Ker f = \{0\}$ and $v \neq v'$, then $v - v' \neq 0$ is not in the kernel, so $f(v) - f(v') = f(v - v') \neq 0$.
+:::
+
+::: question How do you find kernel and image of $L_A$?
+The kernel is the set of solutions of $Ax = 0$ (Gauss–Jordan, one basis vector for each free unknown). The image is the Span of the columns; a basis is given by the columns of the starting matrix that contain a pivot in the row echelon form. $\dim \Imm L_A = \rk(A)$.
+:::
+
+::: question What does the rank–nullity theorem say? What is the idea of the proof?
+If $\dim V = n$ is finite, $\dim \Ker f + \dim \Imm f = n$. You take a basis $v_1, \dots, v_k$ of the kernel, complete it to a basis $v_1, \dots, v_n$ of $V$, and prove that $f(v_{k+1}), \dots, f(v_n)$ are a basis of the image.
+:::
+
+::: question Why is the rank–nullity theorem Rouché–Capelli for matrices?
+Because $\Ker L_A$ is the space $S$ of solutions of $Ax = 0$ and $\dim \Imm L_A = \rk(A)$: the theorem says $\dim S = n - \rk(A)$, the Rouché–Capelli formula for homogeneous systems.
+:::
+
+::: question If $\dim V = 4$ and $\dim W = 2$, what do you know about a linear $f: V \to W$? And if $\dim V = \dim W$?
+With $\dim V = 4 > 2 = \dim W$, $f$ cannot be injective: $\dim \Ker f \ge 4 - 2 = 2$. With $\dim V = \dim W$, $f$ is injective if and only if it is surjective (Corollary 14.13).
+:::
+
+::: question Which of these are linear: trace, determinant, transposition, evaluation of a polynomial at a point?
+Trace, transposition and evaluation yes; the determinant no: $\det(2I_2) = 4 \neq 2 = \det I_2 + \det I_2$.
+:::
+
+## Glossary
+
+```glossary
+Linear map | Function $f: V \to W$ between spaces over the same field with $f(v + w) = f(v) + f(w)$ and $f(\lambda v) = \lambda f(v)$.
+Domain and codomain | The starting space $V$ and the target space $W$ of $f: V \to W$.
+Zero function | $f(v) = 0$ for every $v$; it is linear, with kernel the whole of $V$ and image $\{0\}$.
+Identity $\id$ | $\id(v) = v$; it is linear, with kernel $\{0\}$ and image the whole of $V$.
+$L_A$ | The map $\K^n \to \K^m$, $x \mapsto Ax$, defined by a matrix $A$ of size $m \times n$.
+Trace | $\tr A = a_{11} + \cdots + a_{nn}$; it is a linear map $M(n, \K) \to \K$.
+Affine map | Function of the form $x \mapsto Ax + b$; with $b \neq 0$ it is not linear.
+Kernel $\Ker f$ | The vectors of the domain sent to $0$; it is a subspace of $V$.
+Image $\Imm f$ | The vectors of the codomain reached by $f$; it is a subspace of $W$.
+Injective | Different vectors go to different vectors; for linear $f$ it is equivalent to $\Ker f = \{0\}$.
+Surjective | Every vector of the codomain is reached: $\Imm f = W$.
+Rank of $f$ | $\dim \Imm f$; for $L_A$ it is $\rk(A)$.
+Rank–nullity theorem | $\dim \Ker f + \dim \Imm f = \dim V$, if $V$ has finite dimension.
+Corollary 14.13 | $\dim \Imm f \le \dim V$; injective $\Leftrightarrow \dim \Imm f = \dim V$; surjective $\Leftrightarrow \dim \Imm f = \dim W$.
+Evaluation | The linear map $p \mapsto p(x_0)$ that computes a polynomial at a fixed point.
+```
+
+## Checklist
+
+```checklist
+- I can state the definition of linear map and derive $f(0) = 0$ from it.
+- I can prove that a function is linear (with letters) or that it is not (with a numerical counterexample).
+- I can recognise non-linear formulas at a glance: added constants, squares, products of coordinates.
+- I can write $L_A$ for a matrix $A$ and I know that the columns of $A$ are the images of $e_1, \dots, e_n$.
+- I know that trace, transposition and evaluation are linear and that the determinant is not.
+- I can define kernel and image and prove that they are subspaces.
+- I can prove that $f$ is injective if and only if $\Ker f = \{0\}$.
+- I can compute kernel and image of $L_A$ with Gauss, taking the starting columns for the image.
+- I can state the rank–nullity theorem and use it to find a dimension without calculations.
+- I can answer the quizzes on injectivity and surjectivity by comparing $\dim V$ and $\dim W$.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 14 "Applicazioni Lineari I", pp. 68–73: sections 14.A–14.D are followed in order, with the page next to each heading; definitions, propositions, theorem, corollary and examples keep their numbering (Definitions 14.1 and 14.9, Examples 14.2–14.8, Propositions 14.10 and 14.11, Theorem 14.12, Corollary 14.13, Exercises 14.14 and 14.15), including the remark on p. 72 and the two boxes "Link with computer science" (neural networks; the kernel as the set of admissible directions).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §4.1 (pp. 115–123) and §4.2 (pp. 123–130), in particular the complete proof of Theorem 4.2.9, Examples 4.1.10, 4.1.13, 4.1.15, 4.2.12 and 4.2.16, Corollary 4.2.23 and Propositions 4.1.19 and 4.2.24.
+- **Exam papers** of Linear Algebra 2023/24–2025/26 with official solutions (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): reported: question 8 of 24/01/2024, question 7 of 10/07/2024 and question 5 of 02/09/2025; cited: the questions on linearity, kernel, image and dimensions of the other exam sessions (08/02/2024, 06/09/2024, 07/02/2025, 03/06/2025, 10/07/2025, 15/01/2026, 05/02/2026, 03/07/2026, 07/09/2026) and problems 12 of 08/02/2024 and 10/07/2025 and 11 of 06/09/2024. The solutions here are written from scratch.
+- The **"Beyond the handouts"** parts (the determinant is not linear, every map $\K^n \to \K^m$ as an $L_A$, the consequences of Corollary 14.13 for the quizzes, the examples with polynomials, the unnumbered exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L15_linear_maps_2.md -->
+> File: `ai_context/MDAG/lessons/L15_linear_maps_2.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L15
+title: Linear maps II
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L15
+description: >-
+  Notes on lesson L15 of Linear Algebra and Geometry (MDAG, part 2): isomorphisms, isomorphic vector spaces,
+  coordinates and the matrix associated with a linear map with respect to two bases, with exam-style quizzes and
+  worked exercises.
+lede: >-
+  When two vector spaces are "the same space with different names" (isomorphisms), and how any linear map
+  $f : V \to W$ is turned into a matrix $[f]^{\mathcal B}_{\mathcal C}$ by choosing a basis at the start and one at
+  the end. From here on every calculation on polynomials, matrices or abstract vectors becomes a calculation with
+  matrices: it is the tool you need for changes of basis (L16) and for eigenvalues (L17–L18).
+material: handouts
+facts:
+  Handouts: lesson 15 · pp. 74–78
+  Book: Martelli, §4.2.5, §4.2.7 and §4.3
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 15 "Applicazioni lineari II"; B. Martelli, Geometria e algebra lineare, §4.2.5, §4.2.7 and §4.3
+italian_file: L15_applicazioni_lineari_2.html
+html_notes: notes/MDAG/L15_linear_maps_2.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L15_applicazioni_lineari_2.md
+```
+
+## In brief
+
+- An **isomorphism** is a **bijective** linear map (injective and surjective). Its inverse $f^{-1}$ is still linear.
+- The dimensions already say a lot: if $f : V \to W$ is injective then $\dim V \le \dim W$; if it is surjective then $\dim V \ge \dim W$; if it is an isomorphism then $\dim V = \dim W$.
+- The converse of the last point also holds: two finite-dimensional spaces are **isomorphic** if and only if they have the **same dimension**. Every space of dimension $n$ over $\K$ is isomorphic to $\K^n$: the isomorphism sends every vector to its **coordinates** $[v]_{\mathcal B}$ and depends on the basis chosen.
+- Once a basis $\mathcal B = \{v_1, \dots, v_n\}$ of $V$ and a basis $\mathcal C = \{w_1, \dots, w_m\}$ of $W$ are fixed, every linear $f : V \to W$ has an **associated matrix** $[f]^{\mathcal B}_{\mathcal C}$, of size $m \times n$: **column $j$** contains the coordinates of $f(v_j)$ with respect to $\mathcal C$.
+- Notation rule: the **starting** basis goes **at the top**, the **target** basis goes **at the bottom**.
+- For $L_A : \K^n \to \K^m$ with the standard bases the associated matrix is exactly $A$.
+- The key formula is $[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C} \cdot [v]_{\mathcal B}$: in coordinates, **every** linear map becomes a matrix-times-vector multiplication.
+- The matrix depends on the bases: the same $f$ has different matrices in different bases. With the same basis at the start and at the end, the identity always has matrix $I_n$.
+- The linear maps $V \to W$ form a vector space, and $f \mapsto [f]^{\mathcal A}_{\mathcal B}$ is an isomorphism with $M(m, n, \K)$.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Isomorphisms: the same space with different names (p. 74)
+
+In lesson L14 you saw what a linear map is, the kernel $\Ker f$, the image $\Imm f$ and the rank–nullity theorem. Here we ask: when do two different vector spaces behave **in exactly the same way**?
+
+A writing convention, as in the handouts: the vectors of $\K^n$ are **columns**; in the text, to save space, we often write them as rows, like $(1, 2)$. In the exam papers you also find the notation ${}^t(1, 2)$, that is "the transpose of the row $(1, 2)$", which is again the column.
+
+### An example to start: polynomials and triples of numbers
+
+Take the space $\R_2[x]$ of polynomials of degree at most 2. A polynomial $a + bx + cx^2$ is determined by its three coefficients, so we can pair it with the triple $(a, b, c) \in \R^3$. Look at what happens to the calculations:
+
+| In $\R_2[x]$ | In $\R^3$ |
+|---|---|
+| $p = 1 + 2x + 3x^2$ | $(1, 2, 3)$ |
+| $q = -1 + x^2$ | $(-1, 0, 1)$ |
+| $p + q = 2x + 4x^2$ | $(1, 2, 3) + (-1, 0, 1) = (0, 2, 4)$ |
+| $2q = -2 + 2x^2$ | $2 \cdot (-1, 0, 1) = (-2, 0, 2)$ |
+
+Adding polynomials and then taking the coefficients gives the same result as taking the coefficients and then adding the triples. The same for multiples. Moreover the pairing is **one-to-one**: each polynomial corresponds to exactly one triple and each triple to exactly one polynomial. From the point of view of linear algebra, $\R_2[x]$ and $\R^3$ are **the same space with different names**. The technical name is *isomorphic* (from Greek: "of the same shape").
+
+### The definition
+
+Remember three words about functions (you see them in detail in Discrete Mathematics). A function $f : V \to W$ is:
+
+- **injective** if different vectors have different images; for a linear map this is equivalent to $\Ker f = \{0\}$ (Proposition 14.11);
+- **surjective** if every $w \in W$ is the image of some $v \in V$, that is $\Imm f = W$;
+- **bijective** if it is both injective and surjective. In this case every $w \in W$ is the image of **one and only one** $v$, and you can define the **inverse** function $f^{-1} : W \to V$ that goes the other way: $f^{-1}(f(v)) = v$ and $f(f^{-1}(w)) = w$.
+
+> [!DEF] 15.1 · Isomorphism and isomorphic spaces
+> A linear map $f : V \to W$ is an **isomorphism** if it is bijective. (Recall that a function $f$ is bijective if and only if it is both injective and surjective.)
+>
+> We say that two vector spaces $V$ and $W$ over the same field $\K$ are **isomorphic** if there exists an isomorphism $f : V \to W$.
+
+Piece by piece:
+
+- "linear map" comes first of all: a function that is bijective but not linear is **not** an isomorphism of vector spaces.
+- "bijective" is checked in two halves: $\Ker f = \{0\}$ (injective) and $\Imm f = W$ (surjective).
+- "over the same field": you compare spaces with the same scalars, for example two real spaces.
+- "isomorphic" is a property of the **pair** of spaces: it is enough that **one** isomorphism between them exists, even if many other linear maps between the same spaces are not.
+
+> [!EXAMPLE] · three maps, only one is an isomorphism
+> **(a)** $f = L_A : \R^2 \to \R^2$ with $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, that is $f(x, y) = (2x + y,\ x + y)$.
+> Kernel: $2x + y = 0$ and $x + y = 0$; subtracting the two equations what remains is $x = 0$, and then $y = 0$. So $\Ker f = \{0\}$ and $f$ is injective. By the rank–nullity theorem $\dim \Imm f = 2 - 0 = 2$, so $\Imm f = \R^2$ and $f$ is surjective. It is an **isomorphism**.
+>
+> **(b)** The derivative $D : \R_2[x] \to \R_2[x]$, $D(p) = p'$. Since $D(5) = 0$, the constant polynomial $5$ lies in the kernel: $\Ker D \neq \{0\}$, so $D$ is **not** injective and not an isomorphism. (It is not surjective either: the derivative of a polynomial of degree at most 2 has degree at most 1, so $x^2 \notin \Imm D$.)
+>
+> **(c)** $g : \R^2 \to \R^3$, $g(x, y) = (x, y, 0)$. It is injective (if $(x, y, 0) = (0, 0, 0)$ then $x = y = 0$) but not surjective: $(0, 0, 1)$ is the image of nothing. It is **not** an isomorphism.
+
+### The inverse of an isomorphism is linear
+
+> [!PROP] 15.2
+> If a linear function $f : V \to W$ is bijective, the inverse $f^{-1} : W \to V$ is linear too.
+
+Let us see it on example (a). To find $f^{-1}(a, b)$ we look for $(x, y)$ with $f(x, y) = (a, b)$:
+
+$$\begin{cases} 2x + y = a \\ x + y = b \end{cases} \quad\Longrightarrow\quad x = a - b, \qquad y = b - x = -a + 2b.$$
+
+So $f^{-1}(a, b) = (a - b,\ -a + 2b)$, which is again linear: it is $L_{A^{-1}}$ with $A^{-1} = \begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$. Check: $f(3, 1) = (7, 4)$ and $f^{-1}(7, 4) = (7 - 4,\ -7 + 8) = (3, 1)$.
+
+> [!PROOF] of Proposition 15.2 (from Martelli's book, §4.2.5; the handouts do not include it)
+> Let $w, w' \in W$ and $\lambda \in \K$. We call $v = f^{-1}(w)$ and $v' = f^{-1}(w')$, that is $f(v) = w$ and $f(v') = w'$.
+> 1. **Sum.** By the linearity of $f$: $f(v + v') = f(v) + f(v') = w + w'$. So $v + v'$ is *the* vector that $f$ sends to $w + w'$, that is $f^{-1}(w + w') = v + v' = f^{-1}(w) + f^{-1}(w')$.
+> 2. **Multiples.** $f(\lambda v) = \lambda f(v) = \lambda w$, so $f^{-1}(\lambda w) = \lambda v = \lambda f^{-1}(w)$.
+>
+> In each step you use that $f$ is bijective: the vector that goes to $w + w'$ (or to $\lambda w$) is **unique**, so it is exactly the one found.
+
+### What the dimensions say
+
+> [!PROP] 15.3
+> Let $f : V \to W$ be a linear map.
+> 1. If $f$ is injective, then $\dim V \le \dim W$. (Indeed $\dim V = \dim \Imm f \le \dim W$.)
+> 2. If $f$ is surjective, then $\dim V \ge \dim W$. (Indeed $\dim V \ge \dim \Imm f = \dim W$.)
+> 3. If $f$ is an isomorphism, then $\dim V = \dim W$. (From the two previous points.)
+
+The justifications in brackets use the **rank–nullity theorem** of lesson L14, $\dim V = \dim \Ker f + \dim \Imm f$:
+
+1. if $f$ is injective, $\Ker f = \{0\}$, so $\dim V = 0 + \dim \Imm f$; and $\Imm f$ is a subspace of $W$, so $\dim \Imm f \le \dim W$;
+2. if $f$ is surjective, $\Imm f = W$, so $\dim V = \dim \Ker f + \dim W \ge \dim W$;
+3. an isomorphism is both injective and surjective, so both inequalities hold.
+
+In practice, **looking only at the dimensions** you can rule out many things:
+
+| Dimensions | Can it be injective? | Can it be surjective? | Can it be an isomorphism? |
+|---|---|---|---|
+| $\dim V < \dim W$ (for example $\R^2 \to \R^3$) | yes | **never** | **never** |
+| $\dim V > \dim W$ (for example $\R^4 \to \R^2$) | **never** | yes | **never** |
+| $\dim V = \dim W$ | yes | yes | yes |
+
+> [!PITFALL] The dimensions rule out, they do not guarantee
+> $\dim V \le \dim W$ is **not** enough to say that $f$ is injective: the zero map $\R^2 \to \R^3$, $f(v) = 0$, has $\dim V = 2 \le 3$ but kernel equal to the whole of $\R^2$. Proposition 15.3 only says what happens **if** $f$ is injective (or surjective). To prove that a specific $f$ is injective you have to compute the kernel.
+
+### Same dimension, isomorphic spaces
+
+The converse of the last point also holds:
+
+> [!PROP] 15.4
+> Let $V$ and $W$ be two finite-dimensional vector spaces. Then
+> $$V \text{ and } W \text{ are isomorphic} \iff \dim V = \dim W.$$
+> In particular, all the vector spaces over $\K$ of dimension $n$ are isomorphic to $\K^n$.
+
+The handouts specify which isomorphism to use: the map $V \to \K^n$ that sends every vector $v \in V$ to its **coordinates** with respect to a basis of $V$ (you saw them in lesson L13, Definition 13.5). This isomorphism **depends on the choice of the basis**.
+
+> [!EXAMPLE] · the same polynomial, two different coordinate vectors
+> In $\R_2[x]$ take the standard basis $\mathcal B = \{1, x, x^2\}$ and the basis $\mathcal B' = \{1,\ x - 1,\ (x - 1)^2\}$. The polynomial $x^2$ has coordinates $(0, 0, 1)$ with respect to $\mathcal B$. With respect to $\mathcal B'$ we look for $a, b, c$ with
+> $$x^2 = a \cdot 1 + b\,(x - 1) + c\,(x - 1)^2 = (a - b + c) + (b - 2c)\,x + c\,x^2.$$
+> Comparing the coefficients: $c = 1$, then $b - 2c = 0$ gives $b = 2$, then $a - b + c = 0$ gives $a = 1$. So the coordinates are $(1, 2, 1)$. Check: $1 + 2(x - 1) + (x - 1)^2 = 1 + 2x - 2 + x^2 - 2x + 1 = x^2$.
+>
+> The two bases give two different isomorphisms $\R_2[x] \to \R^3$: the first sends $x^2$ to $(0, 0, 1)$, the second to $(1, 2, 1)$.
+
+Some pairs of isomorphic spaces you will meet often:
+
+| Space | Dimension | It is isomorphic to |
+|---|--:|---|
+| $\R_n[x]$ (polynomials of degree at most $n$) | $n + 1$ | $\R^{n+1}$ |
+| $M(m, n, \R)$ ($m \times n$ matrices) | $mn$ | $\R^{mn}$ |
+| $M(2, \R)$ | 4 | $\R^4$, and also $\R_3[x]$ |
+| $\C$ seen as a vector space **over $\R$** | 2 | $\R^2$ (the complex plane of lesson L02) |
+| the plane $\{(x, y, z) \in \R^3 \mid x + y + z = 0\}$ | 2 | $\R^2$ |
+
+> [!BEYOND] how the isomorphism is built, and a useful shortcut
+> **Why $\Leftarrow$ holds** (Martelli, Proposition 4.2.30). If $\dim V = \dim W = n$, choose a basis $v_1, \dots, v_n$ of $V$ and a basis $w_1, \dots, w_n$ of $W$, and define $f$ by imposing $f(v_i) = w_i$ and extending by linearity, $f(\lambda_1 v_1 + \dots + \lambda_n v_n) = \lambda_1 w_1 + \dots + \lambda_n w_n$ (Martelli, Proposition 4.1.18). The image contains all the $w_i$, so $\Imm f = W$; by the rank–nullity theorem $\dim \Ker f = n - n = 0$. So $f$ is bijective.
+>
+> **The shortcut** (Martelli, Proposition 4.2.24). If $\dim V = \dim W$, for a linear map $f : V \to W$ the three things "injective", "surjective", "isomorphism" are **equivalent**: it is enough to check one. Indeed $\dim \Ker f = 0 \iff \dim \Imm f = n \iff \Imm f = W$. For a square matrix $A$ this is summed up as: $L_A$ is an isomorphism $\iff \det A \neq 0 \iff \rk A = n$.
+
+## Coordinates of a vector (p. 74)
+
+The whole rest of the lesson uses coordinates, so let us go over them calmly. If $\mathcal B = \{v_1, \dots, v_n\}$ is a basis of $V$, every $v \in V$ can be written **in only one way** (Proposition 13.4) as
+$$v = \lambda_1 v_1 + \dots + \lambda_n v_n.$$
+The column of coefficients is called the **coordinate vector** of $v$ with respect to $\mathcal B$ and is written
+$$[v]_{\mathcal B} = \begin{pmatrix} \lambda_1 \\ \vdots \\ \lambda_n \end{pmatrix} \in \K^n.$$
+
+> [!EXAMPLE] · coordinates in a non-standard basis of $\R^2$
+> Let $\mathcal B = \{v_1, v_2\}$ with $v_1 = (1, 1)$ and $v_2 = (1, -1)$, and let $v = (3, 1)$. We look for $\lambda_1, \lambda_2$ with $\lambda_1 (1, 1) + \lambda_2 (1, -1) = (3, 1)$:
+> $$\begin{cases} \lambda_1 + \lambda_2 = 3 \\ \lambda_1 - \lambda_2 = 1 \end{cases}$$
+> Adding the equations: $2\lambda_1 = 4$, that is $\lambda_1 = 2$; then $\lambda_2 = 3 - 2 = 1$. So $[v]_{\mathcal B} = (2, 1)$: to reach $v$ you take two steps along $v_1$ and one along $v_2$.
+
+```graph
+title: $v = (3, 1)$ has coordinates $(2, 1)$ with respect to $\mathcal B = \{v_1, v_2\}$
+x: -1 4
+y: -2 3
+arrow: 0 0 2 2 | accent | dashed | $2v_1$ | nw
+arrow: 2 2 3 1 | blue | dashed | $+\,v_2$ | ne
+vector: 1 1 | accent | thick | $v_1$ | se
+vector: 1 -1 | blue | thick | $v_2$ | se
+vector: 3 1 | amber | thick | $v = 2v_1 + v_2$ | se
+```
+
+> [!PITFALL] The order of the basis vectors matters
+> For coordinates, a basis is an **ordered** list. With $\mathcal B' = \{v_2, v_1\}$ (same vectors, order swapped) the same $v$ has coordinates $(1, 2)$. That is why, even though it is written with curly brackets, $\mathcal B = \{v_1, \dots, v_n\}$ must be read as a list in that order.
+
+## The matrix associated with a linear map (pp. 74–75)
+
+### The idea
+
+In lesson L14 you saw that a linear map respects linear combinations:
+$$f(\lambda_1 v_1 + \dots + \lambda_n v_n) = \lambda_1 f(v_1) + \dots + \lambda_n f(v_n).$$
+So, if you know the **images of the vectors of a basis**, $f(v_1), \dots, f(v_n)$, you know $f$ everywhere. Each $f(v_j)$ is a vector of $W$: we store it with its $m$ coordinates with respect to a basis $\mathcal C$ of $W$. We get $n$ columns of $m$ numbers: an **$m \times n$ matrix**. This is the associated matrix.
+
+> [!DEF] 15.5 · Associated matrix
+> Let $f : V \to W$ be a linear map between vector spaces defined over $\K$. Let moreover
+> $$\mathcal B = \{v_1, \dots, v_n\}, \qquad \mathcal C = \{w_1, \dots, w_m\}$$
+> be two bases of $V$ and of $W$ respectively. We know that
+> $$\begin{aligned} f(v_1) &= a_{11} w_1 + \dots + a_{m1} w_m, \\ &\ \ \vdots \\ f(v_n) &= a_{1n} w_1 + \dots + a_{mn} w_m \end{aligned}$$
+> for some set of coefficients $a_{ij} \in \K$. We define the **matrix associated** with $f$ in the bases $\mathcal B$ and $\mathcal C$ as the $m \times n$ matrix
+> $$A = (a_{ij})$$
+> that collects these coefficients, and we denote it by the symbol $A = [f]^{\mathcal B}_{\mathcal C}$.
+
+Piece by piece:
+
+- **Size $m \times n$**: as many **rows** as the dimension of the **target** space ($m = \dim W$), as many **columns** as the dimension of the **starting** space ($n = \dim V$).
+- **The entry $a_{ij}$** is the $i$-th coordinate of $f(v_j)$: the index $j$ says *which vector of the starting basis* you are transforming, the index $i$ says *which coordinate* of the image you are reading.
+- **The notation** $[f]^{\mathcal B}_{\mathcal C}$ reminds you that the matrix depends on three things: $f$, $\mathcal B$ and $\mathcal C$. As the handouts say, "the starting basis" $\mathcal B$ goes **at the top**, "the target basis" $\mathcal C$ goes **at the bottom**.
+- **Column $j$**, which the handouts call $A^j$, contains the coordinates of $f(v_j)$ with respect to $\mathcal C$:
+$$A^j = \begin{pmatrix} a_{1j} \\ \vdots \\ a_{mj} \end{pmatrix} = [f(v_j)]_{\mathcal C}.$$
+
+> [!PITFALL] The coefficients go in a column, not in a row
+> In the definition the first equation, $f(v_1) = a_{11} w_1 + \dots + a_{m1} w_m$, fills the **first column**. If you write the coordinates of $f(v_1)$ in the first **row** you get the transpose, which is wrong. In the exam papers the transpose almost always appears among the wrong answers.
+
+> [!METHOD] The associated matrix in three steps
+> 1. Compute the images $f(v_1), \dots, f(v_n)$ of the vectors of the **starting** basis, in the given order.
+> 2. Write each $f(v_j)$ in coordinates with respect to the **target** basis $\mathcal C$. If $\mathcal C$ is the standard basis of $\K^m$ the coordinates are the components themselves; otherwise solve the system $f(v_j) = x_1 w_1 + \dots + x_m w_m$.
+> 3. Put $[f(v_j)]_{\mathcal C}$ in column $j$.
+>
+> Quick check: the matrix must have $\dim W$ rows and $\dim V$ columns.
+
+### The case of the standard bases
+
+> [!EXAMPLE] 15.6 · The matrix of $L_A$
+> The matrix associated with $L_A$ with respect to the standard bases of $\K^n$ and $\K^m$ is exactly $A$. Indeed, by construction, $f(e_j) = a_{1j} e_1 + \dots + a_{mj} e_m$.
+
+With numbers: let $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 3 \end{pmatrix}$, so $L_A : \R^3 \to \R^2$. Then $L_A(e_1) = A e_1$ is the first column of $A$, that is $(1, 0) = 1 \cdot e_1 + 0 \cdot e_2$; its coordinates with respect to the standard basis are $(1, 0)$, and they end up in the first column. The same for $e_2$ and $e_3$: you find $A$ again. That is why, with the standard bases, the associated matrix of $f(x, y, z) = (x + 2y,\ y + 3z)$ is read off the coefficients: first row $1, 2, 0$, second row $0, 1, 3$.
+
+### An example with polynomials
+
+> [!EXAMPLE] 15.7 · Values of a polynomial at $2$ and at $-2$
+> Consider the linear map
+> $$f : \R_2[x] \longrightarrow \R^2, \qquad f(p) = \begin{pmatrix} p(2) \\ p(-2) \end{pmatrix}$$
+> which assigns to every polynomial its values at $2$ and at $-2$. We write the matrix associated with $f$ in the standard bases $\mathcal B = \{1, x, x^2\}$ of $\R_2[x]$ and $\mathcal C = \{e_1, e_2\}$ of $\R^2$.
+>
+> **Step 1**, the images of the starting basis:
+> - $p = 1$ (the constant polynomial): $p(2) = 1$ and $p(-2) = 1$, so $f(1) = (1, 1)$;
+> - $p = x$: $p(2) = 2$ and $p(-2) = -2$, so $f(x) = (2, -2)$;
+> - $p = x^2$: $p(2) = 4$ and $p(-2) = (-2)^2 = 4$, so $f(x^2) = (4, 4)$.
+>
+> **Step 2**: the target basis is the standard one, so the coordinates are the components themselves.
+>
+> **Step 3**, the three columns side by side:
+> $$[f]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix}.$$
+> It is $2 \times 3$: $\dim \R^2 = 2$ rows, $\dim \R_2[x] = 3$ columns.
+
+### Same map, another target basis
+
+> [!EXAMPLE] 15.8 · We change the target basis
+> We take the linear map $f$ and the basis $\mathcal B$ as in the previous example, but at the end we take the basis
+> $$\mathcal C' = \left\{ \begin{pmatrix} 1 \\ -1 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} \right\}$$
+> instead of the standard basis $\mathcal C$. The images are the same as before; step 2 changes: you must compute the coordinates of each image with respect to $\mathcal C'$, that is find $a, b$ with $a (1, -1) + b (0, 1) = (a,\ -a + b)$ equal to the image.
+> - $f(1) = (1, 1)$: first component $a = 1$; second $-1 + b = 1$, so $b = 2$. So $(1, 1) = 1 \cdot (1, -1) + 2 \cdot (0, 1)$.
+> - $f(x) = (2, -2)$: $a = 2$; $-2 + b = -2$, so $b = 0$. So $(2, -2) = 2 \cdot (1, -1) + 0 \cdot (0, 1)$.
+> - $f(x^2) = (4, 4)$: $a = 4$; $-4 + b = 4$, so $b = 8$. So $(4, 4) = 4 \cdot (1, -1) + 8 \cdot (0, 1)$.
+>
+> The associated matrix therefore becomes
+> $$[f]^{\mathcal B}_{\mathcal C'} = \begin{pmatrix} 1 & 2 & 4 \\ 2 & 0 & 8 \end{pmatrix}.$$
+
+The same $f$ has two different matrices: **the associated matrix depends on the bases**. In lesson L16 you will see the formula that goes from one to the other with a product of matrices. In exercise 6 you find a third target basis that makes the matrix simpler.
+
+To solve the systems of step 2 you can use the tool below. It is already set up with the system of exercise 15.13 (exercise 1): the first three columns are the vectors $w_1 = (1, 1, 0)$, $w_2 = (0, 1, 1)$, $w_3 = (1, 0, 1)$ of the target basis, the last is the vector $f(v_1) = (0, 2, 1)$ whose coordinates you are looking for. The solution $(x_1, x_2, x_3)$ is the column $[f(v_1)]_{\mathcal C}$. Then try changing the last column to $(2, 2, -1)$ to get the second column of the matrix.
+
+```widget gauss
+title: Coordinates with respect to the target basis = solution of a system
+matrice: 1 0 1 0; 1 1 0 2; 0 1 1 1
+modo: sistema
+modi: sistema, nucleo
+```
+
+## Computing images with the matrix (pp. 76–77)
+
+From the associated matrix we can compute the image of any vector. Let $f : V \to W$ be a linear map and let $\mathcal B = \{v_1, \dots, v_n\}$ and $\mathcal C = \{w_1, \dots, w_m\}$ be bases of $V$ and $W$.
+
+> [!PROP] 15.9
+> For every $v \in V$ we find
+> $$[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C} \cdot [v]_{\mathcal B}.$$
+
+In words: to find the coordinates of $f(v)$ with respect to $\mathcal C$ it is enough to **multiply the associated matrix by the coordinates of $v$** with respect to $\mathcal B$. The handouts' proof, with the steps explained:
+
+1. We write $v$ in the basis $\mathcal B$: $v = \lambda_1 v_1 + \dots + \lambda_n v_n$, so $[v]_{\mathcal B} = (\lambda_1, \dots, \lambda_n)$.
+2. By the linearity of $f$: $f(v) = \lambda_1 f(v_1) + \dots + \lambda_n f(v_n)$.
+3. Taking coordinates is linear too (it is the isomorphism of Proposition 15.4), so
+$$[f(v)]_{\mathcal C} = \lambda_1 [f(v_1)]_{\mathcal C} + \dots + \lambda_n [f(v_n)]_{\mathcal C}.$$
+4. But $[f(v_j)]_{\mathcal C}$ is column $j$ of the associated matrix $A = (a_{ij})$. And a combination of the columns with coefficients $\lambda_1, \dots, \lambda_n$ is exactly the row-by-column product $A \cdot (\lambda_1, \dots, \lambda_n)$: component $i$ of the combination is $a_{i1}\lambda_1 + \dots + a_{in}\lambda_n$, that is exactly row $i$ of the product. So the result is $[f]^{\mathcal B}_{\mathcal C} \cdot [v]_{\mathcal B}$. $\square$
+
+> [!REMARK] Every linear map, in coordinates, is an $L_A$
+> If we write $x = [v]_{\mathcal B}$, $A = [f]^{\mathcal B}_{\mathcal C}$ and $y = [f(v)]_{\mathcal C}$, then
+> $$y = Ax = L_A(x).$$
+> This means that, after choosing two bases for $V$ and $W$, any linear map $V \to W$ can be interpreted in coordinates as a map of the form $L_A : \K^n \to \K^m$. It is enough to replace the vectors $v$ and $f(v)$ with their coordinates $x$ and $y$, and use the associated matrix $A$.
+
+The diagram below sums up the remark: you get from $v$ to the coordinates of $f(v)$ by two routes, and the result is the same. At the top you work with the real vectors (polynomials, matrices, …), at the bottom only with columns of numbers.
+
+```graph
+title: Two routes, same result: first $f$ then the coordinates, or first the coordinates then $A$
+axes: no
+grid: no
+x: 0 10
+y: 0 4.4
+text: 2 3.6 | $v \in V$
+text: 8 3.6 | $f(v) \in W$
+text: 2 0.8 | $[v]_{\mathcal B} \in \K^n$
+text: 8 0.8 | $[f(v)]_{\mathcal C} \in \K^m$
+arrow: 3.1 3.6 6.8 3.6 | accent | thick
+arrow: 3.4 0.8 6.5 0.8 | blue | thick
+arrow: 2 3.1 2 1.3 | grey
+arrow: 8 3.1 8 1.3 | grey
+text: 4.95 4.05 | accent | $f$
+text: 4.95 0.35 | blue | $A = [f]^{\mathcal B}_{\mathcal C}$
+text: 3.1 2.2 | "coordinates"
+text: 6.9 2.2 | "coordinates"
+```
+
+> [!EXAMPLE] 15.10 · The image of a polynomial computed with the matrix
+> We take again the associated matrix with respect to the standard bases
+> $$[f]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix}.$$
+> We use it to compute in coordinates the image of $p(x) = 3x^2 + 5x + 1$, which has as coordinates with respect to $\mathcal B = \{1, x, x^2\}$ its coefficients **in reverse order**: $[p]_{\mathcal B} = (1, 5, 3)$. So $f(p)$ has coordinates
+> $$\begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix} \begin{pmatrix} 1 \\ 5 \\ 3 \end{pmatrix} = \begin{pmatrix} 1 \cdot 1 + 2 \cdot 5 + 4 \cdot 3 \\ 1 \cdot 1 - 2 \cdot 5 + 4 \cdot 3 \end{pmatrix} = \begin{pmatrix} 1 + 10 + 12 \\ 1 - 10 + 12 \end{pmatrix} = \begin{pmatrix} 23 \\ 3 \end{pmatrix}.$$
+> We check with the definition of $f$: $p(2) = 3 \cdot 4 + 5 \cdot 2 + 1 = 23$ and $p(-2) = 3 \cdot 4 - 10 + 1 = 3$. So $f(p) = (23, 3)$.
+
+> [!NOTE] A cross-reference to correct
+> In the handouts, on p. 77, Example 15.10 starts with "In Example 15.8 above, we obtained the associated matrix … with respect to the standard bases". The matrix with respect to the standard bases, $\begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix}$, is the one of Example **15.7**; Example 15.8 uses the basis $\mathcal C'$ at the end.
+
+> [!EXAMPLE] · the same calculation with the basis $\mathcal C'$
+> With the matrix of Example 15.8:
+> $$[f(p)]_{\mathcal C'} = \begin{pmatrix} 1 & 2 & 4 \\ 2 & 0 & 8 \end{pmatrix} \begin{pmatrix} 1 \\ 5 \\ 3 \end{pmatrix} = \begin{pmatrix} 1 + 10 + 12 \\ 2 + 0 + 24 \end{pmatrix} = \begin{pmatrix} 23 \\ 26 \end{pmatrix}.$$
+> Careful: $(23, 26)$ is **not** $f(p)$, they are its coordinates with respect to $\mathcal C'$. To go back to the vector you take the combination: $23 \cdot (1, -1) + 26 \cdot (0, 1) = (23,\ -23 + 26) = (23, 3)$. Same result as before, as it must be.
+
+> [!PITFALL] Coordinates or vector?
+> The product $[f]^{\mathcal B}_{\mathcal C} \cdot [v]_{\mathcal B}$ gives the **coordinates** of $f(v)$ with respect to $\mathcal C$. They coincide with $f(v)$ only if $\mathcal C$ is the standard basis of $\K^m$. And before multiplying you must put $v$ **in coordinates** with respect to $\mathcal B$: for a polynomial, the coefficients in the order of the basis (for $\{1, x, x^2\}$: constant term, then $x$, then $x^2$).
+
+## The matrix of the identity (p. 77)
+
+A special case, useful in the future:
+
+> [!PROP] 15.11
+> Let $\mathcal B$ be any basis of a space $V$ of dimension $n$. We find
+> $$[\id]^{\mathcal B}_{\mathcal B} = I_n.$$
+
+The reason: $\id(v_j) = v_j = 0 \cdot v_1 + \dots + 1 \cdot v_j + \dots + 0 \cdot v_n$, so column $j$ is the vector $e_j$, with a 1 in place $j$ and zeros elsewhere. All the columns together form the identity matrix.
+
+> [!PITFALL] With two different bases the identity does not have matrix $I_n$
+> Proposition 15.11 requires the **same** basis at the start and at the end. With $\mathcal B = \{(1, 1), (1, -1)\}$ at the start and the standard basis $\mathcal C$ at the end, the columns are $[\id(v_1)]_{\mathcal C} = (1, 1)$ and $[\id(v_2)]_{\mathcal C} = (1, -1)$:
+> $$[\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} \neq I_2.$$
+> This is a **change-of-basis matrix**, the topic of lesson L16.
+
+## The space of linear maps (pp. 77–78)
+
+Linear maps can be added and multiplied by a scalar, "point by point". If $V, W$ are vector spaces and $f, g : V \to W$ two linear maps, for $\lambda \in \K$ one defines
+$$(f + g)(v) = f(v) + g(v), \qquad (\lambda f)(v) = \lambda f(v).$$
+With these two operations the set of all the linear maps between $V$ and $W$ becomes a vector space: the zero is the zero map, and the properties of sum and product are inherited from those of $W$.
+
+> [!EXAMPLE] · adding maps = adding matrices
+> Let $f, g : \R^2 \to \R^2$ with $f(x, y) = (x + y,\ 0)$ and $g(x, y) = (x,\ y)$. Then
+> $$(f + g)(x, y) = (x + y + x,\ 0 + y) = (2x + y,\ y), \qquad (3f)(x, y) = (3x + 3y,\ 0).$$
+> With the standard bases: $[f] = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$, $[g] = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ and
+> $$[f + g] = \begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = [f] + [g], \qquad [3f] = \begin{pmatrix} 3 & 3 \\ 0 & 0 \end{pmatrix} = 3\,[f].$$
+
+> [!THEOREM] 15.12
+> Let $V, W$ be two finite-dimensional vector spaces with bases $\mathcal A = \{v_1, \dots, v_n\}$, $\mathcal B = \{w_1, \dots, w_m\}$, respectively. Then the set of linear maps $f : V \to W$ is a vector space, and the map
+> $$f \longmapsto [f]^{\mathcal A}_{\mathcal B}$$
+> from the set of linear maps $f : V \to W$ to $M(m, n, \K)$ is an isomorphism.
+
+Piece by piece (careful: here the bases are called $\mathcal A$ and $\mathcal B$, with $\mathcal B$ a basis of $W$):
+
+- **It is linear**: column $j$ of $[f + g]$ is $[f(v_j) + g(v_j)]_{\mathcal B} = [f(v_j)]_{\mathcal B} + [g(v_j)]_{\mathcal B}$, so $[f + g] = [f] + [g]$; in the same way $[\lambda f] = \lambda [f]$. It is what you saw in the example.
+- **It is injective**: if $[f] = 0$, all the images $f(v_j)$ are zero, and then $f$ is the zero map.
+- **It is surjective**: every matrix $A = (a_{ij})$ is the matrix of some $f$. It is enough to define $f$ on the basis, $f(v_j) = a_{1j} w_1 + \dots + a_{mj} w_m$, and extend by linearity.
+
+In practice: **once the bases are chosen, linear maps and matrices are the same thing**. Everything that is proved for matrices holds for linear maps, and vice versa.
+
+> [!BEYOND] Hom and its dimension
+> In Martelli's book (§4.3.4) the set of linear maps $V \to W$ is called $\mathrm{Hom}(V, W)$, from "homomorphism", a synonym of linear map. Since it is isomorphic to $M(m, n, \K)$, it has dimension $mn$ (Corollary 4.3.12). For example the linear maps $\R^3 \to \R^2$ form a space of dimension $2 \cdot 3 = 6$.
+
+One way to see the associated matrix in action is the tool below: a $2 \times 2$ matrix as a transformation of the plane. With $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, the isomorphism of example (a), the columns are the images of $e_1$ and $e_2$ and the unit square becomes a parallelogram of area $|\det A| = 1$. Then try typing $A = \begin{pmatrix} 1 & 2 \\ 2 & 4 \end{pmatrix}$: the plane gets squashed onto a line, the kernel is no longer $\{0\}$ and $L_A$ is not an isomorphism.
+
+```widget matrice
+title: A $2 \times 2$ matrix as a linear map of the plane
+a: 2 1; 1 1
+x: 1 1
+raggio: 4
+```
+
+> [!BEYOND] where to find it in the book
+> In Martelli's book: §4.2.5 "Isomorfismi" (pp. 127–128, with the proof of Proposition 15.2 and the shortcut of Proposition 4.2.24), §4.2.7 "Spazi vettoriali isomorfi" (p. 129), §4.3 "Matrice associata" up to §4.3.4 "Hom" (pp. 130–135). Examples 4.3.2 and 4.3.3 of the book are Examples 15.7–15.8 and Exercise 15.13 of the handouts.
+
+## Towards the exam
+
+The Linear Algebra and Geometry test has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, which are marked only with at least 6 correct answers; it lasts 2 hours, with no calculator, and you may bring only a 4-page handwritten sheet. The 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam**
+
+1. **The associated matrix** is one of the most frequent quiz questions. In the 2023–2026 exam papers it appears like this: matrix of $T : \R^2 \to \R^2$ with respect to a non-standard basis (exam of 24/01/2024, question 3, and of 15/01/2026, question 8); coordinates $[T(v_1)]_{\mathcal B}$ of an image (05/02/2026, question 6); matrix of a composition (16/01/2025, question 5, which you will see in lesson L16). Tutoring sheet 3 (exercises 4 and 5) trains exactly this.
+2. **The dimension arguments** of Proposition 15.3 give the answer in one line: exam of 02/09/2025, question 5.
+3. **In the open problems** you are often asked to write the matrix of $T$ in the standard basis and to say whether $T$ is bijective (exam of 10/07/2024, problem 11), or to compute kernel and image starting from the matrix.
+4. **The whole part on eigenvalues** (lessons L17–L18) uses the associated matrix: for an endomorphism of $\R_2[x]$ you work with its $3 \times 3$ matrix.
+
+### Three real exam questions, solved
+
+> [!EXAM] Exam of 15/01/2026, question 8
+> *The matrix associated with $T : \R^2 \to \R^2$, $T(x, y) = (2x, 3y)$, with respect to the basis $\mathcal B = \{(0, 1), (1, 2)\}$ is …* (meaning $[T]^{\mathcal B}_{\mathcal B}$, the same basis at the start and at the end).
+>
+> Solution. Step 1: $T(0, 1) = (0, 3)$ and $T(1, 2) = (2, 6)$. Step 2, coordinates with respect to $\mathcal B$: $a (0, 1) + b (1, 2) = (b,\ a + 2b)$.
+> - $(0, 3)$: $b = 0$, $a = 3$, so $[T(v_1)]_{\mathcal B} = (3, 0)$;
+> - $(2, 6)$: $b = 2$, $a + 4 = 6$ that is $a = 2$, so $[T(v_2)]_{\mathcal B} = (2, 2)$.
+>
+> Step 3: $[T]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 3 & 2 \\ 0 & 2 \end{pmatrix}$. Among the answers there were also $\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$ (the matrix in the standard basis) and $\begin{pmatrix} 0 & 1 \\ 1 & 2 \end{pmatrix}$ (the basis vectors): they are the two classic traps.
+
+> [!EXAM] Exam of 05/02/2026, question 6
+> *Given $T(x, y) = (3x,\ x + 2y)$ and the basis $\mathcal B = \{v_1 = (0, 1),\ v_2 = (1, 1)\}$, the coordinate vector $[T(v_1)]_{\mathcal B}$ is …*
+>
+> Solution. $T(v_1) = T(0, 1) = (0, 2)$. We look for $a, b$ with $a (0, 1) + b (1, 1) = (b,\ a + b) = (0, 2)$: $b = 0$ and $a = 2$. So $[T(v_1)]_{\mathcal B} = (2, 0)$. The most tempting wrong answer was $(0, 2)$, that is $T(v_1)$ itself: but the question asks for the **coordinates**.
+
+> [!EXAM] Exam of 02/09/2025, question 5
+> *Let $f : V \to W$ be linear with $\dim V = 4$ and $\dim W = 2$. Which is necessarily true?*
+>
+> Solution. By the rank–nullity theorem $\dim \Ker f = 4 - \dim \Imm f \ge 4 - 2 = 2$, so the kernel is never $\{0\}$: **$f$ cannot be injective** (it is point 1 of Proposition 15.3 read backwards). The other answers ("it must be surjective", "it cannot be surjective", "it must be injective", "it is an isomorphism") are false: the zero map is not surjective, while $(x_1, x_2, x_3, x_4) \mapsto (x_1, x_2)$ is.
+
+### Mistakes to avoid
+
+- Writing the images **in a row** instead of in a column (you get the transpose).
+- Putting $f(v_j)$ in the column instead of its **coordinates** with respect to the target basis.
+- Confusing the size: $[f]^{\mathcal B}_{\mathcal C}$ has $\dim W$ rows and $\dim V$ columns.
+- Changing the order of the basis vectors: the order of the columns follows the order of $\mathcal B$, the order of the rows follows that of $\mathcal C$.
+- For polynomials, forgetting that the coordinates with respect to $\{1, x, x^2\}$ are the coefficients **from the constant term upwards**.
+
+> [!EXAM] The 4-page sheet
+> From this lesson three lines are enough: "column $j$ of $[f]^{\mathcal B}_{\mathcal C}$ = $[f(v_j)]_{\mathcal C}$ (start at the top, target at the bottom)"; "$[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C} [v]_{\mathcal B}$"; "$f$ injective $\Rightarrow \dim V \le \dim W$, surjective $\Rightarrow \dim V \ge \dim W$, isomorphic $\iff$ same dimension".
+
+## Quiz
+
+```quiz
+Q: Let $f : \R^2 \to \R^3$ be a linear map. Which statement is necessarily true?
+- $f$ must be injective.
++ $f$ cannot be surjective.
+- $f$ cannot be injective.
+- $f$ is an isomorphism.
+- $f$ must be surjective.
+= $\dim \Imm f \le \dim \R^2 = 2 < 3$, so $\Imm f \neq \R^3$: $f$ is never surjective (Proposition 15.3, point 2). It can be injective ($(x, y) \mapsto (x, y, 0)$) but it does not have to be (the zero map). Similar to the exam of 02/09/2025, question 5.
+
+Q: Which pair of real vector spaces is made of isomorphic spaces?
++ $\R_2[x]$ and $\R^3$
+- $\R_2[x]$ and $\R^2$
+- $M(2, \R)$ and $\R^3$
+- $\R^2$ and $\R^3$
+- $M(2, 3, \R)$ and $\R^5$
+= Two finite-dimensional spaces are isomorphic if and only if they have the same dimension (Proposition 15.4). $\dim \R_2[x] = 3 = \dim \R^3$. In the other pairs the dimensions are $3$ and $2$, $4$ and $3$, $2$ and $3$, $6$ and $5$.
+
+Q: The matrix associated with $f : \R^3 \to \R^2$, $f(x, y, z) = (x - z,\ 2y + z)$, with respect to the standard bases is:
++ $\begin{pmatrix} 1 & 0 & -1 \\ 0 & 2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 0 & 2 \\ -1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -1 \\ 2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 & 1 \\ 0 & 2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & -1 \end{pmatrix}$
+= The columns are $f(e_1) = (1, 0)$, $f(e_2) = (0, 2)$, $f(e_3) = (-1, 1)$. The matrix is $2 \times 3$ (target $\R^2$, start $\R^3$) and is read off the coefficients row by row. The second answer is the transpose.
+
+Q: The matrix of the derivative $D : \R_2[x] \to \R_1[x]$, $D(p) = p'$, with respect to the bases $\{1, x, x^2\}$ and $\{1, x\}$ is:
++ $\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 0 \\ 1 & 0 \\ 0 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 2 \\ 0 & 0 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 2 & 0 \\ 0 & 0 & 1 \end{pmatrix}$
+= $D(1) = 0 \to (0, 0)$, $D(x) = 1 \to (1, 0)$, $D(x^2) = 2x \to (0, 2)$: they are the three columns. The size is $2 \times 3$ because $\dim \R_1[x] = 2$ and $\dim \R_2[x] = 3$; the second answer is the transpose, the third has the size of an endomorphism of $\R_2[x]$.
+
+Q: Let $T : \R^2 \to \R^2$, $T(x, y) = (x + y,\ 2x)$, and let $\mathcal B = \{v_1 = (1, 0),\ v_2 = (1, 1)\}$. The coordinate vector $[T(v_1)]_{\mathcal B}$ is:
++ $(-1, 2)$
+- $(1, 2)$
+- $(2, -1)$
+- $(1, 0)$
+- $(2, 2)$
+= $T(v_1) = (1, 2)$. Coordinates: $a (1, 0) + b (1, 1) = (a + b,\ b) = (1, 2)$ gives $b = 2$ and $a = -1$. The answer $(1, 2)$ is $T(v_1)$ itself, not its coordinates. Similar to the exam of 05/02/2026, question 6.
+
+Q: Let $T(x, y) = (y, x)$ and let $\mathcal B = \{(1, 2), (0, 1)\}$. The matrix $[T]^{\mathcal B}_{\mathcal B}$ is:
++ $\begin{pmatrix} 2 & 1 \\ -3 & -2 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 2 & -3 \\ 1 & -2 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 1 \\ 1 & 0 \end{pmatrix}$
+= $T(1, 2) = (2, 1) = 2 (1, 2) - 3 (0, 1)$ and $T(0, 1) = (1, 0) = 1 (1, 2) - 2 (0, 1)$: the columns are $(2, -3)$ and $(1, -2)$. The second answer is the matrix in the standard basis, the third the transpose, the fifth puts in the images without going to coordinates. Similar to the exams of 24/01/2024 (question 3) and 15/01/2026 (question 8).
+
+Q: Let $f(p) = (p(2), p(-2))$ with matrix $\begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix}$ with respect to $\{1, x, x^2\}$ and to the standard basis. What is $f(1 - x + x^2)$?
++ $(3, 7)$
+- $(3, -1)$
+- $(7, 3)$
+- $(1, 7)$
+- $(4, 4)$
+= $[p]_{\mathcal B} = (1, -1, 1)$, and the product gives $(1 - 2 + 4,\ 1 + 2 + 4) = (3, 7)$. Direct check: $p(2) = 1 - 2 + 4 = 3$ and $p(-2) = 1 + 2 + 4 = 7$.
+
+Q: The polynomials $(x + 1)^2$, $x + 1$, $1$ form a basis of $\R_2[x]$. The coordinates of $q(x) = (x - 1)^2$ in this basis are:
++ $(1, -4, 4)$
+- $(1, -2, 1)$
+- $(1, 4, 4)$
+- $(4, -4, 1)$
+- $(1, 0, 0)$
+= We write $x - 1 = (x + 1) - 2$. Then $(x - 1)^2 = (x + 1)^2 - 4(x + 1) + 4 \cdot 1$. Check: $x^2 + 2x + 1 - 4x - 4 + 4 = x^2 - 2x + 1$. The answer $(1, -2, 1)$ is the coordinates in the basis $\{x^2, x, 1\}$. Similar to the exam of 06/09/2024, question 9.
+
+Q: The matrix associated with the inverse of $f = L_A : \R^2 \to \R^2$, with $A = \begin{pmatrix} 2 & 1 \\ 1 & 1 \end{pmatrix}$, with respect to the standard basis is:
++ $\begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 2 & -1 \\ -1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1/2 & 1 \\ 1 & 1 \end{pmatrix}$
+- $f$ is not invertible.
+= $\det A = 2 - 1 = 1 \neq 0$, so $f$ is an isomorphism and $f^{-1} = L_{A^{-1}}$ with $A^{-1} = \frac{1}{1}\begin{pmatrix} 1 & -1 \\ -1 & 2 \end{pmatrix}$. Check: $A A^{-1} = I_2$. Similar to the exam of 10/07/2024, problem 11, point 2.
+
+Q: What is the dimension of the vector space of all the linear maps $\R^3 \to \R^2$?
+N: 6
+= By Theorem 15.12 this space is isomorphic to $M(2, 3, \R)$, the $2 \times 3$ matrices, which has dimension $2 \cdot 3 = 6$.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 15.13 of the handouts: a matrix with non-standard bases over $\C$
+Consider the linear map
+$$f : \C^2 \longrightarrow \C^3, \qquad f\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x - y \\ 2x \\ y \end{pmatrix}.$$
+Find the matrix associated with $f$ with respect to the bases $v_1 = (1, 1)$, $v_2 = (1, -1)$ at the start and $w_1 = (1, 1, 0)$, $w_2 = (0, 1, 1)$, $w_3 = (1, 0, 1)$ at the end.
+::: solution
+The field is $\C$, but all the numbers involved are real: the calculations are the usual ones.
+
+**Step 1**, the images:
+$$f(v_1) = f(1, 1) = (1 - 1,\ 2,\ 1) = (0, 2, 1), \qquad f(v_2) = f(1, -1) = (1 + 1,\ 2,\ -1) = (2, 2, -1).$$
+
+**Step 2**, coordinates with respect to $w_1, w_2, w_3$. We write $a w_1 + b w_2 + c w_3 = (a + c,\ a + b,\ b + c)$.
+
+For $f(v_1) = (0, 2, 1)$:
+$$\begin{cases} a + c = 0 \\ a + b = 2 \\ b + c = 1 \end{cases}$$
+From the first $c = -a$; the third becomes $b - a = 1$. Adding it to the second: $2b = 3$, so $b = \frac 32$; then $a = 2 - \frac 32 = \frac 12$ and $c = -\frac 12$. So $[f(v_1)]_{\mathcal C} = \left(\frac 12, \frac 32, -\frac 12\right)$.
+
+For $f(v_2) = (2, 2, -1)$:
+$$\begin{cases} a + c = 2 \\ a + b = 2 \\ b + c = -1 \end{cases}$$
+Subtracting the second from the first: $c - b = 0$, that is $b = c$. The third gives $2c = -1$, so $b = c = -\frac 12$ and $a = 2 - c = \frac 52$. So $[f(v_2)]_{\mathcal C} = \left(\frac 52, -\frac 12, -\frac 12\right)$.
+
+**Step 3**, the columns:
+$$[f]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1/2 & 5/2 \\ 3/2 & -1/2 \\ -1/2 & -1/2 \end{pmatrix} = \frac 12 \begin{pmatrix} 1 & 5 \\ 3 & -1 \\ -1 & -1 \end{pmatrix}.$$
+It is the result given in the handouts. Check on the first column: $\frac 12 (1, 1, 0) + \frac 32 (0, 1, 1) - \frac 12 (1, 0, 1) = \left(\frac 12 - \frac 12,\ \frac 12 + \frac 32,\ \frac 32 - \frac 12\right) = (0, 2, 1)$.
+
+In lesson L16 you will find the same result again with the change-of-basis formula.
+:::
+
+::: exercise basic Isomorphism or not?
+For each linear map say whether it is an isomorphism, giving reasons:
+(a) $f : \R^2 \to \R^2$, $f(x, y) = (x + y,\ x - y)$;
+(b) $g : \R^3 \to \R^2$, $g(x, y, z) = (x, y)$;
+(c) $h : \R_2[x] \to \R^3$, $h(p) = (p(0), p(1), p(2))$;
+(d) $k : M(2, \R) \to M(2, \R)$, $k(A) = A - {}^tA$.
+::: solution
+(a) **Yes.** Kernel: $x + y = 0$ and $x - y = 0$; adding, $2x = 0$, so $x = 0$ and $y = 0$. $\Ker f = \{0\}$, so $f$ is injective; since start and target have the same dimension 2, by the rank–nullity theorem $\dim \Imm f = 2$ and $f$ is also surjective. (Alternatively: $\det \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = -2 \neq 0$.)
+
+(b) **No.** $\dim \R^3 = 3 \neq 2 = \dim \R^2$: by Proposition 15.3 an isomorphism requires equal dimensions. Concretely $g(0, 0, 1) = (0, 0)$, so $g$ is not injective.
+
+(c) **Yes.** With the basis $\{1, x, x^2\}$ at the start and the standard one at the end: $h(1) = (1, 1, 1)$, $h(x) = (0, 1, 2)$, $h(x^2) = (0, 1, 4)$, so
+$$[h] = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & 1 \\ 1 & 2 & 4 \end{pmatrix}, \qquad \det [h] = 1 \cdot (1 \cdot 4 - 1 \cdot 2) = 2 \neq 0$$
+(expansion along the first row). The rank is 3, so $\Ker h = \{0\}$ and $\Imm h = \R^3$. In words: a polynomial of degree at most 2 is determined by its values at three points.
+
+(d) **No.** If $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, then $k(A) = \begin{pmatrix} 0 & b - c \\ c - b & 0 \end{pmatrix}$. All the symmetric matrices ($b = c$) end up in 0, for example $k(I_2) = 0$. The kernel is not $\{0\}$ (it has dimension 3), so $k$ is not injective.
+:::
+
+::: exercise basic Coordinates in non-standard bases
+(a) Find the coordinates of $v = (5, 1)$ with respect to $\mathcal B = \{(1, 1), (1, -1)\}$.
+(b) Find the coordinates of $p(x) = 2x^2 - x + 3$ with respect to $\{1, x, x^2\}$ and with respect to $\mathcal B' = \{1,\ x - 1,\ (x - 1)^2\}$.
+::: solution
+(a) $\lambda_1 (1, 1) + \lambda_2 (1, -1) = (5, 1)$ gives $\lambda_1 + \lambda_2 = 5$ and $\lambda_1 - \lambda_2 = 1$. Adding: $2\lambda_1 = 6$, $\lambda_1 = 3$; then $\lambda_2 = 2$. So $[v]_{\mathcal B} = (3, 2)$. Check: $3(1, 1) + 2(1, -1) = (5, 1)$.
+
+(b) With respect to $\{1, x, x^2\}$ the coefficients from the constant term upwards are enough: $(3, -1, 2)$.
+
+With respect to $\mathcal B'$ we look for $a, b, c$ with
+$$a + b(x - 1) + c(x - 1)^2 = (a - b + c) + (b - 2c)\,x + c\,x^2 = 3 - x + 2x^2.$$
+Comparing: $c = 2$; $b - 2c = -1$ gives $b = 3$; $a - b + c = 3$ gives $a = 3 + 3 - 2 = 4$. So $[p]_{\mathcal B'} = (4, 3, 2)$. Check: $4 + 3(x - 1) + 2(x^2 - 2x + 1) = 4 + 3x - 3 + 2x^2 - 4x + 2 = 2x^2 - x + 3$.
+:::
+
+::: exercise basic Matrix in the standard bases and image of a vector
+Let $f : \R^3 \to \R^2$, $f(x, y, z) = (x + 2y,\ y - z)$. Write the associated matrix with respect to the standard bases and use it to compute $f(1, 1, 1)$ and $f(2, -1, 3)$.
+::: solution
+Columns: $f(e_1) = (1, 0)$, $f(e_2) = (2, 1)$, $f(e_3) = (0, -1)$, so
+$$[f] = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & -1 \end{pmatrix}.$$
+With the standard bases coordinates and vectors coincide:
+$$[f]\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 + 2 + 0 \\ 0 + 1 - 1 \end{pmatrix} = \begin{pmatrix} 3 \\ 0 \end{pmatrix}, \qquad [f]\begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix} = \begin{pmatrix} 2 - 2 + 0 \\ 0 - 1 - 3 \end{pmatrix} = \begin{pmatrix} 0 \\ -4 \end{pmatrix}.$$
+Direct check: $f(2, -1, 3) = (2 - 2,\ -1 - 3) = (0, -4)$.
+:::
+
+::: exercise intermediate The matrix of the derivative
+Let $D : \R_3[x] \to \R_2[x]$, $D(p) = p'$. Write $[D]$ with respect to the bases $\{1, x, x^2, x^3\}$ and $\{1, x, x^2\}$, and use it to compute the derivative of $q(x) = 1 + 2x - x^2 + 4x^3$. What are $\dim \Ker D$ and $\dim \Imm D$?
+::: solution
+Images of the starting basis: $D(1) = 0$, $D(x) = 1$, $D(x^2) = 2x$, $D(x^3) = 3x^2$. Coordinates with respect to $\{1, x, x^2\}$: $(0, 0, 0)$, $(1, 0, 0)$, $(0, 2, 0)$, $(0, 0, 3)$. So
+$$[D] = \begin{pmatrix} 0 & 1 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 3 \end{pmatrix}.$$
+$[q] = (1, 2, -1, 4)$, and
+$$[D]\begin{pmatrix} 1 \\ 2 \\ -1 \\ 4 \end{pmatrix} = \begin{pmatrix} 2 \\ -2 \\ 12 \end{pmatrix},$$
+that is $q'(x) = 2 - 2x + 12x^2$. Direct check: the derivative of $1 + 2x - x^2 + 4x^3$ is $2 - 2x + 12x^2$.
+
+The matrix has rank 3 (three pivots), so $\dim \Imm D = 3$: $D$ is surjective. By the rank–nullity theorem $\dim \Ker D = 4 - 3 = 1$: the kernel is the constant polynomials.
+:::
+
+::: exercise intermediate A target basis that simplifies the matrix
+Take again $f : \R_2[x] \to \R^2$, $f(p) = (p(2), p(-2))$, with $\mathcal B = \{1, x, x^2\}$ at the start. (a) Compute $[f]^{\mathcal B}_{\mathcal C''}$ with $\mathcal C'' = \{(1, 1), (1, -1)\}$ at the end. (b) Use it to find $f(3x^2 + 5x + 1) = (23, 3)$ again.
+::: solution
+(a) The images are $f(1) = (1, 1)$, $f(x) = (2, -2)$, $f(x^2) = (4, 4)$. With respect to $\mathcal C''$:
+- $(1, 1) = 1 \cdot (1, 1) + 0 \cdot (1, -1)$, coordinates $(1, 0)$;
+- $(2, -2) = 0 \cdot (1, 1) + 2 \cdot (1, -1)$, coordinates $(0, 2)$;
+- $(4, 4) = 4 \cdot (1, 1) + 0 \cdot (1, -1)$, coordinates $(4, 0)$.
+
+$$[f]^{\mathcal B}_{\mathcal C''} = \begin{pmatrix} 1 & 0 & 4 \\ 0 & 2 & 0 \end{pmatrix}.$$
+There are many zeros: the first row "sees" only the even part of the polynomial ($1$ and $x^2$), the second only the odd part ($x$).
+
+(b) $[p]_{\mathcal B} = (1, 5, 3)$ and
+$$\begin{pmatrix} 1 & 0 & 4 \\ 0 & 2 & 0 \end{pmatrix}\begin{pmatrix} 1 \\ 5 \\ 3 \end{pmatrix} = \begin{pmatrix} 13 \\ 10 \end{pmatrix}.$$
+They are the coordinates with respect to $\mathcal C''$: $13 (1, 1) + 10 (1, -1) = (23, 3)$.
+:::
+
+::: exercise intermediate An isomorphism built with a basis
+In $\R_1[x]$ consider the basis $\mathcal B = \{1 + x,\ 1 - x\}$. Write explicitly the isomorphism $\Phi : \R_1[x] \to \R^2$ that sends $p$ to $[p]_{\mathcal B}$, and its inverse. What is $\Phi(3 + x)$?
+::: solution
+Let $p = a + bx$. We look for $\alpha, \beta$ with $\alpha(1 + x) + \beta(1 - x) = (\alpha + \beta) + (\alpha - \beta)x = a + bx$:
+$$\begin{cases} \alpha + \beta = a \\ \alpha - \beta = b \end{cases} \quad\Longrightarrow\quad \alpha = \frac{a + b}{2}, \qquad \beta = \frac{a - b}{2}.$$
+So
+$$\Phi(a + bx) = \left(\frac{a + b}{2},\ \frac{a - b}{2}\right), \qquad \Phi^{-1}(\alpha, \beta) = \alpha(1 + x) + \beta(1 - x) = (\alpha + \beta) + (\alpha - \beta)x.$$
+Both are linear (as Proposition 15.2 predicts). For $p = 3 + x$: $\Phi(3 + x) = (2, 1)$. Check: $2(1 + x) + 1(1 - x) = 3 + x$.
+:::
+
+::: exercise intermediate A matrix from $M(2, \R)$ to $\R_2[x]$ (tutoring sheet 3, exercise 4)
+Compute the matrix associated with $T : M(2, \R) \to \R_2[x]$,
+$$T\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ax^2 + (b + c)x + d,$$
+from the basis $\mathcal A = \left\{ \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}, \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \right\}$ to the basis $\mathcal B = \{1, x, x^2\}$. What can you say about $\Ker T$ and $\Imm T$?
+::: solution
+The matrix will be $3 \times 4$ ($\dim \R_2[x] = 3$, $\dim M(2, \R) = 4$). We call $A_1, \dots, A_4$ the matrices of the basis.
+- $T(A_1)$: $a = 1$, $b = c = 0$, $d = -1$, so $T(A_1) = x^2 - 1$, coordinates $(-1, 0, 1)$ (constant term, $x$, $x^2$).
+- $T(A_2)$: $a = 0$, $b = c = 1$, $d = 0$, so $T(A_2) = 2x$, coordinates $(0, 2, 0)$.
+- $T(A_3)$: $a = 0$, $b = 1$, $c = -1$, $d = 0$, so $T(A_3) = 0$, coordinates $(0, 0, 0)$.
+- $T(A_4)$: $a = 1$, $b = c = 0$, $d = 1$, so $T(A_4) = x^2 + 1$, coordinates $(1, 0, 1)$.
+
+$$[T]^{\mathcal A}_{\mathcal B} = \begin{pmatrix} -1 & 0 & 0 & 1 \\ 0 & 2 & 0 & 0 \\ 1 & 0 & 0 & 1 \end{pmatrix}.$$
+Columns 1, 2 and 4 are independent (1 and 4 have sum $(0, 0, 2)$ and difference $(2, 0, 0)$, 2 is $(0, 2, 0)$), so the rank is 3: $T$ is surjective, $\Imm T = \R_2[x]$. By the rank–nullity theorem $\dim \Ker T = 4 - 3 = 1$, and the zero column says that $A_3 \in \Ker T$: $\Ker T = \Span(A_3)$, the skew-symmetric matrices.
+:::
+
+::: exercise hard Injective if and only if surjective
+Let $f : V \to W$ be linear with $\dim V = \dim W = n$. Prove that $f$ is injective if and only if it is surjective. Then show with an example that the hypothesis $\dim V = \dim W$ cannot be dropped.
+::: solution
+By the rank–nullity theorem, $n = \dim \Ker f + \dim \Imm f$.
+
+($\Rightarrow$) If $f$ is injective, $\Ker f = \{0\}$, so $\dim \Imm f = n = \dim W$. A subspace of $W$ with the same dimension as $W$ is the whole of $W$: a basis of it is made of $n$ independent vectors of $W$, which by Theorem 7.12 are a basis of $W$. So $\Imm f = W$: $f$ is surjective.
+
+($\Leftarrow$) If $f$ is surjective, $\dim \Imm f = \dim W = n$, so $\dim \Ker f = n - n = 0$, that is $\Ker f = \{0\}$: $f$ is injective.
+
+Without the hypothesis: $g : \R^2 \to \R^3$, $g(x, y) = (x, y, 0)$ is injective but not surjective; $h : \R^3 \to \R^2$, $h(x, y, z) = (x, y)$ is surjective but not injective.
+:::
+
+::: exercise exam As at the exam: a basis that makes the matrix simple
+Let $f : \R_2[x] \to \R^2$, $f(p) = (p(1),\ p'(1))$.
+(1) Write the matrix associated with $f$ with respect to the bases $\mathcal B = \{1, x, x^2\}$ and $\mathcal C = \{e_1, e_2\}$.
+(2) Find $\Ker f$ and $\Imm f$; is $f$ injective? Is it surjective?
+(3) Write the matrix of $f$ with respect to $\mathcal B' = \{1,\ x - 1,\ (x - 1)^2\}$ at the start and $\mathcal C$ at the end.
+::: solution
+(1) $f(1) = (1, 0)$ (the derivative of a constant is 0); $f(x) = (1, 1)$; $f(x^2) = (1, 2)$ because $(x^2)' = 2x$ is 2 at 1. So
+$$[f]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \end{pmatrix}.$$
+
+(2) The matrix is already in row echelon form with two pivots: rank 2. So $\dim \Imm f = 2$ and $\Imm f = \R^2$: **$f$ is surjective**. By the rank–nullity theorem $\dim \Ker f = 3 - 2 = 1$: **it is not injective**. The kernel: $a + b + c = 0$ and $b + 2c = 0$ (where $p = a + bx + cx^2$). Setting $c = t$: $b = -2t$, $a = -b - c = t$. So $p = t(1 - 2x + x^2) = t(x - 1)^2$ and
+$$\Ker f = \Span\big((x - 1)^2\big).$$
+Check: $(x - 1)^2$ is 0 at 1, and its derivative $2(x - 1)$ is 0 at 1.
+
+(3) $f(1) = (1, 0)$; $f(x - 1) = (0, 1)$ because $x - 1$ is 0 at 1 and has derivative 1; $f((x - 1)^2) = (0, 0)$ by point (2). So
+$$[f]^{\mathcal B'}_{\mathcal C} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}.$$
+With the basis "centred at 1" the matrix is almost the identity: you read straight away that $f$ is surjective and that the third basis vector spans the kernel.
+:::
+
+::: exercise exam As at the exam: non-standard bases at the start and at the end
+Let $T : \R^3 \to \R^2$, $T(a, b, c) = (a + b,\ b - c)$, and let $\mathcal B = \{(1, 0, 0), (1, 1, 0), (1, 1, 1)\}$ be a basis of $\R^3$ and $\mathcal C = \{(1, 1), (0, 1)\}$ a basis of $\R^2$.
+(1) Compute $[T]^{\mathcal B}_{\mathcal C}$.
+(2) Compute $[v]_{\mathcal B}$ for $v = (2, 3, 4)$.
+(3) Use Proposition 15.9 to compute $T(v)$, and check the result with the definition.
+::: solution
+(1) The images: $T(1, 0, 0) = (1, 0)$, $T(1, 1, 0) = (2, 1)$, $T(1, 1, 1) = (2, 0)$. Coordinates with respect to $\mathcal C$: $\alpha (1, 1) + \beta (0, 1) = (\alpha,\ \alpha + \beta)$, so $\alpha$ is the first component and $\beta$ = second component $- \alpha$.
+- $(1, 0)$: $\alpha = 1$, $\beta = -1$;
+- $(2, 1)$: $\alpha = 2$, $\beta = -1$;
+- $(2, 0)$: $\alpha = 2$, $\beta = -2$.
+
+$$[T]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 2 & 2 \\ -1 & -1 & -2 \end{pmatrix}.$$
+
+(2) $x (1, 0, 0) + y (1, 1, 0) + z (1, 1, 1) = (x + y + z,\ y + z,\ z) = (2, 3, 4)$: from the last $z = 4$, then $y = 3 - 4 = -1$, then $x = 2 - (-1) - 4 = -1$. So $[v]_{\mathcal B} = (-1, -1, 4)$.
+
+(3) $$[T(v)]_{\mathcal C} = \begin{pmatrix} 1 & 2 & 2 \\ -1 & -1 & -2 \end{pmatrix}\begin{pmatrix} -1 \\ -1 \\ 4 \end{pmatrix} = \begin{pmatrix} -1 - 2 + 8 \\ 1 + 1 - 8 \end{pmatrix} = \begin{pmatrix} 5 \\ -6 \end{pmatrix}.$$
+They are coordinates with respect to $\mathcal C$: $T(v) = 5 (1, 1) - 6 (0, 1) = (5, -1)$. Check with the definition: $T(2, 3, 4) = (2 + 3,\ 3 - 4) = (5, -1)$.
+:::
+
+## Review questions
+
+::: question What is an isomorphism? When are two spaces called isomorphic?
+A bijective linear map, that is injective ($\Ker f = \{0\}$) and surjective ($\Imm f = W$). Two spaces over the same field are isomorphic if there is at least one isomorphism between them.
+:::
+
+::: question Is the inverse of an isomorphism linear? Why?
+Yes (Proposition 15.2). If $f(v) = w$ and $f(v') = w'$, then $f(v + v') = w + w'$ and $f(\lambda v) = \lambda w$; since $f$ is bijective, this says that $f^{-1}(w + w') = v + v'$ and $f^{-1}(\lambda w) = \lambda v$.
+:::
+
+::: question What can you deduce about the dimensions if $f : V \to W$ is injective? And if it is surjective?
+Injective: $\dim V = \dim \Imm f \le \dim W$. Surjective: $\dim V \ge \dim \Imm f = \dim W$. Isomorphism: $\dim V = \dim W$. Everything comes from the rank–nullity theorem.
+:::
+
+::: question When are two finite-dimensional vector spaces isomorphic?
+If and only if they have the same dimension (Proposition 15.4). In particular every space of dimension $n$ over $\K$ is isomorphic to $\K^n$.
+:::
+
+::: question Which isomorphism $V \to \K^n$ do the handouts point to, and what does it depend on?
+The map that sends every vector to its coordinates with respect to a basis of $V$. It depends on the basis: with different bases the same vector has different coordinates (for example $x^2$ is $(0, 0, 1)$ in $\{1, x, x^2\}$ and $(1, 2, 1)$ in $\{1, x - 1, (x - 1)^2\}$).
+:::
+
+::: question What does the associated matrix $[f]^{\mathcal B}_{\mathcal C}$ look like?
+It is an $m \times n$ matrix with $m = \dim W$ and $n = \dim V$; column $j$ contains the coordinates of $f(v_j)$ with respect to $\mathcal C$. The starting basis goes at the top, the target one at the bottom.
+:::
+
+::: question What is the matrix associated with $L_A$ with respect to the standard bases?
+It is $A$ itself (Example 15.6): $L_A(e_j)$ is column $j$ of $A$, and its coordinates with respect to the standard basis are its components.
+:::
+
+::: question How do you compute $f(v)$ using the associated matrix?
+You write $v$ in coordinates, $[v]_{\mathcal B}$; you multiply: $[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C}[v]_{\mathcal B}$; finally, if $\mathcal C$ is not the standard basis, you rebuild $f(v)$ as a combination of the vectors of $\mathcal C$ with those coefficients.
+:::
+
+::: question Why does the same map have different matrices?
+Because the matrix records the coordinates of the images, and the coordinates depend on the bases chosen at the start and at the end (Examples 15.7 and 15.8).
+:::
+
+::: question What is $[\id]^{\mathcal B}_{\mathcal B}$? And $[\id]^{\mathcal B}_{\mathcal C}$ with $\mathcal B \neq \mathcal C$?
+$[\id]^{\mathcal B}_{\mathcal B} = I_n$ for every basis $\mathcal B$ (Proposition 15.11). With two different bases it is generally not $I_n$: its columns are the coordinates of the vectors of $\mathcal B$ with respect to $\mathcal C$ (it is the change-of-basis matrix of lesson L16).
+:::
+
+::: question How do you add two linear maps, and what happens to the matrices?
+$(f + g)(v) = f(v) + g(v)$ and $(\lambda f)(v) = \lambda f(v)$. Once the bases are fixed, $[f + g] = [f] + [g]$ and $[\lambda f] = \lambda [f]$.
+:::
+
+::: question What does Theorem 15.12 say?
+That the linear maps $V \to W$ form a vector space and that, once the bases are fixed, $f \mapsto [f]^{\mathcal A}_{\mathcal B}$ is an isomorphism with $M(m, n, \K)$: every $m \times n$ matrix is the matrix of one and only one linear map.
+:::
+
+## Glossary
+
+```glossary
+Injective | Different vectors have different images; for a linear map it is equivalent to $\Ker f = \{0\}$.
+Surjective | Every vector of the target space is the image of something: $\Imm f = W$.
+Bijective | Injective and surjective; then the inverse $f^{-1}$ exists.
+Isomorphism | Bijective linear map (Definition 15.1); its inverse is linear.
+Isomorphic spaces | Spaces over the same field between which there is an isomorphism; in finite dimension, spaces with the same dimension.
+Coordinates $[v]_{\mathcal B}$ | The column of the coefficients that write $v$ as a combination of the vectors of the basis $\mathcal B$, in the order of the basis.
+Ordered basis | A basis used as a list: the order of the vectors decides the order of the coordinates and of the columns.
+Associated matrix $[f]^{\mathcal B}_{\mathcal C}$ | $m \times n$ matrix whose column $j$ is $[f(v_j)]_{\mathcal C}$ (Definition 15.5).
+Starting / target basis | The basis of the domain (at the top in the notation) and that of the codomain (at the bottom).
+$L_A$ | The map $x \mapsto Ax$; its matrix in the standard bases is $A$.
+Coordinate formula | $[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C}\,[v]_{\mathcal B}$ (Proposition 15.9).
+Matrix of the identity | $[\id]^{\mathcal B}_{\mathcal B} = I_n$ for every basis $\mathcal B$ (Proposition 15.11).
+Sum of maps | $(f + g)(v) = f(v) + g(v)$; the matrix of the sum is the sum of the matrices.
+$\mathrm{Hom}(V, W)$ | Name used in Martelli's book for the space of linear maps $V \to W$; it has dimension $\dim V \cdot \dim W$.
+Rank–nullity theorem | $\dim V = \dim \Ker f + \dim \Imm f$ (lesson L14): it is the basis of all the properties about dimensions.
+```
+
+## Checklist
+
+```checklist
+- I can say what an isomorphism is and check whether a given map is one (kernel, image or determinant).
+- I can explain why the inverse of an isomorphism is linear.
+- I can use the dimensions to rule out injectivity, surjectivity or isomorphism (Proposition 15.3).
+- I know that two finite-dimensional spaces are isomorphic if and only if they have the same dimension, and I can give examples ($\R_2[x] \cong \R^3$, $M(2, \R) \cong \R^4$).
+- I can compute the coordinates of a vector or of a polynomial with respect to a non-standard basis, by solving a system.
+- I can write the associated matrix $[f]^{\mathcal B}_{\mathcal C}$ in three steps, with the coordinates in columns and the right size.
+- I can use $[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C}[v]_{\mathcal B}$ and rebuild $f(v)$ from its coordinates.
+- I know that the associated matrix depends on the bases and that $[\id]^{\mathcal B}_{\mathcal B} = I_n$.
+- I can add linear maps and I know that, once the bases are fixed, linear maps and $m \times n$ matrices correspond one to one.
+- I recognise the quiz traps straight away: transpose, images instead of coordinates, order of the basis.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 15 "Applicazioni lineari II", pp. 74–78: sections 15.A (isomorphisms) and 15.B (associated matrix) are followed in order, with the page next to each heading; definitions, propositions and examples keep their numbering (Definitions 15.1 and 15.5, Propositions 15.2–15.4, 15.9, 15.11, Examples 15.6–15.8 and 15.10, Theorem 15.12); Exercise 15.13 of section 15.C is worked out in the exercises.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §4.2.5 and §4.2.7 (isomorphisms, with the proof of Proposition 15.2 and Proposition 4.2.24), §4.3.1–4.3.4 (associated matrix, properties, Hom).
+- **Exam**: exam sessions of 24/01/2024 (question 3), 10/07/2024 (problem 11), 06/09/2024 (question 9), 16/01/2025 (question 5), 02/09/2025 (question 5), 15/01/2026 (question 8), 05/02/2026 (question 6); tutoring sheet 3, 2025/26 (exercises 4 and 5). Official papers and solutions on the 2025/26 Moodle ([id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); the solutions reported here are written from scratch.
+- The **"Beyond the handouts"** parts (the proof of Proposition 15.2, the construction of the isomorphism, the shortcut for equal dimensions, Hom, the added examples and exercises) serve to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L16_linear_maps_3.md -->
+> File: `ai_context/MDAG/lessons/L16_linear_maps_3.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L16
+title: Linear maps III
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L16
+description: >-
+  Notes on lesson L16 of Linear Algebra and Geometry (MDAG, part 2): change-of-basis matrix, composition of linear
+  maps and product of matrices, endomorphisms and similar matrices, with exam-style quizzes and worked exercises.
+lede: >-
+  How to go from the coordinates in one basis to the coordinates in another with the matrix $[\id]^{\mathcal B}_{\mathcal C}$,
+  why composing two linear maps means multiplying their matrices, and how the matrix of an endomorphism changes when
+  you change basis: $[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$. The matrices linked by
+  this formula are called similar, and they are the starting point of eigenvalues.
+material: handouts
+facts:
+  Handouts: lesson 16 · pp. 79–84
+  Book: Martelli, §4.2.4, §4.3.3, §4.3.5 and §4.4
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 16 "Applicazioni lineari III"; B. Martelli, Geometria e algebra lineare, §4.2.4, §4.3 and §4.4
+italian_file: L16_applicazioni_lineari_3.html
+html_notes: notes/MDAG/L16_linear_maps_3.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L16_applicazioni_lineari_3.md
+```
+
+## In brief
+
+- The **change-of-basis matrix** from $\mathcal B$ to $\mathcal C$ is $[\id]^{\mathcal B}_{\mathcal C}$: its column $j$ contains the coordinates of the $j$-th vector of $\mathcal B$ with respect to $\mathcal C$. Its inverse $[\id]^{\mathcal C}_{\mathcal B}$ goes the other way.
+- It converts coordinates: $[v]_{\mathcal C} = [\id]^{\mathcal B}_{\mathcal C}\,[v]_{\mathcal B}$. If $\mathcal C$ is the standard basis of $\K^n$, you just put the vectors of $\mathcal B$ in columns.
+- The **composition** of linear maps is linear, and in coordinates it becomes the **product** of the matrices: $L_A \circ L_B = L_{AB}$ and $[g \circ f]^{\mathcal B}_{\mathcal D} = [g]^{\mathcal C}_{\mathcal D}\,[f]^{\mathcal B}_{\mathcal C}$ (the basis in the middle "cancels").
+- $f$ is an isomorphism if and only if its matrix is invertible, and then $[f^{-1}]^{\mathcal C}_{\mathcal B} = \big([f]^{\mathcal B}_{\mathcal C}\big)^{-1}$.
+- To change the bases of a map you multiply on the left and on the right by change-of-basis matrices: $[f]^{\mathcal B_2}_{\mathcal C_2} = [\id_W]^{\mathcal C_1}_{\mathcal C_2}\,[f]^{\mathcal B_1}_{\mathcal C_1}\,[\id_V]^{\mathcal B_2}_{\mathcal B_1}$.
+- An **endomorphism** is a linear map $f : V \to V$; you use the same basis at the start and at the end. With $M = [\id]^{\mathcal B}_{\mathcal C}$ we have $[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$.
+- Two square matrices are **similar** if $A = M^{-1}BM$ with $M$ invertible: they describe the same endomorphism in different bases. Similarity is an equivalence relation.
+- Similar matrices have the same **rank** and the same **determinant** (and, as you will see in lesson L17, the same characteristic polynomial). Having equal rank and determinant, though, is not enough to be similar.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## The change-of-basis matrix (p. 79)
+
+In lesson L15 you saw the associated matrix $[f]^{\mathcal B}_{\mathcal C}$: column $j$ contains the coordinates of $f(v_j)$ with respect to the target basis. Now we take as $f$ the simplest map of all, the identity $\id(v) = v$, but with **two different bases**. The result is a tool to translate coordinates from one basis to the other.
+
+As in the handouts, the vectors of $\K^n$ are columns; in the text we write them as rows, $(1, 2)$, to save space.
+
+### An example to start
+
+In $\R^2$ take the basis $\mathcal B = \{v_1, v_2\}$ with $v_1 = (1, 1)$ and $v_2 = (1, -1)$, and the standard basis $\mathcal C = \{e_1, e_2\}$. A vector $v$ has coordinates $[v]_{\mathcal B} = (2, 1)$. Who is $v$? By definition of coordinates
+$$v = 2v_1 + 1v_2 = 2(1, 1) + (1, -1) = (3, 1).$$
+The same calculation can be written as a product, putting the vectors of $\mathcal B$ **in columns**:
+$$\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} 2 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 + 1 \\ 2 - 1 \end{pmatrix} = \begin{pmatrix} 3 \\ 1 \end{pmatrix} = [v]_{\mathcal C}.$$
+The matrix with columns $v_1, v_2$ turns the coordinates with respect to $\mathcal B$ into the coordinates with respect to $\mathcal C$. It is exactly $[\id]^{\mathcal B}_{\mathcal C}$: column $j$ is $[\id(v_j)]_{\mathcal C} = [v_j]_{\mathcal C}$.
+
+> [!DEF] 16.1 · Change-of-basis matrix
+> Let $V$ be a vector space and $\mathcal B = \{v_1, \dots, v_n\}$ and $\mathcal C = \{w_1, \dots, w_n\}$ two bases of $V$. The **change-of-basis matrix from $\mathcal B$ to $\mathcal C$** is the matrix
+> $$A = [\id]^{\mathcal B}_{\mathcal C}.$$
+
+Piece by piece:
+
+- It is the matrix associated with the identity $\id : V \to V$, with $\mathcal B$ at the start (at the top) and $\mathcal C$ at the end (at the bottom). It is square $n \times n$.
+- **Column $j$** of $A$ contains the coordinates of $v_j$ with respect to $\mathcal C$: $A^j = [v_j]_{\mathcal C}$.
+- **The inverse** $A^{-1} = [\id]^{\mathcal C}_{\mathcal B}$ is the change-of-basis matrix from $\mathcal C$ to $\mathcal B$: its columns contain the coordinates of the vectors of $\mathcal C$ with respect to $\mathcal B$. (That it really is the inverse is proved by Corollary 16.7 below: the identity is an isomorphism and its inverse is again the identity.)
+
+From Proposition 15.9 of lesson L15, $[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C}[v]_{\mathcal B}$, applied to $f = \id$, you get:
+
+> [!PROP] 16.2
+> For every $v \in V$
+> $$[v]_{\mathcal C} = A \cdot [v]_{\mathcal B}.$$
+
+> [!NOTE] A cross-reference to correct
+> In the handouts, on p. 79, Proposition 16.2 is introduced with "From Proposition 15.10 we get". The result used is **Proposition 15.9** ($[f(v)]_{\mathcal C} = [f]^{\mathcal B}_{\mathcal C}[v]_{\mathcal B}$); number 15.10 is an example.
+
+> [!PITFALL] Which way does the matrix go?
+> $[\id]^{\mathcal B}_{\mathcal C}$ **takes** coordinates with respect to $\mathcal B$ (at the top) and **returns** coordinates with respect to $\mathcal C$ (at the bottom), and its columns are the vectors **of $\mathcal B$** written in the basis $\mathcal C$. The typical mistake is to use the matrix with the vectors of $\mathcal B$ in columns to go from standard coordinates to coordinates with respect to $\mathcal B$: for that you need the **inverse**.
+>
+> In the example: from $[v]_{\mathcal C} = (3, 1)$ you go back to $[v]_{\mathcal B}$ with $\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}^{-1} = \frac 12 \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$, and indeed $\frac 12 (3 + 1,\ 3 - 1) = (2, 1)$.
+
+> [!METHOD] The change-of-basis matrix, two cases
+> 1. **$\mathcal C$ is the standard basis of $\K^n$.** The coordinates of a vector with respect to the standard basis are its components, so $[\id]^{\mathcal B}_{\mathcal C}$ is written straight away: **the vectors of $\mathcal B$ in columns**, in order. If you need the opposite direction, $[\id]^{\mathcal C}_{\mathcal B}$, you compute the inverse.
+> 2. **Neither of the two is standard.** Either you solve $n$ systems (one for each vector of $\mathcal B$, as in Solution 1 below), or you go through the standard basis $\mathcal E$: $[\id]^{\mathcal B}_{\mathcal C} = [\id]^{\mathcal E}_{\mathcal C}\,[\id]^{\mathcal B}_{\mathcal E} = \big([\id]^{\mathcal C}_{\mathcal E}\big)^{-1}[\id]^{\mathcal B}_{\mathcal E}$ (it is the composition rule you see in the next section).
+
+### An example worked in two ways
+
+The handouts call this example "Exercise 16.3" and solve it in the text, with two methods.
+
+> [!EXAMPLE] Exercise 16.3 · From the standard basis to the basis $\mathcal B$
+> Let $\mathcal A = \{e_1, e_2, e_3\}$ be the standard basis of $\R^3$ and $\mathcal B = \{w_1, w_2, w_3\}$ defined by
+> $$w_1 = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}, \qquad w_2 = \begin{pmatrix} 0 \\ 2 \\ 1 \end{pmatrix}, \qquad w_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}.$$
+> We want to find the change-of-basis matrix $A = [\id]^{\mathcal A}_{\mathcal B}$.
+>
+> **Solution 1.** By construction $A = (a_{ij})$, where the $a_{ij}$ are the solutions of the system
+> $$\begin{cases} e_1 = a_{11} w_1 + a_{21} w_2 + a_{31} w_3 \\ e_2 = a_{12} w_1 + a_{22} w_2 + a_{32} w_3 \\ e_3 = a_{13} w_1 + a_{23} w_2 + a_{33} w_3. \end{cases}$$
+> The first equation, component by component, becomes
+> $$\begin{cases} a_{11} = 1 \\ 2a_{11} + 2a_{21} + a_{31} = 0 \\ 3a_{11} + a_{21} + a_{31} = 0 \end{cases}$$
+> With $a_{11} = 1$: $2a_{21} + a_{31} = -2$ and $a_{21} + a_{31} = -3$. Subtracting, $a_{21} = 1$, and then $a_{31} = -3 - 1 = -4$. In a similar way:
+> - for $e_2$: $a_{12} = 0$, $2a_{22} + a_{32} = 1$, $a_{22} + a_{32} = 0$, so $a_{22} = 1$ and $a_{32} = -1$;
+> - for $e_3$: $a_{13} = 0$, $2a_{23} + a_{33} = 0$, $a_{23} + a_{33} = 1$, so $a_{23} = -1$ and $a_{33} = 2$.
+>
+> Putting the solutions in columns:
+> $$A = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & -1 \\ -4 & -1 & 2 \end{pmatrix}.$$
+>
+> **Solution 2.** We first compute $A^{-1} = [\id]^{\mathcal B}_{\mathcal A}$. Its column $j$ is $[w_j]_{\mathcal A}$, and since $\mathcal A$ is the standard basis $[w_j]_{\mathcal A} = w_j$. So
+> $$A^{-1} = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 2 & 1 \\ 3 & 1 & 1 \end{pmatrix}, \qquad A = \begin{pmatrix} 1 & 0 & 0 \\ 2 & 2 & 1 \\ 3 & 1 & 1 \end{pmatrix}^{-1} = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & -1 \\ -4 & -1 & 2 \end{pmatrix}.$$
+
+The inverse in Solution 2 is computed with cofactors (lesson L10). The determinant, expanding along the first row, is $1 \cdot (2 \cdot 1 - 1 \cdot 1) = 1$. The transposed cofactor matrix, divided by $\det = 1$, gives exactly $A$. Check on the first column: $1 \cdot w_1 + 1 \cdot w_2 - 4 \cdot w_3 = (1 + 0 - 0,\ 2 + 2 - 4,\ 3 + 1 - 4) = (1, 0, 0) = e_1$.
+
+In the tool below the matrix is already $A^{-1}$ (the vectors of $\mathcal B$ in columns, that is written by rows as $1\ 0\ 0;\ 2\ 2\ 1;\ 3\ 1\ 1$). Press the button and watch the Gauss–Jordan moves that turn $(A^{-1} \mid I)$ into $(I \mid A)$.
+
+```widget gauss
+title: The inverse of $[\id]^{\mathcal B}_{\mathcal A}$ is $[\id]^{\mathcal A}_{\mathcal B}$
+matrice: 1 0 0; 2 2 1; 3 1 1
+modo: inversa
+modi: inversa, determinante
+```
+
+## Composition of linear maps (pp. 80–81)
+
+Besides the operations of sum and product by a scalar (lesson L15), linear maps can be **composed**: first you apply $f$, then $g$.
+
+> [!EXAMPLE] · composing and multiplying
+> Let $f, g : \R^2 \to \R^2$ with $f(x, y) = (x + y,\ y)$ and $g(u, v) = (2u,\ u - v)$. Then
+> $$(g \circ f)(x, y) = g(x + y,\ y) = \big(2(x + y),\ (x + y) - y\big) = (2x + 2y,\ x).$$
+> The matrices in the standard bases are $[f] = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$, $[g] = \begin{pmatrix} 2 & 0 \\ 1 & -1 \end{pmatrix}$, and the product
+> $$[g]\,[f] = \begin{pmatrix} 2 & 0 \\ 1 & -1 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 2 \cdot 1 + 0 \cdot 0 & 2 \cdot 1 + 0 \cdot 1 \\ 1 \cdot 1 - 1 \cdot 0 & 1 \cdot 1 - 1 \cdot 1 \end{pmatrix} = \begin{pmatrix} 2 & 2 \\ 1 & 0 \end{pmatrix}$$
+> is exactly the matrix of $g \circ f$. Check on a vector: $f(3, 5) = (8, 5)$ and $g(8, 5) = (16, 3)$; with the matrix, $(2 \cdot 3 + 2 \cdot 5,\ 3) = (16, 3)$.
+
+> [!PROP] 16.4
+> If $f : V \to W$ and $g : W \to Z$ are linear functions, the composition
+> $$g \circ f : V \to Z$$
+> is linear too.
+
+> [!PROOF] of Proposition 16.4 (the handouts do not include it)
+> For $v, v' \in V$ and $\lambda \in \K$:
+> $$(g \circ f)(v + v') = g\big(f(v) + f(v')\big) = g(f(v)) + g(f(v')), \qquad (g \circ f)(\lambda v) = g\big(\lambda f(v)\big) = \lambda\, g(f(v)).$$
+> In the first step of each chain you use the linearity of $f$, in the second that of $g$.
+
+For maps of the form $L_A$ the composition corresponds precisely to the product of matrices:
+
+> [!PROP] 16.5
+> Let $A \in M(k, m, \K)$ and $B \in M(m, n, \K)$. Consider
+> $$L_A : \K^m \to \K^k, \qquad L_B : \K^n \to \K^m.$$
+> Then
+> $$L_A \circ L_B = L_{AB}.$$
+
+The handouts' explanation: for every $x \in \K^n$,
+$$L_A(L_B(x)) = A(Bx) = (AB)x = L_{AB}(x),$$
+where the middle step is the **associativity** of the product of matrices (lesson L08). The sizes match: $B$ is $m \times n$ and sends $\K^n$ to $\K^m$, then $A$ is $k \times m$ and sends $\K^m$ to $\K^k$; the product $AB$ is $k \times n$.
+
+The same holds with any bases:
+
+> [!PROP] 16.6
+> Let $f : U \to V$ and $g : V \to W$ be two linear maps. Let $\mathcal B$, $\mathcal C$ and $\mathcal D$ be bases of $U$, $V$ and $W$. We find
+> $$[g \circ f]^{\mathcal B}_{\mathcal D} = [g]^{\mathcal C}_{\mathcal D}\,[f]^{\mathcal B}_{\mathcal C}.$$
+
+The handouts' proof, step by step:
+
+1. Let $\mathcal B = \{v_1, \dots, v_n\}$. By definition of associated matrix, column $i$ of $[g \circ f]^{\mathcal B}_{\mathcal D}$ is $[g(f(v_i))]_{\mathcal D}$.
+2. By Proposition 15.9 applied to $g$ and to the vector $f(v_i)$: $[g(f(v_i))]_{\mathcal D} = [g]^{\mathcal C}_{\mathcal D}\,[f(v_i)]_{\mathcal C}$.
+3. On the other hand $[f(v_i)]_{\mathcal C}$ is column $i$ of $[f]^{\mathcal B}_{\mathcal C}$. And column $i$ of a product $XY$ is $X$ times column $i$ of $Y$.
+4. So the two matrices have the same columns, that is they are equal. $\square$
+
+> [!PITFALL] The order: read from right to left
+> $g \circ f$ means "first $f$, then $g$", and in the product the matrix of $f$ is **on the right**: $[g][f]$. The product of matrices is not commutative, so $[f][g]$ is in general another matrix (or cannot even be computed, if the sizes do not match). A memory aid: in the formula the bases fit together like domino tiles, $[g]^{\mathcal C}_{\mathcal D}[f]^{\mathcal B}_{\mathcal C}$, and the basis $\mathcal C$ "in the middle" must be the same above and below.
+
+> [!EXAMPLE] · composition with polynomials
+> Let $f : \R^2 \to \R_2[x]$, $f(u, v) = u x^2 + v$, and $g : \R_2[x] \to \R^2$, $g(p) = (p(1),\ p(2))$. With the standard bases $\mathcal E$ of $\R^2$ and $\mathcal B = \{1, x, x^2\}$ of $\R_2[x]$:
+> - $f(e_1) = x^2$ and $f(e_2) = 1$, with coordinates $(0, 0, 1)$ and $(1, 0, 0)$, so $[f]^{\mathcal E}_{\mathcal B} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \\ 1 & 0 \end{pmatrix}$;
+> - $g(1) = (1, 1)$, $g(x) = (1, 2)$, $g(x^2) = (1, 4)$, so $[g]^{\mathcal B}_{\mathcal E} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \end{pmatrix}$.
+>
+> By Proposition 16.6:
+> $$[g \circ f]^{\mathcal E}_{\mathcal E} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 0 & 0 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 4 & 1 \end{pmatrix}.$$
+> Direct check: $(g \circ f)(u, v) = g(ux^2 + v) = (u + v,\ 4u + v)$, which has exactly this matrix.
+
+### Isomorphisms and invertible matrices
+
+> [!COROLLARY] 16.7
+> The function $f$ is an isomorphism if and only if the associated matrix $[f]^{\mathcal B}_{\mathcal C}$ is invertible, and in this case its inverse is
+> $$\big[f^{-1}\big]^{\mathcal C}_{\mathcal B}.$$
+
+The handouts' proof, explained:
+
+1. **($\Rightarrow$)** If $f$ is an isomorphism there exists $f^{-1} : W \to V$, and $f^{-1} \circ f = \id_V$, $f \circ f^{-1} = \id_W$. By Proposition 16.6 and Proposition 15.11 ($[\id]^{\mathcal B}_{\mathcal B} = I_n$):
+$$[f^{-1}]^{\mathcal C}_{\mathcal B}\,[f]^{\mathcal B}_{\mathcal C} = [f^{-1} \circ f]^{\mathcal B}_{\mathcal B} = I_n \qquad\text{and}\qquad [f]^{\mathcal B}_{\mathcal C}\,[f^{-1}]^{\mathcal C}_{\mathcal B} = [f \circ f^{-1}]^{\mathcal C}_{\mathcal C} = I_n,$$
+so $[f^{-1}]^{\mathcal C}_{\mathcal B}$ is the inverse of $[f]^{\mathcal B}_{\mathcal C}$.
+2. **($\Leftarrow$)** If $A = [f]^{\mathcal B}_{\mathcal C}$ is invertible, by the theorem of lesson 15 on associated matrices (Theorem 15.12: every matrix is the matrix of a linear map) there exists a linear $g : W \to V$ with $[g]^{\mathcal C}_{\mathcal B} = A^{-1}$. Then $[g \circ f]^{\mathcal B}_{\mathcal B} = A^{-1}A = I_n = [\id_V]^{\mathcal B}_{\mathcal B}$, and since the matrix determines the map, $g \circ f = \id_V$; in the same way $f \circ g = \id_W$. So $g = f^{-1}$ and $f$ is an isomorphism.
+
+In practice, to decide whether $f$ is an isomorphism it is enough to choose any two bases and check that the matrix is square with non-zero determinant.
+
+> [!EXAMPLE] · an isomorphism between polynomials and pairs of numbers
+> Let $f : \R_1[x] \to \R^2$, $f(p) = (p(0),\ p(1))$. With $\mathcal B = \{1, x\}$ and the standard basis: $f(1) = (1, 1)$ and $f(x) = (0, 1)$, so
+> $$[f] = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}, \qquad \det [f] = 1 \neq 0.$$
+> $f$ is an isomorphism, and $[f^{-1}] = [f]^{-1} = \begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix}$ (for a $2 \times 2$: you swap the diagonal entries, change the sign of the other two, divide by the determinant). So $f^{-1}(a, b)$ has coordinates $(a,\ b - a)$:
+> $$f^{-1}(a, b) = a + (b - a)x.$$
+> It is the polynomial of degree at most 1 that is $a$ at $0$ and $b$ at $1$: check, $p(0) = a$ and $p(1) = a + b - a = b$.
+
+### Changing the bases of a map
+
+> [!COROLLARY] 16.8
+> Let $f : V \to W$ be a linear map. Let $\mathcal B_1, \mathcal B_2$ be two bases of $V$ and $\mathcal C_1, \mathcal C_2$ two bases of $W$. Applying Proposition 16.6 we find
+> $$[f]^{\mathcal B_2}_{\mathcal C_2} = [\id_W]^{\mathcal C_1}_{\mathcal C_2} \cdot [f]^{\mathcal B_1}_{\mathcal C_1} \cdot [\id_V]^{\mathcal B_2}_{\mathcal B_1}.$$
+
+This corollary tells us that to go from $[f]^{\mathcal B_1}_{\mathcal C_1}$ to $[f]^{\mathcal B_2}_{\mathcal C_2}$ it is enough to multiply on the left and on the right by change-of-basis matrices. The reason: $f = \id_W \circ f \circ \id_V$, and you apply Proposition 16.6 twice choosing the bases like domino tiles. It is read from right to left:
+
+1. $[\id_V]^{\mathcal B_2}_{\mathcal B_1}$ translates the starting coordinates from $\mathcal B_2$ to $\mathcal B_1$;
+2. $[f]^{\mathcal B_1}_{\mathcal C_1}$ applies $f$ in the bases you already know;
+3. $[\id_W]^{\mathcal C_1}_{\mathcal C_2}$ translates the result from $\mathcal C_1$ to $\mathcal C_2$.
+
+> [!EXAMPLE] · Example 15.8 redone with Corollary 16.8
+> In lesson L15 the same $f : \R_2[x] \to \R^2$, $f(p) = (p(2), p(-2))$, had matrix $\begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix}$ with the standard basis $\mathcal C$ at the end, and the basis $\mathcal C' = \{(1, -1), (0, 1)\}$ required three systems. With the corollary (at the start the basis does not change, so the factor on the right is $I_3$):
+> - $[\id]^{\mathcal C'}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix}$ (the vectors of $\mathcal C'$ in columns), so $[\id]^{\mathcal C}_{\mathcal C'} = \begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix}^{-1} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$;
+> - $$[f]^{\mathcal B}_{\mathcal C'} = [\id]^{\mathcal C}_{\mathcal C'}\,[f]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 & 4 \\ 1 & -2 & 4 \end{pmatrix} = \begin{pmatrix} 1 & 2 & 4 \\ 2 & 0 & 8 \end{pmatrix}.$$
+>
+> It is the matrix of Example 15.8. (The same calculation is Example 4.3.14 of Martelli's book.)
+
+## Endomorphisms and similar matrices (pp. 81–83)
+
+> [!DEF] 16.9 · Endomorphism
+> Let $V$ be a vector space. An **endomorphism** is a linear map
+> $$f : V \to V.$$
+
+Examples you already know: every $L_A$ with $A$ square $n \times n$ is an endomorphism of $\K^n$; the derivative is an endomorphism of $\R_n[x]$; transposition $A \mapsto {}^tA$ is an endomorphism of $M(n, \K)$; multiplication by a fixed scalar, $v \mapsto \lambda v$, is an endomorphism of any $V$.
+
+For an endomorphism it is natural to use **the same basis** at the start and at the end. If we fix a basis $\mathcal B$ for $V$, every endomorphism $f$ is represented by a square matrix $[f]^{\mathcal B}_{\mathcal B}$, and composition corresponds to the product (Proposition 16.6 with $\mathcal B = \mathcal C = \mathcal D$):
+$$[f \circ g]^{\mathcal B}_{\mathcal B} = [f]^{\mathcal B}_{\mathcal B}\,[g]^{\mathcal B}_{\mathcal B}.$$
+
+### How the matrix of an endomorphism changes
+
+If $\mathcal B$ and $\mathcal C$ are two bases of $V$ and
+$$M = [\id]^{\mathcal B}_{\mathcal C},$$
+then
+$$[f]^{\mathcal B}_{\mathcal B} = M^{-1}\,[f]^{\mathcal C}_{\mathcal C}\,M.$$
+
+Where it comes from: it is Corollary 16.8 with $\mathcal B_1 = \mathcal C_1 = \mathcal C$ and $\mathcal B_2 = \mathcal C_2 = \mathcal B$:
+$$[f]^{\mathcal B}_{\mathcal B} = [\id]^{\mathcal C}_{\mathcal B}\,[f]^{\mathcal C}_{\mathcal C}\,[\id]^{\mathcal B}_{\mathcal C} = M^{-1}\,[f]^{\mathcal C}_{\mathcal C}\,M,$$
+because $[\id]^{\mathcal C}_{\mathcal B}$ is the inverse of $M = [\id]^{\mathcal B}_{\mathcal C}$. So the matrices that represent the same endomorphism with respect to different bases are linked by a relation of the form $A = M^{-1}BM$.
+
+> [!METHOD] Change of basis for an endomorphism of $\K^n$, in four steps
+> 1. $A = [f]^{\mathcal C}_{\mathcal C}$ in the standard basis $\mathcal C$: you read it off the coefficients.
+> 2. $M = [\id]^{\mathcal B}_{\mathcal C}$: the vectors of the new basis $\mathcal B$ **in columns**.
+> 3. $M^{-1}$ (for a $2 \times 2$: $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$; for a $3 \times 3$ with cofactors or with Gauss–Jordan).
+> 4. $[f]^{\mathcal B}_{\mathcal B} = M^{-1}AM$. **Check** without the inverse: $M \cdot [f]^{\mathcal B}_{\mathcal B} = A \cdot M$ must hold, or column $j$ must give the coordinates of $f(v_j)$ with respect to $\mathcal B$.
+
+> [!EXAMPLE] 16.10 · A basis in which the matrix becomes diagonal
+> Consider $f : \R^2 \to \R^2$ given by
+> $$f\begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} x + y \\ -y \end{pmatrix}.$$
+> With respect to the standard basis $\mathcal C = \{e_1, e_2\}$ we find
+> $$[f]^{\mathcal C}_{\mathcal C} = \begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}.$$
+> Now we take as basis
+> $$\mathcal B = \left\{ \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} -1 \\ 2 \end{pmatrix} \right\}.$$
+> The change-of-basis matrix from $\mathcal B$ to $\mathcal C$ has the vectors of $\mathcal B$ in columns:
+> $$M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix},$$
+> and its inverse ($\det M = 2$) is
+> $$M^{-1} = [\id]^{\mathcal C}_{\mathcal B} = \frac 12 \begin{pmatrix} 2 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & 1/2 \\ 0 & 1/2 \end{pmatrix}.$$
+> So the matrix associated with $f$ in the basis $\mathcal B$ is
+> $$[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M = \begin{pmatrix} 1 & 1/2 \\ 0 & 1/2 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}\begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.$$
+> Intermediate step: $[f]^{\mathcal C}_{\mathcal C}M = \begin{pmatrix} 1 & 1 \\ 0 & -2 \end{pmatrix}$, and $M^{-1}$ times this gives $\begin{pmatrix} 1 + 0 & 1 - 1 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$.
+>
+> We can check the result directly: the first vector of the basis $\mathcal B$ is sent to itself, while the second is sent to its opposite:
+> $$f\begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \qquad f\begin{pmatrix} -1 \\ 2 \end{pmatrix} = \begin{pmatrix} 1 \\ -2 \end{pmatrix}.$$
+
+> [!NOTE] A missing symbol
+> In the handouts, on p. 82, the last formula of Example 16.10 starts with "${}^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$": the $[f]$ in front is missing, it should read $[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$.
+
+Geometrically $f$ is a **reflection** (in Martelli's book it is Example 4.4.2): it keeps the line $\Span(1, 0)$ fixed and flips the line $\Span(-1, 2)$. In the standard basis the matrix does not show this; in the basis $\mathcal B$, made of vectors that are "special" for $f$, the matrix is diagonal and you read everything. It is exactly the idea of the **eigenvectors** of lesson L17.
+
+```graph
+title: $f(x, y) = (x + y, -y)$ fixes $v_1$ and flips $v_2$: in the basis $\{v_1, v_2\}$ the matrix is diagonal
+x: -2.5 2.5
+y: -2.5 2.5
+line: 0 0 1 0 | accent | dashed | thin
+line: 0 0 -1 2 | violet | dashed | thin
+vector: 1 0 | accent | thick | $v_1 = f(v_1)$ | n
+vector: -1 2 | violet | thick | $v_2$ | w
+vector: 1 -2 | pink | thick | $f(v_2) = -v_2$ | e
+```
+
+In the tool below the matrix is $[f]^{\mathcal C}_{\mathcal C}$ of Example 16.10. The two dashed lines that appear are those on which $f$ acts without turning the vectors: they are exactly $\Span(1, 0)$ and $\Span(-1, 2)$, spanned by the vectors of the basis $\mathcal B$. Drag the vector $x$ onto one of these lines and watch $Ax$.
+
+```widget matrice
+title: The reflection of Example 16.10
+a: 1 1; 0 -1
+x: -1 2
+raggio: 3
+```
+
+### Similar matrices
+
+> [!DEF] 16.11 · Similar matrices
+> Let $M(n)$ be the set of square $n \times n$ matrices. We say that two matrices $A, B \in M(n)$ are **similar** (or **conjugate**) if there exists an invertible matrix $M \in M(n)$ such that
+> $$A = M^{-1}BM.$$
+> If $A$ and $B$ are similar we write $A \sim B$.
+
+The interpretation is that similar matrices describe **the same endomorphism in different bases**. Piece by piece:
+
+- $M$ must be **invertible**: it is a change-of-basis matrix, and its columns form a basis.
+- If $A = M^{-1}BM$, then $B$ is the matrix in the "old" basis, $A$ the one in the basis whose coordinates (with respect to the old one) are the columns of $M$.
+- In Example 16.10: $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \sim \begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}$, with $M = \begin{pmatrix} 1 & -1 \\ 0 & 2 \end{pmatrix}$.
+
+> [!PROP] 16.12
+> Similarity is an equivalence relation on $M(n)$.
+
+The set $M(n)$ of square matrices is therefore partitioned into disjoint subsets made of matrices similar to each other: each "family" collects all the matrices of the same endomorphism, as the basis varies.
+
+> [!PROOF] of Proposition 16.12 (from Martelli's book, Proposition 4.4.5)
+> You have to check the three properties of an equivalence relation (Discrete Mathematics).
+> 1. **Reflexive**, $A \sim A$: with $M = I_n$ we have $A = I_n^{-1} A I_n$.
+> 2. **Symmetric**, $A \sim B \Rightarrow B \sim A$: from $A = M^{-1}BM$, multiplying on the left by $M$ and on the right by $M^{-1}$, you get $B = MAM^{-1}$. Setting $N = M^{-1}$ (invertible), $B = N^{-1}AN$.
+> 3. **Transitive**, $A \sim B$ and $B \sim C \Rightarrow A \sim C$: if $A = M^{-1}BM$ and $B = N^{-1}CN$, then
+> $$A = M^{-1}N^{-1}CNM = (NM)^{-1}\,C\,(NM),$$
+> because $(NM)^{-1} = M^{-1}N^{-1}$. And $NM$ is invertible, as a product of invertible matrices.
+
+> [!PROP] 16.13
+> If $A \sim B$ then
+> $$\rk(A) = \rk(B), \qquad \det(A) = \det(B).$$
+> In particular
+> $$A \text{ is invertible} \iff B \text{ is invertible}.$$
+
+The handouts' explanation, with the steps. If $A = M^{-1}BM$:
+
+1. **Determinant.** By Binet's theorem (lesson L10) and Corollary 10.5, $\det(M^{-1}) = \frac{1}{\det M}$:
+$$\det A = \det(M^{-1})\,\det B\,\det M = \frac{1}{\det M}\,\det B\,\det M = \det B.$$
+2. **Rank.** Multiplying on the left or on the right by an invertible matrix does not change the rank, so $\rk(A) = \rk(M^{-1}BM) = \rk(B)$.
+3. **Invertibility.** A square matrix is invertible if and only if it has non-zero determinant (Proposition 10.8); the two determinants are equal.
+
+> [!EXAMPLE] · similar or not?
+> - $\begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$ and $\begin{pmatrix} -1 & 2 \\ 1 & 1 \end{pmatrix}$ are **not** similar: the determinants are $1 - 2 = -1$ and $-1 - 2 = -3$.
+> - $\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $\begin{pmatrix} 4 & 3 \\ 2 & 1 \end{pmatrix}$ **are** similar: with $M = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ (which swaps the order of the two vectors of the basis, and has $M^{-1} = M$) you find $M^{-1}\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}M = \begin{pmatrix} 4 & 3 \\ 2 & 1 \end{pmatrix}$ (exercise 6).
+
+> [!PITFALL] Same rank and same determinant are not enough
+> Proposition 16.13 goes in one direction only. Counterexample: $I_2$ and $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ both have rank 2 and determinant 1, but they are **not** similar. Indeed $I_2$ is similar only to itself: $M^{-1}I_2M = M^{-1}M = I_2$ for every invertible $M$. The same holds for every $\lambda I_n$.
+
+> [!BEYOND] the trace does not change either
+> The **trace** (sum of the entries on the diagonal, lesson L08) is also the same for similar matrices. Using $\tr(XY) = \tr(YX)$ (Proposition 8.13) with $X = M^{-1}$ and $Y = BM$:
+> $$\tr(M^{-1}BM) = \tr(BMM^{-1}) = \tr(B).$$
+> In the quiz it is a quick way to rule out answers: two matrices with different traces are not similar. In lesson L17 you will see the most powerful invariant, the characteristic polynomial.
+
+> [!BEYOND] where to find it in the book
+> In Martelli's book: §4.2.4 "Composizione di applicazioni lineari" (pp. 126–127), §4.3.3 (pp. 132–134: composition and Corollary 4.3.10, which is our 16.7), §4.3.5 "Matrice di cambiamento di base" (pp. 135–137, with Examples 4.3.14 and 4.3.15 that redo the examples of lesson L15), §4.4.1–4.4.3 "Endomorfismi" and "Similitudine fra matrici" (pp. 137–140), §4.4.5 on the trace (p. 141).
+
+## Towards the exam
+
+The Linear Algebra and Geometry test has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, which are marked only with at least 6 correct answers; it lasts 2 hours, with no calculator, and you may bring only a 4-page handwritten sheet. The 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam.** Changes of basis and associated matrices are among the most recurrent Linear Algebra exercises. In the 2023–2026 exam papers:
+
+| Type of question | Where |
+|---|---|
+| change-of-basis matrix in $\R^2$, $\R^3$ or $\R_1[x]$ | 10/06/2024 q. 8; 06/09/2024 q. 5; 10/07/2025 q. 6 (permuted standard bases); 02/09/2025 q. 8 (three bases) |
+| matrix of a composition, or formula of the composition | 08/02/2024 q. 5; 16/01/2025 q. 5; 15/01/2026 q. 10 (kernel of $S \circ T$); 03/07/2026 q. 5 ($T \circ S = 0$) |
+| matrix $[T]^{\mathcal B}_{\mathcal B}$ in a given basis, or $A$ obtained from $[L_A]^{\mathcal B}_{\mathcal B}$ | 24/01/2024 q. 3; 03/06/2025 q. 5; 15/01/2026 q. 8 |
+| open problem: change-of-basis matrices, $[T]^{\mathcal A}_{\mathcal A}$ and $[T]^{\mathcal B}_{\mathcal B}$ | 07/09/2026 problem 11; matrix of $T^{-1}$: 10/07/2024 problem 11 |
+
+### Three real exam questions, solved
+
+> [!EXAM] Exam of 24/01/2024, question 3 (also tutoring sheet 3, exercise 5)
+> *The matrix associated with $T(x, y) = (2x + y,\ x + 2y)$ with respect to the basis $\mathcal B = \{(0, 1), (1, 2)\}$ is …*
+>
+> Solution with the formula. $A = [T]^{\mathcal C}_{\mathcal C} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$, $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 0 & 1 \\ 1 & 2 \end{pmatrix}$, $\det M = -1$, $M^{-1} = \begin{pmatrix} -2 & 1 \\ 1 & 0 \end{pmatrix}$. Then
+> $$AM = \begin{pmatrix} 1 & 4 \\ 2 & 5 \end{pmatrix}, \qquad M^{-1}(AM) = \begin{pmatrix} -2 + 2 & -8 + 5 \\ 1 & 4 \end{pmatrix} = \begin{pmatrix} 0 & -3 \\ 1 & 4 \end{pmatrix}.$$
+> Direct check: $T(0, 1) = (1, 2) = 0 \cdot (0, 1) + 1 \cdot (1, 2)$, first column $(0, 1)$. Among the answers there was also the transpose $\begin{pmatrix} 0 & 1 \\ -3 & 4 \end{pmatrix}$.
+
+> [!EXAM] Exam of 16/01/2025, question 5
+> *Let $f : \R^2 \to \R_2[x]$, $f(u, v) = ux^2 + vx$, and $g : \R_2[x] \to \R^2$, $g(p) = (p(1) + p(2),\ p(1) - p(-1))$. The matrix of $g \circ f$ with respect to the standard bases is …*
+>
+> Solution. The shortest route is to compute $g \circ f$ on the basis vectors: $g(f(e_1)) = g(x^2) = (1 + 4,\ 1 - 1) = (5, 0)$ and $g(f(e_2)) = g(x) = (1 + 2,\ 1 - (-1)) = (3, 2)$. So the matrix is $\begin{pmatrix} 5 & 3 \\ 0 & 2 \end{pmatrix}$. With the product: $[g] = \begin{pmatrix} 2 & 3 & 5 \\ 0 & 2 & 0 \end{pmatrix}$ (columns $g(1), g(x), g(x^2)$), $[f] = \begin{pmatrix} 0 & 0 \\ 0 & 1 \\ 1 & 0 \end{pmatrix}$, and $[g][f] = \begin{pmatrix} 5 & 3 \\ 0 & 2 \end{pmatrix}$. One of the wrong answers contained the letters $u$ and $v$: an associated matrix contains only numbers.
+
+> [!EXAM] Exam of 07/09/2026, problem 11 (points 1–3)
+> *$\mathcal A$ standard basis of $\R^3$, $\mathcal B = \{v_1, v_2, v_3\}$ with $v_1 = (1, 1, 0)$, $v_2 = (1, 0, 1)$, $v_3 = (1, 1, 1)$, and $T(a, b, c) = (2a + c,\ a + b,\ -a + b + 3c)$. (1) Find $[\id]^{\mathcal B}_{\mathcal A}$ and $[\id]^{\mathcal A}_{\mathcal B}$. (2) Find $[T]^{\mathcal A}_{\mathcal A}$. (3) Find $[T]^{\mathcal B}_{\mathcal B}$.*
+>
+> Solution. (1) $M = [\id]^{\mathcal B}_{\mathcal A} = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 0 & 1 \\ 0 & 1 & 1 \end{pmatrix}$ (the $v_j$ in columns), $\det M = -1$, and $[\id]^{\mathcal A}_{\mathcal B} = M^{-1} = \begin{pmatrix} 1 & 0 & -1 \\ 1 & -1 & 0 \\ -1 & 1 & 1 \end{pmatrix}$ (check: $MM^{-1} = I_3$).
+> (2) From the coefficients: $[T]^{\mathcal A}_{\mathcal A} = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 1 & 0 \\ -1 & 1 & 3 \end{pmatrix}$.
+> (3) $[T]^{\mathcal B}_{\mathcal B} = M^{-1}[T]^{\mathcal A}_{\mathcal A}M = \begin{pmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{pmatrix}$. Check without inverses: $T(v_1) = (2, 2, 0) = 2v_1$; $T(v_2) = (3, 1, 2) = v_1 + 2v_2$; $T(v_3) = (3, 2, 3) = v_2 + 2v_3$; the coordinates are exactly the columns. Point (4), the eigenvalues, is solved with lesson L17: the matrix $[T]^{\mathcal B}_{\mathcal B}$ is triangular, with 2 on the diagonal.
+
+### Mistakes to avoid
+
+- Confusing $[\id]^{\mathcal B}_{\mathcal C}$ with its inverse: the vectors of $\mathcal B$ in columns take you from $\mathcal B$ coordinates to standard coordinates, not the other way round.
+- Writing $MAM^{-1}$ instead of $M^{-1}AM$ (or vice versa). With $M = [\id]^{\mathcal B}_{\mathcal C}$ (new basis in columns) the right formula for the matrix in the new basis is $M^{-1}[f]^{\mathcal C}_{\mathcal C}M$. When in doubt, check one column by computing $f(v_1)$.
+- Reversing the order in the composition: $[g \circ f] = [g][f]$.
+- Forgetting that the order of the vectors of a basis changes the order of the rows and of the columns.
+- Thinking that equal rank and determinant are enough for similarity.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: "columns of $[\id]^{\mathcal B}_{\mathcal C}$ = vectors of $\mathcal B$ in $\mathcal C$ coordinates; $[v]_{\mathcal C} = [\id]^{\mathcal B}_{\mathcal C}[v]_{\mathcal B}$"; "$[g \circ f] = [g][f]$, bases as in dominoes"; "$[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$ with $M = [\id]^{\mathcal B}_{\mathcal C}$"; the $2 \times 2$ inverse; "similar $\Rightarrow$ same rank, determinant, trace".
+
+## Quiz
+
+```quiz
+Q: In $\R_1[x]$, the change-of-basis matrix $[\id]^{\mathcal B}_{\mathcal C}$ from $\mathcal B = \{3x, 2\}$ to $\mathcal C = \{x + 1, x - 1\}$ is:
++ $\begin{pmatrix} 3/2 & 1 \\ 3/2 & -1 \end{pmatrix}$
+- $\begin{pmatrix} 3/2 & 3/2 \\ 1 & -1 \end{pmatrix}$
+- $\begin{pmatrix} 1/3 & 1/3 \\ 1/2 & -1/2 \end{pmatrix}$
+- $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 1 & -1 \\ 1 & 1 \end{pmatrix}$
+= Columns: the coordinates of the vectors of $\mathcal B$ with respect to $\mathcal C$. $3x = a(x + 1) + b(x - 1)$ gives $a + b = 3$ and $a - b = 0$, that is $a = b = \frac 32$. $2 = a(x + 1) + b(x - 1)$ gives $a + b = 0$ and $a - b = 2$, that is $a = 1$, $b = -1$. The second answer is the transpose, the third is the inverse $[\id]^{\mathcal C}_{\mathcal B}$. Similar to the exam of 10/06/2024, question 8.
+
+Q: The change-of-basis matrix $[\id]^{\mathcal B}_{\mathcal C}$ from $\mathcal B = \{e_3, e_1, e_2\}$ to $\mathcal C = \{e_1, e_2, e_3\}$ in $\R^3$ is:
++ $\begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{pmatrix}$
+- The problem is not well defined.
+= Column $j$ = coordinates of the $j$-th vector of $\mathcal B$ with respect to $\mathcal C$: $[e_3]_{\mathcal C} = (0, 0, 1)$, $[e_1]_{\mathcal C} = (1, 0, 0)$, $[e_2]_{\mathcal C} = (0, 1, 0)$. The second answer is the transpose, that is $[\id]^{\mathcal C}_{\mathcal B}$. Similar to the exam of 10/07/2025, question 6.
+
+Q: Let $\mathcal A, \mathcal B, \mathcal C$ be three bases of $\R^2$ with $[\id]^{\mathcal A}_{\mathcal B} = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ and $[\id]^{\mathcal C}_{\mathcal B} = \begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix}$. Then $[\id]^{\mathcal A}_{\mathcal C}$ is:
++ $\begin{pmatrix} 1 & 1 \\ -2 & -1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 2 & 3 \end{pmatrix}$
+- $\begin{pmatrix} -1 & 1 \\ -2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} -1 & -1 \\ 2 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
+= $[\id]^{\mathcal A}_{\mathcal C} = [\id]^{\mathcal B}_{\mathcal C}[\id]^{\mathcal A}_{\mathcal B}$ (the bases fit together) and $[\id]^{\mathcal B}_{\mathcal C} = \big([\id]^{\mathcal C}_{\mathcal B}\big)^{-1} = \begin{pmatrix} 1 & 0 \\ -2 & 1 \end{pmatrix}$. The product is $\begin{pmatrix} 1 & 1 \\ -2 & -1 \end{pmatrix}$. The other answers come from products in the wrong order or without the inverse. Similar to the exam of 02/09/2025, question 8.
+
+Q: Let $f : \R^2 \to \R_2[x]$, $f(u, v) = ux^2 + v$, and $g : \R_2[x] \to \R^2$, $g(p) = (p(1),\ p(2))$. The matrix of $g \circ f$ with respect to the standard basis of $\R^2$ is:
++ $\begin{pmatrix} 1 & 1 \\ 4 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 4 \\ 1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 4 \end{pmatrix}$
+- $\begin{pmatrix} u & 1 \\ v & 4 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 1 \\ 5 & 2 \end{pmatrix}$
+= $(g \circ f)(e_1) = g(x^2) = (1, 4)$ and $(g \circ f)(e_2) = g(1) = (1, 1)$: they are the columns. The variables $u, v$ do not appear in an associated matrix; the third answer is $[g]$ alone, which is $2 \times 3$. Similar to the exam of 16/01/2025, question 5.
+
+Q: Let $\mathcal B = \{(1, 1), (0, 1)\}$ and let $A \in M(2, \R)$ be such that $[L_A]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$. Then $A$ is:
++ $\begin{pmatrix} -1 & 2 \\ -2 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 3 & 2 \\ -2 & -1 \end{pmatrix}$
+- $\begin{pmatrix} -1 & -2 \\ 2 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 \\ 1 & 3 \end{pmatrix}$
+= With $M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}$ we have $[L_A]^{\mathcal B}_{\mathcal B} = M^{-1}AM$, so $A = M\,[L_A]^{\mathcal B}_{\mathcal B}\,M^{-1} = \begin{pmatrix} 1 & 0 \\ 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} -1 & 2 \\ -2 & 3 \end{pmatrix}$. Check: $A(1, 1) = (1, 1)$, with coordinates $(1, 0)$ with respect to $\mathcal B$: it is the first given column. The third answer uses the formula the wrong way round ($M^{-1}\cdot{}\cdot M$). Similar to the exam of 03/06/2025, question 5.
+
+Q: If $A, B \in M(2, \R)$ are similar, which statement is necessarily true?
++ $\det A = \det B$
+- $A = B$
+- $AB = BA$
+- $A$ and $B$ have the same first row.
+- $\rk(A) = \rk(B) + 1$
+= Proposition 16.13: similar matrices have the same determinant and the same rank (so the last answer is always false). The other three are not necessary: $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ and $\begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}$ are similar (Example 16.10) but they are different, do not commute and have different first rows.
+
+Q: Which of these matrices is similar to the identity matrix $I_2$?
++ $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 0 \\ 0 & 1/2 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}$
+= $M^{-1}I_2M = I_2$ for every invertible $M$: $I_2$ is similar only to itself. The other four all have rank 2 and determinant $\pm 1$ (three of them exactly 1, like $I_2$), but they are not $I_2$: having the same determinant is not enough to be similar.
+
+Q: Let $f, g : \R^3 \to \R^3$ be linear with $g \circ f = 0$ (the zero map) and $f \neq 0$. Which statement is always true?
++ $\Imm f \subseteq \Ker g$
+- $\Ker g = \{0\}$
+- $g$ is an isomorphism.
+- $\Imm g \subseteq \Ker f$
+- $f$ is surjective.
+= For every $v$, $g(f(v)) = 0$: every vector of the image of $f$ lies in the kernel of $g$. If $\Ker g = \{0\}$ held (or $g$ were an isomorphism) then $f(v) = 0$ for every $v$, against $f \neq 0$. With $f(x, y, z) = (0, x, 0)$ and $g(x, y, z) = (x, 0, 0)$ we have $g \circ f = 0$ but $f(g(e_1)) = e_2 \neq 0$, so $\Imm g \not\subseteq \Ker f$; and this $f$ is not surjective. Similar to the exam of 03/07/2026, question 5.
+
+Q: Let $T : \R^2 \to \R^3$, $T(x, y) = (x,\ x + y,\ y)$, and $S : \R^3 \to \R^2$, $S(a, b, c) = (a - b,\ b + c)$. The composition $S \circ T$ is:
++ $(x, y) \mapsto (-y,\ x + 2y)$
+- $(x, y, z) \mapsto (x - y,\ y + z)$
+- $(x, y) \mapsto (x - y,\ 2y)$
+- $(x, y, z) \mapsto (x - y,\ x + z,\ y + z)$
+- It is not well defined.
+= $S(T(x, y)) = S(x,\ x + y,\ y) = \big(x - (x + y),\ (x + y) + y\big) = (-y,\ x + 2y)$. It is a map $\R^2 \to \R^2$, so the answers with three variables are wrong already because of the domain. Similar to the exam of 08/02/2024, question 5.
+
+Q: Let $T(x, y) = (4x - 2y,\ x + y)$ and let $\mathcal B = \{(1, 1), (2, 1)\}$. The matrix $[T]^{\mathcal B}_{\mathcal B}$ is:
++ $\begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$
+- $\begin{pmatrix} 4 & -2 \\ 1 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 6 \\ 2 & 3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 \\ 1 & 1 \end{pmatrix}$
+= $T(1, 1) = (2, 2) = 2 \cdot (1, 1)$ and $T(2, 1) = (6, 3) = 3 \cdot (2, 1)$: the coordinates are $(2, 0)$ and $(0, 3)$. The order on the diagonal follows the order of the basis, so $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$ is wrong; the fourth puts in the images without going to coordinates.
+```
+
+## Exercises
+
+::: exercise intermediate Exercise 16.14 of the handouts: an endomorphism that becomes diagonal
+Consider the endomorphism $f : \R^2 \to \R^2$ defined by $f(x, y) = (2x + y,\ x + 2y)$. Let $\mathcal C = \{e_1, e_2\}$ be the standard basis and $\mathcal B = \{v_1, v_2\}$ with $v_1 = (1, 1)$, $v_2 = (1, -1)$.
+(1) Find the matrix $A = [f]^{\mathcal C}_{\mathcal C}$.
+(2) Find the change-of-basis matrix $M = [\id]^{\mathcal B}_{\mathcal C}$.
+(3) Compute $[f]^{\mathcal B}_{\mathcal B}$ using the change-of-basis formula.
+(4) Check the result by computing $f(v_1)$ and $f(v_2)$ directly.
+::: solution
+(1) From the coefficients: $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$ (columns $f(e_1) = (2, 1)$ and $f(e_2) = (1, 2)$).
+
+(2) $\mathcal C$ is the standard basis, so you just put the vectors of $\mathcal B$ in columns: $M = \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$.
+
+(3) $\det M = -1 - 1 = -2$, so
+$$M^{-1} = \frac{1}{-2}\begin{pmatrix} -1 & -1 \\ -1 & 1 \end{pmatrix} = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}.$$
+Then, one product at a time:
+$$M^{-1}A = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix} = \begin{pmatrix} 3/2 & 3/2 \\ 1/2 & -1/2 \end{pmatrix}, \qquad (M^{-1}A)M = \begin{pmatrix} 3/2 & 3/2 \\ 1/2 & -1/2 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix} = \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}.$$
+So $[f]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 3 & 0 \\ 0 & 1 \end{pmatrix}$.
+
+(4) $f(v_1) = f(1, 1) = (3, 3) = 3v_1 + 0v_2$ and $f(v_2) = f(1, -1) = (1, -1) = 0v_1 + 1v_2$. The coordinates $(3, 0)$ and $(0, 1)$ are the columns found. In the basis $\mathcal B$, $f$ stretches the direction $(1, 1)$ by 3 and leaves the direction $(1, -1)$ fixed.
+:::
+
+::: exercise basic Change of basis in $\R^3$ (tutoring sheet 3, exercise 1)
+Let $v_1 = (1, 0, 2)$, $v_2 = (2, 0, 1)$, $v_3 = (0, 1, 1)$. Check that $\mathcal B = \{v_1, v_2, v_3\}$ is a basis of $\R^3$ and find the change-of-basis matrix from $\mathcal B$ to the standard basis $\mathcal E$ and vice versa.
+::: solution
+$M = [\id]^{\mathcal B}_{\mathcal E} = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 0 & 1 \\ 2 & 1 & 1 \end{pmatrix}$ (the vectors in columns). Expanding along the second row, which has a single non-zero entry (place $(2, 3)$, sign $(-1)^{2+3} = -1$):
+$$\det M = -1 \cdot \det\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix} = -(1 - 4) = 3 \neq 0,$$
+so the three vectors are independent and, being three in $\R^3$, they form a basis (Theorem 7.12).
+
+The inverse, $[\id]^{\mathcal E}_{\mathcal B}$, with cofactors (or with Gauss–Jordan):
+$$M^{-1} = \frac 13 \begin{pmatrix} -1 & -2 & 2 \\ 2 & 1 & -1 \\ 0 & 3 & 0 \end{pmatrix}.$$
+Check on one column: the first column of $M^{-1}$ must give the coordinates of $e_1$: $-\frac 13 v_1 + \frac 23 v_2 + 0 v_3 = \left(-\frac 13 + \frac 43,\ 0,\ -\frac 23 + \frac 23\right) = (1, 0, 0)$.
+:::
+
+::: exercise intermediate Polynomials centred at 1 (tutoring sheet 3, exercise 2)
+In $\R_3[x]$ compute the change-of-basis matrix from $\mathcal B = \{1,\ x - 1,\ (x - 1)^2,\ (x - 1)^3\}$ to the standard basis $\mathcal C = \{1, x, x^2, x^3\}$, and vice versa.
+::: solution
+**From $\mathcal B$ to $\mathcal C$**: I expand every polynomial of $\mathcal B$ and read the coefficients (constant term, $x$, $x^2$, $x^3$):
+- $1 \to (1, 0, 0, 0)$;
+- $x - 1 \to (-1, 1, 0, 0)$;
+- $(x - 1)^2 = 1 - 2x + x^2 \to (1, -2, 1, 0)$;
+- $(x - 1)^3 = -1 + 3x - 3x^2 + x^3 \to (-1, 3, -3, 1)$.
+
+$$[\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & -1 & 1 & -1 \\ 0 & 1 & -2 & 3 \\ 0 & 0 & 1 & -3 \\ 0 & 0 & 0 & 1 \end{pmatrix}.$$
+
+**From $\mathcal C$ to $\mathcal B$**: instead of inverting, I write $x = (x - 1) + 1$ and expand the powers with the binomial formula:
+- $1 = 1 \to (1, 0, 0, 0)$;
+- $x = 1 + (x - 1) \to (1, 1, 0, 0)$;
+- $x^2 = \big(1 + (x - 1)\big)^2 = 1 + 2(x - 1) + (x - 1)^2 \to (1, 2, 1, 0)$;
+- $x^3 = 1 + 3(x - 1) + 3(x - 1)^2 + (x - 1)^3 \to (1, 3, 3, 1)$.
+
+$$[\id]^{\mathcal C}_{\mathcal B} = \begin{pmatrix} 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & 3 \\ 0 & 0 & 1 & 3 \\ 0 & 0 & 0 & 1 \end{pmatrix}.$$
+In the columns the binomial coefficients appear (Pascal's triangle). Check: the product of the two matrices is $I_4$.
+:::
+
+::: exercise basic Compositions in both orders
+Let $f : \R^2 \to \R^3$, $f(x, y) = (x,\ x + y,\ 2y)$, and $g : \R^3 \to \R^2$, $g(a, b, c) = (a + c,\ b - c)$. Compute the matrices of $g \circ f$ and of $f \circ g$ in the standard bases, and check the result with the formulas.
+::: solution
+$[f] = \begin{pmatrix} 1 & 0 \\ 1 & 1 \\ 0 & 2 \end{pmatrix}$ ($3 \times 2$), $[g] = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & -1 \end{pmatrix}$ ($2 \times 3$).
+
+$$[g \circ f] = [g][f] = \begin{pmatrix} 1 + 0 + 0 & 0 + 0 + 2 \\ 0 + 1 + 0 & 0 + 1 - 2 \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 1 & -1 \end{pmatrix}.$$
+Check: $g(f(x, y)) = g(x,\ x + y,\ 2y) = (x + 2y,\ x + y - 2y) = (x + 2y,\ x - y)$.
+
+$$[f \circ g] = [f][g] = \begin{pmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 2 & -2 \end{pmatrix}.$$
+Check: $f(g(a, b, c)) = f(a + c,\ b - c) = (a + c,\ a + b,\ 2b - 2c)$.
+
+Notice that $f \circ g : \R^3 \to \R^3$ passes through $\R^2$, so its image has dimension at most 2: indeed $\det [f \circ g] = 1 \cdot (-2 - 0) - 0 + 1 \cdot (2 - 0) = 0$ and the rank is 2.
+:::
+
+::: exercise intermediate An isomorphism and its inverse with matrices
+Let $f : \R_2[x] \to \R^3$, $f(p) = (p(-1),\ p(0),\ p(1))$. (a) Write $[f]$ with respect to $\{1, x, x^2\}$ and to the standard basis and show that $f$ is an isomorphism. (b) Use Corollary 16.7 to write $f^{-1}(a, b, c)$. (c) Which polynomial of degree at most 2 is $1$ at $-1$, $0$ at $0$ and $3$ at $1$?
+::: solution
+(a) $f(1) = (1, 1, 1)$, $f(x) = (-1, 0, 1)$, $f(x^2) = (1, 0, 1)$:
+$$[f] = \begin{pmatrix} 1 & -1 & 1 \\ 1 & 0 & 0 \\ 1 & 1 & 1 \end{pmatrix}.$$
+Expanding along the second row (a single non-zero entry, place $(2, 1)$, sign $-1$): $\det [f] = -1 \cdot \det\begin{pmatrix} -1 & 1 \\ 1 & 1 \end{pmatrix} = -(-1 - 1) = 2 \neq 0$. So $[f]$ is invertible and $f$ is an isomorphism.
+
+(b) $[f^{-1}] = [f]^{-1} = \frac 12 \begin{pmatrix} 0 & 2 & 0 \\ -1 & 0 & 1 \\ 1 & -2 & 1 \end{pmatrix}$ (check: $[f]\,[f]^{-1} = I_3$). The coordinates of $f^{-1}(a, b, c)$ are $\left(b,\ \frac{c - a}{2},\ \frac{a - 2b + c}{2}\right)$, so
+$$f^{-1}(a, b, c) = b + \frac{c - a}{2}\,x + \frac{a - 2b + c}{2}\,x^2.$$
+Check: at $0$ it is $b$; at $1$ it is $b + \frac{c - a}{2} + \frac{a - 2b + c}{2} = b + \frac{2c - 2b}{2} = c$; at $-1$ it is $b - \frac{c - a}{2} + \frac{a - 2b + c}{2} = b + \frac{2a - 2b}{2} = a$.
+
+(c) $a = 1$, $b = 0$, $c = 3$: $p = 0 + \frac{3 - 1}{2}x + \frac{1 - 0 + 3}{2}x^2 = x + 2x^2$. Check: $p(-1) = -1 + 2 = 1$, $p(0) = 0$, $p(1) = 3$.
+:::
+
+::: exercise intermediate Similar or not
+(a) Show that $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $B = \begin{pmatrix} 4 & 3 \\ 2 & 1 \end{pmatrix}$ are similar, finding $M$. (b) Show that $A$ and $C = \begin{pmatrix} 1 & 2 \\ 3 & 5 \end{pmatrix}$ are not similar. (c) Can $A$ and $D = \begin{pmatrix} 4 & 2 \\ 3 & 1 \end{pmatrix}$ be similar?
+::: solution
+(a) Think of $A$ as $[L_A]$ in the basis $\{e_1, e_2\}$ and try the basis in reverse order, $\{e_2, e_1\}$: $M = [\id]^{\{e_2, e_1\}}_{\{e_1, e_2\}} = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, with $M^{-1} = M$ (swapping twice changes nothing). Then
+$$M^{-1}AM = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 3 & 4 \\ 1 & 2 \end{pmatrix}\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} = \begin{pmatrix} 4 & 3 \\ 2 & 1 \end{pmatrix} = B.$$
+Multiplying on the left by $M$ swaps the rows, on the right it swaps the columns.
+
+(b) $\det A = 4 - 6 = -2$ and $\det C = 5 - 6 = -1$: different determinants, so not similar (Proposition 16.13).
+
+(c) Here the invariants seen so far do not help: $\det D = 4 - 6 = -2 = \det A$, the rank is 2 for both and the trace is the same too ($\tr A = 1 + 4 = 5$, $\tr D = 4 + 1 = 5$). So they can be similar, but these equalities alone do not prove it. In lesson L17 you will see that they have the same characteristic polynomial $\lambda^2 - 5\lambda - 2$, with two distinct real roots; in lesson L18, that because of this they are both similar to the same diagonal matrix, and hence (by transitivity) similar to each other.
+:::
+
+::: exercise intermediate A matrix with different bases at the start and at the end (tutoring sheet 3, exercise 3)
+Let $T : \R^3 \to \R^3$, $T(x_1, x_2, x_3) = (3x_1 + x_2,\ x_1 + x_3,\ x_2 - x_3)$. Let $\mathcal A$ be the standard basis, $\mathcal B = \{(1, -1, 1), (0, 3, 1), (0, 2, 1)\}$ and $\mathcal C = \{(1, 2, 3), (0, 2, 1), (0, 1, 1)\}$. Find $[T]^{\mathcal A}_{\mathcal A}$ and $[T]^{\mathcal B}_{\mathcal C}$.
+::: solution
+$[T]^{\mathcal A}_{\mathcal A} = \begin{pmatrix} 3 & 1 & 0 \\ 1 & 0 & 1 \\ 0 & 1 & -1 \end{pmatrix}$ from the coefficients.
+
+By Corollary 16.8: $[T]^{\mathcal B}_{\mathcal C} = [\id]^{\mathcal A}_{\mathcal C}\,[T]^{\mathcal A}_{\mathcal A}\,[\id]^{\mathcal B}_{\mathcal A}$. The basis $\mathcal C$ is the one of Exercise 16.3, so $[\id]^{\mathcal A}_{\mathcal C} = \begin{pmatrix} 1 & 0 & 0 \\ 1 & 1 & -1 \\ -4 & -1 & 2 \end{pmatrix}$ is already computed. Instead of multiplying three matrices, it is better to compute the images of the vectors of $\mathcal B$ and then their coordinates with respect to $\mathcal C$ with that matrix:
+- $T(1, -1, 1) = (3 - 1,\ 1 + 1,\ -1 - 1) = (2, 2, -2)$, coordinates $[\id]^{\mathcal A}_{\mathcal C}(2, 2, -2) = (2,\ 2 + 2 + 2,\ -8 - 2 - 4) = (2, 6, -14)$;
+- $T(0, 3, 1) = (3, 1, 2)$, coordinates $(3,\ 3 + 1 - 2,\ -12 - 1 + 4) = (3, 2, -9)$;
+- $T(0, 2, 1) = (2, 1, 1)$, coordinates $(2,\ 2 + 1 - 1,\ -8 - 1 + 2) = (2, 2, -7)$.
+
+$$[T]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 2 & 3 & 2 \\ 6 & 2 & 2 \\ -14 & -9 & -7 \end{pmatrix}.$$
+Check on the first column: $2(1, 2, 3) + 6(0, 2, 1) - 14(0, 1, 1) = (2,\ 4 + 12 - 14,\ 6 + 6 - 14) = (2, 2, -2)$.
+:::
+
+::: exercise hard Similarity: equivalence and trace
+(a) Prove Proposition 16.12 (similarity is an equivalence relation). (b) Prove that similar matrices have the same trace. (c) Find two $2 \times 2$ matrices with the same trace and the same determinant that are not similar.
+::: solution
+(a) Reflexive with $M = I_n$; symmetric: from $A = M^{-1}BM$ follows $B = MAM^{-1} = (M^{-1})^{-1}A(M^{-1})$; transitive: from $A = M^{-1}BM$ and $B = N^{-1}CN$ follows $A = (NM)^{-1}C(NM)$. The details are in the proof box, in the section on similar matrices.
+
+(b) With $\tr(XY) = \tr(YX)$ (Proposition 8.13), $X = M^{-1}$ and $Y = BM$: $\tr(M^{-1}BM) = \tr(BMM^{-1}) = \tr B$.
+
+(c) $I_2$ and $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$: trace 2 and determinant 1 for both, but $I_2$ is similar only to itself.
+:::
+
+::: exercise exam As at the exam: two bases and an endomorphism of $\R^3$
+Let $\mathcal A$ be the standard basis of $\R^3$ and let $\mathcal B = \{v_1, v_2, v_3\}$ with $v_1 = (1, 0, 1)$, $v_2 = (0, 1, 1)$, $v_3 = (1, 1, 1)$. Let $T : \R^3 \to \R^3$, $T(a, b, c) = (2a + 2b - c,\ a + 3b - c,\ 2b + c)$.
+(1) Find $[\id]^{\mathcal B}_{\mathcal A}$ and $[\id]^{\mathcal A}_{\mathcal B}$.
+(2) Write $[T]^{\mathcal A}_{\mathcal A}$.
+(3) Compute $[T]^{\mathcal B}_{\mathcal B}$ with the change-of-basis formula.
+(4) Check the result by computing $T(v_1)$, $T(v_2)$, $T(v_3)$, and check that $\det [T]^{\mathcal A}_{\mathcal A} = \det [T]^{\mathcal B}_{\mathcal B}$.
+::: solution
+(1) $M = [\id]^{\mathcal B}_{\mathcal A} = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 1 \\ 1 & 1 & 1 \end{pmatrix}$. Determinant along the first row: $1 \cdot (1 - 1) - 0 + 1 \cdot (0 - 1) = -1$. The inverse (cofactors, divided by $-1$):
+$$[\id]^{\mathcal A}_{\mathcal B} = M^{-1} = \begin{pmatrix} 0 & -1 & 1 \\ -1 & 0 & 1 \\ 1 & 1 & -1 \end{pmatrix}.$$
+Check: the first row of $M$ times the columns of $M^{-1}$ gives $(0 + 0 + 1,\ -1 + 0 + 1,\ 1 + 0 - 1) = (1, 0, 0)$, and so on.
+
+(2) $A = [T]^{\mathcal A}_{\mathcal A} = \begin{pmatrix} 2 & 2 & -1 \\ 1 & 3 & -1 \\ 0 & 2 & 1 \end{pmatrix}$.
+
+(3) First $AM$: column by column, $A v_1 = (2 - 1,\ 1 - 1,\ 0 + 1) = (1, 0, 1)$, $A v_2 = (2 - 1,\ 3 - 1,\ 2 + 1) = (1, 2, 3)$, $A v_3 = (2 + 2 - 1,\ 1 + 3 - 1,\ 2 + 1) = (3, 3, 3)$. Then $M^{-1}$ times each column:
+- $M^{-1}(1, 0, 1) = (0 + 0 + 1,\ -1 + 0 + 1,\ 1 + 0 - 1) = (1, 0, 0)$;
+- $M^{-1}(1, 2, 3) = (0 - 2 + 3,\ -1 + 0 + 3,\ 1 + 2 - 3) = (1, 2, 0)$;
+- $M^{-1}(3, 3, 3) = (0 - 3 + 3,\ -3 + 0 + 3,\ 3 + 3 - 3) = (0, 0, 3)$.
+
+$$[T]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 1 & 1 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}.$$
+
+(4) $T(v_1) = (1, 0, 1) = v_1$; $T(v_2) = (1, 2, 3) = v_1 + 2v_2$ (indeed $(1, 0, 1) + (0, 2, 2) = (1, 2, 3)$); $T(v_3) = (3, 3, 3) = 3v_3$. The coordinates $(1, 0, 0)$, $(1, 2, 0)$, $(0, 0, 3)$ are the columns found. Determinants: $\det [T]^{\mathcal B}_{\mathcal B} = 1 \cdot 2 \cdot 3 = 6$ (triangular matrix) and $\det A = 2(3 + 2) - 2(1 - 0) + (-1)(2 - 0) = 10 - 2 - 2 = 6$. Equal, as Proposition 16.13 requires.
+:::
+
+::: exercise exam As at the exam: the translation of polynomials
+Let $f : \R_2[x] \to \R_2[x]$, $f(p)(x) = p(x + 1)$ (for example $f(x^2) = (x + 1)^2$).
+(1) Show that $f$ is linear and write its matrix with respect to $\mathcal B = \{1, x, x^2\}$.
+(2) Show that $f$ is an isomorphism and write the matrix of $f^{-1}$; what is $f^{-1}(x^2)$?
+(3) Write the matrix of $f \circ f$ and explain the result.
+::: solution
+(1) Linearity: $f(p + q)(x) = (p + q)(x + 1) = p(x + 1) + q(x + 1)$ and $f(\lambda p)(x) = \lambda p(x + 1)$. Images of the basis: $f(1) = 1$, $f(x) = x + 1$, $f(x^2) = x^2 + 2x + 1$, with coordinates $(1, 0, 0)$, $(1, 1, 0)$, $(1, 2, 1)$:
+$$[f]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & 2 \\ 0 & 0 & 1 \end{pmatrix}.$$
+
+(2) The matrix is triangular with determinant $1 \cdot 1 \cdot 1 = 1 \neq 0$, so $f$ is an isomorphism (Corollary 16.7). The inverse is the backward translation $p(x) \mapsto p(x - 1)$: $1 \mapsto 1$, $x \mapsto x - 1$, $x^2 \mapsto x^2 - 2x + 1$, so
+$$[f^{-1}]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 1 & -1 & 1 \\ 0 & 1 & -2 \\ 0 & 0 & 1 \end{pmatrix},$$
+and you check that the product with $[f]$ is $I_3$. Then $[f^{-1}(x^2)] = [f^{-1}](0, 0, 1) = (1, -2, 1)$, that is $f^{-1}(x^2) = 1 - 2x + x^2 = (x - 1)^2$.
+
+(3) $[f \circ f] = [f]^2 = \begin{pmatrix} 1 & 2 & 4 \\ 0 & 1 & 4 \\ 0 & 0 & 1 \end{pmatrix}$. Translating twice by 1 is translating by 2: $f(f(p))(x) = p(x + 2)$, and indeed $(x + 2)^2 = 4 + 4x + x^2$ has coordinates $(4, 4, 1)$, the third column.
+:::
+
+## Review questions
+
+::: question What is the change-of-basis matrix from $\mathcal B$ to $\mathcal C$, and what does it look like?
+It is $[\id]^{\mathcal B}_{\mathcal C}$, the matrix of the identity with $\mathcal B$ at the start and $\mathcal C$ at the end. Column $j$ contains the coordinates of the $j$-th vector of $\mathcal B$ with respect to $\mathcal C$.
+:::
+
+::: question What is it for? Write the formula.
+To translate coordinates: $[v]_{\mathcal C} = [\id]^{\mathcal B}_{\mathcal C}[v]_{\mathcal B}$ (Proposition 16.2). For the opposite direction you use the inverse, $[\id]^{\mathcal C}_{\mathcal B}$.
+:::
+
+::: question How do you quickly write $[\id]^{\mathcal B}_{\mathcal C}$ if $\mathcal C$ is the standard basis of $\K^n$?
+By putting the vectors of $\mathcal B$ in columns, in order: the coordinates with respect to the standard basis are the components.
+:::
+
+::: question Why is the composition of linear maps linear?
+Because $(g \circ f)(v + v') = g(f(v) + f(v')) = g(f(v)) + g(f(v'))$ and $(g \circ f)(\lambda v) = g(\lambda f(v)) = \lambda g(f(v))$: you use first the linearity of $f$, then that of $g$.
+:::
+
+::: question What is the matrix of a composition?
+$[g \circ f]^{\mathcal B}_{\mathcal D} = [g]^{\mathcal C}_{\mathcal D}[f]^{\mathcal B}_{\mathcal C}$ (Proposition 16.6): the matrix of $f$, which acts first, is on the right; the basis $\mathcal C$ of the space in the middle is the same in the two factors. For the $L_A$: $L_A \circ L_B = L_{AB}$.
+:::
+
+::: question How do you recognise an isomorphism from the matrix, and what is the matrix of the inverse?
+$f$ is an isomorphism if and only if $[f]^{\mathcal B}_{\mathcal C}$ is invertible (square with non-zero determinant), and then $[f^{-1}]^{\mathcal C}_{\mathcal B} = \big([f]^{\mathcal B}_{\mathcal C}\big)^{-1}$ (Corollary 16.7).
+:::
+
+::: question How do you go from $[f]^{\mathcal B_1}_{\mathcal C_1}$ to $[f]^{\mathcal B_2}_{\mathcal C_2}$?
+By multiplying on the left and on the right by change-of-basis matrices: $[f]^{\mathcal B_2}_{\mathcal C_2} = [\id_W]^{\mathcal C_1}_{\mathcal C_2}[f]^{\mathcal B_1}_{\mathcal C_1}[\id_V]^{\mathcal B_2}_{\mathcal B_1}$ (Corollary 16.8).
+:::
+
+::: question What is an endomorphism? How does its matrix change with the basis?
+A linear map $f : V \to V$. With the same basis at the start and at the end, if $M = [\id]^{\mathcal B}_{\mathcal C}$ then $[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$.
+:::
+
+::: question When are two matrices called similar, and what does it mean?
+$A \sim B$ if $A = M^{-1}BM$ for some invertible $M$. It means that $A$ and $B$ represent the same endomorphism in two different bases.
+:::
+
+::: question Why is similarity an equivalence relation?
+Reflexive with $M = I_n$; symmetric because $A = M^{-1}BM$ gives $B = MAM^{-1}$; transitive because $A = M^{-1}BM$ and $B = N^{-1}CN$ give $A = (NM)^{-1}C(NM)$.
+:::
+
+::: question What do two similar matrices have in common?
+Rank and determinant (Proposition 16.13), so they are both invertible or both not invertible. The trace too, and from lesson L17 the characteristic polynomial.
+:::
+
+::: question Are two matrices with the same determinant and the same rank similar?
+Not necessarily: $I_2$ and $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ have rank 2 and determinant 1, but $I_2$ is similar only to itself.
+:::
+
+## Glossary
+
+```glossary
+Change-of-basis matrix | $[\id]^{\mathcal B}_{\mathcal C}$: column $j$ is $[v_j]_{\mathcal C}$; it turns coordinates with respect to $\mathcal B$ into coordinates with respect to $\mathcal C$ (Definition 16.1).
+Inverse change of basis | $[\id]^{\mathcal C}_{\mathcal B} = \big([\id]^{\mathcal B}_{\mathcal C}\big)^{-1}$.
+Composition | $g \circ f$: first $f$, then $g$; it is linear if $f$ and $g$ are (Proposition 16.4).
+Matrix of the composition | $[g \circ f]^{\mathcal B}_{\mathcal D} = [g]^{\mathcal C}_{\mathcal D}[f]^{\mathcal B}_{\mathcal C}$; for the $L_A$, $L_A \circ L_B = L_{AB}$.
+Associativity | $A(BC) = (AB)C$: it is the reason why $L_A(L_B(x)) = L_{AB}(x)$.
+Isomorphism and invertible matrix | $f$ is an isomorphism if and only if $[f]^{\mathcal B}_{\mathcal C}$ is invertible; then $[f^{-1}]^{\mathcal C}_{\mathcal B} = [f]^{-1}$ (Corollary 16.7).
+Change-of-basis formula | $[f]^{\mathcal B_2}_{\mathcal C_2} = [\id_W]^{\mathcal C_1}_{\mathcal C_2}[f]^{\mathcal B_1}_{\mathcal C_1}[\id_V]^{\mathcal B_2}_{\mathcal B_1}$ (Corollary 16.8).
+Endomorphism | Linear map from a space to itself, $f : V \to V$ (Definition 16.9).
+Matrix of an endomorphism | $[f]^{\mathcal B}_{\mathcal B}$, with the same basis at the start and at the end.
+Similar (conjugate) matrices | $A \sim B$ if $A = M^{-1}BM$ with $M$ invertible (Definition 16.11).
+Equivalence relation | Reflexive, symmetric and transitive relation; similarity is one (Proposition 16.12).
+Similarity invariants | Quantities that are equal for similar matrices: rank, determinant, trace (and the characteristic polynomial, lesson L17).
+Binet's theorem | $\det(AB) = \det A \det B$ (lesson L10); it gives $\det(M^{-1}BM) = \det B$.
+Inverse of a $2 \times 2$ | $\begin{pmatrix} a & b \\ c & d \end{pmatrix}^{-1} = \frac{1}{ad - bc}\begin{pmatrix} d & -b \\ -c & a \end{pmatrix}$ if $ad - bc \neq 0$.
+```
+
+## Checklist
+
+```checklist
+- I can write the change-of-basis matrix $[\id]^{\mathcal B}_{\mathcal C}$ and I know which way it transforms coordinates.
+- I can write $[\id]^{\mathcal B}_{\mathcal E}$ in a moment when $\mathcal E$ is the standard basis, and I can get $[\id]^{\mathcal E}_{\mathcal B}$ with the inverse.
+- I can go from one non-standard basis to another, by solving systems or by going through the standard basis.
+- I can explain why the composition of linear maps is linear and why $L_A \circ L_B = L_{AB}$.
+- I can compute the matrix of a composition with $[g \circ f] = [g][f]$, in the right order and with the right sizes.
+- I can recognise an isomorphism from the matrix and write the matrix of the inverse.
+- I can use the formula $[f]^{\mathcal B_2}_{\mathcal C_2} = [\id]^{\mathcal C_1}_{\mathcal C_2}[f]^{\mathcal B_1}_{\mathcal C_1}[\id]^{\mathcal B_2}_{\mathcal B_1}$.
+- I can compute $[f]^{\mathcal B}_{\mathcal B} = M^{-1}[f]^{\mathcal C}_{\mathcal C}M$ for an endomorphism and check the result with $f(v_j)$.
+- I know the definition of similar matrices and why similarity is an equivalence relation.
+- I know that similar matrices have the same rank, determinant and trace, and that the converse is false.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 16 "Applicazioni lineari III", pp. 79–84: sections 16.A (change-of-basis matrix), 16.B (composition), 16.C (endomorphisms and similarity) are followed in order, with the page next to each heading; definitions, propositions and examples keep their numbering (Definitions 16.1, 16.9, 16.11; Propositions 16.2, 16.4–16.6, 16.12, 16.13; Corollaries 16.7 and 16.8; Example 16.10); Exercise 16.3, solved in the text of the handouts, is reported as an example, and Exercise 16.14 of section 16.D is worked out in the exercises.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §4.2.4 (composition), §4.3.3 and §4.3.5 (properties of the associated matrix, change of basis, Examples 4.3.14–4.3.15), §4.4.1–4.4.3 (endomorphisms and similarity, with the proof of Proposition 16.12 and Example 4.4.2 of the reflection), §4.4.5 (trace).
+- **Exam**: exam sessions of 24/01/2024 (question 3), 08/02/2024 (question 5), 10/06/2024 (question 8), 10/07/2024 (problem 11), 06/09/2024 (question 5), 16/01/2025 (question 5), 03/06/2025 (question 5), 10/07/2025 (question 6), 02/09/2025 (question 8), 15/01/2026 (questions 8 and 10), 03/07/2026 (question 5), 07/09/2026 (problem 11); tutoring sheet 3, 2025/26 (exercises 1, 2, 3 and 5). Official papers and solutions on the 2025/26 Moodle ([id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); the solutions reported here are written from scratch.
+- The **"Beyond the handouts"** parts (the proof of Proposition 16.4, that of 16.12 from the book, the trace as an invariant, the added examples and exercises) serve to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L17_eigenvalues_eigenvectors_1.md -->
+> File: `ai_context/MDAG/lessons/L17_eigenvalues_eigenvectors_1.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L17
+title: Eigenvalues and eigenvectors I
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L17
+description: >-
+  Notes on lesson L17 of Linear Algebra and Geometry (MDAG, part 2): eigenvectors and eigenvalues of an endomorphism,
+  diagonalisable endomorphisms and matrices, powers of matrices and the characteristic polynomial, with exam-style
+  quizzes and worked exercises.
+lede: >-
+  An endomorphism can turn almost every vector, but along certain lines it only stretches, shrinks or flips them: the
+  vectors of those lines are the eigenvectors, and the factor is the eigenvalue. If the eigenvectors are enough to
+  form a basis, the matrix becomes diagonal and even $A^{100}$ is computed in one line. To find them you use the
+  characteristic polynomial $p_A(\lambda) = \det(A - \lambda I_n)$.
+material: handouts
+facts:
+  Handouts: lesson 17 · pp. 85–89
+  Book: Martelli, §5.1
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 100–130 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 17 "Autovalori e autovettori I"; B. Martelli, Geometria e algebra lineare, §5.1
+italian_file: L17_autovalori_autovettori_1.html
+html_notes: notes/MDAG/L17_eigenvalues_eigenvectors_1.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L17_autovalori_autovettori_1.md
+```
+
+## In brief
+
+- An **eigenvector** of an endomorphism $T : V \to V$ is a vector $v \neq 0$ with $T(v) = \lambda v$ for some scalar $\lambda \in \K$, called the **eigenvalue**. The eigenvalue can be $0$; the eigenvector cannot be the zero vector.
+- Geometrically, $T$ sends the line $\Span(v)$ into itself. All the non-zero multiples of an eigenvector are eigenvectors with the same eigenvalue.
+- In coordinates $T(v) = \lambda v$ becomes $Ax = \lambda x$, with $A = [T]^{\mathcal B}_{\mathcal B}$ and $x = [v]_{\mathcal B}$: it is enough to study matrices.
+- A **rotation** of the plane by an angle $\vartheta \neq 0, \pi$ has no real eigenvectors: every non-zero vector changes direction.
+- $T$ is **diagonalisable** if $V$ has a basis of eigenvectors; in that basis the matrix of $T$ is **diagonal**, with the eigenvalues on the diagonal.
+- A matrix $A$ is diagonalisable if $D = M^{-1}AM$ is diagonal for some invertible $M$: the columns of $M$ are eigenvectors, $D$ has the corresponding eigenvalues, in the same order.
+- With diagonal matrices products, determinants and powers are done entry by entry, and $A^k = MD^kM^{-1}$.
+- The **characteristic polynomial** $p_A(\lambda) = \det(A - \lambda I_n)$ has degree $n$ and is the same for similar matrices. The eigenvalues are exactly its roots; the eigenvectors are the non-zero solutions of $(A - \lambda I_n)x = 0$.
+
+> [!CHANNELS]
+> The Linear Algebra and Geometry handouts are the same for channels A, B and C (Buzano teaches in channels A and B, Radeschi in channels B and C), so these notes hold for all three. Only the days of the lessons change: the announcements are on the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)). Exam and quiz are the same for everyone.
+
+## Eigenvectors and eigenvalues (p. 85)
+
+In lesson L16 you saw that the reflection $f(x, y) = (x + y, -y)$ has in the standard basis the matrix $\begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}$, which does not show what it does, and in the basis $\{(1, 0), (-1, 2)\}$ a diagonal matrix: the first vector stays still, the second is flipped. This lesson explains how to find, in general, the "special" vectors that make the matrix diagonal.
+
+As in the handouts, the vectors of $\K^n$ are columns; in the text we write them as rows, $(1, 2)$, to save space.
+
+### An example to start
+
+Take $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$ and look at what $L_A$ does to some vectors:
+
+| $v$ | $Av$ | Is $Av$ a multiple of $v$? |
+|---|---|---|
+| $e_1 = (1, 0)$ | $(3, 0)$ | yes: $Av = 3v$ |
+| $e_2 = (0, 1)$ | $(4, 2)$ | no: the first component of $v$ is 0, that of $Av$ is not |
+| $(-4, 1)$ | $(-12 + 4,\ 2) = (-8, 2)$ | yes: $Av = 2v$ |
+| $(1, 1)$ | $(7, 2)$ | no: $7 \neq 2$ |
+
+Almost all the vectors change direction, but two directions do not: on the line of $e_1$ vectors are stretched by 3, on the line of $(-4, 1)$ by 2. In the drawing the light arrows are the vectors, the dark ones their images: $e_2$ "turns", the other two do not.
+
+```graph
+title: $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$: $e_1$ and $(-4, 1)$ stay on their line, $e_2$ does not
+x: -9 5
+y: -2 4
+line: 0 0 1 0 | accent | dashed | thin
+line: 0 0 -4 1 | violet | dashed | thin
+vector: 1 0 | accent | faint | $e_1$ | s
+vector: 3 0 | accent | thick | $Ae_1 = 3e_1$ | n
+vector: -4 1 | violet | faint | $u$ | s
+vector: -8 2 | violet | thick | $Au = 2u$ | n
+vector: 0 1 | amber | faint | $e_2$ | e
+vector: 4 2 | amber | thick | $Ae_2$ | e
+```
+
+> [!DEF] 17.1 · Eigenvector and eigenvalue
+> Let $T : V \to V$ be an endomorphism of a vector space $V$ defined over a field $\K$. An **eigenvector** of $T$ is a vector $v \neq 0$ in $V$ for which
+> $$T(v) = \lambda v$$
+> for some scalar $\lambda \in \K$, which we will call the **eigenvalue** of $T$ relative to $v$.
+>
+> Notice that $\lambda$ can be any scalar, even zero. On the other hand, the eigenvector $v$ cannot be zero by definition. In words: an eigenvector is a (non-zero) vector that $T$ sends to a multiple of itself.
+
+Piece by piece:
+
+- **$T$ is an endomorphism**: start and target are the same space $V$, otherwise it would make no sense to compare $T(v)$ with $v$.
+- **$v \neq 0$**: the zero vector satisfies $T(0) = 0 = \lambda \cdot 0$ for **every** $\lambda$; if we allowed it, every scalar would be an eigenvalue and the definition would say nothing.
+- **$\lambda = 0$ is allowed**: $T(v) = 0 \cdot v = 0$ means that $v$ is a non-zero vector of the kernel. So $0$ is an eigenvalue exactly when $\Ker T \neq \{0\}$.
+- **$\lambda \in \K$**: the eigenvalue must lie in the field you are working over. You will see that a rotation has no real eigenvalues but has complex ones.
+- **"Relative to $v$"**: each eigenvector corresponds to exactly one eigenvalue, because from $\lambda v = \mu v$ with $v \neq 0$ follows $\lambda = \mu$.
+
+> [!EXAMPLE] 17.2 · Two eigenvectors of a $2 \times 2$ matrix
+> Consider the endomorphism $L_A : \R^2 \to \R^2$ with
+> $$A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}.$$
+> Since $L_A(e_1) = (3, 0) = 3e_1$, the vector $e_1$ is an eigenvector of $L_A$ with eigenvalue $3$. Instead $L_A(e_2) = (4, 2) \neq \lambda e_2$ for any $\lambda$ (a multiple of $e_2$ has first component 0), so $e_2$ is not an eigenvector.
+>
+> Notice that
+> $$L_A\begin{pmatrix} -4 \\ 1 \end{pmatrix} = \begin{pmatrix} -8 \\ 2 \end{pmatrix} = 2\begin{pmatrix} -4 \\ 1 \end{pmatrix},$$
+> and so the vector $(-4, 1)$ is an eigenvector with eigenvalue $2$.
+
+In the tool below drag the vector $x$: when $Ax$ (in amber) falls on the same line as $x$ you have found an eigenvector, and the tool points it out. The two dashed lines are the directions of the eigenvectors. Then try the 90° rotation matrix from the buttons: the dashed lines disappear.
+
+```widget matrice
+title: Look for the eigenvectors of $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$
+a: 3 4; 0 2
+x: -2 1
+raggio: 5
+```
+
+> [!BEYOND] eigenvalue 0 and eigenvalue 1
+> Two special cases, from Martelli's book (Remarks 5.1.5 and 5.1.6). The eigenvectors with eigenvalue $0$ are the **non-zero vectors of the kernel**: $T(v) = 0$. The eigenvectors with eigenvalue $1$ are the non-zero **fixed points**: $T(v) = v$. For example, for the projection $T(x, y) = (x, 0)$ the vectors $(x, 0)$ with $x \neq 0$ have eigenvalue 1 and the vectors $(0, y)$ with $y \neq 0$ have eigenvalue 0.
+
+## In coordinates matrices are enough (p. 85)
+
+> [!REMARK] Eigenvectors in coordinates
+> Eigenvectors and eigenvalues are easily studied in coordinates with respect to a basis. Let $T : V \to V$ be an endomorphism, let $\mathcal B$ be a basis of $V$ and $A = [T]^{\mathcal B}_{\mathcal B}$ the associated matrix. Let $v \in V$ and let $x = [v]_{\mathcal B} \in \K^n$ be its coordinate vector. Then
+> $$T(v) = \lambda v \iff Ax = \lambda x.$$
+> The equation $T(v) = \lambda v$ corresponds in coordinates to $Ax = \lambda x$: it is enough to understand well the case in which the endomorphism is given by $L_A$.
+
+The reason, with lesson L15: the coordinates of $T(v)$ are $[T(v)]_{\mathcal B} = A[v]_{\mathcal B} = Ax$ (Proposition 15.9), those of $\lambda v$ are $\lambda x$; and two vectors are equal if and only if they have the same coordinates. Moreover $v \neq 0$ if and only if $x \neq 0$. That is why we talk about **eigenvalues and eigenvectors of a matrix** $A$: they are those of $L_A$.
+
+> [!EXAMPLE] · eigenvectors among polynomials
+> Let $T : \R_1[x] \to \R_1[x]$, $T(a + bx) = b + ax$ (it swaps the two coefficients). In the basis $\mathcal B = \{1, x\}$: $T(1) = x$ and $T(x) = 1$, so $A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$.
+> - $A(1, 1) = (1, 1)$: the coordinate vector $(1, 1)$, that is the polynomial $1 + x$, is an eigenvector with eigenvalue $1$. Check: $T(1 + x) = 1 + x$.
+> - $A(1, -1) = (-1, 1) = -(1, -1)$: the polynomial $1 - x$ is an eigenvector with eigenvalue $-1$. Check: $T(1 - x) = -1 + x = -(1 - x)$.
+>
+> You work on the matrix, then translate the coordinates back into polynomials.
+
+## Rotations have no eigenvectors (p. 85)
+
+> [!EXAMPLE] 17.3 · A rotation
+> Let $L_A : \R^2 \to \R^2$ with $A = \mathrm{Rot}_\vartheta$ be a rotation by an angle $\vartheta \neq 0, \pi$. Every non-zero vector $v \in \R^2$ is rotated by an angle $\vartheta \neq 0, \pi$, and so its image $L_A(v)$ cannot be a multiple of $v$: the multiples of $v$ lie on the line of $v$, that is they form with $v$ an angle of $0$ (positive multiples) or of $\pi$ (negative multiples). The endomorphism $L_A$ has no eigenvectors.
+
+```graph
+title: Rotating by $60°$, $v$ leaves its line: no multiple of $v$ is equal to $\mathrm{Rot}_{60°}\,v$
+x: -3 3
+y: -1.5 3
+line: 0 0 2 1 | accent | dashed | thin
+vector: 2 1 | accent | thick | $v$ | e
+vector: 0.134 2.232 | amber | thick | $\mathrm{Rot}_{60°}\,v$ | n
+arc: 0 0 0.9 0.4636 1.5108 | grey
+text: 0.85 0.95 | $60°$
+```
+
+> [!BEYOND] the rotation matrix and a check with calculations
+> The matrix of the anticlockwise rotation by an angle $\vartheta$ is $\mathrm{Rot}_\vartheta = \begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix}$ (you will see it in lesson L22). For $\vartheta = \frac{\pi}{2}$ it is $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$ and it sends $(x, y)$ to $(-y, x)$. If $(-y, x) = \lambda (x, y)$ held, we would have $-y = \lambda x$ and $x = \lambda y$; substituting, $x = \lambda(-\lambda x) = -\lambda^2 x$, that is $(1 + \lambda^2)x = 0$. Since $1 + \lambda^2 > 0$ for every real $\lambda$, $x = 0$ and then $y = -\lambda x = 0$: only the zero vector, which does not count. For $\vartheta = 0$ the rotation is the identity, for $\vartheta = \pi$ it is $v \mapsto -v$: in these two cases **every** non-zero vector is an eigenvector.
+
+## An example in $\R^3$ and the multiples of an eigenvector (p. 86)
+
+> [!EXAMPLE] 17.4 · An eigenvector of a $3 \times 3$ matrix
+> Consider the endomorphism $L_A : \R^3 \to \R^3$ with
+> $$A = \begin{pmatrix} 1 & 1 & -1 \\ 2 & 1 & 1 \\ 3 & 0 & 2 \end{pmatrix}.$$
+> Notice that $L_A(e_1) = (1, 2, 3)$ (the first column), which is not a multiple of $e_1$: so $e_1$ is not an eigenvector. Instead for $v = (0, 1, 1)$ we find
+> $$Av = \begin{pmatrix} 0 + 1 - 1 \\ 0 + 1 + 1 \\ 0 + 0 + 2 \end{pmatrix} = \begin{pmatrix} 0 \\ 2 \\ 2 \end{pmatrix} = 2v,$$
+> so $v$ is an eigenvector with eigenvalue 2. Similarly, for $w = (0, 3, 3)$ we find $Aw = (0, 6, 6) = 2w$: $w$ is also an eigenvector with eigenvalue 2. Notice that $w = 3v$.
+
+> [!REMARK] The multiples of an eigenvector
+> Let $f : V \to V$ be an endomorphism. If $v \in V$ is an eigenvector for $f$ with eigenvalue $\lambda$, then any multiple $w = \mu v$ of $v$ with $\mu \neq 0$ is also an eigenvector with the same eigenvalue $\lambda$. Indeed
+> $$f(\mu v) = \mu f(v) = \mu \lambda v = \lambda(\mu v).$$
+> If $v \in V$ is an eigenvector, all the non-zero vectors of the line $\Span(v)$ are eigenvectors too, with the same eigenvalue $\lambda$.
+
+The steps of the formula: the first uses the linearity of $f$, the second the definition of eigenvector, the third only the order of the factors. The condition $\mu \neq 0$ is needed because $0 \cdot v = 0$ is not an eigenvector. That is why, when an exercise asks for "an eigenvector", the answer is not unique: any non-zero multiple works, and it pays to choose the one with the simplest numbers.
+
+> [!PITFALL] The sum of eigenvectors is not always an eigenvector
+> With $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$: $e_1$ (eigenvalue 3) and $u = (-4, 1)$ (eigenvalue 2) are eigenvectors, but $e_1 + u = (-3, 1)$ has image $A(-3, 1) = (-9 + 4,\ 2) = (-5, 2)$, which is not a multiple of $(-3, 1)$: you would need $\frac{-5}{-3} = \frac 21$, false. Adding eigenvectors with **different** eigenvalues takes you off the special lines. (With the **same** eigenvalue, instead, the sum, if it is not zero, is still an eigenvector: $T(v + w) = \lambda v + \lambda w = \lambda(v + w)$. This is where the eigenspace of lesson L18 comes from.)
+
+## Diagonalisable endomorphisms and matrices (pp. 86–87)
+
+We come to the real reason why eigenvectors and eigenvalues are introduced.
+
+> [!DEF] 17.5 · Diagonalisable endomorphism
+> An endomorphism $T : V \to V$ is **diagonalisable** if $V$ has a basis $\mathcal B = \{v_1, \dots, v_n\}$ made of eigenvectors for $T$.
+
+The term "diagonalisable" is due to the following fact, which is crucial.
+
+> [!PROP] 17.6
+> Let $\mathcal B = \{v_1, \dots, v_n\}$ be any basis of $V$. The associated matrix $A = [T]^{\mathcal B}_{\mathcal B}$ is diagonal if and only if the vectors $v_1, \dots, v_n$ are all eigenvectors for $T$.
+
+The reason, column by column:
+
+1. $v_i$ is an eigenvector $\iff T(v_i) = \lambda_i v_i$ for some $\lambda_i \in \K$.
+2. $T(v_i) = \lambda_i v_i = 0 \cdot v_1 + \dots + \lambda_i v_i + \dots + 0 \cdot v_n$ means that $[T(v_i)]_{\mathcal B} = \lambda_i e_i$: a column with $\lambda_i$ in place $i$ and zeros elsewhere.
+3. Column $i$ of $A$ is exactly $[T(v_i)]_{\mathcal B}$. So this happens for every $i = 1, \dots, n$ if and only if $A$ is diagonal, with the eigenvalues on the main diagonal:
+$$A = \begin{pmatrix} \lambda_1 & 0 & \cdots & 0 \\ 0 & \lambda_2 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & \lambda_n \end{pmatrix}.$$
+
+We have found out that an endomorphism $T$ is diagonalisable if and only if there is a basis $\mathcal B$ such that $A = [T]^{\mathcal B}_{\mathcal B}$ is a diagonal matrix. This happens precisely when $\mathcal B$ is a basis of eigenvectors, and the entries on the main diagonal of $A$ are their eigenvalues. In coordinates:
+
+> [!DEF] 17.7 · Diagonalisable matrix
+> A matrix $A \in M(n, \K)$ is **diagonalisable** if it is similar to a diagonal matrix $D$. So $A$ is diagonalisable $\iff$ there is an invertible matrix $M$ such that
+> $$D = M^{-1}AM$$
+> is diagonal.
+
+The link with endomorphisms is very close:
+
+> [!PROP] 17.8
+> Let $\mathcal B$ be a basis of $V$. An endomorphism $T : V \to V$ is diagonalisable $\iff$ the associated matrix $A = [T]^{\mathcal B}_{\mathcal B}$ is diagonalisable.
+
+The handouts' proof, step by step:
+
+1. **($\Rightarrow$)** If $T$ is diagonalisable, there is a basis $\mathcal C$ of $V$ (of eigenvectors) for which $D = [T]^{\mathcal C}_{\mathcal C}$ is diagonal. Let $M = [\id]^{\mathcal C}_{\mathcal B}$ be the change-of-basis matrix from $\mathcal C$ to $\mathcal B$. By the formula of lesson L16, $[T]^{\mathcal C}_{\mathcal C} = M^{-1}[T]^{\mathcal B}_{\mathcal B}M$, that is $D = M^{-1}AM$: $A$ is diagonalisable.
+2. **($\Leftarrow$)** If $D = M^{-1}AM$ is diagonal for some invertible $M$, let $\mathcal C$ be the basis of $V$ formed by the vectors whose coordinates with respect to $\mathcal B$ are the columns of $M$ (they are a basis because $M$ is invertible). By construction $M = [\id]^{\mathcal C}_{\mathcal B}$, and so $[T]^{\mathcal C}_{\mathcal C} = M^{-1}AM = D$ is diagonal: $\mathcal C$ is a basis of eigenvectors.
+
+> [!EXAMPLE] 17.9 · $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$ is diagonalisable
+> The endomorphism $L_A : \R^2 \to \R^2$ of Example 17.2 is diagonalisable: $v_1 = (1, 0)$ and $v_2 = (-4, 1)$ are both eigenvectors and are linearly independent (neither is a multiple of the other), so they form a basis of $\R^2$. Their eigenvalues are $3$ and $2$. Taking $\mathcal B = \{v_1, v_2\}$ we get
+> $$[L_A]^{\mathcal B}_{\mathcal B} = \begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}.$$
+
+> [!EXAMPLE] 17.10 · Rotations
+> The rotation by an angle $\vartheta$ of Example 17.3 is not diagonalisable for $\vartheta \neq 0, \pi$, because it has no eigenvectors. For $\vartheta = 0$ and $\vartheta = \pi$ the rotation becomes $f(v) = v$ and $f(v) = -v$ respectively, and so it is diagonalisable: in these two cases every non-zero vector is an eigenvector, and every basis is a basis of eigenvectors.
+
+> [!METHOD] From a basis of eigenvectors to $M$ and $D$
+> 1. Put the eigenvectors **in columns** in $M$, in the order you prefer: $M = [\id]^{\mathcal B}_{\mathcal C}$ with $\mathcal B$ the basis of eigenvectors.
+> 2. Put the eigenvalues on the diagonal of $D$ **in the same order**: column $j$ of $M$ has eigenvalue $d_{jj}$.
+> 3. Check that $M$ is invertible ($\det M \neq 0$): you need $n$ independent eigenvectors.
+> 4. Then $D = M^{-1}AM$, that is $A = MDM^{-1}$. **Check without the inverse**: $AM = MD$, because column $j$ of $AM$ is $Av_j$ and column $j$ of $MD$ is $d_{jj}v_j$.
+>
+> In Example 17.9: $AM = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}\begin{pmatrix} 1 & -4 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 3 & -8 \\ 0 & 2 \end{pmatrix}$ and $MD = \begin{pmatrix} 1 & -4 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 3 & -8 \\ 0 & 2 \end{pmatrix}$.
+
+> [!PITFALL] The order of $D$ and the columns of $M$
+> If you swap the order of the columns of $M$ you must also swap the eigenvalues in $D$: with $M = \begin{pmatrix} -4 & 1 \\ 1 & 0 \end{pmatrix}$ the right matrix is $D = \begin{pmatrix} 2 & 0 \\ 0 & 3 \end{pmatrix}$. And the columns of $M$ must be **independent** eigenvectors: $(0, 1, 1)$ and $(0, 3, 3)$ of Example 17.4 are two eigenvectors, but they cannot be together in a basis.
+
+## Why diagonal matrices are handy (p. 88)
+
+Diagonal matrices are much easier to handle than the others. Here are the calculations that become entry by entry.
+
+**Matrix times vector**: each component is multiplied by its diagonal entry,
+$$\begin{pmatrix} \lambda_1 & 0 & \dots & 0 \\ 0 & \lambda_2 & \dots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \dots & \lambda_n \end{pmatrix}\begin{pmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{pmatrix} = \begin{pmatrix} \lambda_1 x_1 \\ \lambda_2 x_2 \\ \vdots \\ \lambda_n x_n \end{pmatrix}.$$
+For example $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}\begin{pmatrix} 5 \\ -1 \end{pmatrix} = \begin{pmatrix} 15 \\ -2 \end{pmatrix}$.
+
+**Determinant**: the product of the entries on the diagonal, $\det A = \lambda_1 \cdots \lambda_n$.
+
+**Product of two diagonal matrices**: diagonal, with the products entry by entry,
+$$\begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix}\begin{pmatrix} \mu_1 & & \\ & \ddots & \\ & & \mu_n \end{pmatrix} = \begin{pmatrix} \lambda_1\mu_1 & & \\ & \ddots & \\ & & \lambda_n\mu_n \end{pmatrix}$$
+(the empty spaces are zeros).
+
+**Powers**: applying the product rule $k$ times,
+$$A = \begin{pmatrix} \lambda_1 & & \\ & \ddots & \\ & & \lambda_n \end{pmatrix} \Longrightarrow A^k = \begin{pmatrix} \lambda_1^k & & \\ & \ddots & \\ & & \lambda_n^k \end{pmatrix}.$$
+For example $\begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}^3 = \begin{pmatrix} 27 & 0 \\ 0 & 8 \end{pmatrix}$.
+
+### The powers of a diagonalisable matrix
+
+If $A$ is diagonalisable, $A = MDM^{-1}$, and powers are computed by going through $D$. With $k = 3$ you see the mechanism: the pairs $M^{-1}M$ in the middle cancel,
+$$A^3 = (MDM^{-1})(MDM^{-1})(MDM^{-1}) = MD(M^{-1}M)D(M^{-1}M)DM^{-1} = MD^3M^{-1},$$
+and in the same way $A^k = MD^kM^{-1}$ for every $k$.
+
+> [!EXAMPLE] 17.11 · Computing $A^{100}$
+> We take $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$ and compute $A^{100}$. The matrix $A$ is not diagonal, so computing one of its powers directly would require 99 products. We know, though, that $A$ is diagonalisable: from Example 17.9 we deduce that $M^{-1}AM = D = \begin{pmatrix} 3 & 0 \\ 0 & 2 \end{pmatrix}$, where
+> $$M = [\id]^{\mathcal B}_{\mathcal C} = \begin{pmatrix} 1 & -4 \\ 0 & 1 \end{pmatrix} \Longrightarrow M^{-1} = [\id]^{\mathcal C}_{\mathcal B} = \begin{pmatrix} 1 & 4 \\ 0 & 1 \end{pmatrix}.$$
+> Here $\mathcal B = \{(1, 0), (-4, 1)\}$ and $\mathcal C$ is the standard basis of $\R^2$. So
+> $$\begin{aligned} A^{100} &= (MDM^{-1})^{100} = MD^{100}M^{-1} = \begin{pmatrix} 1 & -4 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 3^{100} & 0 \\ 0 & 2^{100} \end{pmatrix}\begin{pmatrix} 1 & 4 \\ 0 & 1 \end{pmatrix} \\ &= \begin{pmatrix} 1 & -4 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 3^{100} & 4 \cdot 3^{100} \\ 0 & 2^{100} \end{pmatrix} = \begin{pmatrix} 3^{100} & 4\,(3^{100} - 2^{100}) \\ 0 & 2^{100} \end{pmatrix}. \end{aligned}$$
+
+A check with a small exponent: the same formula with $2$ in place of $100$ gives $\begin{pmatrix} 9 & 4(9 - 4) \\ 0 & 4 \end{pmatrix} = \begin{pmatrix} 9 & 20 \\ 0 & 4 \end{pmatrix}$, and the direct product is $A^2 = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}\begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix} = \begin{pmatrix} 9 & 12 + 8 \\ 0 & 4 \end{pmatrix} = \begin{pmatrix} 9 & 20 \\ 0 & 4 \end{pmatrix}$.
+
+## The characteristic polynomial (p. 89)
+
+In the examples seen so far the eigenvectors were given and you just had to check them. How do you **find** them? An idea in two lines: $Ax = \lambda x$ can be rewritten $Ax - \lambda x = 0$, that is $(A - \lambda I_n)x = 0$. We are looking for a **non-zero** solution of a square homogeneous system, and it exists exactly when the matrix $A - \lambda I_n$ is not invertible, that is when its determinant is zero. The determinant, written with an unknown $\lambda$, is a polynomial in $\lambda$.
+
+> [!DEF] 17.12 · Characteristic polynomial
+> Let $A \in M(n, \K)$. The **characteristic polynomial** of $A = (a_{ij})$ is defined as follows:
+> $$p_A(\lambda) = \det(A - \lambda I_n) = \det\begin{pmatrix} a_{11} - \lambda & a_{12} & \dots & a_{1n} \\ a_{21} & a_{22} - \lambda & \dots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{n1} & a_{n2} & \dots & a_{nn} - \lambda \end{pmatrix}.$$
+
+Piece by piece:
+
+- **$A - \lambda I_n$** is obtained by taking $\lambda$ away **only on the diagonal**; the other entries stay the same.
+- **$\lambda$ is a variable**: the determinant is an expression in $\lambda$. You use $\lambda$ instead of $x$ because $x$ already denotes vectors.
+- **The subscript $A$** in $p_A$ reminds you which matrix you start from.
+
+> [!REMARK] It really is a polynomial of degree $n$
+> The product of the entries on the diagonal, $(a_{11} - \lambda)\cdots(a_{nn} - \lambda)$, contains $(-\lambda)^n$; all the other terms of the determinant have at most $n - 2$ factors with $\lambda$. So $p_A$ has degree $n$ and leading coefficient $(-1)^n$.
+
+> [!BEYOND] the formula for $2 \times 2$ matrices
+> For $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$:
+> $$p_A(\lambda) = (a - \lambda)(d - \lambda) - bc = \lambda^2 - (a + d)\lambda + (ad - bc) = \lambda^2 - \tr(A)\,\lambda + \det A.$$
+> In general (Martelli, Proposition 5.1.23) the constant term of $p_A$ is $p_A(0) = \det A$ and the coefficient of $\lambda^{n-1}$ is $(-1)^{n-1}\tr A$. For example, for $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$: $p_A(\lambda) = \lambda^2 - 5\lambda - 2$.
+
+> [!REMARK] Similar matrices have the same characteristic polynomial
+> If $A$ and $B$ are similar, then $p_A(\lambda) = p_B(\lambda)$. Indeed, if $A = M^{-1}BM$ for some invertible $M$, we use $\lambda I_n = \lambda M^{-1}M = M^{-1}(\lambda I_n)M$ to get
+> $$\begin{aligned} p_A(\lambda) &= \det(A - \lambda I_n) = \det(M^{-1}BM - M^{-1}\lambda I_n M) \\ &= \det\big(M^{-1}(B - \lambda I_n)M\big) = \det(M^{-1})\det(B - \lambda I_n)\det(M) \\ &= \det(B - \lambda I_n) = p_B(\lambda) \end{aligned}$$
+> thanks to Binet's theorem. For an endomorphism $T : V \to V$ of a vector space $V$ we then define the characteristic polynomial $p_T(\lambda)$ as the characteristic polynomial $p_A(\lambda)$ of the associated matrix $A = [T]^{\mathcal B}_{\mathcal B}$ with respect to any basis $\mathcal B$ of $V$. The definition does not depend on the basis chosen because the characteristic polynomial is invariant under similarity.
+
+The steps of the chain: in the second you collect $M^{-1}$ on the left and $M$ on the right (distributive property of the product of matrices); in the third you use Binet, $\det(XYZ) = \det X \det Y \det Z$; in the fourth $\det(M^{-1})\det M = \det(M^{-1}M) = \det I_n = 1$.
+
+> [!PROP] 17.13
+> The eigenvalues of $T$ are precisely the roots of the characteristic polynomial $p_T(\lambda)$.
+
+The handouts' proof is a chain of equivalences. We choose a basis $\mathcal B$ and write $A = [T]^{\mathcal B}_{\mathcal B}$. A scalar $\lambda \in \K$ is an eigenvalue for $T$ if and only if there is a non-zero $x \in \K^n$ with $Ax = \lambda x$ (Remark in coordinates). Then:
+
+1. $\exists\, x \neq 0$ with $Ax = \lambda x$ $\iff$ $\exists\, x \neq 0$ with $(A - \lambda I_n)x = 0$: you bring $\lambda x = \lambda I_n x$ to the left;
+2. $\iff$ $\exists\, x \neq 0$ with $x \in \Ker(A - \lambda I_n)$: it is the definition of kernel;
+3. $\iff$ $A - \lambda I_n$ is not invertible: a square matrix is invertible if and only if its kernel is $\{0\}$ (lessons L10 and L14);
+4. $\iff$ $\det(A - \lambda I_n) = 0$ $\iff$ $p_A(\lambda) = 0$: a square matrix is invertible if and only if it has non-zero determinant (Proposition 10.8). $\square$
+
+> [!EXAMPLE] 17.14 · The eigenvalues found again
+> We take $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$. We find
+> $$p_A(\lambda) = \det(A - \lambda I_2) = \det\begin{pmatrix} 3 - \lambda & 4 \\ 0 & 2 - \lambda \end{pmatrix} = (3 - \lambda)(2 - \lambda).$$
+> The roots of this polynomial are exactly $\lambda = 2$ and $\lambda = 3$: the eigenvalues found by hand in Example 17.2.
+
+> [!METHOD] Eigenvalues and eigenvectors of a matrix, step by step
+> 1. **Write $A - \lambda I_n$** (take $\lambda$ away on the diagonal) and compute $p_A(\lambda) = \det(A - \lambda I_n)$. For $3 \times 3$ matrices expand along the row or column with the most zeros, and **leave the polynomial factored** when you can: $(2 - \lambda)(\dots)$ is more useful than $-\lambda^3 + \dots$
+> 2. **Find the roots** in $\K$: they are the eigenvalues. Check with the trace: if you have found all the $n$ roots (counted with multiplicity), their sum is $\tr A$ and their product is $\det A$.
+> 3. **For each eigenvalue $\lambda_0$** solve the homogeneous system $(A - \lambda_0 I_n)x = 0$ (with Gauss). The non-zero solutions are the eigenvectors relative to $\lambda_0$. The system must have infinitely many solutions: if you only get $x = 0$, there is a mistake in the calculation of $\lambda_0$.
+> 4. **Check** an eigenvector $v$ by computing $Av$ and comparing it with $\lambda_0 v$.
+
+> [!EXAMPLE] · the whole recipe on a $2 \times 2$ matrix
+> Let $A = \begin{pmatrix} -1 & 2 \\ -4 & 5 \end{pmatrix}$ (from Martelli's book, Example 5.1.29).
+>
+> **Step 1.** $p_A(\lambda) = (-1 - \lambda)(5 - \lambda) - 2 \cdot (-4) = \lambda^2 - 4\lambda - 5 + 8 = \lambda^2 - 4\lambda + 3$. Check with the formula: $\tr A = 4$, $\det A = -5 + 8 = 3$.
+>
+> **Step 2.** $\lambda^2 - 4\lambda + 3 = (\lambda - 1)(\lambda - 3)$: eigenvalues $1$ and $3$. Check: $1 + 3 = 4 = \tr A$ and $1 \cdot 3 = 3 = \det A$.
+>
+> **Step 3.**
+> - $\lambda = 1$: $A - I_2 = \begin{pmatrix} -2 & 2 \\ -4 & 4 \end{pmatrix}$, that is $-2x + 2y = 0$ (the second equation is twice the first): $y = x$, eigenvectors $t(1, 1)$ with $t \neq 0$.
+> - $\lambda = 3$: $A - 3I_2 = \begin{pmatrix} -4 & 2 \\ -4 & 2 \end{pmatrix}$, that is $-4x + 2y = 0$: $y = 2x$, eigenvectors $t(1, 2)$ with $t \neq 0$.
+>
+> **Step 4.** $A(1, 1) = (-1 + 2,\ -4 + 5) = (1, 1)$ and $A(1, 2) = (-1 + 4,\ -4 + 10) = (3, 6) = 3(1, 2)$.
+>
+> The two eigenvectors are independent, so $A$ is diagonalisable: with $M = \begin{pmatrix} 1 & 1 \\ 1 & 2 \end{pmatrix}$ and $D = \begin{pmatrix} 1 & 0 \\ 0 & 3 \end{pmatrix}$ we have $D = M^{-1}AM$.
+
+> [!BEYOND] triangular matrices and rotations
+> **Triangular** (Martelli, Proposition 5.1.34). If $A$ is triangular (all zeros below, or above, the diagonal), so is $A - \lambda I_n$, and the determinant of a triangular matrix is the product of the diagonal: $p_A(\lambda) = (a_{11} - \lambda)\cdots(a_{nn} - \lambda)$. **The eigenvalues are the entries on the diagonal.** It happens often in the exam papers (03/07/2026, question 3; 07/09/2026, problem 11).
+>
+> **Rotations.** $p_{\mathrm{Rot}_\vartheta}(\lambda) = \lambda^2 - 2\cos\vartheta\,\lambda + 1$, with discriminant $4\cos^2\vartheta - 4 < 0$ for $\vartheta \neq 0, \pi$: no real root, as predicted by Example 17.3. Over $\C$ instead the roots exist: for $\vartheta = \frac{\pi}{2}$, $p(\lambda) = \lambda^2 + 1$ has roots $\pm i$ (exercise 6). That is why, when you talk about eigenvalues, you must always say which field you are working over.
+
+The tool below computes the characteristic polynomial of a $2 \times 2$ or $3 \times 3$ matrix, its rational roots and, for each one, a basis of the solutions of $(A - \lambda I)x = 0$. It is set up with the matrix of Example 17.4: you find the eigenvalue 2 with the eigenvector $(0, 1, 1)$, and a second-degree factor with no real roots (exercise 4). Then try the matrix $1\ 2\ 0;\ 2\ 1\ 0;\ 1\ 1\ 2$ of exercise 10.
+
+```widget gauss
+title: Characteristic polynomial and eigenvectors
+matrice: 1 1 -1; 2 1 1; 3 0 2
+modo: autovalori
+modi: autovalori, nucleo, determinante
+```
+
+> [!BEYOND] where to find it in the book
+> In Martelli's book: §5.1.1–5.1.2 "Autovettori e autovalori", "Endomorfismi diagonalizzabili" (pp. 151–154), §5.1.3–5.1.4 "Matrici diagonali", "Matrici diagonalizzabili", with the example of $A^{100}$ (pp. 154–156), §5.1.6–5.1.7 "Polinomio caratteristico", "Le radici del polinomio caratteristico" (pp. 157–161, with the $2 \times 2$ examples over $\R$ and over $\C$), §5.1.8 "Matrici triangolari" (p. 162). The relation between trace, determinant and eigenvalues is Proposition 5.2.15 (p. 169).
+
+## Towards the exam
+
+The Linear Algebra and Geometry test has 10 multiple-choice questions (5 answers, one right) and 2 problems worth 11 points, which are marked only with at least 6 correct answers; it lasts 2 hours, with no calculator, and you may bring only a 4-page handwritten sheet. The 2026/27 exam sessions are on 22/01 and 05/02/2027 at 14:00. All the details are in lesson L01.
+
+**What you need from this lesson for the exam.** Eigenvalues and eigenvectors are present in **every** exam session 2023–2026: almost always in one or two quiz questions and very often in an open problem (which will also use lesson L18).
+
+| Type of question | Where |
+|---|---|
+| which of these vectors is an eigenvector? | 03/07/2026 q. 2 |
+| the set of eigenvalues of a $3 \times 3$ | 06/09/2024 q. 10; 07/02/2025 q. 8; 05/02/2026 q. 8; 03/07/2026 q. 3 (triangular) |
+| given an eigenvalue, find the others (also complex) | 02/09/2025 q. 4 |
+| the basis of eigenvectors of a $2 \times 2$ | 03/06/2026 q. 6 |
+| what cannot happen if $\lambda$ is an eigenvalue | 03/06/2025 q. 8 |
+| problem: matrix of $T$ and eigenvalues | 10/07/2024 problem 11; 07/09/2026 problem 11 |
+
+### Three real exam questions, solved
+
+> [!EXAM] Exam of 03/07/2026, question 2
+> *Let $T(x, y) = (2x + y,\ 3y)$. Which of the vectors $(1, 1)$, $(0, 1)$, $(2, 1)$, $(-1, 1)$ is an eigenvector (or: $T$ has no real eigenvectors)?*
+>
+> Solution. You do not need the characteristic polynomial: you try. With $A = \begin{pmatrix} 2 & 1 \\ 0 & 3 \end{pmatrix}$: $A(1, 1) = (3, 3) = 3(1, 1)$, yes; $A(0, 1) = (1, 3)$, $A(2, 1) = (5, 3)$, $A(-1, 1) = (-1, 3)$, none of the three is a multiple of the starting vector. The answer is $(1, 1)$, with eigenvalue 3. "No real eigenvector" is also ruled out because $A$ is triangular with real eigenvalues 2 and 3.
+
+> [!EXAM] Exam of 05/02/2026, question 8
+> *Find the set of eigenvalues of $T(x, y, z) = (2x + y - 2z,\ -x + 2z,\ 3z)$.*
+>
+> Solution. $A = \begin{pmatrix} 2 & 1 & -2 \\ -1 & 0 & 2 \\ 0 & 0 & 3 \end{pmatrix}$. The third row of $A - \lambda I_3$ is $(0, 0, 3 - \lambda)$: expanding along that row,
+> $$p_A(\lambda) = (3 - \lambda)\det\begin{pmatrix} 2 - \lambda & 1 \\ -1 & -\lambda \end{pmatrix} = (3 - \lambda)\big(-\lambda(2 - \lambda) + 1\big) = (3 - \lambda)(\lambda^2 - 2\lambda + 1) = (3 - \lambda)(\lambda - 1)^2.$$
+> The set of eigenvalues is $\{1, 3\}$. Check with the trace: $1 + 1 + 3 = 5 = 2 + 0 + 3$.
+
+> [!EXAM] Exam of 02/09/2025, question 4
+> *$T(x, y, z) = (2x + 2y,\ -2x - 2y + 2z,\ 2x)$ has eigenvalue $\lambda_1 = 2$. What are the other eigenvalues?* The answers were $\pm(1 + i\sqrt 2)$, $2 \pm i\sqrt 2$, $1 + i\sqrt 2$ and $1 + i\sqrt 3$, $2 + i\sqrt 2$ and $1 - i\sqrt 3$, $-1 \pm i\sqrt 3$.
+>
+> Quick solution. The trace of $A = \begin{pmatrix} 2 & 2 & 0 \\ -2 & -2 & 2 \\ 2 & 0 & 0 \end{pmatrix}$ is $2 - 2 + 0 = 0$, and the sum of the three eigenvalues (over $\C$) is the trace: $\lambda_2 + \lambda_3 = 0 - 2 = -2$. Only $-1 \pm i\sqrt 3$ has sum $-2$. Full solution: expanding along the third row, $p_A(\lambda) = -\lambda^3 + 8 = -(\lambda - 2)(\lambda^2 + 2\lambda + 4)$, and $\lambda^2 + 2\lambda + 4 = 0$ gives $\lambda = -1 \pm i\sqrt 3$.
+
+### Mistakes to avoid
+
+- Accepting $v = 0$ as an eigenvector, or ruling out $\lambda = 0$ as an eigenvalue.
+- Taking $\lambda$ away off the diagonal too: in $A - \lambda I_n$ **only** the diagonal changes.
+- Expanding the whole determinant into a third-degree polynomial and then not managing to factor it: expand along the row or column with the most zeros and factor out $(a - \lambda)$ straight away.
+- Forgetting to check: sum of the eigenvalues = trace, product = determinant (if you have all the roots), and $Av = \lambda v$ on an eigenvector.
+- Putting the eigenvalues in $D$ in an order different from that of the columns of $M$.
+
+> [!EXAM] The 4-page sheet
+> From this lesson: "$v \neq 0$, $T(v) = \lambda v$"; "$p_A(\lambda) = \det(A - \lambda I)$, $2 \times 2$: $\lambda^2 - \tr A\,\lambda + \det A$"; "eigenvalues = roots, eigenvectors = $\Ker(A - \lambda I) \setminus \{0\}$"; "triangular: eigenvalues on the diagonal"; "sum = trace, product = determinant"; "$D = M^{-1}AM$, $M$ = eigenvectors in columns, $A^k = MD^kM^{-1}$".
+
+## Quiz
+
+```quiz
+Q: Let $T : \R^2 \to \R^2$, $T(x, y) = (x + 2y,\ 3y)$. Which of these vectors is an eigenvector of $T$?
++ $(1, 1)$
+- $(0, 1)$
+- $(1, 2)$
+- $(2, 1)$
+- $T$ has no real eigenvectors.
+= $T(1, 1) = (3, 3) = 3(1, 1)$. The others: $T(0, 1) = (2, 3)$, $T(1, 2) = (5, 6)$, $T(2, 1) = (4, 3)$, none a multiple of the starting vector. The matrix $\begin{pmatrix} 1 & 2 \\ 0 & 3 \end{pmatrix}$ is triangular with real eigenvalues 1 and 3, so the last answer is false. Similar to the exam of 03/07/2026, question 2.
+
+Q: The set of eigenvalues of $T : \R^3 \to \R^3$, $T(x, y, z) = (2x + z,\ x + 3y - z,\ z)$, is:
++ $\{1, 2, 3\}$
+- $\{2, 3\}$
+- $\{0, 1, 3\}$
+- $\{-1, 2, 3\}$
+- $\{\}$ (no real eigenvalue)
+= $A = \begin{pmatrix} 2 & 0 & 1 \\ 1 & 3 & -1 \\ 0 & 0 & 1 \end{pmatrix}$. Expanding $\det(A - \lambda I_3)$ along the third row $(0, 0, 1 - \lambda)$: $p_A(\lambda) = (1 - \lambda)\big((2 - \lambda)(3 - \lambda) - 0\big)$. Roots $1, 2, 3$; check: $1 + 2 + 3 = 6 = \tr A$. Similar to the exams of 07/02/2025 (question 8) and 05/02/2026 (question 8).
+
+Q: The endomorphism $T(x, y, z) = (x,\ y - 2z,\ y + z)$ of $\R^3$ has eigenvalue $\lambda_1 = 1$. What are the other eigenvalues (in $\C$)?
++ $1 \pm i\sqrt 2$
+- $\pm(1 + i\sqrt 2)$
+- $1 \pm \sqrt 2$
+- $-1 \pm i\sqrt 2$
+- $2 \pm i$
+= Expanding along the first row $(1 - \lambda, 0, 0)$: $p(\lambda) = (1 - \lambda)\big((1 - \lambda)^2 + 2\big)$. From $(1 - \lambda)^2 = -2$ you get $\lambda = 1 \pm i\sqrt 2$. Check with the trace: $1 + (1 + i\sqrt 2) + (1 - i\sqrt 2) = 3 = 1 + 1 + 1$. Similar to the exam of 02/09/2025, question 4.
+
+Q: $T(x, y) = (2x,\ x + 3y)$ has eigenvalues 2 and 3. A basis of eigenvectors is:
++ $\{(1, -1), (0, 1)\}$
+- $\{(2, 1), (0, 3)\}$
+- $\{(1, 1), (0, 1)\}$
+- $\{(1, 0), (0, 1)\}$
+- $\{(1, -1), (2, -2)\}$
+= For $\lambda = 3$: $T(0, 1) = (0, 3) = 3(0, 1)$. For $\lambda = 2$: $(A - 2I)x = 0$ with $A - 2I = \begin{pmatrix} 0 & 0 \\ 1 & 1 \end{pmatrix}$ gives $x + y = 0$, that is $(1, -1)$; check $T(1, -1) = (2, -2)$. The second answer is the columns of $A$; the last is not a basis (proportional vectors). Similar to the exam of 03/06/2026, question 6.
+
+Q: Let $\lambda$ be an eigenvalue of the endomorphism $T : \R^n \to \R^n$. Which of these statements is **always false**?
++ $\Ker(T - \lambda\,\id) = \{0\}$
+- $\lambda = 0$
+- $T$ is invertible.
+- $p_T(\lambda) = 0$
+- $T - \lambda\,\id$ is not injective.
+= If $\lambda$ is an eigenvalue there is $v \neq 0$ with $(T - \lambda\,\id)(v) = 0$, so the kernel of $T - \lambda\,\id$ is never $\{0\}$. The last two are always true (Proposition 17.13). $\lambda = 0$ can happen (when $T$ is not invertible), and $T$ invertible can happen (when $0$ is not an eigenvalue). Similar to the exam of 03/06/2025, question 8.
+
+Q: The characteristic polynomial of $A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ is:
++ $\lambda^2 - 5\lambda - 2$
+- $\lambda^2 + 5\lambda - 2$
+- $\lambda^2 - 5\lambda + 10$
+- $(1 - \lambda)(4 - \lambda)$
+- $\lambda^2 - 2\lambda - 5$
+= $(1 - \lambda)(4 - \lambda) - 2 \cdot 3 = \lambda^2 - 5\lambda + 4 - 6 = \lambda^2 - 5\lambda - 2$. With the formula: $\tr A = 5$ and $\det A = -2$. The fourth answer forgets the term $-bc$ (that formula holds only for triangular matrices).
+
+Q: Let $A = \begin{pmatrix} 1 & 1 \\ 0 & 2 \end{pmatrix}$. What is the entry in position $(1, 2)$ of $A^{10}$?
+N: 1023
+= Eigenvectors: $(1, 0)$ with eigenvalue 1 and $(1, 1)$ with eigenvalue 2 (indeed $A(1, 1) = (2, 2)$). With $M = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$ and $M^{-1} = \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix}$: $A^n = M\begin{pmatrix} 1 & 0 \\ 0 & 2^n \end{pmatrix}M^{-1} = \begin{pmatrix} 1 & 2^n - 1 \\ 0 & 2^n \end{pmatrix}$. For $n = 10$: $2^{10} - 1 = 1023$. Check with $n = 2$: $A^2 = \begin{pmatrix} 1 & 3 \\ 0 & 4 \end{pmatrix}$.
+
+Q: If $v$ is an eigenvector of $T$ with eigenvalue $\lambda$, then the vector $3v$ is:
++ an eigenvector of $T$ with eigenvalue $\lambda$.
+- an eigenvector of $T$ with eigenvalue $3\lambda$.
+- an eigenvector of $T$ with eigenvalue $\lambda / 3$.
+- an eigenvector only if $\lambda \neq 0$.
+- not an eigenvector.
+= $T(3v) = 3T(v) = 3\lambda v = \lambda(3v)$ and $3v \neq 0$: same eigenvalue $\lambda$, whatever $\lambda$ is (even $0$). It is the remark on multiples after Example 17.4.
+
+Q: Which of these real matrices has **no** real eigenvalues?
++ $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}$
+- $\begin{pmatrix} 2 & 0 \\ 0 & -3 \end{pmatrix}$
+- $\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}$
+= Characteristic polynomials: $\lambda^2 + 1$ (no real root: it is the $90°$ rotation); $\lambda^2 - 1$ (roots $\pm 1$); $(\lambda - 1)^2$; $(2 - \lambda)(-3 - \lambda)$; $\lambda^2 - 2\lambda - 3 = (\lambda - 3)(\lambda + 1)$.
+
+Q: The matrices $A$ and $B$ are similar and $p_A(\lambda) = \lambda^2 - 3\lambda + 2$. Which statement is true?
++ $B$ has eigenvalues $1$ and $2$.
+- $B = A$.
+- $A$ and $B$ have the same eigenvectors.
+- $\det B = 3$.
+- $\tr B = 2$.
+= Similar matrices have the same characteristic polynomial, so $p_B(\lambda) = \lambda^2 - 3\lambda + 2 = (\lambda - 1)(\lambda - 2)$. From the $2 \times 2$ formula: $\tr B = 3$ and $\det B = 2$. The eigenvectors usually change: in Example 16.10, $e_2$ is an eigenvector of $\begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ but not of the similar matrix $\begin{pmatrix} 1 & 1 \\ 0 & -1 \end{pmatrix}$.
+```
+
+## Exercises
+
+::: exercise basic Checking whether a vector is an eigenvector
+Let $A = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$. Which of $(1, 1)$, $(1, -1)$, $(1, 0)$ are eigenvectors of $A$, and with which eigenvalue?
+::: solution
+- $A(1, 1) = (2 + 1,\ 1 + 2) = (3, 3) = 3(1, 1)$: eigenvector with eigenvalue $3$.
+- $A(1, -1) = (2 - 1,\ 1 - 2) = (1, -1) = 1 \cdot (1, -1)$: eigenvector with eigenvalue $1$.
+- $A(1, 0) = (2, 1)$: to be a multiple of $(1, 0)$ it would need second component 0. It is not an eigenvector.
+
+Check: $p_A(\lambda) = \lambda^2 - 4\lambda + 3 = (\lambda - 1)(\lambda - 3)$ (trace 4, determinant 3), roots 1 and 3.
+:::
+
+::: exercise basic Eigenvalues, eigenvectors, $M$ and $D$
+Find eigenvalues and eigenvectors of $A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$ and write an invertible $M$ and a diagonal $D$ with $D = M^{-1}AM$.
+::: solution
+**Characteristic polynomial**: $\tr A = 7$, $\det A = 12 - 2 = 10$, so $p_A(\lambda) = \lambda^2 - 7\lambda + 10 = (\lambda - 2)(\lambda - 5)$. Eigenvalues $2$ and $5$ (check: $2 + 5 = 7$, $2 \cdot 5 = 10$).
+
+**$\lambda = 2$**: $A - 2I_2 = \begin{pmatrix} 2 & 1 \\ 2 & 1 \end{pmatrix}$, equation $2x + y = 0$, that is $y = -2x$: eigenvector $(1, -2)$. Check: $A(1, -2) = (4 - 2,\ 2 - 6) = (2, -4) = 2(1, -2)$.
+
+**$\lambda = 5$**: $A - 5I_2 = \begin{pmatrix} -1 & 1 \\ 2 & -2 \end{pmatrix}$, equation $-x + y = 0$: eigenvector $(1, 1)$. Check: $A(1, 1) = (5, 5)$.
+
+$$M = \begin{pmatrix} 1 & 1 \\ -2 & 1 \end{pmatrix}, \qquad D = \begin{pmatrix} 2 & 0 \\ 0 & 5 \end{pmatrix}.$$
+$\det M = 1 + 2 = 3 \neq 0$. Check $AM = MD$: $AM = \begin{pmatrix} 2 & 5 \\ -4 & 5 \end{pmatrix}$ and $MD = \begin{pmatrix} 2 & 5 \\ -4 & 5 \end{pmatrix}$.
+:::
+
+::: exercise intermediate A formula for all the powers
+With the matrix $A = \begin{pmatrix} 4 & 1 \\ 2 & 3 \end{pmatrix}$ of the previous exercise, find a formula for $A^n$ and check it for $n = 2$.
+::: solution
+$M^{-1} = \frac 13 \begin{pmatrix} 1 & -1 \\ 2 & 1 \end{pmatrix}$ ($\det M = 3$). Then
+$$A^n = MD^nM^{-1} = \begin{pmatrix} 1 & 1 \\ -2 & 1 \end{pmatrix}\begin{pmatrix} 2^n & 0 \\ 0 & 5^n \end{pmatrix}\frac 13\begin{pmatrix} 1 & -1 \\ 2 & 1 \end{pmatrix} = \frac 13\begin{pmatrix} 2^n & 5^n \\ -2^{n+1} & 5^n \end{pmatrix}\begin{pmatrix} 1 & -1 \\ 2 & 1 \end{pmatrix}$$
+$$= \frac 13\begin{pmatrix} 2^n + 2 \cdot 5^n & -2^n + 5^n \\ -2^{n+1} + 2 \cdot 5^n & 2^{n+1} + 5^n \end{pmatrix}.$$
+For $n = 2$: $\frac 13\begin{pmatrix} 4 + 50 & -4 + 25 \\ -8 + 50 & 8 + 25 \end{pmatrix} = \frac 13\begin{pmatrix} 54 & 21 \\ 42 & 33 \end{pmatrix} = \begin{pmatrix} 18 & 7 \\ 14 & 11 \end{pmatrix}$. The direct product: $A^2 = \begin{pmatrix} 16 + 2 & 4 + 3 \\ 8 + 6 & 2 + 9 \end{pmatrix} = \begin{pmatrix} 18 & 7 \\ 14 & 11 \end{pmatrix}$.
+:::
+
+::: exercise intermediate The characteristic polynomial of Example 17.4
+Compute the characteristic polynomial of $A = \begin{pmatrix} 1 & 1 & -1 \\ 2 & 1 & 1 \\ 3 & 0 & 2 \end{pmatrix}$. What are the real eigenvalues? And the complex ones? Is $A$ diagonalisable over $\R$?
+::: solution
+I expand $\det(A - \lambda I_3)$ along the second column $(1,\ 1 - \lambda,\ 0)$, which has a zero:
+$$\det\begin{pmatrix} 1 - \lambda & 1 & -1 \\ 2 & 1 - \lambda & 1 \\ 3 & 0 & 2 - \lambda \end{pmatrix} = -1 \cdot \det\begin{pmatrix} 2 & 1 \\ 3 & 2 - \lambda \end{pmatrix} + (1 - \lambda)\det\begin{pmatrix} 1 - \lambda & -1 \\ 3 & 2 - \lambda \end{pmatrix}.$$
+The signs: place $(1, 2)$ sign $-$, place $(2, 2)$ sign $+$. The two minors:
+- $\det\begin{pmatrix} 2 & 1 \\ 3 & 2 - \lambda \end{pmatrix} = 4 - 2\lambda - 3 = 1 - 2\lambda$;
+- $\det\begin{pmatrix} 1 - \lambda & -1 \\ 3 & 2 - \lambda \end{pmatrix} = (1 - \lambda)(2 - \lambda) + 3 = \lambda^2 - 3\lambda + 5$.
+
+So
+$$p_A(\lambda) = -(1 - 2\lambda) + (1 - \lambda)(\lambda^2 - 3\lambda + 5) = -1 + 2\lambda + \lambda^2 - 3\lambda + 5 - \lambda^3 + 3\lambda^2 - 5\lambda = -\lambda^3 + 4\lambda^2 - 6\lambda + 4.$$
+We know from Example 17.4 that $2$ is an eigenvalue: indeed $p_A(2) = -8 + 16 - 12 + 4 = 0$. Dividing by $\lambda - 2$ (Ruffini, lesson L04): $p_A(\lambda) = -(\lambda - 2)(\lambda^2 - 2\lambda + 2)$. The factor $\lambda^2 - 2\lambda + 2$ has discriminant $4 - 8 = -4 < 0$: roots $1 \pm i$.
+
+Real eigenvalues: only $2$. Over $\C$: $2$, $1 + i$, $1 - i$. Check: $2 + (1 + i) + (1 - i) = 4 = \tr A$ and $2(1 + i)(1 - i) = 2 \cdot 2 = 4 = \det A$.
+
+Over $\R$ the eigenvectors are only those with eigenvalue 2, and $(A - 2I_3)x = 0$ has solutions $t(0, 1, 1)$ (a line): there are not three independent eigenvectors, so $A$ is **not** diagonalisable over $\R$.
+:::
+
+::: exercise intermediate An endomorphism of $\R_1[x]$
+Let $T : \R_1[x] \to \R_1[x]$, $T(a + bx) = b + ax$. Find eigenvalues and eigenvectors (as polynomials). Is $T$ diagonalisable? Write the matrix of $T$ in a basis of eigenvectors.
+::: solution
+In the basis $\{1, x\}$: $A = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$, $p_A(\lambda) = \lambda^2 - 0 \cdot \lambda + (0 - 1) = \lambda^2 - 1 = (\lambda - 1)(\lambda + 1)$.
+
+- $\lambda = 1$: $A - I_2 = \begin{pmatrix} -1 & 1 \\ 1 & -1 \end{pmatrix}$, $y = x$: coordinates $(1, 1)$, polynomial $1 + x$.
+- $\lambda = -1$: $A + I_2 = \begin{pmatrix} 1 & 1 \\ 1 & 1 \end{pmatrix}$, $y = -x$: coordinates $(1, -1)$, polynomial $1 - x$.
+
+$\{1 + x,\ 1 - x\}$ is a basis of eigenvectors, so $T$ is diagonalisable and in this basis $[T] = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$. Check: $T(1 + x) = 1 + x$, $T(1 - x) = -1 + x = -(1 - x)$.
+:::
+
+::: exercise intermediate The $90°$ rotation over $\R$ and over $\C$ (beyond the handouts)
+Let $A = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$. (a) Show that $L_A : \R^2 \to \R^2$ has no eigenvalues. (b) Consider $L_A : \C^2 \to \C^2$ with the same matrix: find eigenvalues and eigenvectors. Is $A$ diagonalisable over $\C$?
+::: solution
+(a) $p_A(\lambda) = \lambda^2 - 0 \cdot \lambda + (0 + 1) = \lambda^2 + 1$, which has no real roots ($\lambda^2 \ge 0$). No real eigenvalue, so no eigenvector in $\R^2$.
+
+(b) Over $\C$: $\lambda^2 + 1 = 0$ for $\lambda = \pm i$.
+- $\lambda = i$: $A - iI_2 = \begin{pmatrix} -i & -1 \\ 1 & -i \end{pmatrix}$. The second equation is $x - iy = 0$, that is $x = iy$: eigenvector $(i, 1)$. Check: $A(i, 1) = (-1, i) = i\,(i, 1)$, because $i \cdot i = -1$.
+- $\lambda = -i$: $x + iy = 0$, that is $x = -iy$: eigenvector $(-i, 1)$. Check: $A(-i, 1) = (-1, -i) = -i\,(-i, 1)$.
+
+The two eigenvectors are independent ($\det\begin{pmatrix} i & -i \\ 1 & 1 \end{pmatrix} = i + i = 2i \neq 0$), so over $\C$ the matrix is diagonalisable with $D = \begin{pmatrix} i & 0 \\ 0 & -i \end{pmatrix}$. The same matrix is diagonalisable over $\C$ but not over $\R$ (Martelli, Example 5.1.31): in the exam papers with a parameter $k \in \C$ this matters.
+:::
+
+::: exercise basic Eigenvalues of a triangular matrix
+Find the eigenvalues of $A = \begin{pmatrix} 2 & 5 & -1 \\ 0 & -1 & 7 \\ 0 & 0 & 3 \end{pmatrix}$ explaining why you do not need to expand the whole determinant. Then find an eigenvector for the eigenvalue $2$.
+::: solution
+$A - \lambda I_3 = \begin{pmatrix} 2 - \lambda & 5 & -1 \\ 0 & -1 - \lambda & 7 \\ 0 & 0 & 3 - \lambda \end{pmatrix}$ is still upper triangular, and the determinant of a triangular matrix is the product of the diagonal (lesson L09). So $p_A(\lambda) = (2 - \lambda)(-1 - \lambda)(3 - \lambda)$ and the eigenvalues are $2, -1, 3$: the entries of the diagonal.
+
+Eigenvector for $2$: $A - 2I_3 = \begin{pmatrix} 0 & 5 & -1 \\ 0 & -3 & 7 \\ 0 & 0 & 1 \end{pmatrix}$. From the third row $z = 0$, then from the first $5y = 0$: $y = 0$; $x$ is free. Eigenvector $e_1 = (1, 0, 0)$. Check: $Ae_1$ is the first column, $(2, 0, 0) = 2e_1$.
+:::
+
+::: exercise hard Zero eigenvalue, powers and inverse
+Let $A \in M(n, \K)$. (a) Prove that $0$ is an eigenvalue of $A$ if and only if $A$ is not invertible. (b) Prove that if $v$ is an eigenvector of $A$ with eigenvalue $\lambda$, then $v$ is an eigenvector of $A^2$ with eigenvalue $\lambda^2$. (c) If $A$ is invertible and $Av = \lambda v$ with $v \neq 0$, prove that $\lambda \neq 0$ and that $v$ is an eigenvector of $A^{-1}$ with eigenvalue $\frac 1\lambda$.
+::: solution
+(a) By Proposition 17.13, $0$ is an eigenvalue $\iff p_A(0) = 0 \iff \det(A - 0 \cdot I_n) = \det A = 0 \iff A$ is not invertible.
+
+(b) $A^2v = A(Av) = A(\lambda v) = \lambda Av = \lambda \cdot \lambda v = \lambda^2 v$, and $v \neq 0$.
+
+(c) If $\lambda = 0$, we would have $Av = 0$ with $v \neq 0$, that is $\Ker A \neq \{0\}$, impossible for an invertible matrix. Multiplying $Av = \lambda v$ on the left by $A^{-1}$: $v = \lambda A^{-1}v$, so $A^{-1}v = \frac 1\lambda v$.
+
+Example: $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$ has eigenvalues $3, 2$; $A^2 = \begin{pmatrix} 9 & 20 \\ 0 & 4 \end{pmatrix}$ has eigenvalues $9, 4$, and $A^{-1} = \frac 16\begin{pmatrix} 2 & -4 \\ 0 & 3 \end{pmatrix}$ has eigenvalues $\frac 13, \frac 12$.
+:::
+
+::: exercise hard A matrix and its transpose
+(a) Prove that $A$ and ${}^tA$ have the same characteristic polynomial. (b) Show with $A = \begin{pmatrix} 3 & 4 \\ 0 & 2 \end{pmatrix}$ that they do not, however, have the same eigenvectors.
+::: solution
+(a) ${}^tA - \lambda I_n = {}^t(A - \lambda I_n)$, because $I_n$ is symmetric and the transpose of a sum is the sum of the transposes. A matrix and its transpose have the same determinant (lesson L09), so $p_{{}^tA}(\lambda) = \det\big({}^t(A - \lambda I_n)\big) = \det(A - \lambda I_n) = p_A(\lambda)$.
+
+(b) ${}^tA = \begin{pmatrix} 3 & 0 \\ 4 & 2 \end{pmatrix}$ has the same eigenvalues $3$ and $2$. But ${}^tA\,e_1 = (3, 4)$, which is not a multiple of $e_1$: $e_1$ is an eigenvector of $A$ and not of ${}^tA$. The eigenvectors of ${}^tA$: for $\lambda = 3$, ${}^tA - 3I_2 = \begin{pmatrix} 0 & 0 \\ 4 & -1 \end{pmatrix}$ gives $y = 4x$, eigenvector $(1, 4)$; for $\lambda = 2$, ${}^tA - 2I_2 = \begin{pmatrix} 1 & 0 \\ 4 & 0 \end{pmatrix}$ gives $x = 0$, eigenvector $(0, 1)$.
+:::
+
+::: exercise exam As at the exam: eigenvalues, eigenvectors and diagonalisation in $\R^3$
+Let $T : \R^3 \to \R^3$, $T(x, y, z) = (x + 2y,\ 2x + y,\ x + y + 2z)$.
+(1) Write the matrix $A$ of $T$ in the standard basis and compute the characteristic polynomial.
+(2) Find the eigenvalues and, for each one, an eigenvector.
+(3) Show that the eigenvectors found form a basis of $\R^3$ and write $M$ and $D$ with $D = M^{-1}AM$.
+::: solution
+(1) $A = \begin{pmatrix} 1 & 2 & 0 \\ 2 & 1 & 0 \\ 1 & 1 & 2 \end{pmatrix}$. The third column of $A - \lambda I_3$ is $(0, 0, 2 - \lambda)$: expanding along it,
+$$p_A(\lambda) = (2 - \lambda)\det\begin{pmatrix} 1 - \lambda & 2 \\ 2 & 1 - \lambda \end{pmatrix} = (2 - \lambda)\big((1 - \lambda)^2 - 4\big) = (2 - \lambda)(\lambda - 3)(\lambda + 1),$$
+because $(1 - \lambda)^2 - 4 = (1 - \lambda - 2)(1 - \lambda + 2) = (-1 - \lambda)(3 - \lambda)$.
+
+(2) Eigenvalues $3, -1, 2$ (check: $3 - 1 + 2 = 4 = \tr A$).
+- $\lambda = 3$: $A - 3I_3 = \begin{pmatrix} -2 & 2 & 0 \\ 2 & -2 & 0 \\ 1 & 1 & -1 \end{pmatrix}$: from the first row $y = x$, from the third $z = x + y = 2x$. Eigenvector $(1, 1, 2)$; check $A(1, 1, 2) = (3, 3, 6)$.
+- $\lambda = -1$: $A + I_3 = \begin{pmatrix} 2 & 2 & 0 \\ 2 & 2 & 0 \\ 1 & 1 & 3 \end{pmatrix}$: $y = -x$, then $x + y + 3z = 0$ gives $z = 0$. Eigenvector $(1, -1, 0)$; check $A(1, -1, 0) = (-1, 1, 0)$.
+- $\lambda = 2$: $A - 2I_3 = \begin{pmatrix} -1 & 2 & 0 \\ 2 & -1 & 0 \\ 1 & 1 & 0 \end{pmatrix}$: from the first two rows $x = 2y$ and $y = 2x$, so $x = y = 0$; $z$ is free. Eigenvector $e_3 = (0, 0, 1)$; check $Ae_3 = (0, 0, 2)$.
+
+(3) $M = \begin{pmatrix} 1 & 1 & 0 \\ 1 & -1 & 0 \\ 2 & 0 & 1 \end{pmatrix}$, with $\det M = 1 \cdot (-1 - 0) - 1 \cdot (1 - 0) + 0 = -2 \neq 0$ (expansion along the first row): the columns are a basis. $D = \begin{pmatrix} 3 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & 2 \end{pmatrix}$, in the same order. Check: $AM = \begin{pmatrix} 3 & -1 & 0 \\ 3 & 1 & 0 \\ 6 & 0 & 2 \end{pmatrix} = MD$.
+:::
+
+::: exercise exam As at the exam: $A = PDP^{-1}$ for a triangular matrix
+Let $A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 3 & 1 \\ 0 & 0 & -1 \end{pmatrix}$.
+(1) Find the eigenvalues of $A$.
+(2) Find an eigenvector for each eigenvalue.
+(3) Find an invertible matrix $P$ and a diagonal $D$ such that $A = PDP^{-1}$, and check the result without computing $P^{-1}$.
+::: solution
+(1) $A$ is triangular: eigenvalues $1, 3, -1$.
+
+(2)
+- $\lambda = 1$: $A - I_3 = \begin{pmatrix} 0 & 2 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & -2 \end{pmatrix}$: $z = 0$, then $y = 0$, $x$ free. Eigenvector $(1, 0, 0)$.
+- $\lambda = 3$: $A - 3I_3 = \begin{pmatrix} -2 & 2 & 0 \\ 0 & 0 & 1 \\ 0 & 0 & -4 \end{pmatrix}$: $z = 0$, $-2x + 2y = 0$ that is $y = x$. Eigenvector $(1, 1, 0)$.
+- $\lambda = -1$: $A + I_3 = \begin{pmatrix} 2 & 2 & 0 \\ 0 & 4 & 1 \\ 0 & 0 & 0 \end{pmatrix}$: $z = -4y$ and $x = -y$. With $y = -1$: eigenvector $(1, -1, 4)$.
+
+(3) $P = \begin{pmatrix} 1 & 1 & 1 \\ 0 & 1 & -1 \\ 0 & 0 & 4 \end{pmatrix}$ (eigenvectors in columns), $D = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 3 & 0 \\ 0 & 0 & -1 \end{pmatrix}$. $P$ is triangular with $\det P = 1 \cdot 1 \cdot 4 = 4 \neq 0$. $A = PDP^{-1}$ is equivalent to $AP = PD$: the columns of $AP$ are $A(1, 0, 0) = (1, 0, 0)$, $A(1, 1, 0) = (3, 3, 0)$, $A(1, -1, 4) = (1 - 2,\ -3 + 4,\ -4) = (-1, 1, -4)$, and the columns of $PD$ are $1 \cdot (1, 0, 0)$, $3 \cdot (1, 1, 0)$, $-1 \cdot (1, -1, 4)$: they coincide.
+:::
+
+## Review questions
+
+::: question What is an eigenvector? And an eigenvalue?
+An eigenvector of $T : V \to V$ is a vector $v \neq 0$ such that $T(v) = \lambda v$ for some $\lambda \in \K$; the scalar $\lambda$ is the eigenvalue relative to $v$.
+:::
+
+::: question Why can the zero vector not be an eigenvector, while $0$ can be an eigenvalue?
+Because $T(0) = \lambda \cdot 0$ holds for every $\lambda$: every scalar would be an eigenvalue. The eigenvalue $0$ instead has a precise meaning: its eigenvectors are the non-zero vectors of the kernel.
+:::
+
+::: question What happens to the multiples of an eigenvector?
+Every multiple $\mu v$ with $\mu \neq 0$ is an eigenvector with the same eigenvalue: $T(\mu v) = \mu T(v) = \lambda(\mu v)$. The whole line $\Span(v)$, without zero, is made of eigenvectors.
+:::
+
+::: question Why can eigenvectors be studied using only matrices?
+Because, with $A = [T]^{\mathcal B}_{\mathcal B}$ and $x = [v]_{\mathcal B}$, $T(v) = \lambda v \iff Ax = \lambda x$ holds (the coordinates of $T(v)$ are $Ax$ and those of $\lambda v$ are $\lambda x$).
+:::
+
+::: question Why does a rotation by an angle $\vartheta \neq 0, \pi$ have no real eigenvectors?
+Because every non-zero vector is rotated by $\vartheta$, and its multiples form with it an angle of $0$ or $\pi$. With calculations: $p(\lambda) = \lambda^2 - 2\cos\vartheta\,\lambda + 1$ has negative discriminant.
+:::
+
+::: question When is an endomorphism called diagonalisable? Where does the name come from?
+When $V$ has a basis of eigenvectors. The name comes from Proposition 17.6: the matrix of $T$ in a basis is diagonal if and only if the basis is made of eigenvectors, and then the eigenvalues are on the diagonal.
+:::
+
+::: question When is a matrix diagonalisable, and who are $M$ and $D$?
+When it is similar to a diagonal matrix: $D = M^{-1}AM$ with $M$ invertible. The columns of $M$ are independent eigenvectors, and $D$ has on the diagonal the corresponding eigenvalues, in the same order.
+:::
+
+::: question How do you compute $A^k$ if $A$ is diagonalisable?
+$A = MDM^{-1}$, so $A^k = MD^kM^{-1}$ (the pairs $M^{-1}M$ in the middle cancel), and $D^k$ is obtained by raising the diagonal entries to the power $k$.
+:::
+
+::: question What is the characteristic polynomial and what degree does it have?
+$p_A(\lambda) = \det(A - \lambda I_n)$: the determinant of the matrix with $\lambda$ taken away on the diagonal. It is a polynomial of degree $n$; for a $2 \times 2$ it is $\lambda^2 - \tr A\,\lambda + \det A$.
+:::
+
+::: question Why does the characteristic polynomial of an endomorphism not depend on the basis?
+Because similar matrices have the same characteristic polynomial: $\det(M^{-1}BM - \lambda I) = \det\big(M^{-1}(B - \lambda I)M\big) = \det(B - \lambda I)$ by Binet's theorem.
+:::
+
+::: question Why are the eigenvalues the roots of the characteristic polynomial?
+$\lambda$ is an eigenvalue $\iff$ there is $x \neq 0$ with $(A - \lambda I)x = 0$ $\iff$ $A - \lambda I$ is not invertible $\iff$ $\det(A - \lambda I) = 0$ (Proposition 17.13).
+:::
+
+::: question How do you find the eigenvectors once an eigenvalue $\lambda_0$ is known?
+You solve the homogeneous system $(A - \lambda_0 I)x = 0$: the non-zero solutions are the eigenvectors. The system always has infinitely many solutions, because $A - \lambda_0 I$ is not invertible.
+:::
+
+## Glossary
+
+```glossary
+Endomorphism | Linear map $T : V \to V$, with start and target equal.
+Eigenvector | Vector $v \neq 0$ with $T(v) = \lambda v$ for some scalar $\lambda$ (Definition 17.1).
+Eigenvalue | The scalar $\lambda$ such that $T(v) = \lambda v$ for some eigenvector $v$; it can be $0$.
+Invariant line | Line $\Span(v)$ sent by $T$ into itself; it happens exactly when $v$ is an eigenvector.
+Fixed point | Vector with $T(v) = v$; the non-zero fixed points are the eigenvectors with eigenvalue 1.
+Diagonalisable endomorphism | $V$ has a basis of eigenvectors of $T$ (Definition 17.5).
+Diagonalisable matrix | Matrix similar to a diagonal one: $D = M^{-1}AM$ (Definition 17.7).
+Diagonal matrix | Matrix with zeros off the main diagonal; products, determinant and powers are computed entry by entry.
+$M$ and $D$ | In diagonalisation, $M$ has the eigenvectors in columns and $D$ the eigenvalues on the diagonal, in the same order; $AM = MD$.
+Power of a diagonalisable matrix | $A^k = MD^kM^{-1}$.
+Characteristic polynomial | $p_A(\lambda) = \det(A - \lambda I_n)$, polynomial of degree $n$ (Definition 17.12).
+Invariance under similarity | Similar matrices have the same characteristic polynomial; that is why $p_T$ of an endomorphism is well defined.
+$2 \times 2$ formula | $p_A(\lambda) = \lambda^2 - \tr A\,\lambda + \det A$.
+Triangular matrix | Zeros below (or above) the diagonal; its eigenvalues are the diagonal entries.
+Rotation $\mathrm{Rot}_\vartheta$ | $\begin{pmatrix} \cos\vartheta & -\sin\vartheta \\ \sin\vartheta & \cos\vartheta \end{pmatrix}$; for $\vartheta \neq 0, \pi$ it has no real eigenvalues.
+Trace and eigenvalues | If $p_A$ has all its roots in $\K$: sum of the eigenvalues = $\tr A$, product = $\det A$.
+```
+
+## Checklist
+
+```checklist
+- I can say what an eigenvector and an eigenvalue are, and why $v \neq 0$ but $\lambda = 0$ is allowed.
+- I can check in a moment whether a given vector is an eigenvector, by computing $Av$.
+- I know that the non-zero multiples of an eigenvector are eigenvectors with the same eigenvalue, and that the sum of eigenvectors with different eigenvalues generally is not.
+- I can explain why a rotation by an angle $\vartheta \neq 0, \pi$ has no real eigenvectors.
+- I know the definition of endomorphism and of diagonalisable matrix and the link between a basis of eigenvectors and a diagonal matrix.
+- I can build $M$ and $D$ from a basis of eigenvectors and check with $AM = MD$.
+- I can compute $A^k$ with $A^k = MD^kM^{-1}$.
+- I can compute the characteristic polynomial of a $2 \times 2$ (with trace and determinant) and of a $3 \times 3$ (expanding along the row or column with the most zeros).
+- I know why the eigenvalues are the roots of $p_A$ and I find the eigenvectors by solving $(A - \lambda I)x = 0$.
+- I can recognise at a glance the eigenvalues of a triangular matrix and I check the results with trace and determinant.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 17 "Autovalori e autovettori I", pp. 85–89: sections 17.A (definition and examples), 17.B (diagonalisable endomorphisms and matrices), 17.C (diagonal matrices) and 17.D (characteristic polynomial) are followed in order, with the page next to each heading; definitions, propositions and examples keep their numbering (Definitions 17.1, 17.5, 17.7, 17.12; Propositions 17.6, 17.8, 17.13; Examples 17.2–17.4, 17.9–17.11, 17.14). Lesson 17 of the handouts has no exercise section: the exercises here are all added.
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §5.1.1–5.1.8 (eigenvectors, diagonalisability, diagonal and diagonalisable matrices, characteristic polynomial, $2 \times 2$ examples over $\R$ and $\C$, triangular matrices) and Proposition 5.2.15 (trace, determinant and eigenvalues).
+- **Exam**: exam sessions of 10/07/2024 (problem 11), 06/09/2024 (question 10), 07/02/2025 (question 8), 03/06/2025 (question 8), 02/09/2025 (question 4), 05/02/2026 (question 8), 03/06/2026 (question 6), 03/07/2026 (questions 2 and 3), 07/09/2026 (problem 11). Official papers and solutions on the 2025/26 Moodle ([id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); the solutions reported here are written from scratch.
+- The **"Beyond the handouts"** parts (eigenvalues 0 and 1, the rotation matrix, the $2 \times 2$ formula, triangular matrices, the checks with trace and determinant, the rotation over $\C$, the added examples and exercises) serve to connect the lesson to the rest of the course and to the exam.
+
+
+---
+
 <!-- FILE: ai_context/ANMAT/course.md -->
 > File: `ai_context/ANMAT/course.md`
 

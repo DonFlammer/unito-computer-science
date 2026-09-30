@@ -14,6 +14,8 @@ The most recent lesson files (`<COURSE>/lessons/*.md` with `generate_html: true`
 - Sections `## Title (slides 2–5)` or `## Title (pp. 20–21)`: in brackets the slides or the pages of the handouts the section comes from.
 - `## Towards the exam`, `## Quiz`, `## Exercises`, `## Review questions`, `## Glossary`, `## Checklist`, `## Sources`.
 
+The Linear Algebra and Geometry lessons (`MDAG/lessons/L*.md`), as they are rewritten, also have: `## Before you start` (what the lesson is about, what you need to know already, what you will be able to do at the end) right after "In brief", and `## The symbols of this lesson` (a table: symbol, how to read it, what it means, example) before "Towards the exam". In each section the order is: a concrete example, the idea in words, then the statement of the handouts in a box, followed by a paragraph "**How to read it.**" that puts it into words.
+
 ## Formulas
 
 LaTeX between `$…$` (in the text) and `$$…$$` (in a block of their own). Shorthands: `\R \N \Z \Q \C \K` for the number sets and the field, `\rk` rank, `\Span`, `\Ker` kernel, `\Imm` image, `\tr` trace, `\Mat`, `\sgn`, `\id`. `{}^tA` is the transpose.
@@ -30,17 +32,21 @@ Lines starting with `> [!TYPE] title`:
 | `IDEA`, `METHOD` | the intuitive idea, the step-by-step procedure |
 | `PITFALL` | typical mistake |
 | `EXAM` | matters in the exam |
-| `BEYOND` | does **not** come from the course material: an addition in the notes (examples, links, reminders) |
-| `NOTE`, `REMARK` | remarks |
-| `PROOF` | proof |
+| `BEYOND` | does **not** come from the course material: an addition in the notes (topics, methods, links) |
+| `NOTE`, `REMARK` | remarks and notices |
+| `PROOF` | proof (on the page it is closed and opens with a click) |
+| `DEEPER` | more formal statements or side notes that can be skipped (on the page it is closed) |
+| `REMEMBER` | "To remember": the gist of a section in a few lines |
+| `REFRESHER` | a reminder of school mathematics needed at that point |
 | `CHANNELS` | differences and correspondences between channels A, B and C |
 
-Everything outside a `BEYOND` box (or a section with "beyond the slides/handouts" in its title) follows the slides or the handouts. Older lessons, such as `PROG1/lessons/01A_first_algorithm.md`, still use the marker **[BEYOND THE SLIDES]**.
+The statements in the `DEF`, `PROP`, `THEOREM` boxes follow the slides or the handouts, with their numbering. Topics that go beyond the course material are in a `BEYOND` box or in a section with "beyond the slides/handouts" in its title. The explanations in words, the examples with numbers, the `REFRESHER` boxes and the "Your turn" questions belong to the notes. Older lessons, such as `PROG1/lessons/01A_first_algorithm.md`, still use the marker **[BEYOND THE SLIDES]**.
 
 ## Exercises, questions, quizzes
 
 - `::: exercise level title` … `::: solution` … `:::`, with level `basic`, `intermediate`, `hard` or `exam`.
 - `::: question text of the question` … answer … `:::`.
+- `::: try text of the question` … answer … `:::`: a "Your turn" in the middle of the explanation, that is a short question with the answer right below it (on the page it is hidden until you open it).
 - `quiz` block: `Q:` question; `+` correct answer, `-` wrong answer (on the page the order is shuffled); `N:` numeric answer; `=` explanation.
 
 ## Other blocks

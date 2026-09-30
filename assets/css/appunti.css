@@ -594,6 +594,20 @@ pre.code .str { color: var(--amber); }
 .box.idea { background: linear-gradient(180deg, var(--accent-soft), transparent 70%), var(--surface-2); border-color: var(--accent-line); }
 .box.idea .box-label { color: var(--accent); }
 .legend .l-esempio i { background: var(--green); } .legend .l-idea i { background: var(--accent); }
+/* «Da ricordare» (il succo di una sezione), «Ripasso» (richiami di scuola) e «Prova tu» (domande in mezzo alla spiegazione) */
+.box.ricorda { border-color: var(--line-2); border-left: 3px solid var(--text); background: var(--surface-3); }
+.box.ricorda .box-label { color: var(--text); }
+.box.ripasso { border: 1px dashed var(--line-3); background: var(--surface); }
+.box.ripasso .box-label { color: var(--text-2); }
+.box.ripasso .box-label::before { background: none; border: 1.5px solid currentColor; border-radius: 50%; }
+.legend .l-ricorda i { background: var(--text); } .legend .l-ripasso i { border: 1.5px solid var(--text-2); border-radius: 50%; }
+/* un titolo di sezione lungo va a capo restando accanto al numero della sezione */
+.sec-head h2 { flex: 1 1 14rem; min-width: 0; text-wrap: balance; }
+.prova { margin: 1.3rem 0; }
+.prova > .box-label { color: var(--accent); margin: 0 0 .45rem !important; }
+.prova > .box-label::before { border-radius: 50%; }
+.prova .qa-list { margin-top: 0; border-color: var(--accent-line); }
+details.dim.approfondimento > summary { color: var(--text-2); }
 details.dim { margin: 1.1rem 0; border: 1px dashed var(--line-2); border-radius: var(--raggio-2); background: var(--surface-2); }
 details.dim > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: .55rem; padding: .75rem 1rem; font: 600 .72rem/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
 details.dim > summary::-webkit-details-marker { display: none; }

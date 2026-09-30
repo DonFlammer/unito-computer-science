@@ -126,6 +126,7 @@ def site_bar(root, it_url, current=""):
     courses = ' aria-current="page"' if current == "courses" else ""
     return f"""<a class="salta" href="#contenuto">Skip to content</a>
 <canvas id="rete" aria-hidden="true"></canvas>
+<script src="{root}assets/js/rete.js"></script>
 <header class="barra">
   <div class="barra-in">
     <a class="marchio" href="{root}index.html"><span class="glifo" aria-hidden="true">§</span><span class="nome"><b>Computer Science Notes</b><small>UniTo · 2026/27</small></span></a>
@@ -151,7 +152,7 @@ def footer(root):
   <div class="piede-in">
     <div>
       <h2>Computer Science Notes</h2>
-      <p>First-year Computer Science notes at the University of Turin, A.Y. 2026/27, for channels A, B and C. They may contain errors; the author takes no responsibility: read the <a href="{REPO}/blob/main/DISCLAIMER.md">disclaimer</a>.</p>
+      <p>First-year Computer Science notes at the University of Turin, A.Y. 2026/27, for channels A, B and C. They may contain errors; I take no responsibility: read the <a href="{REPO}/blob/main/DISCLAIMER.md">disclaimer</a>.</p>
       <p>Quotes from the slides remain the property of their respective authors. For dates, rules and deadlines only Moodle, the degree programme website and Esse3 are authoritative.</p>
     </div>
     <div>
@@ -176,7 +177,6 @@ def footer(root):
   </div>
 </footer>
 <script src="{root}assets/js/appunti.js" defer></script>
-<script src="{root}assets/js/rete.js" defer></script>
 <script src="{root}assets/js/studio.js" defer></script>"""
 
 
@@ -228,17 +228,17 @@ def course_page(c, les):
     it_url = f"{IT_SITE}appunti/{c['it_code']}/"
     label = " · ".join(x for x in ["First year", f"{ordinal(c['semester'])} semester", c["course_code"], c.get("extra", "")] if x)
     if les:
-        lede = ("The author follows channel B: the notes for each lesson are based on the channel B slides, with "
+        lede = ("I follow channel B: the notes for each lesson are based on the channel B slides, with "
                 "references to channels A and C. The official programme and the exam are common, so they largely hold "
                 "for A and C too, but slides, order, examples and the parts of the programme covered may differ. "
                 "Lecturers, timetables, Moodle and exam for all three channels are in the course sheet.")
     elif c["semester"] == 2:
         lede = ("The course starts in the second semester: for now there is the course sheet with lecturers, exam and "
                 "material for channels A, B and C. Notes will come lesson by lesson, based on the slides of channel B, "
-                "which the author follows: they should largely hold for A and C too, but lecturers, slides, order and "
+                "which I follow: they should largely hold for A and C too, but lecturers, slides, order and "
                 "examples may differ.")
     else:
-        lede = ("Notes arrive lesson by lesson, based on the slides of channel B, which the author follows, with "
+        lede = ("Notes arrive lesson by lesson, based on the slides of channel B, which I follow, with "
                 "references to channels A and C: the official programme and the exam are common, but slides, examples "
                 "and the parts of the programme covered may differ. "
                 "Meanwhile the course sheet has lecturers, timetables, Moodle and exam for all three channels.")

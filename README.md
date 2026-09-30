@@ -4,13 +4,13 @@
 
 > **Italian original: [DonFlammer/unito-informatica](https://github.com/DonFlammer/unito-informatica)**, where the notes website opens in Italian. This repository is its **English mirror**, for students who don't speak Italian: a translation made from the Italian original version. New lessons appear in Italian first and are then translated here; if the two versions differ, **the Italian one prevails**.
 
-> **⚠️ Read the [DISCLAIMER](DISCLAIMER.md).** The **research** (course sheets, exams, rules, lecturers, timetables) comes from public sources and from some Moodle pages reserved to enrolled students, accessed by the author. The **lesson notes** rework the lecturers' slides, lesson by lesson. Everything is made with care and with the sources cited, but it **may contain errors**. **The author takes no responsibility whatsoever.** Anyone may read and use this repository **at their own risk**. The author updates it **lesson by lesson, nothing more**: no support and no guarantees. For dates, rules and deadlines only the official sources (Moodle, the degree programme website, Esse3) are authoritative.
+> **⚠️ Read the [DISCLAIMER](DISCLAIMER.md).** The **research** (course sheets, exams, rules, lecturers, timetables) comes from public sources and from some Moodle pages reserved to enrolled students, accessed by me. The **lesson notes** rework the lecturers' slides, lesson by lesson. Everything is made with care and with the sources cited, but it **may contain errors**. **I take no responsibility whatsoever.** Anyone may read and use this repository **at their own risk**. I update it **lesson by lesson, nothing more**: no support and no guarantees. For dates, rules and deadlines only the official sources (Moodle, the degree programme website, Esse3) are authoritative.
 
 Study notes for the first year of the Bachelor's degree in Computer Science (Laurea triennale in Informatica) at the University of Turin (UniTo), A.Y. 2026/27.
 
-**The author follows channel B** (surnames E–O): the lesson notes are based on the channel B slides, with references to the corresponding lessons of A and C. The official programme and the exam are common to the three channels, so the notes should largely hold for channel A (surnames A–D) and C (P–Z) too. Lecturers, slides, topic order, examples and the parts of the programme actually covered may differ, though (for example, in Foundations of Computer Science channel B omits some sections of the book): for your own channel, only your lecturer's slides and Moodle page are authoritative. The course and exam sheets cover **all three channels**.
+**I follow channel B** (surnames E–O): the lesson notes are based on the channel B slides, with references to the corresponding lessons of A and C. The official programme and the exam are common to the three channels, so the notes should largely hold for channel A (surnames A–D) and C (P–Z) too. Lecturers, slides, topic order, examples and the parts of the programme actually covered may differ, though (for example, in Foundations of Computer Science channel B omits some sections of the book): for your own channel, only your lecturer's slides and Moodle page are authoritative. The course and exam sheets cover **all three channels**.
 
-The repository is public and read-only: anyone can browse it or **fork** it (*Fork* button at the top right) to get their own copy. Only the owner makes changes to this repository.
+The repository is public and read-only: anyone can browse it or **fork** it (*Fork* button at the top right) to get their own copy. Only I make changes to this repository.
 
 ## International students
 
@@ -56,7 +56,7 @@ Content released under the [Creative Commons Attribution–NonCommercial–Share
 
 ## Getting the student guide on another PC
 
-The author also keeps a partial local copy of the student guide (Guida degli studenti) of the Team Studentesco Informatica (TSI, the Computer Science student team, in Italian). The full repository weighs about 3.4 GB, so only part of it is downloaded:
+I also keep a partial local copy of the student guide (Guida degli studenti) of the Team Studentesco Informatica (TSI, the Computer Science student team, in Italian). The full repository weighs about 3.4 GB, so only part of it is downloaded:
 
 ```bash
 git clone --filter=blob:none --no-checkout --depth 1 https://github.com/tsi-unito/guida_degli_studenti_di

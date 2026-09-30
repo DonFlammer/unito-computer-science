@@ -132,9 +132,9 @@ Worked examples: `exam_exercises.md`.
 ## Environment and tools
 
 - Compile as at the exam: `gcc -Wall -Werror file.c -o file.exe` (Windows) or `-o file` (Linux/macOS).
-- On the student's PC: gcc 16.1 (MinGW-w64) available in Git Bash.
+- On my PC (I'm DonFlammer and I maintain this collection): gcc 16.1 (MinGW-w64) available in Git Bash.
 - Turing Lab (Laboratorio Turing): Windows (TDM-GCC) or Linux; files are lost at logout.
-- Channel B 2026/27: in the lab you can use your own laptop (the lecturer's indication, reported by a student on 28/09/2026). It is still worth practising with a simple editor and `gcc` from the terminal as well, because at the exam you use the lab PCs without an IDE.
+- Channel B 2026/27: in the lab you can use your own laptop (the lecturer's indication, reported by me on 28/09/2026). It is still worth practising with a simple editor and `gcc` from the terminal as well, because at the exam you use the lab PCs without an IDE.
 - Editor: VS Code or Notepad++; documentation: cppreference.com.
 
 ## Lecturers' advice (2026/27 introductions)

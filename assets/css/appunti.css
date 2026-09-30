@@ -308,6 +308,14 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .meno-moto .rivela { opacity: 1; transform: none; clip-path: none; transition: none; }
 .meno-moto .corso, .meno-moto .lezioni a { transition: none; }
 .meno-moto html, html.meno-moto { scroll-behavior: auto; }
+
+/* ---------- passaggio tra le pagine ---------- */
+/* dissolvenza breve invece dello stacco (nei browser che la supportano); lo sfondo intanto continua da dove era (rete.js)
+   e ciò che la pagina nuova ha già sullo schermo compare subito, senza entrata */
+@view-transition { navigation: auto; }
+html:active-view-transition .rivela { opacity: 1; transform: none; clip-path: none; transition: none; }
+html.arrivo:not(.pronto) .rivela { opacity: 1; transform: none; clip-path: none; transition: none; }   /* finché appunti.js non decide */
+html.meno-moto::view-transition-group(*), html.meno-moto::view-transition-old(*), html.meno-moto::view-transition-new(*) { animation: none; }
 @media print { #rete, .barra, .piede { display: none !important; } body { background: #fff; color: #000; } .rivela { opacity: 1; transform: none; clip-path: none; } }
 
 /* ======================================================================

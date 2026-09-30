@@ -9,7 +9,7 @@ CONTEXT = ROOT / "ai_context"
 OUTPUT = CONTEXT / "_ALL_IN_ONE.md"
 
 # general files, in reading order
-GENERAL = ["ai_instructions.md", "student.md", "unito_computer_science.md"]
+GENERAL = ["ai_instructions.md", "lesson_format.md", "student.md", "unito_computer_science.md"]
 # courses in semester order; any new folder is appended at the end
 COURSE_ORDER = ["PROG1", "FDA", "MDAG", "ANMAT", "ARCH", "PROG2", "RO", "ENGLISH"]
 # for each course: first the course sheet, then the lesson index, the exercises and the lessons

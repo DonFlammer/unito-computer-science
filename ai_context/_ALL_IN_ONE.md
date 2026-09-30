@@ -21,13 +21,13 @@ The research (degree programme, course sheets, exams) comes from public sources 
 ## How to use the sources
 
 - Every file states its update date and sources. Always distinguish what is **official for 2026/27** from what comes from **previous years or channels** (the files point this out).
-- In the lessons (`<COURSE>/lessons/*.md`) everything follows the slides, except the parts marked **[BEYOND THE SLIDES]**.
+- In the lessons (`<COURSE>/lessons/*.md`) everything follows the course's slides or handouts, except the parts marked **[BEYOND THE SLIDES]** (older lessons) or the `> [!BEYOND]` boxes (more recent lessons). Boxes, quizzes, exercises and formulas are explained in `lesson_format.md`.
 - When in doubt, the lecturer's slides, the course's Moodle page and the degree programme website are authoritative.
 
 ## Teaching rules
 
 - **Programming I (Programmazione I) lecturers' policy on LLMs**: they are for reviewing exercises already done or for understanding why a program does not compile, **not for delegating the solution**. So: for exercises still to be done, guide with questions and progressive hints before giving the full solution; when correcting code, explain the error.
-- Answer in the user's language (English unless they write in another language), with concrete examples and edge cases.
+- Answer in the user's language (English unless they write in another language), with concrete examples and edge cases. In mathematics explain step by step, starting from an example with small numbers, and write out every step of the calculations.
 - When you write C code for Programming I, follow the exam rules:
   - iterative functions: **a single `return`**, sentinel variables, **no `break`, `switch`, `case`, `static`**;
   - recursive functions: **no `for`/`while`**, respect the required type (covariant, contravariant, dichotomic; in Italian co-variante, contro-variante, dicotomica);
@@ -37,18 +37,76 @@ The research (degree programme, course sheets, exams) comes from public sources 
 
 ## If you have to write the notes for a new lesson
 
-The repository follows this scheme (see `PROG1/lessons/01A_first_algorithm.md` as a model):
+New lessons are written in the format of `lesson_format.md` (models: `PROG1/lessons/02A_from_assembly_to_c.md` and `MDAG/lessons/L01_real_numbers.md`), from which the HTML page is generated. In short:
 
 1. YAML front matter with course, lecturer, lesson, date, source (name of the slides PDF).
 2. "In brief": 5–8 points with the key concepts.
 3. One section for each group of slides, **with the slide numbers**; exact definitions in italics or as quotations; tables for comparisons.
-4. Pseudocode and code in code blocks; diagrams in `mermaid`.
+4. Pseudocode and code in code blocks; formulas in LaTeX; figures and interactive tools with the `graph` and `widget` blocks.
 5. Pitfalls and typical mistakes; link to the exam (see `PROG1/course.md` and `PROG1/exam_exercises.md`).
 6. Exercises with solutions (compile the C code with `gcc -Wall -Werror` before writing it down); review questions with short answers; glossary.
 7. Update `<COURSE>/lesson_index.md` with the key concepts of the new lesson and the common threads with the previous lessons.
-8. Mark with **[BEYOND THE SLIDES]** everything that does not come from the slides.
+8. Put in a `BEYOND` box everything that does not come from the slides or the handouts.
 
 The repository also has an interactive HTML version of each lesson (`notes/<COURSE>/`), designed for studying at the computer; the content is the same.
+
+
+---
+
+<!-- FILE: ai_context/lesson_format.md -->
+> File: `ai_context/lesson_format.md`
+
+# Format of the lesson files
+
+> Italian original: <https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/formato_lezioni.md>
+
+The most recent lesson files (`<COURSE>/lessons/*.md` with `generate_html: true` in the header) are the source from which the lesson's HTML page on the website is generated, with `tools/lessons.mjs`. The content is the same; the Markdown has a few extra conventions, explained here for whoever reads it (people or AIs).
+
+## YAML header
+
+`course`, `module` (for MDAG: `MD` Discrete Mathematics, `AG` Linear Algebra and Geometry), `lesson` (code, for example `01B` or `L05`), `title`, `date` (only for lessons that have already taken place), `lecturers`, `source` (slides or handouts used), `facts` (the data shown at the top of the page), `material` (`slides` or `handouts`), plus the technical fields for the page (`description`, `lede`, `italian_file`, `html_notes`, `generate_html`) and `italian_original`, the link to the Italian file.
+
+## Structure
+
+- `## In brief`: the key points of the lesson.
+- Sections `## Title (slides 2–5)` or `## Title (pp. 20–21)`: in brackets the slides or the pages of the handouts the section comes from.
+- `## Towards the exam`, `## Quiz`, `## Exercises`, `## Review questions`, `## Glossary`, `## Checklist`, `## Sources`.
+
+## Formulas
+
+LaTeX between `$…$` (in the text) and `$$…$$` (in a block of their own). Shorthands: `\R \N \Z \Q \C \K` for the number sets and the field, `\rk` rank, `\Span`, `\Ker` kernel, `\Imm` image, `\tr` trace, `\Mat`, `\sgn`, `\id`. `{}^tA` is the transpose.
+
+## Boxes
+
+Lines starting with `> [!TYPE] title`:
+
+| Type | Meaning |
+|---|---|
+| `DEF` | definition to know |
+| `PROP`, `THEOREM`, `LEMMA`, `COROLLARY` | statements, with the numbering of the handouts or slides |
+| `EXAMPLE` | worked example |
+| `IDEA`, `METHOD` | the intuitive idea, the step-by-step procedure |
+| `PITFALL` | typical mistake |
+| `EXAM` | matters in the exam |
+| `BEYOND` | does **not** come from the course material: an addition in the notes (examples, links, reminders) |
+| `NOTE`, `REMARK` | remarks |
+| `PROOF` | proof |
+| `CHANNELS` | differences and correspondences between channels A, B and C |
+
+Everything outside a `BEYOND` box (or a section with "beyond the slides/handouts" in its title) follows the slides or the handouts. Older lessons, such as `PROG1/lessons/01A_first_algorithm.md`, still use the marker **[BEYOND THE SLIDES]**.
+
+## Exercises, questions, quizzes
+
+- `::: exercise level title` … `::: solution` … `:::`, with level `basic`, `intermediate`, `hard` or `exam`.
+- `::: question text of the question` … answer … `:::`.
+- `quiz` block: `Q:` question; `+` correct answer, `-` wrong answer (on the page the order is shuffled); `N:` numeric answer; `=` explanation.
+
+## Other blocks
+
+- `glossary`: one line per term, `Term | definition`.
+- `checklist`: the "I can …" items to tick.
+- `graph`: a static figure (points, vectors, lines, polygons, circles), one line per element.
+- `widget`: an interactive tool of the HTML page (complex plane, vectors, 2×2 matrices, Gauss calculator, Ruffini, 3D space, simulator of the Von Neumann machine). In the Markdown only the initial parameters remain; their codes are in Italian as in the original (for example `modo: somma`).
 
 
 ---
@@ -421,6 +479,8 @@ Full course sheet: `course.md`. Exam-style exercises: `exam_exercises.md`. Expec
 | # | Date | Title | File | Key concepts |
 |---|---|---|---|---|
 | 01A | 28/09/2026 | A first algorithm | `lessons/01A_first_algorithm.md` · HTML: `notes/PROG1/01A_first_algorithm.html` | computer science = the study of algorithms (Dijkstra); definition of algorithm (ordered, unambiguous, effectively computable, produces a result, terminates); everything is a number; imperative programming; m × n by repeated addition from 0; accumulator `s` and counter `i`; Wirth "Program = Algorithms + Data Structures"; 7 versions of the algorithm; bug in the n = 0 case → **check first, then execute**; `←` vs `=`; conditional/unconditional jumps; Begin/End blocks and indentation; flowchart; low/high level; implementing vs translating; next: Von Neumann |
+| 01B | 29/09/2026 | Computer architecture | `lessons/01B_computer_architecture.md` · HTML: `notes/PROG1/01B_computer_architecture.html` | abacus and Pascaline (mechanical carry); hardwired vs **programmable** computers (elementary operations + a sequence encoded with numbers); Babbage (Analytical Engine, punched cards, conditional jumps), Turing 1936 (universal machine); ENIAC (decimal, cables) → **EDVAC** (stored program, unified memory, binary); bits, bytes, $2^N$; **Von Neumann architecture** (CPU = control unit + ALU + registers, RAM, secondary memory, bus); memory as a row of bytes with **addresses** from 0, 32-bit **words**; fetch–decode–execute cycle, **PC** and **IR**; determinism |
+| 02A | 30/09/2026 | From machine language to C | `lessons/02A_from_assembly_to_c.md` · HTML: `notes/PROG1/02A_from_assembly_to_c.html` | machine language vs **assembly** (mnemonics, assembler, not portable); addition in assembly (`LOAD`, `ADD`, `STORE`, `@A` = content at address A, PC 0-4-8-12); multiplication in assembly (`CMP`, `JMPEQ`, `INC`, `JMP`) = version V6 of 01A; FORTRAN and high-level languages (compiler, recompiling = portability); history of C (Thompson, Ritchie, Unix, K&R 1972, C89…C23); C compiled, imperative, structured, typed; X-ray of `Buongiorno dal C.`: comments, `#include <stdio.h>`, `main`, blocks, `;`, strings, **escape sequences**; identifiers and keywords; stages of gcc (preprocessor, compiler, assembler, linker); `gcc -Wall -Werror`; compile-time, runtime and logic errors |
 
 ## Common threads (to link back to in the next lessons)
 
@@ -430,6 +490,10 @@ Full course sheet: `course.md`. Exam-style exercises: `exam_exercises.md`. Expec
 - **Invariant `s = m × i`, pre/postconditions** → correctness with `assert` and backward reasoning.
 - **Execution trace** → memory model (stack of frames) in exam exercises.
 - `while (i != n)` ↔ V7; `do-while` ↔ V2 (body executed at least once).
+- **Jumps and program counter** (01B, 02A): the "jump to line" of V6 is a write into the PC; in assembly the loop is `CMP` + `JMPEQ` (exit) + `JMP` (back), and gcc too compiles `while` by jumping to the check first.
+- **State of the machine and trace** (01A, 01B, 02A): executing = going from one state of memory to the next, instruction by instruction; it is the basis of the exam exercises on the state of memory.
+- **Addresses from 0** (01B): memory as a row of bytes numbered from 0 → addresses of variables and pointers (week 2), array indices.
+- **`-Wall -Werror` and compiler messages** (02A): practise reading the line, column and description of the error, as at the exam.
 
 
 ---
@@ -1046,6 +1110,1329 @@ Algorithm · Input/Output · Instruction · Variable · State · Assignment (`�
 
 ---
 
+<!-- FILE: ai_context/PROG1/lessons/01B_computer_architecture.md -->
+> File: `ai_context/PROG1/lessons/01B_computer_architecture.md`
+
+```yaml
+course: PROG1
+lesson: 01B
+title: Computer architecture
+date: 2026-09-29
+lecturers: Elvio Amparore
+eyebrow: Programming I (Programmazione I) · Theory · Channel B · Lesson 01B
+description: >-
+  Notes on lesson 01B of Programming I (channel B): history of automatic computation, hardwired and programmable
+  computers, Babbage, Turing, ENIAC and EDVAC, bits and bytes, the Von Neumann architecture, the memory model and how
+  the CPU works, with exercises and review questions.
+lede: >-
+  From the abacus to the Von Neumann machine: why a computer becomes "programmable", what changes with the EDVAC's
+  stored program, how information is represented with bits, what memory looks like to the CPU, and how the CPU
+  executes one instruction after another with the program counter. It is the model of the machine that the whole
+  course relies on.
+material: slides
+facts:
+  Slides: 01B_architettura · 19 pages
+  Course: Prof. Elvio Amparore · A.Y. 2026/27
+  Study time: 45–60 minutes
+source: >-
+  Slides "Storia e principi del calcolo automatico" (01B_architettura), Programming I – Theory, channel B, A.Y. 2026/27
+italian_file: 01B_architettura.html
+html_notes: notes/PROG1/01B_computer_architecture.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/PROG1/lezioni/01B_architettura.md
+```
+
+## In brief
+
+- The first tools (abacus, Pascaline) **help** you compute, but the logic comes from whoever uses them. **Hardwired computers** can only do the operations built into their hardware.
+- The decisive idea is to separate **what** the machine can do (a few elementary operations) from the **order** in which to do it, and to write that order down with **numbers**: this is how the **programmable computer** is born.
+- Babbage (Analytical Engine, around 1840) and Turing (universal machine, 1936) are the theoretical milestones; ENIAC (1943–46) is the first *general purpose* computer, but it is programmed by moving cables.
+- The **EDVAC** brings three ideas we still use: the **stored program** in memory, the **same memory** for instructions and data, numbers in **binary**.
+- A **bit** is worth 0 or 1; $N$ bits distinguish $2^N$ pieces of information; 8 bits make a **byte** (256 values).
+- **Von Neumann architecture**: CPU (control unit, ALU, registers), main memory (RAM) holding program and data, secondary memory, all connected by the **system bus**.
+- Memory is a row of bytes, each with its own **address**; numbers are stored in **words** (for example 32 bits, that is 4 bytes).
+- The CPU **fetches** an instruction, **decodes** it and **executes** it; the **program counter** (PC) says where the next one is, the **instruction register** (IR) holds the current one. The same program and the same initial state always give the same result.
+
+> [!CHANNELS] Are you in channel A or C?
+> **Channel A (Fiandrotti):** the deck "Architettura del computer" (18 slides) is practically identical to this one: same titles and same content, from the abacus to how the CPU works.
+>
+> **Channel C (Mazzei):** the same topics are in lesson 01 "Introduzione" (slides 43–66). It adds two slides on the **Turing machine** (universal because it computes all computable functions; there are problems that no algorithm solves), a table of the multiples of the byte and the list of CPU instructions (LOAD, STORE, ADD, CMP, JMP, JEQ…), which in channel B come in lesson 02A.
+>
+> The exam is the same for the three channels.
+
+## From computing by hand to the first machines (slides 2–5)
+
+Slide 2 lines up the main milestones on a timeline. Here they are in a table:
+
+| When | What |
+|---|---|
+| 30000–20000 BC | notched bones for counting |
+| 3500 BC | clay tokens for bookkeeping (Mesopotamia) |
+| 595 AD | positional numeral system (the digits we use today) |
+| 780–840 AD | al-Khwārizmī, from whose name the word "algorithm" comes (lesson 01A) |
+| 1652 | Pascal: the Pascaline |
+| 1673 | Leibniz: a machine that can also multiply |
+| 1822 and 1837 | Babbage: *Difference Engine* and *Analytical Engine* |
+| 1936 | Turing: the universal machine |
+| 1945 | the Von Neumann architecture |
+| 1946 | ENIAC |
+| 1975 | the personal computer |
+| 1984 | Apple Macintosh |
+| 1990 | info.cern.ch, the first website |
+
+### The abacus (slide 3)
+
+It is the first known computing "machine", from antiquity. But look at what it really does: it **keeps track of what has already been done** (the beads you move remember the partial numbers). The **logic** of the operation and its **correctness** depend entirely on the person using it: if you move the wrong bead, the abacus does not notice.
+
+### The Pascaline (slide 4)
+
+Invented by the French mathematician Blaise Pascal in 1642 (the timeline shows 1652, the year of one of the later specimens). It is made of gears, each marked with the digits 0 to 9. It works like an abacus, with one important difference: the **carry** of the addition is done by **the machine**, with a lever between one gear and the next. When the units go from 9 to 0, the lever moves the tens gear forward by one step. For the first time a piece of logic (the carry) is inside the machine.
+
+### Hardwired computers (slide 5)
+
+The first machines were **hardwired**:
+
+- they could do a **limited** set of specific operations, usually addition and subtraction;
+- the **operating logic was built into the hardware**: the physical connections decided what the machine did;
+- to add a new function, such as a **comparison** or a **conditional jump**, the **hardware had to be modified or redesigned**;
+- more complex operations such as multiplication and division were hard to build with the technology of the time.
+
+> [!IDEA] · a picture
+> A hardwired machine is like a blender: it does one thing well, the thing it was built for. If you want it to do something else, you have to take it apart and rebuild it.
+
+## The decisive idea: the programmable computer (slides 6–8)
+
+Slide 6 contains the most important idea of the lesson. Instead of building a different machine for every task:
+
+1. you choose a **basic set of elementary operations**, for example addition and comparison, that the hardware can do directly;
+2. you **combine** these operations, also **repeating** them, to obtain more complex operations, such as multiplication;
+3. the **order** of the operations, the **number of repetitions** and their **arguments** can be **encoded with integers**;
+4. so the behaviour of the machine is described by **numeric data** that say which operations to execute.
+
+> [!DEF] Programmable computer · slide 6
+> The **same machine** can carry out **different tasks** by changing the **sequence of instructions**, without modifying its hardware.
+
+It is exactly what you did in lesson 01A: the machine could only add, assign and compare, and you obtained multiplication by **combining and repeating** additions. The program (lines [1]–[8] of version V6) tells the machine in which order to do the operations.
+
+### Babbage's Analytical Engine (slide 7)
+
+Described by **Charles Babbage** around 1840, it is the **first example of a programmable computing machine**:
+
+- data and instructions were stored on **punched cards** (cards with holes, like those of textile looms);
+- its language was similar to **assembly** (you will see it in lesson 02A), **conditional jumps included**;
+- in hindsight we know it was **Turing-complete**: in principle it could compute everything that is computable.
+
+It was never fully built: the mechanics of the time were not good enough.
+
+> [!BEYOND] · the first program
+> For the Analytical Engine, **Ada Lovelace** wrote in 1843 a procedure to compute the Bernoulli numbers: it is considered the first program in history, written for a machine that did not exist yet.
+
+### Alan Turing (slide 8)
+
+**Alan Turing**, an English mathematician, is considered the inventor of the **theory of computability** (and, according to some, of computer science).
+
+- In **1936** he introduces the **universal machine**: an **abstract model** of a computer, that is an imaginary machine described with mathematical precision.
+- Turing uses it to study **which functions can be computed automatically**, that is with an algorithm.
+- Several attempts to actually build a **Turing-complete** computer run into the technological limits of the time.
+
+> [!BEYOND] · Turing-complete, in words
+> A system is **Turing-complete** if it can compute everything that a universal Turing machine computes. C, like almost every programming language, is: in theory anything computable can be written in C (with enough memory).
+
+## ENIAC and EDVAC (slides 9–10)
+
+### ENIAC (slide 9)
+
+The **Electronic Numerical Integrator and Computer** was designed in 1943 by John Mauchly and J. Presper Eckert (the slide says "John Adam Presper": his full name is John Adam Presper Eckert Jr.) and presented in 1946.
+
+- It is the **first *general purpose* computer**: not built for a single task, but adaptable to different problems.
+- It represented numbers in **decimal**.
+- Operations were carried out by several **functional blocks**.
+- To **program** it you had to **set switches and connect the blocks with cables**.
+- So **changing the program** required a **complex manual reconfiguration**, which could take days.
+
+The photo on slide 2 shows four programmers holding boards from ENIAC, EDVAC, ORDVAC and BRLESC.
+
+### EDVAC (slide 10)
+
+The **Electronic Discrete Variable Automatic Calculator** was designed in 1944 by the same authors as ENIAC. It introduces three fundamental ideas:
+
+1. the **stored program** in the central memory;
+2. a **unified memory** for instructions and data;
+3. the **binary representation** of numbers.
+
+The consequence is huge: the program is **no longer built by physically rewiring the machine**, but **is stored and modified like data**. Changing the program becomes like changing a number in memory.
+
+| | ENIAC | EDVAC |
+|---|---|---|
+| Numbers | decimal | binary |
+| Program | cables and switches | in memory, like data |
+| Instructions and data | separate | in the same memory |
+| Changing the program | manual reconfiguration | you load another program |
+
+> [!EXAM] Why it matters to you
+> "Program and data in the same memory" is the basis of the whole course: a C variable is stored in memory at some **address**, and the exam questions on the **state of memory** ask you precisely to follow how those values change, instruction after instruction.
+
+## Bits and bytes (slides 11–12)
+
+### Why binary (slide 11)
+
+The basic element of information is the **bit**; the slide explains it as *Binary Information Token*. A bit can be in **only two states**: on/off, true/false, yes/no, 1/0.
+
+Two states are easy to build with different physical devices: **relays**, **valves** (vacuum tubes), **transistors**. You only need to tell "current flows" from "no current flows". This is why modern computers use binary, instead of the decimal representation of the first computers up to ENIAC (telling ten different levels apart is much more fragile than telling two apart).
+
+> [!BEYOND] · the name
+> The most common explanation of the name "bit" is *binary digit*.
+
+### How much information with N bits (slide 12)
+
+Combining more bits represents more information. Each extra bit **doubles** the possibilities, because each old combination can be continued with a 0 or with a 1.
+
+| Bits | Possible combinations | How many |
+|---|---|---|
+| 1 | 0, 1 | $2^1 = 2$ |
+| 2 | 00, 01, 10, 11 | $2^2 = 4$ |
+| 3 | 000, 001, 010, 011, 100, 101, 110, 111 | $2^3 = 8$ |
+| 4 | from 0000 to 1111 | $2^4 = 16$ |
+| 8 | from 00000000 to 11111111 | $2^8 = 256$ |
+| $N$ | | $2^N$ |
+
+> [!DEF] Bit and byte · slide 12
+> $N$ bits represent $2^N$ pieces of information. A group of **8 bits** is called a **byte** and represents $2^8 = 256$ pieces of information. Symbols: **b** for the bit, **B** for the byte.
+
+For example, with one byte you can count from 0 to 255: that is 256 numbers, because 0 counts.
+
+> [!BEYOND] · from binary to decimal
+> In binary each position is worth twice the one on its right: from right to left 1, 2, 4, 8, 16, 32, 64, 128. To read a byte you add up the values of the positions holding a 1:
+> $$00001100_2 = 8 + 4 = 12, \qquad 11111111_2 = 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255.$$
+> You will see this again when you study C types and the limits of numbers (lab 02).
+
+> [!PITFALL] Bits and bytes, b and B
+> 1 B = 8 b. A "100 Mb/s" connection transfers 100 million **bits** per second, that is 12.5 million **bytes** per second.
+
+## The Von Neumann architecture (slides 13–15)
+
+### How the EDVAC was built (slide 13)
+
+- A **primary memory** of 1024 **words** of 44 bits: $1024 \cdot 44 = 45\,056$ bits, that is $5632$ bytes, about **5.5 KB**.
+- A **secondary storage** on magnetic tape, for reading and writing.
+- A **CPU** (*Central Processing Unit*), made up in turn of:
+  - a **control unit**, which drives the components of the CPU and the system bus;
+  - an **ALU**, which performs arithmetic and logical operations on the registers (the slide calls it *Algebraic Logic Unit*; it is usually called *Arithmetic Logic Unit*);
+  - the **registers**, small memory cells inside the CPU, holding user data or information on the state and control of the machine.
+- Everything is connected by the **system bus**, the "channel" on which data and addresses travel.
+
+```graph
+title: The diagram of slides 13–15: the CPU, main memory and secondary memory, connected by the system bus
+axes: no
+grid: no
+x: 0 12
+y: 0 8
+polygon: 0.3 0.4 6 0.4 6 7.6 0.3 7.6 | blue
+text: 3.15 7.2 | blue | "CPU"
+polygon: 0.7 5.3 5.6 5.3 5.6 6.7 0.7 6.7 | accent
+text: 3.15 6 | "Control unit"
+polygon: 0.7 3.4 5.6 3.4 5.6 4.8 0.7 4.8 | amber
+text: 3.15 4.1 | "ALU"
+polygon: 0.7 0.8 5.6 0.8 5.6 2.9 0.7 2.9 | violet
+text: 3.15 2.45 | "Registers"
+text: 3.15 1.45 | "R0 R1 IR PC SP SR"
+segment: 7.1 0.8 7.1 7.2 | grey | thick
+text: 7.1 7.55 | grey | "bus"
+segment: 6 4 7.1 4 | grey | thick
+polygon: 7.9 4.5 11.7 4.5 11.7 7 7.9 7 | green
+text: 9.8 6.1 | "RAM"
+text: 9.8 5.3 | "program and data"
+segment: 7.1 5.75 7.9 5.75 | grey | thick
+polygon: 7.9 1 11.7 1 11.7 3.5 7.9 3.5 | grey
+text: 9.8 2.6 | "Disk"
+text: 9.8 1.8 | "secondary memory"
+segment: 7.1 2.25 7.9 2.25 | grey | thick
+```
+
+### Why it is called "Von Neumann" (slide 14)
+
+**John von Neumann**, a mathematician and consultant on the EDVAC project, was the **first to describe and publish** this architecture, in 1945. Hence the name still used today, "Von Neumann architecture"; the slide notes that it would be more correct to say "**EDVAC architecture**", because the idea was born within the EDVAC team.
+
+### The principles (slide 15)
+
+> [!DEF] Von Neumann architecture · slide 15
+> - **Data and instructions** are stored in the **same main memory** (RAM).
+> - A **CPU** performs operations on the data in memory and **saves the result in memory**.
+> - CPU, primary memory and secondary storage are **connected through a system bus**.
+> - The machine **modifies the data area** of memory following the program's instructions and according to the input data.
+
+Almost every computer today, from phones to laptops, still follows this scheme.
+
+> [!BEYOND] · RAM and disk
+> **RAM** (main memory) is fast but is wiped when you switch the computer off; the **disk** (secondary memory) is slower but keeps the data. This is why a program stays on disk until you launch it, and is copied into RAM to be executed (slide 18).
+
+## A first model of memory (slides 16–17)
+
+### A row of bytes with an address (slide 16)
+
+The CPU sees memory as a **long row of bytes**:
+
+- each byte can hold a **small numeric value** (from 0 to 255);
+- to reach a single byte, each one has a number that identifies it: its **address**, like the street number of a house;
+- the **byte is the basic unit of addressing**: each address refers to one byte.
+
+In the slide's example memory has 1024 bytes, with addresses from **0 to 1023**: the first 256 for the **program**, the other 768 for the **data**.
+
+> [!PITFALL] Counting starts at zero
+> With 1024 bytes the addresses go from 0 to **1023**, not up to 1024. It is the same scheme as arrays in C, where the first element has index 0.
+
+### Words (slide 17)
+
+A single byte (at most 255) is usually **not enough** for the numbers of everyday calculations. This is why memory is organised in **words** of 16, 32 or 64 bits, depending on the architecture. It is a matter of **efficiency**: for the processor it is faster and more natural to work on a whole word than on one byte at a time.
+
+In the slide's example words are **32 bits = 4 bytes**:
+
+| Area | Addresses | Bytes | 32-bit words |
+|---|---|---|---|
+| Program | 0–255 | 256 | $256 : 4 = 64$ |
+| Data | 256–1023 | 768 | $768 : 4 = 192$ |
+| Whole memory | 0–1023 | 1024 | 256 |
+
+A 4-byte word occupies four consecutive addresses and is referred to by the address of its **first** byte: the first data word is at addresses 256, 257, 258, 259 and is called "the word at address 256"; the next one is at address 260, then 264, and so on, 4 by 4.
+
+> [!EXAM] From here to pointers
+> In week 2 (lesson "referencing, input and pointers in C") you will find out that in C you can ask for the **address** of a variable. It is exactly this number: the "street number" of the first byte in which the variable is stored.
+
+## How the machine works (slides 18–19)
+
+### From the disk to execution (slide 18)
+
+1. A **control program** (once called the *monitor*, today the **operating system**) **loads** program and data from secondary memory into main memory, at precise positions identified by **addresses**.
+2. The CPU executes, **one after the other**, the program's **machine instructions**. Each instruction can read or modify data, and so **progressively transforms the state of the machine** (the values in memory and in the registers).
+3. At the end the program's **result** is in the **final state of memory**, for example at a known memory location.
+4. Given the program and the initial state, execution **always produces the same final state**: the behaviour of the machine is **deterministic**.
+
+> [!IDEA] · the state
+> The **state** is the "snapshot" of all the values in memory and in the registers at a given instant. Executing a program means going from one snapshot to the next, one instruction at a time: it is the same **trace** you did by hand in lesson 01A, with the columns $s$ and $i$.
+
+### Inside the CPU (slide 19)
+
+- The **control unit** **fetches** from memory and **decodes** one instruction at a time.
+- Depending on the instruction, it **activates** the right parts of the **ALU** to carry out the elementary operations.
+- The **ALU** performs simple operations between the CPU's **registers**: additions, comparisons.
+- Among the registers there is the **program counter** (**PC**), which holds the **address of the next instruction**. Usually the PC is **incremented**, to move to the next instruction; or it is **modified** to perform a **jump**, conditional or not.
+- Another important register is the **instruction register** (**IR**): it holds the **instruction being executed**, just loaded from memory.
+
+> [!METHOD] · the CPU cycle, to remember
+> 1. **Fetch**: the control unit reads the instruction at the address stored in the PC and copies it into the IR.
+> 2. **Decode**: it works out what the instruction asks for.
+> 3. **Execute**: the ALU performs the operation on the registers, or data are read from or written to memory.
+> 4. The PC moves on to the next instruction, or jumps where the instruction says. Back to step 1.
+
+The "**jump to line 3**" of version V6 in lesson 01A, for the machine, means precisely: **write the address of line 3 into the PC**. In lesson 02A you will see this cycle at work, instruction by instruction, with a simulator.
+
+> [!BEYOND] · SP and SR
+> The diagram also shows two registers that the slides do not explain yet. **SP** (*stack pointer*) points to the top of the **stack**: it will be needed for function calls and the "stack of frames" memory model. **SR** (*status register*) keeps information on the last operation, for example the outcome of a **comparison**: a conditional jump reads right there whether the condition is true.
+
+## Towards the exam
+
+This lesson is about general culture and vocabulary: at the Programming I exam (at the PC, on Moodle with CodeRunner, the same for channels A, B and C) nobody will ask you in which year the EDVAC was born. But the ideas of the lesson come back in many places:
+
+| Idea of the lesson | Where it comes back |
+|---|---|
+| memory as a row of bytes with addresses | variables, addresses and pointers (week 2), arrays (index starting from 0) |
+| state of the machine changing instruction after instruction | exam exercises on the **state of memory** (execution simulated by hand) |
+| stored program, instructions in sequence, PC and jumps | `while` and `for` loops, and why the exam rules forbid `break` (lesson 01A) |
+| $N$ bits → $2^N$ values | C types and their limits (lab 02 "operators and types, casts, limits") |
+| determinism | same input, same output: the exam's automatic tests rely on this |
+
+> [!EXAM] What to do already this week
+> - The lab starts on 5/10 (lab group 2, even student ID number, Monday 14:00–17:00) and on 6/10 (lab group 1, odd student ID number, Tuesday 14:00–17:00), in the Turing Lab: the first lab is on the command line and the compiler (see lesson 02A).
+> - Go over the hand trace of lesson 01A again: it is the same skill you will need for the state of memory.
+
+## Exercises
+
+::: exercise basic How much information with N bits
+How many different pieces of information can be represented with 1, 4, 10, 16 and 32 bits?
+::: solution
+$N$ bits give $2^N$ combinations:
+
+| Bits | Pieces of information |
+|---|---|
+| 1 | $2^1 = 2$ |
+| 4 | $2^4 = 16$ |
+| 10 | $2^{10} = 1024$ |
+| 16 | $2^{16} = 65\,536$ |
+| 32 | $2^{32} = 4\,294\,967\,296$ (about 4.3 billion) |
+
+The 1024 of 10 bits explains why "1 KB" sometimes means 1024 bytes instead of 1000.
+:::
+
+::: exercise basic How many bits are needed
+What is the minimum number of bits needed to give a different code to: (a) the 26 lowercase letters; (b) 100 colours; (c) 1000 students?
+::: solution
+I look for the **smallest** power of 2 that is at least as large as the number of objects.
+
+(a) $2^4 = 16 < 26 \le 32 = 2^5$: **5 bits** are needed.
+
+(b) $2^6 = 64 < 100 \le 128 = 2^7$: **7 bits** are needed.
+
+(c) $2^9 = 512 < 1000 \le 1024 = 2^{10}$: **10 bits** are needed.
+
+With one bit fewer the combinations are not enough; with one more some are left over, but that is a waste.
+:::
+
+::: exercise basic The EDVAC's memory
+The EDVAC had 1024 words of 44 bits. How many bits is that in total? How many bytes? How many KB, with 1 KB = 1024 bytes?
+::: solution
+- Bits: $1024 \cdot 44 = 45\,056$.
+- Bytes: $45\,056 : 8 = 5632$.
+- KB: $5632 : 1024 = 5.5$.
+
+These are the "about 5.5 KB" of slide 13. A phone today has a few billion bytes of RAM.
+:::
+
+::: exercise intermediate Addresses and words
+In the model of slide 17 (program at addresses 0–255, data at addresses 256–1023, 32-bit words):
+(a) at which address does word number $k$ of the data area start, counting from $k = 0$?
+(b) And the tenth data word?
+(c) In which word of the data area is byte 1000?
+::: solution
+(a) Each word occupies 4 bytes and the data start at 256, so word $k$ starts at $256 + 4k$.
+
+(b) The tenth word has $k = 9$ (counting starts at 0): $256 + 4 \cdot 9 = 256 + 36 = 292$. It occupies bytes 292, 293, 294, 295.
+
+(c) I solve $256 + 4k \le 1000 < 256 + 4(k + 1)$: $1000 - 256 = 744$ and $744 : 4 = 186$ exactly. So byte 1000 is the **first** byte of word $k = 186$ (bytes 1000–1003).
+:::
+
+::: exercise intermediate Hardwired or programmable?
+For each one, say whether it is a tool in which the user supplies the logic, a hardwired machine or a programmable machine, and why: abacus; Pascaline; ENIAC; EDVAC; your computer.
+::: solution
+- **Abacus**: the logic and correctness depend entirely on the user; the abacus only keeps track of the numbers.
+- **Pascaline**: a **hardwired** machine: it does additions (with the automatic carry) and that is all.
+- **ENIAC**: **programmable**, but the program is built by rewiring cables and switches.
+- **EDVAC**: programmable with a **stored program**: the program sits in memory like data.
+- **Your computer**: Von Neumann architecture, like the EDVAC: it executes any program you load into its memory.
+:::
+
+::: exercise intermediate The PC during version V6
+Take version V6 of the multiplication (lesson 01A, lines [1]–[8]) and imagine that each line is a 4-byte instruction, with line 1 at address 0. Write the sequence of values of the PC while running the algorithm with $n = 1$.
+::: solution
+Line $r$ is at address $4(r - 1)$: line 1 → 0, line 2 → 4, line 3 → 8, line 4 → 12, line 5 → 16, line 6 → 20, line 7 → 24, line 8 → 28.
+
+With $n = 1$ the lines executed are: 1, 2, 3 (check: $0 = 1$? no), 4, 5, 6 (jump to 3), 3 (check: $1 = 1$? yes, jump to 7), 7, 8.
+
+Values of the PC: **0, 4, 8, 12, 16, 20, 8, 24, 28**. The PC does not always grow by 4: after line 6 it **goes back** to 8 (unconditional jump), after the second check it **jumps** to 24 (conditional jump).
+:::
+
+::: exercise basic From binary to decimal
+Convert the bytes $00000101$, $00001100$, $10000000$ and $11111111$ to decimal.
+::: solution
+Values of the positions from right to left: 1, 2, 4, 8, 16, 32, 64, 128.
+
+- $00000101 = 4 + 1 = 5$
+- $00001100 = 8 + 4 = 12$
+- $10000000 = 128$
+- $11111111 = 255$, the largest value of a byte (256 values, from 0 to 255).
+:::
+
+::: exercise hard The program is data
+Explain in your own words why the EDVAC's idea of storing the program "like data" makes it possible to have a program that **writes other programs**, like the compiler you will use from the next lesson.
+::: solution
+If the program is a set of numbers in memory, then another program can **produce those numbers** as its result, exactly as it produces any other data. A compiler does precisely this: it reads a text (the C program, which for the compiler is input data) and writes the corresponding machine instructions to a file (its output). Then the operating system loads those instructions into memory and the CPU executes them. With ENIAC it would have been impossible: the program was cables and switches, not numbers that another program could write.
+:::
+
+## Review questions
+
+::: question What does an abacus really do? What does the Pascaline add?
+The abacus keeps track of the calculations already done, but the logic and correctness of the operation depend on the person using it. The Pascaline does the carry of the addition by itself, with a lever between one gear and the next.
+:::
+
+::: question What is a hardwired computer and what is its limit?
+A machine whose operating logic is built into the hardware: it can do a limited set of operations (typically addition and subtraction), and to add new functions, such as comparisons or conditional jumps, the hardware has to be modified or redesigned.
+:::
+
+::: question What is the idea that leads to the programmable computer?
+Separating the elementary operations the hardware can do from the order in which to execute them, combining and repeating them to obtain complex operations, and encoding order, repetitions and arguments with numbers. This way the same machine carries out different tasks by changing the sequence of instructions, without touching the hardware.
+:::
+
+::: question What did Babbage and Turing do?
+Around 1840 Babbage described the Analytical Engine, the first example of a programmable machine, with data and instructions on punched cards and conditional jumps. In 1936 Turing introduced the universal machine, an abstract model of a computer used to study which functions can be computed automatically.
+:::
+
+::: question How was the ENIAC programmed and what changes with the EDVAC?
+The ENIAC was programmed by setting switches and connecting blocks with cables: changing the program was a manual reconfiguration. The EDVAC introduces the stored program in central memory, the unified memory for instructions and data, and the binary representation: the program is stored and modified like data.
+:::
+
+::: question Why do computers use binary?
+Because a bit has only two states (on/off, 1/0), easy to build with relays, valves or transistors; telling two levels apart is much simpler and more reliable than telling ten apart.
+:::
+
+::: question How much information do N bits represent? What is a byte?
+$2^N$ pieces of information. A byte is a group of 8 bits and represents $2^8 = 256$ pieces of information, for example the numbers from 0 to 255.
+:::
+
+::: question What are the components of the Von Neumann architecture?
+The CPU (control unit, ALU and registers), the main memory (RAM) that holds both data and instructions, and the secondary memory (storage), all connected by the system bus.
+:::
+
+::: question Why is it called "Von Neumann" and which name would be more correct?
+Because John von Neumann, a consultant on the project, was the first to describe and publish it, in 1945. It would be more correct to say "EDVAC architecture".
+:::
+
+::: question How does the CPU see memory? What is a word?
+As a sequence of bytes, each with an address; the byte is the basic unit of addressing. A word is a group of bytes (16, 32 or 64 bits) that the processor handles in one go, because a single byte is not enough for the numbers used in calculations.
+:::
+
+::: question What do the program counter and the instruction register do?
+The PC holds the address of the next instruction: usually it is incremented, or modified to perform a jump. The IR holds the instruction being executed, just loaded from memory.
+:::
+
+::: question What does it mean that the machine is deterministic?
+That, given the program and the initial state, execution always produces the same final state.
+:::
+
+## Glossary
+
+```glossary
+Hardwired computer | A machine whose operating logic is built into the hardware: it does only the operations it was designed for.
+Programmable computer | The same machine carries out different tasks by changing the sequence of instructions, without modifying the hardware.
+Analytical Engine | Programmable machine described by Babbage around 1840: punched cards, conditional jumps.
+Universal machine | Abstract model of a computer introduced by Turing in 1936 to study what is computable.
+Turing-complete | Able to compute everything a universal Turing machine computes.
+ENIAC | First general-purpose computer (1943–1946): decimal numbers, programmed with cables and switches.
+EDVAC | Designed in 1944: stored program, unified memory for instructions and data, binary numbers.
+Bit | The smallest unit of information: two states, 0 or 1. Symbol b.
+Byte | 8 bits, 256 possible values. Symbol B. It is the basic unit of memory addressing.
+Word | A group of 16, 32 or 64 bits that the processor handles in one go.
+Address | A number that identifies one byte of memory.
+CPU | Central Processing Unit: control unit, ALU and registers.
+Control unit | The part of the CPU that fetches and decodes instructions and drives the other components.
+ALU | Arithmetic Logic Unit: performs additions, comparisons and other elementary operations on the registers.
+Register | A small memory cell inside the CPU (R0, R1, PC, IR, SP, SR…).
+Program counter (PC) | Register holding the address of the next instruction.
+Instruction register (IR) | Register holding the instruction being executed.
+System bus | Connection between the CPU, main memory and secondary memory.
+RAM | Main memory: fast, holds program and data during execution.
+Operating system | The control program (once called "monitor") that loads programs and data into memory.
+State of the machine | The set of values in memory and in the registers at a given instant.
+Deterministic | The same program and the same initial state always give the same final state.
+```
+
+## Checklist
+
+```checklist
+- I can explain the difference between the abacus, the Pascaline and a hardwired computer.
+- I can explain in my own words what a programmable computer is and why the multiplication of lesson 01A is an example of it.
+- I can say what Babbage and Turing did.
+- I can list the three ideas of the EDVAC and why "the program is data" is so important.
+- I know how much information N bits represent and what a byte is.
+- I can draw the Von Neumann diagram with the CPU (control, ALU, registers), RAM, secondary memory and bus.
+- I know what an address is, why counting starts at 0 and what a 32-bit word is.
+- I can describe the fetch, decode, execute cycle and the role of the PC and the IR.
+- I know what it means that the machine is deterministic.
+```
+
+## Sources
+
+- **Lesson slides**: "Storia e principi del calcolo automatico. Storia e architettura dei calcolatori dalle macchine cablate alla macchina di Von Neumann" (01B_architettura), Programming I – Theory, channel B, A.Y. 2026/27, 19 pages; the slide number is next to each heading.
+- **Channels A and C**: the deck "Architettura del computer" of channel A and lesson 01 "Introduzione" of channel C on the 2026/27 Moodle pages ([channel A](https://informatica.i-learn.unito.it/course/view.php?id=3701), [channel C](https://informatica.i-learn.unito.it/course/view.php?id=3767)), checked on 30/09/2026.
+- **Labs and timetables**: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/PROG1/course.md).
+- The **"Beyond the slides"** parts (Ada Lovelace, Turing completeness, binary, RAM and disk, SP and SR, the CPU cycle) and the exercises are additions in these notes.
+
+
+---
+
+<!-- FILE: ai_context/PROG1/lessons/02A_from_assembly_to_c.md -->
+> File: `ai_context/PROG1/lessons/02A_from_assembly_to_c.md`
+
+```yaml
+course: PROG1
+lesson: 02A
+title: From machine language to C
+date: 2026-09-30
+lecturers: Elvio Amparore
+eyebrow: Programming I (Programmazione I) · Theory · Channel B · Lesson 02A
+description: >-
+  Notes on lesson 02A of Programming I (channel B): machine language and assembly, addition and multiplication in
+  assembly with a simulator of the Von Neumann machine, FORTRAN and high-level languages, history and features of C,
+  the first program, printf and escape sequences, syntax, identifiers, compiling with gcc, compile-time, runtime and
+  logic errors.
+lede: >-
+  From the bits in the registers to the first C program. First you program the Von Neumann machine in assembly,
+  instruction by instruction, and you see why it is tiring; then you move to high-level languages, from FORTRAN to C.
+  Finally the "X-ray" of the first C program, the syntax rules and the path from the source file to the executable
+  with gcc, with the compiler's real error messages.
+material: slides
+facts:
+  Slides: 02A_da_assembly_a_c · 50 pages
+  Course: Prof. Elvio Amparore · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  Slides "Dal linguaggio macchina al C" (02A_da_assembly_a_c), Programming I – Theory, channel B, A.Y. 2026/27
+italian_file: 02A_da_assembly_a_c.html
+html_notes: notes/PROG1/02A_from_assembly_to_c.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/PROG1/lezioni/02A_da_assembly_a_c.md
+```
+
+## In brief
+
+- **Machine language** is made of numbers (sequences of bits) that the processor executes directly; each architecture has its own *instruction set*, so it is **not portable**.
+- **Assembly** writes the same instructions with readable names (`LOAD`, `ADD`, `STORE`…); a program called the **assembler** translates it into machine language.
+- In the slides' example an addition takes **4 instructions** and the multiplication of lesson 01A takes **10**, with `CMP` and the jumps `JMPEQ` and `JMP`.
+- Programming in assembly is long, error-prone and tied to the CPU: from the 1950s **high-level languages** appear, starting with **FORTRAN**, which a **compiler** translates for the machine.
+- **C** was born in 1972 (Dennis Ritchie, Bell Labs) to rewrite Unix: efficient and **portable**. It is **compiled**, **imperative**, **structured** and **typed**.
+- The first program: `//` comments, the directive `#include <stdio.h>`, the `main` function, a block in braces, `printf` with **escape sequences** (`\n`, `\t`, `\\`, `\"`, `\0`); every statement ends with `;`.
+- You compile with `gcc -Wall -Werror source.c -o executable`: **preprocessor**, **compiler**, **assembler**, **linker**.
+- Three kinds of error: **compile-time** (syntax), **runtime** (for example division by zero) and **logic** errors (the program runs but does the wrong thing).
+
+> [!CHANNELS] Are you in channel A or C?
+> **Channel A (Fiandrotti):** the deck "Dal linguaggio assembly al C" (52 slides) has the same content. It adds an example that loads a single value from memory (slide 5) and the same multiplication in **BASIC**, written with line numbers and `GOTO`s, as an example of an **unstructured** language (slide 23).
+>
+> **Channel C (Mazzei):** assembly, multiplication in assembly and FORTRAN are at the end of lesson 01 "Introduzione" (slides 67–83), with slightly different instructions (for example `JEQ` instead of `JMPEQ`). The part on C (`main`, `printf`, gcc) is in lesson 02 "Il C", not yet published on 30/09/2026.
+>
+> The exam is the same for the three channels.
+
+## Machine language and assembly (slides 2–4)
+
+The first computers were programmed directly in **machine language**, changing the bits of the registers with **switches** or **punched cards**. It is a bit like the step-by-step execution still used today to check hardware while it is being designed.
+
+> [!DEF] Machine language · slide 3
+> It is the language **directly executable by the processor**:
+> - it is made of **numeric codes** (sequences of bits) that identify instructions and operands;
+> - each architecture defines its own set of machine instructions (*instruction set*);
+> - so it **depends on the processor** and is **not portable** across different architectures.
+
+> [!DEF] Assembly language · slide 3
+> It is a **textual and symbolic representation** of machine language:
+> - it uses **mnemonics** such as `mov`, `add`, `ldr` instead of numeric codes;
+> - it is translated into machine language by a program called the **assembler**;
+> - it is more readable for programmers, but stays **closely tied to the hardware architecture**.
+
+In practice each line of assembly corresponds to **one** machine instruction: the assembler replaces each name with its numeric code (slide 4).
+
+| Assembly (for people) | Machine language (for the CPU) |
+|---|---|
+| `LOAD, R0, @A` | `0010000110010000` |
+| `LOAD, R1, @B` | `0010010110010010` |
+| `ADD, R0, R1` | `0100000100000000` |
+| `STORE, R0, @A` | `0011000100000000` |
+
+> [!PITFALL] Portable does not mean "runs everywhere as it is"
+> A machine-language program written for one CPU does not run on a CPU with a different *instruction set*: it has to be **rewritten**. It is the problem that high-level languages solve (later in this lesson).
+
+## Addition in assembly, step by step (slides 5–14)
+
+**The problem**: add two integers stored in memory at addresses $A = 400$ and $B = 404$, and put the result in the cell at address $A$. The language is a RISC-type assembly, like that of the MIPS32 processor. The program does four things:
+
+1. it defines the addresses `A` and `B`;
+2. it loads the two numbers into the CPU registers `R0` and `R1`, with two `LOAD` instructions;
+3. it adds them with an `ADD` instruction between registers `R0` and `R1`;
+4. it copies the result from register `R0` to address `A` in memory, with a `STORE` instruction.
+
+```text
+ADDR  A = 400        ; defines address A
+ADDR  B = 404        ; defines address B
+LOAD,  R0, @A        ; load into R0 the number at address A
+LOAD,  R1, @B        ; load into R1 the number at address B
+ADD,   R0, R1        ; R0 ← R0 + R1
+STORE, R0, @A        ; copy R0 to address A
+```
+
+The symbol `@A` means "**the content of memory at address A**", not the number 400. The `ADDR` lines do not become instructions: they only give a name to the addresses.
+
+### What happens in the machine (slides 7–14)
+
+In memory the program occupies bytes 0–15 (4 instructions of 4 bytes), the data are at 400 (the number 12) and at 404 (the number $-8$). The slides follow the execution with two steps per instruction: first the **fetch** ("load the next instruction by reading the program counter into the instruction register"), then the **execution** ("decode the IR and execute the elementary instruction").
+
+| Instruction | PC | IR | R0 | R1 | memory[400] |
+|---|--:|---|--:|--:|--:|
+| (start) | 0 | — | — | — | 12 |
+| `LOAD, R0, @A` | 0 | LOAD | **12** | — | 12 |
+| `LOAD, R1, @B` | 4 | LOAD | 12 | **−8** | 12 |
+| `ADD, R0, R1` | 8 | ADD | **4** | −8 | 12 |
+| `STORE, R0, @A` | 12 | STORE | 4 | −8 | **4** |
+
+The PC moves on 4 by 4 (0, 4, 8, 12), because each instruction occupies one 32-bit word. At the end address 400 no longer holds 12 but $4 = 12 + (-8)$: the result is in the **final state of memory**, as lesson 01B said.
+
+```widget macchina
+program: addition
+title: Simulator of the Von Neumann machine: press "Step" and watch the PC, IR, registers and memory
+```
+
+> [!IDEA] · why go through the registers
+> The ALU works only on **registers** (lesson 01B): it cannot add two memory cells directly. This is why you need `LOAD` (memory → register), `ADD` (register + register) and `STORE` (register → memory).
+
+## Multiplication in assembly (slides 15–16)
+
+Now the same **multiplication by repeated addition** as in lesson 01A. The numbers are at the symbolic addresses `m` and `n`; the result goes to address `m`. The accumulator $s$ (in register `R0`) and the counter $i$ (in `R1`) are used.
+
+```text
+ 1.  LOAD,  R0, 0         // initialise R0 as the accumulator s
+ 2.  LOAD,  R1, 0         // initialise R1 as the counter i
+ 3.  LOAD,  R2, @m        // load the value at address m into R2
+ 4.  LOAD,  R3, @n        // load the value at address n into R3
+ 5.  CMP    R1, R3        // compare R1 and R3, that is i and n
+ 6.  JMPEQ  <line 10>     // if i = n jump to line 10, otherwise go on
+ 7.  ADD,   R0, R2        // R0 ← R0 + R2, that is s ← s + m
+ 8.  INC,   R1            // R1 ← R1 + 1, that is i ← i + 1
+ 9.  JMP    <line 5>      // unconditional jump to line 5
+10.  STORE, R0, @m        // store R0, that is the result s, at the address of m
+```
+
+(On the slides the jump targets are written `<riga 10>` and `<riga 5>`, "riga" meaning "line".) The new instructions:
+
+| Instruction | What it does |
+|---|---|
+| `LOAD, R0, 0` | puts the **number** 0 into the register (no `@`: it is a value, not an address) |
+| `CMP R1, R3` | **compares** the two registers; the outcome (equal or not) stays in the CPU, in the status register |
+| `JMPEQ <line 10>` | **conditional jump**: jumps to line 10 only if the last comparison said "equal" (*jump if equal*) |
+| `INC R1` | adds 1 to the register (*increment*) |
+| `JMP <line 5>` | **unconditional jump**: always jumps to line 5 |
+
+It is **exactly** version V6 of lesson 01A, line by line:
+
+| Lesson 01A, version V6 | Assembly |
+|---|---|
+| `s ← 0, i ← 0` | lines 1–2 |
+| (the data $m$, $n$ are already known) | lines 3–4: they are loaded into the registers |
+| `if i = n then jump to line 7` | lines 5–6: `CMP` + `JMPEQ` (conditional jump) |
+| `s ← s + m` | line 7: `ADD` |
+| `i ← i + 1` | line 8: `INC` |
+| `jump to line 3` | line 9: `JMP` (unconditional jump) |
+| `End` | line 10: the result goes to memory |
+
+> [!EXAM] Check first, then execute
+> Here too the comparison (line 5) comes **before** the addition (line 7): with $n = 0$ you jump straight to line 10 and the result is 0. It is the principle of lesson 01A, "a typical source of errors, even in the exam".
+
+Try the simulator with $m = 4$, $n = 3$ and then with $n = 0$: count how many times line 5 is executed.
+
+```widget macchina
+program: multiplication
+m: 4
+n: 3
+title: Multiplication by repeated addition, executed by the machine
+```
+
+> [!NOTE] Two small differences on slide 20
+> On slide 20 the same program appears with `ADD, R1, 1` instead of `INC, R1` (it does the same thing: it adds 1) and with `STORE, R0, A` on line 10.
+
+## Towards high-level languages (slides 17–22)
+
+### Why assembly is not enough (slide 17)
+
+- It is **tiring** and **easy to get wrong**: 4 lines for an addition, 10 for a multiplication.
+- It requires **knowing the architecture of the CPU** (registers, instructions).
+- **You cannot see the structure** of the code or its logic: where does the repetition start and where does it end?
+- Code written for CPU X has to be **rewritten from scratch** for CPU Y, if their machine languages differ.
+
+This is why, from the 1950s, **programming languages** were developed whose instructions have a **semantic level** closer to **mathematical and natural language**, and which let you **abstract** the program away from the characteristics of the hardware.
+
+### FORTRAN (slides 18–20)
+
+In the early 1950s IBM designed the **model 704** computer for scientific computing, with two requirements:
+
+- scientists must be able to focus on **programming formulas**, ignoring the details of the CPU;
+- programs must be easy to **carry over** to future IBM models **without rewriting them** from scratch.
+
+For the 704 **FORTRAN** (*FORmula TRANslator*) was created:
+
+- a **compiler** translates each FORTRAN statement into **one or more** assembly instructions of the machine in use;
+- if the machine changes, **recompiling** the program **is enough**;
+- together with LISP, ALGOL and COBOL it is one of the ancestors of the **third-generation languages**, the family of the original C that you will study in this course;
+- modern versions (FORTRAN 90) have constructs such as `if` and `while`.
+
+Multiplication in FORTRAN (slide 20; the prompts are in Italian, "Inserisci" means "Enter"):
+
+```text
+Program Hello
+INTEGER :: m
+INTEGER :: n
+INTEGER :: s
+INTEGER :: i
+
+WRITE(*,*) 'Inserisci m:'
+READ(*,*) m
+WRITE(*,*) 'Inserisci n:'
+READ(*,*) n
+
+s = 0
+i = 0
+do while (i<n)
+    s = s + m
+    i = i + 1
+end do
+
+WRITE(*,*) "Risultato :",s
+End Program Hello
+```
+
+The 10 lines of assembly become 6 readable lines (from `s = 0` to `end do`): the repetition is a `do while … end do` block and **the jumps are no longer visible**, the compiler writes them. In addition the program asks the user for $m$ and $n$ (`READ`) and prints the result (`WRITE`; "Risultato" means "Result").
+
+### The family tree of languages (slides 21–22)
+
+Slide 21 shows how languages descend from one another, from 1956 to 2004: from **Fortran I** and **ALGOL 60** comes, among others, **C** (the K&R version, late 1970s), from which **C++** descends, and then **Java**, **C#**, and partly **Python**. Learning C means learning the basis of many languages used today.
+
+Key points of the first part (slide 22):
+
+- we wrote a simple algorithm to multiply integers as **repeated addition**;
+- the machine can be programmed at a **low level** (assembly), but writing programs is **long and hard**;
+- **high-level** languages such as C **hide** many details of the underlying hardware.
+
+> [!BEYOND] · what the compiler really writes
+> Here is the multiplication in C and a piece of the x86-64 assembly that gcc derives from it with `gcc -S` (compiler gcc 16.1, without optimisations):
+>
+> ```c
+> while (i < n) {
+>     s = s + m;
+>     i = i + 1;
+> }
+> ```
+>
+> ```text
+>         jmp  .L2                      ; jump straight to the check
+> .L3:    mov  eax, DWORD PTR -12[rbp]  ; load m (LOAD)
+>         add  DWORD PTR -4[rbp], eax   ; s ← s + m (ADD)
+>         add  DWORD PTR -8[rbp], 1     ; i ← i + 1 (INC)
+> .L2:    mov  eax, DWORD PTR -8[rbp]   ; load i
+>         cmp  eax, DWORD PTR -16[rbp]  ; compare i with n (CMP)
+>         jl   .L3                      ; if i < n go back to the body (conditional jump)
+> ```
+>
+> The instructions have different names, but the idea is the one on the slides: load, add, compare, jump. And the compiler respects "check first, then execute": the first instruction jumps to the check.
+
+## The C language: a bit of history (slides 23–26)
+
+- **1969**: Ken Thompson (Bell Labs, AT&T) develops the **Unix** operating system for the PDP-7 minicomputer, initially written in **assembly**.
+- Experience shows that assembly makes developing an operating system **burdensome and inflexible**.
+- **Dennis Ritchie** then designs the **C language**, meant to combine **efficiency** and **portability**.
+- Unix is progressively rewritten in C: it spreads (starting from universities) and decisively shapes the history of computer science.
+- **1972**: first version of C, for internal use on the PDP-7 and PDP-11, known today as **K&R C** (from the initials of Kernighan and Ritchie, authors of the book that described it).
+- In the **late 1980s** C is **standardised** by ANSI and ISO (**ANSI C**, **C89**), to be used on very different hardware.
+- The standard has been updated several times: **C99, C11, C17, C23**. The course textbook refers to **C11**.
+
+Despite its age, C is still central: it is the reference language for **operating systems**, **compilers**, **drivers**, **low-level libraries**, **high-performance** applications and **embedded/IoT systems**. It offers **direct control** over hardware and memory while staying much more abstract than assembly.
+
+## The features of C (slide 27)
+
+| C is… | What it means | Example |
+|---|---|---|
+| **compiled** | a **compiler** translates C sources into the computer's machine language | `gcc` produces an executable |
+| **imperative** | the program is a set of **instructions**, thought of as orders | `s = s + m;` is an order: "update s" |
+| **structured** | the code is organised in **blocks** enclosed by delimiters | the braces `{ … }` (lesson 01A, Begin/End blocks) |
+| **strongly typed** | the programmer must **specify the type** of every variable | `int s = 0;` says that `s` is an integer |
+
+## The X-ray of the first program (slides 28–36)
+
+```c
+// Un primo programma in C
+#include <stdio.h>
+
+// La funzione "main" e' il punto di ingresso del programma
+int main(void) {
+    printf("Buongiorno dal C.\n");
+}
+// fine della funzione main
+```
+
+The comments are in Italian as on the slides: "A first program in C", "The main function is the entry point of the program", "end of the main function"; the program prints "Buongiorno dal C." ("Good morning from C."). Compiled with `gcc -Wall -Werror`, it prints that line and goes to a new line. Let us look at it piece by piece.
+
+### Comments (slide 28)
+
+Lines starting with `//` are **comments**: they are not instructions and the compiler **ignores** them. They are for the reader: a comment before a function or a group of instructions clarifies its **purpose** (slide 32). Code must be understandable for a programmer, not only for the compiler.
+
+> [!BEYOND] · the other kind of comment
+> C also has comments spanning several lines, between `/*` and `*/`: `/* this is a comment */`.
+
+### The `#include` directive (slide 29)
+
+- Lines starting with `#` are **directives for the preprocessor** (a topic seen only a little here and more in Programming II).
+- `#include <stdio.h>` **includes** the file `stdio.h` (*standard input/output header*) in the program and imports its definitions.
+- `.h` files are called **header files**: they contain **declarations** of functions, for example those of the system libraries (`printf()` is in the C library, `libc`).
+- `stdio.h` declares functions such as `printf()` and `scanf()`.
+- On the slides the `#include` lines are sometimes omitted, only to save space.
+
+> [!PITFALL] Without `#include <stdio.h>`
+> If you forget it and use `printf`, gcc 16 stops with an error: `implicit declaration of function 'printf'`, and suggests `include '<stdio.h>'`.
+
+### The `main` function (slides 30–31)
+
+- C programs are organised in modules called **functions**, which contain the instructions to execute. Each function has an **input** and an **output**.
+- The **`main`** function is **mandatory**: it is the point where **execution starts**.
+- `(void)` means that `main` receives an **empty input**.
+- `int` means that `main` returns an **integer**: a success or error code for the operating system (we will not use it in the course). The compiler lets you omit it, but you can write `return 0;` explicitly before the closing brace.
+- For now all the code goes **inside `main`**.
+
+### Blocks and structured programming (slides 32–33)
+
+- The **braces** `{ }` delimit the **body** of the function, that is a **block** of instructions. They must **always be balanced**: every `{` has its `}`.
+- A block is a **logical unit** and can contain: **declarations** of data (the **variables**), **commands**, **calls** to other functions and **other blocks** (nested, always in braces).
+- By convention C code is **indented** with tabs (the Tab key).
+
+They are the Begin/End blocks of version V6 of lesson 01A, written with braces.
+
+### Programming for clarity (slide 34)
+
+> "Code is read much more often than it is written: program for clarity, not for brevity." (quote attributed to Donald Knuth on slide 34)
+
+To keep code clear:
+
+- **correct indentation**, showing the logical structure;
+- **meaningful comments**, especially for functions and complex parts;
+- **descriptive names** for variables and functions, so that the code explains itself;
+- **blocks that are not too long**: better to split them into smaller, reusable functions (you will see how later).
+
+### `printf`, statements and strings (slides 35–36)
+
+- `printf(…)` is a **function call**: you call the function passing it the input **parameters** in brackets.
+- Every **statement** ends with a **semicolon** `;`.
+- A **string** is a piece of text between **double quotes** `"…"`.
+- Inside strings there can be **escape sequences** (special sequences), which start with the backslash `\`.
+
+| Sequence | What it produces |
+|---|---|
+| `\n` | new line: goes to a new line |
+| `\t` | tab |
+| `\\` | the backslash character `\` |
+| `\"` | the double quote `"` |
+| `\0` | the string terminator (you will use it later) |
+
+For now `printf` is used only with text in double quotes. For example:
+
+```c
+printf("Ha detto \"ciao\"\n");     // prints: Ha detto "ciao"   (He said "hi")
+printf("C:\\corso\\lab1\n");        // prints: C:\corso\lab1
+printf("nome\tvoto\n");             // prints nome (name) and voto (grade) separated by a tab
+```
+
+> [!PITFALL] A lone backslash
+> A single `\` in a string always starts an escape sequence. To print a backslash you need **two**: `\\`. And to print a double quote you need `\"`, otherwise the compiler thinks the string ends there.
+
+## Syntax, identifiers and indentation (slides 37–41)
+
+### Syntax and tokens (slides 37–38)
+
+C has to be **compiled**: the source code, which is text, is translated into machine language. During compilation the **lexical analyser** (*parser*) splits the code into **tokens**, the syntactic units: keywords, identifiers, operators, punctuation, strings, constants. Like a natural language, a programming language has a **syntax**, more formal, with the rules for writing correct programs. If a rule is broken, the compiler reports a **compile-time error** and does **not** produce the program.
+
+Three rules to know right away:
+
+1. **Every statement ends with `;`**. Typical mistake: forgetting it. gcc answers `expected ';' before …`.
+2. A statement can span **several lines**: you can go to a new line **wherever a space is allowed**. Two strings next to each other are joined:
+   ```c
+   printf("Questo è un messaggio "
+          "spezzato su più righe\n");
+   ```
+   (It prints "Questo è un messaggio spezzato su più righe", "This is a message split over several lines".)
+3. You **cannot** go to a new line **inside a string** without closing it: error `missing terminating " character`.
+
+### Identifiers (slides 39–40)
+
+**Identifiers** are the **names** you give to the elements of the program (variables, functions, constants, types…), so that you can recognise and use them.
+
+- Uppercase and lowercase **matter** (*case-sensitive*): `Var`, `var` and `VAR` are three different identifiers.
+- Choose **clear** names: avoid names too similar to one another or meaningless ones. Examples from the slides: `somma` (sum), `accumulatore` (accumulator).
+- You **cannot** use the language's **keywords**:
+
+  `auto break case char const continue default do double else enum extern float for goto if int long register return short signed sizeof static struct switch typedef union unsigned void volatile while`
+
+- **Do not** use the names of the standard library functions, such as `main` and `printf` (even if you do not use them, like `sin` and `cos`), or the names defined in the header files.
+
+> [!BEYOND] · which characters are allowed
+> An identifier contains **letters**, **digits** and the underscore `_`, and **does not start with a digit**: `x2` and `conto_totale` are fine, `2x` and `conto-totale` are not (the hyphen is the minus sign). Spaces are not allowed. Also avoid names starting with `_`: they are reserved in many cases.
+
+### Indentation (slide 41)
+
+The instructions of a block (**not** the braces) are written **indented** by a fixed number of spaces (for example 4) or, better, with the Tab character. Indentation helps you understand the flow of the program, and should be done **while you program**, not afterwards.
+
+```c
+if (a > 15) {
+    x = 5;
+    y = 2;
+    z = a + b;
+}
+```
+
+The `if` statement will come in the next weeks: here what matters is the form, with the three instructions indented inside the braces.
+
+## From source to executable (slides 42–45)
+
+The path (slide 42): the **source files** (`.c`, the code in text form; each one is a **compilation unit**) include the **header files** (`.h`). Preprocessor, compiler and assembler turn each source into an **object file** (machine language); the **linker** joins the object files into an **executable program**.
+
+The course's compiler is **gcc** (the slide says GNU C Compiler; today the name is *GNU Compiler Collection*): free, standard-compliant, available for the main operating systems, able to produce code for many architectures. It is a *frontend* for a multi-stage compilation system (slides 43–44):
+
+| Stage | Program | What it does |
+|---|---|---|
+| 1. preprocessor | `cpp` | processes the directives `#include`, `#define`… and produces an intermediate source |
+| 2. compiler | `cc` | translates C into assembly, with options to optimise speed or size, or without optimisation for debugging (option `-g`) |
+| 3. assembler | `as` | produces the object file `.o` in machine language |
+| 4. linker | `ld` | joins the object files of the C sources, other object files (also from other languages) and the **libraries** (input/output, maths, network…) into an executable |
+
+### Compiling and running (slide 45)
+
+For now you compile like this:
+
+```text
+Unix:     gcc -Wall -Werror source.c -o executable
+Windows:  gcc -Wall -Werror source.c -o executable.exe
+```
+
+- `-Wall` turns on the most useful **warnings**;
+- `-Werror` turns every warning into an **error**: with a single warning the program is not produced;
+- `-o executable` chooses the **name** of the file produced.
+
+Then you run it: `./buongiorno` in the Unix shell, `buongiorno` in the Windows Command Prompt.
+
+> [!EXAM] The exam options
+> `-Wall -Werror` are the options used at the exam in past years: train with them from the start. A program that does not compile passes no test.
+
+## Compile-time, runtime and logic errors (slides 46–48)
+
+A program can **compile** without syntax errors and still contain errors that only show up **during execution** (*runtime*). The causes can be:
+
+- a **wrong design** of the algorithm, for example executing a loop **before** checking its termination condition (it is the bug of version V2 in lesson 01A);
+- a **wrong implementation** of the program, for example a division by zero or an invalid memory access.
+
+| Kind | When you see it | Example |
+|---|---|---|
+| **compile-time** | right away, the compiler reports it | a missing `;`, an unclosed string |
+| **runtime** | during execution | division by zero |
+| **logic** | never by itself: the program runs but does the wrong thing | adding from 0 to $n - 1$ instead of from 1 to $n$ |
+
+### A compile-time error (slide 47)
+
+```c
+#include <stdio.h>
+
+int main(void) {
+    printf("Buongiorno dal C.\n")
+}
+```
+
+The `;` is missing on line 4. gcc 16.1 answers like this (checked):
+
+```text
+manca.c:4:34: error: expected ';' before '}' token
+```
+
+The numbers `4:34` are the **line** and the **column**: the compiler tells you where it noticed the problem. Sometimes it is the line **after** the real error, because it only notices when it finds the next symbol (here the `}` on line 5): always look at the line before too.
+
+### A runtime error (slide 48)
+
+```c
+#include <stdio.h>
+int main(void) {
+    int x = 5;
+    int y = 0;
+    printf("5/2 uguale a %d\n", x/y);
+}
+```
+
+The program **compiles without errors** even with `-Wall -Werror`, but when run it divides by zero. On the slide, on Linux, the program stops with the message `Eccezione in virgola mobile` ("Floating point exception", even though the division is between integers: the name of the signal is historical). On Windows the program ends abnormally without printing the result. The `%d` inside the string is used to print an integer: you will see it soon. ("uguale a" means "equals".)
+
+> [!PITFALL] "It compiles" does not mean "it works"
+> The compiler checks the **syntax**, not the **logic**. After compiling it, a program must be **tried out** (tests), also on edge cases such as $n = 0$.
+
+## How to develop a C program (slides 49–50)
+
+1. **Write or edit** the source with a text editor (for example Notepad++).
+2. **Save** the file with the `.c` extension in a folder.
+3. **Compile** with gcc.
+4. **Analyse and fix** the syntax errors: **read carefully what the compiler says**.
+5. **Run** the program.
+6. **Check** that it behaves correctly (tests).
+7. If something is wrong, **fix** it and start again.
+
+Prerequisites: being able to write and manage text files, move between folders, use the **command line** (shell) for the essentials. On your own PC you will have to install an environment with the gcc compiler (the labs take care of this). To start without installing anything there is the online environment [pythontutor.com/c.html](https://pythontutor.com/c.html#mode=edit), which also shows the state of memory step by step.
+
+## Towards the exam
+
+The Programming I exam is at the PC on Moodle, with C exercises also marked by **automatic tests** (CodeRunner), the same for channels A, B and C. This lesson gives you the basic tools:
+
+- **always compile with `-Wall -Werror`**, as at the exam: a single warning blocks compilation;
+- **read the compiler's messages**: line, column and description (`expected ';'`, `missing terminating " character`, `implicit declaration of function`);
+- at the exam you write in a **plain text editor**, without an IDE or auto-completion: practise that way, for example with Notepad++;
+- **try** your programs on several cases, including edge cases: the automatic tests will;
+- the "instruction after instruction" model of assembly is the basis of the exercises on the **state of memory**.
+
+> [!EXAM] What to do already this week
+> - First lab (Lab01, command line and compiler): lab group 2 (even student ID number) Monday 5/10, lab group 1 (odd student ID number) Tuesday 6/10, 14:00–17:00, Turing Lab.
+> - Copy the "Buongiorno dal C." program, compile it with `gcc -Wall -Werror` and then **break it on purpose** (remove a `;`, a brace, a quote) to learn to recognise the error messages.
+
+## Exercises
+
+::: exercise basic Trace of the addition with other data
+Run the addition program (slides 5–14) by hand with 7 at address $A = 400$ and 5 at address $B = 404$. After each instruction write the PC, R0, R1 and the content of address 400. Check with the simulator.
+::: solution
+| Instruction | PC | R0 | R1 | memory[400] |
+|---|--:|--:|--:|--:|
+| `LOAD, R0, @A` | 0 | 7 | — | 7 |
+| `LOAD, R1, @B` | 4 | 7 | 5 | 7 |
+| `ADD, R0, R1` | 8 | 12 | 5 | 7 |
+| `STORE, R0, @A` | 12 | 12 | 5 | **12** |
+
+After the last instruction the PC is 16 and the program has finished: address 400 holds $7 + 5 = 12$. Note that the value 5 at address 404 does not change.
+:::
+
+::: exercise basic How many instructions for a multiplication
+How many instructions does the multiplication program (slide 16) execute with $n = 3$? And with $n = 0$? Find a formula for any $n$.
+::: solution
+Let us count the lines executed:
+- lines 1–4 only once: **4**;
+- for each round of the loop lines 5, 6, 7, 8, 9: **5 per round**, and there are $n$ rounds;
+- at the end lines 5 and 6 one last time (the comparison that exits) and line 10: **3**.
+
+Total: $4 + 5n + 3 = 5n + 7$.
+- $n = 3$: $5 \cdot 3 + 7 = 22$ instructions (44 steps in the simulator, which counts fetch and execution separately).
+- $n = 0$: $7$ instructions: lines 1–4, 5, 6 (jump) and 10.
+:::
+
+::: exercise intermediate Double a number in assembly
+With the instructions of the slides (`LOAD`, `STORE`, `ADD`, `INC`, `CMP`, `JMPEQ`, `JMP`) write a program that computes $2m$ and stores it at the address of $m$.
+::: solution
+```text
+1.  LOAD,  R0, @m        // R0 ← m
+2.  ADD,   R0, R0        // R0 ← R0 + R0 = 2m
+3.  STORE, R0, @m        // store the result at the address of m
+```
+A register can be added to itself. A longer but correct solution loads $m$ into two registers and then adds them.
+:::
+
+::: exercise intermediate Sum of the first n numbers in assembly
+Write an assembly program that computes $1 + 2 + \dots + n$ (with $n \ge 0$ at address `n`) and stores the result at the address of `n`. Hint: it is exercise 6 of lesson 01A.
+::: solution
+```text
+1.  LOAD,  R0, 0         // s ← 0
+2.  LOAD,  R1, 0         // i ← 0
+3.  LOAD,  R3, @n        // R3 ← n
+4.  CMP    R1, R3        // i = n ?
+5.  JMPEQ  <line 9>      // if so, end of the loop
+6.  INC,   R1            // i ← i + 1   (first advance the counter...)
+7.  ADD,   R0, R1        // s ← s + i   (...then add it)
+8.  JMP    <line 4>      // back to the comparison
+9.  STORE, R0, @n        // store s
+```
+Trace with $n = 3$: $(i, s) = (0, 0) \to (1, 1) \to (2, 3) \to (3, 6)$, then $3 = 3$ and a jump to line 9: the result is 6. With $n = 0$ you jump straight away and the result is 0. If you swap lines 6 and 7 you add $0 + 1 + 2 = 3$: the usual off-by-one error.
+:::
+
+::: exercise basic Find the errors
+The following program does not compile. Find the two errors and write what gcc says.
+```c
+#include <stdio.h>
+
+int main(void) {
+    printf("Ciao\n")
+    printf("Seconda riga\n);
+}
+```
+::: solution
+1. Line 4: the `;` is missing. gcc: `4:21: error: expected ';' before 'printf'` (it notices when it finds the `printf` on the next line).
+2. Line 5: the string is not closed, the `"` before `)` is missing. gcc: `5:12: error: missing terminating " character`.
+
+Corrected version (it prints "Ciao", "Hi", and "Seconda riga", "Second line"):
+```c
+#include <stdio.h>
+
+int main(void) {
+    printf("Ciao\n");
+    printf("Seconda riga\n");
+}
+```
+:::
+
+::: exercise basic Escape sequences
+Write the `printf` statements that print exactly these three lines (in the third one there is a tab between `nome` and `voto`):
+```text
+Il file si trova in C:\corso\lab1
+Ha detto "ciao"
+nome	voto
+```
+::: solution
+```c
+printf("Il file si trova in C:\\corso\\lab1\n");
+printf("Ha detto \"ciao\"\n");
+printf("nome\tvoto\n");
+```
+Each `\` to print becomes `\\`, each `"` becomes `\"`, the tab is `\t`, and each line ends with `\n`. Checked with `gcc -Wall -Werror`. (The lines mean "The file is in C:\corso\lab1", "He said "hi"", "name grade".)
+:::
+
+::: exercise basic Valid identifiers
+Which of these are valid and suitable identifiers? `somma`, `Somma`, `2x`, `x2`, `int`, `conto-totale`, `conto_totale`, `printf`.
+::: solution
+| Name | Valid? | Why |
+|---|---|---|
+| `somma` | yes | |
+| `Somma` | yes | but it is **different** from `somma` (case matters): better to avoid names this similar |
+| `2x` | no | it starts with a digit |
+| `x2` | yes | |
+| `int` | no | it is a keyword |
+| `conto-totale` | no | the `-` is the minus sign: the compiler reads "conto minus totale" |
+| `conto_totale` | yes | the underscore is allowed |
+| `printf` | do not use | it is the name of a standard library function (slide 40) |
+:::
+
+::: exercise intermediate Which stage complains?
+For each error say which stage of compilation reports it: (a) `#include <stdoi.h>` (wrong file name); (b) a missing `;`; (c) a function declared and called, but never written:
+```c
+void saluta(void);
+int main(void) { saluta(); return 0; }
+```
+::: solution
+(a) The **preprocessor**, which looks for the file to include: `fatal error: stdoi.h: No such file or directory`.
+
+(b) The **compiler**, which checks the syntax: `expected ';' before …`.
+
+(c) The **linker**: the compiler accepts the call because the function is declared, but when joining the pieces the linker does not find its code: `undefined reference to 'saluta'` and then `ld returned 1 exit status`.
+
+All three messages are those of gcc 16.1.
+:::
+
+::: exercise intermediate From FORTRAN to C
+Rewrite in C the FORTRAN multiplication of slide 20, with $m = 4$ and $n = 3$ fixed in the code (reading the numbers will come with `scanf`). Print the result with `printf("%d x %d = %d\n", m, n, s);`.
+::: solution
+```c
+#include <stdio.h>
+
+int main(void) {
+    int m = 4, n = 3;
+    int s = 0;          // accumulator
+    int i = 0;          // counter
+    while (i < n) {     // do while (i<n)
+        s = s + m;
+        i = i + 1;
+    }                   // end do
+    printf("%d x %d = %d\n", m, n, s);
+    return 0;
+}
+```
+It prints `4 x 3 = 12` (checked with `gcc -Wall -Werror`). C's `while` corresponds to FORTRAN's `do while … end do` and to lines 5–9 of the assembly.
+:::
+
+::: exercise hard A logic error that compiles
+This version compiles without warnings and with $m = 4$, $n = 3$ prints 12. What happens with $n = 0$? What kind of error is it?
+```c
+int s = 0, i = 0;
+do {
+    s = s + m;
+    i = i + 1;
+} while (i != n);
+```
+::: solution
+`do … while` executes the body **before** checking the condition, like version V2 of lesson 01A. With $n = 0$: after the first round $i = 1$, and the condition $i \ne 0$ stays true forever: the loop does not terminate (after billions of rounds `i` would exceed the largest value of an `int`, and in C that is undefined behaviour). It is a **logic** (design) error: the compiler cannot notice it, because the syntax is correct. Fix: check first, with `while (i != n) { … }`.
+:::
+
+## Review questions
+
+::: question What is the difference between machine language and assembly?
+Machine language is made of numeric codes (bits) executed directly by the processor and depends on the architecture. Assembly writes the same instructions with more readable symbolic names (mnemonics); an assembler translates it into machine language. Assembly too stays tied to the architecture.
+:::
+
+::: question Which instructions are needed to add two numbers in memory, and why?
+Two `LOAD`s to bring the numbers from memory into registers, an `ADD` between registers (the ALU works only on registers) and a `STORE` to bring the result back to memory.
+:::
+
+::: question What does `@A` mean, and how is it different from `LOAD, R0, 0`?
+`@A` denotes the content of memory at address A. In `LOAD, R0, 0` the 0 is a value: the register is set to zero.
+:::
+
+::: question How is a loop built in assembly?
+With a comparison (`CMP`) followed by a conditional jump (`JMPEQ`) that leaves the loop when the condition is true, and an unconditional jump (`JMP`) at the end of the body that goes back to the comparison.
+:::
+
+::: question Why were high-level languages created?
+Because assembly is tiring, error-prone, requires knowing the CPU, does not show the structure of the program and has to be rewritten for each architecture. High-level languages use instructions close to mathematical and natural language, and a compiler translates them for each machine.
+:::
+
+::: question What is new about FORTRAN?
+It is a language for writing formulas, created for the IBM 704: a compiler translates each statement into one or more assembly instructions; if the machine changes, recompiling is enough. It is one of the ancestors of the third-generation languages.
+:::
+
+::: question Why was C created and who designed it?
+Dennis Ritchie designed it at Bell Labs to rewrite Unix, which Ken Thompson had written in assembly: an efficient and portable language was needed. The first version dates from 1972 (K&R C); it was standardised in the late 1980s (C89) and then updated (C99, C11, C17, C23).
+:::
+
+::: question What are the four features of C according to slide 27?
+Compiled (a compiler translates it into machine language), imperative (instructions as orders), structured (blocks in braces), strongly typed (the type of every variable must be declared).
+:::
+
+::: question What do `#include <stdio.h>` and the `main` function do?
+The directive asks the preprocessor to include the stdio.h header, which declares functions such as printf and scanf. `main` is the mandatory function where execution starts: `int main(void)` receives no input and returns an integer to the operating system.
+:::
+
+::: question What are the main escape sequences?
+`\n` new line, `\t` tab, `\\` backslash, `\"` double quote, `\0` string terminator.
+:::
+
+::: question Which rules apply to identifiers?
+They are case-sensitive; they cannot be keywords or names from the standard library; they must be clear and not too similar to one another. In addition: only letters, digits and the underscore, without starting with a digit.
+:::
+
+::: question What are the stages of compilation with gcc?
+Preprocessor (directives such as #include), compiler (from C to assembly), assembler (from assembly to the object file in machine language), linker (joins object files and libraries into an executable).
+:::
+
+::: question What do the options `-Wall` and `-Werror` do?
+`-Wall` turns on the compiler's main warnings; `-Werror` turns them into errors, so with a single warning the program is not produced. They are the exam's options.
+:::
+
+::: question What is the difference between compile-time, runtime and logic errors?
+Compile-time errors break the syntax and the compiler finds them right away; runtime errors emerge during execution (division by zero, invalid memory access); logic errors let the program run, but it does the wrong thing.
+:::
+
+## Glossary
+
+```glossary
+Machine language | Instructions in numeric form (bits), executed directly by the processor; different for each architecture.
+Instruction set | The set of machine instructions of an architecture.
+Assembly | Symbolic representation of machine language, with mnemonics such as LOAD, ADD, STORE.
+Assembler | Program that translates assembly into machine language.
+LOAD / STORE | Copy a value from memory to a register / from a register to memory.
+CMP | Compares two registers; the outcome stays in the CPU (status register).
+Conditional / unconditional jump | JMPEQ jumps only if the last comparison said "equal"; JMP always jumps.
+High-level language | Language with instructions close to mathematical and natural language, independent of the hardware.
+Compiler | Program that translates a high-level language into machine language (or into assembly).
+Portability | The possibility of using the same program on different machines, by recompiling it.
+FORTRAN | FORmula TRANslator, IBM language of the 1950s for scientific computing.
+Comment | Text ignored by the compiler: from `//` to the end of the line, or between `/*` and `*/`.
+Preprocessor directive | A line starting with #, such as #include.
+Header file | A .h file with function declarations, such as stdio.h.
+main function | The mandatory function where execution starts.
+Block | A group of instructions between braces { }; blocks can be nested.
+Statement | A command of the program; in C it ends with ;.
+String | Text between double quotes.
+Escape sequence | A pair of characters starting with the backslash that represents a special character: `\n`, `\t`, `\\`, `\"`, `\0`.
+Token | A syntactic unit into which the parser splits the code: keywords, identifiers, operators, strings, constants.
+Identifier | Name of a variable, function, constant or type; case-sensitive.
+Keyword | A reserved word of C, such as int, while, return.
+Object file | A compilation unit translated into machine language (.o).
+Linker | Joins object files and libraries into an executable program.
+gcc | The course's compiler (GNU Compiler Collection).
+Runtime error | An error that shows up during execution.
+Logic error | The program runs but does not do what it should.
+```
+
+## Checklist
+
+```checklist
+- I can explain the difference between machine language and assembly and why neither is portable.
+- I can run the addition program by hand, with PC, registers and memory after each instruction.
+- I can read the multiplication program in assembly and link it line by line to version V6 of lesson 01A.
+- I can explain CMP, JMPEQ and JMP and how they form a loop.
+- I can say why high-level languages were created and what a compiler does.
+- I can briefly tell how C was born and its four features.
+- I can explain every line of the "Buongiorno dal C." program.
+- I can use the escape sequences `\n`, `\t`, `\\`, `\"` in `printf`.
+- I can recognise a valid identifier and the keywords.
+- I can list the stages of compilation and compile with gcc -Wall -Werror.
+- I can tell compile-time, runtime and logic errors apart, and read a gcc message.
+```
+
+## Sources
+
+- **Lesson slides**: "Dal linguaggio macchina al C. Dai bit e registri alla programmazione strutturata di alto livello e portabile" (02A_da_assembly_a_c), Programming I – Theory, channel B, A.Y. 2026/27, 50 pages; the slide number is next to each heading.
+- **Channels A and C**: the deck "Dal linguaggio assembly al C" of channel A and lesson 01 "Introduzione" of channel C on the 2026/27 Moodle pages ([channel A](https://informatica.i-learn.unito.it/course/view.php?id=3701), [channel C](https://informatica.i-learn.unito.it/course/view.php?id=3767)), checked on 30/09/2026.
+- **Compiler messages and assembly**: obtained with gcc 16.1 (MinGW-w64) by compiling the examples with `-Wall -Werror`; the assembly with `gcc -S -O0 -masm=intel`.
+- **Exam and labs**: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/PROG1/course.md).
+- The **"Beyond the slides"** parts (assembly produced by gcc, multi-line comments, characters of identifiers) and the exercises are additions in these notes.
+
+
+---
+
 <!-- FILE: ai_context/FDA/course.md -->
 > File: `ai_context/FDA/course.md`
 
@@ -1279,6 +2666,826 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 - Recurring exercises in MD: cycle decomposition, cycle type, period (order) and number of permutations of a given type; generated subgroups and Lagrange; inverses modulo n with Euclid/Bézout; linear congruences; isomorphisms with Z_n.
 - Recurring exercises in AG: changes of basis and associated matrices, eigenvalues, Gram-Schmidt, projections, distances and angles between lines and planes, rank, Rouché-Capelli with a parameter.
 - Do not retake an exam you have already passed if you are happy with the grade: the new exam cancels the old one.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/lessons/L01_real_numbers.md -->
+> File: `ai_context/MDAG/lessons/L01_real_numbers.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: L01
+title: Real numbers
+date: 2026-09-30
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L01
+description: >-
+  Notes on lesson L01 of Linear Algebra and Geometry (MDAG, part 2): number sets, construction of the real numbers,
+  irrationality of √2, fields, order, notation and calculations with roots, with exam-style quizzes and worked
+  exercises.
+lede: >-
+  Where the numbers we will use throughout the course come from: the sets $\N \subsetneq \Z \subsetneq \Q \subsetneq \R$,
+  how the real numbers are built, why $\sqrt 2$ is not a fraction, the nine rules that make $\R$ a field, order and
+  the brackets not to confuse. Plus: the symbols of mathematical language and calculations with roots without a
+  calculator, which you need in every exam.
+material: handouts
+facts:
+  Handouts: lesson 1 · pp. 2–5
+  Book: Martelli, §1.1 and complement 1.II
+  Lecturers: Reto Buzano and Marco Radeschi · A.Y. 2026/27
+  Study time: 90–120 minutes
+source: >-
+  2026 course handouts (Buzano, Radeschi), lesson 1 "Numeri reali"; B. Martelli, Geometria e algebra lineare, §1.1, §1.5 and complement 1.II
+italian_file: L01_numeri_reali.html
+html_notes: notes/MDAG/L01_real_numbers.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/L01_numeri_reali.md
+```
+
+## In brief
+
+- The numbers of the course live in sets nested one inside the other: $\N = \{0, 1, 2, \dots\}$ (zero is included!), then $\Z$ with the negatives, $\Q$ with the fractions, $\R$ with all the real numbers; from the next lesson also $\C$. We write $\N \subsetneq \Z \subsetneq \Q \subsetneq \R$.
+- Each new set is needed to solve equations that had no solution before: $x + 5 = 3$ cannot be solved in $\N$, $2x = 1$ cannot be solved in $\Z$, $x^2 = 2$ cannot be solved in $\Q$.
+- A real number is a number with infinitely many digits after the decimal point. To define it precisely we use **Cauchy sequences**: infinite lists of fractions that, as you go on, get as close to one another as you like.
+- $\R$ is **complete**: it has no "holes". $\Q$ instead has lots of them, for example where $\sqrt 2$, $\pi$ and $e$ are.
+- $\sqrt 2$ is not a fraction: it is the first **proof by contradiction** of the course, one you should be able to redo.
+- Sum and product in $\R$ obey nine rules (identity elements, opposites, inverses, commutative, associative and distributive properties). A set with these rules is called a **field**: $\Q$, $\R$ and $\C$ are fields, $\N$ and $\Z$ are not.
+- $\R$ is **ordered**: $a > b$ means that $a - b$ is positive.
+- Different brackets, different objects: $\{1, 2\}$ is a set of two numbers, $(1, 2)$ is an open interval (or a point of the plane), $[1, 2]$ is a closed interval.
+
+> [!CHANNELS]
+> Linear Algebra and Geometry uses the **same handouts** in the three channels: Buzano teaches in channels A and B, Radeschi in channels B and C. These notes follow the 2026 handouts, so they hold in the same way for A, B and C. Only the days of the lessons change: the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)) warns that timetable changes are announced there and in class. Exam and quiz are the same for the three channels.
+
+## Sets: the starting language (p. 2)
+
+Before numbers we need a word: **set**. A set is a collection of objects, called its **elements**. For example the students in a classroom form a set, and each student is an element of that set.
+
+In mathematics a set is written with **curly brackets** $\{\ \}$ (braces), putting the elements inside, separated by commas:
+
+$$A = \{1, 3, 5\}$$
+
+This $A$ contains exactly three numbers: 1, 3 and 5. When the elements are infinitely many, you write a few of them and then the **dots** $\dots$, which mean "and so on, with the same rule".
+
+> [!BEYOND] · two rules about braces
+> In a set **order does not matter** and **repetitions do not matter**: $\{1, 2\}$, $\{2, 1\}$ and $\{1, 1, 2\}$ are the same set, with two elements. Only *what is inside* counts. This is why braces must never be used for points or vectors, where order matters a lot (see the section on notation).
+
+### The symbols you will use right away
+
+| Symbol | Read as | Example | True or false? |
+|---|---|---|---|
+| $x \in A$ | "$x$ belongs to $A$" | $3 \in \{1, 3, 5\}$ | true |
+| $x \notin A$ | "$x$ does not belong to $A$" | $2 \notin \{1, 3, 5\}$ | true |
+| $B \subset A$ | "$B$ is contained in $A$" (every element of $B$ is also in $A$) | $\{1, 5\} \subset \{1, 3, 5\}$ | true |
+| $B \subsetneq A$ | "$B$ is **strictly** contained in $A$" ($B \subset A$ and $A$ has at least one element more) | $\{1, 5\} \subsetneq \{1, 3, 5\}$ | true: 3 is the extra one |
+| $\emptyset$ | "empty set" (no elements) | $\emptyset \subset A$ for every set $A$ | true |
+
+A set can also be described by a **property**, instead of listing its elements:
+
+$$\{x \in \R \mid 1 < x < 2\}$$
+
+reads: "the set of the $x$ in $\R$ **such that** $1 < x < 2$". The bar $\mid$ means precisely "such that" (some people use a colon $:$ instead). To the left of the bar is *where* the elements are looked for, to the right the *condition* they must satisfy.
+
+> [!NOTE] Where to go deeper
+> The handouts point out that set theory is covered in detail in the **Discrete Mathematics** part of the course (MDAG part 1). Here only sets of numbers are needed.
+
+## Natural numbers, integers and rational numbers (p. 2)
+
+> [!DEF] 1.1 · Natural numbers, integers and rational numbers
+> The set of **natural numbers** is $\N = \{0, 1, 2, 3, \dots\}$.
+>
+> If we add the negative numbers we obtain the set of **integers** $\Z = \{\dots, -2, -1, 0, 1, 2, \dots\}$.
+>
+> If besides the integers we consider all numbers that can be written as fractions $\frac ab$, we obtain the set of **rational numbers**
+> $$\Q = \left\{ \frac ab \ ;\ a, b \in \Z,\ b \neq 0 \right\}.$$
+
+Let us look at the definition one piece at a time.
+
+- $\N$ are the numbers **for counting**: 0, 1, 2, 3 and so on, without end.
+- $\Z$ adds the **negatives**: $-1, -2, -3, \dots$ The symbol comes from the German *Zahlen*, "numbers".
+- $\Q$ contains **all fractions** $\frac ab$ with $a$ and $b$ integers. The condition $b \neq 0$ is there because **you cannot divide by zero**. The Q stands for *quotient*.
+- In $\Q$ the semicolon inside the braces does the same job as the bar: "where $a$ and $b$ are integers and $b$ is not zero".
+
+> [!PITFALL] Zero is a natural number
+> In this course (and in Martelli's book) $\N$ **starts from 0**. In some school books $\N$ starts from 1: at the exam the course's convention applies.
+
+### Why we need ever larger sets
+
+One thread links all these sets: each time we find a simple equation that **has no solution** in the set we have, and so we enlarge it.
+
+| Equation | Solution | In the old set? | New set |
+|---|---|---|---|
+| $x + 5 = 3$ | $x = -2$ | $-2 \notin \N$ | $\Z$ |
+| $2x = 1$ | $x = \frac 12$ | $\frac 12 \notin \Z$ | $\Q$ |
+| $x^2 = 2$ | $x = \pm\sqrt 2$ | $\sqrt 2 \notin \Q$ (we prove it later) | $\R$ |
+| $x^2 = -1$ | no real number | no real square is negative | $\C$, from lesson L02 |
+
+### One fraction, many ways to write it
+
+The same rational number can be written in infinitely many ways:
+
+$$\frac 17 = \frac 3{21} = \frac{-8}{-56}$$
+
+All three are worth "one seventh". To build $\Q$ precisely we have to declare that these fractions represent **the same number**: this is done with an *equivalence relation*, a concept you will study properly in Discrete Mathematics. In practice the rule is:
+
+$$\frac ab = \frac cd \quad\Longleftrightarrow\quad ad = bc.$$
+
+Let us check with $\frac 17$ and $\frac 3{21}$: $1 \cdot 21 = 21$ and $7 \cdot 3 = 21$. Equal, so they are the same fraction.
+
+> [!NOTE] What comes first
+> The handouts specify that $\N$ is a **primitive concept**: it is not defined from anything else, you start from it. Then $\Z$ is built from $\N$, and $\Q$ from $\Z$.
+
+> [!BEYOND] · fractions in decimal form
+> If you do the division, every fraction becomes a decimal number that is either **terminating** or **repeating**, that is with a group of digits that repeats forever:
+> $$\frac 14 = 0.25 \qquad \frac 13 = 0.333\ldots = 0.\overline{3} \qquad \frac 17 = 0.\overline{142857}$$
+> The converse holds too: every repeating decimal is a fraction (exercise 2). So a number with infinitely many digits **that never repeat** cannot be rational: those are exactly the irrational numbers.
+
+## From school to a precise definition of the real numbers (pp. 2–3)
+
+### The school idea: infinitely many digits after the point
+
+At school you learn that a **real number** is a number that can have infinitely many digits after the decimal point, like $\pi = 3.14159\ldots$ The handouts say that this definition is **correct**, with just one ambiguity to remember: two different writings can denote the same number. For example
+
+$$5.973\overline{9} = 5.9739999\ldots = 5.974.$$
+
+The same happens with $0.\overline 9 = 0.999\ldots$, which is **exactly** $1$. A simple way to convince yourself:
+
+1. we know that $\frac 13 = 0.333\ldots$;
+2. multiply both sides by 3: on the left $3 \cdot \frac 13 = 1$, on the right every digit 3 becomes 9;
+3. so $1 = 0.999\ldots$
+
+It is not "a number just below 1": it is exactly 1, written in another way.
+
+### The problem: how do you add infinitely many digits?
+
+The school definition, however, does not say **how to do the operations**. To add two numbers you start from the rightmost digits, with carries. But with infinitely many digits there *is no* rightmost digit to start from. A different way of defining the reals is needed, which the handouts take from analysis and which has an extra merit: it does not depend on base 10 (which we use, the lecturers write, only because we have ten fingers).
+
+### Sequences
+
+A **sequence** is an infinite list of numbers, one for each position $1, 2, 3, \dots$:
+
+$$a_1,\ a_2,\ a_3,\ a_4,\ \dots$$
+
+It is denoted by $(a_n)$. The number $a_n$ is called the **term** in position $n$: $a_1$ is the first, $a_2$ the second, and so on.
+
+### Cauchy sequences
+
+The idea is simple. Take a sequence of fractions that, as it goes on, **tightens up**: after a while the terms are all very close to one another, *as close as you like*. The precise definition says this, with symbols.
+
+> [!DEF] Cauchy sequence (p. 2)
+> A sequence $(a_n)$ of rational numbers $a_n \in \Q$ is a **Cauchy sequence** if for every rational number $\varepsilon > 0$ there is an $N > 0$ such that
+> $$|a_m - a_n| < \varepsilon \quad \text{for all } m, n > N.$$
+
+Piece by piece:
+
+- $\varepsilon$ (the Greek letter *epsilon*) is a **tolerance**: a positive number as small as you like, for example $0.01$ or $0.000001$.
+- $|a_m - a_n|$ is the **distance** between two terms: the absolute value $|\cdot|$ removes the sign.
+- "there is an $N$ such that … for all $m, n > N$" means: **from some point on** (after position $N$), *any* pair of terms is less than $\varepsilon$ apart.
+- **You** choose the tolerance, and the definition must work for every choice: the smaller $\varepsilon$ is, the further on you will have to go (the larger $N$ will be).
+
+> [!EXAMPLE] 1.2 · The number $\pi$
+> The number $\pi = 3.1415926\ldots$ corresponds to the sequence of rational numbers
+> $$a_1 = 3.1 \quad a_2 = 3.14 \quad a_3 = 3.141 \quad a_4 = 3.1415 \quad \dots$$
+> Each $a_n$ is rational: for example $a_2 = 3.14 = \frac{314}{100}$. And it is a Cauchy sequence: after position $n$ all the terms have the **same first $n + 1$ digits**, so they are less than $10^{-n}$ apart. For example from $a_3$ on the terms all start with $3.141$, and are less than $0.001$ apart.
+>
+> The sequence that defines a real number is **not unique**: $3.2;\ 3.15;\ 3.142;\ 3.1416;\ \dots$ (the approximations from above) also works, because its difference from the previous sequence tends to zero.
+
+### The real numbers, at last
+
+> [!DEF] Real numbers (p. 3)
+> The **real numbers** are defined as *equivalence classes* of Cauchy sequences of rational numbers. Two Cauchy sequences are **equivalent** if their difference is a sequence that tends to zero.
+
+Less abstractly, the procedure works like this. Take a Cauchy sequence of rational numbers:
+
+- if it **converges** to a rational number $a_\infty$ (that is, it gets closer and closer to that number), it simply represents that number $a_\infty$;
+- if it **does not converge to any rational number**, it "would like" to tend to something that does not exist in $\Q$: then it *defines a new number*, which is not in $\Q$. It is an **irrational number**.
+
+As a picture: $\Q$ is like a ruler with infinitely many marks, but full of microscopic holes. A Cauchy sequence that "points" to a hole serves to **fill it**.
+
+> [!EXAMPLE] 1.3 · The number $e$
+> The sequence of rational numbers
+> $$a_n = \left(1 + \frac 1n\right)^n$$
+> is a Cauchy sequence but does not converge to a rational number. So it defines a new real number: **Euler's number** $e = 2.71828\ldots$
+>
+> Let us compute the first terms, to see that they really are fractions:
+> $$a_1 = (1 + 1)^1 = 2, \qquad a_2 = \left(\frac 32\right)^2 = \frac 94 = 2.25, \qquad a_3 = \left(\frac 43\right)^3 = \frac{64}{27} \approx 2.370.$$
+
+```graph
+title: The terms $a_n = \left(1 + \frac 1n\right)^n$ climb towards $e \approx 2.718$ but none of them reaches it
+proportions: free
+x: 0 13
+y: 1.8 2.9
+names: $n$ $a_n$
+line: 0 2.71828 13 2.71828 | amber | dashed | $e$ | nw
+point: 1 2 | accent
+point: 2 2.25 | accent
+point: 3 2.37037 | accent
+point: 4 2.44141 | accent
+point: 5 2.48832 | accent
+point: 6 2.52163 | accent
+point: 7 2.5465 | accent
+point: 8 2.56578 | accent
+point: 9 2.58117 | accent
+point: 10 2.59374 | accent
+point: 11 2.6042 | accent
+point: 12 2.61304 | accent
+```
+
+### Completeness: R has no holes (p. 3)
+
+Intuitively you can work with two ideas:
+
+1. every real number can be **approximated** by rational numbers, with any precision you want (as $3.14159$ approximates $\pi$);
+2. with this construction we have **plugged all the holes** between the rational numbers.
+
+The second idea has a precise name.
+
+> [!PROP] · $\R$ is complete
+> Unlike $\Q$, the set $\R$ of real numbers is **complete**: every Cauchy sequence in $\R$ converges.
+
+It means that, if we redid the whole construction starting from sequences of **real** numbers instead of rational ones, **we would not add any new number**: all the holes have already been filled.
+
+> [!BEYOND] · where to find it in the book
+> Martelli's book presents this construction in complement **1.II "Costruzione dei numeri reali"** (pp. 40–42 of the book). In the two 2026 exam sessions (15/01 and 07/09) there are no questions on the construction of $\R$: at the exam you mostly need the sets, the notation and the field properties.
+
+## Irrational numbers: why $\sqrt 2$ is not a fraction (p. 4)
+
+Let us sum up the sets seen so far:
+
+$$\N \subsetneq \Z \subsetneq \Q \subsetneq \R$$
+
+Each inclusion is **strict** ($\subsetneq$): each set has at least one element that the previous one lacks. To prove it one example per step is enough: $-1 \in \Z$ but $-1 \notin \N$; $\frac 12 \in \Q$ but $\frac 12 \notin \Z$; $\sqrt 2 \in \R$ but $\sqrt 2 \notin \Q$. The last example is the trickiest, and it has to be proved.
+
+```graph
+title: Each set contains the previous one and has something more
+axes: no
+grid: no
+x: -1.8 5.4
+y: -3.6 3.6
+circle: 0 0 1 | accent
+circle: 0.6 0 1.8 | blue
+circle: 1.2 0 2.6 | violet
+circle: 1.8 0 3.4 | amber
+text: 0 0.4 | accent | $\N$
+text: 0 -0.3 | $0,\ 1,\ 2,\ \dots$
+text: 1.75 0.4 | blue | $\Z$
+text: 1.75 -0.3 | $-3$
+text: 3.1 0.4 | violet | $\Q$
+text: 3.1 -0.3 | $\frac 12$
+text: 4.5 0.4 | amber | $\R$
+text: 4.5 -0.3 | $\sqrt 2,\ \pi$
+```
+
+Where does $\sqrt 2$ come from? From a square with side 1: by Pythagoras' theorem its diagonal measures $\sqrt{1^2 + 1^2} = \sqrt 2$. It is a length you can draw perfectly well, and yet it is not a fraction.
+
+```graph
+title: The diagonal of a square with side 1 is $\sqrt 2$ long
+axes: no
+grid: no
+x: -0.4 1.6
+y: -0.4 1.4
+polygon: 0 0 1 0 1 1 0 1 | blue
+segment: 0 0 1 1 | amber | thick | $\sqrt 2$ | nw
+text: 0.5 -0.12 | $1$
+text: 1.12 0.5 | $1$
+```
+
+### Proof by contradiction
+
+To prove that something is true **by contradiction** you proceed like this:
+
+1. you assume that **the opposite** is true;
+2. you reason correctly, step by step;
+3. you reach a **contradiction**, that is something impossible;
+4. so the assumption of step 1 was wrong, and the claim is true.
+
+Martelli sums it up like this: you negate the claim and show that this leads to an absurdity; then the claim cannot be false, and so it is true by exclusion.
+
+> [!PROP] 1.4
+> The number $\sqrt 2$ is not rational.
+
+Here is the proof from the handouts, with every step explained.
+
+1. **Suppose, for a contradiction,** that $\sqrt 2$ is rational. Then $\sqrt 2 = \frac ab$ with $a, b$ integers and $b \neq 0$.
+2. We can assume that the fraction is **reduced to lowest terms**, that is that $a$ and $b$ have no common factors: if they had any, we would just simplify it. This point is important: we are about to contradict it.
+3. **Square**: $2 = \frac{a^2}{b^2}$. Multiply both sides by $b^2$:
+   $$a^2 = 2b^2.$$
+4. Then $a^2$ is **even**, because it is twice an integer ($b^2$).
+5. Then $a$ is **even** too. Why? If $a$ were odd, that is $a = 2k + 1$, we would have $a^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$, which is odd. So $a$ cannot be odd.
+6. Being even, $a = 2k$ for some integer $k$, and so $a^2 = 4k^2$. Substituting in step 3: $4k^2 = 2b^2$, that is, dividing by 2,
+   $$b^2 = 2k^2.$$
+7. With the same reasoning as steps 4 and 5, $b^2$ is even too and so **$b$ is even**.
+8. But then $a$ and $b$ are **both even**: they have the factor 2 in common, and the fraction $\frac ab$ was **not** reduced to lowest terms. This contradicts step 2.
+9. The assumption "$\sqrt 2$ is rational" leads to a contradiction, so it is false: **$\sqrt 2$ is not rational**. $\square$
+
+> [!PROOF] · another route, from Martelli's book
+> Martelli too reaches $a^2 = 2b^2$ and then uses the **prime factorisation**. In a square every prime factor appears an **even** number of times (for example $36 = 2^2 \cdot 3^2$). So in $a^2$ the factor 2 appears an even number of times, while in $2b^2$ it appears an **odd** number of times (those of $b^2$, which are even, plus one). Two equal numbers have the same factorisation, so $a^2 = 2b^2$ is impossible: twice a square is never a square.
+
+> [!IDEA] · the method, to remember
+> Three ingredients: (1) write the number as a **reduced** fraction; (2) square and clear the denominators; (3) show that $a$ and $b$ have a common factor. With the same recipe you prove that $\sqrt 3$, $\sqrt 5$, $\sqrt 6$ are not rational (exercises 4 and 9).
+
+> [!BEYOND] · other irrational numbers
+> $\pi$ and $e$ are irrational too, but the proofs are much harder and are not needed in the course. In general $\sqrt n$ is irrational whenever $n$ is **not** a perfect square: $\sqrt 4 = 2$ and $\sqrt 9 = 3$ are integers, while $\sqrt 2$, $\sqrt 3$, $\sqrt 5$, $\sqrt 8$ are irrational.
+
+> [!PITFALL] Irrational times irrational is not always irrational
+> $\sqrt 2 \cdot \sqrt 2 = 2$ and $\sqrt 2 + (-\sqrt 2) = 0$ are rational. On the other hand a rational plus an irrational is **always** irrational (exercise 5): for example $1 + \sqrt 2 \notin \Q$.
+
+## The properties of R: what a field is (p. 4)
+
+On $\R$ there are two **binary operations**: the sum $+$ and the product $\cdot$. "Binary" means that it takes **two** numbers and returns **one**: from $3$ and $4$ the sum gives $7$, the product gives $12$.
+
+> [!PROP] 1.5 · The nine properties of $\R$
+> On $\R$ the operations $+$ and $\cdot$ have these properties (the symbol $\forall$ reads "for all"):
+> 1. there is an **identity element** $0$ for addition: $0 + a = a + 0 = a$, $\forall a \in \R$;
+> 2. the **commutative** property holds: $a + b = b + a$, $\forall a, b \in \R$;
+> 3. the **associative** property holds: $a + (b + c) = (a + b) + c$, $\forall a, b, c \in \R$;
+> 4. every element $a \in \R$ has an **inverse** (or **opposite**) $-a$, such that $a + (-a) = (-a) + a = 0$;
+> 5. there is an **identity element** $1$ for multiplication: $1 \cdot a = a \cdot 1 = a$, $\forall a \in \R$;
+> 6. the **commutative** property holds: $a \cdot b = b \cdot a$, $\forall a, b \in \R$;
+> 7. the **associative** property holds: $a \cdot (b \cdot c) = (a \cdot b) \cdot c$, $\forall a, b, c \in \R$;
+> 8. every element $a \in \R$ with $a \neq 0$ has an **inverse** $a^{-1}$, such that $a \cdot a^{-1} = a^{-1} \cdot a = 1$;
+> 9. the **distributive** property holds: $a \cdot (b + c) = a \cdot b + a \cdot c$, $\forall a, b, c \in \R$.
+
+The first four are about the sum, 5 to 8 about the product, 9 links them. Here is what they say, with numbers:
+
+| # | In words | With numbers |
+|---|---|---|
+| 1 | adding 0 changes nothing | $0 + 7 = 7$ |
+| 2 | the order of the addends does not matter | $2 + 5 = 5 + 2 = 7$ |
+| 3 | how you group the addends does not matter | $1 + (2 + 3) = (1 + 2) + 3 = 6$ |
+| 4 | every number has an opposite, which added gives 0 | $7 + (-7) = 0$ |
+| 5 | multiplying by 1 changes nothing | $1 \cdot 7 = 7$ |
+| 6 | the order of the factors does not matter | $2 \cdot 5 = 5 \cdot 2 = 10$ |
+| 7 | how you group the factors does not matter | $2 \cdot (3 \cdot 4) = (2 \cdot 3) \cdot 4 = 24$ |
+| 8 | every number **other than 0** has an inverse, which multiplied gives 1 | $4 \cdot \frac 14 = 1$ |
+| 9 | "multiplying a sum" = adding up the products | $3 \cdot (2 + 5) = 3 \cdot 2 + 3 \cdot 5 = 21$ |
+
+Note property 8 carefully: **zero has no inverse**. There is no number that multiplied by 0 gives 1, because $0 \cdot x = 0$ for every $x$. It is again the ban on dividing by zero.
+
+> [!DEF] Field
+> A set with two operations $+$ and $\cdot$ that have these nine properties is called a **field**.
+
+The handouts announce that the concept will come back "in more detail in the future": in lesson L05 the definition of a field is given in general, and from then on **the whole course** works with vectors "over a field $\K$" (usually $\K = \R$ or $\K = \C$). Instead of $a \cdot b$ one often writes just $ab$.
+
+### Which sets are fields?
+
+| Set | opposite of every number (4)? | inverse of every number $\neq 0$ (8)? | Is it a field? |
+|---|---|---|---|
+| $\N$ | no: $-3 \notin \N$ | no: $\frac 13 \notin \N$ | **no** |
+| $\Z$ | yes | no: $\frac 12 \notin \Z$ | **no** |
+| $\Q$ | yes | yes: the inverse of $\frac ab$ is $\frac ba$ | **yes** |
+| $\R$ | yes | yes | **yes** |
+| $\C$ | yes | yes (lesson L02) | **yes** |
+
+To say that a set is **not** a field **one** failing property is enough, with **one** concrete example: "$\Z$ is not a field because $2$ has no inverse in $\Z$" is a complete answer.
+
+> [!BEYOND] · a small consequence of the nine rules
+> From the rules you can also prove what looks obvious, for example that $a \cdot 0 = 0$ for every $a$:
+> $$a \cdot 0 = a \cdot (0 + 0) = a \cdot 0 + a \cdot 0.$$
+> The first step uses rule 1 ($0 + 0 = 0$), the second rule 9. Now add the opposite of $a \cdot 0$ to both sides: on the left $0$ remains, on the right $a \cdot 0$ remains. So $a \cdot 0 = 0$. In lesson L05 the same idea proves that $0v = 0$ for a vector $v$ (Proposition 5.5).
+
+## Order: greater than and less than (p. 5)
+
+$\R$, like $\N$, $\Z$ and $\Q$, is an **ordered** set: there is a notion of greater and smaller, and if $a$ and $b$ are **distinct** one of the two always holds, $a > b$ or $b > a$.
+
+The definition uses a trick: instead of comparing any two numbers, it is enough to know which numbers are **positive**.
+
+> [!DEF] Order (p. 5)
+> We say that $a > b$ if $a - b > 0$.
+
+So to define the order it is enough to make clear which numbers are positive (greater than zero) and which are negative (less than zero).
+
+- In $\Z$ the positive numbers are $1, 2, 3, \dots$ For example $7 > 4$ because $7 - 4 = 3$ is positive.
+- In $\Q$ the positive numbers are the fractions $\frac ab$ in which $a$ and $b$ have **the same sign**: $\frac 34$ and $\frac{-3}{-4}$ are positive, $\frac{-3}{4}$ is not.
+- In $\R$ a number is positive if it is represented by a Cauchy sequence $(a_n)$ of rationals for which there is a rational $\varepsilon > 0$ with $a_n > \varepsilon$ **eventually**, that is from some position on. In words: the terms, from some point on, all stay above a fixed positive threshold.
+
+> [!EXAMPLE] · why "above a threshold" is needed
+> The sequence $a_n = \frac 1n$ has all its terms positive ($1,\ \frac 12,\ \frac 13,\ \dots$), but it **tends to zero**: it represents the number $0$, which is not positive. There is no threshold $\varepsilon > 0$ that the terms exceed forever. On the other hand $3.1;\ 3.14;\ 3.141;\ \dots$ always stays above the threshold $\varepsilon = 3$, and indeed $\pi > 0$.
+
+> [!NOTE] Preview of lesson L02
+> The complex numbers $\C$ form a field, but they are **not ordered**: between two complex numbers it makes no sense to say which one is greater.
+
+## Notation not to confuse (p. 5)
+
+Three writings that look similar mean very different things.
+
+| Writing | What it is | How many elements | For example it contains |
+|---|---|---|---|
+| $\{1, 2\}$ | the **set** with exactly the two elements 1 and 2 | 2 | only 1 and 2 |
+| $(1, 2)$ | the **open interval**: all the numbers strictly between 1 and 2, endpoints **excluded** | infinitely many | $1.5$ and $1.001$, but neither 1 nor 2 |
+| $[1, 2]$ | the **closed interval**: all the numbers between 1 and 2, endpoints **included** | infinitely many | $1$, $1.5$ and $2$ |
+
+With the notation of the first section:
+
+$$(1, 2) = \{x \in \R \mid 1 < x < 2\}, \qquad [1, 2] = \{x \in \R \mid 1 \le x \le 2\}.$$
+
+$(1, 2)$ and $[1, 2]$ are sets too, but they contain **infinitely many** elements.
+
+> [!BEYOND] · the other intervals
+> Brackets can be mixed: $[1, 2) = \{x \in \R \mid 1 \le x < 2\}$ includes 1 and excludes 2. For half-lines you use $\infty$, always with a round bracket because $\infty$ is not a number: $[0, +\infty) = \{x \in \R \mid x \ge 0\}$.
+
+There is one last complication: in the course $(1, 2)$ also denotes a **point of the plane** $\R^2$, or a **vector**. The same writing can have very different meanings, and the right one is clear from the **context**:
+
+- "$x \in (1, 2)$" with $x$ a real number: it is the interval;
+- "the point $P = (1, 2)$" or "the vector $v = (1, 2)$": it is the ordered pair, with first coordinate 1 and second coordinate 2, and here $(1, 2) \neq (2, 1)$.
+
+> [!EXAM] The right notation
+> The handouts insist: it is **essential always to use the right notation**. In particular braces are **never** used for points or vectors: writing $\{1, 2\}$ for the vector $(1, 2)$ is a mistake, because in a set order does not matter. In the exam papers column vectors also appear as $t(1, 2)$ or ${}^t(1, 2)$, that is "the transpose" of the row $(1, 2)$: you will see it in lesson L08.
+
+## The course's Greek alphabet (p. 5)
+
+The course regularly uses Greek letters. The handouts ask you to learn these nine:
+
+| Letter | Name | Where you will meet it |
+|---|---|---|
+| $\alpha$ | alpha | angles, coefficients |
+| $\varepsilon$ | epsilon | an arbitrarily small quantity (Cauchy sequences) |
+| $\sigma$ | sigma | coefficients, permutations in Discrete Mathematics |
+| $\vartheta$ | theta | angles, for example the argument of a complex number |
+| $\phi$ | phi | angles, maps |
+| $\pi$ | pi | the number $3.14159\ldots$ |
+| $\lambda$ | lambda | scalars, and later the eigenvalues |
+| $\mu$ | mu | scalars |
+| $\varrho$ | rho | radii and distances |
+
+Some letters have two forms: $\vartheta$ and $\theta$ are both theta, $\phi$ and $\varphi$ both phi, $\varrho$ and $\rho$ both rho, $\varepsilon$ and $\epsilon$ both epsilon.
+
+## The language of symbols (beyond the handouts)
+
+> [!BEYOND] · why this section
+> The handouts already use symbols such as $\forall$ and $\Longleftrightarrow$ in this lesson. Martelli's book explains them in §1.1 (pp. 4–7). Here is a small dictionary to read formulas out loud.
+
+| Symbol | Read as | Example |
+|---|---|---|
+| $\forall$ | "for all" | $\forall a \in \R:\ a + 0 = a$ |
+| $\exists$ | "there exists" | $\exists x \in \Z:\ x + 5 = 3$ (true: $x = -2$) |
+| $\exists!$ | "there exists a unique" | $\forall x \in \R\ \exists!\, y \in \R:\ 2y = x$ |
+| $:$ or $\mid$ | "such that" | $\{x \in \R \mid x > 0\}$ |
+| $\Longrightarrow$ | "implies", "if … then …" | $a = 2 \Longrightarrow a^2 = 4$ |
+| $\Longleftrightarrow$ | "if and only if" (holds both ways) | $a - b > 0 \Longleftrightarrow a > b$ |
+| $\cup$, $\cap$ | union ("or"), intersection ("and") | $\{1, 2\} \cup \{2, 3\} = \{1, 2, 3\}$, $\{1, 2\} \cap \{2, 3\} = \{2\}$ |
+| $A \setminus B$ | "$A$ minus $B$" | $\Z \setminus \N = \{-1, -2, -3, \dots\}$ |
+
+The **quantifiers** $\forall$ and $\exists$ change the whole meaning of a sentence, and **order matters**. Two examples from the book:
+
+- $\forall x \in \R\ \exists y \in \R:\ 2y = x$ is **true**: every real number can be divided by 2 (just take $y = \frac x2$);
+- the same sentence with $\Z$ instead of $\R$, that is $\forall x \in \Z\ \exists y \in \Z:\ 2y = x$, is **false**: for $x = 1$ there is no integer $y$ with $2y = 1$.
+
+> [!PITFALL] "Implies" does not mean "if and only if"
+> $a = 2 \Longrightarrow a^2 = 4$ is true, but the other way round it is not: $a^2 = 4$ does not imply $a = 2$, because $a = -2$ works too. When a property holds both ways you write $\Longleftrightarrow$.
+
+## Calculations with roots without a calculator (beyond the handouts)
+
+> [!EXAM] Why now
+> At the Linear Algebra exam **calculators are forbidden**, and the quiz answers are often written with roots. In the 07/09/2026 exam the five possible answers for a distance were $3$, $\frac{\sqrt 3}3$, $3\sqrt 3$, $\sqrt 3$ and $3 + \sqrt 3$; for an angle there were $\arccos\frac 3{\sqrt{43}}$, $\arccos\frac 6{\sqrt{42}}$ and similar. You need to recognise at a glance that, for example, $\frac 1{\sqrt 3} = \frac{\sqrt 3}3$.
+
+The rules you need (for $a, b \ge 0$):
+
+| Rule | Example |
+|---|---|
+| $\sqrt{a}\,\sqrt{b} = \sqrt{ab}$ | $\sqrt 2\,\sqrt 8 = \sqrt{16} = 4$ |
+| $\sqrt{a^2 b} = a\sqrt b$: you **take out** a square | $\sqrt{12} = \sqrt{4 \cdot 3} = 2\sqrt 3$ |
+| $(\sqrt a)^2 = a$ | $(\sqrt 5)^2 = 5$ |
+| $\sqrt{x^2} = \lvert x \rvert$ (also for $x < 0$) | $\sqrt{(-3)^2} = \sqrt 9 = 3$ |
+| you add only the **same** root | $2\sqrt 3 + 5\sqrt 3 = 7\sqrt 3$, but $\sqrt 2 + \sqrt 3 \neq \sqrt 5$ |
+| to remove a root from the denominator you multiply top and bottom by that root | $\frac 6{\sqrt 3} = \frac{6\sqrt 3}{3} = 2\sqrt 3$ |
+| with a sum in the denominator you use $(x - y)(x + y) = x^2 - y^2$ | $\frac 1{\sqrt 2 - 1} = \frac{\sqrt 2 + 1}{(\sqrt 2)^2 - 1^2} = \sqrt 2 + 1$ |
+
+> [!PITFALL] The root of a sum
+> $\sqrt{a + b}$ is **not** $\sqrt a + \sqrt b$. Check with numbers: $\sqrt{9 + 16} = \sqrt{25} = 5$, while $\sqrt 9 + \sqrt{16} = 3 + 4 = 7$.
+
+## Towards the exam
+
+The **Linear Algebra and Geometry** exam (part 2 of MDAG) is written and is the same for channels A, B and C. As of 30/09/2026 the 2026/27 rules have not been published yet (on Moodle: "informazioni seguono", "information to follow"), so the reference is the 2025/26 rules, confirmed by the exam papers:
+
+- **10 multiple-choice questions**, each with 5 answers (a)–(e) and **only one correct**, 1 point each;
+- **2 open problems** with sub-questions, 11 points each: to get partial credit you must show your work;
+- **cut-off (sbarramento)**: the problems are marked only for those who score **at least 6 out of 10** in the quiz;
+- **2 hours**, maximum 32 points, pass mark 18;
+- materials allowed: **only one folded sheet or two A4 sheets (4 sides) handwritten**, with formulas, notes and exercises; **no calculator** and no books;
+- in the quiz the answers are marked with an **X**, not with a circle.
+
+| 2026/27 exam session | Registration on MyUniTo | Time and rooms |
+|---|---|---|
+| Fri 22/01/2027 | 02/01 – 15/01/2027 | 14:00, rooms A, B, C, D, F |
+| Fri 05/02/2027 | 16/01 – 29/01/2027 | 14:00, rooms A, B, C, D, F |
+
+The final MDAG grade is the average of the two tests (Discrete Mathematics and Linear Algebra), which can also be taken in different exam sessions. Careful: sitting again a test you have already passed **cancels** the previous grade, even if it goes worse. Details and sources in the [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/MDAG/course.md).
+
+**What of this lesson you need at the exam**
+
+1. **Fields.** The scalars of vector spaces (lessons L05–L07) live in a field. Being able to say why $\Z$ is not a field is a typical theory quiz question.
+2. **Notation.** Sets, intervals, points and vectors with the right brackets: in the problems the answers are written with this notation.
+3. **Calculations by hand.** Fractions and roots appear in almost every question (norms, angles, distances). Practise now with exercises 2 and 8.
+4. **Proofs by contradiction.** The quiz does not ask for proofs, but reasoning by contradiction comes back often in the course.
+
+> [!EXAM] The 4-page sheet
+> It is the only material allowed: it is worth building it lesson by lesson. From this lesson two lines are enough: the rules for roots from the previous section and "field = 9 properties; $\N$ and $\Z$ are not fields".
+
+## Quiz
+
+```quiz
+Q: Which of these sets, with the usual sum and product, is **not** a field?
+- $\Q$
+- $\R$
++ $\Z$
+- $\C$
+- They are all fields.
+= In $\Z$ the number $2$ has no multiplicative inverse: $\frac 12 \notin \Z$. Property 8 fails, so $\Z$ is not a field. $\Q$, $\R$ and $\C$ are.
+
+Q: Which of these numbers is irrational?
+- $0.125$
+- $\frac{22}{7}$
+- $\sqrt 9$
++ $\sqrt{12}$
+- $0.\overline{3}$
+= $\sqrt{12} = 2\sqrt 3$ and $\sqrt 3$ is irrational. The others are rational: $0.125 = \frac 18$, $\sqrt 9 = 3$ and $0.\overline 3 = \frac 13$; $\frac{22}7$ is a fraction (only an approximation of $\pi$).
+
+Q: Which statement is true?
++ $\N \subsetneq \Z \subsetneq \Q \subsetneq \R$
+- $\Q \subsetneq \Z$
+- $\R \subsetneq \Q$
+- $\sqrt 2 \in \Q$
+- $\Z = \N$
+= Each set is strictly contained in the next: $-1 \in \Z \setminus \N$, $\frac 12 \in \Q \setminus \Z$, $\sqrt 2 \in \R \setminus \Q$.
+
+Q: The set $\{x \in \R \mid 1 \le x < 2\}$ is:
+- $(1, 2)$
+- $[1, 2]$
++ $[1, 2)$
+- $\{1, 2\}$
+- $(1, 2]$
+= The $\le$ includes 1 (square bracket), the $<$ excludes 2 (round bracket). $\{1, 2\}$ instead is the set with only the two numbers 1 and 2.
+
+Q: The number $0.999\ldots$ (with infinitely many 9s) equals:
++ $1$
+- a number just below $1$
+- $0.9$
+- $\frac 9{10}$
+- it is not a real number
+= $\frac 13 = 0.333\ldots$; multiplying by 3 gives $1 = 0.999\ldots$. As with $5.973\overline 9 = 5.974$ in the handouts: they are two writings of the same number.
+
+Q: In the proof that $\sqrt 2 \notin \Q$, which contradiction is reached?
++ $a$ and $b$ are both even, while the fraction $\frac ab$ was reduced to lowest terms.
+- $\sqrt 2 = 2$.
+- $b = 0$.
+- $a^2$ is odd.
+- $2$ is not a prime number.
+= From $a^2 = 2b^2$ it follows that $a$ is even, and then that $b$ is even too: so $a$ and $b$ have the factor 2 in common, against the assumption that the fraction was reduced.
+
+Q: Which property does $\Z$ lack to be a field?
++ The existence of the multiplicative inverse of every non-zero element.
+- The existence of the opposite.
+- The commutative property of the product.
+- The distributive property.
+- The existence of the identity element of the sum.
+= In $\Z$ every number has an opposite, and sum and product are commutative, associative and distributive. But only $1$ and $-1$ have an integer inverse: for example $3$ has none.
+
+Q: What is $\sqrt 8 + \sqrt{18}$?
++ $5\sqrt 2$
+- $\sqrt{26}$
+- $2\sqrt 2$
+- $13$
+- $6\sqrt 3$
+= $\sqrt 8 = \sqrt{4 \cdot 2} = 2\sqrt 2$ and $\sqrt{18} = \sqrt{9 \cdot 2} = 3\sqrt 2$, so the sum is $5\sqrt 2$. Careful: $\sqrt 8 + \sqrt{18} \neq \sqrt{26}$, the root of a sum is not the sum of the roots.
+
+Q: What is $a_2$ in the sequence $a_n = \left(1 + \frac 1n\right)^n$? Write a fraction or a decimal.
+N: 9/4
+= $a_2 = \left(1 + \frac 12\right)^2 = \left(\frac 32\right)^2 = \frac 94 = 2.25$.
+```
+
+## Exercises
+
+::: exercise basic Where each number lives
+For each number find the **smallest** set among $\N$, $\Z$, $\Q$, $\R$ that contains it:
+$$-4, \qquad 0, \qquad \frac 72, \qquad \sqrt{16}, \qquad \sqrt 7, \qquad 0.\overline{12}, \qquad \pi, \qquad -\frac{\sqrt{25}}{5}.$$
+::: solution
+| Number | Simplified | Smallest set | Why |
+|---|---|---|---|
+| $-4$ | $-4$ | $\Z$ | negative, so not in $\N$ |
+| $0$ | $0$ | $\N$ | in the course zero is a natural number |
+| $\frac 72$ | $3.5$ | $\Q$ | a fraction that is not an integer |
+| $\sqrt{16}$ | $4$ | $\N$ | $4 \cdot 4 = 16$ |
+| $\sqrt 7$ | — | $\R$ | 7 is not a perfect square: irrational |
+| $0.\overline{12}$ | $\frac 4{33}$ | $\Q$ | repeating decimal (see exercise 2) |
+| $\pi$ | — | $\R$ | irrational |
+| $-\frac{\sqrt{25}}5$ | $-\frac 55 = -1$ | $\Z$ | first simplify, then decide |
+
+Moral: before deciding, always **simplify**. $\sqrt{16}$ looks irrational but it is 4.
+:::
+
+::: exercise basic From repeating decimal to fraction
+Write as a fraction: (a) $0.\overline 7$; (b) $2.\overline 3$; (c) $0.\overline{12}$.
+::: solution
+The trick: I call the number $x$, multiply it by $10$ (or by $100$ if the repeating block has two digits) and subtract. The identical infinite tails cancel out.
+
+(a) $x = 0.777\ldots$
+- $10x = 7.777\ldots$
+- $10x - x = 7.777\ldots - 0.777\ldots = 7$, that is $9x = 7$
+- $x = \frac 79$.
+
+(b) $x = 2.333\ldots$
+- $10x = 23.333\ldots$
+- $9x = 23.333\ldots - 2.333\ldots = 21$
+- $x = \frac{21}9 = \frac 73$. Check: $7 : 3 = 2.333\ldots$ ✓
+
+(c) $x = 0.1212\ldots$ has a repeating block of **two** digits, so I multiply by $100$:
+- $100x = 12.1212\ldots$
+- $99x = 12$
+- $x = \frac{12}{99} = \frac 4{33}$.
+:::
+
+::: exercise basic $0.\overline 9 = 1$ with the method of exercise 2
+Use the same method to show that $0.999\ldots = 1$, and then that $5.973\overline 9 = 5.974$.
+::: solution
+$x = 0.999\ldots$, so $10x = 9.999\ldots$ and $9x = 9$: $x = 1$.
+
+For the second: $5.973\overline 9 = 5.973 + 0.000\overline 9$, and $0.000\overline 9 = \frac{0.\overline 9}{1000} = \frac 1{1000} = 0.001$. So $5.973\overline 9 = 5.973 + 0.001 = 5.974$.
+:::
+
+::: exercise intermediate $\sqrt 3$ is not rational
+Prove by contradiction that $\sqrt 3 \notin \Q$. Hint: you need the fact "if $a^2$ is divisible by 3, so is $a$". Prove this too.
+::: solution
+**The fact about multiples of 3.** Every integer $a$ can be written in one of three ways: $a = 3k$, $a = 3k + 1$ or $a = 3k + 2$. In the last two cases:
+- $(3k + 1)^2 = 9k^2 + 6k + 1 = 3(3k^2 + 2k) + 1$: remainder 1 when divided by 3;
+- $(3k + 2)^2 = 9k^2 + 12k + 4 = 3(3k^2 + 4k + 1) + 1$: remainder 1.
+
+So if $a$ is not a multiple of 3, neither is $a^2$. Put the other way round: if $a^2$ is a multiple of 3, so is $a$.
+
+**The proof**, as for $\sqrt 2$:
+1. For a contradiction, $\sqrt 3 = \frac ab$, a fraction reduced to lowest terms.
+2. Squaring: $a^2 = 3b^2$. So $a^2$ is a multiple of 3, and by the fact just seen so is $a$: $a = 3k$.
+3. Substituting: $9k^2 = 3b^2$, that is $b^2 = 3k^2$. So $b$ is a multiple of 3 too.
+4. $a$ and $b$ have the factor 3 in common: the fraction was not reduced. Contradiction, so $\sqrt 3 \notin \Q$.
+:::
+
+::: exercise intermediate Rational plus irrational
+(a) Prove that if $q \in \Q$ and $x \notin \Q$, then $q + x \notin \Q$. (b) Find two irrational numbers whose sum is rational, and two whose product is rational.
+::: solution
+(a) For a contradiction, suppose $q + x = r$ with $r \in \Q$. Then $x = r - q$. But the difference of two rationals is rational: $\frac ab - \frac cd = \frac{ad - bc}{bd}$. So $x \in \Q$, against the assumption. Contradiction: $q + x \notin \Q$.
+
+(b) Sum: $\sqrt 2 + (-\sqrt 2) = 0$. Product: $\sqrt 2 \cdot \sqrt 2 = 2$, or $\sqrt 2 \cdot \sqrt 8 = \sqrt{16} = 4$. So "irrational + irrational" and "irrational · irrational" can be rational: there is no general rule.
+:::
+
+::: exercise intermediate Field or not?
+For each set, with the usual sum and product, say whether it is a field; if it is not, point out **one** failing property, with an example: (a) $\N$; (b) $\Z$; (c) the positive real numbers $\{x \in \R \mid x > 0\}$; (d) $\Q$.
+::: solution
+(a) $\N$: no. Property 4: $3$ has no opposite in $\N$, because $-3 \notin \N$.
+
+(b) $\Z$: no. Property 8: $2$ has no inverse in $\Z$, because $\frac 12 \notin \Z$.
+
+(c) Positive reals: no. Property 1: $0$ is not there, so the identity element of the sum is missing (and as a consequence the opposites too).
+
+(d) $\Q$: yes. All nine properties hold; in particular the opposite of $\frac ab$ is $\frac{-a}b$ and, if $a \neq 0$, the inverse is $\frac ba$, which is again a fraction.
+:::
+
+::: exercise basic Intervals
+(a) Write with brackets the set $\{x \in \R \mid -1 < x \le 3\}$. (b) Write the interval $[0, 5)$ with set notation. (c) Which interval is $\{x \in \R \mid x^2 < 4\}$? (d) How many elements do $\{0, 5\}$ and $(0, 5)$ have?
+::: solution
+(a) $(-1, 3]$: round on the left because $-1$ is excluded ($<$), square on the right because $3$ is included ($\le$).
+
+(b) $\{x \in \R \mid 0 \le x < 5\}$.
+
+(c) $x^2 < 4$ means that $x$ lies strictly between $-2$ and $2$: try $x = 1.9$ ($3.61 < 4$, yes) and $x = -2$ ($4 < 4$, no). So it is $(-2, 2)$.
+
+(d) $\{0, 5\}$ has **2** elements; $(0, 5)$ has **infinitely many**.
+:::
+
+::: exercise intermediate Calculations without a calculator
+Simplify: (a) $\sqrt{50}$; (b) $\sqrt{12} \cdot \sqrt 3$; (c) $\frac 6{\sqrt 3}$; (d) $(1 + \sqrt 2)^2$; (e) $\frac 1{\sqrt 2 - 1}$; (f) $\frac{\sqrt 3}3$ and $\frac 1{\sqrt 3}$: are they equal?
+::: solution
+(a) $\sqrt{50} = \sqrt{25 \cdot 2} = 5\sqrt 2$.
+
+(b) $\sqrt{12} \cdot \sqrt 3 = \sqrt{36} = 6$.
+
+(c) $\frac 6{\sqrt 3} = \frac{6\sqrt 3}{\sqrt 3 \cdot \sqrt 3} = \frac{6\sqrt 3}3 = 2\sqrt 3$.
+
+(d) $(1 + \sqrt 2)^2 = 1^2 + 2 \cdot 1 \cdot \sqrt 2 + (\sqrt 2)^2 = 1 + 2\sqrt 2 + 2 = 3 + 2\sqrt 2$.
+
+(e) I multiply top and bottom by $\sqrt 2 + 1$:
+$$\frac 1{\sqrt 2 - 1} \cdot \frac{\sqrt 2 + 1}{\sqrt 2 + 1} = \frac{\sqrt 2 + 1}{(\sqrt 2)^2 - 1^2} = \frac{\sqrt 2 + 1}{2 - 1} = \sqrt 2 + 1.$$
+
+(f) Yes: $\frac 1{\sqrt 3} = \frac{\sqrt 3}{\sqrt 3 \cdot \sqrt 3} = \frac{\sqrt 3}3$. In the exam quiz the same number can appear in either form.
+:::
+
+::: exercise hard $\sqrt 2 + \sqrt 3$ is irrational
+(a) Prove that $\sqrt 6 \notin \Q$. (b) Use it to prove that $\sqrt 2 + \sqrt 3 \notin \Q$.
+::: solution
+(a) For a contradiction, $\sqrt 6 = \frac ab$ reduced. Then $a^2 = 6b^2 = 2 \cdot 3b^2$ is even, so $a$ is even: $a = 2k$. Substituting: $4k^2 = 6b^2$, that is $2k^2 = 3b^2$. Then $3b^2$ is even; since 3 is odd, $b^2$ must be even (odd times odd is odd), so $b$ is even. $a$ and $b$ are both even: contradiction.
+
+(b) For a contradiction, $\sqrt 2 + \sqrt 3 = q$ with $q \in \Q$. I square:
+$$q^2 = (\sqrt 2)^2 + 2\sqrt 2\sqrt 3 + (\sqrt 3)^2 = 5 + 2\sqrt 6.$$
+So $\sqrt 6 = \frac{q^2 - 5}2$, which is rational because $q$ is. But by part (a) $\sqrt 6$ is not rational: contradiction. So $\sqrt 2 + \sqrt 3 \notin \Q$.
+:::
+
+::: exercise basic The first terms of the sequence for $e$
+Compute as fractions $a_1$, $a_2$, $a_3$, $a_4$ of $a_n = \left(1 + \frac 1n\right)^n$ and check that they increase.
+::: solution
+- $a_1 = 2^1 = 2$
+- $a_2 = \left(\frac 32\right)^2 = \frac 94 = 2.25$
+- $a_3 = \left(\frac 43\right)^3 = \frac{64}{27} \approx 2.370$
+- $a_4 = \left(\frac 54\right)^4 = \frac{625}{256} \approx 2.441$
+
+They increase: $2 < 2.25 < 2.370 < 2.441$, and stay below $e \approx 2.718$ (see the graph in the section on the reals). Each term is rational, but the number they approach is not.
+:::
+
+## Review questions
+
+::: question What do $\N$, $\Z$ and $\Q$ contain? Is zero in $\N$?
+$\N = \{0, 1, 2, \dots\}$ are the natural numbers, **zero included** in the course's convention. $\Z$ adds the negatives. $\Q = \{\frac ab \mid a, b \in \Z,\ b \neq 0\}$ contains all fractions.
+:::
+
+::: question Why do we go from $\Q$ to $\R$?
+Because in $\Q$ there are simple equations without solutions, such as $x^2 = 2$, and Cauchy sequences that do not converge (for example the one defining $e$). The reals fill these "holes".
+:::
+
+::: question What is a Cauchy sequence, in words?
+An infinite list of numbers in which, from some point on, all the terms are as close to one another as you like: for every tolerance $\varepsilon > 0$ there is a position $N$ after which $|a_m - a_n| < \varepsilon$.
+:::
+
+::: question How are the real numbers defined with Cauchy sequences?
+As equivalence classes of Cauchy sequences of rationals; two sequences are equivalent if their difference tends to zero. If a sequence converges to a rational it represents that rational; otherwise it defines a new, irrational number.
+:::
+
+::: question What does it mean that $\R$ is complete?
+That every Cauchy sequence of real numbers converges to a real number: redoing the construction starting from $\R$ adds nothing new.
+:::
+
+::: question Repeat the proof that $\sqrt 2$ is not rational.
+For a contradiction, $\sqrt 2 = \frac ab$ reduced. Then $a^2 = 2b^2$, so $a^2$ is even and $a$ is even too: $a = 2k$. From $4k^2 = 2b^2$ we get $b^2 = 2k^2$, so $b$ is even too. $a$ and $b$ are both even: the fraction was not reduced, contradiction.
+:::
+
+::: question What is a field? Give an example and a counterexample.
+A set with two operations $+$ and $\cdot$ that have the nine properties: identities 0 and 1, opposites, inverses of the non-zero elements, commutative, associative, distributive. Examples: $\Q$, $\R$, $\C$. Counterexample: $\Z$, because 2 has no inverse.
+:::
+
+::: question Why does zero have no inverse?
+Because $0 \cdot x = 0$ for every $x$: there is no $x$ with $0 \cdot x = 1$. This is why property 8 asks for the inverse only when $a \neq 0$.
+:::
+
+::: question How is $a > b$ defined?
+$a > b$ if $a - b > 0$. So it is enough to know which numbers are positive: in $\Z$ they are $1, 2, 3, \dots$; in $\Q$ the fractions with numerator and denominator of the same sign.
+:::
+
+::: question What is the difference between $\{1, 2\}$, $(1, 2)$ and $[1, 2]$?
+$\{1, 2\}$ is the set with the two elements 1 and 2. $(1, 2)$ is the open interval, endpoints excluded, or the point or vector with coordinates 1 and 2, depending on the context. $[1, 2]$ is the closed interval, endpoints included.
+:::
+
+::: question Which are the nine Greek letters to know?
+$\alpha$ (alpha), $\varepsilon$ (epsilon), $\sigma$ (sigma), $\vartheta$ (theta), $\phi$ (phi), $\pi$ (pi), $\lambda$ (lambda), $\mu$ (mu), $\varrho$ (rho).
+:::
+
+::: question How do you remove a root from a denominator?
+Multiply numerator and denominator by the same root: $\frac 6{\sqrt 3} = \frac{6\sqrt 3}3 = 2\sqrt 3$. If the denominator is a sum such as $\sqrt 2 - 1$, multiply by $\sqrt 2 + 1$ and use $(x - y)(x + y) = x^2 - y^2$.
+:::
+
+## Glossary
+
+```glossary
+Set | A collection of objects, called elements; written with braces. Order and repetitions do not matter.
+Membership ($\in$) | $x \in A$: $x$ is an element of $A$. The opposite is written $x \notin A$.
+Subset ($\subset$, $\subsetneq$) | $B \subset A$: every element of $B$ is in $A$. $B \subsetneq A$: in addition $A$ has at least one element that $B$ lacks.
+Natural numbers $\N$ | $\{0, 1, 2, \dots\}$, zero included.
+Integers $\Z$ | $\{\dots, -2, -1, 0, 1, 2, \dots\}$.
+Rational numbers $\Q$ | The fractions $\frac ab$ with $a, b \in \Z$ and $b \neq 0$; in decimal form they are terminating or repeating.
+Real numbers $\R$ | Equivalence classes of Cauchy sequences of rationals; intuitively, numbers with infinitely many digits after the decimal point.
+Irrational number | A real number that is not rational, such as $\sqrt 2$, $\pi$, $e$.
+Sequence | An infinite list $a_1, a_2, a_3, \dots$; denoted by $(a_n)$.
+Cauchy sequence | A sequence whose terms, from some position on, are less than any fixed tolerance $\varepsilon > 0$ apart.
+Completeness | Property of $\R$: every Cauchy sequence converges. $\Q$ is not complete.
+Proof by contradiction | You assume the negation of the claim is true and reach a contradiction.
+Binary operation | A rule that assigns a third element to two elements, such as $+$ and $\cdot$.
+Identity element | $0$ for the sum ($a + 0 = a$), $1$ for the product ($a \cdot 1 = a$).
+Opposite and inverse | The opposite of $a$ is $-a$ ($a + (-a) = 0$); the inverse of $a \neq 0$ is $a^{-1}$ ($a \cdot a^{-1} = 1$).
+Field | A set with $+$ and $\cdot$ having the nine properties of Proposition 1.5: $\Q$, $\R$, $\C$ yes; $\N$, $\Z$ no.
+Order | $a > b$ if $a - b > 0$; $\R$ is ordered, $\C$ is not.
+Open / closed interval | $(a, b)$ excludes the endpoints, $[a, b]$ includes them.
+Quantifiers | $\forall$ "for all", $\exists$ "there exists", $\exists!$ "there exists a unique".
+```
+
+## Checklist
+
+```checklist
+- I can write $\N$, $\Z$, $\Q$ with the right brackets and I know that in this course $0 \in \N$.
+- I can explain with an equation why each new set is needed ($x + 5 = 3$, $2x = 1$, $x^2 = 2$).
+- I can turn a repeating decimal into a fraction and explain why $0.\overline 9 = 1$.
+- I can explain in words what a Cauchy sequence is and how it defines a real number.
+- I can say what it means that $\R$ is complete and $\Q$ is not.
+- I can redo on my own the proof that $\sqrt 2$ is not rational, justifying every step.
+- I can list the nine field properties and explain why $\N$ and $\Z$ are not fields.
+- I know the definition of $a > b$ and which numbers are positive in $\Z$ and in $\Q$.
+- I do not confuse $\{1, 2\}$, $(1, 2)$ and $[1, 2]$, and I can read $\forall$, $\exists$, $\Longrightarrow$, $\Longleftrightarrow$.
+- I can simplify roots and remove them from a denominator without a calculator.
+```
+
+## Sources
+
+- **2026 course handouts** (Buzano, Radeschi), lesson 1 "Numeri reali", pp. 2–5: sections 1.A–1.E are followed in order, with the page next to each heading; definitions, propositions and examples keep their numbering (Definition 1.1, Examples 1.2 and 1.3, Propositions 1.4 and 1.5).
+- **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §1.1 (number sets, proof by contradiction, subsets, set notation, quantifiers), §1.5 (algebraic structures) and complement 1.II (construction of the real numbers).
+- **MDAG2 2026/27 Moodle page** ([id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)): calendar, complete handouts L01–L26, chapters of the book covered (1–5, 7–9, 11).
+- **Exam**: 2025/26 rules and the papers of the 15/01/2026 and 07/09/2026 exam sessions (2025/26 Moodle, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)); dates of the 2026/27 exam sessions from the Esse3 listings.
+- The **"Beyond the handouts"** parts (review of sets, repeating decimals, symbols, calculations with roots, exercises) are additions in these notes to connect the lesson to the rest of the course and to the exam.
 
 
 ---

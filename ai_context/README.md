@@ -34,6 +34,8 @@ My request: <write your question here>
 | `PROG1/exam_exercises.md` | exam-style exercises for Programming I with verified solutions |
 | `PROG1/lesson_index.md` | lessons studied so far, with key concepts and links |
 | `PROG1/lessons/*.md` | full notes of each lesson (channel B slides, with references to A and C) |
+| `MDAG/lessons/*.md` | notes on Linear Algebra and Geometry, lesson by lesson (course handouts, the same for channels A, B and C) |
+| `lesson_format.md` | how the lesson files are written: boxes, quizzes, exercises, formulas |
 | `FDA/course.md` | Foundations of Computer Science (Fondamenti dell'Informatica) |
 | `MDAG/course.md` | Discrete Mathematics, Algebra and Geometry (Matematica Discreta, Algebra e Geometria) |
 | `ANMAT/course.md` | Mathematical Analysis (Analisi Matematica) |
@@ -46,4 +48,4 @@ My request: <write your question here>
 The same notes as interactive HTML are online: https://donflammer.github.io/unito-computer-science/ (Italian original: https://donflammer.github.io/unito-informatica/).
 I'm DonFlammer · Telegram @rapsodico (https://t.me/rapsodico), with no commitment to answer.
 
-Last updated: 28/09/2026 (sheets of all the 1st-year courses for channels A, B, C; Programming I, lesson 01A; Foundations of Computer Science, channel B programme, official exam rules and book; MDAG, Moodle 2026/27 and Wednesdays per channel; English translation of the whole repository).
+Last updated: 30/09/2026 (Programming I, lessons 01B and 02A; Linear Algebra and Geometry, lesson L01; lesson format in `lesson_format.md`). Before: 28/09/2026 (sheets of all the 1st-year courses for channels A, B, C; Programming I, lesson 01A; Foundations of Computer Science, channel B programme, official exam rules and book; MDAG, Moodle 2026/27 and Wednesdays per channel; English translation of the whole repository).

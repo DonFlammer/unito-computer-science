@@ -6,7 +6,7 @@
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const root = document.documentElement;
   const en = (root.lang || '').startsWith('en');
-  const salva = (k, v) => { try { if (v === null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { /* memoria del browser non disponibile */ } };
+  const salva = (k, v) => { try { if (v === null) (window.StudioStorage || localStorage).removeItem(k); else (window.StudioStorage || localStorage).setItem(k, v); } catch (e) { /* memoria del browser non disponibile */ } };
 
   /* tema: OLED (nero, colore principale bianco) all'avvio; «notte» (blu) col pulsante OLED, «giorno» col pulsante del tema.
      Le scelte valgono per tutte le pagine, anche in inglese; OLED non si salva perché è il predefinito */

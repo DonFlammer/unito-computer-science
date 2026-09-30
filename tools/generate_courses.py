@@ -441,7 +441,10 @@ def update_csp(root=ROOT):
         meta = ('<meta http-equiv="Content-Security-Policy" content="'
                 + CSP.format(hashes="".join(f" 'sha256-{h}'" for h in hashes)) + '">\n'
                 + '<meta name="referrer" content="strict-origin-when-cross-origin">\n')
-        new = re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>\n|<meta name="referrer"[^>]*>\n', "", text)
+        memory = '../' * (len(page.relative_to(root).parts) - 1) + 'assets/js/memoria.js'
+        meta += f'<script src="{memory}"></script>\n'
+        clean = re.sub(r'<script src="[^"]*assets/js/memoria\.js"></script>\n', '', text)
+        new = re.sub(r'<meta http-equiv="Content-Security-Policy"[^>]*>\n|<meta name="referrer"[^>]*>\n', "", clean)
         new, n = re.subn(r'<meta charset="utf-8">\n', lambda m: m.group(0) + meta, new, count=1, flags=re.I)
         if not n:
             raise SystemExit(f'{page}: missing <meta charset="utf-8"> in the head')

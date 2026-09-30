@@ -73,3 +73,5 @@ If you scored less than 5/20 in Basic Mathematics on the TOLC-S, you have the **
 
 - Website: https://donflammer.github.io/unito-ofa-maths/
 - Repository, with the context for AIs: [DonFlammer/unito-ofa-maths](https://github.com/DonFlammer/unito-ofa-maths)
+
+Local profiles, encrypted backups and limits: [security](SECURITY.md).

@@ -51,23 +51,23 @@
     <details id="toc-details" open>
       <summary>Contents</summary>
       <ol>
-<li><a href="#in-brief"><span class="n">→</span>In brief</a></li>
-<li><a href="#machine-language-and-assembly"><span class="n">§1</span>Machine language and assembly</a></li>
-<li><a href="#addition-in-assembly-step-by-step"><span class="n">§2</span>Addition in assembly, step by step</a></li>
-<li><a href="#multiplication-in-assembly"><span class="n">§3</span>Multiplication in assembly</a></li>
-<li><a href="#towards-high-level-languages"><span class="n">§4</span>Towards high-level languages</a></li>
-<li><a href="#the-c-language-a-bit-of-history"><span class="n">§5</span>The C language: a bit of history</a></li>
-<li><a href="#the-features-of-c"><span class="n">§6</span>The features of C</a></li>
-<li><a href="#the-x-ray-of-the-first-program"><span class="n">§7</span>The X-ray of the first program</a></li>
-<li><a href="#syntax-identifiers-and-indentation"><span class="n">§8</span>Syntax, identifiers and indentation</a></li>
-<li><a href="#from-source-to-executable"><span class="n">§9</span>From source to executable</a></li>
-<li><a href="#compile-time-runtime-and-logic-errors"><span class="n">§10</span>Compile-time, runtime and logic errors</a></li>
-<li><a href="#how-to-develop-a-c-program"><span class="n">§11</span>How to develop a C program</a></li>
-<li><a href="#exam"><span class="n">§12</span>Towards the exam</a></li>
-<li><a href="#exercises"><span class="n">§13</span>Exercises</a></li>
-<li><a href="#questions"><span class="n">§14</span>Review questions</a></li>
-<li><a href="#glossary"><span class="n">§15</span>Glossary</a></li>
-<li><a href="#checklist"><span class="n">§16</span>Checklist</a></li>
+<li><a href="#in-brief"><span class="n">→</span><span>In brief</span></a></li>
+<li><a href="#machine-language-and-assembly"><span class="n">§1</span><span>Machine language and assembly</span></a></li>
+<li><a href="#addition-in-assembly-step-by-step"><span class="n">§2</span><span>Addition in assembly, step by step</span></a></li>
+<li><a href="#multiplication-in-assembly"><span class="n">§3</span><span>Multiplication in assembly</span></a></li>
+<li><a href="#towards-high-level-languages"><span class="n">§4</span><span>Towards high-level languages</span></a></li>
+<li><a href="#the-c-language-a-bit-of-history"><span class="n">§5</span><span>The C language: a bit of history</span></a></li>
+<li><a href="#the-features-of-c"><span class="n">§6</span><span>The features of C</span></a></li>
+<li><a href="#the-x-ray-of-the-first-program"><span class="n">§7</span><span>The X-ray of the first program</span></a></li>
+<li><a href="#syntax-identifiers-and-indentation"><span class="n">§8</span><span>Syntax, identifiers and indentation</span></a></li>
+<li><a href="#from-source-to-executable"><span class="n">§9</span><span>From source to executable</span></a></li>
+<li><a href="#compile-time-runtime-and-logic-errors"><span class="n">§10</span><span>Compile-time, runtime and logic errors</span></a></li>
+<li><a href="#how-to-develop-a-c-program"><span class="n">§11</span><span>How to develop a C program</span></a></li>
+<li><a href="#exam"><span class="n">§12</span><span>Towards the exam</span></a></li>
+<li><a href="#exercises"><span class="n">§13</span><span>Exercises</span></a></li>
+<li><a href="#questions"><span class="n">§14</span><span>Review questions</span></a></li>
+<li><a href="#glossary"><span class="n">§15</span><span>Glossary</span></a></li>
+<li><a href="#checklist"><span class="n">§16</span><span>Checklist</span></a></li>
       </ol>
     </details>
   </nav>
@@ -102,7 +102,7 @@
 </ul>
 </section>
 
-<div class="box extra" id="other-channels"><p class="box-label">Are you in channel A or C?</p><p><strong>Channel A (Fiandrotti):</strong> the deck &quot;Dal linguaggio assembly al C&quot; (52 slides) has the same content. It adds an example that loads a single value from memory (slide 5) and the same multiplication in <strong>BASIC</strong>, written with line numbers and <code>GOTO</code>s, as an example of an <strong>unstructured</strong> language (slide 23).</p>
+<div class="box extra" id="other-channels"><p class="box-label"><span>Are you in channel A or C?</span></p><p><strong>Channel A (Fiandrotti):</strong> the deck &quot;Dal linguaggio assembly al C&quot; (52 slides) has the same content. It adds an example that loads a single value from memory (slide 5) and the same multiplication in <strong>BASIC</strong>, written with line numbers and <code>GOTO</code>s, as an example of an <strong>unstructured</strong> language (slide 23).</p>
 <p><strong>Channel C (Mazzei):</strong> assembly, multiplication in assembly and FORTRAN are at the end of lesson 01 &quot;Introduzione&quot; (slides 67–83), with slightly different instructions (for example <code>JEQ</code> instead of <code>JMPEQ</code>). The part on C (<code>main</code>, <code>printf</code>, gcc) is in lesson 02 &quot;Il C&quot;, not yet published on 30/09/2026.</p>
 <p>The exam is the same for the three channels.</p>
 </div>
@@ -111,14 +111,14 @@
 <section id="machine-language-and-assembly" aria-labelledby="h-machine-language-and-assembly">
 <div class="sec-head"><span class="sec-num">§1</span><h2 id="h-machine-language-and-assembly">Machine language and assembly</h2><span class="slides">slides 2–4</span></div>
 <p>The first computers were programmed directly in <strong>machine language</strong>, changing the bits of the registers with <strong>switches</strong> or <strong>punched cards</strong>. It is a bit like the step-by-step execution still used today to check hardware while it is being designed.</p>
-<div class="box def"><p class="box-label">Definition · Machine language · slide 3</p><p>It is the language <strong>directly executable by the processor</strong>:</p>
+<div class="box def"><p class="box-label"><span>Definition · Machine language · slide 3</span></p><p>It is the language <strong>directly executable by the processor</strong>:</p>
 <ul>
 <li>it is made of <strong>numeric codes</strong> (sequences of bits) that identify instructions and operands;</li>
 <li>each architecture defines its own set of machine instructions (<em>instruction set</em>);</li>
 <li>so it <strong>depends on the processor</strong> and is <strong>not portable</strong> across different architectures.</li>
 </ul>
 </div>
-<div class="box def"><p class="box-label">Definition · Assembly language · slide 3</p><p>It is a <strong>textual and symbolic representation</strong> of machine language:</p>
+<div class="box def"><p class="box-label"><span>Definition · Assembly language · slide 3</span></p><p>It is a <strong>textual and symbolic representation</strong> of machine language:</p>
 <ul>
 <li>it uses <strong>mnemonics</strong> such as <code>mov</code>, <code>add</code>, <code>ldr</code> instead of numeric codes;</li>
 <li>it is translated into machine language by a program called the <strong>assembler</strong>;</li>
@@ -130,7 +130,7 @@
 <tr><td><code>LOAD, R1, @B</code></td><td><code>0010010110010010</code></td></tr>
 <tr><td><code>ADD, R0, R1</code></td><td><code>0100000100000000</code></td></tr>
 <tr><td><code>STORE, R0, @A</code></td><td><code>0011000100000000</code></td></tr></tbody></table></div>
-<div class="box trap"><p class="box-label">Pitfall · Portable does not mean &quot;runs everywhere as it is&quot;</p><p>A machine-language program written for one CPU does not run on a CPU with a different <em>instruction set</em>: it has to be <strong>rewritten</strong>. It is the problem that high-level languages solve (later in this lesson).</p>
+<div class="box trap"><p class="box-label"><span>Pitfall · Portable does not mean &quot;runs everywhere as it is&quot;</span></p><p>A machine-language program written for one CPU does not run on a CPU with a different <em>instruction set</em>: it has to be <strong>rewritten</strong>. It is the problem that high-level languages solve (later in this lesson).</p>
 </div>
 </section>
 
@@ -159,7 +159,7 @@ STORE, R0, @A        ; copy R0 to address A</code></pre>
 <tr><td><code>STORE, R0, @A</code></td><td class="num">12</td><td>STORE</td><td class="num">4</td><td class="num">−8</td><td class="num"><strong>4</strong></td></tr></tbody></table></div>
 <p>The PC moves on 4 by 4 (0, 4, 8, 12), because each instruction occupies one 32-bit word. At the end address 400 no longer holds 12 but <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>=</mo><mn>12</mn><mo>+</mo><mo stretchy="false">(</mo><mo>−</mo><mn>8</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">4 = 12 + (-8)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">12</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">8</span><span class="mclose">)</span></span></span></span>: the result is in the <strong>final state of memory</strong>, as lesson 01B said.</p>
 <figure class="widget" id="strumento-1" data-widget="macchina" data-program="addition"><figcaption class="widget-titolo">Simulator of the Von Neumann machine: press &quot;Step&quot; and watch the PC, IR, registers and memory</figcaption><p class="widget-carica">Loading the interactive tool…</p></figure>
-<div class="box idea"><p class="box-label">The idea · why go through the registers</p><p>The ALU works only on <strong>registers</strong> (lesson 01B): it cannot add two memory cells directly. This is why you need <code>LOAD</code> (memory → register), <code>ADD</code> (register + register) and <code>STORE</code> (register → memory).</p>
+<div class="box idea"><p class="box-label"><span>The idea · why go through the registers</span></p><p>The ALU works only on <strong>registers</strong> (lesson 01B): it cannot add two memory cells directly. This is why you need <code>LOAD</code> (memory → register), <code>ADD</code> (register + register) and <code>STORE</code> (register → memory).</p>
 </div>
 </section>
 
@@ -190,11 +190,11 @@ STORE, R0, @A        ; copy R0 to address A</code></pre>
 <tr><td><code>i ← i + 1</code></td><td>line 8: <code>INC</code></td></tr>
 <tr><td><code>jump to line 3</code></td><td>line 9: <code>JMP</code> (unconditional jump)</td></tr>
 <tr><td><code>End</code></td><td>line 10: the result goes to memory</td></tr></tbody></table></div>
-<div class="box exam"><p class="box-label">Matters in the exam · Check first, then execute</p><p>Here too the comparison (line 5) comes <strong>before</strong> the addition (line 7): with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> you jump straight to line 10 and the result is 0. It is the principle of lesson 01A, &quot;a typical source of errors, even in the exam&quot;.</p>
+<div class="box exam"><p class="box-label"><span>Matters in the exam · Check first, then execute</span></p><p>Here too the comparison (line 5) comes <strong>before</strong> the addition (line 7): with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> you jump straight to line 10 and the result is 0. It is the principle of lesson 01A, &quot;a typical source of errors, even in the exam&quot;.</p>
 </div>
 <p>Try the simulator with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">m = 4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">n = 3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">3</span></span></span></span> and then with <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>: count how many times line 5 is executed.</p>
 <figure class="widget" id="strumento-2" data-widget="macchina" data-program="multiplication" data-m="4" data-n="3"><figcaption class="widget-titolo">Multiplication by repeated addition, executed by the machine</figcaption><p class="widget-carica">Loading the interactive tool…</p></figure>
-<div class="box neutro"><p class="box-label">Note · Two small differences on slide 20</p><p>On slide 20 the same program appears with <code>ADD, R1, 1</code> instead of <code>INC, R1</code> (it does the same thing: it adds 1) and with <code>STORE, R0, A</code> on line 10.</p>
+<div class="box neutro"><p class="box-label"><span>Note · Two small differences on slide 20</span></p><p>On slide 20 the same program appears with <code>ADD, R1, 1</code> instead of <code>INC, R1</code> (it does the same thing: it adds 1) and with <code>STORE, R0, A</code> on line 10.</p>
 </div>
 </section>
 
@@ -251,7 +251,7 @@ End Program Hello</code></pre>
 <li>the machine can be programmed at a <strong>low level</strong> (assembly), but writing programs is <strong>long and hard</strong>;</li>
 <li><strong>high-level</strong> languages such as C <strong>hide</strong> many details of the underlying hardware.</li>
 </ul>
-<div class="box extra"><p class="box-label">Beyond the slides · what the compiler really writes</p><p>Here is the multiplication in C and a piece of the x86-64 assembly that gcc derives from it with <code>gcc -S</code> (compiler gcc 16.1, without optimisations):</p>
+<div class="box extra"><p class="box-label"><span>Beyond the slides · what the compiler really writes</span></p><p>Here is the multiplication in C and a piece of the x86-64 assembly that gcc derives from it with <code>gcc -S</code> (compiler gcc 16.1, without optimisations):</p>
 <pre class="code" data-lingua="c"><code><span class="kw">while</span> (i &lt; n) {
     s = s + m;
     i = i + 1;
@@ -302,7 +302,7 @@ End Program Hello</code></pre>
 <p>The comments are in Italian as on the slides: &quot;A first program in C&quot;, &quot;The main function is the entry point of the program&quot;, &quot;end of the main function&quot;; the program prints &quot;Buongiorno dal C.&quot; (&quot;Good morning from C.&quot;). Compiled with <code>gcc -Wall -Werror</code>, it prints that line and goes to a new line. Let us look at it piece by piece.</p>
 <h3 id="comments-slide-28">Comments (slide 28)</h3>
 <p>Lines starting with <code>//</code> are <strong>comments</strong>: they are not instructions and the compiler <strong>ignores</strong> them. They are for the reader: a comment before a function or a group of instructions clarifies its <strong>purpose</strong> (slide 32). Code must be understandable for a programmer, not only for the compiler.</p>
-<div class="box extra"><p class="box-label">Beyond the slides · the other kind of comment</p><p>C also has comments spanning several lines, between <code>/*</code> and <code>*/</code>: <code>/* this is a comment */</code>.</p>
+<div class="box extra"><p class="box-label"><span>Beyond the slides · the other kind of comment</span></p><p>C also has comments spanning several lines, between <code>/*</code> and <code>*/</code>: <code>/* this is a comment */</code>.</p>
 </div>
 <h3 id="the-k105-directive-slide-29">The <code>#include</code> directive (slide 29)</h3>
 <ul>
@@ -312,7 +312,7 @@ End Program Hello</code></pre>
 <li><code>stdio.h</code> declares functions such as <code>printf()</code> and <code>scanf()</code>.</li>
 <li>On the slides the <code>#include</code> lines are sometimes omitted, only to save space.</li>
 </ul>
-<div class="box trap"><p class="box-label">Pitfall · Without <code>#include &lt;stdio.h&gt;</code></p><p>If you forget it and use <code>printf</code>, gcc 16 stops with an error: <code>implicit declaration of function 'printf'</code>, and suggests <code>include '&lt;stdio.h&gt;'</code>.</p>
+<div class="box trap"><p class="box-label"><span>Pitfall · Without <code>#include &lt;stdio.h&gt;</code></span></p><p>If you forget it and use <code>printf</code>, gcc 16 stops with an error: <code>implicit declaration of function 'printf'</code>, and suggests <code>include '&lt;stdio.h&gt;'</code>.</p>
 </div>
 <h3 id="the-k116-function-slides-30-31">The <code>main</code> function (slides 30–31)</h3>
 <ul>
@@ -356,7 +356,7 @@ End Program Hello</code></pre>
 <pre class="code" data-lingua="c"><code>printf(<span class="str">&quot;Ha detto \&quot;ciao\&quot;\n&quot;</span>);     <span class="cm">// prints: Ha detto &quot;ciao&quot;   (He said &quot;hi&quot;)</span>
 printf(<span class="str">&quot;C:\\corso\\lab1\n&quot;</span>);        <span class="cm">// prints: C:\corso\lab1</span>
 printf(<span class="str">&quot;nome\tvoto\n&quot;</span>);             <span class="cm">// prints nome (name) and voto (grade) separated by a tab</span></code></pre>
-<div class="box trap"><p class="box-label">Pitfall · A lone backslash</p><p>A single <code>\</code> in a string always starts an escape sequence. To print a backslash you need <strong>two</strong>: <code>\\</code>. And to print a double quote you need <code>\&quot;</code>, otherwise the compiler thinks the string ends there.</p>
+<div class="box trap"><p class="box-label"><span>Pitfall · A lone backslash</span></p><p>A single <code>\</code> in a string always starts an escape sequence. To print a backslash you need <strong>two</strong>: <code>\\</code>. And to print a double quote you need <code>\&quot;</code>, otherwise the compiler thinks the string ends there.</p>
 </div>
 </section>
 
@@ -385,7 +385,7 @@ printf(<span class="str">&quot;nome\tvoto\n&quot;</span>);             <span cla
 <li><p><strong>Do not</strong> use the names of the standard library functions, such as <code>main</code> and <code>printf</code> (even if you do not use them, like <code>sin</code> and <code>cos</code>), or the names defined in the header files.</p>
 </li>
 </ul>
-<div class="box extra"><p class="box-label">Beyond the slides · which characters are allowed</p><p>An identifier contains <strong>letters</strong>, <strong>digits</strong> and the underscore <code>_</code>, and <strong>does not start with a digit</strong>: <code>x2</code> and <code>conto_totale</code> are fine, <code>2x</code> and <code>conto-totale</code> are not (the hyphen is the minus sign). Spaces are not allowed. Also avoid names starting with <code>_</code>: they are reserved in many cases.</p>
+<div class="box extra"><p class="box-label"><span>Beyond the slides · which characters are allowed</span></p><p>An identifier contains <strong>letters</strong>, <strong>digits</strong> and the underscore <code>_</code>, and <strong>does not start with a digit</strong>: <code>x2</code> and <code>conto_totale</code> are fine, <code>2x</code> and <code>conto-totale</code> are not (the hyphen is the minus sign). Spaces are not allowed. Also avoid names starting with <code>_</code>: they are reserved in many cases.</p>
 </div>
 <h3 id="indentation-slide-41">Indentation (slide 41)</h3>
 <p>The instructions of a block (<strong>not</strong> the braces) are written <strong>indented</strong> by a fixed number of spaces (for example 4) or, better, with the Tab character. Indentation helps you understand the flow of the program, and should be done <strong>while you program</strong>, not afterwards.</p>
@@ -415,7 +415,7 @@ Windows:  gcc -Wall -Werror source.c -o executable.exe</code></pre>
 <li><code>-o executable</code> chooses the <strong>name</strong> of the file produced.</li>
 </ul>
 <p>Then you run it: <code>./buongiorno</code> in the Unix shell, <code>buongiorno</code> in the Windows Command Prompt.</p>
-<div class="box exam"><p class="box-label">Matters in the exam · The exam options</p><p><code>-Wall -Werror</code> are the options used at the exam in past years: train with them from the start. A program that does not compile passes no test.</p>
+<div class="box exam"><p class="box-label"><span>Matters in the exam · The exam options</span></p><p><code>-Wall -Werror</code> are the options used at the exam in past years: train with them from the start. A program that does not compile passes no test.</p>
 </div>
 </section>
 
@@ -446,7 +446,7 @@ Windows:  gcc -Wall -Werror source.c -o executable.exe</code></pre>
     printf(<span class="str">&quot;5/2 uguale a %d\n&quot;</span>, x/y);
 }</code></pre>
 <p>The program <strong>compiles without errors</strong> even with <code>-Wall -Werror</code>, but when run it divides by zero. On the slide, on Linux, the program stops with the message <code>Eccezione in virgola mobile</code> (&quot;Floating point exception&quot;, even though the division is between integers: the name of the signal is historical). On Windows the program ends abnormally without printing the result. The <code>%d</code> inside the string is used to print an integer: you will see it soon. (&quot;uguale a&quot; means &quot;equals&quot;.)</p>
-<div class="box trap"><p class="box-label">Pitfall · &quot;It compiles&quot; does not mean &quot;it works&quot;</p><p>The compiler checks the <strong>syntax</strong>, not the <strong>logic</strong>. After compiling it, a program must be <strong>tried out</strong> (tests), also on edge cases such as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>.</p>
+<div class="box trap"><p class="box-label"><span>Pitfall · &quot;It compiles&quot; does not mean &quot;it works&quot;</span></p><p>The compiler checks the <strong>syntax</strong>, not the <strong>logic</strong>. After compiling it, a program must be <strong>tried out</strong> (tests), also on edge cases such as <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">n = 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span>.</p>
 </div>
 </section>
 
@@ -474,7 +474,7 @@ Windows:  gcc -Wall -Werror source.c -o executable.exe</code></pre>
 <li><strong>try</strong> your programs on several cases, including edge cases: the automatic tests will;</li>
 <li>the &quot;instruction after instruction&quot; model of assembly is the basis of the exercises on the <strong>state of memory</strong>.</li>
 </ul>
-<div class="box exam"><p class="box-label">Matters in the exam · What to do already this week</p><ul>
+<div class="box exam"><p class="box-label"><span>Matters in the exam · What to do already this week</span></p><ul>
 <li>First lab (Lab01, command line and compiler): lab group 2 (even student ID number) Monday 5/10, lab group 1 (odd student ID number) Tuesday 6/10, 14:00–17:00, Turing Lab.</li>
 <li>Copy the &quot;Buongiorno dal C.&quot; program, compile it with <code>gcc -Wall -Werror</code> and then <strong>break it on purpose</strong> (remove a <code>;</code>, a brace, a quote) to learn to recognise the error messages.</li>
 </ul>
@@ -596,33 +596,33 @@ printf(<span class="str">&quot;nome\tvoto\n&quot;</span>);</code></pre>
 <section id="questions" aria-labelledby="h-questions">
 <div class="sec-head"><span class="sec-num">§14</span><h2 id="h-questions">Review questions</h2><span class="slides">self-check</span></div>
 <div class="toolbar"><p>Answer out loud or in writing, then open the answer.</p><button type="button" class="btn qa-toggle">Show all answers</button></div>
-<div class="qa-list"><details class="qa"><summary>What is the difference between machine language and assembly?</summary><div class="ans"><p>Machine language is made of numeric codes (bits) executed directly by the processor and depends on the architecture. Assembly writes the same instructions with more readable symbolic names (mnemonics); an assembler translates it into machine language. Assembly too stays tied to the architecture.</p>
+<div class="qa-list"><details class="qa"><summary><span>What is the difference between machine language and assembly?</span></summary><div class="ans"><p>Machine language is made of numeric codes (bits) executed directly by the processor and depends on the architecture. Assembly writes the same instructions with more readable symbolic names (mnemonics); an assembler translates it into machine language. Assembly too stays tied to the architecture.</p>
 </div></details>
-<details class="qa"><summary>Which instructions are needed to add two numbers in memory, and why?</summary><div class="ans"><p>Two <code>LOAD</code>s to bring the numbers from memory into registers, an <code>ADD</code> between registers (the ALU works only on registers) and a <code>STORE</code> to bring the result back to memory.</p>
+<details class="qa"><summary><span>Which instructions are needed to add two numbers in memory, and why?</span></summary><div class="ans"><p>Two <code>LOAD</code>s to bring the numbers from memory into registers, an <code>ADD</code> between registers (the ALU works only on registers) and a <code>STORE</code> to bring the result back to memory.</p>
 </div></details>
-<details class="qa"><summary>What does <code>@A</code> mean, and how is it different from <code>LOAD, R0, 0</code>?</summary><div class="ans"><p><code>@A</code> denotes the content of memory at address A. In <code>LOAD, R0, 0</code> the 0 is a value: the register is set to zero.</p>
+<details class="qa"><summary><span>What does <code>@A</code> mean, and how is it different from <code>LOAD, R0, 0</code>?</span></summary><div class="ans"><p><code>@A</code> denotes the content of memory at address A. In <code>LOAD, R0, 0</code> the 0 is a value: the register is set to zero.</p>
 </div></details>
-<details class="qa"><summary>How is a loop built in assembly?</summary><div class="ans"><p>With a comparison (<code>CMP</code>) followed by a conditional jump (<code>JMPEQ</code>) that leaves the loop when the condition is true, and an unconditional jump (<code>JMP</code>) at the end of the body that goes back to the comparison.</p>
+<details class="qa"><summary><span>How is a loop built in assembly?</span></summary><div class="ans"><p>With a comparison (<code>CMP</code>) followed by a conditional jump (<code>JMPEQ</code>) that leaves the loop when the condition is true, and an unconditional jump (<code>JMP</code>) at the end of the body that goes back to the comparison.</p>
 </div></details>
-<details class="qa"><summary>Why were high-level languages created?</summary><div class="ans"><p>Because assembly is tiring, error-prone, requires knowing the CPU, does not show the structure of the program and has to be rewritten for each architecture. High-level languages use instructions close to mathematical and natural language, and a compiler translates them for each machine.</p>
+<details class="qa"><summary><span>Why were high-level languages created?</span></summary><div class="ans"><p>Because assembly is tiring, error-prone, requires knowing the CPU, does not show the structure of the program and has to be rewritten for each architecture. High-level languages use instructions close to mathematical and natural language, and a compiler translates them for each machine.</p>
 </div></details>
-<details class="qa"><summary>What is new about FORTRAN?</summary><div class="ans"><p>It is a language for writing formulas, created for the IBM 704: a compiler translates each statement into one or more assembly instructions; if the machine changes, recompiling is enough. It is one of the ancestors of the third-generation languages.</p>
+<details class="qa"><summary><span>What is new about FORTRAN?</span></summary><div class="ans"><p>It is a language for writing formulas, created for the IBM 704: a compiler translates each statement into one or more assembly instructions; if the machine changes, recompiling is enough. It is one of the ancestors of the third-generation languages.</p>
 </div></details>
-<details class="qa"><summary>Why was C created and who designed it?</summary><div class="ans"><p>Dennis Ritchie designed it at Bell Labs to rewrite Unix, which Ken Thompson had written in assembly: an efficient and portable language was needed. The first version dates from 1972 (K&amp;R C); it was standardised in the late 1980s (C89) and then updated (C99, C11, C17, C23).</p>
+<details class="qa"><summary><span>Why was C created and who designed it?</span></summary><div class="ans"><p>Dennis Ritchie designed it at Bell Labs to rewrite Unix, which Ken Thompson had written in assembly: an efficient and portable language was needed. The first version dates from 1972 (K&amp;R C); it was standardised in the late 1980s (C89) and then updated (C99, C11, C17, C23).</p>
 </div></details>
-<details class="qa"><summary>What are the four features of C according to slide 27?</summary><div class="ans"><p>Compiled (a compiler translates it into machine language), imperative (instructions as orders), structured (blocks in braces), strongly typed (the type of every variable must be declared).</p>
+<details class="qa"><summary><span>What are the four features of C according to slide 27?</span></summary><div class="ans"><p>Compiled (a compiler translates it into machine language), imperative (instructions as orders), structured (blocks in braces), strongly typed (the type of every variable must be declared).</p>
 </div></details>
-<details class="qa"><summary>What do <code>#include &lt;stdio.h&gt;</code> and the <code>main</code> function do?</summary><div class="ans"><p>The directive asks the preprocessor to include the stdio.h header, which declares functions such as printf and scanf. <code>main</code> is the mandatory function where execution starts: <code>int main(void)</code> receives no input and returns an integer to the operating system.</p>
+<details class="qa"><summary><span>What do <code>#include &lt;stdio.h&gt;</code> and the <code>main</code> function do?</span></summary><div class="ans"><p>The directive asks the preprocessor to include the stdio.h header, which declares functions such as printf and scanf. <code>main</code> is the mandatory function where execution starts: <code>int main(void)</code> receives no input and returns an integer to the operating system.</p>
 </div></details>
-<details class="qa"><summary>What are the main escape sequences?</summary><div class="ans"><p><code>\n</code> new line, <code>\t</code> tab, <code>\\</code> backslash, <code>\&quot;</code> double quote, <code>\0</code> string terminator.</p>
+<details class="qa"><summary><span>What are the main escape sequences?</span></summary><div class="ans"><p><code>\n</code> new line, <code>\t</code> tab, <code>\\</code> backslash, <code>\&quot;</code> double quote, <code>\0</code> string terminator.</p>
 </div></details>
-<details class="qa"><summary>Which rules apply to identifiers?</summary><div class="ans"><p>They are case-sensitive; they cannot be keywords or names from the standard library; they must be clear and not too similar to one another. In addition: only letters, digits and the underscore, without starting with a digit.</p>
+<details class="qa"><summary><span>Which rules apply to identifiers?</span></summary><div class="ans"><p>They are case-sensitive; they cannot be keywords or names from the standard library; they must be clear and not too similar to one another. In addition: only letters, digits and the underscore, without starting with a digit.</p>
 </div></details>
-<details class="qa"><summary>What are the stages of compilation with gcc?</summary><div class="ans"><p>Preprocessor (directives such as #include), compiler (from C to assembly), assembler (from assembly to the object file in machine language), linker (joins object files and libraries into an executable).</p>
+<details class="qa"><summary><span>What are the stages of compilation with gcc?</span></summary><div class="ans"><p>Preprocessor (directives such as #include), compiler (from C to assembly), assembler (from assembly to the object file in machine language), linker (joins object files and libraries into an executable).</p>
 </div></details>
-<details class="qa"><summary>What do the options <code>-Wall</code> and <code>-Werror</code> do?</summary><div class="ans"><p><code>-Wall</code> turns on the compiler&#39;s main warnings; <code>-Werror</code> turns them into errors, so with a single warning the program is not produced. They are the exam&#39;s options.</p>
+<details class="qa"><summary><span>What do the options <code>-Wall</code> and <code>-Werror</code> do?</span></summary><div class="ans"><p><code>-Wall</code> turns on the compiler&#39;s main warnings; <code>-Werror</code> turns them into errors, so with a single warning the program is not produced. They are the exam&#39;s options.</p>
 </div></details>
-<details class="qa"><summary>What is the difference between compile-time, runtime and logic errors?</summary><div class="ans"><p>Compile-time errors break the syntax and the compiler finds them right away; runtime errors emerge during execution (division by zero, invalid memory access); logic errors let the program run, but it does the wrong thing.</p>
+<details class="qa"><summary><span>What is the difference between compile-time, runtime and logic errors?</span></summary><div class="ans"><p>Compile-time errors break the syntax and the compiler finds them right away; runtime errors emerge during execution (division by zero, invalid memory access); logic errors let the program run, but it does the wrong thing.</p>
 </div></details></div>
 </section>
 

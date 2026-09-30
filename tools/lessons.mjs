@@ -27,16 +27,19 @@ const VIETATE = (() => {
 const RIQUADRI = {
   it: { DEF: 'Definizione', PROP: 'Proposizione', TEOREMA: 'Teorema', LEMMA: 'Lemma', COROLLARIO: 'Corollario', OSSERVAZIONE: 'Osservazione',
     ESEMPIO: 'Esempio', IDEA: "L'idea", METODO: 'Metodo', TRAPPOLA: 'Trappola', ESAME: "Conta all'esame", OLTRE: 'Oltre', NOTA: 'Nota',
-    CANALI: 'Canali A, B e C', DIM: 'Dimostrazione' },
+    CANALI: 'Canali A, B e C', DIM: 'Dimostrazione', RICORDA: 'Da ricordare', RIPASSO: 'Ripasso', APPROFONDIMENTO: 'Approfondimento' },
   en: { DEF: 'Definition', PROP: 'Proposition', TEOREMA: 'Theorem', LEMMA: 'Lemma', COROLLARIO: 'Corollary', OSSERVAZIONE: 'Remark',
     ESEMPIO: 'Example', IDEA: 'The idea', METODO: 'Method', TRAPPOLA: 'Pitfall', ESAME: 'Matters in the exam', OLTRE: 'Beyond', NOTA: 'Note',
-    CANALI: 'Channels A, B and C', DIM: 'Proof' },
+    CANALI: 'Channels A, B and C', DIM: 'Proof', RICORDA: 'To remember', RIPASSO: 'Refresher', APPROFONDIMENTO: 'Going deeper' },
 };
 // nomi inglesi dei riquadri accettati anche nei file inglesi
 const SINONIMI = { DEFINITION: 'DEF', PROPOSITION: 'PROP', THEOREM: 'TEOREMA', COROLLARY: 'COROLLARIO', REMARK: 'OSSERVAZIONE', EXAMPLE: 'ESEMPIO',
-  METHOD: 'METODO', PITFALL: 'TRAPPOLA', EXAM: 'ESAME', BEYOND: 'OLTRE', NOTE: 'NOTA', CHANNELS: 'CANALI', PROOF: 'DIM' };
+  METHOD: 'METODO', PITFALL: 'TRAPPOLA', EXAM: 'ESAME', BEYOND: 'OLTRE', NOTE: 'NOTA', CHANNELS: 'CANALI', PROOF: 'DIM',
+  REMEMBER: 'RICORDA', REFRESHER: 'RIPASSO', DEEPER: 'APPROFONDIMENTO' };
 const CLASSE = { DEF: 'def', PROP: 'def', TEOREMA: 'def', LEMMA: 'def', COROLLARIO: 'def', OSSERVAZIONE: 'neutro', ESEMPIO: 'esempio', IDEA: 'idea',
-  METODO: 'idea metodo', TRAPPOLA: 'trap', ESAME: 'exam', OLTRE: 'extra', NOTA: 'neutro', CANALI: 'extra' };
+  METODO: 'idea metodo', TRAPPOLA: 'trap', ESAME: 'exam', OLTRE: 'extra', NOTA: 'neutro', CANALI: 'extra', RICORDA: 'ricorda', RIPASSO: 'ripasso' };
+// riquadri chiusi, che si aprono con un clic: le dimostrazioni e le parti più formali
+const A_SCOMPARSA = new Set(['DIM', 'APPROFONDIMENTO']);
 
 const L = {
   it: {
@@ -56,7 +59,7 @@ const L = {
       indice: 'Indice', indiceLezione: 'Indice della lezione', percorso: 'Percorso', appunti: 'Appunti', lezione: 'Lezione',
       inBreve: 'In breve', inPunti: n => `La lezione in ${n} punti`, legenda: 'Legenda dei riquadri',
       lDef: 'Definizione o risultato da sapere', lTrap: 'Trappola / errore tipico', lExam: "Conta all'esame", lExtra: m => `Oltre ${m}`,
-      lEsempio: 'Esempio svolto', lIdea: "L'idea e il metodo, passo per passo",
+      lEsempio: 'Esempio svolto', lIdea: "L'idea e il metodo, passo per passo", lRicorda: 'Da ricordare', lRipasso: 'Ripasso', provaTu: 'Prova tu',
       soluzione: 'Soluzione', verifica: 'Verifica', mostraTutte: 'Mostra tutte le risposte',
       rispondi: 'Rispondi a voce alta o per iscritto, poi apri la risposta.',
       spunta: 'Spunta quando sai fare la cosa senza guardare gli appunti. Le spunte restano salvate in questo browser.',
@@ -85,7 +88,7 @@ const L = {
       indice: 'Contents', indiceLezione: 'Lesson contents', percorso: 'Breadcrumb', appunti: 'Notes', lezione: 'Lesson',
       inBreve: 'In brief', inPunti: n => `The lesson in ${n} points`, legenda: 'Box legend',
       lDef: 'Definition or result to know', lTrap: 'Pitfall / typical mistake', lExam: 'Matters in the exam', lExtra: m => `Beyond ${m}`,
-      lEsempio: 'Worked example', lIdea: 'The idea and the method, step by step',
+      lEsempio: 'Worked example', lIdea: 'The idea and the method, step by step', lRicorda: 'To remember', lRipasso: 'Refresher', provaTu: 'Your turn',
       soluzione: 'Solution', verifica: 'Check', mostraTutte: 'Show all answers',
       rispondi: 'Answer out loud or in writing, then open the answer.',
       spunta: 'Tick an item when you can do it without looking at the notes. Your ticks are saved in this browser.',
@@ -318,27 +321,33 @@ function markdown(testo, ctx) {
       out.push(blocco(ctx, esercizio(ctx, livello, titolo, testoEs.join('\n'), sol.join('\n'))));
       continue;
     }
-    if ((m = r.match(/^:::\s*(domanda|question)\b\s*(.*)$/i))) {
-      // domande consecutive (anche separate da righe vuote) formano un solo elenco
+    if ((m = r.match(/^:::\s*(domanda|question|prova|try)\b\s*(.*)$/i))) {
+      // domande consecutive (anche separate da righe vuote) formano un solo elenco; «::: prova» è la stessa cosa in mezzo
+      // alla spiegazione: una domanda breve con la risposta nascosta, sotto l'etichetta «Prova tu»
+      const prova = /^(prova|try)$/i.test(m[1]);
+      const stesso = prova ? /^:::\s*(prova|try)\b\s*(.*)$/i : /^:::\s*(domanda|question)\b\s*(.*)$/i;
+      const nome = prova ? '«::: prova»' : 'domanda';
       const domande = [];
       for (;;) {
         const riga = rigaDi(ctx, righe[i]);
         const risposta = [];
         for (i++; i < righe.length && !/^:::\s*$/.test(righe[i]); i++) {
-          if (/^:::/.test(righe[i])) ctx.errore(rigaDi(ctx, righe[i]), `dentro una domanda c'è «${righe[i].trim()}»: chiudi prima la domanda con «:::»`);
+          if (/^:::/.test(righe[i])) ctx.errore(rigaDi(ctx, righe[i]), `dentro una ${nome} c'è «${righe[i].trim()}»: chiudila prima con «:::»`);
           risposta.push(righe[i]);
         }
-        if (i >= righe.length) ctx.errore(riga, 'domanda non chiusa con «:::»');
-        if (!m[2].trim()) ctx.errore(riga, 'domanda senza testo: scrivilo dopo «::: domanda»');
-        if (!risposta.join('').trim()) ctx.errore(riga, 'domanda senza risposta');
+        if (i >= righe.length) ctx.errore(riga, `${nome} non chiusa con «:::»`);
+        if (!m[2].trim()) ctx.errore(riga, `${nome} senza testo: scrivilo sulla stessa riga, dopo «::: ${m[1]}»`);
+        if (!risposta.join('').trim()) ctx.errore(riga, `${nome} senza risposta`);
         domande.push({ testo: m[2], risposta: risposta.join('\n') });
         let j = i + 1;
         while (j < righe.length && !righe[j].trim()) j++;
-        if (j < righe.length && (m = righe[j].match(/^:::\s*(domanda|question)\b\s*(.*)$/i))) { i = j; continue; }
+        if (j < righe.length && (m = righe[j].match(stesso))) { i = j; continue; }
         break;
       }
-      out.push(blocco(ctx, `<div class="qa-list">${domande.map(d => `<details class="qa"><summary>${inLinea(d.testo, ctx)}</summary><div class="ans">${dentro(ctx, d.risposta)}</div></details>`).join('\n')}</div>`));
-      ctx.usati.add('domande');
+      // il testo della domanda sta in uno <span>: il <summary> è una riga flessibile, e senza lo <span> ogni formula diventerebbe una colonna
+      const elenco = domande.map(d => `<details class="qa"><summary><span>${inLinea(d.testo, ctx)}</span></summary><div class="ans">${dentro(ctx, d.risposta)}</div></details>`).join('\n');
+      if (prova) out.push(blocco(ctx, `<div class="prova"><p class="box-label">${T.provaTu}</p><div class="qa-list qa-prova">${elenco}</div></div>`));
+      else { out.push(blocco(ctx, `<div class="qa-list">${elenco}</div>`)); ctx.usati.add('domande'); }
       continue;
     }
     if ((m = r.match(/^>\s*\[!([A-Za-zÀ-ú]+)\]\s*(.*)$/))) {
@@ -352,7 +361,7 @@ function markdown(testo, ctx) {
       out.push(blocco(ctx, riquadro(ctx, tipo, m[2].trim(), corpo.join('\n'))));
       continue;
     }
-    if (/^:::/.test(r)) ctx.errore(rigaDi(ctx, r), `«${r.trim()}» fuori posto (blocchi: «::: esercizio livello titolo», «::: domanda testo»)`);
+    if (/^:::/.test(r)) ctx.errore(rigaDi(ctx, r), `«${r.trim()}» fuori posto (blocchi: «::: esercizio livello titolo», «::: domanda testo», «::: prova testo»)`);
     if (/^#\s/.test(r)) ctx.errore(rigaDi(ctx, r), 'niente titoli con un solo #: il titolo della pagina viene dall\'intestazione YAML');
     out.push(r);
   }
@@ -367,9 +376,9 @@ function riquadro(ctx, tipo, titolo, corpo) {
   if (tipo === 'OLTRE') etichetta = T.lExtra(L.materiale[ctx.materiale] || L.materiale.slide);
   if (tipo === 'CANALI' && titolo) etichetta = inLinea(titolo, ctx);   // per esempio «Sei del canale A o C?»
   else if (titolo) etichetta += (/^\d/.test(titolo) ? ' ' : ' · ') + inLinea(titolo, ctx);
-  if (tipo === 'DIM') return `<details class="dim"><summary>${etichetta}</summary><div class="dim-corpo">${dentro(ctx, corpo)}</div></details>`;
+  if (A_SCOMPARSA.has(tipo)) return `<details class="dim${tipo === 'DIM' ? '' : ' approfondimento'}"><summary><span>${etichetta}</span></summary><div class="dim-corpo">${dentro(ctx, corpo)}</div></details>`;
   const id = tipo === 'CANALI' ? ` id="${idUnico(ctx, LINGUA === 'it' ? 'altri-canali' : 'other-channels')}"` : '';
-  return `<div class="box ${CLASSE[tipo]}"${id}><p class="box-label">${etichetta}</p>${dentro(ctx, corpo)}</div>`;
+  return `<div class="box ${CLASSE[tipo]}"${id}><p class="box-label"><span>${etichetta}</span></p>${dentro(ctx, corpo)}</div>`;
 }
 
 function esercizio(ctx, livello, titolo, testo, sol) {
@@ -709,6 +718,8 @@ function compila(file) {
     `<li class="l-extra"><i></i>${T.lExtra(L.materiale[ctx.materiale] || L.materiale.slide)}</li>`];
   if (u.has('ESEMPIO')) legenda.push(`<li class="l-esempio"><i></i>${T.lEsempio}</li>`);
   if (u.has('IDEA') || u.has('METODO')) legenda.push(`<li class="l-idea"><i></i>${T.lIdea}</li>`);
+  if (u.has('RICORDA')) legenda.push(`<li class="l-ricorda"><i></i>${T.lRicorda}</li>`);
+  if (u.has('RIPASSO')) legenda.push(`<li class="l-ripasso"><i></i>${T.lRipasso}</li>`);
   // pagina nell'altra lingua: se nella cartella accanto (UniTo-en o UniTo) non c'è ancora, il link porta alla pagina del corso
   const corsoAltro = LINGUA === 'it' ? (corso === 'INGLESE' ? 'ENGLISH' : corso) : (corso === 'ENGLISH' ? 'INGLESE' : corso);
   // la cartella dell'altra lingua si può indicare con ALTRA_LINGUA (per esempio quando si compila da una copia della repo)
@@ -717,7 +728,7 @@ function compila(file) {
   const altro = `${L.altroSito}${corsoAltro}/${existsSync(localeAltro) ? meta.file_altro : ''}`;
   if (!existsSync(localeAltro)) ctx.avviso(null, `${relative(join(RADICE, '..'), localeAltro).replace(/\\/g, '/')} non c'è ancora: il link all'altra lingua porta alla pagina del corso`);
   const [m1, m2, m3, m4] = L.marcatori;
-  const indice = toc.map(t => `<li><a href="#${t.id}"><span class="n">${t.n}</span>${t.titolo}</a></li>`).join('\n');
+  const indice = toc.map(t => `<li><a href="#${t.id}"><span class="n">${t.n}</span><span>${t.titolo}</span></a></li>`).join('\n');
   const rielab = L.rielaborati[ctx.materiale] || L.rielaborati.slide;
   const titoloPagina = `${lezione} · ${String(meta.titolo || '').replace(/\$/g, '')}`;
 

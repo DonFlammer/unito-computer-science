@@ -1,0 +1,1260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-YcsbHcuMuVAacs70R2MUzu76uz9nI9XrvmmdRH+Bzzg=' 'sha256-Xh+qYR2i0qay6hF9tMt+VFHVa1BpgbpYJmzQ3RsctHU='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01A · A first algorithm</title>
+<meta name="lesson" content="01A">
+<meta name="date" content="2026-09-28">
+<meta name="description" content="Study notes for lesson 01A of Programming I (channel B): algorithm, multiplication by repeated addition, flowchart, step-by-step simulator, exercises and review questions.">
+<link rel="alternate" hreflang="it" href="https://donflammer.github.io/unito-informatica/appunti/PROG1/01A_primo_algoritmo.html">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080d19'/%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%233fe0cc' stroke-opacity='.55'/%3E%3Ctext x='16' y='22.5' font-family='Consolas,monospace' font-size='18' font-weight='700' text-anchor='middle' fill='%233fe0cc'%3E%C2%A7%3C/text%3E%3C/svg%3E">
+<script>
+  var t = null; try { t = localStorage.getItem('appunti:tema'); if (localStorage.getItem('appunti:moto') === 'ridotto') document.documentElement.classList.add('meno-moto'); } catch (e) {} if (t !== 'dark') document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'oled');
+</script>
+<link rel="preload" href="../../assets/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/appunti.css">
+</head>
+<body>
+
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="fc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto-start-reverse"><path class="arrowhead" d="M0,0 L10,5 L0,10 z"/></marker>
+    <marker id="fc-arrow-on" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path class="arrowhead-on" d="M0,0 L10,5 L0,10 z"/></marker>
+  </defs>
+</svg>
+
+<a class="salta" href="#contenuto">Skip to content</a>
+<canvas id="rete" aria-hidden="true"></canvas>
+<header class="barra">
+  <div class="barra-in">
+    <a class="marchio" href="../../index.html"><span class="glifo" aria-hidden="true">§</span><span class="nome"><b>Computer Science Notes</b><small>UniTo · 2026/27</small></span></a>
+    <button type="button" class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span></button>
+    <nav aria-label="Site">
+      <a href="../../index.html#courses">Courses</a>
+      <a href="https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/unito_computer_science.md">General info</a>
+      <a href="https://github.com/DonFlammer/unito-computer-science/tree/main/ai_context">For AIs</a>
+      <a href="https://donflammer.github.io/unito-ofa-maths/">OFA</a>
+      <a href="https://github.com/DonFlammer/unito-computer-science">GitHub</a>
+      <a class="lingua" href="https://donflammer.github.io/unito-informatica/appunti/PROG1/01A_primo_algoritmo.html" hreflang="it" lang="it">Italiano</a>
+      <button type="button" class="theme solo-icona" id="theme-toggle" aria-label="Theme: dark" title="Theme: dark"><span class="testo-btn">Theme: dark</span></button>
+      <button type="button" class="theme oled-btn" id="oled-toggle" aria-pressed="true" title="OLED black: black background and white main colour">OLED</button>
+      <button type="button" class="theme solo-icona anim-btn" id="anim-toggle" aria-pressed="true" aria-label="Animations: on" title="Animations: on"><span class="testo-btn">Animations: on</span></button>
+    </nav>
+  </div>
+  <div class="avanzamento" aria-hidden="true"></div>
+</header>
+
+<div class="shell">
+  <nav class="toc" aria-label="Lesson contents">
+    <details id="toc-details" open>
+      <summary>Contents</summary>
+      <ol>
+        <li><a href="#in-brief"><span class="n">→</span>In brief</a></li>
+        <li><a href="#computer-science"><span class="n">§1</span>What computer science is</a></li>
+        <li><a href="#algorithm"><span class="n">§2</span>Algorithm</a></li>
+        <li><a href="#model"><span class="n">§3</span>Numbers and instructions</a></li>
+        <li><a href="#problem"><span class="n">§4</span>Designing an algorithm</a></li>
+        <li><a href="#repeated-sums"><span class="n">§5</span>Repeated addition</a></li>
+        <li><a href="#data"><span class="n">§6</span>Accumulator and counter</a></li>
+        <li><a href="#versions"><span class="n">§7</span>Seven versions</a></li>
+        <li><a href="#zero-case"><span class="n">§8</span>The bug in the n = 0 case</a></li>
+        <li><a href="#flowchart"><span class="n">§9</span>Flowchart and simulator</a></li>
+        <li><a href="#languages"><span class="n">§10</span>Programs and languages</a></li>
+        <li><a href="#in-c"><span class="n">§11</span>Preview: in C</a></li>
+        <li><a href="#correctness"><span class="n">§12</span>Why it works</a></li>
+        <li><a href="#pitfalls"><span class="n">§13</span>Pitfalls</a></li>
+        <li><a href="#exam"><span class="n">§14</span>Towards the exam</a></li>
+        <li><a href="#exercises"><span class="n">§15</span>Exercises</a></li>
+        <li><a href="#questions"><span class="n">§16</span>Review questions</a></li>
+        <li><a href="#glossary"><span class="n">§17</span>Glossary</a></li>
+        <li><a href="#checklist"><span class="n">§18</span>Checklist</a></li>
+      </ol>
+    </details>
+  </nav>
+
+  <main id="contenuto" class="foglio">
+    <header>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="../../index.html">Notes</a> › <a href="index.html">Programming I</a> › Lesson 01A</nav>
+      <p class="eyebrow">Programming I (<span lang="it">Programmazione I</span>) · Theory · Channel B · Lesson 01A</p>
+      <h1>A first algorithm</h1>
+      <p class="lede">From the concept of an algorithm to multiplication by repeated addition, through seven successive rewrites, all the way to the flowchart. Notes reconstructed from the 30 slides of the lesson, with worked examples, a step-by-step simulator, exercises and review questions.</p>
+      <dl class="meta">
+        <div><dt>Slides</dt><dd>01A_primo_algoritmo · 30 pages</dd></div>
+        <div><dt>Course</dt><dd>Prof. Elvio Amparore · A.Y. 2026/27</dd></div>
+        <div><dt>Study time</dt><dd>60–90 minutes</dd></div>
+      </dl>
+      <ul class="legend" aria-label="Box legend">
+        <li class="l-def"><i></i>Definition to know</li>
+        <li class="l-trap"><i></i>Pitfall / typical mistake</li>
+        <li class="l-exam"><i></i>Matters in the exam</li>
+        <li class="l-extra"><i></i>Beyond the slides</li>
+      </ul>
+    </header>
+
+    <!-- IN BRIEF -->
+    <section class="tldr" id="in-brief" aria-labelledby="tldr-title">
+      <h2 id="tldr-title">The lesson in 7 points</h2>
+      <ul>
+        <li>Computer science studies <strong>algorithms</strong>, not computers: the computer is the tool, like the telescope for astronomy.</li>
+        <li><strong>Algorithm</strong> = an <em>ordered</em> set of <em>unambiguous</em> and <em>effectively computable</em> operations that produces a result and <em>halts in a finite amount of time</em>.</li>
+        <li>Running example: computing <code>m × n</code> (with <code>n ≥ 0</code>) on a machine that can only add, assign and compare: <strong>repeated addition</strong> starting from the identity element 0.</li>
+        <li>You need two variables: an <strong>accumulator</strong> <code>s</code> (the partial sum) and a <strong>counter</strong> <code>i</code> (the additions already done).</li>
+        <li>Golden rule: <strong>check the condition first, then execute</strong>. If you check <code>i = n</code> after adding, with <code>n = 0</code> the algorithm never terminates.</li>
+        <li>Notation: <code>←</code> assigns, <code>=</code> compares. From jumps to numbered lines we move on to <strong>nested blocks</strong> (Begin/End), made visible by indentation.</li>
+        <li>The <strong>flowchart</strong> shows the flow of control. The goal of the course is to translate algorithms described in Italian into <strong>C</strong>, based on the model of the <strong>Von Neumann machine</strong>.</li>
+      </ul>
+    </section>
+
+    <div class="box extra" id="other-channels">
+      <p class="box-label">Are you in channel (<span lang="it">canale</span>) A or C?</p>
+      <p><strong>Channel A (Fiandrotti):</strong> a very similar deck, "01A_primo_algoritmo" (40 slides), with the same versions V1–V6 and the same bug in the n = 0 case. Compared with channel B, it lacks the slide "In computer science everything is a number", the slide "Designing an algorithm" (input, output, steps, termination), the box on data, procedures and Wirth ("Program = Algorithms + Data Structures"), version V7 without line numbers and the comparison between the flowchart and the structured representation; the slide on the initial case lacks the words "even in the exam". The same week also has "01B_architettura".</p>
+      <p><strong>Channel C (Mazzei):</strong> the topic is the section "The First Algorithm" (<span lang="it">"Il Primo Algoritmo"</span>, slides 20–42) of lesson 01. It starts from column addition, calls the counter "fingers" (<span lang="it">"dita"</span>) and skips the wrong versions and the n = 0 case, going straight to the correct pseudocode and the flowchart; then it moves on to Von Neumann, assembly and FORTRAN.</p>
+      <p>The exam is the same for all three channels: the initial case and "check first, then execute" (§8) apply to everyone.</p>
+    </div>
+
+    <!-- §1 -->
+    <section id="computer-science" aria-labelledby="h-computer-science">
+      <div class="sec-head"><span class="sec-num">§1</span><h2 id="h-computer-science">What computer science is (and is not)</h2><span class="slides">slides 2–4</span></div>
+
+      <h3>Computer (<span lang="it">calcolatore</span>)</h3>
+      <p>The word has changed meaning over time:</p>
+      <ul>
+        <li><strong>Originally</strong> a "computer" was a <strong>person</strong> who carried out calculations by hand, with pen and paper or with mechanical calculators. The photo on the slide shows exactly that: a room full of human computers.</li>
+        <li><strong>Since the 1950s</strong> it has meant a <strong>programmable electromechanical device</strong> for carrying out even complex calculations. The second photo is the <strong>Programma 101</strong> (1965) by Olivetti of Ivrea, advertised as <em>"the do-it-yourself computer"</em>: one of the first desktop computers.</li>
+      </ul>
+
+      <blockquote class="quote">
+        <p>Computer science is not the science of computers. No more than astronomy is the science of telescopes, or surgery the science of scalpels.</p>
+        <footer>Edsger W. Dijkstra (traditional attribution) · slide 3</footer>
+      </blockquote>
+      <p>The message: <strong>computer science studies algorithms, not devices</strong>. The computer is just the tool with which algorithms are executed.</p>
+
+      <div class="box def">
+        <p class="box-label">Definition · slide 4</p>
+        <p class="def-text"><strong>Computer science</strong> = the study of algorithms, which includes:</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Aspect</th><th>What is studied</th><th>Where you will meet it again</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Formal and mathematical properties</strong></td><td><em>Correct</em> and <em>efficient</em> algorithms</td><td>Algorithms and Data Structures, maths and logic courses</td></tr>
+            <tr><td><strong>Physical realisation</strong></td><td>Designing and building computers that execute algorithms</td><td>Computer Architecture (<span lang="it">Architettura degli Elaboratori</span>)</td></tr>
+            <tr><td><strong>Linguistic realisation</strong></td><td>Designing programming languages to write and execute algorithms</td><td>Programming I and II (<span lang="it">Programmazione I e II</span>), Formal Languages and Compilers</td></tr>
+            <tr><td><strong>Applications</strong></td><td>Designing software (implemented algorithms) for important problems</td><td>Databases, Networks, Operating Systems and much of the following years</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85rem;color:var(--muted)">The "Where you will meet it again" column is a connection added in these notes; it is not in the slides.</p>
+    </section>
+
+    <!-- §2 -->
+    <section id="algorithm" aria-labelledby="h-algorithm">
+      <div class="sec-head"><span class="sec-num">§2</span><h2 id="h-algorithm">Algorithm: definitions and properties</h2><span class="slides">slide 5</span></div>
+
+      <p>The slide gives two definitions. The first is intuitive; the second is the precise one you must be able to repeat.</p>
+      <div class="box def">
+        <p class="box-label">Intuitive definition</p>
+        <p class="def-text">A <strong>well-defined computational procedure</strong>, executable <strong>mechanically</strong> by a human being or by a machine, to obtain a given result (<strong>output</strong>) from certain starting data (<strong>input</strong>).</p>
+      </div>
+      <div class="box def">
+        <p class="box-label">Precise definition · to memorise</p>
+        <p class="def-text">An <strong>ordered set</strong> of <strong>unambiguous</strong> and <strong>effectively computable</strong> operations that, when executed, <strong>produces a result</strong> and <strong>halts in a finite amount of time</strong>.</p>
+      </div>
+
+      <p>Each keyword is a requirement. If one is missing, it is not an algorithm:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Property</th><th>Meaning</th><th>Counterexample</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Ordered</strong></td><td>The operations have a precise sequence: after each step you know which one comes next.</td><td>A list of instructions in no order ("drain the pasta", "boil the water"…)</td></tr>
+            <tr><td><strong>Unambiguous</strong></td><td>Each operation has only one possible interpretation.</td><td>"Add salt to taste"</td></tr>
+            <tr><td><strong>Effectively computable</strong></td><td>Each operation can actually be carried out, with the means available to whoever executes it.</td><td>"Compute m × n" for a machine that can only add; "divide by 0"</td></tr>
+            <tr><td><strong>Produces a result</strong></td><td>At the end there is an output.</td><td>A procedure that neither returns nor communicates anything</td></tr>
+            <tr><td><strong>Halts in finite time</strong></td><td>It terminates after a finite number of steps, for <em>every</em> allowed input.</td><td>The second formulation of the multiplication with n = 0 (§8)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>"Executable mechanically" means that executing it requires no intuition or creativity: you just follow the instructions. This is precisely what makes it possible to entrust it to a machine.</p>
+
+      <h3>Where the word comes from</h3>
+      <p>From the Persian mathematician <strong>Muḥammad ibn Mūsā al-Khwārizmī</strong>, who lived around the year 800. His book on <em>calculation with Indian numerals</em> (the digits 0–9 with the positional notation we use today) describes procedures for arithmetic operations. In the 12th-century Latin translation the text opens with the words "Dixit Algorizmi" ("thus spoke al-Khwārizmī"); the work is known by the title "Algoritmi de numero Indorum", which was given to it in the printed edition of 1857. The word "algorithm" derives from the author's Latinised name. A curiosity: the word "algebra" comes from another of his books (<em>al-jabr</em>).</p>
+    </section>
+
+    <!-- §3 -->
+    <section id="model" aria-labelledby="h-model">
+      <div class="sec-head"><span class="sec-num">§3</span><h2 id="h-model">The model: everything is a number, one instruction per line</h2><span class="slides">slides 6–7</span></div>
+
+      <h3>In computer science everything is a number</h3>
+      <ul>
+        <li>Every piece of information a computer handles is represented as a <strong>number</strong>. Texts, images, sounds and instructions look like very different objects, but in memory they are all encoded as <strong>sequences of bits</strong> (numbers in binary).</li>
+        <li>An <strong>imperative</strong> program works by <strong>modifying numerical values stored in the state of the machine</strong>. The <em>state</em> is the set of values held in memory at a given moment.</li>
+        <li><strong>Programming</strong> means describing how these values must be transformed, step by step.</li>
+      </ul>
+      <div class="box extra">
+        <p class="box-label">Beyond the slides · examples</p>
+        <p>The letter <code>A</code> is stored as the number 65 (ASCII code), that is <code>01000001</code> in binary. A red pixel is the triple of numbers (255, 0, 0). You will soon see it in C: a character <em>is</em> a small integer.</p>
+      </div>
+
+      <h3>Imperative programming</h3>
+      <ul>
+        <li>The program is an <strong>ordered sequence of instructions</strong>, in the form <strong>one line = one instruction</strong>.</li>
+        <li>Once line <em>n</em> has been executed, line <em>n+1</em> is executed, <strong>unless otherwise specified</strong>. This is the <em>sequential flow</em>; jumps change it.</li>
+        <li>Examples of instructions for the machine:
+          <ul>
+            <li><strong>assign</strong> a value to a variable;</li>
+            <li><strong>add</strong> two variables and store the result in a third;</li>
+            <li><strong>compare</strong> two variables;</li>
+            <li><strong>jump</strong> to a line other than the next one, possibly under a certain condition.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>A <strong>variable</strong> is a named container (<code>s</code>, <code>i</code>, <code>m</code>…) that holds a value, and that value can change during execution. The set of the values of the variables is the state.</p>
+    </section>
+
+    <!-- §4 -->
+    <section id="problem" aria-labelledby="h-problem">
+      <div class="sec-head"><span class="sec-num">§4</span><h2 id="h-problem">Designing an algorithm: the problem</h2><span class="slides">slide 8</span></div>
+      <p><strong>Problem</strong>: compute the multiplication of two integers <code>m</code> and <code>n</code>, with <code>n ≥ 0</code>. Before writing any step, four things must be settled:</p>
+      <div class="spec">
+        <div><b>Input</b>the two values <code>m</code> and <code>n</code></div>
+        <div><b>Output</b>the value <code>m × n</code></div>
+        <div><b>Steps</b>an unambiguous sequence of operations that the machine can execute</div>
+        <div><b>Termination</b>the sequence reaches the output and halts after a finite number of steps</div>
+      </div>
+      <p><strong>Assumption about the machine</strong>: it cannot multiply directly, but it can execute elementary operations: <strong>addition</strong>, <strong>assignment</strong> and <strong>comparison</strong>.</p>
+      <div class="box def">
+        <p class="box-label">The key idea</p>
+        <p>Designing the algorithm means <strong>building the required result using only the available operations</strong>. An operation the machine does not have (multiplication) is reduced to one it does have (addition).</p>
+      </div>
+      <div class="box extra">
+        <p class="box-label">Beyond the slides · precondition</p>
+        <p>The constraint <code>n ≥ 0</code> is called a <strong>precondition</strong>: it is what must hold for the input for the algorithm to work. Note that there is no constraint on <code>m</code>: it can even be negative (see exercise 3).</p>
+      </div>
+    </section>
+
+    <!-- §5 -->
+    <section id="repeated-sums" aria-labelledby="h-repeated-sums">
+      <div class="sec-head"><span class="sec-num">§5</span><h2 id="h-repeated-sums">The idea: repeated addition</h2><span class="slides">slides 9–13</span></div>
+      <p>For <code>n ≥ 0</code> the following holds:</p>
+      <pre class="code"><code>m × n  =  m + m + … + m            ▷ n terms: I add m to itself n−1 times
+s      =  0 + m + m + … + m        ▷ I start from the identity element 0: I add m exactly n times</code></pre>
+      <p>The second form starts from the <strong>identity element of addition</strong> (0, because <code>a + 0 = a</code>). It is better for three reasons:</p>
+      <ol>
+        <li><strong>All the steps are the same</strong> ("add m"), so they are repeated mechanically.</li>
+        <li><strong>The case <code>n = 0</code> takes care of itself</strong>: zero additions, and the result stays 0 = m × 0.</li>
+        <li><strong>The number of additions is exactly n</strong>, not n−1: fewer chances of getting the count wrong.</li>
+      </ol>
+      <p>What remains is to establish <strong>how to mechanically perform exactly n additions and then stop</strong>. We need something that counts.</p>
+
+      <h3>Worked example: m = 4, n = 3</h3>
+      <figure class="paper">
+        <pre class="colsum">   0 +
+   4 =
+ ─────
+   4 +   <span class="note">← 1st partial sum</span>
+   4 =
+ ─────
+   8 +   <span class="note">← 2nd partial sum</span>
+   4 =
+ ─────
+  <span class="tot">12</span>     <span class="note">← 3rd partial sum and total</span></pre>
+        <table>
+          <thead><tr><th>Fingers raised</th><th class="num">s</th></tr></thead>
+          <tbody>
+            <tr><td><span class="tally" aria-hidden="true">·</span> none</td><td class="num">0</td></tr>
+            <tr><td><span class="tally" aria-hidden="true">|</span> one</td><td class="num">4</td></tr>
+            <tr><td><span class="tally" aria-hidden="true">||</span> two</td><td class="num">8</td></tr>
+            <tr><td><span class="tally" aria-hidden="true">|||</span> three → I stop</td><td class="num">12</td></tr>
+          </tbody>
+        </table>
+        <figcaption>The sheet holds the partial sum, the fingers count the additions already done: s = 0 + 4 + 4 + 4 = 12.</figcaption>
+      </figure>
+      <p>Slides 10–13 show the same thing: you start from the "initial partial sum" <code>s = 0</code> with a closed fist, and with each addition you raise a finger. When three fingers are raised (that is, n), you stop.</p>
+    </section>
+
+    <!-- §6 -->
+    <section id="data" aria-labelledby="h-data">
+      <div class="sec-head"><span class="sec-num">§6</span><h2 id="h-data">Accumulator, counter and "Program = Algorithms + Data Structures"</h2><span class="slides">slide 14</span></div>
+      <p>Multiplication is carried out by repeatedly adding <code>m</code> to a partial sum <code>s</code>, initially 0, <code>n</code> times. To do this mechanically you need two tools:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Tool</th><th>Variable</th><th>What it is for</th><th>In the example by hand</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Accumulator</strong></td><td><code>s</code></td><td>keeps track of the partial sum</td><td>the sheet of paper on which I do the additions</td></tr>
+            <tr><td><strong>Counter</strong></td><td><code>i</code></td><td>keeps track of the number of additions done</td><td>the fingers of the hand used for counting</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>This leads to two essential concepts of programming, which the course will often come back to:</p>
+      <ol>
+        <li><strong>Data</strong>: the values the program operates on and the way they are organised.</li>
+        <li><strong>Procedures</strong>: the operations and processes that transform these data.</li>
+      </ol>
+      <div class="box def">
+        <p class="box-label">Niklaus Wirth</p>
+        <p class="def-text"><strong>Program = Algorithms + Data Structures</strong></p>
+        <p>A program is the combination of <em>how we represent the data</em> and <em>how we define the operations that process them</em>. Wirth, the creator of the Pascal language, gave this title to a book of his from 1976 (<em>Algorithms + Data Structures = Programs</em>).</p>
+      </div>
+      <div class="box extra">
+        <p class="box-label">Beyond the slides · two patterns you will see everywhere</p>
+        <p><strong>Accumulator</strong>: a variable initialised to the identity element of the operation (0 for sums and counts, 1 for products) and updated at each step. <strong>Counter-controlled loop</strong>: a variable that starts from an initial value, advances by 1 at each repetition and decides when to stop. Almost every exercise on loops uses at least one of them.</p>
+      </div>
+    </section>
+
+    <!-- §7 -->
+    <section id="versions" aria-labelledby="h-versions">
+      <div class="sec-head"><span class="sec-num">§7</span><h2 id="h-versions">From an idea to an algorithm: seven versions</h2><span class="slides">slides 15–26</span></div>
+      <p>The heart of the lesson is the way the algorithm is <strong>refined</strong> one step at a time: each version fixes a flaw of the previous one. Knowing <em>why</em> you move from one version to the next matters as much as knowing the final version.</p>
+
+      <div class="versions">
+        <article class="ver">
+          <div class="ver-head"><span class="ver-tag">V1</span><span class="ver-title">The idea in words</span><span class="ver-slide">slide 15</span></div>
+<pre class="code"><code>1. First of all, set the accumulator s to the identity value 0,
+   and set the counter i to 0.
+2. Add m to s exactly n times, updating the counter i
+   (additions done) and at the same time the accumulator s
+   (partial result).</code></pre>
+          <p class="ver-why"><b>Flaw:</b> step 2 is <em>semantically complex</em>. It hides the repetition and the check inside it, so it is not an elementary step that the machine can execute.</p>
+        </article>
+
+        <article class="ver bad">
+          <div class="ver-head"><span class="ver-tag">V2</span><span class="ver-title">Elementary steps, check at the end</span><span class="ver-slide">slide 16</span></div>
+<pre class="code"><code>1. set s to 0 (identity value) and i to 0
+2. add m to the accumulator s
+3. add 1 to the counter i
+<span class="bad-line">4. if i = n: the additions are finished and s is the total,
+   otherwise repeat from step 2</span></code></pre>
+          <p class="ver-why"><b>Flaw:</b> it works with m = 4, n = 3, but the check comes <em>after</em> the addition. With n = 0 it still performs one addition, then i = 1 and the condition i = n will never be true: <strong>it does not terminate</strong> (§8).</p>
+        </article>
+
+        <article class="ver">
+          <div class="ver-head"><span class="ver-tag">V3</span><span class="ver-title">The check first</span><span class="ver-slide">slide 21</span></div>
+<pre class="code"><code>[1] set the accumulator s to 0 and the counter i to 0
+<span class="mark">[2] if i = n the additions are finished and s is the total:
+    we terminate. Otherwise we continue.</span>
+[3] add m to the accumulator s
+[4] add 1 to the counter i
+[5] go back to line 2</code></pre>
+          <p class="ver-why"><b>What changes:</b> the check comes <em>before</em> the operations. With n = 0 it terminates immediately with s = 0. The lines are numbered because they serve as jump targets.</p>
+        </article>
+
+        <article class="ver">
+          <div class="ver-head"><span class="ver-tag">V4</span><span class="ver-title">Formal notation</span><span class="ver-slide">slide 22</span></div>
+<pre class="code"><code>[1] s ← 0,  i ← 0
+[2] if i = n the algorithm terminates, otherwise
+[3]     s ← s + m        <span class="cm">▷ add m to s</span>
+[4]     i ← i + 1        <span class="cm">▷ increment the counter i by 1</span>
+[5]     go back to line 2</code></pre>
+          <p class="ver-why"><b>What changes:</b> <code>←</code> is <strong>assignment</strong> ("the value on the right goes into the variable on the left"), <code>=</code> is <strong>comparison</strong>. The text after <code>▷</code> is a comment. The <strong>indentation</strong> of [3]–[5] is intentional: it shows that those operations depend on the condition in line [2].</p>
+        </article>
+
+        <article class="ver">
+          <div class="ver-head"><span class="ver-tag">V5</span><span class="ver-title">"Terminates" is too strong: the End instruction and jumps</span><span class="ver-slide">slides 22–24</span></div>
+<pre class="code"><code>[1] s ← 0,  i ← 0
+[2] if i = n then <span class="mark">jump to line 6</span>, otherwise
+[3]     s ← s + m
+[4]     i ← i + 1
+[5]     <span class="mark">jump to line 2</span>
+<span class="mark">[6] End</span></code></pre>
+          <p class="ver-why"><b>What changes:</b> saying that "the algorithm terminates" is too strong, because after the multiplication we might want to execute other instructions. The special instruction <strong>End</strong> is introduced, and the <strong>jump to a numbered instruction</strong> is used both to repeat and to exit.</p>
+        </article>
+
+        <article class="ver">
+          <div class="ver-head"><span class="ver-tag">V6</span><span class="ver-title">Begin/End blocks</span><span class="ver-slide">slides 24–25</span></div>
+<pre class="code"><code>[1] <span class="kw">Begin Algorithm</span>
+[2]     s ← 0,  i ← 0
+[3]     <span class="kw">Begin Conditional Repetition</span>
+            if i = n then jump to line 7, otherwise   <span class="cm">▷ conditional jump</span>
+[4]         s ← s + m
+[5]         i ← i + 1
+[6]         jump to line 3                            <span class="cm">▷ unconditional jump</span>
+[7]     <span class="kw">End Conditional Repetition</span>
+[8] <span class="kw">End Algorithm</span></code></pre>
+          <p class="ver-why"><b>What changes:</b> for uniformity, blocks are delimited by pairs of special instructions <strong>Begin/End</strong> (on the slides: <em lang="it">Inizio/Fine</em>). A distinction is made between the <strong>conditional jump</strong> (line 3 → 7, taken only if <code>i = n</code>) and the <strong>unconditional jump</strong> (line 6 → 3, always taken).</p>
+        </article>
+
+        <article class="ver final">
+          <div class="ver-head"><span class="ver-tag">V7</span><span class="ver-title">Structured version, without line numbers</span><span class="ver-slide">slide 26</span></div>
+<pre class="code"><code><span class="kw">Begin Algorithm</span>
+    s ← 0,  i ← 0
+    <span class="kw">Begin Conditional Repetition</span>
+    if i = n jump to <span class="kw">End Conditional Repetition</span>, otherwise
+        s ← s + m
+        i ← i + 1
+        jump to <span class="kw">Begin Conditional Repetition</span>
+    <span class="kw">End Conditional Repetition</span>
+<span class="kw">End Algorithm</span></code></pre>
+          <p class="ver-why"><b>What changes:</b> the <strong>structure</strong> makes it possible to <strong>eliminate line numbers</strong>: jumps point to the beginning or the end of a block. <strong>Structured programming languages</strong> organise instructions into <strong>nestable blocks</strong>, and indentation makes visible the hierarchy and which block each instruction belongs to. This is exactly the shape the <code>while</code> loop will have in C (§11).</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- §8 -->
+    <section id="zero-case" aria-labelledby="h-zero-case">
+      <div class="sec-head"><span class="sec-num">§8</span><h2 id="h-zero-case">The bug in the n = 0 case</h2><span class="slides">slides 17–20</span></div>
+      <p>Algorithm V2 was built from "test" values (m = 4, n = 3). But <strong>does it also work for other inputs?</strong> The slide tries a special case: <code>n = 0</code>, where the expected result is 0 (because m × 0 = 0).</p>
+      <h3>Trace of V2 with m = 4, n = 0</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th class="num">Step</th><th>Instruction</th><th class="num">s</th><th class="num">i</th><th>Check i = n</th></tr></thead>
+          <tbody>
+            <tr><td class="num">1</td><td class="mono">s ← 0, i ← 0</td><td class="num">0</td><td class="num">0</td><td>not checked yet</td></tr>
+            <tr><td class="num">2</td><td class="mono">s ← s + m</td><td class="num">4</td><td class="num">0</td><td>—</td></tr>
+            <tr><td class="num">3</td><td class="mono">i ← i + 1</td><td class="num">4</td><td class="num">1</td><td>—</td></tr>
+            <tr class="row-bad"><td class="num">4</td><td class="mono">if i = n …</td><td class="num">4</td><td class="num">1</td><td>1 = 0? NO → repeat</td></tr>
+            <tr class="row-bad"><td class="num">7</td><td class="mono">if i = n …</td><td class="num">8</td><td class="num">2</td><td>2 = 0? NO → repeat</td></tr>
+            <tr class="row-bad"><td class="num">…</td><td class="mono">…</td><td class="num">…</td><td class="num">…</td><td>i &gt; n forever: <strong>it does not terminate</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The problem is the order: V2 <strong>first updates</strong> <code>s</code> and <code>i</code> and <strong>then compares</strong> <code>i</code> with <code>n</code>. If n = 0, the algorithm will never terminate (always <code>i &gt; n</code>). Moreover, even if it stopped, <code>s</code> would already be different from 0: the result would be wrong.</p>
+      <p><strong>Fix</strong>: you must first check that the counter <code>i</code> is less than <code>n</code>, and only then, if so, perform the addition. With V3 and m = 4, n = 0: <code>s ← 0, i ← 0</code>, then <code>0 = 0? YES</code> → end with <code>s = 0</code>. Correct.</p>
+
+      <div class="principle">
+        <p class="box-label">The design principle of the course · slide 20</p>
+        <p class="big">First check the conditions, and only then execute (the first of a series of) operations.</p>
+        <p class="small">"It will stay with us for the rest of this course."</p>
+      </div>
+      <div class="box exam">
+        <p class="box-label">Matters in the exam · slide 20</p>
+        <p>Verbatim from the slide: <strong>"Handling the initial case is a typical source of errors, even in the exam."</strong> (<span lang="it">"La gestione del caso iniziale è una tipica fonte di errori, anche in sede d'esame."</span>) When you write a loop, always ask yourself: what happens if the loop must not be executed even once?</p>
+      </div>
+      <div class="box extra">
+        <p class="box-label">Beyond the slides · how to check an algorithm</p>
+        <p>Besides the "normal" case used to design it, always try the <strong>edge cases</strong>: <code>n = 0</code> (no repetitions), <code>n = 1</code> (just one), <code>m = 0</code>, negative <code>m</code>, and what happens if the precondition is violated (<code>n &lt; 0</code>). You can do this in the simulator below.</p>
+      </div>
+    </section>
+
+    <!-- §9 -->
+    <section id="flowchart" aria-labelledby="h-flowchart">
+      <div class="sec-head"><span class="sec-num">§9</span><h2 id="h-flowchart">Flowchart (<span lang="it">diagramma di flusso</span>)</h2><span class="slides">slides 28–29</span></div>
+      <p>Before moving on to a real programming language, the lesson introduces an intermediate representation: the <strong>flowchart</strong>.</p>
+      <ul>
+        <li>It highlights the <strong>flow of control</strong>: it shows graphically the possible execution sequences between the instructions.</li>
+        <li>Unlike the structured representation (V7), <strong>it does not make the nesting of blocks explicit</strong>: it directly follows the links between the instructions.</li>
+        <li>It has historically been widely used and is sometimes useful for visualising control, but modern languages prefer to express <strong>nested control structures</strong> directly.</li>
+      </ul>
+      <ul class="symbols" aria-label="Flowchart symbols">
+        <li><svg viewBox="0 0 46 28" aria-hidden="true"><ellipse cx="23" cy="14" rx="21" ry="12" style="fill:var(--node-term);stroke:var(--edge)"/></svg><span><strong>Oval</strong>: Begin and End</span></li>
+        <li><svg viewBox="0 0 46 28" aria-hidden="true"><rect x="3" y="4" width="40" height="20" rx="2" style="fill:var(--node-action);stroke:var(--edge)"/></svg><span><strong>Rectangle</strong>: operations (assignments)</span></li>
+        <li><svg viewBox="0 0 46 28" aria-hidden="true"><polygon points="23,2 44,14 23,26 2,14" style="fill:var(--node-test);stroke:var(--edge)"/></svg><span><strong>Diamond</strong>: condition, with YES / NO exits</span></li>
+        <li><svg viewBox="0 0 46 28" aria-hidden="true"><path d="M4 14 H38" style="stroke:var(--edge);stroke-width:2;fill:none;marker-end:url(#fc-arrow)"/></svg><span><strong>Arrow</strong>: the instruction that comes next</span></li>
+      </ul>
+      <p>In the multiplication flowchart the two jumps are easy to see: the <strong>YES</strong> exit of the diamond towards End is the <strong>conditional jump</strong> (taken only if <code>i = n</code>), and the arrow that goes from the block of additions back to the diamond is the <strong>unconditional jump</strong> (always taken).</p>
+
+      <div class="sim" id="simulator">
+        <div class="sim-title"><h3>Step-by-step simulator</h3><span>Run the algorithm as the machine would, one instruction at a time.</span></div>
+        <div class="sim-controls">
+          <div class="field"><label for="sim-m">m</label><input type="number" id="sim-m" value="4" min="-50" max="50" step="1" inputmode="numeric"></div>
+          <div class="field"><label for="sim-n">n</label><input type="number" id="sim-n" value="3" min="-5" max="30" step="1" inputmode="numeric"></div>
+          <div class="field">
+            <span class="lab" id="sim-ver-lab">Version</span>
+            <div class="seg" role="radiogroup" aria-labelledby="sim-ver-lab">
+              <input type="radio" name="sim-ver" id="sim-ver-ok" value="ok" checked><label for="sim-ver-ok">V6 · check first</label>
+              <input type="radio" name="sim-ver" id="sim-ver-bug" value="bug"><label for="sim-ver-bug">V2 · check after</label>
+            </div>
+          </div>
+        </div>
+        <div class="presets">
+          <span class="lab">Try:</span>
+          <button type="button" class="chip" data-preset="4,3,ok">4 × 3</button>
+          <button type="button" class="chip" data-preset="4,0,ok">4 × 0</button>
+          <button type="button" class="chip warn" data-preset="4,0,bug">4 × 0 with V2</button>
+          <button type="button" class="chip" data-preset="-2,3,ok">−2 × 3</button>
+          <button type="button" class="chip warn" data-preset="4,-2,ok">4 × −2 (n &lt; 0)</button>
+        </div>
+        <div class="btns">
+          <button type="button" class="btn primary" id="sim-step">Step</button>
+          <button type="button" class="btn" id="sim-play" aria-pressed="false">Run</button>
+          <button type="button" class="btn" id="sim-end">To the end</button>
+          <button type="button" class="btn" id="sim-reset">Restart</button>
+        </div>
+        <p class="status" id="sim-status" aria-live="polite">Loading…</p>
+        <div class="sim-grid">
+          <div>
+            <ol class="prog" id="sim-code" aria-label="Pseudocode being executed"></ol>
+            <div class="vars">
+              <div class="var"><span class="k">s · accumulator</span><span class="v" id="sim-s">—</span></div>
+              <div class="var"><span class="k">i · counter</span><span class="v" id="sim-i">—</span></div>
+              <div class="var"><span class="k">steps</span><span class="v" id="sim-steps">0</span></div>
+            </div>
+          </div>
+          <div class="fc-wrap">
+            <svg class="fc" id="fc-ok" viewBox="0 0 380 412" role="img" aria-labelledby="fc-ok-t">
+              <title id="fc-ok-t">Flowchart with the check before the additions: Begin, i and s set to zero, diamond i = n; if yes End, if no s plus m, i plus one and back to the diamond.</title>
+              <path class="fc-edge" d="M150 50 V78"/>
+              <path class="fc-edge" d="M150 132 V168"/>
+              <path class="fc-edge" id="ok-yes" d="M220 215 H270"/>
+              <path class="fc-edge" d="M150 260 V298"/>
+              <path class="fc-edge" id="ok-back" d="M150 352 V378 H40 V215 H78"/>
+              <g class="fc-node term" id="ok-start"><ellipse cx="150" cy="30" rx="56" ry="20"/><text x="150" y="35" text-anchor="middle">Begin</text></g>
+              <g class="fc-node action" id="ok-init"><rect x="82" y="80" width="136" height="52" rx="3"/><text x="150" y="101" text-anchor="middle">i ← 0</text><text x="150" y="122" text-anchor="middle">s ← 0</text></g>
+              <g class="fc-node test" id="ok-test"><polygon points="150,170 220,215 150,260 80,215"/><text x="150" y="220" text-anchor="middle">i = n ?</text></g>
+              <g class="fc-node action" id="ok-body"><rect x="82" y="300" width="136" height="52" rx="3"/><text x="150" y="321" text-anchor="middle">s ← s + m</text><text x="150" y="342" text-anchor="middle">i ← i + 1</text></g>
+              <g class="fc-node term" id="ok-end"><ellipse cx="318" cy="215" rx="46" ry="20"/><text x="318" y="220" text-anchor="middle">End</text></g>
+              <text class="lbl-strong" x="245" y="206" text-anchor="middle">YES</text>
+              <text class="lbl-strong" x="160" y="284">NO</text>
+              <text class="lbl" x="318" y="254" text-anchor="middle">conditional</text>
+              <text class="lbl" x="318" y="269" text-anchor="middle">jump</text>
+              <text class="lbl" x="102" y="400" text-anchor="middle">unconditional jump</text>
+            </svg>
+            <svg class="fc" id="fc-bug" viewBox="0 0 380 420" role="img" aria-labelledby="fc-bug-t" hidden>
+              <title id="fc-bug-t">Flowchart of the second formulation: the additions are executed before the diamond i = n, hence at least once.</title>
+              <path class="fc-edge" d="M150 50 V78"/>
+              <path class="fc-edge" d="M150 132 V168"/>
+              <path class="fc-edge" d="M150 222 V258"/>
+              <path class="fc-edge" id="bug-yes" d="M150 350 V368"/>
+              <path class="fc-edge" id="bug-no" d="M80 305 H40 V196 H80"/>
+              <g class="fc-node term" id="bug-start"><ellipse cx="150" cy="30" rx="56" ry="20"/><text x="150" y="35" text-anchor="middle">Begin</text></g>
+              <g class="fc-node action" id="bug-init"><rect x="82" y="80" width="136" height="52" rx="3"/><text x="150" y="101" text-anchor="middle">s ← 0</text><text x="150" y="122" text-anchor="middle">i ← 0</text></g>
+              <g class="fc-node action" id="bug-body"><rect x="82" y="170" width="136" height="52" rx="3"/><text x="150" y="191" text-anchor="middle">s ← s + m</text><text x="150" y="212" text-anchor="middle">i ← i + 1</text></g>
+              <g class="fc-node test" id="bug-test"><polygon points="150,260 220,305 150,350 80,305"/><text x="150" y="310" text-anchor="middle">i = n ?</text></g>
+              <g class="fc-node term" id="bug-end"><ellipse cx="150" cy="390" rx="46" ry="20"/><text x="150" y="395" text-anchor="middle">End</text></g>
+              <text class="lbl-strong" x="160" y="364">YES</text>
+              <text class="lbl-strong" x="50" y="296">NO</text>
+              <text class="lbl-warn" x="236" y="182">The check comes</text>
+              <text class="lbl-warn" x="236" y="198">AFTER the additions:</text>
+              <text class="lbl-warn" x="236" y="214">they are executed</text>
+              <text class="lbl-warn" x="236" y="230">at least once,</text>
+              <text class="lbl-warn" x="236" y="246">even if n = 0.</text>
+            </svg>
+          </div>
+        </div>
+        <div class="trace-box" id="sim-trace-box">
+          <table id="sim-trace">
+            <thead><tr><th class="num">#</th><th>Line</th><th>Instruction</th><th class="num">s</th><th class="num">i</th><th>What happens</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- §10 -->
+    <section id="languages" aria-labelledby="h-languages">
+      <div class="sec-head"><span class="sec-num">§10</span><h2 id="h-languages">Programs, languages and the goal of the course</h2><span class="slides">slides 27, 30</span></div>
+      <div class="box def">
+        <p class="box-label">Terminology · slide 27</p>
+        <p><strong>Program</strong>: a description of an algorithm by means of a programming language.</p>
+        <p><strong>Programming language</strong>: a set of words and rules, defined formally, that makes it possible to program a computer so that it carries out predetermined tasks.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Languages</th><th>Characteristic</th><th>Examples</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Low-level</strong></td><td>close to the machine</td><td>machine language, assembly</td></tr>
+            <tr><td><strong>High-level</strong></td><td>close to natural language</td><td>FORTRAN, C, Java, Python</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h3>What you will do in this course</h3>
+      <p>Now we have an idea of how to <strong>implement</strong> the multiplication algorithm on a real computer. The aim of the course is to learn to implement <strong>elementary algorithms</strong> (very simple ones) in the <strong>C language</strong>, that is, to <strong>translate algorithms specified in Italian into C</strong>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Term</th><th>Meaning (notes of slide 30)</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Implementing</strong></td><td>concretely realising a procedure using a programming language, starting from its logical definition</td></tr>
+            <tr><td><strong>Translating</strong></td><td>this is the goal of Programming I. In the <em>Algorithms</em> exam, the aim will instead be to <strong>analyse and design new algorithms</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>To do this you need a <strong>model of computation</strong> that can be executed by a mechanical or electronic computer: the <strong>Von Neumann machine</strong>, the topic of the next part.</p>
+      <div class="box extra">
+        <p class="box-label">Beyond the slides · a preview of Von Neumann</p>
+        <p>In the Von Neumann machine a <strong>memory</strong> holds both the <strong>data</strong> and the <strong>instructions</strong> of the program. The <strong>CPU</strong> always repeats the same cycle: it <em>fetches</em> the next instruction, <em>decodes</em> it and <em>executes</em> it. A register (the <em>program counter</em>) indicates which instruction to execute: normally it moves on to the next one ("line n+1", slide 7). A <strong>jump</strong> does nothing more than change its value. Our pseudocode with line numbers is therefore very close to how the machine really works.</p>
+      </div>
+    </section>
+
+    <!-- §11 -->
+    <section id="in-c" aria-labelledby="h-in-c">
+      <div class="sec-head"><span class="sec-num">§11</span><h2 id="h-in-c">Preview: multiplication in C</h2><span class="slides">beyond the slides</span></div>
+      <p>C will arrive in the next lessons, but seeing now where version V7 leads helps you understand why the lesson insists so much on blocks and conditions.</p>
+<pre class="code"><code>#include &lt;stdio.h&gt;
+#include &lt;assert.h&gt;
+
+int main(void) {
+    int m = 4, n = 3;      <span class="cm">// input (hard-coded for now)</span>
+    assert(n &gt;= 0);        <span class="cm">// precondition</span>
+    int s = 0;             <span class="cm">// accumulator: starts from the identity element</span>
+    int i = 0;             <span class="cm">// counter of the additions done</span>
+
+    while (i != n) {       <span class="cm">// first I check the condition...</span>
+        assert(s == m * i);<span class="cm">// invariant (§12): holds at every check</span>
+        s = s + m;         <span class="cm">// ...then I execute: s ← s + m</span>
+        i = i + 1;         <span class="cm">// i ← i + 1</span>
+    }                      <span class="cm">// end of block: back to the while check</span>
+    assert(s == m * n);    <span class="cm">// postcondition</span>
+
+    printf("%d x %d = %d\n", m, n, s);
+    return 0;
+}</code></pre>
+      <p style="font-size:.9rem;color:var(--muted)">Checked with <code>gcc -Wall -Werror</code> (the options used in the exam in previous years): it prints <code>4 x 3 = 12</code>, and it also works with 5 × 0, 0 × 7, −2 × 3. <code>assert(cond)</code>, from <code>&lt;assert.h&gt;</code>, stops the program with an error if the condition is false: in the course it is used to write pre- and postconditions directly in the code.</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Pseudocode (V7)</th><th>C</th><th>Watch out</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">s ← 0</td><td class="mono">s = 0;</td><td>in C <code>=</code> is <strong>assignment</strong></td></tr>
+            <tr><td class="mono">i = n (comparison)</td><td class="mono">i == n</td><td>comparison is <code>==</code> (double equals)</td></tr>
+            <tr><td class="mono">Begin … End</td><td class="mono">{ … }</td><td>braces delimit a block</td></tr>
+            <tr><td class="mono">Begin Conditional Repetition<br>if i = n jump to End…</td><td class="mono">while (i != n) {</td><td><code>while</code> repeats <em>as long as the condition is true</em>: the exit condition (<code>i = n</code>) must be <strong>negated</strong> (<code>i != n</code>)</td></tr>
+            <tr><td class="mono">jump to Begin Repetition…</td><td class="mono">}</td><td>the unconditional jump is implicit in the end of the block</td></tr>
+            <tr><td class="mono">▷ comment</td><td class="mono">// comment</td><td>ignored by the compiler</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box trap">
+        <p class="box-label">Classic C pitfall</p>
+        <p>Writing <code>if (i = n)</code> instead of <code>if (i == n)</code>: the first <em>assigns</em> n to i, it does not compare them. Without options the compiler silently accepts it (it is valid C); with <code>-Wall</code> gcc warns ("suggest parentheses around assignment used as truth value"), and with <code>-Wall -Werror</code>, the options used in the exam in previous years, the program does not compile. The <code>←</code> / <code>=</code> distinction seen in slide 22 is there precisely so that you do not confuse the two.</p>
+      </div>
+      <p>People often write <code>while (i &lt; n)</code> instead of <code>while (i != n)</code>. With n ≥ 0 the two versions do exactly the same things. With a negative n, <code>i &lt; n</code> is false straight away and the loop terminates (with a wrong result), whereas <code>i != n</code> never terminates. In both cases the precondition must be respected.</p>
+      <p>Version V2 (check after), on the other hand, corresponds to the C <code>do { … } while (…);</code> loop, which executes the body <strong>at least once</strong>. With <code>do-while</code> loops the initial case always needs extra care.</p>
+    </section>
+
+    <!-- §12 -->
+    <section id="correctness" aria-labelledby="h-correctness">
+      <div class="sec-head"><span class="sec-num">§12</span><h2 id="h-correctness">Why the algorithm works</h2><span class="slides">beyond the slides</span></div>
+      <p>The slides check the algorithm by trying out some cases. You can also <strong>reason</strong> about why it always works. These concepts will come back when you study the correctness of loops.</p>
+      <h3>Invariant: a property that is always true at the moment of the check</h3>
+      <p>Every time you reach the check <code>i = n ?</code>, <strong><code>s = m × i</code></strong> holds:</p>
+      <ul>
+        <li><strong>At the start</strong>: <code>s = 0</code> and <code>i = 0</code>, and indeed <code>0 = m × 0</code>.</li>
+        <li><strong>After one iteration</strong>: if <code>s = m × i</code> held before, after <code>s ← s + m</code> and <code>i ← i + 1</code> we have <code>s + m = m × i + m = m × (i + 1)</code>. The property is preserved.</li>
+        <li><strong>On exit</strong>: you exit when <code>i = n</code>, so <code>s = m × n</code>. That is exactly the desired result.</li>
+      </ul>
+      <h3>Termination</h3>
+      <p>The quantity <code>n − i</code> starts from <code>n ≥ 0</code> and decreases by 1 at each iteration: after exactly <code>n</code> iterations it is 0 and the loop stops. This is where the precondition is needed: with <code>n &lt; 0</code> the quantity starts negative, <code>i</code> grows and <strong>will never reach</strong> <code>n</code> (try it in the simulator with the "4 × −2" preset).</p>
+      <h3>How much it costs</h3>
+      <p>With input <code>n</code>: the condition is evaluated <strong>n + 1 times</strong> (n times "NO", once "YES"), the body is executed <strong>n times</strong>, that is n additions on <code>s</code> and n increments of <code>i</code>. The time grows in proportion to <code>n</code>. This kind of counting will be central in Algorithms and Data Structures.</p>
+    </section>
+
+    <!-- §13 -->
+    <section id="pitfalls" aria-labelledby="h-pitfalls">
+      <div class="sec-head"><span class="sec-num">§13</span><h2 id="h-pitfalls">Pitfalls and typical mistakes</h2><span class="slides">summary</span></div>
+      <div class="box trap">
+        <p class="box-label">To avoid</p>
+        <ol>
+          <li><strong>Checking the condition after executing the body</strong> when the body might never need to be executed (the n = 0 case). This is the V2 mistake.</li>
+          <li><strong>Forgetting to initialise</strong> the accumulator and the counter. In C an uninitialised local variable has an indeterminate value (it is not necessarily 0): using it before assigning it a value is an error. Only global and <code>static</code> variables start at 0.</li>
+          <li><strong>Initialising with the wrong identity element</strong>: 0 for sums and counts, 1 for products (see exercise 5).</li>
+          <li><strong>"Off-by-one" counting errors</strong>: <code>m + m + … + m</code> has n terms but n − 1 additions. Starting from 0, the additions are exactly n.</li>
+          <li><strong>Confusing assignment and comparison</strong>: <code>←</code> versus <code>=</code> in pseudocode, <code>=</code> versus <code>==</code> in C.</li>
+          <li><strong>Ignoring the precondition</strong>: with n &lt; 0 the algorithm does not terminate. If the exercise does not guarantee it, it must be handled.</li>
+          <li><strong>Testing only the sample case</strong> used for the design. Always try n = 0, n = 1, m = 0, negative m.</li>
+          <li><strong>Swapping the order of the instructions in the body</strong> when one uses the value updated by the other (see exercise 6).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- §14 -->
+    <section id="exam" aria-labelledby="h-exam">
+      <div class="sec-head"><span class="sec-num">§14</span><h2 id="h-exam">Towards the exam</h2><span class="slides">research</span></div>
+      <p>This lesson is not "theory to just repeat back": its concepts are the basis of every type of exam exercise. Here is how they connect.</p>
+      <div class="box def">
+        <p class="box-label">What the official course page (<span lang="it">scheda insegnamento</span>) says · Programming I, MFN0582, 2026/27</p>
+        <p>"The exam is essentially a <strong>written exam</strong> taken <strong>on a computer or on paper</strong>." It tests the ability to <strong>design</strong> simple iterative and recursive algorithms, to <strong>code them</strong> in C, to answer questions on <strong>correctness and termination</strong> and to <strong>simulate</strong> how the language works during execution. The grade is the sum of the scores of the exercises, up to 30 cum laude. No oral exam, project or partial exams (<span lang="it">esoneri</span>).</p>
+        <p>The slide "Typical Programming 1 exam" in the channel B course presentation specifies: exercises <strong>in the lab on Moodle, on a PC</strong>, on iterative and recursive programming, on theory (correctness, types) and on the state of memory. The details will come at the end of the course, with exercises similar to the exam ones.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Exam session (<span lang="it">appello</span>) 2026/27</th><th>Registration on MyUniTo</th><th>Where</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mon 25/01/2027, 9:00</strong></td><td>05/01 – 18/01/2027</td><td>Turing, Dijkstra and Von Neumann labs</td></tr>
+            <tr><td><strong>Thu 11/02/2027, 9:00</strong></td><td>22/01 – 04/02/2027</td><td>Turing, Dijkstra and Von Neumann labs</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.9rem;color:var(--muted)">The exam session is the same for channels A, B and C. With about 400 registered students and 118 seats in the three labs, in previous years it was split into shifts over several days: you are notified of your shift by email at your @edu.unito.it address. You can sit the same exam at most 3 times per academic year. To register you need your fees paid up, an approved study plan (<span lang="it">piano carriera</span>) and the course evaluation questionnaire on Edumeter completed, all by 18/01 for the first exam session. The other exam sessions have not been published yet: besides the summer exam period (07/06–30/07/2027) and the autumn one (from September 2027), the 2026/27 calendar of the degree programme provides, on an experimental basis, for a 3rd exam session for 1st-semester courses on 31/03 and 1–2/04/2027 (details not yet published).</p>
+
+      <h3>The types of exercise seen in past years</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Type</th><th>What it asks</th><th>What lesson 01A has to do with it</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Iterative function</strong></td><td>Write a function with loops that checks a property on arrays or matrices ("for every…", "there exists…"), often also computing a sum or a count.</td><td>Accumulators, counters and above all the <strong>initial case</strong>: what value does the variable that collects the result start from?</td></tr>
+            <tr><td><strong>Recursive function</strong></td><td>Write a recursive function (with a "wrapper" function that starts it) of the type required by the text, without using loops.</td><td>The <strong>base case</strong> of the recursion is the initial case of this lesson (n = 0), and <strong>termination</strong> must be guaranteed.</td></tr>
+            <tr><td><strong>Memory model</strong></td><td>Simulate by hand the execution of a program and answer questions about the values of the variables at specific points.</td><td>It is an <strong>execution trace</strong>, like the one in the simulator (§9) and in exercise 1, applied to C.</td></tr>
+            <tr><td><strong>Correctness</strong></td><td>Choose or write the assertions (pre- and postconditions) by reasoning backwards through the code.</td><td>Precondition <code>n ≥ 0</code>, postcondition <code>s = m × n</code>, invariant <code>s = m × i</code> (§12).</td></tr>
+            <tr><td><strong>Heap</strong></td><td>Write a function that creates a new array with <code>malloc</code> and returns it (an <code>int*</code> pointer), writing its length into an output parameter (for example <code>*out_len</code>).</td><td>The initial case again: what happens if there are no elements to copy?</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:.85rem;color:var(--muted)">Sources: 2023/24 Moodle exercises and the 2025/26 exam summary of channel C (5 exercises on Moodle with CodeRunner: correctness, memory, iterative, recursive, heap), mock exams (<span lang="it">fac-simili</span>) 2016–2019. The exam and the examining board are the same for the three channels, but the exact 2026/27 format will be explained at the end of the course.</p>
+
+      <h3>Rules for exam exercises (past years, the same in all channels)</h3>
+      <ul>
+        <li><strong>Iterative functions</strong>: <strong>a single <code>return</code> statement</strong>; use <strong>sentinel variables</strong> to combine conditions; <code>break</code>, <code>switch</code>, <code>case</code> and <code>static</code> are <strong>forbidden</strong>, and so, in general, are constructs not seen in class.</li>
+        <li><strong>Recursive functions</strong>: <strong>no loops</strong>, neither <code>for</code> nor <code>while</code>; pay attention to the type of recursion required.</li>
+        <li><strong>Compilation</strong>: <code>-Wall -Werror</code>, so even a single warning prevents compilation.</li>
+        <li><strong>Marking</strong>: "passing all the tests is a necessary but not sufficient condition", because the code is also read. 31 or 32 points are worth 30 cum laude.</li>
+      </ul>
+      <div class="box def">
+        <p class="box-label">The link with structured programming</p>
+        <p>These rules apply the idea of §7. <code>break</code> and multiple <code>return</code>s are <strong>jumps</strong> that leave a block "through the side". In V7, instead, you leave the repetition <strong>only through its condition</strong>. In the exam the loop must stop because of the condition (for example <code>i &lt; n &amp;&amp; !found</code>), not because of a jump.</p>
+      </div>
+      <div class="box extra">
+        <p class="box-label">Beyond the slides · a preview of an exam exercise</p>
+        <p>Here is where the principle "check first, then execute" leads when applied to an array (a topic of the coming weeks): is there a negative element among the first <code>aLen</code> elements of <code>a</code>?</p>
+<pre class="code"><code>bool exists = false;              <span class="cm">// initial case: nothing exists in an empty array</span>
+size_t i = 0;                     <span class="cm">// counter</span>
+while (i &lt; aLen &amp;&amp; !exists) {     <span class="cm">// first I check, then I execute; no break</span>
+    exists = (a[i] &lt; 0);
+    i = i + 1;
+}
+return exists;                    <span class="cm">// a single return</span></code></pre>
+        <p>For "all the elements are positive", on the other hand, the sentinel starts from <code>true</code>, because in an empty array the property holds. Getting this initial value wrong is the initial-case mistake.</p>
+      </div>
+      <div class="box exam">
+        <p class="box-label">What to do starting this week</p>
+        <ul>
+          <li>Enrol on the channel B Moodle page (<a href="https://informatica.i-learn.unito.it/course/view.php?id=3773" target="_blank" rel="noopener" lang="it">PROGRAMMAZIONE I (B)</a>): it is the only page of the course, also for the labs (there are no separate pages for the lab groups, the <span lang="it">turni</span>). The lab starts from 5/10: lab group 1 (odd student ID number, <span lang="it">matricola</span>) on Tuesdays 14:00–17:00 with Basile, lab group 2 (even student ID number) on Mondays 14:00–17:00 with Marengo, in the Turing Lab (<span lang="it">Laboratorio Turing</span>).</li>
+          <li>Always compile with <code>gcc -Wall -Werror file.c -o file</code>, so you practise under exam conditions. In the exam you write in a plain text editor, with no IDE and no autocompletion: practise that way too.</li>
+          <li>Learn your SCU/MyUniTo credentials well: you need them to log in to the lab PCs, including on the day of the exam.</li>
+          <li>Redo the exercises of §15 by hand: tracing is the basic skill for the memory model.</li>
+          <li>Fill in your study plan as soon as the window opens: without it you cannot register for exam sessions, not even first-year ones.</li>
+          <li>According to the lecturers, an AI should be used to review exercises you have already done or to understand why a program does not compile, not to be given the solution.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- §15 -->
+    <section id="exercises" aria-labelledby="h-exercises">
+      <div class="sec-head"><span class="sec-num">§15</span><h2 id="h-exercises">Exercises</h2><span class="slides">with solutions</span></div>
+      <p>Try to solve them on paper before opening the solution. Use the V7 notation (or V6, with line numbers).</p>
+
+      <article class="ex">
+        <h3>1 · Trace by hand <span class="lvl">basic</span></h3>
+        <p>Execute version V6 (slide 25) with <code>m = 5</code>, <code>n = 2</code>. Write a table with the line executed, <code>s</code>, <code>i</code> and the outcome of the check. How many times is the condition evaluated? How many additions on <code>s</code>?</p>
+        <details class="sol"><summary>Solution</summary>
+          <div class="table-wrap"><table>
+            <thead><tr><th class="num">#</th><th>Line</th><th class="num">s</th><th class="num">i</th><th>Note</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td>[1] Begin</td><td class="num">—</td><td class="num">—</td><td></td></tr>
+              <tr><td class="num">2</td><td>[2] s ← 0, i ← 0</td><td class="num">0</td><td class="num">0</td><td></td></tr>
+              <tr><td class="num">3</td><td>[3] i = n?</td><td class="num">0</td><td class="num">0</td><td>0 = 2? NO</td></tr>
+              <tr><td class="num">4</td><td>[4] s ← s + m</td><td class="num">5</td><td class="num">0</td><td></td></tr>
+              <tr><td class="num">5</td><td>[5] i ← i + 1</td><td class="num">5</td><td class="num">1</td><td></td></tr>
+              <tr><td class="num">6</td><td>[6] jump to 3</td><td class="num">5</td><td class="num">1</td><td></td></tr>
+              <tr><td class="num">7</td><td>[3] i = n?</td><td class="num">5</td><td class="num">1</td><td>1 = 2? NO</td></tr>
+              <tr><td class="num">8</td><td>[4] s ← s + m</td><td class="num">10</td><td class="num">1</td><td></td></tr>
+              <tr><td class="num">9</td><td>[5] i ← i + 1</td><td class="num">10</td><td class="num">2</td><td></td></tr>
+              <tr><td class="num">10</td><td>[6] jump to 3</td><td class="num">10</td><td class="num">2</td><td></td></tr>
+              <tr class="row-ok"><td class="num">11</td><td>[3] i = n?</td><td class="num">10</td><td class="num">2</td><td>2 = 2? YES → line 7</td></tr>
+              <tr><td class="num">12</td><td>[7] End Rep.</td><td class="num">10</td><td class="num">2</td><td></td></tr>
+              <tr><td class="num">13</td><td>[8] End</td><td class="num">10</td><td class="num">2</td><td>s = 10 = 5 × 2</td></tr>
+            </tbody>
+          </table></div>
+          <p>Condition evaluated <strong>3 times</strong> (n + 1), additions on s: <strong>2</strong> (n). Check with the simulator.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>2 · Bug hunt <span class="lvl">basic</span></h3>
+        <p>Execute V2 (check after) with <code>m = 3, n = 1</code> and then with <code>m = 3, n = 0</code>. In which case does it work? Why does V2 "seem" correct if you only try it with n ≥ 1?</p>
+        <details class="sol"><summary>Solution</summary>
+          <p>With n = 1: <code>s ← 0, i ← 0</code>; <code>s ← 3</code>; <code>i ← 1</code>; <code>1 = 1? YES</code> → s = 3. <strong>Correct.</strong></p>
+          <p>With n = 0: <code>s ← 3</code>, <code>i ← 1</code>, <code>1 = 0? NO</code>, then s = 6, i = 2… <strong>it does not terminate.</strong></p>
+          <p>V2 executes the body at least once. This is right only if at least one addition is needed, that is n ≥ 1. The case n = 0 is the only allowed case (n ≥ 0) in which the body must not be executed, and that is exactly where it goes wrong. Moral: always test the initial case.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>3 · Negative numbers <span class="lvl">intermediate</span></h3>
+        <p>(a) Does the algorithm work with <code>m = −2, n = 3</code>? (b) And with <code>m = 2, n = −3</code>? (c) Modify it so that it works for any integer n, knowing that the machine can also compute the opposite of a number (<code>x ← −x</code>).</p>
+        <details class="sol"><summary>Solution</summary>
+          <p>(a) Yes: s takes the values 0, −2, −4, −6, and −6 = −2 × 3. There is no constraint on m.</p>
+          <p>(b) No: i takes the values 0, 1, 2, … and will never be equal to −3. The precondition n ≥ 0 is violated and the algorithm does not terminate.</p>
+          <p>(c) Use the identity <code>m × n = (−m) × (−n)</code>: if n is negative, change the sign of both, and you are back to the case n ≥ 0.</p>
+<pre class="code"><code><span class="kw">Begin Algorithm</span>
+    <span class="mark">if n &lt; 0 then  m ← −m,  n ← −n</span>     <span class="cm">▷ now n ≥ 0</span>
+    s ← 0,  i ← 0
+    <span class="kw">Begin Conditional Repetition</span>
+    if i = n jump to <span class="kw">End Conditional Repetition</span>, otherwise
+        s ← s + m
+        i ← i + 1
+        jump to <span class="kw">Begin Conditional Repetition</span>
+    <span class="kw">End Conditional Repetition</span>
+<span class="kw">End Algorithm</span></code></pre>
+          <p>Example: 2 × (−3) becomes (−2) × 3 = −6. Correct.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>4 · Integer division by repeated subtraction <span class="lvl">intermediate</span></h3>
+        <p>Write an algorithm that, given <code>m ≥ 0</code> and <code>n &gt; 0</code>, computes the quotient <code>q</code> and the remainder <code>r</code> of the integer division m ÷ n using only addition, subtraction, assignment and comparison. Run it with m = 14, n = 4. What happens if n = 0?</p>
+        <details class="sol"><summary>Solution</summary>
+<pre class="code"><code><span class="kw">Begin Algorithm</span>
+    q ← 0,  r ← m                      <span class="cm">▷ r is "what is left to divide"</span>
+    <span class="kw">Begin Conditional Repetition</span>
+    if r &lt; n jump to <span class="kw">End Conditional Repetition</span>, otherwise
+        r ← r − n                      <span class="cm">▷ I take away one n</span>
+        q ← q + 1                      <span class="cm">▷ I count how many times I have taken away n</span>
+        jump to <span class="kw">Begin Conditional Repetition</span>
+    <span class="kw">End Conditional Repetition</span>
+<span class="kw">End Algorithm</span></code></pre>
+          <p>Trace (q, r): (0, 14) → (1, 10) → (2, 6) → (3, 2), then 2 &lt; 4 → end: <strong>q = 3, r = 2</strong>, and indeed 14 = 3 × 4 + 2.</p>
+          <p>The check comes <em>before</em> the body: if m &lt; n it exits immediately with q = 0, r = m (for example 3 ÷ 5 → q = 0, r = 3). Same principle as slide 20.</p>
+          <p>If n = 0, r never decreases and the loop does not terminate: it is "division by zero". That is why the precondition requires n &gt; 0. Here <code>q</code> acts as a counter, but unlike in the multiplication you do not know in advance how many repetitions you will do.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>5 · Power <span class="lvl">intermediate → hard</span></h3>
+        <p>(a) Compute <code>p = mⁿ</code> (n ≥ 0) assuming that the machine can multiply. What value does p start from? (b) Challenge: what if the machine could only add (with m ≥ 0)?</p>
+        <details class="sol"><summary>Solution</summary>
+          <p>(a) Same pattern as the multiplication, but the accumulator starts from the <strong>identity element of multiplication, that is 1</strong>. If it started from 0 the result would always be 0.</p>
+<pre class="code"><code><span class="kw">Begin Algorithm</span>
+    p ← 1,  i ← 0
+    <span class="kw">Begin Conditional Repetition</span>
+    if i = n jump to <span class="kw">End Conditional Repetition</span>, otherwise
+        p ← p × m
+        i ← i + 1
+        jump to <span class="kw">Begin Conditional Repetition</span>
+    <span class="kw">End Conditional Repetition</span>
+<span class="kw">End Algorithm</span></code></pre>
+          <p>With m = 2, n = 3: p takes the values 1, 2, 4, 8. With n = 0 it gives 1 (by convention m⁰ = 1).</p>
+          <p>(b) Replace <code>p ← p × m</code> with the multiplication algorithm: <strong>one repetition inside the other</strong> (nested loops). Here you can see why blocks and indentation are indispensable.</p>
+<pre class="code"><code><span class="kw">Begin Algorithm</span>
+    p ← 1,  i ← 0
+    <span class="kw">Begin Conditional Repetition</span>                      <span class="cm">▷ outer: n times</span>
+    if i = n jump to <span class="kw">End Conditional Repetition</span>, otherwise
+        s ← 0,  j ← 0                                 <span class="cm">▷ compute p × m with additions</span>
+        <span class="kw">Begin Conditional Repetition</span>                  <span class="cm">▷ inner: m times</span>
+        if j = m jump to <span class="kw">End Conditional Repetition</span>, otherwise
+            s ← s + p
+            j ← j + 1
+            jump to <span class="kw">Begin Conditional Repetition</span>
+        <span class="kw">End Conditional Repetition</span>
+        p ← s
+        i ← i + 1
+        jump to <span class="kw">Begin Conditional Repetition</span>
+    <span class="kw">End Conditional Repetition</span>
+<span class="kw">End Algorithm</span></code></pre>
+          <p>Each "jump" refers to the block it is part of: indentation is what makes this reading unambiguous. You need a second counter (<code>j</code>) and a second accumulator (<code>s</code>), reset to zero at each outer iteration.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>6 · Sum of the first n numbers and order of the instructions <span class="lvl">intermediate</span></h3>
+        <p>Write an algorithm that computes <code>1 + 2 + … + n</code> (n ≥ 0). Then answer: what does it compute if the two instructions in the body are swapped?</p>
+        <details class="sol"><summary>Solution</summary>
+<pre class="code"><code><span class="kw">Begin Algorithm</span>
+    s ← 0,  i ← 0
+    <span class="kw">Begin Conditional Repetition</span>
+    if i = n jump to <span class="kw">End Conditional Repetition</span>, otherwise
+        i ← i + 1          <span class="cm">▷ first I advance the counter...</span>
+        s ← s + i          <span class="cm">▷ ...then I add it: I add 1, 2, …, n</span>
+        jump to <span class="kw">Begin Conditional Repetition</span>
+    <span class="kw">End Conditional Repetition</span>
+<span class="kw">End Algorithm</span></code></pre>
+          <p>With n = 4, (i, s): (0, 0) → (1, 1) → (2, 3) → (3, 6) → (4, 10). Indeed 1 + 2 + 3 + 4 = 10 = 4 × 5 / 2.</p>
+          <p>If you swap them (<code>s ← s + i</code> and then <code>i ← i + 1</code>) you add 0, 1, 2, 3 = 6: that is the sum of the numbers from 0 to n − 1, a classic "off-by-one" error. Here the counter is also <em>used as data</em>, so the order matters.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>7 · Flowchart <span class="lvl">basic</span></h3>
+        <p>Draw the flowchart of exercise 4 (division). Indicate which arrow is the conditional jump and which is the unconditional jump.</p>
+        <details class="sol"><summary>Solution</summary>
+          <p><strong>Begin</strong> → rectangle <code>q ← 0, r ← m</code> → diamond <code>r &lt; n ?</code>. From the diamond: <strong>YES</strong> exit → <strong>End</strong> (conditional jump); <strong>NO</strong> exit → rectangle <code>r ← r − n, q ← q + 1</code> → arrow that goes back to the diamond (unconditional jump).</p>
+          <p>It is the same drawing as for the multiplication: only the contents of the blocks and the condition change. Many algorithms with a loop have this shape.</p>
+        </details>
+      </article>
+
+      <article class="ex">
+        <h3>8 · Fewer additions <span class="lvl">hard</span></h3>
+        <p>With m, n ≥ 0 the algorithm performs n additions: for 3 × 1000 it performs a thousand. Modify it so that it performs min(m, n). You need to swap the contents of two variables: why does <code>m ← n, n ← m</code> not work?</p>
+        <details class="sol"><summary>Solution</summary>
+          <p>Since <code>m × n = n × m</code>, if <code>n &gt; m</code> it is worth swapping m and n before the loop. The swap requires a <strong>temporary variable</strong> <code>t</code>:</p>
+<pre class="code"><code>if n &gt; m then
+    t ← m          <span class="cm">▷ save m</span>
+    m ← n
+    n ← t
+<span class="cm">▷ ...then the multiplication algorithm as before</span></code></pre>
+          <p>With <code>m ← n, n ← m</code> the first assignment overwrites m, and the second copies into n the value that n already had: in the end both hold the old n. The swap with a temporary variable is one of the exercises of the first labs.</p>
+        </details>
+      </article>
+    </section>
+
+    <!-- §16 -->
+    <section id="questions" aria-labelledby="h-questions">
+      <div class="sec-head"><span class="sec-num">§16</span><h2 id="h-questions">Review questions</h2><span class="slides">self-check</span></div>
+      <div class="toolbar">
+        <p style="margin:0">Answer out loud or in writing, then open the answer.</p>
+        <button type="button" class="btn" id="qa-toggle">Show all answers</button>
+      </div>
+      <div class="qa-list">
+        <details class="qa"><summary>What is an algorithm? List and explain its properties.</summary><div class="ans"><p>An <strong>ordered</strong> set of <strong>unambiguous</strong> and <strong>effectively computable</strong> operations that, when executed, <strong>produces a result</strong> and <strong>halts in a finite amount of time</strong>. Ordered: a precise sequence. Unambiguous: only one interpretation. Effectively computable: whoever executes it can actually carry it out. Produces a result: there is an output. Terminates: a finite number of steps for every allowed input.</p></div></details>
+        <details class="qa"><summary>What does the sentence about telescopes attributed to Dijkstra mean?</summary><div class="ans"><p>That computer science is not the science of computers, just as astronomy is not the science of telescopes: the computer is the tool. Computer science studies <strong>algorithms</strong>: their properties (correctness, efficiency), their physical realisation (computers), their linguistic realisation (programming languages) and their applications (software).</p></div></details>
+        <details class="qa"><summary>Where does the word "algorithm" come from?</summary><div class="ans"><p>From the name of the Persian mathematician al-Khwārizmī (around 800), author of a book on calculation with Indian numerals that describes procedures for arithmetic operations.</p></div></details>
+        <details class="qa"><summary>Why do we say that "in computer science everything is a number"?</summary><div class="ans"><p>Because every piece of information (text, image, sound, instruction) in the memory of the computer is encoded as a number, that is, as a sequence of bits. An imperative program works by modifying numerical values in the state of the machine; programming means describing how to transform them step by step.</p></div></details>
+        <details class="qa"><summary>What are the characteristics of imperative programming?</summary><div class="ans"><p>The program is an ordered sequence of instructions, one per line. When line n is finished, line n+1 is executed, unless indicated otherwise (jumps). Typical instructions: assign a value to a variable, add two variables putting the result in a third, compare two variables, jump to another line (possibly under a condition).</p></div></details>
+        <details class="qa"><summary>What must be defined when you design an algorithm?</summary><div class="ans"><p><strong>Input</strong> (the starting data), <strong>output</strong> (the result), <strong>steps</strong> (an unambiguous sequence of operations that the machine can execute) and <strong>termination</strong> (the output is reached and execution stops after a finite number of steps). You also need to know which operations the machine has available.</p></div></details>
+        <details class="qa"><summary>Why is it better to start from s = 0 in the multiplication?</summary><div class="ans"><p>Because 0 is the <strong>identity element</strong> of addition: <code>s = 0 + m + … + m</code> requires exactly n additions, all the same, and the case n = 0 immediately gives the right result (0) without special treatment. Writing <code>m + m + … + m</code>, the additions would be n − 1 and the case n = 0 would make no sense.</p></div></details>
+        <details class="qa"><summary>What is the difference between an accumulator and a counter?</summary><div class="ans"><p>The <strong>accumulator</strong> <code>s</code> holds the partial sum, like the sheet of paper on which you do the additions. The <strong>counter</strong> <code>i</code> holds the number of additions already done, like the fingers of your hand, and is used to decide when to stop.</p></div></details>
+        <details class="qa"><summary>"Program = Algorithms + Data Structures": who said it and what does it mean?</summary><div class="ans"><p>Niklaus Wirth. A program combines the way we represent and organise the <strong>data</strong> with the <strong>procedures</strong> (algorithms) that transform them.</p></div></details>
+        <details class="qa"><summary>Why is the second formulation (V2) wrong? What principle can be drawn from it?</summary><div class="ans"><p>Because it updates s and i and <em>only then</em> checks whether i = n. With n = 0 it still performs one addition, i becomes 1 and the condition i = n will never be true: the algorithm does not terminate. Principle: <strong>first check the conditions, and only then execute the operations</strong>. Handling the initial case is a typical source of errors, even in the exam.</p></div></details>
+        <details class="qa"><summary>What is the difference between a conditional and an unconditional jump? Where are they in the algorithm?</summary><div class="ans"><p>The <strong>conditional</strong> jump happens only if a condition is true: "if i = n jump to line 7" (V6, line 3). In the flowchart it is the YES exit of the diamond towards End. The <strong>unconditional</strong> jump always happens: "jump to line 3" (V6, line 6). In the flowchart it is the arrow that goes from the block of additions back to the diamond.</p></div></details>
+        <details class="qa"><summary>Why does the slide say that talking about "termination" is too strong?</summary><div class="ans"><p>Because the multiplication might be only one part of a larger algorithm, after which we want to execute other instructions. Instead of "the algorithm terminates", you jump to the end of the block (End instruction) and execution continues.</p></div></details>
+        <details class="qa"><summary>What are the Begin/End pairs and indentation for?</summary><div class="ans"><p>They delimit <strong>blocks</strong>, which can be nested one inside the other. Thanks to the structure, jumps can refer to the beginning or the end of a block, so line numbers are no longer needed. Indentation makes visible the hierarchy of the blocks and which block each instruction belongs to. This is the idea behind structured languages.</p></div></details>
+        <details class="qa"><summary>What is the difference between a flowchart and a structured representation?</summary><div class="ans"><p>The flowchart shows graphically the <strong>flow of control</strong> (the possible execution sequences) by following the links between the instructions, but <strong>it does not make explicit the nesting</strong> of blocks. The structured representation organises the instructions into nested blocks. Modern languages prefer the latter.</p></div></details>
+        <details class="qa"><summary>What is the difference between low-level and high-level languages?</summary><div class="ans"><p><strong>Low-level</strong> languages are close to the machine (machine language, assembly). <strong>High-level</strong> languages are closer to natural language (FORTRAN, C, Java, Python).</p></div></details>
+        <details class="qa"><summary>What is the goal of Programming I compared with the Algorithms course?</summary><div class="ans"><p>In Programming I you learn to <strong>implement</strong> elementary algorithms in C, that is, to <strong>translate</strong> algorithms specified in Italian into C. In the Algorithms exam the aim will be to <strong>analyse and design</strong> new algorithms. The reference model of computation is the Von Neumann machine.</p></div></details>
+      </div>
+    </section>
+
+    <!-- §17 -->
+    <section id="glossary" aria-labelledby="h-glossary">
+      <div class="sec-head"><span class="sec-num">§17</span><h2 id="h-glossary">Lesson glossary</h2><span class="slides">terms</span></div>
+      <dl class="gloss">
+        <div><dt>Algorithm</dt><dd>An ordered set of unambiguous and effectively computable operations that produces a result and halts in a finite amount of time.</dd></div>
+        <div><dt>Input / Output</dt><dd>Starting data / result produced.</dd></div>
+        <div><dt>Instruction</dt><dd>A single command for the machine; in imperative programming, one per line.</dd></div>
+        <div><dt>Variable</dt><dd>A named container whose value can change during execution.</dd></div>
+        <div><dt>State</dt><dd>The set of values stored in the machine at a given moment.</dd></div>
+        <div><dt>Assignment ( ← )</dt><dd>Puts the value of the expression on the right into the variable on the left: <code>s ← s + m</code>. In C it is written <code>=</code>.</dd></div>
+        <div><dt>Comparison ( = )</dt><dd>Checks whether two values are equal: <code>i = n</code>. In C it is written <code>==</code>.</dd></div>
+        <div><dt>Accumulator</dt><dd>A variable that collects the partial result (here <code>s</code>).</dd></div>
+        <div><dt>Counter</dt><dd>A variable that counts the repetitions already executed (here <code>i</code>).</dd></div>
+        <div><dt>Identity element</dt><dd>A value that does not change the result of the operation: 0 for addition, 1 for multiplication.</dd></div>
+        <div><dt>Termination</dt><dd>The property of halting after a finite number of steps.</dd></div>
+        <div><dt>Initial case / edge cases</dt><dd>Initial case: the input for which the loop must not be executed even once (for example n = 0), a typical source of errors. Edge cases: the "extreme" inputs to try every time, such as n = 0, n = 1, m = 0, negative m.</dd></div>
+        <div><dt>Conditional jump</dt><dd>A jump executed only if a condition is true.</dd></div>
+        <div><dt>Unconditional jump</dt><dd>A jump that is always executed.</dd></div>
+        <div><dt>Block</dt><dd>A group of instructions delimited by Begin/End; blocks can be nested.</dd></div>
+        <div><dt>Indentation</dt><dd>Shifting lines to the right to show which block each instruction belongs to.</dd></div>
+        <div><dt>Structured programming</dt><dd>Organising the program into nestable blocks instead of jumps to numbered lines.</dd></div>
+        <div><dt>Flowchart</dt><dd>A graphical representation of the flow of control (ovals, rectangles, diamonds, arrows).</dd></div>
+        <div><dt>Program</dt><dd>A description of an algorithm by means of a programming language.</dd></div>
+        <div><dt>Programming language</dt><dd>A set of formally defined words and rules for programming a computer.</dd></div>
+        <div><dt>Implementing</dt><dd>Concretely realising a procedure in a programming language, starting from its logical definition.</dd></div>
+        <div><dt>Von Neumann machine</dt><dd>A model of a computer with a memory that contains both data and program, executed by a CPU one instruction at a time. Next topic.</dd></div>
+      </dl>
+    </section>
+
+    <!-- §18 -->
+    <section id="checklist" aria-labelledby="h-checklist">
+      <div class="sec-head"><span class="sec-num">§18</span><h2 id="h-checklist">Review checklist</h2><span class="pill" id="check-progress">0 of 9</span></div>
+      <p>Tick an item when you can do it without looking at the notes. Your ticks stay saved in this browser.</p>
+      <ul class="checklist" data-chiave="prog1-01A-checklist">
+        <li><label><input type="checkbox" id="chk-1"><span>I can give the definition of an algorithm and explain its five properties.</span></label></li>
+        <li><label><input type="checkbox" id="chk-2"><span>I can explain what computer science studies (the four aspects) and the sentence about telescopes.</span></label></li>
+        <li><label><input type="checkbox" id="chk-3"><span>I can set up a problem: input, output, steps, termination, available operations.</span></label></li>
+        <li><label><input type="checkbox" id="chk-4"><span>I can write from memory the multiplication by repeated addition in the structured version (V7).</span></label></li>
+        <li><label><input type="checkbox" id="chk-5"><span>I can execute the algorithm by hand (trace) for any m and n ≥ 0.</span></label></li>
+        <li><label><input type="checkbox" id="chk-6"><span>I can explain why V2 does not terminate with n = 0 and what principle follows from it.</span></label></li>
+        <li><label><input type="checkbox" id="chk-7"><span>I can tell conditional and unconditional jumps apart, in the text and in the flowchart.</span></label></li>
+        <li><label><input type="checkbox" id="chk-8"><span>I can draw the flowchart of the multiplication.</span></label></li>
+        <li><label><input type="checkbox" id="chk-9"><span>I can tell low-level and high-level languages apart, and implementing from translating.</span></label></li>
+      </ul>
+    </section>
+
+    <footer class="sources">
+      <h2>Sources and notes</h2>
+      <ul>
+        <li><strong>Lesson slides</strong>: "A first algorithm" (<span lang="it">"Un primo algoritmo"</span>), Programming I – Theory, Channel B, A.Y. 2026/27 (30 pages). Sections §1–§10 follow their order; the slide number is shown next to each heading.</li>
+        <li><strong>Official course page</strong> of Programming I (MFN0582) on the degree programme website: <a href="https://laurea.informatica.unito.it/do/corsi.pl/Show?_id=sm9i" target="_blank" rel="noopener">laurea.informatica.unito.it</a> (exam format); the 2026/27 channel B Moodle page (course presentation slides, timetable); the exam listings on Esse3 (<span lang="it">bacheca appelli</span>), for the exam dates.</li>
+        <li><strong>Student guide (<span lang="it">Guida degli studenti</span>)</strong> of the Team Studentesco Informatica (TSI, the Computer Science student team): <a href="https://github.com/tsi-unito/guida_degli_studenti_di" target="_blank" rel="noopener">github.com/tsi-unito/guida_degli_studenti_di</a>, folder <code>Materie/PROG1</code>: 2023/24 lab slides (exam rules in Lab03 and Lab10), 2023/24 Moodle exercises, 2016–2019 mock exams.</li>
+        <li>The parts marked <strong>"beyond the slides"</strong> (examples, C, invariant, exercises) are additions in these notes to connect the lesson to the rest of the course. The C code was compiled with <code>gcc -Wall -Werror</code>.</li>
+      </ul>
+      <p class="box trap" style="margin:14px 0"><strong>Disclaimer.</strong> Unofficial notes, reworked from the lesson slides; the information on the course and the exams comes from research on public sources. They may contain errors. <strong>The author takes no responsibility whatsoever.</strong> Anyone may read and use them, at their own risk. They are updated lesson by lesson, nothing more. This is not official material: only the slides, Moodle and the degree programme website are authoritative. <a href="https://github.com/DonFlammer/unito-computer-science/blob/main/DISCLAIMER.md" target="_blank" rel="noopener">Full text of the disclaimer</a>.</p>
+      <p>Notes by DonFlammer (Telegram <a href="https://t.me/rapsodico" target="_blank" rel="noopener">@rapsodico</a>), licensed <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> · source on <a href="https://github.com/DonFlammer/unito-computer-science" target="_blank" rel="noopener">GitHub</a>. Quotes from the slides remain the property of their respective authors.</p>
+    </footer>
+  </main>
+</div>
+<footer class="piede">
+  <div class="piede-in">
+    <div>
+      <h2>Computer Science Notes</h2>
+      <p>First-year Computer Science notes at the University of Turin, A.Y. 2026/27, for channels A, B and C. They may contain errors; the author takes no responsibility: read the <a href="https://github.com/DonFlammer/unito-computer-science/blob/main/DISCLAIMER.md">disclaimer</a>.</p>
+      <p>Quotes from the slides remain the property of their respective authors. For dates, rules and deadlines only Moodle, the degree programme website and Esse3 are authoritative.</p>
+    </div>
+    <div>
+      <h2>The site</h2>
+      <ul>
+        <li><a href="../../index.html#courses">First-year courses</a></li>
+        <li><a href="https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/unito_computer_science.md">General info</a></li>
+        <li><a href="https://github.com/DonFlammer/unito-computer-science/tree/main/ai_context">Context for AIs</a></li>
+        <li><a href="https://donflammer.github.io/unito-ofa-maths/">Maths OFA guide</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Project</h2>
+      <ul>
+        <li><a href="https://github.com/DonFlammer/unito-computer-science">Source on GitHub</a></li>
+        <li><a href="https://t.me/rapsodico">Telegram @rapsodico</a></li>
+        <li><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Licence CC BY-NC-SA 4.0</a></li>
+        <li><a href="https://donflammer.github.io/unito-informatica/" hreflang="it" lang="it">Versione italiana</a></li>
+      </ul>
+    </div>
+    <div class="piede-fondo"><span>Notes by DonFlammer · CC BY-NC-SA 4.0 · not a University of Turin website</span><button type="button" class="interruttore" id="interruttore-moto" aria-pressed="true"><span class="pista" aria-hidden="true"></span>Animations</button></div>
+  </div>
+</footer>
+<script src="../../assets/js/appunti.js" defer></script>
+<script src="../../assets/js/rete.js" defer></script>
+<script src="../../assets/js/studio.js" defer></script>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Table of contents: closed on narrow screens, current section highlighted */
+  const tocDetails = $('#toc-details');
+  if (tocDetails && window.matchMedia('(max-width: 1079px)').matches) tocDetails.open = false;
+  const tocLinks = $$('.toc a[href^="#"]');
+  if ('IntersectionObserver' in window) {
+    const byId = new Map(tocLinks.map(a => [a.getAttribute('href').slice(1), a]));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        tocLinks.forEach(a => a.classList.remove('is-active'));
+        const a = byId.get(e.target.id);
+        if (a) a.classList.add('is-active');
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    byId.forEach((a, id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  /* Tables: if they don't fit on a narrow screen, each row becomes a card with the column labels */
+  const tableWraps = $$('.table-wrap').filter(w => { const t = w.querySelector('table'); return t && t.tHead; });
+  tableWraps.forEach(w => {
+    const t = w.querySelector('table');
+    const heads = $$('th', t.tHead).map(th => th.textContent.trim());
+    $$('tbody tr', t).forEach(tr => Array.from(tr.children).forEach((c, i) => { if (heads[i]) c.dataset.label = heads[i]; }));
+  });
+  const fitTables = () => tableWraps.forEach(w => {
+    const t = w.querySelector('table');
+    t.classList.remove('stacked');
+    if (w.scrollWidth > w.clientWidth + 1) t.classList.add('stacked');
+  });
+  fitTables();
+  let fitTimer = null;
+  window.addEventListener('resize', () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitTables, 150); });
+
+  /* Simulator */
+  const PROGRAMS = {
+    ok: [
+      { n: 1, ind: 0, html: '<span class="kw">Begin Algorithm</span>', plain: 'Begin Algorithm', node: 'ok-start' },
+      { n: 2, ind: 1, html: 's ← 0,  i ← 0', plain: 's ← 0, i ← 0', node: 'ok-init' },
+      { n: 3, ind: 1, html: '<span class="kw">Begin Conditional Repetition</span>: if i = n <span class="kw">jump</span> to line 7, otherwise', plain: 'if i = n jump to [7]', node: 'ok-test' },
+      { n: 4, ind: 2, html: 's ← s + m', plain: 's ← s + m', node: 'ok-body' },
+      { n: 5, ind: 2, html: 'i ← i + 1', plain: 'i ← i + 1', node: 'ok-body' },
+      { n: 6, ind: 2, html: '<span class="kw">jump</span> to line 3', plain: 'jump to [3]', node: 'ok-back' },
+      { n: 7, ind: 1, html: '<span class="kw">End Conditional Repetition</span>', plain: 'End Repetition', node: 'ok-yes' },
+      { n: 8, ind: 0, html: '<span class="kw">End Algorithm</span>', plain: 'End Algorithm', node: 'ok-end' }
+    ],
+    bug: [
+      { n: 1, ind: 0, html: 's ← 0,  i ← 0', plain: 's ← 0, i ← 0', node: 'bug-init' },
+      { n: 2, ind: 0, html: 's ← s + m', plain: 's ← s + m', node: 'bug-body' },
+      { n: 3, ind: 0, html: 'i ← i + 1', plain: 'i ← i + 1', node: 'bug-body' },
+      { n: 4, ind: 0, html: 'if i = n <span class="kw">stop</span> (s is the total), otherwise <span class="kw">repeat</span> from step 2', plain: 'if i = n stop, otherwise [2]', node: 'bug-test' }
+    ]
+  };
+  const el = {
+    m: $('#sim-m'), n: $('#sim-n'), code: $('#sim-code'), s: $('#sim-s'), i: $('#sim-i'),
+    steps: $('#sim-steps'), status: $('#sim-status'), tbody: $('#sim-trace tbody'),
+    traceBox: $('#sim-trace-box'), play: $('#sim-play'), fcOk: $('#fc-ok'), fcBug: $('#fc-bug')
+  };
+  let ver = 'ok', M = 4, N = 3, st = null, timer = null;
+  const show = v => (v === null ? '—' : String(v));
+
+  function renderCode() {
+    el.code.innerHTML = '';
+    PROGRAMS[ver].forEach(l => {
+      const li = document.createElement('li');
+      li.dataset.line = String(l.n);
+      li.style.setProperty('--ind', String(l.ind));
+      li.innerHTML = '<span class="ln">[' + l.n + ']</span><span class="tx">' + l.html + '</span>';
+      el.code.appendChild(li);
+    });
+    el.fcOk.toggleAttribute('hidden', ver !== 'ok');
+    el.fcBug.toggleAttribute('hidden', ver !== 'bug');
+  }
+  function setStatus(text, kind) {
+    el.status.textContent = text;
+    el.status.className = 'status' + (kind ? ' ' + kind : '');
+  }
+  function render() {
+    el.s.textContent = show(st.s);
+    el.i.textContent = show(st.i);
+    el.steps.textContent = String(st.step);
+    const running = !st.done && !st.halted;
+    $$('li', el.code).forEach(li => {
+      const n = Number(li.dataset.line);
+      li.classList.toggle('is-current', running && n === st.pc);
+      li.classList.toggle('is-last', !running && n === st.last);
+    });
+    let node = null;
+    if (st.done) node = ver + '-end';
+    else if (st.halted) node = ver + '-test';
+    else node = PROGRAMS[ver][st.pc - 1].node;
+    $$('.fc-node, .fc-edge').forEach(x => x.classList.remove('is-active'));
+    const target = node && document.getElementById(node);
+    if (target) target.classList.add('is-active');
+  }
+  function addRow(k, line, instr, s, i, note) {
+    const tr = document.createElement('tr');
+    [String(k), '[' + line + ']', instr, show(s), show(i), note].forEach((v, idx) => {
+      const td = document.createElement('td');
+      td.textContent = v;
+      if (idx === 0 || idx === 3 || idx === 4) td.className = 'num';
+      if (idx === 2) td.className = 'mono';
+      tr.appendChild(td);
+    });
+    el.tbody.appendChild(tr);
+    el.traceBox.scrollTop = el.traceBox.scrollHeight;
+  }
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+    el.play.textContent = 'Run';
+    el.play.setAttribute('aria-pressed', 'false');
+  }
+  function reset(msg) {
+    stop();
+    st = { pc: 1, s: null, i: null, step: 0, done: false, halted: false, last: null, tests: 0, adds: 0 };
+    el.tbody.innerHTML = '';
+    setStatus(msg || 'Ready. Press "Step" to execute one instruction at a time, or "Run" to watch it play out.', '');
+    render();
+  }
+  function finish() {
+    stop();
+    const expected = M * N;
+    if (st.s === expected) {
+      setStatus('Finished in ' + st.step + ' steps: s = ' + st.s + ' = ' + M + ' × ' + N + '. Condition evaluated ' + st.tests + (st.tests === 1 ? ' time, ' : ' times, ') + st.adds + (st.adds === 1 ? ' addition' : ' additions') + ' on s.', 'ok');
+    } else {
+      setStatus('Finished, but s = ' + st.s + ' whereas ' + M + ' × ' + N + ' = ' + expected + '.', 'warn');
+    }
+  }
+  function halt() {
+    stop();
+    st.halted = true;
+    if (N < 0) {
+      setStatus('It does not terminate: with n = ' + N + ' the counter i starts from 0 and grows, so i = n will never be true. The precondition n ≥ 0 is there precisely to guarantee termination. Stopped after ' + st.step + ' steps.', 'warn');
+    } else {
+      setStatus('It does not terminate: the first addition happens before the check, now i = ' + st.i + ' > n = ' + N + ' and it will keep growing. This is the initial-case mistake (slides 19–20). Stopped after ' + st.step + ' steps.', 'warn');
+    }
+  }
+  function step() {
+    if (!st || st.done || st.halted) return;
+    const pc = st.pc;
+    let next = pc + 1;
+    let note = '';
+    if (ver === 'ok') {
+      switch (pc) {
+        case 1: note = 'Beginning of the algorithm.'; break;
+        case 2: st.s = 0; st.i = 0; note = 'Accumulator and counter start from 0.'; break;
+        case 3:
+          st.tests += 1;
+          if (st.i === N) { note = 'i = n? ' + st.i + ' = ' + N + ' → YES: conditional jump to line 7.'; next = 7; }
+          else { note = 'i = n? ' + st.i + ' = ' + N + ' → NO: I execute the block.'; }
+          break;
+        case 4: note = 's ← ' + st.s + ' + ' + M + ' = ' + (st.s + M); st.s += M; st.adds += 1; break;
+        case 5: note = 'i ← ' + st.i + ' + 1 = ' + (st.i + 1) + ' (additions done)'; st.i += 1; break;
+        case 6: note = 'Unconditional jump: I go back to line 3.'; next = 3; break;
+        case 7: note = 'I exit the repetition.'; break;
+        case 8: note = 'End: s = ' + st.s + '.'; st.done = true; break;
+      }
+    } else {
+      switch (pc) {
+        case 1: st.s = 0; st.i = 0; note = 'Accumulator and counter set to 0.'; break;
+        case 2: note = 's ← ' + st.s + ' + ' + M + ' = ' + (st.s + M) + ' (without having checked)'; st.s += M; st.adds += 1; break;
+        case 3: note = 'i ← ' + st.i + ' + 1 = ' + (st.i + 1); st.i += 1; break;
+        case 4:
+          st.tests += 1;
+          if (st.i === N) { note = 'i = n? ' + st.i + ' = ' + N + ' → YES: stop.'; st.done = true; }
+          else { note = 'i = n? ' + st.i + ' = ' + N + ' → NO: I repeat from step 2.'; next = 2; }
+          break;
+      }
+    }
+    st.step += 1;
+    st.last = pc;
+    addRow(st.step, pc, PROGRAMS[ver][pc - 1].plain, st.s, st.i, note);
+    if (!st.done) st.pc = next;
+    if (st.done) finish();
+    else if (st.i !== null && st.i > Math.max(N, 0) + 4) halt();
+    render();
+  }
+  function toEnd() {
+    stop();
+    let guard = 0;
+    while (!st.done && !st.halted && guard < 2000) { step(); guard += 1; }
+  }
+  function play() {
+    if (timer) { stop(); return; }
+    if (st.done || st.halted) reset();
+    if (reduceMotion) { toEnd(); return; }
+    el.play.textContent = 'Pause';
+    el.play.setAttribute('aria-pressed', 'true');
+    timer = setInterval(() => { step(); if (st.done || st.halted) stop(); }, 420);
+  }
+  function readInputs() {
+    const clamp = (v, lo, hi, d) => { const x = parseInt(v, 10); return Number.isNaN(x) ? d : Math.min(hi, Math.max(lo, x)); };
+    M = clamp(el.m.value, -50, 50, 4);
+    N = clamp(el.n.value, -5, 30, 3);
+    el.m.value = String(M);
+    el.n.value = String(N);
+  }
+  function selectVersion(v) {
+    ver = v;
+    const r = document.querySelector('input[name="sim-ver"][value="' + v + '"]');
+    if (r) r.checked = true;
+    renderCode();
+  }
+
+  el.m.addEventListener('change', () => { readInputs(); reset(); });
+  el.n.addEventListener('change', () => { readInputs(); reset(); });
+  $$('input[name="sim-ver"]').forEach(r => r.addEventListener('change', () => { selectVersion(r.value); reset(); }));
+  $$('[data-preset]').forEach(b => b.addEventListener('click', () => {
+    const parts = b.dataset.preset.split(',');
+    el.m.value = parts[0];
+    el.n.value = parts[1];
+    readInputs();
+    selectVersion(parts[2]);
+    reset('Loaded ' + M + ' × ' + N + ' with ' + (parts[2] === 'ok' ? 'version V6 (check first)' : 'version V2 (check after)') + '. Press "Step" or "Run".');
+  }));
+  $('#sim-step').addEventListener('click', () => { stop(); step(); });
+  el.play.addEventListener('click', play);
+  $('#sim-end').addEventListener('click', toEnd);
+  $('#sim-reset').addEventListener('click', () => reset());
+
+  renderCode();
+  reset();
+  toEnd();
+  el.status.textContent += ' Press "Restart" to watch it again one step at a time.';
+
+  /* Questions: open/close all */
+  const qaBtn = $('#qa-toggle');
+  qaBtn.addEventListener('click', () => {
+    const all = $$('#questions details.qa');
+    const open = !all.every(d => d.open);
+    all.forEach(d => { d.open = open; });
+    qaBtn.textContent = open ? 'Hide all answers' : 'Show all answers';
+  });
+
+  /* Checklist saved in the browser */
+  const KEY = 'prog1-01A-checklist';
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+  if (typeof saved !== 'object' || Array.isArray(saved)) saved = {};
+  const boxes = $$('.checklist input[type="checkbox"]');
+  const progress = $('#check-progress');
+  const updateProgress = () => { progress.textContent = boxes.filter(b => b.checked).length + ' of ' + boxes.length; };
+  boxes.forEach(b => {
+    if (saved[b.id]) b.checked = true;
+    b.addEventListener('change', () => {
+      saved[b.id] = b.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage not available */ }
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# partial copy of the student guide: it is a separate git repository (~84 MB)
+guida_degli_studenti_di/
+
+# lecturers' slides: copyrighted course material, kept local only
+slide/
+slides/
+
+# pages and documents saved from Moodle (visible only to enrolled students): kept local only
+moodle/
+
+# compiled files
+*.exe
+*.o
+*.obj
+
+# system files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Python cache
+__pycache__/

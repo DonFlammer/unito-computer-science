@@ -34,6 +34,7 @@ COURSES = [
         "extra": "C language",
         "exam": "Computer-based exam on Moodle, common to the three channels: C exercises with automatic tests, and the code is also read.",
         "dates": "25/01 and 11/02/2027",
+        "moodle": [("Channel A · surnames A–D", 3701), ("Channel B · surnames E–O", 3773), ("Channel C · surnames P–Z", 3767)],
         "links": [("Course sheet and exam", "PROG1/course.md"),
                   ("Exam-style exercises", "PROG1/exam_exercises.md"),
                   ("Lesson index and links between lessons", "PROG1/lesson_index.md")],
@@ -48,6 +49,8 @@ COURSES = [
                  "channel B lectures and so may not cover them, but the exam is common to the three channels: study them "
                  "on the book (details in the course sheet)."),
         "dates": "29/01 and 18/02/2027",
+        "moodle": [("Channel A · surnames A–D", 3851), ("Channel B · surnames E–O", 3747), ("Channel C · surnames P–Z", 3635),
+                   ("Exam page on Moodle Esami, common to the three channels", "https://esami.i-learn.unito.it/course/view.php?id=2673")],
         "links": [("Course sheet and exam", "FDA/course.md")],
     },
     {
@@ -56,30 +59,39 @@ COURSES = [
         "exam": "Two separate written exams, Discrete Mathematics and Geometry; the grade is the average.",
         "dates": "Discrete Mathematics 19/01 and 03/02, Geometry 22/01 and 05/02/2027",
         "modules": [("MD", "Discrete Mathematics"), ("AG", "Linear Algebra and Geometry")],
+        "moodle": [("Part 1 · Discrete Mathematics, channels A, B and C", 3829),
+                   ("Part 2 · Linear Algebra and Geometry, channels A, B and C", 3831)],
         "links": [("Course sheet and exam", "MDAG/course.md")],
     },
     {
         "code": "ANMAT", "it_code": "ANMAT", "name": "Mathematical Analysis", "italian": "Analisi Matematica",
         "course_code": "MFN0570", "cfu": 9, "semester": 2,
         "exam": "Three computer-based tests: quiz, theory, exercises.",
+        "moodle": [("Single page for channels A, B and C", 3703)],
         "links": [("Course sheet and exam", "ANMAT/course.md")],
     },
     {
         "code": "ARCH", "it_code": "ARCH", "name": "Computer Architecture", "italian": "Architettura degli Elaboratori",
         "course_code": "INF0326", "cfu": 6, "semester": 2, "friendly": True,
         "exam": "Computer-based written exam with a RISC-V lab part, then an oral exam.",
+        "moodle": [("Single page for channels A, B and C", 3833)],
         "links": [("Course sheet and exam", "ARCH/course.md")],
     },
     {
         "code": "PROG2", "it_code": "PROG2", "name": "Programming II", "italian": "Programmazione II",
         "course_code": "INF0330", "cfu": 6, "semester": 2,
         "exam": "Mandatory projects, partial exam and written exam.",
+        "moodle": [("Channel A · theory", 3651), ("Channel A · lab A1, odd student number", 3653),
+                   ("Channel A · lab A2, even student number", 3655), ("Channel B · not on Moodle yet (30/09/2026)", None),
+                   ("Channel C · theory and lab C1: not on Moodle yet (30/09/2026)", None),
+                   ("Channel C · lab C2, even student number", 3757)],
         "links": [("Course sheet and exam", "PROG2/course.md")],
     },
     {
         "code": "RO", "it_code": "RO", "name": "Operational Research", "italian": "Ricerca Operativa",
         "course_code": "INF0327", "cfu": 6, "semester": 2,
         "exam": "Computer-based written exam and optional oral exam.",
+        "moodle": [("Single page for channels A, B and C", 3719)],
         "links": [("Course sheet and exam", "RO/course.md")],
     },
     {
@@ -89,6 +101,7 @@ COURSES = [
         "lede": ("The course starts in the second semester and is a single course for channels A, B and C (online "
                  "exercise classes, no split by channel): for now there is the course sheet with exam, material and "
                  "recognition of certificates. Notes will come lesson by lesson."),
+        "moodle": [("Single page for channels A, B and C", 3805)],
         "links": [("Course sheet and exam", "ENGLISH/course.md")],
     },
 ]
@@ -100,6 +113,9 @@ ICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0
         "text-anchor='middle' fill='%233fe0cc'%3E%C2%A7%3C/text%3E%3C/svg%3E")
 REPO = "https://github.com/DonFlammer/unito-computer-science"
 OFA = "https://donflammer.github.io/unito-ofa-maths/"
+# Moodle 2026/27 (I-Learn Informatica): course pages and the first-year catalogue, checked on 30/09/2026
+MOODLE = "https://informatica.i-learn.unito.it/course/view.php?id="
+MOODLE_FIRST_YEAR = "https://informatica.i-learn.unito.it/course/index.php?categoryid=485"
 LICENCE = "https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
 e = html.escape
@@ -268,6 +284,10 @@ def course_page(c, les):
     sheet = "\n".join(f'      <div class="dato"><dt>{t}</dt><dd class="{k}">{v}</dd></div>' if k else
                       f'      <div class="dato"><dt>{t}</dt><dd>{v}</dd></div>' for t, v, k in data)
     links = "\n".join(f'      <li><a href="{GH}{u}">{e(t)}</a></li>' for t, u in c["links"])
+    # Moodle pages of the course: an I-Learn id, a full address, or None if the page does not exist yet
+    moodle = "\n".join(
+        f'      <li><span class="manca">{e(t)}</span></li>' if where is None else
+        f'      <li><a href="{where if isinstance(where, str) else MOODLE + str(where)}">{e(t)}</a></li>' for t, where in c["moodle"])
     title = f"{c['name']} · Computer Science Notes UniTo"
     descr = (f"Notes for {c['name']} ({c['italian']}), Computer Science at the University of Turin, A.Y. 2026/27: "
              f"lessons, exam and course sheet for channels A, B and C.")
@@ -300,6 +320,13 @@ def course_page(c, les):
     <div class="sez-testa"><h2 id="h-links">Further reading</h2><p>The Markdown sheets of the AI context: lecturers, timetables and Moodle for the three channels, exam and material.</p></div>
     <ul class="link-lista">
 {links}
+    </ul>
+  </section>
+
+  <section class="sezione" aria-labelledby="h-moodle">
+    <div class="sez-testa"><h2 id="h-moodle">Moodle</h2><p>The course pages on Moodle (in Italian), A.Y. 2026/27. You usually need to log in with your UniTo account; some pages also open as a guest. All first-year courses: <a href="{MOODLE_FIRST_YEAR}">list on Moodle</a>.</p></div>
+    <ul class="link-lista">
+{moodle}
     </ul>
   </section>
 </main>

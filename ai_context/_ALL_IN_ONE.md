@@ -206,7 +206,7 @@ Other dates:
 
 ## Platforms and contacts
 
-- **Moodle I-Learn**: https://informatica.i-learn.unito.it — enrol on the page of each course: one per channel for Programming I (labs included) and Foundations; for Programming II one theory page per channel plus one for each lab group; one page common to the three channels for MDAG (part 1 and part 2), Analysis, Architecture, Operational Research and English. As of 28/09/2026 guest access works only on Programming I A/B/C and Foundations A and C.
+- **Moodle I-Learn**: https://informatica.i-learn.unito.it (all first-year courses of 2026/27: https://informatica.i-learn.unito.it/course/index.php?categoryid=485) — enrol on the page of each course: one per channel for Programming I (labs included) and Foundations; for Programming II one theory page per channel plus one for each lab group; one page common to the three channels for MDAG (part 1 and part 2), Analysis, Architecture, Operational Research and English. As of 28/09/2026 guest access works only on Programming I A/B/C and Foundations A and C.
 - **MyUniTo / Esse3**: registration for exam sessions, results, study plan. Public exam listings: https://esse3.unito.it/ListaAppelliOfferta.do
 - **Timetables**: University Planner or the MyUniTO+ app.
 - **Edumeter**: https://www.edumeter.unito.it (course evaluations).

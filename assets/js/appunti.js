@@ -51,6 +51,31 @@
   if (moto) moto.addEventListener('click', cambiaMoto);
   if (animBtn) animBtn.addEventListener('click', cambiaMoto);
 
+  /* nelle lezioni lo sfondo sfuma e si spegne, senza cambiare la preferenza salvata per le altre pagine */
+  let dissolvenzaMoto = null;
+  const annullaDissolvenza = () => {
+    if (!dissolvenzaMoto) return;
+    dissolvenzaMoto.onfinish = null;
+    dissolvenzaMoto.cancel();
+    dissolvenzaMoto = null;
+  };
+  window.addEventListener('appunti:moto', () => { annullaDissolvenza(); aggiornaMoto(); });
+  const spegniNellaLezione = () => {
+    if (!document.querySelector('meta[name="lezione"], meta[name="lesson"]')) return;
+    annullaDissolvenza();
+    if (root.classList.contains('meno-moto')) return;
+    const spegni = () => {
+      root.classList.add('meno-moto');
+      window.dispatchEvent(new Event('appunti:moto'));
+    };
+    const sfondo = $('#rete');
+    if (!sfondo?.animate || document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { spegni(); return; }
+    dissolvenzaMoto = sfondo.animate([{ opacity: getComputedStyle(sfondo).opacity }, { opacity: 0 }], { duration: 600, easing: 'ease-out', fill: 'forwards' });
+    dissolvenzaMoto.onfinish = spegni;
+  };
+  spegniNellaLezione();
+  window.addEventListener('pageshow', e => { if (e.persisted) spegniNellaLezione(); });
+
   /* menu su telefono */
   const menuBtn = $('.menu-btn');
   if (menuBtn) {

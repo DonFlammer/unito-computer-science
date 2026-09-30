@@ -9,13 +9,13 @@ The research (degree programme, course sheets, exams) comes from public sources 
 ## How to use the sources
 
 - Every file states its update date and sources. Always distinguish what is **official for 2026/27** from what comes from **previous years or channels** (the files point this out).
-- In the lessons (`<COURSE>/lessons/*.md`) everything follows the slides, except the parts marked **[BEYOND THE SLIDES]**.
+- In the lessons (`<COURSE>/lessons/*.md`) everything follows the course's slides or handouts, except the parts marked **[BEYOND THE SLIDES]** (older lessons) or the `> [!BEYOND]` boxes (more recent lessons). Boxes, quizzes, exercises and formulas are explained in `lesson_format.md`.
 - When in doubt, the lecturer's slides, the course's Moodle page and the degree programme website are authoritative.
 
 ## Teaching rules
 
 - **Programming I (Programmazione I) lecturers' policy on LLMs**: they are for reviewing exercises already done or for understanding why a program does not compile, **not for delegating the solution**. So: for exercises still to be done, guide with questions and progressive hints before giving the full solution; when correcting code, explain the error.
-- Answer in the user's language (English unless they write in another language), with concrete examples and edge cases.
+- Answer in the user's language (English unless they write in another language), with concrete examples and edge cases. In mathematics explain step by step, starting from an example with small numbers, and write out every step of the calculations.
 - When you write C code for Programming I, follow the exam rules:
   - iterative functions: **a single `return`**, sentinel variables, **no `break`, `switch`, `case`, `static`**;
   - recursive functions: **no `for`/`while`**, respect the required type (covariant, contravariant, dichotomic; in Italian co-variante, contro-variante, dicotomica);
@@ -25,15 +25,15 @@ The research (degree programme, course sheets, exams) comes from public sources 
 
 ## If you have to write the notes for a new lesson
 
-The repository follows this scheme (see `PROG1/lessons/01A_first_algorithm.md` as a model):
+New lessons are written in the format of `lesson_format.md` (models: `PROG1/lessons/02A_from_assembly_to_c.md` and `MDAG/lessons/L01_real_numbers.md`), from which the HTML page is generated. In short:
 
 1. YAML front matter with course, lecturer, lesson, date, source (name of the slides PDF).
 2. "In brief": 5–8 points with the key concepts.
 3. One section for each group of slides, **with the slide numbers**; exact definitions in italics or as quotations; tables for comparisons.
-4. Pseudocode and code in code blocks; diagrams in `mermaid`.
+4. Pseudocode and code in code blocks; formulas in LaTeX; figures and interactive tools with the `graph` and `widget` blocks.
 5. Pitfalls and typical mistakes; link to the exam (see `PROG1/course.md` and `PROG1/exam_exercises.md`).
 6. Exercises with solutions (compile the C code with `gcc -Wall -Werror` before writing it down); review questions with short answers; glossary.
 7. Update `<COURSE>/lesson_index.md` with the key concepts of the new lesson and the common threads with the previous lessons.
-8. Mark with **[BEYOND THE SLIDES]** everything that does not come from the slides.
+8. Put in a `BEYOND` box everything that does not come from the slides or the handouts.
 
 The repository also has an interactive HTML version of each lesson (`notes/<COURSE>/`), designed for studying at the computer; the content is the same.

@@ -41,7 +41,7 @@ General information (channels and lab groups, lecturers per channel, timetables,
 |---|---|
 | `notes/<COURSE>/` | one folder per course. `index.html` is the course page (lessons, exam, links); the other files are the notes of each lesson as interactive HTML (simulators, exercises with hidden solutions, checklists), which open with a double click in the browser, even offline |
 | `ai_context/` | the same content in Markdown, again one folder per course, plus the degree programme, the course sheets and exam-style exercises: **to attach to any AI** so that it doesn't redo the research. Instructions in [ai_context/README.md](ai_context/README.md) |
-| `tools/` | `generate_courses.py` regenerates the course pages and the list on the home page; `merge_context.py` regenerates `ai_context/_ALL_IN_ONE.md` |
+| `tools/` | `generate_courses.py` regenerates the course pages and the list on the home page, and first turns the lessons written in Markdown (`ai_context/<CODE>/lessons/*.md` with `generate_html: true`) into HTML pages with `lessons.mjs` (it needs Node.js: `npm ci` in the `tools` folder); `merge_context.py` regenerates `ai_context/_ALL_IN_ONE.md` |
 | `index.html` | home page of the GitHub Pages site |
 
 The lecturers' slide PDFs and the pages saved from Moodle are not published, neither here nor in the Italian repository.

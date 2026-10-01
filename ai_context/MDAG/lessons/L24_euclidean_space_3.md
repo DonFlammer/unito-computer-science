@@ -4,7 +4,7 @@ module: AG
 lesson: L24
 title: Euclidean space III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L24
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L24
 description: >-
   Notes on lesson L24 of Linear Algebra and Geometry (MDAG, part 2): angles between lines, between a line and a plane
   and between planes, distances between points, between a point and a line, between skew lines and between a point

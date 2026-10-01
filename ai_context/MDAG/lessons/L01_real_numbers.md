@@ -5,7 +5,7 @@ lesson: L01
 title: Real numbers
 date: 2026-09-30
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L01
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L01
 description: >-
   Notes on lesson L01 of Linear Algebra and Geometry (MDAG, part 2): number sets, construction of the real numbers,
   irrationality of √2, fields, order, notation and calculations with roots, with exam-style quizzes and worked

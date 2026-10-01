@@ -4,7 +4,7 @@ module: AG
 lesson: L19
 title: Scalar products I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L19
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L19
 description: >-
   Notes on lesson L19 of Linear Algebra and Geometry (MDAG, part 2): what a scalar product is, degenerate and
   positive definite products, the Euclidean scalar product, symmetric matrices and the matrix associated with a

@@ -4,7 +4,7 @@ module: AG
 lesson: L25
 title: Spectral theorem I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L25
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L25
 description: >-
   Notes on lesson L25 of Linear Algebra and Geometry (MDAG, part 2): Hermitian products on complex spaces, Hermitian
   matrices, associated matrix, self-adjoint endomorphisms and invariant subspaces, with exam-style quizzes and worked

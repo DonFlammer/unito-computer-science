@@ -4,7 +4,7 @@ module: AG
 lesson: L09
 title: Matrices II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L09
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L09
 description: >-
   Notes on lesson L09 of Linear Algebra and Geometry (MDAG, part 2): the determinant of a square matrix defined with
   permutations, the formulas for 2×2 and 3×3 matrices, triangular matrices and the identity matrix, the Laplace

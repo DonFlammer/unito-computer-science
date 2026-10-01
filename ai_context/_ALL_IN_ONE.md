@@ -2735,7 +2735,7 @@ lesson: L01
 title: Real numbers
 date: 2026-09-30
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L01
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L01
 description: >-
   Notes on lesson L01 of Linear Algebra and Geometry (MDAG, part 2): number sets, construction of the real numbers,
   irrationality of √2, fields, order, notation and calculations with roots, with exam-style quizzes and worked
@@ -4262,7 +4262,7 @@ module: AG
 lesson: L02
 title: Complex numbers I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L02
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L02
 description: >-
   Notes on lesson L02 of Linear Algebra and Geometry (MDAG, part 2): complex numbers, sum and product, real part and
   imaginary part, conjugate, modulus, inverse and division, the complex plane and the parallelogram rule, with
@@ -5184,7 +5184,7 @@ module: AG
 lesson: L03
 title: Complex numbers II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L03
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L03
 description: >-
   Notes on lesson L03 of Linear Algebra and Geometry (MDAG, part 2): polar coordinates, exponential form, modulus and
   argument of a complex number, product and inverse in polar form, Euler's identity, powers and n-th roots, with a
@@ -6117,7 +6117,7 @@ module: AG
 lesson: L04
 title: Polynomials
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L04
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L04
 description: >-
   Notes on lesson L04 of Linear Algebra and Geometry (MDAG, part 2): polynomials and degree, division with remainder
   and Ruffini's rule, roots and multiplicity, how many roots a polynomial can have, the fundamental theorem of
@@ -6918,7 +6918,7 @@ module: AG
 lesson: L05
 title: Vector spaces I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L05
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L05
 description: >-
   Notes on lesson L05 of Linear Algebra and Geometry (MDAG, part 2): Euclidean space, sum of vectors and product by
   a scalar, groups, fields, definition of vector space and examples (polynomials, functions, sequences), with
@@ -7862,7 +7862,7 @@ module: AG
 lesson: L06
 title: Vector spaces II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L06
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L06
 description: >-
   Notes on lesson L06 of Linear Algebra and Geometry (MDAG, part 2): the space of matrices, vector subspaces,
   diagonal, triangular, symmetric and skew-symmetric matrices, linear combinations and the subspace spanned (Span),
@@ -8687,7 +8687,7 @@ module: AG
 lesson: L07
 title: Vector spaces III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L07
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L07
 description: >-
   Notes on lesson L07 of Linear Algebra and Geometry (MDAG, part 2): linear dependence and independence, bases,
   standard basis of K^n and of polynomials, dimension of a vector space and the theorem on bases, with exam-style
@@ -9448,7 +9448,7 @@ module: AG
 lesson: L08
 title: Matrices I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L08
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L08
 description: >-
   Notes on lesson L08 of Linear Algebra and Geometry (MDAG, part 2): transpose of a matrix, symmetric matrices,
   row rank and column rank, the row-by-column product and its properties, trace, with exam-style quizzes and
@@ -10282,7 +10282,7 @@ module: AG
 lesson: L09
 title: Matrices II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L09
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L09
 description: >-
   Notes on lesson L09 of Linear Algebra and Geometry (MDAG, part 2): the determinant of a square matrix defined with
   permutations, the formulas for 2×2 and 3×3 matrices, triangular matrices and the identity matrix, the Laplace
@@ -11042,7 +11042,7 @@ module: AG
 lesson: L10
 title: Matrices III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L10
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L10
 description: >-
   Notes on lesson L10 of Linear Algebra and Geometry (MDAG, part 2): how the determinant changes with the Gauss
   moves, zero determinant and dependent rows, Binet's theorem, cofactors, the inverse matrix and the invertibility
@@ -11823,7 +11823,7 @@ module: AG
 lesson: L11
 title: Linear systems I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L11
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L11
 description: >-
   Notes on lesson L11 of Linear Algebra and Geometry (MDAG, part 2): linear systems and augmented matrix, Gauss
   moves, pivots and row echelon matrices, the Gauss and Gauss–Jordan algorithms, how to write all the solutions of
@@ -12590,7 +12590,7 @@ module: AG
 lesson: L12
 title: Linear systems II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L12
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L12
 description: >-
   Notes on lesson L12 of Linear Algebra and Geometry (MDAG, part 2): associated homogeneous system, particular
   solution, affine subspaces, rank and pivots, the Rouché–Capelli theorem, square systems and systems with a
@@ -13323,7 +13323,7 @@ module: AG
 lesson: L13
 title: Linear systems III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L13
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L13
 description: >-
   Notes on lesson L13 of Linear Algebra and Geometry (MDAG, part 2): linear independence, generators, bases and
   coordinates with respect to a basis studied with linear systems, the rank and the determinant, plus a code that
@@ -14019,7 +14019,7 @@ module: AG
 lesson: L14
 title: Linear maps I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L14
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L14
 description: >-
   Notes on lesson L14 of Linear Algebra and Geometry (MDAG, part 2): linear maps, examples and non-examples, the map
   associated with a matrix, kernel and image, injectivity and surjectivity, rank–nullity theorem, with exam-style
@@ -14781,7 +14781,7 @@ module: AG
 lesson: L15
 title: Linear maps II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L15
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L15
 description: >-
   Notes on lesson L15 of Linear Algebra and Geometry (MDAG, part 2): isomorphisms, isomorphic vector spaces,
   coordinates and the matrix associated with a linear map with respect to two bases, with exam-style quizzes and
@@ -15568,7 +15568,7 @@ module: AG
 lesson: L16
 title: Linear maps III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L16
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L16
 description: >-
   Notes on lesson L16 of Linear Algebra and Geometry (MDAG, part 2): change-of-basis matrix, composition of linear
   maps and product of matrices, endomorphisms and similar matrices, with exam-style quizzes and worked exercises.
@@ -16295,7 +16295,7 @@ module: AG
 lesson: L17
 title: Eigenvalues and eigenvectors I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L17
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L17
 description: >-
   Notes on lesson L17 of Linear Algebra and Geometry (MDAG, part 2): eigenvectors and eigenvalues of an endomorphism,
   diagonalisable endomorphisms and matrices, powers of matrices and the characteristic polynomial, with exam-style
@@ -16991,7 +16991,7 @@ module: AG
 lesson: L18
 title: Eigenvalues and eigenvectors II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L18
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L18
 description: >-
   Notes on lesson L18 of Linear Algebra and Geometry (MDAG, part 2): independence of eigenvectors with distinct
   eigenvalues, eigenspaces and direct sum, algebraic and geometric multiplicity, the diagonalisability theorem and
@@ -17695,7 +17695,7 @@ module: AG
 lesson: L19
 title: Scalar products I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L19
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L19
 description: >-
   Notes on lesson L19 of Linear Algebra and Geometry (MDAG, part 2): what a scalar product is, degenerate and
   positive definite products, the Euclidean scalar product, symmetric matrices and the matrix associated with a
@@ -18548,7 +18548,7 @@ module: AG
 lesson: L20
 title: Scalar products II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L20
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L20
 description: >-
   Notes on lesson L20 of Linear Algebra and Geometry (MDAG, part 2): how the matrix of a scalar product changes when
   the basis changes, quadratic forms, norm, the Cauchy–Schwarz and triangle inequalities, distances and angles between
@@ -19313,7 +19313,7 @@ module: AG
 lesson: L21
 title: Scalar products III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L21
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L21
 description: >-
   Notes on lesson L21 of Linear Algebra and Geometry (MDAG, part 2): orthogonal vectors, orthogonal complement,
   orthogonal projection onto a line and onto a subspace, orthogonal and orthonormal bases, the Gram–Schmidt algorithm,
@@ -20175,7 +20175,7 @@ module: AG
 lesson: L22
 title: Euclidean space I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L22
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L22
 description: >-
   Notes on lesson L22 of Linear Algebra and Geometry (MDAG, part 2): rotations and reflections of the plane,
   isometries between spaces with a scalar product, orthogonal matrices, classification of the isometries of the plane
@@ -20953,7 +20953,7 @@ module: AG
 lesson: L23
 title: Euclidean space II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L23
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L23
 description: >-
   Notes on lesson L23 of Linear Algebra and Geometry (MDAG, part 2): properties of the cross product and area of the
   parallelogram, Cartesian and parametric form of lines and planes, affine subspaces and direction space (giacitura),
@@ -21910,7 +21910,7 @@ module: AG
 lesson: L24
 title: Euclidean space III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L24
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L24
 description: >-
   Notes on lesson L24 of Linear Algebra and Geometry (MDAG, part 2): angles between lines, between a line and a plane
   and between planes, distances between points, between a point and a line, between skew lines and between a point
@@ -22721,7 +22721,7 @@ module: AG
 lesson: L25
 title: Spectral theorem I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L25
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L25
 description: >-
   Notes on lesson L25 of Linear Algebra and Geometry (MDAG, part 2): Hermitian products on complex spaces, Hermitian
   matrices, associated matrix, self-adjoint endomorphisms and invariant subspaces, with exam-style quizzes and worked
@@ -23449,7 +23449,7 @@ module: AG
 lesson: L26
 title: Spectral theorem II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L26
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L26
 description: >-
   Notes on lesson L26 of Linear Algebra and Geometry (MDAG, part 2): the spectral theorem for self-adjoint
   endomorphisms, its proof, the version with symmetric and orthogonal matrices, the link with PCA and all the

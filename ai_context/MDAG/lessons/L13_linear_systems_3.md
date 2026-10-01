@@ -4,7 +4,7 @@ module: AG
 lesson: L13
 title: Linear systems III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L13
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L13
 description: >-
   Notes on lesson L13 of Linear Algebra and Geometry (MDAG, part 2): linear independence, generators, bases and
   coordinates with respect to a basis studied with linear systems, the rank and the determinant, plus a code that

@@ -4,7 +4,7 @@ module: AG
 lesson: L02
 title: Complex numbers I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L02
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L02
 description: >-
   Notes on lesson L02 of Linear Algebra and Geometry (MDAG, part 2): complex numbers, sum and product, real part and
   imaginary part, conjugate, modulus, inverse and division, the complex plane and the parallelogram rule, with

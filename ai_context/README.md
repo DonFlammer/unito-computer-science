@@ -35,7 +35,8 @@ My request: <write your question here>
 | `PROG1/lesson_index.md` | lessons studied so far, with key concepts and links |
 | `PROG1/lessons/*.md` | full notes of each lesson (channel B slides, with references to A and C) |
 | `MDAG/lesson_index.md` | the 26 lessons of MDAG part 2 (Linear Algebra and Geometry) with handout pages, topics and links |
-| `MDAG/lessons/*.md` | notes on MDAG part 2 (Linear Algebra and Geometry), lesson by lesson (course handouts, the same for channels A, B and C) |
+| `MDAG/lessons/*.md` | notes on MDAG lesson by lesson: part 2 (modB, Linear Algebra and Geometry), L01–L26 on the course handouts; part 1 (modA, Discrete Mathematics), D01 onwards on Mori's book. Programme and exam are common to channels A, B and C |
+| `FDA/lessons/*.md` | notes on Foundations of Computer Science lesson by lesson (channel B, on the textbook, with references to A and C) |
 | `lesson_format.md` | how the lesson files are written: boxes, quizzes, exercises, formulas |
 | `FDA/course.md` | Foundations of Computer Science (Fondamenti dell'Informatica) |
 | `MDAG/course.md` | Discrete Mathematics, Algebra and Geometry (Matematica Discreta, Algebra e Geometria) |
@@ -49,4 +50,4 @@ My request: <write your question here>
 The same notes as interactive HTML are online: https://donflammer.github.io/unito-computer-science/ (Italian original: https://donflammer.github.io/unito-informatica/).
 I'm DonFlammer · Telegram @rapsodico (https://t.me/rapsodico), with no commitment to answer.
 
-Last updated: 01/10/2026 (MDAG: the Linear Algebra and Geometry notes are those of part 2 of the course; lesson L01 rewritten with more examples and explanations in words). Before: 30/09/2026 (Linear Algebra and Geometry, all the lessons L01–L26 and lesson index; Programming I, lessons 01B and 02A; lesson format in `lesson_format.md`).
+Last updated: 01/10/2026 (first lesson of Discrete Mathematics, D01, and of Foundations of Computer Science, 01; the two parts of MDAG are also called modA and modB, as in the timetable; the lessons no longer have the "Before you start" section; a student's Discrete Mathematics notes, Rigurgiti di Unicorno, among the MDAG material; MDAG: the Linear Algebra and Geometry notes are those of part 2 of the course; lesson L01 rewritten with more examples and explanations in words). Before: 30/09/2026 (Linear Algebra and Geometry, all the lessons L01–L26 and lesson index; Programming I, lessons 01B and 02A; lesson format in `lesson_format.md`).

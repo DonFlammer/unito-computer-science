@@ -31,8 +31,9 @@ FRIENDLY = ("Its official 2026/27 course page labels it \"English-friendly cours
             "courses with material in English to prepare the exam, whose lecturer allows students to take the exam "
             "in English. Lectures are in Italian: ask the lecturer at the start of the course.")
 
-# courses split into parts (MDAG): the module code becomes "Part 1", "Part 2" in the lesson lists
-PARTS = {"MD": "Part 1", "AG": "Part 2"}
+# courses split into parts (MDAG): the module code becomes "Part 1 (modA)", "Part 2 (modB)" in the lesson lists
+# (modA and modB are the names of the two parts in the University Planner timetable)
+PARTS = {"MD": "Part 1 (modA)", "AG": "Part 2 (modB)"}
 COURSES = [
     {
         "code": "PROG1", "it_code": "PROG1", "name": "Programming I", "italian": "Programmazione I",
@@ -62,17 +63,19 @@ COURSES = [
     {
         "code": "MDAG", "it_code": "MDAG", "name": "Discrete Mathematics, Algebra and Geometry",
         "italian": "Matematica Discreta, Algebra e Geometria", "course_code": "INF0328", "cfu": 12, "semester": 1,
-        "exam": "Two separate written exams, part 1 (Discrete Mathematics) and part 2 (Linear Algebra and Geometry); the grade is the average.",
-        "dates": "Part 1 (Discrete Mathematics) 19/01 and 03/02, part 2 (Geometry) 22/01 and 05/02/2027",
-        "modules": [("MD", "Part 1 · Discrete Mathematics"), ("AG", "Part 2 · Linear Algebra and Geometry")],
-        "moodle": [("Part 1 · Discrete Mathematics, channels A, B and C", 3829),
-                   ("Part 2 · Linear Algebra and Geometry, channels A, B and C", 3831)],
+        "exam": "Two separate written exams, part 1 (modA, Discrete Mathematics) and part 2 (modB, Linear Algebra and Geometry); the grade is the average.",
+        "dates": "Part 1 (modA, Discrete Mathematics) 19/01 and 03/02, part 2 (modB, Geometry) 22/01 and 05/02/2027",
+        "modules": [("MD", "Part 1 (modA) · Discrete Mathematics"), ("AG", "Part 2 (modB) · Linear Algebra and Geometry")],
+        "moodle": [("Part 1 (modA) · Discrete Mathematics, MDAG1, channels A, B and C", 3829),
+                   ("Part 2 (modB) · Linear Algebra and Geometry, MDAG2, channels A, B and C", 3831)],
         "note": ("The course has two parts, with separate lessons, Moodle pages and written exams: part 1 is Discrete "
-                 "Mathematics, part 2 is Linear Algebra and Geometry. The part 2 notes already cover all 26 lessons "
+                 "Mathematics, part 2 is Linear Algebra and Geometry. In the timetable (University Planner) part 1 is "
+                 "called modA and part 2 modB; on Moodle they are MDAG1 and MDAG2. The part 2 notes already cover all 26 lessons "
                  "of the 2026 handouts, the same for the three channels: they are ready ahead of time, so the pace in "
-                 "class may differ. The part 1 notes are not there yet."),
+                 "class may differ. Part 1 also has a programme and an exam common to the three channels: its notes "
+                 "follow the channel B lessons (Mori, with his book) and arrive lesson by lesson."),
         "links": [("Course sheet and exam", "MDAG/course.md"),
-                  ("Lesson index of part 2, Linear Algebra and Geometry", "MDAG/lesson_index.md")],
+                  ("Lesson index of part 2 (modB), Linear Algebra and Geometry", "MDAG/lesson_index.md")],
     },
     {
         "code": "ANMAT", "it_code": "ANMAT", "name": "Mathematical Analysis", "italian": "Analisi Matematica",
@@ -256,7 +259,7 @@ def course_page(c, les):
     it_url = f"{IT_SITE}appunti/{c['it_code']}/"
     label = " · ".join(x for x in ["First year", f"{ordinal(c['semester'])} semester", c["course_code"], c.get("extra", "")] if x)
     if les:
-        lede = ("I follow channel B: the notes for each lesson are based on the channel B slides, with "
+        lede = ("I follow channel B: the notes for each lesson are based on the channel B material (slides, handouts or textbook), with "
                 "references to channels A and C. The official programme and the exam are common, so they largely hold "
                 "for A and C too, but slides, order, examples and the parts of the programme covered may differ. "
                 "Lecturers, timetables, Moodle and exam for all three channels are in the course sheet.")

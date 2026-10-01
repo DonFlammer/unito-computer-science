@@ -4,7 +4,7 @@ module: AG
 lesson: L03
 title: Complex numbers II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L03
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L03
 description: >-
   Notes on lesson L03 of Linear Algebra and Geometry (MDAG, part 2): polar coordinates, exponential form, modulus and
   argument of a complex number, product and inverse in polar form, Euler's identity, powers and n-th roots, with a

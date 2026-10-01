@@ -68,11 +68,11 @@ The most recent lesson files (`<COURSE>/lessons/*.md` with `generate_html: true`
 
 ## Structure
 
-- `## In brief`: the key points of the lesson.
+- `## In brief`: the key points of the lesson. Right after it the content starts: no introductory section about what you need to know or what you will be able to do at the end.
 - Sections `## Title (slides 2–5)` or `## Title (pp. 20–21)`: in brackets the slides or the pages of the handouts the section comes from.
 - `## Towards the exam`, `## Quiz`, `## Exercises`, `## Review questions`, `## Glossary`, `## Checklist`, `## Sources`.
 
-The Linear Algebra and Geometry lessons (`MDAG/lessons/L*.md`), as they are rewritten, also have: `## Before you start` (what the lesson is about, what you need to know already, what you will be able to do at the end) right after "In brief", and `## The symbols of this lesson` (a table: symbol, how to read it, what it means, example) before "Towards the exam". In each section the order is: a concrete example, the idea in words, then the statement of the handouts in a box, followed by a paragraph "**How to read it.**" that puts it into words.
+The lessons rewritten in the new format (Linear Algebra and Geometry `MDAG/lessons/L*.md` as they are rewritten, Discrete Mathematics `D*.md`, Foundations of Computer Science) also have `## The symbols of this lesson` (a table: symbol, how to read it, what it means, example) before "Towards the exam". In each section the order is: a concrete example, the idea in words, then the statement of the handouts in a box, followed by a paragraph "**How to read it.**" that puts it into words.
 
 ## Formulas
 
@@ -2556,6 +2556,727 @@ Channel C started with the slides "Azzeramento" (refresher) and "Rappresentazion
 
 ---
 
+<!-- FILE: ai_context/FDA/lessons/01_bits_gates_hexadecimal.md -->
+> File: `ai_context/FDA/lessons/01_bits_gates_hexadecimal.md`
+
+```yaml
+course: FDA
+lesson: "01"
+title: Bits, logic gates and hexadecimal
+date: 2026-09-28
+lecturers: Stefano Berardi
+eyebrow: Channel B · Lesson 01 · Book, part 1, §1.1
+description: >-
+  Notes on lesson 01 of Foundations of Computer Science (channel B): bits and how much can be written with n bits,
+  the Boolean operations AND, OR, XOR and NOT, logic gates, the flip-flop that remembers a bit and hexadecimal
+  notation, with an interactive tool, quizzes and worked exercises.
+lede: >-
+  Inside a computer every piece of information is made of just two symbols, zero and one. Here you see how they are
+  combined with four operations, how circuits carry them out, how a circuit manages to remember and how long rows of
+  zeros and ones are written in short.
+material: book
+facts:
+  Book: Johnsonbaugh, Brookshear, Brylow, Fondamenti dell'Informatica, part 1 (Brookshear, ch. 1), §1.1
+  Lecturer: Stefano Berardi · channel B · A.Y. 2026/27
+  Study time: 2 hours, also in several sittings
+source: >-
+  Course textbook, part 1 (J. G. Brookshear, D. Brylow, Computer Science: an overview, ch. 1), §1.1 "Bits and Their
+  Storage" and the answers to its questions; channel B programme 2026/27; channel A 2026/27 slides on data encoding;
+  exam rules common to the three channels
+italian_file: 01_bit_porte_esadecimale.html
+html_notes: notes/FDA/01_bits_gates_hexadecimal.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/FDA/lezioni/01_bit_porte_esadecimale.md
+```
+
+## In brief
+
+- Inside a computer every piece of information, numbers, text, images and sounds, is written with just two symbols, 0 and 1. Each of these symbols is called a **bit**.
+- Each extra bit doubles the possibilities: with $n$ bits you can write $2^n$ different sequences. With 8 bits, that is a **byte**, there are 256.
+- **Boolean operations** combine bits. **AND** gives 1 only if both inputs are 1, **OR** if at least one is 1, **XOR** if the two inputs are different. **NOT** swaps 0 and 1.
+- A **logic gate** is a small circuit that carries out one of these operations. By connecting several gates you build circuits that do more complicated calculations.
+- The **flip-flop** is a circuit that remembers a bit: its output stays the same until a pulse changes it. It is a first building block of memory.
+- **Hexadecimal notation** writes four bits with a single symbol, from 0 to 9 and from A to F. For example 1011 0101 becomes B5.
+- In the exam, common to the three channels, the tables of the operations and reading circuits come back: they must be known by heart.
+
+> [!CHANNELS]
+> The textbook and the exam are the same in channels A, B and C; the lecturers and the order of the lessons change. In channel B Stefano Berardi follows the book, in English, without slides of his own: on 28/09 he published on Moodle the presentation of Pearson's digital book. The channel B lesson summaries are on the channel's Moodle page, which requires a login: these notes follow the book from the beginning, section 1.1. In channel A (Felice Cardone) the first lesson was an introduction to the course, and the slides "Cenni sulla codifica dei dati" (notes on data encoding) start precisely from bits and from how many things can be labelled with $n$ bits. Channel C (Luca Paolini) started with the slides "Azzeramento" (reset) and "Rappresentazione" (representation). Watch out: the channel B programme skips some sections of the book that the common exam may ask about (details in the [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md)).
+
+## Two symbols to say everything: bits (book, §1.1)
+
+A light switch has two positions, on and off, and no third one. Inside a computer the same thing happens, billions of times: every little piece of information is in one of two states. The two states are written with two symbols, 0 and 1.
+
+Each of these symbols is called a **bit**, short for *binary digit* (in Italian *cifra binaria*). "Binary" means "made of two".
+
+A single bit says little: yes or no, on or off. The book insists on one point: a bit is only a **symbol**, and what it means depends on its use. The same row of bits can represent a number, a letter, a small piece of an image or of a sound. The next sections of the book explain how.
+
+### How much a few bits can say
+
+A bit has 2 values. With two bits there are four combinations: 00, 01, 10 and 11.
+
+With three bits there are eight. Take the four combinations above and put a 0, or a 1, in front of them: 000, 001, 010, 011 and then 100, 101, 110, 111.
+
+| Bits | The sequences | How many |
+|--:|---|--:|
+| 1 | 0, 1 | 2 |
+| 2 | 00, 01, 10, 11 | 4 |
+| 3 | 000, 001, 010, 011, 100, 101, 110, 111 | 8 |
+| 4 | from 0000 to 1111 | 16 |
+| 8 | from 00000000 to 11111111 | 256 |
+
+Each extra bit doubles the number of sequences. For every old sequence there are two new ones: one with a 0 in front and one with a 1 in front.
+
+> [!IDEA]
+> With $n$ bits you can write $2^n$ different sequences.
+
+> [!REFRESHER] powers of 2
+> $2^n$ is read "two to the $n$" and means 2 multiplied by itself $n$ times. By convention $2^0 = 1$.
+>
+> | $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 10 |
+> |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+> | $2^n$ | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024 |
+
+A row of 8 bits is called a **byte**: section 1.2 of the book talks about it. A byte can have $2^8 = 256$ different values.
+
+### How many bits are needed
+
+Now the opposite question, which the channel A slides ask right away: I have to give a different label to a certain number of objects. How many bits are needed, at least?
+
+Take 5 objects. With 2 bits there are 4 labels: not enough, one object would be left without. With 3 bits there are 8 labels: enough, with 3 to spare.
+
+> [!METHOD] How many bits are needed for a given number of objects
+> 1. Write the powers of 2: 1, 2, 4, 8, 16, 32, 64, 128, 256, …
+> 2. Find the first power that is greater than or equal to the number of objects.
+> 3. Its exponent is the number of bits needed.
+
+> [!EXAMPLE] Two calculations with the method
+> - **The 26 letters of the English alphabet.** With 4 bits there are 16 labels: too few. With 5 bits there are 32, and $32 \ge 26$. 5 bits are needed.
+> - **The 100 students in a lecture room.** With 6 bits there are 64 labels: too few. With 7 bits there are 128, and $128 \ge 100$. 7 bits are needed.
+
+> [!NOTE] The same count as in Discrete Mathematics
+> Counting sequences of bits is the same count as counting subsets in [lesson D01 of Discrete Mathematics](../MDAG/D01_sets_induction.html). Put the elements of a set in a row: each bit says whether the corresponding element is in (1) or not (0).
+
+::: try (a) How many different sequences can be written with 5 bits? (b) How many bits are needed to give a different code to 40 people?
+(a) With 5 bits the sequences are $2^5 = 32$.
+
+(b) With 5 bits there are 32 labels, which are not enough for 40 people. With 6 bits there are 64, which are enough. 6 bits are needed.
+:::
+
+> [!REMEMBER]
+> - A bit is a symbol, 0 or 1. What it means depends on its use.
+> - With $n$ bits you can write $2^n$ sequences: each extra bit doubles.
+> - To tell apart a given number of objects you need as many bits as the exponent of the first power of 2 that reaches at least that number.
+
+## Four operations on bits (book, §1.1)
+
+Four everyday situations.
+
+- The front door has two locks: it opens only if you turn **both** keys.
+- The alarm goes off if the door **or** the window is opened, and of course also if both are opened.
+- The lunch menu offers dessert or fruit: you can take one **or** the other, but **not both**.
+- The garden light turns on when it is **not** day.
+
+Each of these sentences takes one or two facts, true or false, and gets another fact, true or false, from them. The book suggests reading bits exactly like this: **1 means true, 0 means false**. Operations on true and false values are called **Boolean operations** (in Italian *operazioni booleane*), after the mathematician George Boole (1815–1864).
+
+### AND: both
+
+The **AND** operation (Italian *e*) takes two bits and gives 1 only when **both** are 1. It is the door with two locks.
+
+| A | B | A AND B |
+|:-:|:-:|:-:|
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | **1** |
+
+The table contains all the possible combinations of the two inputs, that is $2^2 = 4$ rows. A table like this is called a **truth table** (Italian *tabella di verità*).
+
+### OR: at least one
+
+The **OR** operation (Italian *o*) gives 1 when **at least one** of the two bits is 1. It is the alarm: one open door or window is enough.
+
+| A | B | A OR B |
+|:-:|:-:|:-:|
+| 0 | 0 | **0** |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+OR gives 0 in one case only: when both inputs are 0.
+
+### XOR: only one
+
+The **XOR** operation (*exclusive or*, Italian *o esclusivo*) gives 1 when **only one** of the two bits is 1. It is the menu: dessert or fruit, not both. Another way of saying it: XOR gives 1 exactly when the two bits are **different**.
+
+| A | B | A XOR B |
+|:-:|:-:|:-:|
+| 0 | 0 | 0 |
+| 0 | 1 | **1** |
+| 1 | 0 | **1** |
+| 1 | 1 | 0 |
+
+OR and XOR differ only in the last row: with both inputs at 1, OR gives 1 and XOR gives 0.
+
+### NOT: the opposite
+
+The **NOT** operation (Italian *non*) takes **a single** bit and swaps it: 0 becomes 1 and 1 becomes 0. It is the garden light: on when it is not day.
+
+| A | NOT A |
+|:-:|:-:|
+| 0 | 1 |
+| 1 | 0 |
+
+### All together
+
+| A | B | A AND B | A OR B | A XOR B | NOT A |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 |
+
+> [!PITFALL] The everyday "or"
+> In everyday language "or" sometimes means OR and sometimes XOR. "Discount for students or pensioners": if you are both, you still get the discount, so it is an OR. "Coffee or tea?": usually you choose only one, so it is an XOR. In computer science OR always means "at least one, possibly both".
+
+> [!BEYOND] · operations on rows of bits
+> The same operations are done on two rows of bits of the same length, column by column. With 1100 and 1010:
+>
+> | | 1st column | 2nd column | 3rd column | 4th column |
+> |---|:-:|:-:|:-:|:-:|
+> | first row | 1 | 1 | 0 | 0 |
+> | second row | 1 | 0 | 1 | 0 |
+> | AND | 1 | 0 | 0 | 0 |
+> | OR | 1 | 1 | 1 | 0 |
+> | XOR | 0 | 1 | 1 | 0 |
+>
+> So 1100 AND 1010 = 1000, 1100 OR 1010 = 1110 and 1100 XOR 1010 = 0110.
+
+::: try Calculate: (a) 1 AND 0; (b) 1 OR 0; (c) 1 XOR 1; (d) NOT 0. Then: (e) for which inputs does XOR give 1?
+(a) 0: AND wants both inputs at 1, and here one is 0.
+
+(b) 1: at least one input is 1.
+
+(c) 0: the two inputs are equal.
+
+(d) 1: NOT swaps 0 and 1.
+
+(e) For 0 and 1, and for 1 and 0: when the two inputs are different.
+:::
+
+> [!REMEMBER]
+> - AND: 1 only if both inputs are 1.
+> - OR: 1 if at least one is 1. XOR: 1 if the two inputs are different.
+> - NOT: a single input, and it gives the opposite.
+
+## Logic gates (book, §1.1)
+
+The operations of the previous section are ideas. To actually carry them out you need a physical object: a device with some input wires and one output wire, which produces the result of the operation. It is called a **logic gate**, in Italian *porta logica*.
+
+The book explains that a gate can be built in many ways: with gears, with relays, with optical devices. In today's computers gates are tiny electronic circuits, and 0 and 1 are two voltage levels: low voltage for 0, high voltage for 1.
+
+Each gate has its own drawing.
+
+- **AND** has the shape of a D: straight at the back, round at the front.
+- **OR** has the shape of a shield, with a curved back and a point at the front.
+- **XOR** is the OR drawing with an extra curve at the back.
+- **NOT** is a triangle with a small circle on its tip. The small circle means "invert".
+
+Try the gates in the tool below.
+
+```widget porte
+title: The four logic gates: click the inputs A and B
+mode: gates
+a: 1
+b: 0
+```
+
+Look at the tool: the wires that carry 1 light up. With A = 1 and B = 0 the outputs of OR and XOR light up, but not the output of AND. Now set B to 1 as well: XOR goes off and AND lights up. Try all four combinations and compare them with the table of the previous section.
+
+### Connecting gates
+
+The output of one gate can become the input of another. This is how circuits that do more complicated calculations are built.
+
+An example with three inputs, which we call A, B and C:
+
+1. A and B go into an XOR gate;
+2. the output of the XOR and the input C go into an AND gate;
+3. the output of the AND is the output of the circuit.
+
+To find out what the circuit does you try every combination of the inputs. There are 3 inputs, so the combinations are $2^3 = 8$. You add a column for the XOR gate, which works first, and one for the output.
+
+| A | B | C | A XOR B | output: (A XOR B) AND C |
+|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 1 | 0 |
+| 0 | 1 | 1 | 1 | **1** |
+| 1 | 0 | 0 | 1 | 0 |
+| 1 | 0 | 1 | 1 | **1** |
+| 1 | 1 | 0 | 0 | 0 |
+| 1 | 1 | 1 | 0 | 0 |
+
+The output is 1 in two rows only. In words: **only one of the first two inputs is 1, and the third is 1**. It is the answer the book gives to question 1 of §1.1, about a circuit of this kind.
+
+> [!METHOD] Reading a circuit of gates
+> 1. Write all the combinations of the inputs: with $n$ inputs there are $2^n$ rows. Put them in order, as in the table above.
+> 2. Add a column for each gate, starting from those attached to the inputs.
+> 3. Fill in one column at a time, with the gate's table.
+> 4. The last column is the output of the circuit. At the end, describe it in words.
+
+A circuit like this has an important property: its output depends **only** on the inputs at that moment. If the inputs change, the output changes straight away. In the next section you see a circuit that behaves differently.
+
+::: try In the circuit above, what comes out with A = 1, B = 1 and C = 1? And with A = 0, B = 1 and C = 1?
+With A = 1, B = 1 and C = 1: the XOR receives two equal inputs and gives 0. The AND receives 0 and 1 and gives 0. The output is 0.
+
+With A = 0, B = 1 and C = 1: the XOR receives two different inputs and gives 1. The AND receives 1 and 1 and gives 1. The output is 1.
+:::
+
+> [!REMEMBER]
+> - A logic gate is a circuit that carries out a Boolean operation: AND, OR, XOR or NOT.
+> - Connecting gates builds circuits. To understand what they do, you write the table with all the combinations of the inputs.
+
+## A circuit that remembers: the flip-flop (book, §1.1)
+
+The gates seen so far remember nothing. Their output depends only on the inputs at that moment: when the input changes, the output changes. To build a memory you need a circuit that keeps a bit even when the inputs go back to 0.
+
+The book calls **flip-flop** a circuit with an output that is 0 or 1 and that **stays the same** until a **pulse** makes it change. A pulse is an input that goes to 1 for an instant and then back to 0 (in Italian *impulso*), like when you press and release a button.
+
+### How it is made
+
+The flip-flop of figure 1.3 of the book has two inputs, an upper one and a lower one, and three gates.
+
+1. The upper input goes into an **OR** gate.
+2. The output of the OR goes into an **AND** gate.
+3. The lower input passes through a **NOT** gate and goes into the AND.
+4. The output of the AND is the output of the flip-flop. But it **also goes back**, and enters the OR as its second input.
+
+The wire that goes back is the trick. Try it in the tool.
+
+```widget porte
+title: The flip-flop of figure 1.3: try the pulses
+mode: flipflop
+```
+
+Look at what happens with the pulses.
+
+1. **At the start** the inputs are 0 and the output is 0.
+2. **Pulse on the upper input.** The OR receives 1 and gives 1. The NOT receives 0 from the lower input and gives 1. The AND receives 1 and 1: the output becomes 1.
+3. **End of the pulse.** The upper input goes back to 0, but the OR still receives the output, which is 1, and keeps giving 1. So the output **stays 1**: the circuit remembers the pulse.
+4. **Pulse on the lower input.** The NOT receives 1 and gives 0. The AND receives a 0 and gives 0: the output becomes 0. Now the OR receives 0 from the upper input and 0 from the output, and gives 0.
+5. **End of the pulse.** The NOT goes back to giving 1, but the OR gives 0, so the AND keeps giving 0. The output **stays 0**.
+
+The same story in a table. Each row has the values after the circuit has settled.
+
+| Moment | Upper | Lower | OR | NOT | AND, that is the output |
+|---|:-:|:-:|:-:|:-:|:-:|
+| at the start | 0 | 0 | 0 | 1 | 0 |
+| pulse on the upper input | 1 | 0 | 1 | 1 | **1** |
+| end of the pulse | 0 | 0 | 1 | 1 | **1** |
+| pulse on the lower input | 0 | 1 | 0 | 0 | **0** |
+| end of the pulse | 0 | 0 | 0 | 1 | **0** |
+
+Compare the second and the third rows: the inputs go back to what they were at the start, but the output does not. The output and the OR keep each other on, until the pulse on the lower input breaks the loop.
+
+> [!IDEA]
+> A pulse on the upper input sets the output to 1, a pulse on the lower input sets it to 0. Between one pulse and the next the output stays as it is: the flip-flop **remembers a bit**.
+
+> [!NOTE] Another way to build it
+> The book also shows a second flip-flop (figure 1.5), with two OR gates and two NOT gates. The idea is the same: an output that goes back and holds itself. Question 3 of §1.1 tells the story.
+
+The flip-flop is one of the ways of storing a bit inside a computer. How memory, made of very many bits, is organised is explained in section 1.2 of the book.
+
+::: try (a) The flip-flop has output 1 and a pulse arrives on the upper input. What happens? (b) It has output 1 and a pulse arrives on the lower input. What happens?
+(a) Nothing new. During the pulse the OR receives 1 from the input and 1 from the output, and gives 1; the NOT gives 1; the AND gives 1. After the pulse the output stays 1.
+
+(b) The NOT receives 1 and gives 0, so the AND gives 0: the output becomes 0, and stays 0 after the pulse too.
+:::
+
+> [!REMEMBER]
+> - The flip-flop has an output that stays the same until a pulse changes it.
+> - Pulse on the upper input: output 1. Pulse on the lower input: output 0.
+> - The secret is the wire that takes the output back to the input of the OR.
+
+## Writing bits in short: hexadecimal (book, §1.1)
+
+Try reading this row of bits aloud: 0110101011110010. It is easy to get lost: sixteen digits, all 0 or 1. The book calls a row of bits a **string** of bits, and a very long string a **stream**.
+
+The trick is to split the row into groups of four bits, and to write each group with a single symbol:
+
+$$0110\ \ 1010\ \ 1111\ \ 0010 \quad\longrightarrow\quad 6\ \ \text{A}\ \ \text{F}\ \ 2$$
+
+Four bits have $2^4 = 16$ combinations, so 16 symbols are needed. The digits from 0 to 9 and the letters from A to F are used. This way of writing is called **hexadecimal notation** (Italian *notazione esadecimale*), from "sixteen".
+
+| Bits | Digit | | Bits | Digit |
+|:-:|:-:|---|:-:|:-:|
+| 0000 | 0 | | 1000 | 8 |
+| 0001 | 1 | | 1001 | 9 |
+| 0010 | 2 | | 1010 | A |
+| 0011 | 3 | | 1011 | B |
+| 0100 | 4 | | 1100 | C |
+| 0101 | 5 | | 1101 | D |
+| 0110 | 6 | | 1110 | E |
+| 0111 | 7 | | 1111 | F |
+
+There is a help for remembering the table. The four positions of the group are worth, from the left, 8, 4, 2 and 1. Add up the values of the positions where there is a 1. For example 1011 gives $8 + 2 + 1 = 11$. Then the numbers from 10 to 15 are written with letters: A is 10, B is 11, and so on up to F, which is 15. So 1011 is written B. Why it works you will see in section 1.5 of the book, on numbers in base 2.
+
+> [!METHOD] From bits to hexadecimal, and back
+> **From bits to hexadecimal.**
+> 1. Split the row into groups of four bits, starting from the right. If the first group on the left has fewer than four bits, add 0s in front.
+> 2. Write the digit of each group with the table.
+> 3. Put the digits one after the other, in the same order.
+>
+> **From hexadecimal to bits.** Write each digit with its four bits, **including the 0s in front**, and put them in a row.
+
+> [!EXAMPLE] Two conversions
+> **10110101 in hexadecimal.** The groups are 1011 and 0101. With the table 1011 is B and 0101 is 5. The result is B5.
+>
+> **5FD97 in bits.** The digits are 5, F, D, 9 and 7. With the table they become 0101, 1111, 1101, 1001 and 0111. In a row: 01011111110110010111, that is 20 bits.
+
+In the tool below you can change the bits with a click and see the digits change.
+
+```widget porte
+title: Sixteen bits and their four hexadecimal digits
+mode: hexadecimal
+bit: 0110101011110010
+```
+
+> [!PITFALL] Each digit is worth four bits, 0 included
+> The hexadecimal string 0100 means 0000 0001 0000 0000: sixteen bits, not the three bits "100". Each digit, zeros included, becomes a whole group of four bits.
+
+::: try (a) Write the row 11100001 in hexadecimal. (b) Write the hexadecimal string 3C in bits.
+(a) The groups are 1110 and 0001. With the table they are E and 1. The result is E1.
+
+(b) 3 is 0011 and C is 1100. The result is 00111100.
+:::
+
+> [!REMEMBER]
+> - A hexadecimal digit is worth four bits: from 0000, that is 0, to 1111, that is F.
+> - To go to hexadecimal, make groups of four bits starting from the right. To go back to bits, write each digit with four bits, zeros included.
+
+## The symbols of this lesson
+
+| Symbol | Read as | It means | Example |
+|---|---|---|---|
+| $0$, $1$ | "zero", "one" | the two values of a bit; as truth values, false and true | 1 AND 1 = 1 |
+| bit | "bit" | a binary digit, 0 or 1 | 1 |
+| byte | "byte" | a row of 8 bits | 01001000 |
+| $2^n$ | "two to the $n$" | how many different sequences can be written with $n$ bits | $2^8 = 256$ |
+| AND | "and" | 1 only if both inputs are 1 | 1 AND 0 = 0 |
+| OR | "or" | 1 if at least one input is 1 | 1 OR 0 = 1 |
+| XOR | "ex-or" | 1 if the two inputs are different | 1 XOR 1 = 0 |
+| NOT | "not" | the opposite of the input | NOT 0 = 1 |
+| $\land$, $\lor$, $\oplus$, $\lnot$ | "and", "or", "exclusive or", "not" | the same operations written as in logic (part 2 of the book) | $1 \land 0 = 0$ |
+| A, B, C, D, E, F | "a", "b", "c", "d", "e", "f" | the hexadecimal digits worth 10 to 15 | B = 1011 |
+| $1011_2$, $\text{B}_{16}$ | "1011 in base two", "B in base sixteen" | the small number at the bottom says in which base the number is written (section 1.5) | $1011_2 = \text{B}_{16}$ |
+
+## Towards the exam
+
+The **Foundations of Computer Science** exam is a written test on the Moodle Esami platform, with Safe Exam Browser, and it is **the same for channels A, B and C**. The rules apply to the exam sessions from January to September 2027.
+
+**How the exam works**
+
+- **Part 1: 9 quiz questions** with closed answers in 45 minutes, worth 3 points each, so at most 27. To pass you need **at least 18 points**: 17.5 is rounded up to 18.
+- **Part 2, optional: an open question** in 30 minutes, worth **from −1 to 6 points**. You can take it only with **at least 24 points** in the quiz, counted before rounding. A very wrong answer is worth −1: if you do not know what to write, leave it blank.
+- Above 30 points the grade is 30 cum laude. During the exam do not change page: Safe Exam Browser locks the exam.
+
+| Exam session 2026/27 | Registration | Time |
+|---|---|---|
+| Fri 29/01/2027 | 09/01 – 22/01/2027 | 9:00 |
+| Thu 18/02/2027 | 29/01 – 11/02/2027 | 9:00 |
+
+All the details are in the [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md).
+
+**What you need from this lesson**
+
+1. **The tables of the operations.** In the 2023/24 exam simulations two kinds of quiz question come back. One asks for the Boolean formula of a truth table; the other gives a circuit, combinational or sequential, and asks what function it computes. These are the ideas of this lesson, taken up again later with Boolean algebras and circuits (chapter 11 of part 2 of the book).
+2. **Reading a circuit.** The method with the table of all the combinations of the inputs works for any circuit of gates.
+3. **Bits and powers of 2.** How many sequences with $n$ bits and how many bits are needed: these are calculations that come back with the representation of numbers.
+4. **Hexadecimal.** It comes back with the conversions between bases of section 1.5.
+
+The quiz is in Italian and the book is in English: learn the names in both languages. The glossary at the end puts them side by side. On the exam page (Moodle Esami, id 2673) there are also review quizzes split by lesson.
+
+> [!EXAM] Five minutes per question
+> In the first part you have 45 minutes for 9 quiz questions: 5 minutes per question. The tables of AND, OR, XOR and NOT and the hexadecimal table must be known by heart, without having to rebuild them during the exam.
+
+**Mistakes to avoid**
+
+- Confusing OR and XOR in the row with both inputs at 1: OR gives 1, XOR gives 0.
+- Forgetting a combination of the inputs: with 3 inputs there are 8 rows, not 6.
+- Thinking that the flip-flop goes back to 0 by itself when the pulse ends: that is exactly what it does not do.
+- In hexadecimal, dropping the 0s in front of a digit: 1 is 0001, not 1.
+
+## Quiz
+
+```quiz
+Q: How many different sequences can be written with 6 bits?
+- $6$
+- $12$
+- $36$
++ $64$
+- $128$
+= Each extra bit doubles the sequences: with 6 bits there are $2^6 = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 64$. The answer $12$ comes from $6 \cdot 2$ instead of multiplying 2 by itself 6 times. The answer $36$ is $6 \cdot 6$, a calculation that has nothing to do with it. The answer $128$ is the count for 7 bits.
+
+Q: How many bits are needed, at least, to give a different code to each of the 30 students in a lab?
+- $4$
++ $5$
+- $6$
+- $15$
+- $30$
+= With 4 bits there are $2^4 = 16$ codes, not enough for 30 students. With 5 bits there are $2^5 = 32$, which are enough. So 5 bits are needed. The answer $6$ works, but it is not the minimum. The answers $15$ and $30$ forget that each bit doubles the codes.
+
+Q: For which values of A and B does A XOR B give 1?
+- Only for A = 1 and B = 1.
+- Only for A = 0 and B = 0.
++ For A = 0 and B = 1, and for A = 1 and B = 0.
+- In all cases except A = 0 and B = 0.
+- In all cases except A = 1 and B = 1.
+= XOR gives 1 exactly when the two inputs are different, that is in the two rows with a 0 and a 1. The answer "in all cases except A = 0 and B = 0" describes OR, and it is the most tempting: OR gives 1 also with both inputs at 1, XOR does not. "Only for A = 1 and B = 1" describes AND.
+
+Q: With A = 1 and B = 0, what is NOT (A AND B)?
+- $0$
++ $1$
+- It depends on the order of the inputs.
+- It cannot be calculated: NOT has only one input.
+- $10$
+= First you calculate the brackets: 1 AND 0 = 0, because AND wants both inputs at 1. Then NOT 0 = 1. NOT does have a single input, but here its input is the result of the brackets, a single bit. The order of the inputs of AND does not matter: 1 AND 0 and 0 AND 1 both give 0.
+
+Q: In the circuit (A XOR B) AND C, which combination of inputs gives output 1?
+- A = 1, B = 1, C = 1
+- A = 0, B = 0, C = 1
++ A = 1, B = 0, C = 1
+- A = 0, B = 1, C = 0
+- A = 1, B = 0, C = 0
+= The output is 1 when the XOR gives 1, that is A and B are different, and C is 1 too. Only A = 1, B = 0, C = 1 meets both conditions. With A = 1, B = 1, C = 1, the most tempting answer, the XOR receives two equal inputs and gives 0, so the output is 0. With C = 0 the AND always gives 0.
+
+Q: The flip-flop of figure 1.3 has output 1. A pulse arrives on the upper input, which then goes back to 0. What is the output after the pulse?
+- $0$, because the upper input has gone back to 0.
++ $1$, because the output goes back to the OR and keeps it at 1.
+- $0$, because every pulse swaps the output.
+- It depends on how long the pulse lasted.
+- It cannot be known without knowing the lower input.
+= The output was already 1. During the pulse the OR receives 1, the NOT gives 1 because the lower input is 0, and the AND gives 1. When the pulse ends, the OR still receives the output, which is 1, and the output stays 1. The first answer is the most tempting: it would hold for an ordinary gate, which does not remember, but not for a flip-flop. The lower input stays at 0, as in all the book's examples.
+
+Q: How is the row of bits 11010011 written in hexadecimal notation?
+- $\text{C}3$
++ $\text{D}3$
+- $\text{D}6$
+- $\text{B}3$
+- $211$
+= The groups of four bits are 1101 and 0011. With the table, 1101 is D, because $8 + 4 + 1 = 13$, and 0011 is 3, because $2 + 1 = 3$. The result is D3. C is 1100, B is 1011: the answers with C or B get one bit of the first group wrong. The answer $211$ is the value of the number in base ten, which is not asked here.
+
+Q: Which row of bits represents the hexadecimal string 7E?
+- $0111\ 1101$
++ $0111\ 1110$
+- $111\ 1110$
+- $1110\ 0111$
+- $0111\ 1111$
+= Each digit becomes four bits: 7 is 0111 and E is 1110. In a row it gives 0111 1110. The answer with only 7 bits forgets the 0 in front of the 7: each digit is always worth four bits. The answer 1110 0111 swaps the order of the digits. 1101 is D, not E.
+
+Q: How many hexadecimal digits are needed to write a row of 24 bits?
+N: 6
+= Each hexadecimal digit is worth four bits, so you need $24 : 4 = 6$ digits. For example the string E85517 of §1.1 is made of 24 bits.
+```
+
+## Exercises
+
+::: exercise basic Bits and powers of 2
+(a) How many different sequences can be written with 3 bits? And with 10 bits? (b) How many bits are needed, at least, to give a different code to 1000 objects? And to 2 objects?
+::: solution
+1. With 3 bits the sequences are $2^3 = 8$.
+2. With 10 bits there are $2^{10} = 1024$.
+3. For 1000 objects: with 9 bits there are $2^9 = 512$ labels, too few. With 10 bits there are 1024, which are enough. 10 bits are needed.
+4. For 2 objects 1 bit is enough: one gets 0, the other 1.
+
+Check of point 3: $512 < 1000$ and $1000 \le 1024$.
+:::
+
+::: exercise basic The tables of the operations
+Calculate: (a) 0 AND 1; (b) 0 OR 0; (c) 0 XOR 1; (d) NOT 1; (e) (1 OR 0) AND 1; (f) NOT (0 OR 0).
+::: solution
+1. (a) 0: AND wants both inputs at 1.
+2. (b) 0: no input is 1.
+3. (c) 1: the inputs are different.
+4. (d) 0: NOT swaps 1 with 0.
+5. (e) First the brackets: 1 OR 0 = 1. Then 1 AND 1 = 1.
+6. (f) First the brackets: 0 OR 0 = 0. Then NOT 0 = 1.
+:::
+
+::: exercise basic Question 5 of §1.1: from bits to hexadecimal
+Write these rows of bits in hexadecimal notation: (a) 0110101011110010; (b) 111010000101010100010111; (c) 01001000.
+::: solution
+1. (a) The groups are 0110, 1010, 1111 and 0010. With the table: 6, A, F and 2. The result is 6AF2.
+2. (b) The groups are 1110, 1000, 0101, 0101, 0001 and 0111. With the table: E, 8, 5, 5, 1 and 7. The result is E85517.
+3. (c) The groups are 0100 and 1000. With the table: 4 and 8. The result is 48.
+
+These are the answers given by the book. Check of (c) backwards: 4 is 0100 and 8 is 1000, and in a row it gives 01001000 again.
+:::
+
+::: exercise basic Question 6 of §1.1: from hexadecimal to bits
+Which rows of bits do these hexadecimal strings represent? (a) 5FD97; (b) 610A; (c) ABCD; (d) 0100.
+::: solution
+Each digit becomes four bits, zeros included.
+
+| String | The digits in bits | Row of bits |
+|---|---|---|
+| 5FD97 | 0101 · 1111 · 1101 · 1001 · 0111 | 01011111110110010111 |
+| 610A | 0110 · 0001 · 0000 · 1010 | 0110000100001010 |
+| ABCD | 1010 · 1011 · 1100 · 1101 | 1010101111001101 |
+| 0100 | 0000 · 0001 · 0000 · 0000 | 0000000100000000 |
+
+These are the answers given by the book. In the last row the string has four digits, so there are sixteen bits: it is the trap of the section on hexadecimal.
+:::
+
+::: exercise intermediate Question 1 of §1.1: when the output is 1
+A circuit has three inputs. The first two go into an XOR gate; the output of the XOR and the third input go into an AND gate, which gives the output of the circuit. For which inputs is the output 1?
+::: solution
+1. There are 3 inputs, so the combinations to try are $2^3 = 8$.
+2. The AND gives 1 only if both its inputs are 1: the XOR must give 1 and the third input must be 1.
+3. The XOR gives 1 when the first two inputs are different: 0 and 1, or 1 and 0.
+4. So the right combinations are two: (0, 1, 1) and (1, 0, 1).
+
+In words, as in the book's answers: one and only one of the first two inputs must be 1, and the third must be 1. The full table is in the section on logic gates.
+:::
+
+::: exercise intermediate A circuit that acts like an OR
+A circuit passes A and B each through a NOT gate. The two outputs go into an AND gate, and the output of the AND passes through another NOT gate. Write the table of the circuit: which single gate is it equivalent to?
+::: solution
+The circuit computes NOT ((NOT A) AND (NOT B)). One column for each gate:
+
+| A | B | NOT A | NOT B | (NOT A) AND (NOT B) | output |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 1 | 1 | 1 | 0 |
+| 0 | 1 | 1 | 0 | 0 | 1 |
+| 1 | 0 | 0 | 1 | 0 | 1 |
+| 1 | 1 | 0 | 0 | 0 | 1 |
+
+The last column is the same as that of A OR B: the circuit is equivalent to a single OR gate.
+
+The reason in words: the central AND gives 1 only when A and B are both 0. The final NOT flips it: the output is 0 only in that case, that is it is 1 when at least one input is 1. It is one of De Morgan's laws, which come back in part 2 of the book.
+:::
+
+::: exercise intermediate A circuit that acts like an XOR
+A circuit computes (A OR B) AND (NOT (A AND B)). Write the table: which single gate is it equivalent to?
+::: solution
+| A | B | A OR B | A AND B | NOT (A AND B) | output |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 0 | 1 | 0 |
+| 0 | 1 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 0 | 0 |
+
+The last column is the same as that of A XOR B: the circuit is equivalent to an XOR gate.
+
+The reason in words: "at least one is 1" and "not both are 1" together mean "exactly one is 1".
+:::
+
+::: exercise intermediate A story of pulses
+The flip-flop of figure 1.3 starts with output 0. These pulses arrive, one after the other: upper, upper, lower, lower, upper. What is the output after each pulse?
+::: solution
+1. Pulse on the upper input: the output becomes 1.
+2. Pulse on the upper input: the output was already 1 and stays 1.
+3. Pulse on the lower input: the output becomes 0.
+4. Pulse on the lower input: the output was already 0 and stays 0.
+5. Pulse on the upper input: the output becomes 1.
+
+The sequence of outputs is 1, 1, 0, 0, 1. The output after a pulse depends only on which input received it, not on how many times. You can replay the story in the flip-flop tool.
+:::
+
+::: exercise hard Question 2 of §1.1: what happens inside
+The flip-flop of figure 1.3 has output 1, and the upper input is held at 0. A 1 arrives on the lower input, which then goes back to 0. Tell in order what happens to the gates.
+::: solution
+1. The NOT receives 1 and gives 0.
+2. The AND receives 0 from the NOT, so it gives 0, whatever comes from the OR. The output of the flip-flop becomes 0.
+3. The output goes back to the OR, which now receives 0 from the upper input and 0 from the output: the OR gives 0 too.
+4. When the lower input goes back to 0, the NOT goes back to giving 1. But the AND receives 0 from the OR, so it keeps giving 0.
+5. The output stays 0 even after the pulse.
+
+It is the same account as in the book's answers: the key point is step 3, where the OR switches off and no longer switches the AND back on.
+:::
+
+::: exercise exam A circuit for equality
+You need a circuit with two inputs that gives 1 exactly when the two inputs are **equal**. Choose among: (a) A AND B; (b) A OR B; (c) NOT (A XOR B); (d) NOT (A OR B); (e) A XOR B. Justify the choice with a table.
+::: solution
+| A | B | required | A AND B | A OR B | NOT (A XOR B) | NOT (A OR B) | A XOR B |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 1 | 0 | 0 | **1** | 1 | 0 |
+| 0 | 1 | 0 | 0 | 1 | **0** | 0 | 1 |
+| 1 | 0 | 0 | 0 | 1 | **0** | 0 | 1 |
+| 1 | 1 | 1 | 1 | 1 | **1** | 0 | 0 |
+
+1. XOR gives 1 when the inputs are different. Its opposite, NOT (A XOR B), gives 1 when they are equal: it is the required column. The answer is (c).
+2. A AND B gets the first row wrong: two 0s are equal, but AND gives 0.
+3. NOT (A OR B) gets the last row wrong: two 1s are equal, but it gives 0.
+4. A OR B and A XOR B get several rows wrong.
+:::
+
+## Review questions
+
+::: question What is a bit? Why does the book say it is "only a symbol"?
+A bit is a binary digit: 0 or 1. It is only a symbol because its meaning depends on its use: the same row of bits can be a number, a letter, a piece of an image or of a sound.
+:::
+
+::: question How many sequences can be written with $n$ bits? How many bits are needed to tell apart 20 objects?
+With $n$ bits you can write $2^n$ sequences, because each extra bit doubles. For 20 objects 5 bits are needed: 4 bits give 16 sequences, too few, and 5 bits give 32.
+:::
+
+::: question What is the difference between OR and XOR?
+Both give 1 when only one input is 1, and 0 when both are 0. With both inputs at 1, OR gives 1 and XOR gives 0: XOR means "only one".
+:::
+
+::: question What is a logic gate? How do you find out what a circuit of gates does?
+It is a circuit that carries out a Boolean operation: AND, OR, XOR or NOT. To understand a circuit you write a table with all the combinations of the inputs and a column for each gate.
+:::
+
+::: question How does a flip-flop remember a bit?
+Its output goes back and becomes an input of the OR. After a pulse on the upper input, the output at 1 keeps the OR gate on, and the OR keeps the output on. Only a pulse on the lower input breaks the loop and sets the output to 0.
+:::
+
+::: question Why is hexadecimal notation used? How do you go from bits to digits?
+Long rows of bits are hard to read. Hexadecimal writes four bits with a single symbol, from 0 to F. You make groups of four bits from the right and write the digit of each group.
+:::
+
+## Glossary
+
+```glossary
+Bit | A binary digit, 0 or 1 (Italian *cifra binaria*). It is the smallest piece of information.
+Byte | A row of 8 bits. It can have 256 different values.
+Boolean operation | An operation on true and false values, that is on bits (Italian *operazione booleana*). Named after the mathematician George Boole.
+AND | Gives 1 only if both inputs are 1.
+OR | Gives 1 if at least one of the two inputs is 1.
+XOR | "Exclusive or" (Italian *o esclusivo*): gives 1 if the two inputs are different.
+NOT | Has a single input and gives the opposite: 0 becomes 1, 1 becomes 0.
+Truth table | A table with all the combinations of the inputs and the output for each one (Italian *tabella di verità*).
+Logic gate | A circuit that carries out a Boolean operation (Italian *porta logica*).
+Combinational circuit | A circuit of gates whose output depends only on the inputs at that moment (Italian *circuito combinatorio*).
+Pulse | An input that goes to 1 for an instant and then back to 0 (Italian *impulso*).
+Flip-flop | A circuit whose output stays the same until a pulse changes it: it remembers a bit.
+Bit string | A row of bits (Italian *stringa di bit*); when it is very long the book calls it a stream.
+Hexadecimal notation | The way of writing each group of four bits with a symbol from 0 to 9 or from A to F (Italian *notazione esadecimale*).
+Hexadecimal digit | One of the 16 symbols 0–9 and A–F. A is worth 10, F is worth 15.
+```
+
+## Checklist
+
+```checklist
+- I know how many sequences can be written with $n$ bits and how many bits are needed for a given number of objects.
+- I know the tables of AND, OR, XOR and NOT by heart.
+- I can explain the difference between OR and XOR.
+- I can read a circuit of gates with the table of all the combinations of the inputs.
+- I can tell what happens in a flip-flop with a pulse on the upper input and with a pulse on the lower input.
+- I can go from bits to hexadecimal and from hexadecimal to bits, without losing the zeros.
+```
+
+## Sources
+
+- R. Johnsonbaugh, J. G. Brookshear, D. Brylow, *Fondamenti dell'Informatica*, Pearson 2026 (ISBN 9788891939456), the course textbook: part 1, which is chapter 1 of J. G. Brookshear, D. Brylow, *Computer Science: an overview*. Section 1.1 "Bits and Their Storage": Boolean operations, gates and flip-flops (figures 1.3 and 1.5), hexadecimal notation; answers to questions 1–6 of the section in the book's appendix, published on the channel A Moodle page.
+- Channel B programme 2026/27 (channel B Moodle page, consulted on 28/09/2026) and exam rules common to the three channels (exam page on Moodle Esami): [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md).
+- Channel A slides 2026/27, "Cenni sulla codifica dei dati" (F. Cardone, channel A Moodle page, open to guests): bits as labels, $2^n$ sequences, minimum number of bits.
+- Channel B lesson calendar (University Planner): first lesson on Monday 28/09/2026.
+- The explanations in words, the examples, the "Refresher" and "Try it" boxes, the interactive tool, the quizzes and the exercises without a book number are original to these notes.
+
+
+---
+
 <!-- FILE: ai_context/MDAG/course.md -->
 > File: `ai_context/MDAG/course.md`
 
@@ -2638,7 +3359,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 
 ## Official programme (common to all channels)
 
-**Part 1 — Discrete Mathematics**
+**Part 1 (modA) — Discrete Mathematics**
 - Sets: empty set, subsets, union, intersection, complement, power set.
 - Relations and functions: order and equivalence relations, partitions, composition and inversion, injectivity, surjectivity, invertibility.
 - Combinatorics: sum and product principles, arrangements and combinations (also with repetition), binomial theorem and Pascal's (Tartaglia's) triangle, inclusion-exclusion.
@@ -2646,7 +3367,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 - Modular arithmetic: Z and Z_n, division, Euclid's algorithm, Bézout's identity, Diophantine equations, Euler-Fermat theorem.
 - Permutations: composition, powers and inverses, disjoint cycles, transpositions, parity, subgroups.
 
-**Part 2 — Linear Algebra and Geometry**
+**Part 2 (modB) — Linear Algebra and Geometry**
 - Polynomials, real and complex numbers.
 - Vector spaces, linear independence, bases, dimension; Euclidean space.
 - Linear systems: Gauss-Jordan, Rouché-Capelli.
@@ -2663,6 +3384,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 - **MDAG2 Moodle 2026/27**: the course's 2026 lecture notes (L01–L26, based on Martelli), tutoring exercise sheets uploaded as the course goes on, handwritten notes and videos.
 - **Moodle 2025/26 (open to guests)**: exam rules; papers and solutions of all MD and AG exam sessions up to September 2026; the "Quiz 2021/25" folder; complete AG lecture notes (L01–L26); video lectures; tutoring exercise sheets.
 - **TSI guide** (`Materie/MD`, `Materie/AG`): collections of exams with solutions (MD from 2017/18 to 2023/24), formula sheets (the one by Alessandro Salerno also classifies exam problems by type), notes. The 2023/24 exam rules contained there are out of date.
+- **Rigurgiti di Unicorno** (Valentino Bocchino, February 2026, https://github.com/bocchinovalentino/rigurgiti_di_unicorno, licence CC BY-NC-SA 4.0): Discrete Mathematics notes written by a student following Mori's book, in Italian, in three PDFs (theory, worked exercises, complete) plus the LyX source to edit. They cover sets, functions, combinatorics, integers, permutations, groups and modular arithmetic. Not official material; useful as a summary, because book and notes are allowed in the MD exam.
 
 ## Tips and pitfalls
 
@@ -2679,7 +3401,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 <!-- FILE: ai_context/MDAG/lesson_index.md -->
 > File: `ai_context/MDAG/lesson_index.md`
 
-# Linear Algebra and Geometry (MDAG, part 2) — lesson index
+# Linear Algebra and Geometry (MDAG, part 2, modB) — lesson index
 
 Full course sheet (both modules, timetables of the three channels, exam): `course.md`. The 26 lessons follow the course's 2026 handouts (Buzano, Radeschi), the same for channels A, B and C, and are ready ahead of the lectures: the pace in class may differ. Every file has exam-style quizzes, worked exercises, review questions, a glossary and a "Towards the exam" section with the questions of the 2023–2026 exam sessions on the same topics. The notes for Discrete Mathematics (MDAG, part 1) are not there yet.
 
@@ -2725,6 +3447,1156 @@ Full course sheet (both modules, timetables of the three channels, exam): `cours
 
 ---
 
+<!-- FILE: ai_context/MDAG/lessons/D01_sets_induction.md -->
+> File: `ai_context/MDAG/lessons/D01_sets_induction.md`
+
+```yaml
+course: MDAG
+module: MD
+lesson: D01
+title: Sets and induction
+date: 2026-09-30
+lecturers: Andrea Mori, Ignazio Longhi and Lea Terracini
+eyebrow: Part 1 (modA) · Discrete Mathematics · Channels A, B and C · Lesson D01
+description: >-
+  Notes on lesson D01 of Discrete Mathematics (MDAG, part 1, channels A, B and C): sets and elements, "for all" and
+  "there exists", the empty set, cardinality, subsets and the power set, equality of sets, natural numbers, the
+  principle of induction and counting subsets, with real exam questions and worked exercises.
+lede: >-
+  The language the whole course rests on: sets, that is collections of objects, and how to talk about them
+  precisely. Then the counting numbers and a new way of proving things, induction. At the end you find out how many
+  subsets a set has, a count that comes back often in the exam.
+material: book
+facts:
+  Book: A. Mori, Lezioni di Matematica Discreta, ch. 1, pp. 1–8
+  Lecturers: Andrea Mori (channel B), Ignazio Longhi and Lea Terracini (channels A and C) · A.Y. 2026/27
+  Study time: 2–3 hours, also in several sittings
+source: >-
+  A. Mori, Lezioni di Matematica Discreta (the channel B textbook), ch. 1 "Insiemi", pp. 1–8 and exercises pp. 14–16;
+  channel B lesson diary 2025/26 (Moodle MDAG1 2025/26); quizzes and problems from the Discrete Mathematics exam
+  sessions 2023–2026
+italian_file: D01_insiemi_induzione.html
+html_notes: notes/MDAG/D01_sets_induction.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/lezioni/D01_insiemi_induzione.md
+```
+
+## In brief
+
+- A **set** is a collection of objects, which are called its **elements**. Only what is inside counts: the order does not matter and each element is counted once.
+- A set can be described in two ways: with the **list** of its elements between curly brackets, or with a **rule** that says what gets in and what does not.
+- "For all" and "there exists" are used to talk about all the elements or about at least one. To show that a sentence with "for all" is false, a single contrary case is enough: the **counterexample**.
+- The **empty set** contains nothing. The **cardinality** of a set is the number of its elements.
+- A **subset** is a part of a set: all its elements are also in the starting set. All the subsets, put together, form the **power set**.
+- The **natural numbers** are 0, 1, 2, 3 and so on. The **principle of induction** proves a property for all natural numbers in two moves, like a row of domino tiles falling one after the other.
+- A set with $n$ elements has $2^n$ subsets: each extra element doubles the count.
+- In the exam, the first quiz question is almost always about sets. The tricky point is telling "is an element of" from "is a subset of".
+
+> [!CHANNELS]
+> Discrete Mathematics (Matematica Discreta), part 1 of MDAG, has **the same programme and the same exam** in channels A, B and C, so these notes hold for all three. What changes is the lecturers and the order of the topics. In channel B the lecturer is Andrea Mori, who follows his own book *Lezioni di Matematica Discreta*: these notes follow chapter 1 of the book (pp. 1–8) and the 2025/26 channel B diary, where the first lesson covered sets, the empty set, natural numbers and induction, subsets and counting subsets. In channels A and C the lecturers are Ignazio Longhi and Lea Terracini: in 2025/26 they also started from sets, then came functions and combinatorics, in an order a little different from the book's. On the 2025/26 Moodle page (MDAG1, [id 3501](https://informatica.i-learn.unito.it/course/view.php?id=3501), open to guests) there are handwritten notes and videos of the channel A and C lessons. The first channel A lesson covered the same basic ideas (sets, cardinality, subsets, the empty set, equality) and wrote $\subseteq$ where Mori writes $\subset$.
+
+## A set is a bag of objects (pp. 1–3)
+
+Think of a shopping bag with an apple, a pear and a banana inside. The bag, with what it contains, is an example of a **set**. The things inside are called the **elements** of the set.
+
+To write a set, its elements go between **curly brackets**, separated by commas:
+
+$$\{\text{apple},\ \text{pear},\ \text{banana}\}$$
+
+It is read "the set containing apple, pear and banana".
+
+A set is usually named with a capital letter, like $A$ or $B$. Its elements are named with small letters, like $a$ or $x$. For example the line
+
+$$A = \{1, 2, 3\}$$
+
+means: I call $A$ the set that contains the numbers 1, 2 and 3.
+
+### Inside or outside
+
+To say that an object is in a set there is a dedicated symbol. It looks like an "e", the initial of "element".
+
+- $x \in A$ is read "$x$ belongs to $A$", or "$x$ is an element of $A$".
+- $x \notin A$ is read "$x$ does not belong to $A$". The slash through the symbol means "not".
+
+Take the set $A = \{1, 2, 3\}$ again.
+
+- The number 2 is in the list, so $2 \in A$.
+- The number 5 is not in the list, so $5 \notin A$.
+
+Mori's book gives the definition like this.
+
+> [!DEF] 1.1 · Set
+> A **set** is a well-defined collection of distinct objects, called the **elements** of the set.
+
+**How to read it.** "Collection" means a gathering: the bag. "Well-defined" means that for every object one can decide, without any doubt, whether it is inside or not. "Distinct" means different from one another: the same object is not counted twice.
+
+### What can be in a set (p. 2)
+
+The book adds three remarks.
+
+1. **Anything can be inside.** Numbers, but also cities, people, words. The elements do not even have to be of the same kind: there is a set containing the number 4, the Mole Antonelliana and your backpack.
+2. **It must be clear what is inside.** "The good actors" is not a set, because everyone has their own opinion on being good. "The actors who have won an Oscar" is a set: you just check the list of awards.
+3. **A set can be an element of another set.** A closed bag can sit inside a bigger bag.
+
+### A bag inside a bag
+
+The third remark is the one that causes the most confusion, so let us look at it calmly.
+
+Put the numbers 1 and $-1$ in a small bag: that is the set $B = \{1, -1\}$. Then put the number 0 and the small bag, closed, into a big bag. The big bag is
+
+$$A = \{0, B\} = \{0, \{1, -1\}\}$$
+
+```graph
+title: The set $A = \{0, \{1, -1\}\}$ has two elements: zero and the small bag $B$
+x: -3 3
+y: -2.1 2.1
+axes: no
+grid: no
+circle: 0 0 1.9 | blue
+circle: 0.75 0 0.85 | accent
+point: -0.95 0 | blue | $0$ | n
+point: 0.45 0.15 | accent | $1$ | n
+point: 1.05 -0.2 | accent | $-1$ | s
+text: -1.25 1.6 | blue | $A$
+text: 1.35 0.95 | accent | $B$
+```
+
+Look at the figure: inside the big circle there are **two** objects, the point for zero and the small circle. The numbers 1 and $-1$ are in the small circle, not directly in the big one. So:
+
+- $1 \in B$: the 1 is in the small bag;
+- $B \in A$: the small bag is in the big bag;
+- $1 \notin A$: the 1 is not one of the two objects in the big bag.
+
+This is Note 1.2 of the book. If a set is an element of another set, its elements do **not** become elements of the bigger one because of that.
+
+> [!PITFALL] Inner brackets count
+> In $\{0, \{1, -1\}\}$ there are two elements, not three. A pair of brackets inside the list encloses **a single** element, which is itself a set. In the exam this trap often appears in the first quiz question (see "Towards the exam").
+
+### Two ways to write a set (pp. 2–3)
+
+The first way is **the list**: all the elements are written out, one by one. It works well when there are few elements.
+
+The second way is **the rule**: you explain what an object must have to get in. For example "the even numbers between 1 and 10". A rule can also describe huge or infinite sets, which could never be listed in full.
+
+Here are a few sets written in both ways.
+
+| With a rule, in words | With the list |
+|---|---|
+| the even numbers between 1 and 10 | $\{2, 4, 6, 8, 10\}$ |
+| the vowels | $\{a, e, i, o, u\}$ |
+| the natural numbers smaller than 4 | $\{0, 1, 2, 3\}$ |
+| the even numbers greater than zero | it never ends: $\{2, 4, 6, 8, \dots\}$ |
+
+The dots in the last row are read "and so on": the elements go on with the same rule.
+
+To write a rule with symbols the book uses this form (Note 1.3):
+
+$$X = \{x \in U \mid \mathcal P(x)\}$$
+
+It is read "$X$ is the set of the $x$ in $U$ such that $x$ has the property $\mathcal P$". Let us look at it one piece at a time.
+
+- $U$ is the set the objects are taken from, for example all the natural numbers. The book calls it the **universal set**: it is the scope of the discussion.
+- The vertical bar $\mid$ is read "such that".
+- $\mathcal P(x)$ is the **property** to check: a sentence about $x$ that can be true or false, such as "$x$ is even". The $\mathcal P$ is a P in a fancy italic.
+
+> [!EXAMPLE] A rule written with symbols
+> $$\{n \in \N \mid n \text{ is even}\} = \{0, 2, 4, 6, \dots\}$$
+> It is read "the natural numbers $n$ such that $n$ is even". Here the universal set is $\N$, the set of the natural numbers $0, 1, 2, 3, \dots$ (more on it later). Zero is even, so it is inside.
+
+### Order and repetitions do not count (p. 3)
+
+A set depends only on what is inside. So:
+
+- the order does not count: $\{1, 3, 5\}$ and $\{5, 1, 3\}$ are the same set;
+- repetitions do not count: writing the same element twice adds nothing. For example $\{0, 0, 1, 2\}$ and $\{0, 1, 2\}$ are the same set.
+
+::: try True or false? (a) $3 \in \{1, 3, 5\}$; (b) $4 \in \{1, 3, 5\}$; (c) $\{1, 2\}$ and $\{2, 1, 1\}$ are the same set.
+(a) True: the 3 is in the list.
+
+(b) False: the 4 is not in the list.
+
+(c) True: order and repetitions do not count, and both sets contain only 1 and 2.
+:::
+
+::: try How many elements does the set $\{1, \{2, 3\}, 4\}$ have? Is the number 2 one of its elements?
+There are three elements: the number 1, the set $\{2, 3\}$ and the number 4.
+
+The 2 is not an element: it is inside the small bag $\{2, 3\}$, not directly in the big one.
+:::
+
+> [!REMEMBER]
+> - A set is a collection of objects, its elements. It is written with curly brackets: $\{1, 2, 3\}$.
+> - $x \in A$ means "$x$ is an element of $A$".
+> - Order and repetitions do not count.
+> - A set can be an element of another set, but its elements do not become elements of the big one.
+
+## All or at least one: for all and there exists (pp. 3–4)
+
+In everyday sentences we often use two words: "all" and "some". "All the students passed the exam." "There is a student who solved all the exercises." In mathematics these two ideas have a name and a symbol, because they are needed all the time.
+
+- $\forall$ is read "for all". It is an upside-down A, from *all*. A sentence with "for all" says that a property holds for all the elements of a set, none excluded.
+- $\exists$ is read "there exists". It is a reversed E, from *exists*. A sentence with "there exists" says that there is at least one element with that property: there may be just one, or many.
+
+The book calls these two symbols **quantifiers**. Here is how they are used.
+
+| Notation | Read as | A true example |
+|---|---|---|
+| $\forall x \in A,\ \mathcal P(x)$ | "for all $x$ in $A$, $x$ has the property $\mathcal P$" | $\forall n \in \{2, 4, 6\}$, $n$ is even |
+| $\exists x \in A$ such that $\mathcal P(x)$ | "there exists an $x$ in $A$ that has the property $\mathcal P$" | $\exists n \in \{1, 2, 3\}$ such that $n > 2$: it is 3 |
+
+### How to say the opposite
+
+Take the sentence "all of today's trains arrived on time". When is it false? It is not necessary for all the trains to be late: **one** late train is enough. So the opposite of the sentence is "at least one train arrived late".
+
+Now take the sentence "there is an open shop". When is it false? When there is not even one, that is when **all** the shops are closed.
+
+> [!IDEA]
+> When you state the opposite of a sentence, "for all" becomes "there exists" and "there exists" becomes "for all". The property, instead, becomes its opposite.
+
+This is Note 1.4 of the book. The book writes "not" with the symbol $\sim$, which is read "not"; many other texts use $\neg$. With symbols:
+
+| Sentence | Its opposite |
+|---|---|
+| $\forall x \in A,\ \mathcal P(x)$ | $\exists x \in A$ such that $\mathcal P(x)$ does not hold |
+| $\exists x \in A$ such that $\mathcal P(x)$ | $\forall x \in A$, $\mathcal P(x)$ does not hold |
+
+An example with numbers. Take a set of numbers and the sentence "every number of the set is greater than or equal to zero". The opposite is "at least one number of the set is negative".
+
+- With the set $\{3, 0, 7\}$ the sentence is true: no number is negative.
+- With the set $\{3, -2, 7\}$ the sentence is false, because the number $-2$ is there.
+
+### The counterexample
+
+To prove that a sentence with "for all" is **true** you have to check all the elements. Often there are infinitely many, and you need reasoning such as induction, which you see later. To prove that it is **false**, instead, a single element for which the property fails is enough. That element is called a **counterexample**. In the example above the counterexample is the number $-2$.
+
+> [!EXAMPLE] A question from the 06/06/2025 exam session (question 2)
+> The text (exam papers are in Italian): "The statement "$\forall x \in \N, \forall y \in \N, x^2 + x \ge y$" is contradicted by: (1) $(x, y) = (2, 5)$; (2) $(x, y) = (-4, 10)$; (3) $(x, y) = (1, 3)$; (4) $(x, y) = (0, -1)$; (5) $(x, y) = (3, 12)$." The beginning is read "for every natural $x$ and for every natural $y$".
+>
+> In practice it asks: for which pair of **natural** numbers is the inequality false? That pair is a counterexample. Let us check the five pairs one by one.
+>
+> | Pair | Two naturals? | What $x^2 + x$ gives | Is it at least $y$? |
+> |---|---|---|---|
+> | $(2, 5)$ | yes | $4 + 2 = 6$ | $6 \ge 5$: yes |
+> | $(-4, 10)$ | no: $-4$ is not natural | | does not count |
+> | $(1, 3)$ | yes | $1 + 1 = 2$ | $2 \ge 3$: **no** |
+> | $(0, -1)$ | no: $-1$ is not natural | | does not count |
+> | $(3, 12)$ | yes | $9 + 3 = 12$ | $12 \ge 12$: yes |
+>
+> The answer is (3). Pairs (2) and (4) contain a negative number: they are not pairs of naturals, so they cannot contradict a sentence about the naturals.
+
+::: try Write the opposite of these sentences: (a) "every number of the list 2, 4, 6 is even"; (b) "there exists a natural number smaller than zero". Which of the two starting sentences is true?
+(a) The opposite is "at least one number of the list 2, 4, 6 is odd".
+
+(b) The opposite is "every natural number is greater than or equal to zero".
+
+Starting sentence (a) is true: 2, 4 and 6 are all even. Starting sentence (b) is false, so its opposite is true.
+:::
+
+> [!PITFALL] The opposite of "all" is not "none"
+> The opposite of "all the students passed the exam" is **not** "no student passed the exam". It is "at least one student did not pass it". Many may have passed: it is enough that one failed.
+
+> [!REMEMBER]
+> - $\forall$ is read "for all" and talks about all the elements; $\exists$ is read "there exists" and talks about at least one.
+> - To state the opposite: "for all" becomes "there exists", "there exists" becomes "for all", and the property becomes its opposite.
+> - To prove that a sentence with "for all" is false, one counterexample is enough.
+
+## The empty bag and how many elements there are (p. 4)
+
+An empty bag is still a bag. In the same way there is a set that contains nothing: it is called the **empty set** and is written $\emptyset$, a zero crossed by a slash.
+
+The empty set can be described by many different rules. For example:
+
+- the natural numbers smaller than zero;
+- the whole numbers that are even and odd at the same time.
+
+No object satisfies these rules. So both describe the same set, the one without elements: there is only one empty set.
+
+The book says it like this.
+
+> [!DEF] 1.5 · Empty set
+> The set with no elements is called the **empty set** and is denoted $\emptyset$, $\emptyset = \{\ \}$. It is characterised by the property $\forall x,\ x \notin \emptyset$.
+
+**How to read it.** $\{\ \}$ is two curly brackets with nothing in between: an empty bag. The last formula is read "for all $x$, $x$ does not belong to the empty set": whatever object you take, it is not in the empty set.
+
+### The empty set inside a bag
+
+Do not confuse $\emptyset$ with $\{\emptyset\}$.
+
+- $\emptyset$ is the empty bag: it contains nothing.
+- $\{\emptyset\}$ is a bag that contains an empty bag. It contains **one** thing, so it is not empty.
+
+It is the same idea as the bag inside the bag: the outer brackets enclose one element, which here is the empty set.
+
+### How many elements: cardinality
+
+The number of elements of a set is called its **cardinality**. It is written by putting the set between two vertical bars: $\lvert A \rvert$ is read "cardinality of $A$".
+
+> [!DEF] 1.6 · Cardinality
+> The **cardinality** of a set $A$, denoted $\lvert A \rvert$, is the number of elements of $A$.
+
+**How to read it.** If the set has a finite number of elements, for example 5, one writes $\lvert A \rvert = 5$. If there are infinitely many elements one writes $\lvert A \rvert = \infty$, and the symbol $\infty$ is read "infinity". The book warns that this definition will be made precise in chapter 3, with functions.
+
+A few examples. The last column has the cardinality.
+
+| Set | Its elements | How many |
+|---|---|--:|
+| $\{a, b, c\}$ | $a$, $b$, $c$ | $3$ |
+| $\{0, 0, 1\}$ | $0$ and $1$: the repeated zero counts once | $2$ |
+| $\emptyset$ | none | $0$ |
+| $\{\emptyset\}$ | the empty bag | $1$ |
+| $\{1, \{2, 3\}\}$ | the number $1$ and the set $\{2, 3\}$ | $2$ |
+| $\N$ | $0, 1, 2, 3, \dots$ | $\infty$ |
+
+::: try Find the cardinality of (a) $\{0, 1, \{0, 1\}\}$; (b) $\{\emptyset, \{\emptyset\}\}$; (c) the set of the letters of the word "mamma".
+(a) There are three elements: 0, 1 and the set $\{0, 1\}$. The cardinality is 3.
+
+(b) There are two elements: the empty bag and the bag that contains the empty bag. The cardinality is 2.
+
+(c) The letters are m and a, because repetitions do not count. The cardinality is 2.
+:::
+
+> [!REMEMBER]
+> - The empty set $\emptyset$ has no elements. The set $\{\emptyset\}$, instead, has one element.
+> - The cardinality $\lvert A \rvert$ is the number of elements of $A$, each counted once.
+
+## One set inside another: subsets (pp. 4–5)
+
+Go back to the bag with the apple, the pear and the banana. Take out the pear: you are left with a bag with the apple and the banana. Every fruit in the new bag comes from the starting bag. The new bag is a **subset** of the starting one.
+
+> [!IDEA]
+> A set is a subset of another when **every** one of its elements is also in the other. No element is left outside.
+
+```graph
+title: The subset $B$ lies entirely inside the set $A$: every point of $B$ is also a point of $A$
+x: -3 3
+y: -2.2 2.2
+axes: no
+grid: no
+circle: 0 0 2 | blue
+circle: 0.6 -0.2 1 | accent | thick
+text: -1.5 1.65 | blue | $A$
+text: 0.6 1.05 | accent | $B$
+point: 0.3 -0.5 | accent
+point: 1 0.15 | accent
+point: -1.15 0.6 | blue
+point: -0.85 -1.15 | blue
+```
+
+The symbol is $\subset$. The notation $B \subset A$ is read "$B$ is contained in $A$", or "$B$ is a subset of $A$". If instead at least one element of $B$ is outside $A$, one writes $B \not\subset A$, which is read "$B$ is not contained in $A$".
+
+> [!DEF] 1.7 · Subset
+> A set $B$ is a **subset** of $A$, and we write $B \subset A$, if every element of $B$ is also an element of $A$: $\forall b \in B,\ b \in A$.
+
+**How to read it.** The formula at the end is read "for all $b$ in $B$, $b$ belongs to $A$". It is the same sentence as the definition, written with symbols.
+
+Let us try with the set $A = \{1, 2, 3\}$.
+
+| Question | Answer | Why |
+|---|---|---|
+| $\{1, 3\} \subset A$? | yes | 1 and 3 are both in $A$ |
+| $\{2\} \subset A$? | yes | the 2 is in $A$ |
+| $\{1, 4\} \subset A$? | no | the 4 is not in $A$ |
+| $A \subset A$? | yes | every element of $A$ is in $A$ |
+| $\emptyset \subset A$? | yes | the empty set has no elements that could be outside |
+
+### The empty set and the whole set
+
+The last two cases of the table hold for any set.
+
+- **Every set is a subset of itself**, because all its elements are in it.
+- **The empty set is a subset of every set.** To say that the empty set is **not** contained in a set you would need a counterexample: an element of the empty set that lies outside. But the empty set has no elements, so there is no counterexample.
+
+The book calls the empty set and the whole set the "trivial subsets" (sottoinsiemi banali). The subsets different from the whole set are called **proper subsets**. For example $\{1, 3\}$ is a proper subset of $\{1, 2, 3\}$.
+
+> [!NOTE] Two ways of writing "contained"
+> In Mori's book, and in the exam papers, $B \subset A$ means "$B$ is contained in $A$, and may also be equal". Other books, and the channel A and C notes, write $\subseteq$ for this, and use $\subsetneq$ for "contained but not equal". When you open a new text, check which convention it uses.
+
+### Element or subset?
+
+This is the most important distinction of the lesson. Take $A = \{1, 2, 3\}$ again.
+
+| Notation | True? | Why |
+|---|---|---|
+| $2 \in A$ | yes | the number 2 is one of the elements |
+| $\{2\} \subset A$ | yes | the set that contains only 2 is a part of $A$ |
+| $\{2\} \in A$ | no | among the elements of $A$ there is the number 2, not the set $\{2\}$ |
+| $2 \subset A$ | no | 2 is a number, not a set: it cannot be a part of $A$ |
+
+In words: the symbol $\in$ links an **object** to a set, the symbol $\subset$ links **two sets**. Notice also that the first two rows say the same thing: an object is in a set exactly when the set containing only that object is a subset.
+
+> [!METHOD] Element or subset?
+> 1. Look at the object on the left of the symbol: is it a set, that is, does it have curly brackets or is it the name of a set?
+> 2. If the symbol is $\in$, look for the object, exactly as it is and with its brackets, in the list of elements on the right.
+> 3. If the symbol is $\subset$, the object on the left must be a set. Check its elements one by one: they must all be in the list on the right.
+> 4. If among the elements on the right there are other sets, count the brackets calmly: each pair of inner brackets is **one** element.
+
+> [!EXAMPLE] The method on a set with a set inside
+> Take $X = \{a, \{b, c\}\}$. It has two elements: the letter $a$ and the set $\{b, c\}$.
+>
+> - $\{b, c\} \in X$: true, it is the second element.
+> - $\{b, c\} \subset X$: false. It would need $b \in X$, but $b$ is inside the inner bag.
+> - $\{a\} \subset X$: true, because $a \in X$.
+> - $\{\{b, c\}\} \subset X$: true. It is the set containing a single element, $\{b, c\}$, and that element is in $X$.
+
+### All the parts of a set
+
+Now take all the subsets of a set and put them in a new bag. That bag is called the **power set** (insieme delle parti, "set of the parts").
+
+For example the subsets of $\{a, b\}$ are four: the empty set, $\{a\}$, $\{b\}$ and $\{a, b\}$. So the power set of $\{a, b\}$ is
+
+$$\{\emptyset, \{a\}, \{b\}, \{a, b\}\}$$
+
+It has four elements, and each of its elements is itself a set.
+
+> [!DEF] 1.8 · Power set
+> If $A$ is a set, the **power set** of $A$, denoted $P(A)$, is the set whose elements are the subsets of $A$,
+> $$P(A) = \{B \mid B \subset A\}.$$
+
+**How to read it.** $P(A)$ is read "parts of $A$", or "power set of $A$". The formula is read "the set of the $B$ such that $B$ is contained in $A$": inside $P(A)$ there are all the subsets of $A$, and nothing else. Watch out: this $P$ is an ordinary letter and denotes a set; the fancy $\mathcal P$ from before denotes a property.
+
+The book gives three examples (p. 5).
+
+| Set | Its subsets | How many |
+|---|---|--:|
+| $\emptyset$ | only $\emptyset$ | $1$ |
+| $\{\ast\}$, with a single element | $\emptyset$ and $\{\ast\}$ | $2$ |
+| $\{a, b, c\}$ | $\emptyset$, $\{a\}$, $\{b\}$, $\{c\}$, $\{a, b\}$, $\{a, c\}$, $\{b, c\}$, $\{a, b, c\}$ | $8$ |
+
+The first row deserves a word. The empty set has one subset, itself. So $P(\emptyset) = \{\emptyset\}$: the power set of the empty set has one element, and it is not empty.
+
+> [!IDEA]
+> Being a subset of $A$ and being an element of $P(A)$ are the same thing.
+
+::: try Take $A = \{1, 2\}$. (a) Write $P(A)$. (b) Is it true that $1 \in P(A)$? (c) Is it true that $\{1\} \in P(A)$?
+(a) $P(A) = \{\emptyset, \{1\}, \{2\}, \{1, 2\}\}$.
+
+(b) No. The elements of $P(A)$ are sets, and the number 1 on its own is not among them.
+
+(c) Yes. $\{1\}$ is a subset of $A$, so it is an element of $P(A)$.
+:::
+
+::: try With $X = \{a, \{b, c\}\}$: is it true that $b \in X$? And that $\{b, c\} \in X$?
+$b \in X$ is false: $b$ is inside the inner bag $\{b, c\}$, not directly in $X$.
+
+$\{b, c\} \in X$ is true: it is the second element of $X$.
+:::
+
+> [!REMEMBER]
+> - $B \subset A$ means that every element of $B$ is also in $A$. The empty set and the set itself are always subsets.
+> - $\in$ links an object to a set, $\subset$ links two sets.
+> - The power set $P(A)$ has all the subsets of $A$ as its elements.
+
+## When two sets are equal (p. 5)
+
+Two bags are equal when they contain exactly the same things. To check it, two checks are made: everything in the first is also in the second, and everything in the second is also in the first.
+
+> [!EXAMPLE] Two checks
+> Take $A$ = the natural numbers whose square is less than 10, and $B = \{0, 1, 2, 3\}$.
+>
+> 1. **From $A$ to $B$.** The squares of the naturals are $0, 1, 4, 9, 16, 25, \dots$ and they keep growing. Only those of 0, 1, 2 and 3 are less than 10. So every element of $A$ is in $B$: $A \subset B$.
+> 2. **From $B$ to $A$.** The squares of 0, 1, 2 and 3 are 0, 1, 4 and 9, all less than 10. So every element of $B$ is in $A$: $B \subset A$.
+>
+> Both checks succeed, so $A = B$.
+
+The book states it as a proposition.
+
+> [!PROP] 1.9 · Equality of sets
+> Let $A$ and $B$ be two sets. Then
+> $$A = B \iff A \subset B \text{ and } B \subset A.$$
+
+**How to read it.** The symbol $\iff$ is read "if and only if", that is "exactly when". In words: two sets are equal exactly when each of the two is contained in the other. This way of proving that two sets are equal is called **double inclusion**, and it will be used a lot in the next lesson.
+
+> [!PROOF] why proposition 1.9 holds
+> 1. If $A = B$, the two sets have the same elements. So every element of $A$ is in $B$, that is $A \subset B$. And every element of $B$ is in $A$, that is $B \subset A$.
+> 2. Conversely, suppose that $A \subset B$ and $B \subset A$ hold. If there were an element of $A$ outside $B$, $A \subset B$ would not hold. If there were an element of $B$ outside $A$, $B \subset A$ would not hold. So no element is in only one of the two sets: they have the same elements, that is $A = B$.
+
+::: try (a) Are $\{1, 2, 3\}$ and $\{3, 1, 2, 2\}$ equal? (b) Is the set of the whole numbers whose square is 4 equal to $\{2\}$?
+(a) Yes. Every element of the first (1, 2 and 3) is in the second, and every element of the second is in the first.
+
+(b) No. $-2$ also has square 4, because $(-2) \cdot (-2) = 4$. So $-2$ is in the first set but not in $\{2\}$: the first set is not contained in the second.
+:::
+
+> [!REMEMBER]
+> - Two sets are equal when they have the same elements.
+> - To prove it, check two inclusions, the first in the second and the second in the first: that is double inclusion.
+
+## Counting numbers and induction (pp. 5–6)
+
+The numbers used for counting are 0, 1, 2, 3, 4 and so on, without end. They are called **natural numbers**, and their set is written $\N$, an N with a double bar:
+
+$$\N = \{0, 1, 2, 3, \dots\}$$
+
+In Mori's book zero is a natural number. Some books leave it out, but in this course it is in.
+
+Every natural number has a **successor**: the successor of 0 is 1, that of 1 is 2, that of a number $n$ is $n + 1$. The book writes the successor of $n$ as $s(n)$, which is read "s of $n$".
+
+The idea that matters is this: starting from 0 and moving on one at a time you reach **every** natural number. You reach 5 in five steps: 0, 1, 2, 3, 4, 5. You reach a million in a million steps. No natural number is left out.
+
+> [!NOTE] Useful for understanding, not for the exam
+> The book describes the natural numbers with five rules, the **Peano axioms**. They are in the box below, which you can skip: they are not asked in the exam.
+
+> [!DEEPER] the Peano axioms (p. 5)
+> The book says that the set $\N$ of natural numbers is characterised by these five axioms (Peano, 1889):
+>
+> 1. $0 \in \N$;
+> 2. every $n \in \N$ has a successor $s(n) \in \N$;
+> 3. if $m, n \in \N$ and $m \neq n$ then $s(m) \neq s(n)$;
+> 4. $\forall n \in \N,\ 0 \neq s(n)$;
+> 5. if $U \subset \N$ is such that $0 \in U$ and $s(n) \in U$, $\forall n \in U$, then $U = \N$.
+>
+> **How to read it.** (1) Zero is a natural number. (2) Every natural number has a successor, which is again a natural number. (3) Different numbers have different successors. (4) Zero is nobody's successor: it is the first. (5) If a set of natural numbers contains zero and, whenever it contains a number, also contains its successor, then it contains all the natural numbers. Rule 5 is called the **principle of induction**. Rules 2, 3 and 4 together say that the natural numbers are infinitely many: $0$, $s(0)$, $s(s(0))$ and so on are all different from one another.
+
+### The dominoes
+
+Imagine an endless row of domino tiles, standing one behind the other and numbered 0, 1, 2, 3 and so on. You want to be sure they all fall. Two things are enough:
+
+1. **the first tile falls**: someone pushes tile 0;
+2. **every tile that falls knocks over the next one**: the tiles are close enough.
+
+Then 0 falls, which knocks over 1, which knocks over 2, and so on. None is left standing.
+
+> [!IDEA]
+> To prove that a property holds for **all** the natural numbers, two checks are enough: that it holds for 0, and that whenever it holds for a number it also holds for the next one.
+
+A **property** of the natural numbers is a sentence that talks about a number $n$ and that, for each $n$, is true or false. The book writes it $\mathcal P(n)$. Two examples:
+
+- "$n + n$ is even". For $n = 3$ it says "$3 + 3 = 6$ is even": it is true.
+- "$n$ is less than 10". For $n = 3$ it is true, for $n = 12$ it is false.
+
+The book states the principle as a theorem, which says when one can conclude that a property holds for all.
+
+> [!THEOREM] 1.10 · Proof by induction
+> Suppose that for every $n \in \N$ a certain property $\mathcal P(n)$ is given, and suppose that
+>
+> - the property $\mathcal P(0)$ is true;
+> - $\forall n \in \N$ the truth of $\mathcal P(n)$ implies the truth of $\mathcal P(n + 1)$.
+>
+> Then the property $\mathcal P(n)$ is true for every $n$.
+
+**How to read it.** The two points are the two domino checks.
+
+- The first, "$\mathcal P(0)$ is true", is called the **base case**: the first tile falls.
+- The second is read "for every natural $n$, if $\mathcal P(n)$ is true then $\mathcal P(n + 1)$ is true too". It is called the **inductive step**: every tile knocks over the next one. While you prove it, the sentence "$\mathcal P(n)$ is true" is called the **inductive hypothesis**: you assume it is true and you use it.
+
+> [!PROOF] why theorem 1.10 follows from the principle of induction
+> Take the set $U$ of the natural numbers for which the property is true. Zero is in $U$, because $\mathcal P(0)$ is true. If a number $n$ is in $U$, then $n + 1$ is in $U$ too, by the inductive step. By rule 5 of the Peano axioms, $U$ contains all the natural numbers: the property is true for every $n$.
+
+### Starting from 1, or from another number
+
+Often a formula only makes sense from 1 onwards, like "the sum of the numbers from 1 to $n$". Then the base case is done with $n = 1$ instead of $n = 0$, and the conclusion holds for every $n$ greater than or equal to 1. This is Note 1.11 of the book.
+
+You can also start from 3 or from 5: the property then holds from that number onwards. You see it in exercises 7 and 8.
+
+> [!PITFALL] The base case cannot be skipped
+> Take the property "$n = n + 1$". It is false for every number, and yet the inductive step works: if $n = n + 1$ held, adding 1 to both sides would give $n + 1 = n + 2$. What is missing is the base case: $0 = 1$ is false. Without the first tile nothing falls.
+
+::: try You know that $\mathcal P(0)$ is true and that the inductive step works. Why is $\mathcal P(3)$ true?
+By the base case $\mathcal P(0)$ is true.
+
+The inductive step with $n = 0$ gives $\mathcal P(1)$. With $n = 1$ it gives $\mathcal P(2)$. With $n = 2$ it gives $\mathcal P(3)$.
+
+Those are three tiles falling one after the other.
+:::
+
+> [!REMEMBER]
+> - The natural numbers are $0, 1, 2, 3, \dots$ and their set is written $\N$.
+> - Induction: base case (the property holds for the first number) and inductive step (if it holds for $n$, it holds for $n + 1$). Then it holds for all.
+> - The base case cannot be skipped.
+
+## Proving by induction, step by step (pp. 6–7)
+
+Let us see induction at work on a famous formula: the sum of the numbers from 1 up to a number $n$.
+
+First we try small numbers. The second column has the sum, the third a calculation that seems to always give the same result.
+
+| $n$ | Sum from 1 to $n$ | $\frac{n(n + 1)}2$ |
+|--:|---|---|
+| 1 | $1$ | $\frac{1 \cdot 2}2 = 1$ |
+| 2 | $1 + 2 = 3$ | $\frac{2 \cdot 3}2 = 3$ |
+| 3 | $1 + 2 + 3 = 6$ | $\frac{3 \cdot 4}2 = 6$ |
+| 4 | $1 + 2 + 3 + 4 = 10$ | $\frac{4 \cdot 5}2 = 10$ |
+| 10 | $1 + 2 + \dots + 10 = 55$ | $\frac{10 \cdot 11}2 = 55$ |
+
+In every row the last two columns agree. This formula seems to always hold:
+
+$$1 + 2 + 3 + \dots + n = \frac{n(n + 1)}2$$
+
+It is read "the sum of the numbers from 1 to $n$ equals $n$ times $n$ plus one, divided by two".
+
+But five rows of a table are not enough: the numbers are infinitely many, and nobody can check them all. Induction proves it for all of them in one go.
+
+> [!EXAMPLE] The sum of the numbers from 1 to $n$
+> The property is the formula above, and it starts from $n = 1$.
+>
+> **Base case.** For $n = 1$ on the left there is only the number 1. On the right there is $\frac{1 \cdot 2}2 = 1$. The two sides are equal.
+>
+> **Inductive hypothesis.** Suppose the formula is true for some number $n$:
+> $$1 + 2 + \dots + n = \frac{n(n + 1)}2$$
+>
+> **Goal.** Reach the same formula with $n + 1$ in place of $n$, that is
+> $$1 + 2 + \dots + n + (n + 1) = \frac{(n + 1)(n + 2)}2$$
+>
+> **Inductive step.** We start from the left side of the goal, one step per line.
+>
+> 1. The first terms, from 1 to $n$, add up to $\frac{n(n + 1)}2$ by the inductive hypothesis. So the left side is $\frac{n(n + 1)}2 + (n + 1)$.
+> 2. The first piece is $(n + 1)$ times $\frac n2$, the second is $(n + 1)$ times 1. We factor out the common factor $n + 1$: we get $(n + 1)\left(\frac n2 + 1\right)$.
+> 3. Inside the brackets, $\frac n2 + 1 = \frac n2 + \frac 22 = \frac{n + 2}2$.
+> 4. So the left side is $\frac{(n + 1)(n + 2)}2$: exactly the right side of the goal.
+>
+> **Conclusion.** The base case and the inductive step work. By the principle of induction the formula holds for every $n \ge 1$.
+
+> [!REFRESHER] factoring out a common factor
+> If two terms have the same factor, it can be "pulled out": $a \cdot b + a \cdot c = a \cdot (b + c)$. With numbers: $3 \cdot 4 + 3 \cdot 5 = 12 + 15 = 27$, and also $3 \cdot (4 + 5) = 3 \cdot 9 = 27$. In step 2 above the common factor is $n + 1$.
+
+### The book's example: the sum of the squares
+
+The book does the same with squares. First a notation it uses for long sums.
+
+> [!REFRESHER] the summation symbol
+> A long sum is written with the Greek letter $\Sigma$, capital "sigma". The notation $\sum_{k=1}^{n} F(k)$ is read "sum for $k$ from 1 to $n$ of $F(k)$". It means $F(1) + F(2) + \dots + F(n)$: in place of $k$ you put 1, then 2, and so on up to $n$, and you add everything. For example $\sum_{k=1}^{3} k^2 = 1^2 + 2^2 + 3^2 = 1 + 4 + 9 = 14$.
+
+The book's formula is
+
+$$\sum_{k=1}^{n} k^2 = 1^2 + 2^2 + \dots + n^2 = \frac{n(n + 1)(2n + 1)}6$$
+
+First we check it with small numbers.
+
+| $n$ | Sum of the squares | $\frac{n(n + 1)(2n + 1)}6$ |
+|--:|---|---|
+| 1 | $1$ | $\frac{1 \cdot 2 \cdot 3}6 = 1$ |
+| 2 | $1 + 4 = 5$ | $\frac{2 \cdot 3 \cdot 5}6 = 5$ |
+| 3 | $1 + 4 + 9 = 14$ | $\frac{3 \cdot 4 \cdot 7}6 = 14$ |
+
+> [!EXAMPLE] The sum of the squares by induction (pp. 6–7)
+> **Base case.** For $n = 1$: on the left $1^2 = 1$, on the right $\frac{1 \cdot 2 \cdot 3}6 = 1$.
+>
+> **Inductive hypothesis.** The formula holds for $n$: $1^2 + \dots + n^2 = \frac{n(n + 1)(2n + 1)}6$.
+>
+> **Goal.** With $n + 1$ in place of $n$ the formula becomes
+> $$1^2 + \dots + (n + 1)^2 = \frac{(n + 1)(n + 2)(2n + 3)}6$$
+> because $(n + 1) + 1 = n + 2$ and $2(n + 1) + 1 = 2n + 3$.
+>
+> **Inductive step.**
+>
+> 1. By the inductive hypothesis the left side is $\frac{n(n + 1)(2n + 1)}6 + (n + 1)^2$.
+> 2. We factor out $n + 1$, which is in both terms: $(n + 1)\left(\frac{n(2n + 1)}6 + (n + 1)\right)$.
+> 3. Inside the brackets we put everything over 6: $\frac{2n^2 + n}6 + \frac{6n + 6}6 = \frac{2n^2 + 7n + 6}6$.
+> 4. We check that $(n + 2)(2n + 3) = 2n^2 + 3n + 4n + 6 = 2n^2 + 7n + 6$.
+> 5. So the left side is $\frac{(n + 1)(n + 2)(2n + 3)}6$, which is the goal.
+>
+> **Conclusion.** By the principle of induction the formula holds for every $n \ge 1$.
+
+> [!METHOD] Proving a formula by induction
+> 1. Write the formula and the number it starts from: 0, 1 or another.
+> 2. **Base case.** Put the first number into both sides and check that they come out equal.
+> 3. **Inductive hypothesis.** Write "suppose the formula holds for $n$", with the formula.
+> 4. **Goal.** Rewrite the formula with $n + 1$ in place of $n$, and simplify calculations such as $(n + 1) + 1 = n + 2$.
+> 5. **Inductive step.** Start from the left side of the goal. Find the piece that appears in the hypothesis and replace it. Then calculate until you reach the right side.
+> 6. **Conclusion.** Write "by the principle of induction the formula holds for every $n$", from the starting number onwards.
+
+::: try Check the formula $1 + 3 + 5 + \dots + (2n - 1) = n^2$ for $n = 1, 2, 3, 4$. The full proof is exercise 6.
+The last number of the sum is $2n - 1$: for $n = 4$ it is 7.
+
+For $n = 1$ there is only 1 on the left, and $1^2 = 1$.
+
+For $n = 2$: $1 + 3 = 4 = 2^2$.
+
+For $n = 3$: $1 + 3 + 5 = 9 = 3^2$.
+
+For $n = 4$: $1 + 3 + 5 + 7 = 16 = 4^2$.
+:::
+
+> [!REMEMBER]
+> - First check the formula with small numbers, then prove it by induction.
+> - In the inductive step you start from the left side with $n + 1$, use the inductive hypothesis and reach the right side.
+
+## How many subsets a set has (p. 7)
+
+At the pizzeria you can add three toppings to a margherita: olives, mushrooms, basil. You can take as many as you like, also none or all three. How many different pizzas can you order?
+
+For each topping the choice is double: you put it on or you do not. Three choices with two options each give $2 \cdot 2 \cdot 2 = 8$ pizzas. Each pizza is a subset of the set of toppings: the plain margherita is the empty set, the pizza with everything is the whole set.
+
+Let us count the subsets of bigger and bigger sets.
+
+| Set | Its subsets | How many |
+|---|---|--:|
+| $\emptyset$ | $\emptyset$ | $1$ |
+| $\{a\}$ | $\emptyset$, $\{a\}$ | $2$ |
+| $\{a, b\}$ | $\emptyset$, $\{a\}$, $\{b\}$, $\{a, b\}$ | $4$ |
+| $\{a, b, c\}$ | the four above, plus the same ones with $c$ inside too | $8$ |
+
+Every time an element is added, the number of subsets doubles: 1, 2, 4, 8, 16 and so on. These are the **powers of 2**.
+
+> [!REFRESHER] the powers of 2
+> $2^n$ is read "two to the $n$" and means 2 multiplied by itself $n$ times. By convention $2^0 = 1$.
+>
+> | $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 10 |
+> |---|--:|--:|--:|--:|--:|--:|--:|--:|
+> | $2^n$ | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 1024 |
+>
+> Going from $n$ to $n + 1$ multiplies by 2: $2^{n + 1} = 2 \cdot 2^n$.
+
+### Why it doubles
+
+Take the subsets of $\{a, b, c\}$ and split them into two rows. In the top row put those **without** $c$. In the bottom row, under each one, the same set **with** $c$ added.
+
+| Without $c$ | $\emptyset$ | $\{a\}$ | $\{b\}$ | $\{a, b\}$ |
+|---|---|---|---|---|
+| **With $c$** | $\{c\}$ | $\{a, c\}$ | $\{b, c\}$ | $\{a, b, c\}$ |
+
+The top row contains exactly the subsets of $\{a, b\}$, which are 4. The bottom row has just as many, because each one comes from the one above by adding $c$. In total $4 + 4 = 8$.
+
+> [!IDEA]
+> A set with $n$ elements has $2^n$ subsets. With symbols: if $\lvert A \rvert = n$, then $\lvert P(A) \rvert = 2^n$.
+
+> [!EXAMPLE] The book's proof by induction (p. 7)
+> The property is "every set with $n$ elements has $2^n$ subsets". It starts from $n = 0$.
+>
+> **Base case.** The only set with 0 elements is the empty set. Its only subset is the empty set itself: $P(\emptyset) = \{\emptyset\}$ has 1 element, and $2^0 = 1$.
+>
+> **Inductive hypothesis.** Every set with $n$ elements has $2^n$ subsets.
+>
+> **Inductive step.** Take a set with $n + 1$ elements and call them $a_1, a_2, \dots, a_{n+1}$. The small number at the bottom, the **index**, only says the position in the list: $a_1$ is the first element, $a_{n+1}$ the last.
+>
+> 1. Split the subsets into two rows: at the top those that do not contain the last element, at the bottom those that contain it.
+> 2. The top row contains the subsets of $B = \{a_1, \dots, a_n\}$, which has $n$ elements. By the inductive hypothesis there are $2^n$ of them.
+> 3. Under each set of the top row there is the same set with $a_{n+1}$ added. So the bottom row has as many sets as the top row: another $2^n$.
+> 4. In total there are $2^n + 2^n = 2 \cdot 2^n = 2^{n + 1}$.
+>
+> This is the formula with $n + 1$ in place of $n$. By the principle of induction it holds for every $n$.
+
+> [!BEYOND] · another way of counting: bits
+> Put the elements in a row, for example $a$, $b$, $c$. To each subset associate a word of three digits, each 0 or 1. The first digit says whether $a$ is in (1) or not (0), the second does the same for $b$, the third for $c$. For example $101$ is $\{a, c\}$ and $000$ is the empty set. Different subsets give different words, and each word gives a subset. The words of $n$ digits made of 0 and 1 are $2^n$: it is the same count done with **bits** in lesson 01 of Foundations of Computer Science.
+
+### Counting with a condition: an exam problem
+
+In exam problems, counting subsets often comes with a condition.
+
+> [!EXAMPLE] A problem from the 09/06/2023 exam session (problem 1, first point)
+> The text: "Let $S = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9\}$, $T = \{0, 1, 3, 4\}$. How many subsets of $S$ do not contain the subset $T$?" (3 points).
+>
+> In practice it asks: how many subsets of $S$ do **not** have all four numbers 0, 1, 3 and 4 inside?
+>
+> 1. **All the subsets.** $S$ has 10 elements, so it has $2^{10} = 1024$ subsets.
+> 2. **Those that contain $T$.** They must have 0, 1, 3 and 4 inside. The other six elements, that is 2, 5, 6, 7, 8 and 9, can be put in or not as you like. These are 6 free choices, so these subsets are $2^6 = 64$.
+> 3. **Those that do not contain $T$** are all the others: $1024 - 64 = 960$.
+>
+> The official solution writes the result as $2^{10} - 2^6$: in some exam sessions the text actually asks to leave the powers unevaluated.
+
+::: try (a) How many subsets does $\{1, 2, 3, 4, 5\}$ have? (b) How many of them contain the number 1?
+(a) There are 5 elements, so the subsets are $2^5 = 32$.
+
+(b) The 1 must be there. For the other four elements the choice is free: $2^4 = 16$. It is exactly half: it is the "with" row of the table split into two rows.
+:::
+
+> [!REMEMBER]
+> - A set with $n$ elements has $2^n$ subsets: for each element the choice is "in" or "out".
+> - To count the subsets that contain certain elements, fix those and choose the rest freely.
+
+## The other sets of numbers (p. 8)
+
+From the natural numbers, with the rules of sets, the other families of numbers you know are built. The book lists them in Note 1.12 and takes them as known: their construction is not part of the course.
+
+| Symbol | Read as | What it contains | Examples |
+|---|---|---|---|
+| $\Z$ | "zed" | the integers: the natural numbers and their opposites | $-5$, $0$, $7$ |
+| $\Q$ | "cue" | the rationals: the fractions $\frac ab$ with $a$ and $b$ integers, and $b \neq 0$ | $\frac 12$, $-\frac 34$ |
+| $\R$ | "ar" | the reals: also the numbers with infinitely many digits after the decimal point | $\sqrt 2$, $\pi$ |
+
+Each family contains the previous one: every natural number is an integer, every integer is a fraction, every fraction is a real number. With symbols: $\N \subset \Z \subset \Q \subset \R$. [Lesson L01 of part 2](L01_real_numbers.html), Linear Algebra and Geometry, covers them in depth.
+
+The book also recalls two notations for the real numbers between two numbers $a$ and $b$, with $a$ less than or equal to $b$.
+
+- $(a, b)$ is the **open interval**: the numbers between $a$ and $b$, endpoints excluded.
+- $[a, b]$ is the **closed interval**: the numbers between $a$ and $b$, endpoints included.
+
+::: try (a) Is $-3$ in $\N$? And in $\Z$? (b) Is the number 2 in $(1, 2)$? And in $[1, 2]$?
+(a) $-3$ is not a natural number, because natural numbers are never negative. It is an integer, so $-3 \in \Z$.
+
+(b) $2 \notin (1, 2)$, because in the open interval the endpoints are excluded. $2 \in [1, 2]$, because in the closed interval the endpoints are included.
+:::
+
+> [!REMEMBER]
+> - $\N$ naturals, $\Z$ integers, $\Q$ fractions, $\R$ reals: each family contains the previous one.
+> - Round brackets: endpoints excluded. Square brackets: endpoints included.
+
+## The symbols of this lesson
+
+| Symbol | Read as | It means | Example |
+|---|---|---|---|
+| $\{\ \}$ | "the set containing…" | the curly brackets enclose the elements | $\{1, 2, 3\}$ |
+| $\in$ | "belongs to" | is an element of | $2 \in \{1, 2, 3\}$ |
+| $\notin$ | "does not belong to" | is not an element of | $5 \notin \{1, 2, 3\}$ |
+| $\dots$ | "and so on" | the elements go on with the same rule | $\{0, 2, 4, \dots\}$ |
+| $\mid$ | "such that" | introduces the rule for getting into the set | $\{n \in \N \mid n < 3\}$ |
+| $\mathcal P(x)$ | "P of $x$" | a property of $x$, true or false | "$x$ is even" |
+| $\forall$ | "for all" | for all the elements, none excluded | $\forall n \in \N,\ n \ge 0$ |
+| $\exists$ | "there exists" | there is at least one | $\exists n \in \N$ with $n > 5$ |
+| $\sim$, $\neg$ | "not" | the opposite of a sentence | $\sim(x \ge 0)$ means $x < 0$ |
+| $\emptyset$ | "empty set" | the set with no elements | $\lvert \emptyset \rvert = 0$ |
+| $\lvert A \rvert$ | "cardinality of $A$" | the number of elements of $A$ | $\lvert \{a, b\} \rvert = 2$ |
+| $\infty$ | "infinity" | the cardinality of an infinite set | $\lvert \N \rvert = \infty$ |
+| $\subset$ | "is contained in" | is a subset (may also be equal) | $\{1\} \subset \{1, 2\}$ |
+| $\not\subset$ | "is not contained in" | at least one element is outside | $\{1, 4\} \not\subset \{1, 2\}$ |
+| $\subseteq$, $\subsetneq$ | "contained or equal", "strictly contained" | the notations of other texts and of channels A and C | $\{1\} \subsetneq \{1, 2\}$ |
+| $P(A)$ | "parts of $A$", "power set of $A$" | the set of all the subsets of $A$ | $P(\{a\}) = \{\emptyset, \{a\}\}$ |
+| $\iff$ | "if and only if" | exactly when | $A = B \iff A \subset B$ and $B \subset A$ |
+| $\N$ | "N" | the natural numbers, zero included | $0, 1, 2, \dots$ |
+| $s(n)$ | "s of $n$" | the successor of $n$ | $s(4) = 5$ |
+| $\mathcal P(n)$ | "P of $n$" | a property that depends on the number $n$ | "$n + n$ is even" |
+| $\sum_{k=1}^{n}$ | "sum for $k$ from 1 to $n$" | sum of the terms with $k = 1, 2, \dots, n$ | $\sum_{k=1}^{3} k = 6$ |
+| $a_1, \dots, a_n$ | "a one, …, a n" | a list of $n$ numbered objects | $a_1$ is the first |
+| $2^n$ | "two to the $n$" | 2 multiplied by itself $n$ times | $2^3 = 8$ |
+| $\Z$, $\Q$, $\R$ | "zed", "cue", "ar" | integers, rationals, reals | $-3 \in \Z$ |
+| $(a, b)$, $[a, b]$ | "open interval", "closed interval" | the reals between $a$ and $b$, endpoints excluded or included | $2 \in [1, 2]$ |
+
+## Towards the exam
+
+The **Discrete Mathematics** exam, part 1 of MDAG, is written and is the same for channels A, B and C: the lecturers of the three channels prepare and mark it together. As of 01/10/2026 the 2026/27 rules have not been published yet. The 2025/26 rules say the following.
+
+**How the exam works**
+
+- **10 multiple-choice questions**, each with 5 answers and only one right. A right answer is worth 1 point; a wrong or blank one is worth 0.
+- **2 open problems**, split into several questions with the points written next to them.
+- **Cut-off (sbarramento).** With fewer than 6 points in the quiz the exam is not passed, and the problems are not even marked.
+- **Pass mark:** at least 18 points in total. **Duration:** 2 hours.
+- **Allowed material:** the textbook and the course notes, and a non-programmable calculator. This differs from the Linear Algebra exam, where only 4 handwritten sides are allowed and no calculator.
+
+| Exam session 2026/27 | Registration on MyUniTo (exam "M.D.A.G.1") | Time |
+|---|---|---|
+| Tue 19/01/2027 | 30/12/2026 – 12/01/2027 | 14:00 |
+| Wed 03/02/2027 | 14/01 – 27/01/2027 | 14:00 |
+
+Registration closes about a week before and does not reopen. The MDAG grade is the average of the two exams, Discrete Mathematics and Linear Algebra. Details and sources in the [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/MDAG/course.md).
+
+**What you need from this lesson**
+
+1. **Question 1 of the quiz.** In all nine 2025 and 2026 exam sessions whose quiz I found, the first question is about sets. Sometimes this lesson is enough: elements and subsets, as on 13/01/2026 and 10/09/2026. Sometimes you also need union, intersection and the Cartesian product, which come in the next lesson. Almost always the wrong answers play on the difference between element and subset.
+2. **"For all" and "there exists".** In the 06/06/2025 exam session question 2 asked for a counterexample. It is the example worked out in the section on quantifiers.
+3. **Counting subsets.** In the problems the count with powers of 2 comes back, often with a condition: exam sessions of 09/06/2023 (problem 1, first point) and 06/06/2025 (problem 1, point b).
+4. **Induction.** In the Discrete Mathematics exam sessions from 2021 to 2026 I found no question asking to write a proof by induction: it is needed to understand the proofs in the book. In Foundations of Computer Science, instead, the principle of induction is among the quiz topics.
+
+**A real question, read together**
+
+> [!EXAMPLE] Exam session of 13/01/2026, question 1 (one of the versions)
+> The text: "Let $A = \{b, e, h, k, m, p, q, s, u, x\}$. Then: 1. $t \in A$; 2. $h \notin A$; 3. $\{h, s\} \in A$; 4. $\{k, q, u\} \subset A$; 5. $\{e, s, y\} \subset A$."
+>
+> In practice it asks: which of the five sentences is true? $A$ has ten elements, and they are all **letters**, none of them is a set. Let us go through the answers one by one.
+>
+> 1. $t \in A$: the letter $t$ is not in the list. False.
+> 2. $h \notin A$: the letter $h$ is in the list, so it belongs to $A$. False.
+> 3. $\{h, s\} \in A$: the elements of $A$ are letters, and the set $\{h, s\}$ is not among them. False. The sentence $\{h, s\} \subset A$ would be true.
+> 4. $\{k, q, u\} \subset A$: the letters $k$, $q$ and $u$ are all in the list. **True.**
+> 5. $\{e, s, y\} \subset A$: the letter $y$ is not in the list. False.
+>
+> The answer is 4. The trap is 3: the letters $h$ and $s$ are there, but the brackets and the membership symbol ask something else.
+
+**Mistakes to avoid**
+
+- Confusing "is an element of" with "is a subset of". Use the method in the section on subsets.
+- Counting a repeated element twice, or counting one by one the elements closed inside inner brackets.
+- Forgetting the empty set and the whole set when you list the subsets.
+- Stating the opposite of "all" with "none".
+- In the inductive step, using the formula for $n + 1$ instead of reaching it.
+
+> [!EXAM] Book and notes are allowed, but time is short
+> In the Discrete Mathematics exam you can bring the book and notes. But there are only 2 hours, for 10 questions and 2 problems: there is no time to look things up. It pays to prepare a summary sheet. From this lesson: the "element or subset?" method and counting subsets with a condition. A ready-made summary, written by a student following Mori's book, is [Rigurgiti di Unicorno](https://github.com/bocchinovalentino/rigurgiti_di_unicorno): theory and worked exercises, in Italian, licensed CC BY-NC-SA. It is not official material.
+
+## Quiz
+
+```quiz
+Q: (Exam session of 10/09/2026, question 1) Let $X = \{c, \{f, m\}, p, q, \{x\}\}$. Then:
+- $q \subset X$
+- $\{c, p\} \in X$
++ $\{f, m\} \in X$
+- $\{x\} \subset X$
+- $\emptyset \in X$
+= The elements of $X$ are five: the letters $c$, $p$, $q$ and the two sets $\{f, m\}$ and $\{x\}$. The right sentence is $\{f, m\} \in X$, because the set $\{f, m\}$ is exactly one of the five elements. $q \subset X$ is wrong because $q$ is a letter, not a set. $\{c, p\} \in X$ is wrong because the set $\{c, p\}$ is not among the elements: $\{c, p\} \subset X$ would be right. The most tempting answer is $\{x\} \subset X$: to be true it would need the letter $x$ to be an element of $X$, but in $X$ there is only the set $\{x\}$. Finally the empty set is a subset of every set, but it is not an element of $X$.
+
+Q: (Exam session of 10/09/2026, question 1, another version) Let $X = \{a, \{d, p\}, m, y, \{z\}\}$. Then:
+- $p \in X$
++ $z \notin X$
+- $\{y, z\} \subset X$
+- $\{d, p\} \subset X$
+- $\emptyset \in X$
+= The elements of $X$ are five: $a$, $m$, $y$ and the sets $\{d, p\}$ and $\{z\}$. The letter $z$ on its own is not among them: it is inside the set $\{z\}$. So $z \notin X$ is true. $p \in X$ is false for the same reason: $p$ is inside $\{d, p\}$. $\{y, z\} \subset X$ is false because $z$ is not an element of $X$. $\{d, p\} \subset X$ is the most tempting: it is false because it would require $d$ and $p$ among the elements; $\{d, p\} \in X$ is true instead. The empty set is not an element of $X$.
+
+Q: (Exam session of 18/01/2023, question 1) Let $A = \{a, b, c, d, e, f\}$. Then:
+- $a \in P(A)$
+- $b \subset A$
+- $(c, f) \subset A$
++ $\{a, b, c\} \in P(A)$
+- $\{c, d, e\} \subset P(A)$
+= The elements of $P(A)$ are the subsets of $A$. $\{a, b, c\}$ is a subset of $A$, so it is an element of $P(A)$: it is the right answer. $a \in P(A)$ is wrong, because $a$ is an element of $A$ and not one of its subsets. $b \subset A$ is wrong because $b$ is not a set. $(c, f)$, with round brackets, is an ordered pair (next lesson) and not a set of elements of $A$. The most tempting one is $\{c, d, e\} \subset P(A)$: it would mean that $c$, $d$ and $e$ are elements of $P(A)$, that is subsets of $A$, and they are not. $\{c, d, e\} \in P(A)$ would be right.
+
+Q: (Exam session of 06/06/2025, question 2, another version) The statement "$\forall x \in \N, \forall y \in \N, x^2 - x \ge y$" is contradicted by:
+- $(x, y) = (5, 10)$
+- $(x, y) = (-4, 10)$
+- $(x, y) = (2, 2)$
++ $(x, y) = (3, 7)$
+- $(x, y) = (4, -2)$
+= You need a pair of natural numbers for which the inequality is false. For $(3, 7)$: $9 - 3 = 6$, and $6 \ge 7$ is false, so it is a counterexample. For $(5, 10)$: $25 - 5 = 20 \ge 10$, true. For $(2, 2)$: $4 - 2 = 2 \ge 2$, true, because equality is allowed too: it is the most tempting answer. The pairs with $-4$ and $-2$ do not count, because those numbers are not natural.
+
+Q: How many elements does the power set of $\{1, 2, 3, 4\}$ have?
+- $4$
+- $8$
++ $16$
+- $24$
+- $32$
+= The power set has all the subsets as its elements. A set with 4 elements has $2^4 = 16$ subsets: for each of the 4 elements the choice is "in" or "out", and $2 \cdot 2 \cdot 2 \cdot 2 = 16$. The answer $4$ counts only the elements. The answer $8$ is the count for a set with 3 elements. The 16 include the empty set and the whole set.
+
+Q: What is the opposite of the sentence "every student of the course passed the exam"?
+- "No student of the course passed the exam."
++ "At least one student of the course did not pass the exam."
+- "At least one student of the course passed the exam."
+- "Every student of the course failed."
+- "Exactly one student of the course did not pass the exam."
+= To state the opposite, "for all" becomes "there exists", and the property becomes its opposite: "there exists a student who did not pass the exam". The most tempting answer is "no student passed the exam", but it is too strong: one failed student is enough to deny "all". "Exactly one" is also wrong, because more than one student may have failed.
+
+Q: How many elements does the set $\{\emptyset, \{\emptyset\}, \{1, 2\}\}$ have?
+- $0$
+- $2$
++ $3$
+- $4$
+- $5$
+= The elements are counted by looking at the commas at the first level of brackets. There are three: the empty set, the set containing the empty set and the set $\{1, 2\}$. The empty set is an element like the others, even if it contains nothing. The answer $4$ comes from counting 1 and 2 separately, but they are inside an inner bag and count as one element.
+
+Q: Let $A = \{1, 2, 3\}$. Which of these sentences is true?
+- $\emptyset \in A$
++ $\emptyset \subset A$
+- $\{1\} \in A$
+- $1 \subset A$
+- $\{1, 4\} \subset A$
+= The empty set is a subset of every set, so $\emptyset \subset A$ is true. It is not, however, an element of $A$: the elements are 1, 2 and 3. $\{1\} \in A$ is wrong, because among the elements there is the number 1, not the set $\{1\}$. $1 \subset A$ is wrong because 1 is not a set. $\{1, 4\} \subset A$ is wrong because 4 is not in $A$.
+
+Q: You want to prove by induction that a formula holds for every $n \ge 1$. What do you have to do?
+- Check the formula for $n = 1, 2, 3$ and $4$.
+- Assume the formula true for $n + 1$ and derive it for $n$.
++ Check it for $n = 1$ and prove that, if it holds for $n$, it also holds for $n + 1$.
+- Prove that, if it holds for $n$, it also holds for $n + 1$: the base case is not needed.
+- Check it for $n = 0$ and for $n = 1$.
+= You need the base case, that is the check for the first number, here 1, and the inductive step, that is from $n$ to $n + 1$. Checking a few numbers is not enough, because the numbers are infinitely many. Without the base case nothing follows: the property "$n = n + 1$" passes the inductive step but is always false. Going from $n + 1$ to $n$ is the wrong direction.
+
+Q: How many subsets of $\{1, 2, 3, 4, 5, 6\}$ contain the number 1?
+- $6$
+- $16$
++ $32$
+- $63$
+- $64$
+= The number 1 must be there. For the other five elements the choice is free, so the subsets are $2^5 = 32$. The answer $64 = 2^6$ counts all the subsets, including those without 1. The subsets with 1 are exactly half of all of them.
+```
+
+## Exercises
+
+::: exercise basic From the list to the rule and back
+Write with the list: (a) $\{n \in \N \mid n < 5\}$; (b) $\{n \in \N \mid n \text{ is odd and } n < 10\}$. Write with a rule: (c) $\{0, 3, 6, 9, 12\}$.
+::: solution
+1. (a) The natural numbers less than 5 are 0, 1, 2, 3 and 4. The set is $\{0, 1, 2, 3, 4\}$. Zero is there, because in the book it is a natural number.
+2. (b) The odd numbers less than 10 are 1, 3, 5, 7 and 9. The set is $\{1, 3, 5, 7, 9\}$.
+3. (c) They are the multiples of 3 from 0 to 12. A possible rule: $\{n \in \N \mid n \text{ is a multiple of } 3 \text{ and } n \le 12\}$.
+
+Check of (c): the multiples of 3 up to 12 are $3 \cdot 0$, $3 \cdot 1$, $3 \cdot 2$, $3 \cdot 3$ and $3 \cdot 4$, that is exactly 0, 3, 6, 9 and 12.
+:::
+
+::: exercise basic Counting the elements
+Find the cardinality: (a) $\{x, y, x, z\}$; (b) $\{\{x, y\}, z\}$; (c) $\{\emptyset, 0\}$; (d) $P(\{1, 2, 3\})$.
+::: solution
+1. (a) The elements are $x$, $y$ and $z$: the repeated $x$ counts once. The cardinality is 3.
+2. (b) There are two elements: the set $\{x, y\}$ and the letter $z$. The cardinality is 2.
+3. (c) There are two elements: the empty set and the number zero, which are different objects. The cardinality is 2.
+4. (d) The set has 3 elements, so its subsets are $2^3 = 8$. The cardinality is 8.
+:::
+
+::: exercise basic Exercise 1.1 of the book: true or false
+Take $A = \{a, b, c\}$. Say which of these statements are true and which are false: $b \in A$, $\emptyset \subset A$, $\{\emptyset\} \subset A$, $\{c, d\} \not\subset A$, $\{a, \{c\}\} \subset A$.
+::: solution
+| Statement | True or false | Why |
+|---|---|---|
+| $b \in A$ | true | the letter $b$ is in the list |
+| $\emptyset \subset A$ | true | the empty set is a subset of every set |
+| $\{\emptyset\} \subset A$ | false | it would need the empty set to be an element of $A$, but the elements are the letters $a$, $b$, $c$ |
+| $\{c, d\} \not\subset A$ | true | the letter $d$ is not in $A$, so $\{c, d\}$ is not contained in $A$ |
+| $\{a, \{c\}\} \subset A$ | false | $a$ is in $A$, but the set $\{c\}$ is not: in $A$ there is the letter $c$, not the set $\{c\}$ |
+
+The third and the fifth rows are the same trap: a set inside the brackets is an element different from its own elements.
+:::
+
+::: exercise basic Exercise 1.3 of the book: the power set
+Take $A = \{a, e, i, o, u\}$. Say which of these statements are true and which are false: $\emptyset \in P(A)$, $a \in P(A)$, $\{i, u\} \subset P(A)$, $\{e, o\} \in P(A)$, $\{\{e\}, \{o\}\} \subset P(A)$.
+::: solution
+Remember: the elements of $P(A)$ are the subsets of $A$.
+
+| Statement | True or false | Why |
+|---|---|---|
+| $\emptyset \in P(A)$ | true | the empty set is a subset of $A$, so an element of $P(A)$ |
+| $a \in P(A)$ | false | $a$ is a letter, not a subset of $A$ |
+| $\{i, u\} \subset P(A)$ | false | it would need $i$ and $u$ to be elements of $P(A)$, but they are letters |
+| $\{e, o\} \in P(A)$ | true | $\{e, o\}$ is a subset of $A$ |
+| $\{\{e\}, \{o\}\} \subset P(A)$ | true | its two elements, $\{e\}$ and $\{o\}$, are subsets of $A$, so elements of $P(A)$ |
+
+In the third row the sentence $\{i, u\} \in P(A)$ would be true.
+:::
+
+::: exercise basic Stating the opposite
+Write the opposite of these sentences, and say whether the sentence or its opposite is true: (a) "every natural number is even"; (b) "there exists a natural number greater than 100"; (c) "for every natural number $n$ there exists a natural number greater than $n$".
+::: solution
+1. (a) The opposite is "there exists an odd natural number". The opposite is true: 3 is odd, and it is the counterexample to the starting sentence.
+2. (b) The opposite is "every natural number is less than or equal to 100". The starting sentence is true: for example 101 is greater than 100.
+3. (c) There are two quantifiers, and both change: "for every" becomes "there exists" and "there exists" becomes "for every". The opposite is "there exists a natural number $n$ for which every natural number is less than or equal to $n$". The starting sentence is true: whatever $n$ you take, the number $n + 1$ is greater.
+:::
+
+::: exercise intermediate Exercise 1.19 (b) of the book: the sum of the odd numbers
+Prove by induction that $1 + 3 + 5 + \dots + (2n - 1) = n^2$ for every $n \ge 1$.
+::: solution
+1. **Base case**, $n = 1$. On the left there is only 1. On the right $1^2 = 1$. The two sides are equal.
+2. **Inductive hypothesis.** Suppose $1 + 3 + \dots + (2n - 1) = n^2$.
+3. **Goal.** With $n + 1$ in place of $n$, the last number of the sum is $2(n + 1) - 1 = 2n + 1$. We want to reach $1 + 3 + \dots + (2n - 1) + (2n + 1) = (n + 1)^2$.
+4. **Inductive step.** By the hypothesis, the sum up to $2n - 1$ is $n^2$. So the left side is $n^2 + 2n + 1$.
+5. The square of $n + 1$ is $(n + 1)(n + 1) = n^2 + n + n + 1 = n^2 + 2n + 1$. It is the same number as in step 4, so the left side is $(n + 1)^2$.
+6. **Conclusion.** By the principle of induction the formula holds for every $n \ge 1$.
+
+Check with $n = 5$: $1 + 3 + 5 + 7 + 9 = 25 = 5^2$.
+:::
+
+::: exercise intermediate Exercise 1.19 (d) of the book: an inequality
+Prove by induction that $n^2 > 2n + 1$ for every $n \ge 3$.
+::: solution
+1. **Base case**, $n = 3$. On the left $3^2 = 9$, on the right $2 \cdot 3 + 1 = 7$. And it is true that $9 > 7$. With $n = 2$ instead it does not work: $4 > 5$ is false. That is why we start from 3.
+2. **Inductive hypothesis.** Suppose $n^2 > 2n + 1$, for some $n \ge 3$.
+3. **Goal.** $(n + 1)^2 > 2(n + 1) + 1$, that is $(n + 1)^2 > 2n + 3$.
+4. The square is $(n + 1)^2 = n^2 + 2n + 1$.
+5. By the hypothesis $n^2$ is greater than $2n + 1$. So $n^2 + 2n + 1$ is greater than $(2n + 1) + 2n + 1 = 4n + 2$.
+6. Now compare $4n + 2$ with the goal $2n + 3$. The difference is $(4n + 2) - (2n + 3) = 2n - 1$, which is positive for every $n \ge 1$. So $4n + 2 > 2n + 3$.
+7. Putting steps 5 and 6 together: $(n + 1)^2 > 4n + 2 > 2n + 3$.
+8. **Conclusion.** By the principle of induction the inequality holds for every $n \ge 3$.
+
+Check: with $n = 4$, $16 > 9$; with $n = 5$, $25 > 11$.
+:::
+
+::: exercise hard Exercise 1.19 (e) of the book: powers of 2 beat squares
+Prove by induction that $2^n > n^2$ for every $n \ge 5$.
+::: solution
+1. **Base case**, $n = 5$. On the left $2^5 = 32$, on the right $5^2 = 25$. And it is true that $32 > 25$. With $n = 4$ it does not work: $2^4 = 16$ and $4^2 = 16$ are equal.
+2. **Inductive hypothesis.** Suppose $2^n > n^2$, for some $n \ge 5$.
+3. **Goal.** $2^{n + 1} > (n + 1)^2$.
+4. Doubling a power of 2 means adding 1 to the exponent: $2^{n + 1} = 2 \cdot 2^n$. By the hypothesis $2^n$ is greater than $n^2$, so $2 \cdot 2^n$ is greater than $2n^2$.
+5. We write $2n^2 = n^2 + n^2$. By the previous exercise, since $n \ge 3$, $n^2 > 2n + 1$ holds. So $n^2 + n^2 > n^2 + 2n + 1$.
+6. And $n^2 + 2n + 1 = (n + 1)^2$, as in exercise 6.
+7. Putting it together: $2^{n + 1} > 2n^2 > (n + 1)^2$.
+8. **Conclusion.** By the principle of induction the inequality holds for every $n \ge 5$.
+
+Check: with $n = 6$, $2^6 = 64 > 36$; with $n = 10$, $2^{10} = 1024 > 100$.
+:::
+
+::: exercise hard Exercise 1.19 (c) of the book: the sum of the cubes
+Prove by induction that $1^3 + 2^3 + \dots + n^3 = \frac{n^2(n + 1)^2}4$ for every $n \ge 1$.
+::: solution
+1. **Base case**, $n = 1$. On the left $1^3 = 1$. On the right $\frac{1 \cdot 4}4 = 1$.
+2. **Inductive hypothesis.** Suppose $1^3 + \dots + n^3 = \frac{n^2(n + 1)^2}4$.
+3. **Goal.** $1^3 + \dots + (n + 1)^3 = \frac{(n + 1)^2(n + 2)^2}4$.
+4. By the hypothesis the left side is $\frac{n^2(n + 1)^2}4 + (n + 1)^3$.
+5. Both terms contain $(n + 1)^2$, because $(n + 1)^3 = (n + 1)^2 \cdot (n + 1)$. Factoring it out: $(n + 1)^2\left(\frac{n^2}4 + n + 1\right)$.
+6. Inside the brackets we put everything over 4: $\frac{n^2}4 + \frac{4n}4 + \frac 44 = \frac{n^2 + 4n + 4}4$.
+7. And $n^2 + 4n + 4 = (n + 2)^2$, because $(n + 2)(n + 2) = n^2 + 2n + 2n + 4$.
+8. So the left side is $\frac{(n + 1)^2(n + 2)^2}4$, the goal.
+9. **Conclusion.** By the principle of induction the formula holds for every $n \ge 1$.
+
+Check with $n = 3$: $1 + 8 + 27 = 36$, and $\frac{9 \cdot 16}4 = 36$.
+:::
+
+::: exercise exam Subsets with a condition
+Take $S = \{1, 2, 3, 4, 5, 6, 7, 8\}$. (a) How many subsets does $S$ have? (b) How many contain both 1 and 2? (c) How many do not contain the subset $\{1, 2\}$? (d) How many contain neither 1 nor 2?
+::: solution
+1. (a) $S$ has 8 elements, so the subsets are $2^8 = 256$.
+2. (b) 1 and 2 must be there. The other six elements, from 3 to 8, are chosen freely: $2^6 = 64$.
+3. (c) They are all the subsets except those of point (b): $256 - 64 = 192$.
+4. (d) Neither 1 nor 2: you choose freely only among the six elements from 3 to 8. There are $2^6 = 64$.
+
+Check: let us split the subsets according to what happens to 1 and 2. There are four cases: both in, only 1, only 2, neither. In each case the other six elements are free, so each case has 64 subsets. In total $4 \cdot 64 = 256$, as in point (a). The subsets of point (c) are the last three cases: $3 \cdot 64 = 192$.
+:::
+
+## Review questions
+
+::: question What is a set? What does it mean that it must be "well-defined"?
+A set is a collection of objects different from one another, its elements. "Well-defined" means that for every object one can decide without any doubt whether it is inside or not: "the good actors" is not a set, "the actors who have won an Oscar" is.
+:::
+
+::: question Why do $x \in A$ and $\{x\} \subset A$ say the same thing? And why does $\{x\} \in A$ say something else?
+$\{x\} \subset A$ means that the only element of $\{x\}$, that is $x$, is in $A$: that is exactly $x \in A$. Instead $\{x\} \in A$ means that the set $\{x\}$, as a whole, is one of the elements of $A$. With $A = \{1, 2\}$ the first sentence is true for $x = 1$, the second is false.
+:::
+
+::: question What is the opposite of a sentence with "for all"? And of a sentence with "there exists"?
+"For all" becomes "there exists" and "there exists" becomes "for all"; the property becomes its opposite. The opposite of "all the numbers in the list are positive" is "at least one number in the list is not positive".
+:::
+
+::: question What is the difference between $\emptyset$ and $\{\emptyset\}$?
+$\emptyset$ is the empty set and has 0 elements. $\{\emptyset\}$ is a set with one element, which is the empty set: a bag that contains an empty bag.
+:::
+
+::: question Why is the empty set a subset of every set?
+To say that it is not, you would need an element of the empty set lying outside the other set. The empty set has no elements, so such a counterexample does not exist.
+:::
+
+::: question How do you prove that two sets are equal?
+With double inclusion: you show that every element of the first is in the second and that every element of the second is in the first (proposition 1.9).
+:::
+
+::: question What does the principle of induction say? What are the base case and the inductive step?
+Two checks are needed. The base case: the property holds for the first number. The inductive step: whenever it holds for a number $n$, it also holds for $n + 1$. Then the property holds for all the numbers from there on. It is like a row of domino tiles.
+:::
+
+::: question Why does a set with $n$ elements have $2^n$ subsets?
+For each element the choice is double: in or out. There are $n$ choices, and each one doubles the count. The book proves it by induction: when you add an element, the subsets split into those without and those with the new element, and the latter are as many as the former.
+:::
+
+## Glossary
+
+```glossary
+Set | A well-defined collection of objects different from one another, its elements. Example: $\{1, 2, 3\}$.
+Element | An object that is in a set. It is written $x \in A$, "$x$ belongs to $A$".
+Universal set | The set the objects are taken from when a set is described with a rule, for example $\N$.
+Property | A sentence about an object that can be true or false, such as "$n$ is even".
+Quantifiers | The words "for all" and "there exists". Their symbols, $\forall$ and $\exists$, are read exactly like that.
+Counterexample | An element for which a sentence with "for all" is false. One is enough to refute it.
+Empty set | The set with no elements, $\emptyset$. It is a subset of every set.
+Cardinality | The number of elements of a set, $\lvert A \rvert$. Example: $\lvert \{a, b\} \rvert = 2$.
+Subset | A set whose elements are all in another one: $B \subset A$. Example: $\{1, 3\} \subset \{1, 2, 3\}$.
+Proper subset | A subset different from the whole set.
+Power set | The set $P(A)$ that has all the subsets of $A$ as its elements. If $A$ has $n$ elements, $P(A)$ has $2^n$.
+Double inclusion | The way to prove that two sets are equal: each one is contained in the other.
+Natural numbers | The counting numbers, $0, 1, 2, 3, \dots$; their set is $\N$.
+Successor | The number that comes right after: the successor of $n$ is $n + 1$, which the book writes $s(n)$.
+Principle of induction | If a property holds for 0 and passes from every number to the next, it holds for all the natural numbers.
+Base case | The check of the property on the first number.
+Inductive step | The proof that, if the property holds for $n$, it also holds for $n + 1$.
+Inductive hypothesis | The sentence "the property holds for $n$", which in the inductive step is assumed true and used.
+```
+
+## Checklist
+
+```checklist
+- I can write a set with the list and with a rule.
+- I can tell apart $x \in A$, $\{x\} \subset A$ and $\{x\} \in A$.
+- I can count the elements of a set that contains other sets.
+- I can state the opposite of a sentence with "for all" or "there exists", and find a counterexample.
+- I can write down all the subsets of a set with 3 elements.
+- I can prove that two sets are equal by double inclusion.
+- I can do a proof by induction: base case, hypothesis, inductive step, conclusion.
+- I can count the subsets of a set, also with a condition such as "contains these elements".
+```
+
+## Sources
+
+- A. Mori, *Lezioni di Matematica Discreta*, 2nd edition, the channel B textbook: chapter 1 "Insiemi", pp. 1–8 (definitions 1.1 and 1.5–1.8, notes 1.2–1.4, 1.11 and 1.12, proposition 1.9, theorem 1.10 and the two examples after it) and exercises 1.1, 1.3 and 1.19 (pp. 14–16). The definitions and statements in the boxes are translated from the book.
+- Channel B lesson diary 2025/26, on the MDAG1 2025/26 Moodle page ([id 3501](https://informatica.i-learn.unito.it/course/view.php?id=3501), open to guests): topics of lesson 1. On the same page, the handwritten notes of the first channel A lesson and the 2025/26 exam rules.
+- Quizzes and problems of the Discrete Mathematics exam sessions, with the official solutions, on the same page: 18/01/2023 (question 1), 09/06/2023 (problem 1), 05/02/2024, 14/01/2025, 04/02/2025, 06/06/2025 (question 2 and problem 1), 07/07/2025, 13/01/2026 (question 1), 03/02/2026, 06/06/2026, 01/07/2026 and 10/09/2026 (question 1).
+- 2026/27 exam calendar and exam rules: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/MDAG/course.md).
+- V. Bocchino, *Rigurgiti di Unicorno*, Discrete Mathematics notes written by a student following Mori's book (February 2026, licence CC BY-NC-SA 4.0, [GitHub](https://github.com/bocchinovalentino/rigurgiti_di_unicorno)): used as a check. Its solutions to exercises 1.1 and 1.3 agree with those of these notes.
+- The explanations in words, the examples with numbers, the "Refresher" and "Try it" boxes, the undated quizzes and the exercises without a book number are original to these notes.
+
+
+---
+
 <!-- FILE: ai_context/MDAG/lessons/L01_real_numbers.md -->
 > File: `ai_context/MDAG/lessons/L01_real_numbers.md`
 
@@ -2735,7 +4607,7 @@ lesson: L01
 title: Real numbers
 date: 2026-09-30
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L01
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L01
 description: >-
   Notes on lesson L01 of Linear Algebra and Geometry (MDAG, part 2): number sets, construction of the real numbers,
   irrationality of √2, fields, order, notation and calculations with roots, with exam-style quizzes and worked
@@ -2769,39 +4641,6 @@ italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/cont
 
 > [!CHANNELS]
 > Linear Algebra and Geometry uses the **same handouts** in the three channels: Buzano teaches in channels A and B, Radeschi in channels B and C. These notes follow the 2026 handouts, so they hold in the same way for A, B and C. Only the days of the lessons change: the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)) warns that timetable changes are announced there and in class. Exam and quiz are the same for the three channels.
-
-## Before you start
-
-### What this lesson is about
-
-The whole Linear Algebra course calculates with numbers. That is why the first lesson is not about vectors or matrices yet: it is about the numbers themselves.
-
-When we are little we learn to count: one, two, three. Then we discover the numbers below zero, like the degrees of temperature in winter. Then fractions, like half a pizza. Finally the decimal numbers that never end, like pi. Each time the family of numbers gets bigger.
-
-In this lesson you give a name to each of these families and learn the letter that stands for it. These letters appear on every page of the handouts, so it pays to know them well from the start.
-
-Then you see which rules sums and products follow. They are rules you already use without thinking. Here they get a name, because in the next lessons the same rules will also hold for objects that are not numbers.
-
-At the end there are two practical things: how to read the symbols you find in formulas and how to calculate with roots by hand.
-
-One part of the lesson is more abstract than the rest: it explains how the numbers with infinitely many digits are "built". It helps you understand, but it is not asked in the exam. Where it begins, you will find a notice.
-
-### What you need to know already
-
-Almost nothing. These three things are enough, and we review the last two together when they are needed.
-
-- **The four operations** with whole numbers: plus, minus, times, divided by.
-- **Fractions**: what "one half" or "three quarters" means. The refresher is in the section on the families of numbers.
-- **Squares and roots**: what "3 squared" and "the root of 9" mean. The refresher is in the section on the root of 2.
-
-### What you will be able to do at the end
-
-- Say which family a number belongs to: for example that $-4$ is an integer and that $\frac 72$ is a fraction.
-- Read aloud a piece of notation such as $3 \in \N$.
-- Explain why $\sqrt 2$ is not a fraction.
-- Say why the integers do not form a field and the fractions do.
-- Not confuse $\{1, 2\}$, $(1, 2)$ and $[1, 2]$.
-- Simplify by hand expressions such as $\sqrt{12}$ and $\frac 6{\sqrt 3}$.
 
 ## Sets: bags with things inside (p. 2)
 
@@ -4262,7 +6101,7 @@ module: AG
 lesson: L02
 title: Complex numbers I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L02
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L02
 description: >-
   Notes on lesson L02 of Linear Algebra and Geometry (MDAG, part 2): complex numbers, sum and product, real part and
   imaginary part, conjugate, modulus, inverse and division, the complex plane and the parallelogram rule, with
@@ -5184,7 +7023,7 @@ module: AG
 lesson: L03
 title: Complex numbers II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L03
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L03
 description: >-
   Notes on lesson L03 of Linear Algebra and Geometry (MDAG, part 2): polar coordinates, exponential form, modulus and
   argument of a complex number, product and inverse in polar form, Euler's identity, powers and n-th roots, with a
@@ -6117,7 +7956,7 @@ module: AG
 lesson: L04
 title: Polynomials
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L04
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L04
 description: >-
   Notes on lesson L04 of Linear Algebra and Geometry (MDAG, part 2): polynomials and degree, division with remainder
   and Ruffini's rule, roots and multiplicity, how many roots a polynomial can have, the fundamental theorem of
@@ -6918,7 +8757,7 @@ module: AG
 lesson: L05
 title: Vector spaces I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L05
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L05
 description: >-
   Notes on lesson L05 of Linear Algebra and Geometry (MDAG, part 2): Euclidean space, sum of vectors and product by
   a scalar, groups, fields, definition of vector space and examples (polynomials, functions, sequences), with
@@ -7862,7 +9701,7 @@ module: AG
 lesson: L06
 title: Vector spaces II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L06
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L06
 description: >-
   Notes on lesson L06 of Linear Algebra and Geometry (MDAG, part 2): the space of matrices, vector subspaces,
   diagonal, triangular, symmetric and skew-symmetric matrices, linear combinations and the subspace spanned (Span),
@@ -8687,7 +10526,7 @@ module: AG
 lesson: L07
 title: Vector spaces III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L07
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L07
 description: >-
   Notes on lesson L07 of Linear Algebra and Geometry (MDAG, part 2): linear dependence and independence, bases,
   standard basis of K^n and of polynomials, dimension of a vector space and the theorem on bases, with exam-style
@@ -9448,7 +11287,7 @@ module: AG
 lesson: L08
 title: Matrices I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L08
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L08
 description: >-
   Notes on lesson L08 of Linear Algebra and Geometry (MDAG, part 2): transpose of a matrix, symmetric matrices,
   row rank and column rank, the row-by-column product and its properties, trace, with exam-style quizzes and
@@ -10282,7 +12121,7 @@ module: AG
 lesson: L09
 title: Matrices II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L09
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L09
 description: >-
   Notes on lesson L09 of Linear Algebra and Geometry (MDAG, part 2): the determinant of a square matrix defined with
   permutations, the formulas for 2×2 and 3×3 matrices, triangular matrices and the identity matrix, the Laplace
@@ -11042,7 +12881,7 @@ module: AG
 lesson: L10
 title: Matrices III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L10
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L10
 description: >-
   Notes on lesson L10 of Linear Algebra and Geometry (MDAG, part 2): how the determinant changes with the Gauss
   moves, zero determinant and dependent rows, Binet's theorem, cofactors, the inverse matrix and the invertibility
@@ -11823,7 +13662,7 @@ module: AG
 lesson: L11
 title: Linear systems I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L11
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L11
 description: >-
   Notes on lesson L11 of Linear Algebra and Geometry (MDAG, part 2): linear systems and augmented matrix, Gauss
   moves, pivots and row echelon matrices, the Gauss and Gauss–Jordan algorithms, how to write all the solutions of
@@ -12590,7 +14429,7 @@ module: AG
 lesson: L12
 title: Linear systems II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L12
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L12
 description: >-
   Notes on lesson L12 of Linear Algebra and Geometry (MDAG, part 2): associated homogeneous system, particular
   solution, affine subspaces, rank and pivots, the Rouché–Capelli theorem, square systems and systems with a
@@ -13323,7 +15162,7 @@ module: AG
 lesson: L13
 title: Linear systems III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L13
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L13
 description: >-
   Notes on lesson L13 of Linear Algebra and Geometry (MDAG, part 2): linear independence, generators, bases and
   coordinates with respect to a basis studied with linear systems, the rank and the determinant, plus a code that
@@ -14019,7 +15858,7 @@ module: AG
 lesson: L14
 title: Linear maps I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L14
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L14
 description: >-
   Notes on lesson L14 of Linear Algebra and Geometry (MDAG, part 2): linear maps, examples and non-examples, the map
   associated with a matrix, kernel and image, injectivity and surjectivity, rank–nullity theorem, with exam-style
@@ -14781,7 +16620,7 @@ module: AG
 lesson: L15
 title: Linear maps II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L15
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L15
 description: >-
   Notes on lesson L15 of Linear Algebra and Geometry (MDAG, part 2): isomorphisms, isomorphic vector spaces,
   coordinates and the matrix associated with a linear map with respect to two bases, with exam-style quizzes and
@@ -15568,7 +17407,7 @@ module: AG
 lesson: L16
 title: Linear maps III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L16
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L16
 description: >-
   Notes on lesson L16 of Linear Algebra and Geometry (MDAG, part 2): change-of-basis matrix, composition of linear
   maps and product of matrices, endomorphisms and similar matrices, with exam-style quizzes and worked exercises.
@@ -16295,7 +18134,7 @@ module: AG
 lesson: L17
 title: Eigenvalues and eigenvectors I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L17
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L17
 description: >-
   Notes on lesson L17 of Linear Algebra and Geometry (MDAG, part 2): eigenvectors and eigenvalues of an endomorphism,
   diagonalisable endomorphisms and matrices, powers of matrices and the characteristic polynomial, with exam-style
@@ -16991,7 +18830,7 @@ module: AG
 lesson: L18
 title: Eigenvalues and eigenvectors II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L18
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L18
 description: >-
   Notes on lesson L18 of Linear Algebra and Geometry (MDAG, part 2): independence of eigenvectors with distinct
   eigenvalues, eigenspaces and direct sum, algebraic and geometric multiplicity, the diagonalisability theorem and
@@ -17695,7 +19534,7 @@ module: AG
 lesson: L19
 title: Scalar products I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L19
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L19
 description: >-
   Notes on lesson L19 of Linear Algebra and Geometry (MDAG, part 2): what a scalar product is, degenerate and
   positive definite products, the Euclidean scalar product, symmetric matrices and the matrix associated with a
@@ -18548,7 +20387,7 @@ module: AG
 lesson: L20
 title: Scalar products II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L20
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L20
 description: >-
   Notes on lesson L20 of Linear Algebra and Geometry (MDAG, part 2): how the matrix of a scalar product changes when
   the basis changes, quadratic forms, norm, the Cauchy–Schwarz and triangle inequalities, distances and angles between
@@ -19313,7 +21152,7 @@ module: AG
 lesson: L21
 title: Scalar products III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L21
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L21
 description: >-
   Notes on lesson L21 of Linear Algebra and Geometry (MDAG, part 2): orthogonal vectors, orthogonal complement,
   orthogonal projection onto a line and onto a subspace, orthogonal and orthonormal bases, the Gram–Schmidt algorithm,
@@ -20175,7 +22014,7 @@ module: AG
 lesson: L22
 title: Euclidean space I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L22
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L22
 description: >-
   Notes on lesson L22 of Linear Algebra and Geometry (MDAG, part 2): rotations and reflections of the plane,
   isometries between spaces with a scalar product, orthogonal matrices, classification of the isometries of the plane
@@ -20953,7 +22792,7 @@ module: AG
 lesson: L23
 title: Euclidean space II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L23
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L23
 description: >-
   Notes on lesson L23 of Linear Algebra and Geometry (MDAG, part 2): properties of the cross product and area of the
   parallelogram, Cartesian and parametric form of lines and planes, affine subspaces and direction space (giacitura),
@@ -21910,7 +23749,7 @@ module: AG
 lesson: L24
 title: Euclidean space III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L24
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L24
 description: >-
   Notes on lesson L24 of Linear Algebra and Geometry (MDAG, part 2): angles between lines, between a line and a plane
   and between planes, distances between points, between a point and a line, between skew lines and between a point
@@ -22721,7 +24560,7 @@ module: AG
 lesson: L25
 title: Spectral theorem I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L25
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L25
 description: >-
   Notes on lesson L25 of Linear Algebra and Geometry (MDAG, part 2): Hermitian products on complex spaces, Hermitian
   matrices, associated matrix, self-adjoint endomorphisms and invariant subspaces, with exam-style quizzes and worked
@@ -23449,7 +25288,7 @@ module: AG
 lesson: L26
 title: Spectral theorem II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L26
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L26
 description: >-
   Notes on lesson L26 of Linear Algebra and Geometry (MDAG, part 2): the spectral theorem for self-adjoint
   endomorphisms, its proof, the version with symmetric and orthogonal matrices, the link with PCA and all the
@@ -24182,7 +26021,7 @@ Updated as of 28/09/2026. Sources: official course page (scheda insegnamento) IN
 | Exam | **computer-based written exam + compulsory oral exam**, the same for the three channels (canali) |
 | Language | Italian; the course is labelled "English-friendly" (according to the degree programme: material in English to prepare the exam, and the exam can be taken in English; https://laurea.informatica.unito.it/do/home.pl/View?doc=International_students.html) |
 | Expected skills | Programming I (Programmazione I) and Foundations of Computer Science (Fondamenti dell'Informatica), from the 1st semester |
-| Textbook | D. A. Patterson, J. L. Hennessy, *Struttura e progetto dei calcolatori – Progettare con RISC-V*, 2nd ed., Zanichelli 2023 |
+| Textbook | D. A. Patterson, J. L. Hennessy, *Struttura e progetto dei calcolatori – Progettare con RISC-V*, 2nd ed., Zanichelli 2023, ISBN 978-88-08-19966-9 (the Italian edition of *Computer Organization and Design RISC-V Edition*). Six chapters (1 computer abstractions and technology; 2 instructions, the language of the computer; 3 arithmetic for computers; 4 the processor; 5 large and fast: exploiting the memory hierarchy; 6 parallel processors) plus the RISC-V reference card. Four appendices are online, on the publisher's website: A "The Basics of Logic Design", B "Mapping Control to Hardware" and D "Survey of Instruction Set Architectures" in English, C "La grafica e il calcolo con la GPU" (graphics and computing GPUs) in Italian |
 | Simulator | **ARES** (https://ares-sim.github.io), in the browser, 32-bit RISC-V, since 2025/26; up to 2024/25 RARS (64-bit) was used |
 
 ## Lecturers and Moodle

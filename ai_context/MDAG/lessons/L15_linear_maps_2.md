@@ -4,7 +4,7 @@ module: AG
 lesson: L15
 title: Linear maps II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L15
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L15
 description: >-
   Notes on lesson L15 of Linear Algebra and Geometry (MDAG, part 2): isomorphisms, isomorphic vector spaces,
   coordinates and the matrix associated with a linear map with respect to two bases, with exam-style quizzes and

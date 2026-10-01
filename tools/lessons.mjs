@@ -652,6 +652,22 @@ function sezioni(corpo) {
 }
 const RIF = /\s*\(((?:pp?\.|slide|dispense|libro|oltre|Martelli|handouts?|book|beyond)[^()]*)\)\s*$/i;
 
+// Altezza stimata di una sezione su uno schermo largo, in pixel (variabile CSS --h): con content-visibility il browser non
+// impagina né disegna le sezioni lontane dallo schermo e intanto le conta di questa altezza (poi ricorda quella vera).
+// Conta il testo visibile (senza MathML e senza il contenuto dei riquadri chiusi), le formule in display, i blocchi e le
+// righe di tabella; coefficienti misurati su quattro lezioni (errore medio 14%).
+function altezzaStimata(html) {
+  let s = html.replace(/<span class="katex-mathml">[\s\S]*?<\/math><\/span>/g, '');
+  for (let i = 0; i < 8 && /<details/.test(s); i++) {
+    s = s.replace(/<details[^>]*>(\s*<summary[^>]*>[\s\S]*?<\/summary>)(?:(?!<details)[\s\S])*?<\/details>/g, '<div class="chiuso">$1</div>');
+  }
+  const conta = re => (s.match(re) || []).length;
+  const testo = s.replace(/<[^>]+>/g, '').replace(/&[a-z#0-9]+;/gi, 'x').replace(/\s+/g, ' ').trim().length;
+  const h = 0.57 * testo + 64 * conta(/class="katex-display"/g) + 22 * conta(/<tr>/g) + 300 * conta(/<figure class="(?:widget|grafico)"/g)
+    + 42 * conta(/<div class="box|<pre|<figure|<div class="table-wrap|<article class="ex"|<li class="q"|class="chiuso"/g) + 86;
+  return Math.max(200, Math.round(h / 10) * 10);
+}
+
 function compila(file) {
   const sorgente = readFileSync(file, 'utf8');
   const ctx = nuovoContesto(relative(RADICE, file).replace(/\\/g, '/'), sorgente);
@@ -685,7 +701,8 @@ function compila(file) {
       const elenco = righe.slice(0, k).join('\n'), dopo = righe.slice(k).join('\n');
       const punti = righe.slice(0, k).filter(r => /^[-*]\s/.test(r)).length;
       toc.push({ id: speciale, n: '→', titolo: inLinea(titolo, ctx) });
-      html.push(`<section class="tldr" id="${idUnico(ctx, speciale)}" aria-labelledby="tldr-title">\n<h2 id="tldr-title">${T.inPunti(punti)}</h2>\n${markdown(elenco, ctx)}</section>`);
+      const dentroTldr = `\n<h2 id="tldr-title">${T.inPunti(punti)}</h2>\n${markdown(elenco, ctx)}`;
+      html.push(`<section class="tldr" id="${idUnico(ctx, speciale)}" aria-labelledby="tldr-title" style="--h:${altezzaStimata(dentroTldr)}px">${dentroTldr}</section>`);
       if (dopo.trim()) html.push(markdown(dopo, ctx));
       continue;
     }
@@ -698,7 +715,8 @@ function compila(file) {
     if (speciale === 'checklist' && ctx.checklist) destra = `<span class="pill" id="check-progress">${T.suN(ctx.checklist)}</span>`;
     const barra = /class="qa-list"/.test(contenuto) ? `<div class="toolbar"><p>${T.rispondi}</p><button type="button" class="btn qa-toggle">${T.mostraTutte}</button></div>\n` : '';
     toc.push({ id, n: `§${num}`, titolo: titoloHtml });
-    html.push(`<section id="${id}" aria-labelledby="h-${id}">\n<div class="sec-head"><span class="sec-num">§${num}</span><h2 id="h-${id}">${titoloHtml}</h2>${destra}</div>\n${barra}${contenuto}</section>`);
+    const dentroSez = `\n<div class="sec-head"><span class="sec-num">§${num}</span><h2 id="h-${id}">${titoloHtml}</h2>${destra}</div>\n${barra}${contenuto}`;
+    html.push(`<section id="${id}" aria-labelledby="h-${id}" style="--h:${altezzaStimata(dentroSez)}px">${dentroSez}</section>`);
   }
 
   // controllo facoltativo: espressioni da non usare, elencate in un file locale fuori dal repository
@@ -733,6 +751,9 @@ function compila(file) {
   const rielab = L.rielaborati[ctx.materiale] || L.rielaborati.slide;
   const titoloPagina = `${lezione} · ${String(meta.titolo || '').replace(/\$/g, '')}`;
 
+  // in fondo alla <head>, link rel=expect (blocking=render): niente primo disegno finché non è stata letta la barra in alto
+  // (id="barra", subito dopo rete.js), così il primo fotogramma ha già lo sfondo e la dissolvenza tra le pagine parte sempre
+  // (vedi testa_html in genera_materie.py)
   const pagina = `<!doctype html>
 <html lang="${L.lang}">
 <head>
@@ -749,7 +770,8 @@ ${data ? `<meta name="${LINGUA === 'it' ? 'data' : 'date'}" content="${data}">\n
 </script>
 <link rel="preload" href="../../assets/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/css/appunti.css">
-${ctx.formule.length ? '<link rel="stylesheet" href="../../assets/katex/katex.min.css">\n' : ''}<!-- pagina generata da ${LINGUA === 'it' ? 'strumenti/lezioni.mjs' : 'tools/lessons.mjs'} a partire da ${ctx.file}: modifica il Markdown, non questa pagina -->
+${ctx.formule.length ? '<link rel="stylesheet" href="../../assets/katex/katex.min.css">\n' : ''}<link rel="expect" href="#barra" blocking="render">
+<!-- pagina generata da ${LINGUA === 'it' ? 'strumenti/lezioni.mjs' : 'tools/lessons.mjs'} a partire da ${ctx.file}: modifica il Markdown, non questa pagina -->
 </head>
 <body>
 <!-- ${m1} -->

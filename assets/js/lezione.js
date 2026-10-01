@@ -31,6 +31,40 @@
   }
   if (tocDetails && window.matchMedia('(max-width: 1079px)').matches) tocLinks.forEach(a => a.addEventListener('click', () => { tocDetails.open = false; }));
 
+  /* àncore nella pagina (indice, rimandi tra sezioni): le sezioni lontane hanno ancora un'altezza stimata (content-visibility)
+     e prendono quella vera mentre lo scorrimento morbido le attraversa, quindi l'arrivo può cadere più su o più giù del
+     titolo. A scorrimento finito, se il titolo non è al suo posto, un secondo scorrimento breve ce lo porta (al massimo tre
+     volte); si smette appena chi legge usa la rotella, lo schermo, il mouse o la tastiera */
+  const allineaAncora = bersaglio => {
+    let attesa = 0, giri = 0;
+    const scadenza = performance.now() + 8000, interventi = ['wheel', 'touchstart', 'keydown', 'pointerdown'];
+    const smetti = () => {
+      clearTimeout(attesa);
+      window.removeEventListener('scroll', suScroll);
+      interventi.forEach(t => window.removeEventListener(t, smetti, true));
+    };
+    const controlla = () => {
+      const posto = (parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0) + (parseFloat(getComputedStyle(bersaglio).scrollMarginTop) || 0);
+      const scarto = bersaglio.getBoundingClientRect().top - posto;
+      const inFondo = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 1;
+      if (Math.abs(scarto) <= 2 || (scarto > 0 && inFondo) || ++giri > 3 || performance.now() > scadenza) { smetti(); return; }
+      bersaglio.scrollIntoView({ block: 'start' });   // morbido o istantaneo come dice il CSS (animazioni ridotte: istantaneo)
+      attesa = setTimeout(controlla, 400);            // se non c'è più niente da scorrere non arriva nessun evento
+    };
+    const suScroll = () => { clearTimeout(attesa); attesa = setTimeout(controlla, 150); };
+    window.addEventListener('scroll', suScroll, { passive: true });
+    interventi.forEach(t => window.addEventListener(t, smetti, { capture: true, passive: true }));
+    attesa = setTimeout(controlla, 400);
+  };
+  document.addEventListener('click', e => {
+    const a = e.target instanceof Element ? e.target.closest('a[href^="#"]') : null;
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    let id = '';
+    try { id = decodeURIComponent(a.getAttribute('href').slice(1)); } catch (x) { return; }
+    const bersaglio = id && document.getElementById(id);
+    if (bersaglio) allineaAncora(bersaglio);
+  });
+
   /* tabelle: se su uno schermo stretto non entrano, ogni riga diventa una scheda con le etichette delle colonne */
   const tableWraps = $$('.table-wrap').filter(w => { const t = w.querySelector('table'); return t && t.tHead; });
   tableWraps.forEach(w => {
@@ -38,11 +72,17 @@
     const heads = $$('th', t.tHead).map(th => th.textContent.trim());
     $$('tbody tr', t).forEach(tr => Array.from(tr.children).forEach((c, i) => { if (heads[i]) c.dataset.label = heads[i]; }));
   });
-  const fitTables = () => tableWraps.forEach(w => {
+  const fitTable = w => {
     const t = w.querySelector('table');
     t.classList.remove('stacked');
     if (w.scrollWidth > w.clientWidth + 1) t.classList.add('stacked');
-  });
+  };
+  // ogni tabella si controlla quando si avvicina allo schermo: le sezioni lontane non sono ancora impaginate
+  // (content-visibility) e misurarle tutte all'apertura costerebbe come impaginare la pagina intera
+  const tableIo = 'IntersectionObserver' in window
+    ? new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { tableIo.unobserve(e.target); fitTable(e.target); } }), { rootMargin: '50% 0px' })
+    : null;
+  const fitTables = () => tableWraps.forEach(w => { if (tableIo) { tableIo.unobserve(w); tableIo.observe(w); } else fitTable(w); });
   fitTables();
   let fitTimer = null;
   window.addEventListener('resize', () => { clearTimeout(fitTimer); fitTimer = setTimeout(fitTables, 150); });

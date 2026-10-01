@@ -27,7 +27,7 @@
   --green: #6fe0a0; --green-soft: rgba(111, 224, 160, .1);
   --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 18px 40px -24px rgba(0, 0, 0, .8);
   --shadow-2: 0 24px 60px -28px rgba(0, 0, 0, .9);
-  --barra-bg: rgba(8, 13, 25, .72);
+  --barra-bg: rgb(8, 13, 25);
   --rete-linea: 127, 168, 255; --rete-impulso: 63, 224, 204; --rete-caldo: 255, 196, 94; --rete-forza: 1;
   /* nomi usati dalle lezioni */
   --paper: var(--surface); --paper-2: var(--surface-2); --ink: var(--text); --ink-2: var(--text-2); --muted: var(--text-3);
@@ -56,7 +56,7 @@
   --green: #1b7a46; --green-soft: rgba(27, 122, 70, .08);
   --shadow: 0 1px 2px rgba(14, 24, 48, .05), 0 12px 28px -18px rgba(14, 24, 48, .28);
   --shadow-2: 0 24px 50px -30px rgba(14, 24, 48, .45);
-  --barra-bg: rgba(243, 246, 252, .78);
+  --barra-bg: rgb(243, 246, 252);
   --rete-linea: 43, 95, 207; --rete-impulso: 8, 127, 120; --rete-caldo: 214, 140, 20; --rete-forza: .8;
   --link-hover: #065f5a; --code-bg: #f4f7fc; --grid: rgba(43, 95, 207, .08);
   --node-action: #e6eefc; --node-test: #e3f4ec; --node-term: #0e1830; --node-term-ink: #ffffff; --edge: #5d6b88; --shade: rgba(14, 24, 48, .16);
@@ -70,7 +70,7 @@
   --line: #1d1d1d; --line-2: #2b2b2b; --line-3: #434343;
   --text: #f5f5f5; --text-2: #bcbcbc; --text-3: #8e8e8e;
   --accent: #ffffff; --accent-ink: #000000; --accent-soft: rgba(255, 255, 255, .08); --accent-line: rgba(255, 255, 255, .32);
-  --link-hover: #cfcfcf; --barra-bg: rgba(0, 0, 0, .8); --code-bg: #050505; --grid: rgba(255, 255, 255, .06);
+  --link-hover: #cfcfcf; --barra-bg: rgb(0, 0, 0); --code-bg: #050505; --grid: rgba(255, 255, 255, .06);
   --node-action: #121212; --node-test: #0f0f0f; --node-term: #f5f5f5; --node-term-ink: #000000; --edge: #8e8e8e;
   --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 18px 40px -24px rgba(0, 0, 0, .9);
   --shadow-2: 0 24px 60px -28px rgba(0, 0, 0, .95);
@@ -100,10 +100,12 @@ li { margin: .3rem 0; }
 li::marker { color: var(--text-3); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 
-#rete { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
-/* più tenue dietro la colonna del testo, pieno ai lati */
-#rete { -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .34) 20%, rgba(0, 0, 0, .34) 80%, #000 100%); mask-image: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, .34) 20%, rgba(0, 0, 0, .34) 80%, #000 100%); }
-@media (max-width: 900px) { #rete { -webkit-mask-image: none; mask-image: none; opacity: .5; } }
+/* sfondo animato (rete.js): tre canvas, dal basso il reticolo, gli incroci accesi vicino al puntatore, impulsi e onde.
+   Più tenue dietro la colonna del testo e pieno ai lati, a metà sugli schermi stretti: lo disegna già così rete.js, perché una
+   maschera o un'opacità sopra strati che cambiano a ogni fotogramma costano memoria e lavoro alla scheda grafica */
+.sfondo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; contain: strict; }
+.sfondo canvas { position: absolute; left: 0; top: 0; display: block; }
+.sfondo .griglia, .sfondo .incroci { will-change: transform; }
 .barra, .pagina, .piede, .salta { position: relative; z-index: 1; }
 .salta { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--accent); color: var(--accent-ink); padding: .5rem .9rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
 .salta:focus { top: 12px; }
@@ -114,7 +116,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .lingua-bar a { font-weight: 600; }
 
 /* ---------- barra in alto ---------- */
-.barra { position: sticky; top: 0; z-index: 20; background: var(--barra-bg); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid var(--line); }
+.barra { position: sticky; top: 0; z-index: 20; background: var(--barra-bg); border-bottom: 1px solid var(--line); }   /* opaca: niente sfocatura dietro (costa a ogni fotogramma dello sfondo); senza sfocatura, con un po' di trasparenza si leggerebbe il testo che le passa sotto */
 .barra-in { max-width: 76rem; margin: 0 auto; height: 60px; padding: 0 clamp(16px, 3vw, 28px); display: flex; align-items: center; gap: 20px; }
 .marchio { display: inline-flex; align-items: center; gap: .7rem; color: var(--text); text-decoration: none; white-space: nowrap; }
 .marchio:hover { color: var(--text); }
@@ -180,7 +182,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 .apertura .canali + .canali { margin-top: .8rem; }
 .badge { display: inline-flex; align-items: baseline; gap: .55rem; margin-top: 1.4rem; font: 500 .78rem/1.45 var(--mono); color: var(--text-2); padding: .5rem .8rem; border: 1px solid var(--line-2); border-radius: 10px; background: var(--surface); max-width: 100%; }
 .badge i { flex: 0 0 auto; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); transform: translateY(-1px); }
-.pannello { background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--line); border-radius: var(--raggio); box-shadow: var(--shadow); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.pannello { background: color-mix(in srgb, var(--surface) 96%, transparent); border: 1px solid var(--line); border-radius: var(--raggio); box-shadow: var(--shadow); }
 .prossimi { padding: 1.1rem 1.2rem .6rem; }
 .prossimi h2 { font: 500 .75rem/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); margin: 0 0 .6rem; }
 .prossimi ol { list-style: none; margin: 0; padding: 0; }
@@ -317,7 +319,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 html:active-view-transition .rivela { opacity: 1; transform: none; clip-path: none; transition: none; }
 html.arrivo:not(.pronto) .rivela { opacity: 1; transform: none; clip-path: none; transition: none; }   /* finché appunti.js non decide */
 html.meno-moto::view-transition-group(*), html.meno-moto::view-transition-old(*), html.meno-moto::view-transition-new(*) { animation: none; }
-@media print { #rete, .barra, .piede { display: none !important; } body { background: #fff; color: #000; } .rivela { opacity: 1; transform: none; clip-path: none; } }
+@media print { .sfondo, #rete, .barra, .piede { display: none !important; } body { background: #fff; color: #000; } .rivela { opacity: 1; transform: none; clip-path: none; } }
 
 /* ======================================================================
    LEZIONI
@@ -336,6 +338,19 @@ html.meno-moto::view-transition-group(*), html.meno-moto::view-transition-old(*)
 .toc ol { list-style: none; margin: .6rem 0 0; padding: 0; position: relative; }
 .toc ol::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; border-radius: 2px; background: var(--line); }
 .toc ol::after { content: ""; position: absolute; left: 0; top: 0; width: 2px; height: calc(var(--letto, 0) * 100%); border-radius: 2px; background: linear-gradient(var(--accent), var(--blue)); transition: height .2s linear; }
+/* barra della lettura e indice riempiti dallo scorrimento stesso, senza script (appunti.js lo fa solo nei browser che non
+   lo sanno fare): l'indice segue il foglio, da quando il suo bordo alto passa al 35% dello schermo a quando ci passa quello basso */
+@supports (animation-timeline: scroll()) {
+  .avanzamento { animation: avanzamento linear both; animation-timeline: scroll(root block); }
+}
+/* l'indice sta fuori dal foglio: serve anche timeline-scope (senza, la linea resterebbe piena); le stesse condizioni in appunti.js */
+@supports (animation-timeline: scroll()) and (timeline-scope: none) and (view-timeline-inset: 35% 65%) {
+  .shell { timeline-scope: --foglio; }
+  .foglio { view-timeline: --foglio block; view-timeline-inset: 35% 65%; }
+  .toc ol::after { height: 100%; transform-origin: 0 0; transition: none; animation: letto linear both; animation-timeline: --foglio; }
+}
+@keyframes avanzamento { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes letto { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 .toc li { margin: 0; }
 .toc a { display: flex; gap: .6rem; padding: .36rem .5rem .36rem .9rem; color: var(--text-2); text-decoration: none; border-radius: 0 8px 8px 0; transition: color .15s, background .15s; }
 .toc a .n { font: 500 .74rem/1.5 var(--mono); color: var(--text-3); min-width: 2.2em; }
@@ -363,6 +378,17 @@ html.meno-moto::view-transition-group(*), html.meno-moto::view-transition-old(*)
 
 /* sezioni */
 .foglio section { margin-top: clamp(2.6rem, 6vw, 3.8rem); scroll-margin-top: 84px; }
+/* le sezioni lontane dallo schermo non si impaginano né si disegnano finché non servono (pagine con decine di migliaia di
+   elementi delle formule): intanto contano dell'altezza stimata dal generatore (--h), poi di quella vera. Il contenimento
+   tiene dentro la sezione i margini finali, che prima si fondevano con lo spazio tra le sezioni: si azzerano, così gli
+   spazi restano quelli di prima. Indice, àncore, ricerca nella pagina e stampa le aprono comunque. Solo le sezioni con
+   l'altezza stimata (lezioni generate dal Markdown): nelle lezioni scritte a mano una stima a caso farebbe arrivare
+   l'indice nel punto sbagliato */
+.foglio > section[style*="--h:"] { content-visibility: auto; contain-intrinsic-size: auto var(--h); }
+@media (max-width: 640px) { .foglio > section[style*="--h:"] { contain-intrinsic-size: auto calc(var(--h) * 2); } }
+.foglio > section[style*="--h:"] > :last-child, .foglio > section[style*="--h:"] > :is(ul, ol):last-child > li:last-child,
+.foglio > section[style*="--h:"] > :is(ul, ol):last-child > li:last-child > :last-child { margin-bottom: 0; }
+@media print { .foglio > section { content-visibility: visible; } }
 .sec-head { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .8rem; margin-bottom: 1.1rem; padding-bottom: .9rem; border-bottom: 1px solid var(--line); }
 .sec-num { font: 600 .78rem/1 var(--mono); color: var(--accent); padding: .38rem .5rem; border-radius: 7px; background: var(--accent-soft); border: 1px solid var(--accent-line); }
 .foglio h2 { font-size: clamp(1.35rem, 1.2rem + .7vw, 1.7rem); font-weight: 600; letter-spacing: -.02em; margin: 0; }

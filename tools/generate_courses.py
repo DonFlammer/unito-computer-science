@@ -136,7 +136,12 @@ e = html.escape
 
 
 def head_html(root, title, description, it_url):
-    """Common <head>: theme and animations chosen before painting, fonts, stylesheet."""
+    """Common <head>: theme and animations chosen before painting, fonts, stylesheet.
+    At the end, link rel=expect (blocking=render): the browser paints nothing until it has read the top bar, which comes
+    right after rete.js. So the first frame already has the grid and the pulses, and the cross-fade between pages always
+    runs: Chrome decides whether to do it (the @view-transition rule in appunti.css) at the first frame, with the styles
+    computed up to then, and rete.js has already read them. Without this wait, if the page arrives all at once (prefetched
+    by appunti.js) and rete.js does not, the first frame can come earlier: empty background or skipped cross-fade."""
     return f"""<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
@@ -148,16 +153,18 @@ def head_html(root, title, description, it_url):
   var t = null; try {{ t = localStorage.getItem('appunti:tema'); if (localStorage.getItem('appunti:moto') === 'ridotto') document.documentElement.classList.add('meno-moto'); }} catch (e) {{}} if (t !== 'dark') document.documentElement.setAttribute('data-theme', t === 'light' ? 'light' : 'oled');
 </script>
 <link rel="preload" href="{root}assets/fonts/plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{root}assets/css/appunti.css">"""
+<link rel="stylesheet" href="{root}assets/css/appunti.css">
+<link rel="expect" href="#barra" blocking="render">"""
 
 
 def site_bar(root, it_url, current=""):
-    """Bar at the top, the same on every page; root = relative path of the home page."""
+    """Bar at the top, the same on every page; root = relative path of the home page.
+    id="barra": the <head> waits for this element before the first paint (see head_html)."""
     courses = ' aria-current="page"' if current == "courses" else ""
     return f"""<a class="salta" href="#contenuto">Skip to content</a>
-<canvas id="rete" aria-hidden="true"></canvas>
+<div class="sfondo" aria-hidden="true"><canvas class="griglia"></canvas><canvas class="incroci"></canvas><canvas id="rete"></canvas></div>
 <script src="{root}assets/js/rete.js"></script>
-<header class="barra">
+<header class="barra" id="barra">
   <div class="barra-in">
     <a class="marchio" href="{root}index.html"><span class="glifo" aria-hidden="true">§</span><span class="nome"><b>Computer Science Notes</b><small>UniTo · 2026/27</small></span></a>
     <button type="button" class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span></button>

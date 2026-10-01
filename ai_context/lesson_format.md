@@ -10,11 +10,11 @@ The most recent lesson files (`<COURSE>/lessons/*.md` with `generate_html: true`
 
 ## Structure
 
-- `## In brief`: the key points of the lesson.
+- `## In brief`: the key points of the lesson. Right after it the content starts: no introductory section about what you need to know or what you will be able to do at the end.
 - Sections `## Title (slides 2–5)` or `## Title (pp. 20–21)`: in brackets the slides or the pages of the handouts the section comes from.
 - `## Towards the exam`, `## Quiz`, `## Exercises`, `## Review questions`, `## Glossary`, `## Checklist`, `## Sources`.
 
-The Linear Algebra and Geometry lessons (`MDAG/lessons/L*.md`), as they are rewritten, also have: `## Before you start` (what the lesson is about, what you need to know already, what you will be able to do at the end) right after "In brief", and `## The symbols of this lesson` (a table: symbol, how to read it, what it means, example) before "Towards the exam". In each section the order is: a concrete example, the idea in words, then the statement of the handouts in a box, followed by a paragraph "**How to read it.**" that puts it into words.
+The lessons rewritten in the new format (Linear Algebra and Geometry `MDAG/lessons/L*.md` as they are rewritten, Discrete Mathematics `D*.md`, Foundations of Computer Science) also have `## The symbols of this lesson` (a table: symbol, how to read it, what it means, example) before "Towards the exam". In each section the order is: a concrete example, the idea in words, then the statement of the handouts in a box, followed by a paragraph "**How to read it.**" that puts it into words.
 
 ## Formulas
 

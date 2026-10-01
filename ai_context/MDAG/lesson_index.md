@@ -1,4 +1,4 @@
-# Linear Algebra and Geometry (MDAG, part 2) — lesson index
+# Linear Algebra and Geometry (MDAG, part 2, modB) — lesson index
 
 Full course sheet (both modules, timetables of the three channels, exam): `course.md`. The 26 lessons follow the course's 2026 handouts (Buzano, Radeschi), the same for channels A, B and C, and are ready ahead of the lectures: the pace in class may differ. Every file has exam-style quizzes, worked exercises, review questions, a glossary and a "Towards the exam" section with the questions of the 2023–2026 exam sessions on the same topics. The notes for Discrete Mathematics (MDAG, part 1) are not there yet.
 

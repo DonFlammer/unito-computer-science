@@ -5,7 +5,7 @@ lesson: L01
 title: Real numbers
 date: 2026-09-30
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L01
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L01
 description: >-
   Notes on lesson L01 of Linear Algebra and Geometry (MDAG, part 2): number sets, construction of the real numbers,
   irrationality of √2, fields, order, notation and calculations with roots, with exam-style quizzes and worked
@@ -39,39 +39,6 @@ italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/cont
 
 > [!CHANNELS]
 > Linear Algebra and Geometry uses the **same handouts** in the three channels: Buzano teaches in channels A and B, Radeschi in channels B and C. These notes follow the 2026 handouts, so they hold in the same way for A, B and C. Only the days of the lessons change: the course's Moodle page (MDAG2, [id 3831](https://informatica.i-learn.unito.it/course/view.php?id=3831)) warns that timetable changes are announced there and in class. Exam and quiz are the same for the three channels.
-
-## Before you start
-
-### What this lesson is about
-
-The whole Linear Algebra course calculates with numbers. That is why the first lesson is not about vectors or matrices yet: it is about the numbers themselves.
-
-When we are little we learn to count: one, two, three. Then we discover the numbers below zero, like the degrees of temperature in winter. Then fractions, like half a pizza. Finally the decimal numbers that never end, like pi. Each time the family of numbers gets bigger.
-
-In this lesson you give a name to each of these families and learn the letter that stands for it. These letters appear on every page of the handouts, so it pays to know them well from the start.
-
-Then you see which rules sums and products follow. They are rules you already use without thinking. Here they get a name, because in the next lessons the same rules will also hold for objects that are not numbers.
-
-At the end there are two practical things: how to read the symbols you find in formulas and how to calculate with roots by hand.
-
-One part of the lesson is more abstract than the rest: it explains how the numbers with infinitely many digits are "built". It helps you understand, but it is not asked in the exam. Where it begins, you will find a notice.
-
-### What you need to know already
-
-Almost nothing. These three things are enough, and we review the last two together when they are needed.
-
-- **The four operations** with whole numbers: plus, minus, times, divided by.
-- **Fractions**: what "one half" or "three quarters" means. The refresher is in the section on the families of numbers.
-- **Squares and roots**: what "3 squared" and "the root of 9" mean. The refresher is in the section on the root of 2.
-
-### What you will be able to do at the end
-
-- Say which family a number belongs to: for example that $-4$ is an integer and that $\frac 72$ is a fraction.
-- Read aloud a piece of notation such as $3 \in \N$.
-- Explain why $\sqrt 2$ is not a fraction.
-- Say why the integers do not form a field and the fractions do.
-- Not confuse $\{1, 2\}$, $(1, 2)$ and $[1, 2]$.
-- Simplify by hand expressions such as $\sqrt{12}$ and $\frac 6{\sqrt 3}$.
 
 ## Sets: bags with things inside (p. 2)
 

@@ -4,7 +4,7 @@ module: AG
 lesson: L21
 title: Scalar products III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L21
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L21
 description: >-
   Notes on lesson L21 of Linear Algebra and Geometry (MDAG, part 2): orthogonal vectors, orthogonal complement,
   orthogonal projection onto a line and onto a subspace, orthogonal and orthonormal bases, the Gram–Schmidt algorithm,

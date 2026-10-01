@@ -4,7 +4,7 @@ module: AG
 lesson: L05
 title: Vector spaces I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L05
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L05
 description: >-
   Notes on lesson L05 of Linear Algebra and Geometry (MDAG, part 2): Euclidean space, sum of vectors and product by
   a scalar, groups, fields, definition of vector space and examples (polynomials, functions, sequences), with

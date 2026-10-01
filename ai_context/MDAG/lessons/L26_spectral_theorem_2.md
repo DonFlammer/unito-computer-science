@@ -4,7 +4,7 @@ module: AG
 lesson: L26
 title: Spectral theorem II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L26
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L26
 description: >-
   Notes on lesson L26 of Linear Algebra and Geometry (MDAG, part 2): the spectral theorem for self-adjoint
   endomorphisms, its proof, the version with symmetric and orthogonal matrices, the link with PCA and all the

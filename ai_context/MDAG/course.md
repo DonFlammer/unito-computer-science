@@ -77,7 +77,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 
 ## Official programme (common to all channels)
 
-**Part 1 — Discrete Mathematics**
+**Part 1 (modA) — Discrete Mathematics**
 - Sets: empty set, subsets, union, intersection, complement, power set.
 - Relations and functions: order and equivalence relations, partitions, composition and inversion, injectivity, surjectivity, invertibility.
 - Combinatorics: sum and product principles, arrangements and combinations (also with repetition), binomial theorem and Pascal's (Tartaglia's) triangle, inclusion-exclusion.
@@ -85,7 +85,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 - Modular arithmetic: Z and Z_n, division, Euclid's algorithm, Bézout's identity, Diophantine equations, Euler-Fermat theorem.
 - Permutations: composition, powers and inverses, disjoint cycles, transpositions, parity, subgroups.
 
-**Part 2 — Linear Algebra and Geometry**
+**Part 2 (modB) — Linear Algebra and Geometry**
 - Polynomials, real and complex numbers.
 - Vector spaces, linear independence, bases, dimension; Euclidean space.
 - Linear systems: Gauss-Jordan, Rouché-Capelli.
@@ -102,6 +102,7 @@ As of 28/09/2026 the 2026/27 rules have not come out yet: on MDAG2 the "Prove d'
 - **MDAG2 Moodle 2026/27**: the course's 2026 lecture notes (L01–L26, based on Martelli), tutoring exercise sheets uploaded as the course goes on, handwritten notes and videos.
 - **Moodle 2025/26 (open to guests)**: exam rules; papers and solutions of all MD and AG exam sessions up to September 2026; the "Quiz 2021/25" folder; complete AG lecture notes (L01–L26); video lectures; tutoring exercise sheets.
 - **TSI guide** (`Materie/MD`, `Materie/AG`): collections of exams with solutions (MD from 2017/18 to 2023/24), formula sheets (the one by Alessandro Salerno also classifies exam problems by type), notes. The 2023/24 exam rules contained there are out of date.
+- **Rigurgiti di Unicorno** (Valentino Bocchino, February 2026, https://github.com/bocchinovalentino/rigurgiti_di_unicorno, licence CC BY-NC-SA 4.0): Discrete Mathematics notes written by a student following Mori's book, in Italian, in three PDFs (theory, worked exercises, complete) plus the LyX source to edit. They cover sets, functions, combinatorics, integers, permutations, groups and modular arithmetic. Not official material; useful as a summary, because book and notes are allowed in the MD exam.
 
 ## Tips and pitfalls
 

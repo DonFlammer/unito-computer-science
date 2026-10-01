@@ -4,7 +4,7 @@ module: AG
 lesson: L11
 title: Linear systems I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L11
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L11
 description: >-
   Notes on lesson L11 of Linear Algebra and Geometry (MDAG, part 2): linear systems and augmented matrix, Gauss
   moves, pivots and row echelon matrices, the Gauss and Gauss–Jordan algorithms, how to write all the solutions of

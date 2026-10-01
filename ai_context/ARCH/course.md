@@ -14,7 +14,7 @@ Updated as of 28/09/2026. Sources: official course page (scheda insegnamento) IN
 | Exam | **computer-based written exam + compulsory oral exam**, the same for the three channels (canali) |
 | Language | Italian; the course is labelled "English-friendly" (according to the degree programme: material in English to prepare the exam, and the exam can be taken in English; https://laurea.informatica.unito.it/do/home.pl/View?doc=International_students.html) |
 | Expected skills | Programming I (Programmazione I) and Foundations of Computer Science (Fondamenti dell'Informatica), from the 1st semester |
-| Textbook | D. A. Patterson, J. L. Hennessy, *Struttura e progetto dei calcolatori – Progettare con RISC-V*, 2nd ed., Zanichelli 2023 |
+| Textbook | D. A. Patterson, J. L. Hennessy, *Struttura e progetto dei calcolatori – Progettare con RISC-V*, 2nd ed., Zanichelli 2023, ISBN 978-88-08-19966-9 (the Italian edition of *Computer Organization and Design RISC-V Edition*). Six chapters (1 computer abstractions and technology; 2 instructions, the language of the computer; 3 arithmetic for computers; 4 the processor; 5 large and fast: exploiting the memory hierarchy; 6 parallel processors) plus the RISC-V reference card. Four appendices are online, on the publisher's website: A "The Basics of Logic Design", B "Mapping Control to Hardware" and D "Survey of Instruction Set Architectures" in English, C "La grafica e il calcolo con la GPU" (graphics and computing GPUs) in Italian |
 | Simulator | **ARES** (https://ares-sim.github.io), in the browser, 32-bit RISC-V, since 2025/26; up to 2024/25 RARS (64-bit) was used |
 
 ## Lecturers and Moodle

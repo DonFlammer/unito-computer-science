@@ -4,7 +4,7 @@ module: AG
 lesson: L17
 title: Eigenvalues and eigenvectors I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L17
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L17
 description: >-
   Notes on lesson L17 of Linear Algebra and Geometry (MDAG, part 2): eigenvectors and eigenvalues of an endomorphism,
   diagonalisable endomorphisms and matrices, powers of matrices and the characteristic polynomial, with exam-style

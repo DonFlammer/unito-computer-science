@@ -48,7 +48,7 @@ const L = {
     marcatori: ['TESTATA:INIZIO', 'TESTATA:FINE', 'PIEDE:INIZIO', 'PIEDE:FINE'],
     corsi: { PROG1: 'Programmazione I', FDA: "Fondamenti dell'Informatica", MDAG: 'Matematica Discreta, Algebra e Geometria',
       ANMAT: 'Analisi Matematica', ARCH: 'Architettura degli Elaboratori', PROG2: 'Programmazione II', RO: 'Ricerca Operativa', INGLESE: 'Lingua Inglese I' },
-    moduli: { MD: 'Matematica Discreta', AG: 'Algebra lineare e Geometria' }, parti: { MD: 'Parte 1', AG: 'Parte 2' },
+    moduli: { MD: 'Matematica Discreta', AG: 'Algebra lineare e Geometria' }, parti: { MD: 'Parte 1 (modA)', AG: 'Parte 2 (modB)' },
     materiale: { dispense: 'le dispense', slide: 'le slide', libro: 'il libro' },
     rielaborati: { dispense: 'rielaborati dalle dispense del corso', slide: 'rielaborati dalle slide della lezione', libro: 'rielaborati dal libro di testo' },
     livelli: { base: 'base', medio: 'medio', difficile: 'difficile', esame: 'tipo esame' },
@@ -77,7 +77,7 @@ const L = {
     marcatori: ['BAR:START', 'BAR:END', 'FOOTER:START', 'FOOTER:END'],
     corsi: { PROG1: 'Programming I', FDA: 'Foundations of Computer Science', MDAG: 'Discrete Mathematics, Algebra and Geometry',
       ANMAT: 'Mathematical Analysis', ARCH: 'Computer Architecture', PROG2: 'Programming II', RO: 'Operational Research', ENGLISH: 'English I' },
-    moduli: { MD: 'Discrete Mathematics', AG: 'Linear Algebra and Geometry' }, parti: { MD: 'Part 1', AG: 'Part 2' },
+    moduli: { MD: 'Discrete Mathematics', AG: 'Linear Algebra and Geometry' }, parti: { MD: 'Part 1 (modA)', AG: 'Part 2 (modB)' },
     materiale: { dispense: 'the handouts', slide: 'the slides', libro: 'the book' },
     rielaborati: { dispense: 'reworked from the course handouts', slide: 'reworked from the lesson slides', libro: 'reworked from the textbook' },
     livelli: { base: 'basic', medio: 'intermediate', difficile: 'hard', esame: 'exam style' },
@@ -473,7 +473,7 @@ function bloccoChecklist(corpo, ctx) {
 
 // ogni strumento e lo script che lo disegna (in assets/js/)
 const WIDGET = { complessi: 'geometria.js', vettori: 'geometria.js', matrice: 'geometria.js', gauss: 'geometria.js', ruffini: 'geometria.js',
-  spazio: 'geometria.js', macchina: 'macchina.js' };
+  spazio: 'geometria.js', macchina: 'macchina.js', porte: 'porte.js' };
 function bloccoWidget(corpo, ctx, info) {
   const tipo = info.split(/\s+/)[0];
   if (!(tipo in WIDGET)) throw new Error(`strumento «${tipo}» sconosciuto (${Object.keys(WIDGET).join(', ')})`);

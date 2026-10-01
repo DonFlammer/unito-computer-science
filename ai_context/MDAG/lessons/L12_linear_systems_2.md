@@ -4,7 +4,7 @@ module: AG
 lesson: L12
 title: Linear systems II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L12
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L12
 description: >-
   Notes on lesson L12 of Linear Algebra and Geometry (MDAG, part 2): associated homogeneous system, particular
   solution, affine subspaces, rank and pivots, the Rouché–Capelli theorem, square systems and systems with a

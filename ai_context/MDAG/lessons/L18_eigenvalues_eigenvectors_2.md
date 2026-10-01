@@ -4,7 +4,7 @@ module: AG
 lesson: L18
 title: Eigenvalues and eigenvectors II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L18
+eyebrow: Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · Lesson L18
 description: >-
   Notes on lesson L18 of Linear Algebra and Geometry (MDAG, part 2): independence of eigenvectors with distinct
   eigenvalues, eigenspaces and direct sum, algebraic and geometric multiplicity, the diagonalisability theorem and

@@ -68,9 +68,10 @@
       root.classList.add('meno-moto');
       window.dispatchEvent(new Event('appunti:moto'));
     };
-    const sfondo = $('#rete');
+    const sfondo = $('.sfondo') || $('#rete');
     if (!sfondo?.animate || document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) { spegni(); return; }
-    dissolvenzaMoto = sfondo.animate([{ opacity: getComputedStyle(sfondo).opacity }, { opacity: 0 }], { duration: 600, easing: 'ease-out', fill: 'forwards' });
+    // da opacità piena (l'opacità dello sfondo non cambia mai: niente getComputedStyle, che qui ricalcolerebbe tutta la pagina)
+    dissolvenzaMoto = sfondo.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 600, easing: 'ease-out', fill: 'forwards' });
     dissolvenzaMoto.onfinish = spegni;
   };
   spegniNellaLezione();
@@ -89,22 +90,35 @@
     window.addEventListener('resize', () => { if (window.innerWidth > 880) chiudi(); });
   }
 
-  /* avanzamento della lettura: barra sotto l'intestazione e, nelle lezioni, riempimento dell'indice */
-  const barra = $('.avanzamento'), elencoIndice = $('.toc ol'), foglio = $('.foglio');
+  /* avanzamento della lettura: barra sotto l'intestazione e, nelle lezioni, riempimento dell'indice. Dove il browser sa
+     legare un'animazione allo scorrimento (animation-timeline) lo fa il CSS, senza lavoro a ogni fotogramma: qui solo
+     per gli altri browser */
+  const sa = c => !!(window.CSS && CSS.supports && CSS.supports(c));
+  const barraDalCss = sa('animation-timeline: scroll()');                    // le stesse condizioni di appunti.css
+  const indiceDalCss = barraDalCss && sa('timeline-scope: none') && sa('view-timeline-inset: 35% 65%');
+  const barra = barraDalCss ? null : $('.avanzamento'), foglio = $('.foglio');
+  const elencoIndice = indiceDalCss ? null : $('.toc ol');
   let inCoda = false;
   const scorri = () => {
     inCoda = false;
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    if (barra) barra.style.setProperty('--p', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
+    if (barra) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      barra.style.setProperty('--p', max > 0 ? Math.min(1, window.scrollY / max).toFixed(4) : 0);
+    }
     if (elencoIndice && foglio) {
       const r = foglio.getBoundingClientRect();
       const letto = Math.min(1, Math.max(0, (window.innerHeight * 0.35 - r.top) / r.height));
       elencoIndice.style.setProperty('--letto', letto.toFixed(4));
     }
   };
-  window.addEventListener('scroll', () => { if (!inCoda) { inCoda = true; requestAnimationFrame(scorri); } }, { passive: true });
-  window.addEventListener('resize', scorri);
-  scorri();
+  if (barra || (elencoIndice && foglio)) {
+    const presto = () => { if (!inCoda) { inCoda = true; requestAnimationFrame(scorri); } };
+    window.addEventListener('scroll', presto, { passive: true });
+    window.addEventListener('resize', scorri);
+    // le sezioni lontane si impaginano quando ci si avvicina (content-visibility): il foglio cambia altezza anche senza scorrere
+    if (foglio && window.ResizeObserver) new ResizeObserver(presto).observe(foglio);
+    scorri();
+  }
 
   /* comparsa degli elementi quando entrano nello schermo; arrivando da un'altra pagina con la dissolvenza
      (view transition), ciò che è già sullo schermo resta visibile da subito, senza entrata */
@@ -118,6 +132,38 @@
     daRivelare.forEach(e => io.observe(e));
   }
   root.classList.add('pronto');   // da qui la comparsa la gestisce questo script (in CSS: html.arrivo:not(.pronto))
+
+  /* pagine del sito chieste in anticipo: quando il puntatore si ferma su un link (o ci si arriva con la tastiera, o lo si
+     preme) la pagina comincia ad arrivare mentre si decide di cliccare. Solo pagine HTML dello stesso sito, una volta sola;
+     arriva solo la pagina (non i suoi file), che il browser tiene pronta per qualche minuto. Il puntatore che attraversa
+     un link senza fermarsi (meno di 80 ms) non chiede niente: le lezioni sono pagine grandi */
+  const chieste = new Set([location.href.split('#')[0]]);
+  const indirizzo = t => {
+    const a = t instanceof Element ? t.closest('a[href]') : null;
+    if (!a || a.target === '_blank' || a.hasAttribute('download')) return null;
+    let u;
+    try { u = new URL(a.href, location.href); } catch (x) { return null; }
+    u.hash = '';
+    return u.origin === location.origin && /(\.html|\/)$/.test(u.pathname) ? u.href : null;
+  };
+  const anticipa = href => {
+    if (!href || chieste.has(href)) return;
+    chieste.add(href);
+    const l = document.createElement('link');
+    l.rel = 'prefetch'; l.href = href;
+    document.head.appendChild(l);
+  };
+  if (document.createElement('link').relList?.supports?.('prefetch')) {
+    let sosta = 0, inSosta = null;
+    document.addEventListener('pointerover', e => {
+      const href = indirizzo(e.target);
+      if (href === inSosta) return;                     // dentro lo stesso link (da un suo elemento all'altro)
+      clearTimeout(sosta); inSosta = href;
+      if (href && !chieste.has(href)) sosta = setTimeout(() => { inSosta = null; anticipa(href); }, 80);
+    }, { passive: true });
+    document.addEventListener('pointerdown', e => anticipa(indirizzo(e.target)), { passive: true });
+    document.addEventListener('focusin', e => anticipa(indirizzo(e.target)));
+  }
 
   /* luce che segue il puntatore sulle schede dei corsi */
   $$('.corso').forEach(c => c.addEventListener('pointermove', e => {

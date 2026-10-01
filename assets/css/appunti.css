@@ -28,7 +28,7 @@
   --shadow: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 18px 40px -24px rgba(0, 0, 0, .8);
   --shadow-2: 0 24px 60px -28px rgba(0, 0, 0, .9);
   --barra-bg: rgb(8, 13, 25);
-  --rete-linea: 127, 168, 255; --rete-impulso: 63, 224, 204; --rete-caldo: 255, 196, 94; --rete-forza: 1;
+  --rete-impulso: 63, 224, 204; --rete-caldo: 255, 196, 94; --rete-forza: 1;
   /* nomi usati dalle lezioni */
   --paper: var(--surface); --paper-2: var(--surface-2); --ink: var(--text); --ink-2: var(--text-2); --muted: var(--text-3);
   --rule: var(--line-2); --rule-soft: var(--line); --link: var(--accent); --link-hover: #8af3e6;
@@ -57,7 +57,7 @@
   --shadow: 0 1px 2px rgba(14, 24, 48, .05), 0 12px 28px -18px rgba(14, 24, 48, .28);
   --shadow-2: 0 24px 50px -30px rgba(14, 24, 48, .45);
   --barra-bg: rgb(243, 246, 252);
-  --rete-linea: 43, 95, 207; --rete-impulso: 8, 127, 120; --rete-caldo: 214, 140, 20; --rete-forza: .8;
+  --rete-impulso: 8, 127, 120; --rete-caldo: 214, 140, 20; --rete-forza: .8;
   --link-hover: #065f5a; --code-bg: #f4f7fc; --grid: rgba(43, 95, 207, .08);
   --node-action: #e6eefc; --node-test: #e3f4ec; --node-term: #0e1830; --node-term-ink: #ffffff; --edge: #5d6b88; --shade: rgba(14, 24, 48, .16);
   --c-prog1: #087f78; --c-fda: #2b5fcf; --c-mdag: #6546d4; --c-anmat: #9a5b00; --c-arch: #b8481c; --c-prog2: #1b7a46; --c-ro: #a8297a; --c-inglese: #1a6fa8;
@@ -100,12 +100,13 @@ li { margin: .3rem 0; }
 li::marker { color: var(--text-3); }
 hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
 
-/* sfondo animato (rete.js): tre canvas, dal basso il reticolo, gli incroci accesi vicino al puntatore, impulsi e onde.
+/* sfondo animato (rete.js): due canvas, dal basso l'alone e gli incroci accesi vicino al puntatore, poi impulsi e onde
+   (le righe della rete non si disegnano: sugli schermi non OLED o con la luminosità alta si vedevano).
    Più tenue dietro la colonna del testo e pieno ai lati, a metà sugli schermi stretti: lo disegna già così rete.js, perché una
    maschera o un'opacità sopra strati che cambiano a ogni fotogramma costano memoria e lavoro alla scheda grafica */
 .sfondo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; contain: strict; }
 .sfondo canvas { position: absolute; left: 0; top: 0; display: block; }
-.sfondo .griglia, .sfondo .incroci { will-change: transform; }
+.sfondo .incroci { will-change: transform; }
 .barra, .pagina, .piede, .salta { position: relative; z-index: 1; }
 .salta { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--accent); color: var(--accent-ink); padding: .5rem .9rem; border-radius: 8px; font-weight: 600; text-decoration: none; }
 .salta:focus { top: 12px; }

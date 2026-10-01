@@ -4,7 +4,7 @@ module: AG
 lesson: L22
 title: Euclidean space I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L22
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L22
 description: >-
   Notes on lesson L22 of Linear Algebra and Geometry (MDAG, part 2): rotations and reflections of the plane,
   isometries between spaces with a scalar product, orthogonal matrices, classification of the isometries of the plane

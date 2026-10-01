@@ -48,7 +48,7 @@ const L = {
     marcatori: ['TESTATA:INIZIO', 'TESTATA:FINE', 'PIEDE:INIZIO', 'PIEDE:FINE'],
     corsi: { PROG1: 'Programmazione I', FDA: "Fondamenti dell'Informatica", MDAG: 'Matematica Discreta, Algebra e Geometria',
       ANMAT: 'Analisi Matematica', ARCH: 'Architettura degli Elaboratori', PROG2: 'Programmazione II', RO: 'Ricerca Operativa', INGLESE: 'Lingua Inglese I' },
-    moduli: { MD: 'Matematica Discreta', AG: 'Algebra lineare e Geometria' },
+    moduli: { MD: 'Matematica Discreta', AG: 'Algebra lineare e Geometria' }, parti: { MD: 'Parte 1', AG: 'Parte 2' },
     materiale: { dispense: 'le dispense', slide: 'le slide', libro: 'il libro' },
     rielaborati: { dispense: 'rielaborati dalle dispense del corso', slide: 'rielaborati dalle slide della lezione', libro: 'rielaborati dal libro di testo' },
     livelli: { base: 'base', medio: 'medio', difficile: 'difficile', esame: 'tipo esame' },
@@ -77,7 +77,7 @@ const L = {
     marcatori: ['BAR:START', 'BAR:END', 'FOOTER:START', 'FOOTER:END'],
     corsi: { PROG1: 'Programming I', FDA: 'Foundations of Computer Science', MDAG: 'Discrete Mathematics, Algebra and Geometry',
       ANMAT: 'Mathematical Analysis', ARCH: 'Computer Architecture', PROG2: 'Programming II', RO: 'Operational Research', ENGLISH: 'English I' },
-    moduli: { MD: 'Discrete Mathematics', AG: 'Linear Algebra and Geometry' },
+    moduli: { MD: 'Discrete Mathematics', AG: 'Linear Algebra and Geometry' }, parti: { MD: 'Part 1', AG: 'Part 2' },
     materiale: { dispense: 'the handouts', slide: 'the slides', libro: 'the book' },
     rielaborati: { dispense: 'reworked from the course handouts', slide: 'reworked from the lesson slides', libro: 'reworked from the textbook' },
     livelli: { base: 'basic', medio: 'intermediate', difficile: 'hard', esame: 'exam style' },
@@ -710,7 +710,8 @@ function compila(file) {
 
   const nomeCorso = L.corsi[corso] || corso;
   const modulo = meta.modulo ? String(meta.modulo) : '';
-  const sopratitolo = meta.sopratitolo || [modulo ? L.moduli[modulo] : nomeCorso, `${T.lezione} ${lezione}`].join(' · ');
+  const parte = modulo && L.parti[modulo] ? L.parti[modulo] : '';
+  const sopratitolo = meta.sopratitolo || [parte, modulo ? L.moduli[modulo] : nomeCorso, `${T.lezione} ${lezione}`].filter(Boolean).join(' · ');
   const scheda = meta.scheda && typeof meta.scheda === 'object'
     ? Object.entries(meta.scheda).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${inLinea(String(v), ctx)}</dd></div>`).join('') : '';
   const u = ctx.usati;
@@ -766,7 +767,7 @@ ${indice}
 
   <main id="contenuto" class="foglio">
     <header>
-      <nav class="crumbs" aria-label="${T.percorso}"><a href="../../index.html">${T.appunti}</a> › <a href="index.html">${esc(nomeCorso)}</a> › ${T.lezione} ${esc(lezione)}</nav>
+      <nav class="crumbs" aria-label="${T.percorso}"><a href="../../index.html">${T.appunti}</a> › <a href="index.html">${esc(nomeCorso)}</a> › ${parte ? `${esc(parte)} · ` : ''}${T.lezione} ${esc(lezione)}</nav>
       <p class="eyebrow">${inLinea(sopratitolo, ctx)}</p>
       <h1>${inLinea(String(meta.titolo || ''), ctx)}</h1>
 ${meta.lede ? `      <p class="lede">${inLinea(String(meta.lede), ctx)}</p>\n` : ''}${scheda ? `      <dl class="meta">${scheda}</dl>\n` : ''}      <ul class="legend" aria-label="${T.legenda}">

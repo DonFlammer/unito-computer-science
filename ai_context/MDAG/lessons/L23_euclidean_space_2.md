@@ -4,7 +4,7 @@ module: AG
 lesson: L23
 title: Euclidean space II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L23
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L23
 description: >-
   Notes on lesson L23 of Linear Algebra and Geometry (MDAG, part 2): properties of the cross product and area of the
   parallelogram, Cartesian and parametric form of lines and planes, affine subspaces and direction space (giacitura),

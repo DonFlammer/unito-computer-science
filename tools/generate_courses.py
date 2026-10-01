@@ -31,6 +31,8 @@ FRIENDLY = ("Its official 2026/27 course page labels it \"English-friendly cours
             "courses with material in English to prepare the exam, whose lecturer allows students to take the exam "
             "in English. Lectures are in Italian: ask the lecturer at the start of the course.")
 
+# courses split into parts (MDAG): the module code becomes "Part 1", "Part 2" in the lesson lists
+PARTS = {"MD": "Part 1", "AG": "Part 2"}
 COURSES = [
     {
         "code": "PROG1", "it_code": "PROG1", "name": "Programming I", "italian": "Programmazione I",
@@ -60,16 +62,17 @@ COURSES = [
     {
         "code": "MDAG", "it_code": "MDAG", "name": "Discrete Mathematics, Algebra and Geometry",
         "italian": "Matematica Discreta, Algebra e Geometria", "course_code": "INF0328", "cfu": 12, "semester": 1,
-        "exam": "Two separate written exams, Discrete Mathematics and Geometry; the grade is the average.",
-        "dates": "Discrete Mathematics 19/01 and 03/02, Geometry 22/01 and 05/02/2027",
-        "modules": [("MD", "Discrete Mathematics"), ("AG", "Linear Algebra and Geometry")],
+        "exam": "Two separate written exams, part 1 (Discrete Mathematics) and part 2 (Linear Algebra and Geometry); the grade is the average.",
+        "dates": "Part 1 (Discrete Mathematics) 19/01 and 03/02, part 2 (Geometry) 22/01 and 05/02/2027",
+        "modules": [("MD", "Part 1 · Discrete Mathematics"), ("AG", "Part 2 · Linear Algebra and Geometry")],
         "moodle": [("Part 1 · Discrete Mathematics, channels A, B and C", 3829),
                    ("Part 2 · Linear Algebra and Geometry, channels A, B and C", 3831)],
-        "note": ("The Linear Algebra and Geometry notes already cover all 26 lessons of the 2026 handouts, the same for "
-                 "the three channels: they are ready ahead of time, so the pace in class may differ. The Discrete "
-                 "Mathematics notes are not there yet."),
+        "note": ("The course has two parts, with separate lessons, Moodle pages and written exams: part 1 is Discrete "
+                 "Mathematics, part 2 is Linear Algebra and Geometry. The part 2 notes already cover all 26 lessons "
+                 "of the 2026 handouts, the same for the three channels: they are ready ahead of time, so the pace in "
+                 "class may differ. The part 1 notes are not there yet."),
         "links": [("Course sheet and exam", "MDAG/course.md"),
-                  ("Linear Algebra and Geometry lesson index", "MDAG/lesson_index.md")],
+                  ("Lesson index of part 2, Linear Algebra and Geometry", "MDAG/lesson_index.md")],
     },
     {
         "code": "ANMAT", "it_code": "ANMAT", "name": "Mathematical Analysis", "italian": "Analisi Matematica",
@@ -240,7 +243,7 @@ def lesson_list(les):
     # lessons written in advance (for example from the complete handouts) have no date yet
     rows = "\n".join(
         f'      <li><span class="nodo" aria-hidden="true">{e(l["code"])}</span><a href="{e(l["file"])}">'
-        f'<span class="tit">{e(l["title"])}</span><span class="tenue">{e((l["module"] + " · ") if l["module"] else "")}Lesson {e(l["code"])}</span>'
+        f'<span class="tit">{e(l["title"])}</span><span class="tenue">{e((PARTS.get(l["module"], l["module"]) + " · ") if l["module"] else "")}Lesson {e(l["code"])}</span>'
         + (f'<time datetime="{e(l["date"])}">{e(date_str(l["date"]))}</time>' if l["date"] else "") + '</a></li>'
         for l in les)
     return f'<ol class="lezioni">\n{rows}\n    </ol>'
@@ -392,7 +395,7 @@ def index_block(all_lessons):
     if latest:
         rows = "\n".join(
             f'        <li style="--c:var(--c-{l["course"].lower().replace("english", "inglese")})"><time datetime="{e(l["date"])}">{e(date_str(l["date"]))}</time>'
-            f'<a href="notes/{l["course"]}/{e(l["file"])}">{e((l["module"] + " ") if l["module"] else "")}{e(l["code"])} · {e(l["title"])}</a>'
+            f'<a href="notes/{l["course"]}/{e(l["file"])}">{e((PARTS.get(l["module"], l["module"]) + " · ") if l["module"] else "")}{e(l["code"])} · {e(l["title"])}</a>'
             f'<span class="di">{e(names[l["course"]])}</span></li>'
             for l in latest)
         recent = f'<ol class="flusso">\n{rows}\n      </ol>'

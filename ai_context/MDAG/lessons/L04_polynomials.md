@@ -4,7 +4,7 @@ module: AG
 lesson: L04
 title: Polynomials
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L04
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L04
 description: >-
   Notes on lesson L04 of Linear Algebra and Geometry (MDAG, part 2): polynomials and degree, division with remainder
   and Ruffini's rule, roots and multiplicity, how many roots a polynomial can have, the fundamental theorem of

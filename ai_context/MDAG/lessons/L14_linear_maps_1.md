@@ -4,7 +4,7 @@ module: AG
 lesson: L14
 title: Linear maps I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L14
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L14
 description: >-
   Notes on lesson L14 of Linear Algebra and Geometry (MDAG, part 2): linear maps, examples and non-examples, the map
   associated with a matrix, kernel and image, injectivity and surjectivity, rank–nullity theorem, with exam-style

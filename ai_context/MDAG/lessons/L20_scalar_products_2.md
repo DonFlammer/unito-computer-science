@@ -4,7 +4,7 @@ module: AG
 lesson: L20
 title: Scalar products II
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L20
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L20
 description: >-
   Notes on lesson L20 of Linear Algebra and Geometry (MDAG, part 2): how the matrix of a scalar product changes when
   the basis changes, quadratic forms, norm, the Cauchy–Schwarz and triangle inequalities, distances and angles between

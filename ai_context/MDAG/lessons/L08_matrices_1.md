@@ -4,7 +4,7 @@ module: AG
 lesson: L08
 title: Matrices I
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L08
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L08
 description: >-
   Notes on lesson L08 of Linear Algebra and Geometry (MDAG, part 2): transpose of a matrix, symmetric matrices,
   row rank and column rank, the row-by-column product and its properties, trace, with exam-style quizzes and

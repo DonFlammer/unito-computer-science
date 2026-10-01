@@ -4,7 +4,7 @@ module: AG
 lesson: L10
 title: Matrices III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L10
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L10
 description: >-
   Notes on lesson L10 of Linear Algebra and Geometry (MDAG, part 2): how the determinant changes with the Gauss
   moves, zero determinant and dependent rows, Binet's theorem, cofactors, the inverse matrix and the invertibility

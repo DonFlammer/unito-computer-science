@@ -4,7 +4,7 @@ module: AG
 lesson: L07
 title: Vector spaces III
 lecturers: Reto Buzano and Marco Radeschi
-eyebrow: Linear Algebra and Geometry · Channels A, B and C · Lesson L07
+eyebrow: Part 2 · Linear Algebra and Geometry · Channels A, B and C · Lesson L07
 description: >-
   Notes on lesson L07 of Linear Algebra and Geometry (MDAG, part 2): linear dependence and independence, bases,
   standard basis of K^n and of polynomials, dimension of a vector space and the theorem on bases, with exam-style

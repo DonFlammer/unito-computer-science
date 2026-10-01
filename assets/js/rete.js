@@ -1,22 +1,28 @@
-// Sfondo animato degli appunti: una rete a quadretti percorsa da impulsi di luce, come segnali su un circuito.
-// Gli impulsi corrono lungo le linee e agli incroci possono girare; vicino al puntatore gli incroci si accendono e gli impulsi
-// tendono ad andargli incontro; un clic fa partire un'onda (un rombo: la «circonferenza» nella distanza di Manhattan) e quattro impulsi.
+// Sfondo animato degli appunti: impulsi di luce che corrono su una rete a quadretti invisibile, come segnali su un circuito.
+// Gli impulsi corrono lungo le linee della rete e agli incroci possono girare; vicino al puntatore c'è un alone colorato,
+// gli incroci si accendono e gli impulsi tendono ad andargli incontro; un clic fa partire un'onda (un rombo: la
+// «circonferenza» nella distanza di Manhattan) e quattro impulsi.
+// Le righe della rete non si disegnano più (dal 01/10/2026): sugli schermi non OLED, con l'HDR o con la luminosità alta si
+// vedevano su tutto lo schermo. Della rete restano gli incroci che si accendono attorno al puntatore.
 // Cambiando pagina lo stato (impulsi, onde, puntatore) passa alla pagina nuova attraverso la sessionStorage della scheda:
 // lo sfondo continua da dove era invece di ripartire da capo.
 // Si spegne col pulsante «Animazioni» (html.meno-moto: resta lo sfondo semplice); si ferma quando la scheda non è visibile
 // o la finestra non è in primo piano, e riparte da dove era.
 // Lo script sta subito dopo lo sfondo, non in fondo: lo sfondo c'è già nel primo fotogramma anche nelle pagine lunghe.
 //
-// Per consumare poco lo sfondo è fatto di tre strati (dentro .sfondo) e a ogni fotogramma cambia solo una parte piccola:
-// - canvas.griglia: il reticolo, disegnato una volta sola (di nuovo solo se cambiano la misura della finestra o il tema),
-//   già più tenue dietro la colonna del testo; lo scorrimento lo sposta con una trasformazione, senza ridisegnarlo;
-// - canvas.incroci: un quadrato attorno al puntatore con gli incroci accesi, ridisegnato solo quando il puntatore si muove
-//   (o quando lo scorrimento sposta il reticolo sotto il puntatore);
+// Lo sfondo non si sposta con lo scorrimento della pagina (dal 01/10/2026; prima scorreva di 0.12 pixel per pixel di
+// pagina). La pagina scorre nel compositore, a ogni aggiornamento dello schermo, mentre lo sfondo si disegna nel thread
+// principale: quando un suo fotogramma arrivava in ritardo il testo andava avanti e lo sfondo no, e su uno schermo a 120 Hz
+// le cose sembravano sdoppiarsi. Fermo, mentre la pagina scorre non ha bisogno di nulla.
+//
+// Per consumare poco lo sfondo è fatto di due strati (dentro .sfondo) e a ogni fotogramma cambia solo una parte piccola:
+// - canvas.incroci: un quadrato attorno al puntatore con l'alone e gli incroci accesi, ridisegnato solo quando il
+//   puntatore si muove (allora a ogni aggiornamento dello schermo, così l'alone gli sta dietro senza scatti);
 // - canvas#rete: impulsi e onde; a ogni fotogramma si cancellano e si ridisegnano solo i rettangoli attorno agli impulsi,
 //   copiando pezzi già pronti da un'immagine preparata una volta (l'«atlante»: scie e teste in tutti i colori, versi e
 //   posizioni sotto il pixel), così il browser li disegna tutti insieme.
 // Circa 30 fotogrammi al secondo (60 finché ci sono l'onda e gli impulsi veloci di un clic), qualunque sia lo schermo;
-// reticolo e incroci a un pixel del canvas per pixel CSS (ingranditi a pixel netti), impulsi alla risoluzione dello schermo
+// alone e incroci a un pixel del canvas per pixel CSS (ingranditi a pixel netti), impulsi alla risoluzione dello schermo
 // (al massimo 2 pixel per pixel CSS). Niente maschere o filtri sopra gli strati che si muovono: la sfumatura ai lati è già
 // nei disegni.
 (() => {
@@ -25,22 +31,25 @@
   window.addEventListener('pagereveal', e => { if (e.viewTransition) root.classList.add('arrivo'); });
   const canvas = document.getElementById('rete');
   const sfondo = canvas && canvas.closest('.sfondo');
-  const tela = sfondo && sfondo.querySelector('canvas.griglia'), telaInc = sfondo && sfondo.querySelector('canvas.incroci');
-  if (!canvas || !canvas.getContext || !tela || !telaInc) return;
-  const ctx = canvas.getContext('2d'), gctx = tela.getContext('2d'), ictx = telaInc.getContext('2d');
+  const telaInc = sfondo && sfondo.querySelector('canvas.incroci');
+  if (!canvas || !canvas.getContext || !telaInc) return;
+  const ctx = canvas.getContext('2d'), ictx = telaInc.getContext('2d');
   const atlante = document.createElement('canvas'), actx = atlante.getContext('2d');
-  if (!ctx || !gctx || !ictx || !actx) return;
-  const G = 44;                                   // passo della griglia, in pixel
+  if (!ctx || !ictx || !actx) return;
+  const G = 44;                                   // passo della rete, in pixel
   const R = 210;                                  // raggio degli incroci accesi attorno al puntatore
   const LATO = 2 * R + 12;                        // lato del canvas degli incroci
+  const ALONE = 200;                              // raggio dell'alone del puntatore (sta dentro il canvas degli incroci)
   const STATO = 'sfondo:rete';                    // chiave dello stato passato da una pagina all'altra
   const PASSO = 1000 / 30, PASSO_VELOCE = 1000 / 60;   // tempo tra due fotogrammi: di solito e durante l'onda di un clic
   const RISOLUZIONE_IMPULSI = 0;                  // pixel del canvas #rete per pixel CSS (0: come lo schermo, al massimo 2)
   const stretto = window.matchMedia('(max-width: 900px)');   // schermi stretti: niente sfumatura ai lati, tutto a metà
-  let W = 0, H = 0, Wv = 0, dpr = 1, rg = 1, ri = 1, sy = 0, oy = 0, base = 0, ty = NaN, ridotto = false;
-  let spento = true, fermo = true, primoPiano = true, ultimo = 0, raf = 0, timer = 0, subito = false;
-  let yRipresa = null, salvatoAlle = 0, tornata = false, vuoto = true, incrociDaFare = true, incrociAccesi = false, veloci = 0;
+  const hdr = window.matchMedia ? window.matchMedia('(dynamic-range: high)') : null;   // Windows (o lo schermo) in HDR
+  let W = 0, H = 0, Wv = 0, dpr = 1, rg = 1, ri = 1, oy = 0, ty = 0, ridotto = false;
+  let spento = true, fermo = true, primoPiano = true, ultimo = 0, raf = 0, rafInc = 0, timer = 0, subito = false;
+  let salvatoAlle = 0, tornata = false, vuoto = true, incrociDaFare = true, incrociAccesi = false, veloci = 0;
   let impulsi = [], onde = [], colori = null, stili = null;
+  const aloni = new Map();                        // immagini dell'alone già pronte, per intensità (le ultime 8 usate)
   const mouse = { x: -9999, y: -9999, t: 0, tipo: '' };
   const caso = (a, b) => a + Math.random() * (b - a);
   const DIR = [[1, 0], [0, 1], [-1, 0], [0, -1]];
@@ -51,10 +60,16 @@
   function leggiColori() {
     const cs = getComputedStyle(root);
     const v = n => cs.getPropertyValue(n).trim() || '127, 168, 255';
-    colori = { linea: v('--rete-linea'), impulso: v('--rete-impulso'), caldo: v('--rete-caldo'), forza: parseFloat(cs.getPropertyValue('--rete-forza')) || 1 };
-    colori.picco = Math.max(...colori.impulso.split(',').map(Number)) || 224;
+    colori = { impulso: v('--rete-impulso'), caldo: v('--rete-caldo'), forza: parseFloat(cs.getPropertyValue('--rete-forza')) || 1 };
+    // sfondo della pagina sotto gli strati, per alone e incroci: quanto si vedono (il canale che cambia di più rispetto
+    // allo sfondo) e la correzione per l'HDR
+    const c = colori.impulso.split(',').map(Number);
+    const b = (getComputedStyle(document.body).backgroundColor.match(/[\d.]+/g) || []).slice(0, 3).map(Number);
+    while (b.length < 3) b.push(0);
+    let j = 0;
+    for (let i = 1; i < 3; i++) if (Math.abs(c[i] - b[i]) > Math.abs(c[j] - b[j])) j = i;
+    colori.rgb = c; colori.fondo = b[j]; colori.salto = c[j] - b[j] || 1;   // con segno: positivo se il colore è più chiaro
   }
-  // Niente alone luminoso attorno al puntatore (tolto il 01/10/2026): vicino al puntatore si accendono solo gli incroci.
   const rgba = (c, a) => `rgba(${c}, ${Math.max(0, Math.min(1, a)).toFixed(3)})`;
 
   // sfumatura orizzontale come quella che prima stava nel CSS: piena ai lati, al 34% dietro la colonna del testo
@@ -67,6 +82,93 @@
     g.addColorStop(0, rgba(colore, k(1))); g.addColorStop(0.2, rgba(colore, k(0.34)));
     g.addColorStop(0.8, rgba(colore, k(0.34))); g.addColorStop(1, rgba(colore, k(1)));
     return g;
+  }
+  // la stessa sfumatura in un punto (x in pixel CSS)
+  function sfumaturaIn(x) {
+    if (ridotto) return 0.5;
+    const t = Math.max(0, Math.min(1, x / (Wv || 1)));
+    return t < 0.2 ? 1 - 3.3 * t : t > 0.8 ? 0.34 + 3.3 * (t - 0.8) : 0.34;
+  }
+
+  /* ---------- uguale su ogni schermo ---------- */
+  // Con Windows in HDR il browser trasforma i colori con la curva sRGB, che schiarisce molto i quasi neri rispetto alla
+  // gamma 2.2 di uno schermo normale (3/255 escono circa 15 volte più luminosi): un alone o un incrocio tenue diventano
+  // ben visibili. In HDR i livelli si riscrivono perché la luce emessa sia quella di uno schermo normale.
+  const luce22 = v => Math.pow(Math.max(0, v) / 255, 2.2);
+  const luceSrgb = v => { const c = Math.max(0, v) / 255; return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4); };
+  const livelloSrgb = y => 255 * (y <= 0.0031308 ? 12.92 * y : 1.055 * Math.pow(y, 1 / 2.4) - 0.055);
+  // differenza di livello d (con segno) sopra uno sfondo di livello b, pensata per uno schermo normale → quella da scrivere
+  const perSchermo = (b, d) => (hdr && hdr.matches ? livelloSrgb(Math.max(0, luceSrgb(b) + luce22(b + d) - luce22(b))) - b : d);
+
+  /* ---------- alone del puntatore ---------- */
+  // L'alone di prima: 0.07 di opacità al centro, in linea retta fino a zero a 240 px, spento del tutto tra 170 e 200 px,
+  // più tenue dietro la colonna del testo. Perché si veda uguale su OLED, IPS, HDR e con la luminosità alta:
+  // - rumore senza scarto (dithering) contro gli anelli: ogni pixel prende il livello intero sotto o sopra il valore vero,
+  //   con la probabilità giusta, e dove il valore è zero resta zero. Il rumore di prima (±1 livello a caso) accendeva
+  //   anche un pixel su quattro di quelli che dovevano essere neri, fino al bordo dei 200 px: un disco grande con l'orlo
+  //   netto, invisibile su un OLED e ben visibile sugli schermi che schiariscono i neri. Il rumore si applica al livello
+  //   che si vedrà, poi si sceglie l'opacità che dà proprio quel livello: arrotondando i colori il browser darebbe lo
+  //   stesso livello a due opacità vicine, e il passaggio fra l'una e l'altra resterebbe piatto, a bande;
+  // - la coda più tenue, sotto i 3 livelli su 255, che su molti OLED non si vede, sfuma fino a zero in 30 px: sugli schermi
+  //   che schiariscono i quasi neri (curva sRGB, HDR, luminosità alta) allargava l'alone. La sfumatura va sulla distanza,
+  //   non sul livello: anche dove l'alone scende ripido il bordo resta morbido;
+  // - in HDR i livelli si riscrivono (vedi sopra).
+  // L'immagine si prepara una volta per intensità (tema e vicinanza ai lati, a sedicesimi) e si copia a pixel interi, senza
+  // ricampionarla; le ultime 8 restano pronte. Un'intensità nuova si prepara appena finito il fotogramma (qualche
+  // millesimo di secondo: né il primo fotogramma di una pagina né un passaggio del puntatore sui lati devono aspettarla);
+  // intanto si usa la più vicina già pronta, o nessuna.
+  const liscio = t => (t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t));
+  const dopo = window.requestIdleCallback ? f => requestIdleCallback(f, { timeout: 150 }) : f => setTimeout(f, 30);
+  let inAttesa = -1;                              // intensità dell'immagine da preparare
+  function preparaAlone(chiave) {
+    const k = chiave / 16, s = Math.abs(colori.salto), verso = Math.sign(colori.salto), [cr, cg, cb] = colori.rgb;
+    // livello del canale più visibile, sopra lo sfondo, su uno schermo normale, alla distanza r (pixel CSS)
+    const prima = r => (r >= ALONE ? 0 : 0.07 * k * s * (1 - r / 240) * (1 - liscio((r - 170) / 30)));
+    let r3 = 0;                                   // dove scende sotto i 3 livelli
+    while (r3 < ALONE && prima(r3) >= 3) r3 += 0.25;
+    // raggio dell'immagine in pixel del canvas (oltre, tutto spento) e livello da mostrare per distanza al quadrato
+    const m = Math.ceil(Math.min(ALONE, r3 + 15) * rg), m2 = m * m, lato = 2 * m + 1, quadro = new Float32Array(m2 + 1);
+    for (let q = 0; q <= m2; q++) {
+      const r = Math.sqrt(q) / rg, v = prima(r) * (1 - liscio((r - r3 + 15) / 30));
+      quadro[q] = v > 0 ? Math.abs(perSchermo(colori.fondo, verso * v)) : 0;
+    }
+    const img = document.createElement('canvas');
+    img.width = img.height = lato;
+    const g = img.getContext('2d'), dati = g.createImageData(lato, lato), d = dati.data, opacita = 255 / s;
+    for (let dy = -m; dy <= m; dy++) {
+      const w = Math.floor(Math.sqrt(m2 - dy * dy)), ay = 0.00583715 * (dy + 4096);
+      for (let dx = -w, i = ((dy + m) * lato + m - w) * 4; dx <= w; dx++, i += 4) {
+        const v = quadro[dx * dx + dy * dy];
+        if (!v) continue;
+        // soglia del rumore: rumore a gradiente intercalato, fisso attorno al centro e ben sparso (niente grumi)
+        const a = 0.06711056 * (dx + 4096) + ay, b = 52.9829189 * (a - Math.floor(a));
+        const liv = Math.floor(v + b - Math.floor(b));
+        if (!liv) continue;
+        d[i] = cr; d[i + 1] = cg; d[i + 2] = cb; d[i + 3] = Math.min(255, Math.round(liv * opacita));
+      }
+    }
+    g.putImageData(dati, 0, 0);
+    aloni.set(chiave, img);
+    if (aloni.size > 8) aloni.delete(aloni.keys().next().value);
+    return img;
+  }
+  function immagineAlone(k) {
+    const chiave = Math.round(k * 16);
+    const img = aloni.get(chiave);
+    if (img) { aloni.delete(chiave); aloni.set(chiave, img); return img; }   // l'ultima usata va in fondo
+    if (inAttesa !== chiave) {
+      inAttesa = chiave;
+      dopo(() => {
+        if (inAttesa !== chiave) return;                                     // nel frattempo ne serve un'altra
+        inAttesa = -1;
+        if (!aloni.has(chiave)) preparaAlone(chiave);
+        incrociDaFare = true;
+        if (!spento && !rafInc) rafInc = requestAnimationFrame(seguiPuntatore);
+      });
+    }
+    let vicina = null, d = Infinity;
+    for (const [c, im] of aloni) if (Math.abs(c - chiave) < d) { d = Math.abs(c - chiave); vicina = im; }
+    return vicina;
   }
 
   /* ---------- atlante: scie e teste già disegnate ---------- */
@@ -121,15 +223,13 @@
     stili = {
       togli: sfumatura(ctx, '0, 0, 0', 1, true, ri),            // per «destination-out»: conta solo l'opacità
       onda: sfumatura(ctx, colori.impulso, 1),
-      linea: sfumatura(gctx, colori.linea, 0.055 * colori.forza),
-      incroci: sfumatura(ictx, colori.impulso, 1),
       scia: 0.85 * colori.forza,
     };
     preparaAtlante();
   }
 
   function nuovoImpulso(da) {
-    // parte da un bordo, su una linea della griglia, verso l'interno; oppure da un punto dato (clic)
+    // parte da un bordo, su una linea della rete, verso l'interno; oppure da un punto dato (clic)
     let x, y, d;
     if (da) { x = da.x; y = da.y; d = da.d; }
     else {
@@ -147,24 +247,31 @@
   function inCampo() { const p = nuovoImpulso(); p.x = Math.round(caso(0, W) / G) * G; p.scia = [{ x: p.x, y: p.y }]; return p; }
   const quanti = () => Math.max(10, Math.min(38, Math.round(W * H / 42000)));
 
+  // posizione della rete sullo schermo: le linee orizzontali stanno a y = ty + 0.5 + kG (ty tra -G e 0, a passi di un
+  // pixel dello schermo); oy è lo stesso spostamento per gli impulsi. Resta fissa: cambia solo passando da una pagina
+  // all'altra, per continuare la rete della pagina di prima
+  function reticolo() {
+    const inizio = ((oy % G) + G) % G;
+    ty = Math.round((inizio - G) * dpr) / dpr;
+    incrociDaFare = true;
+  }
+
   function misura() {
     dpr = window.devicePixelRatio || 1;
-    // reticolo e incroci a un pixel del canvas per pixel CSS, ingranditi senza sfocare (pixel netti), se lo schermo ha un
+    // alone e incroci a un pixel del canvas per pixel CSS, ingranditi senza sfocare (pixel netti), se lo schermo ha un
     // numero intero di pixel per pixel CSS: viene identico a disegnarli a piena risoluzione; altrimenti a piena risoluzione
     const intero = Math.abs(dpr - Math.round(dpr)) < 0.01;
     rg = intero ? 1 : Math.min(2, dpr);
     const netto = intero && dpr > 1 ? 'pixelated' : 'auto';
     W = window.innerWidth; H = window.innerHeight;
     Wv = sfondo.clientWidth || W;
-    const hg = H + G + 2;
-    tela.width = Math.ceil(W * rg); tela.height = Math.ceil(hg * rg);
-    tela.style.width = W + 'px'; tela.style.height = hg + 'px'; tela.style.imageRendering = netto;
     telaInc.width = telaInc.height = Math.ceil(LATO * rg);
     telaInc.style.width = telaInc.style.height = LATO + 'px'; telaInc.style.imageRendering = netto;
     ri = RISOLUZIONE_IMPULSI || Math.min(2, dpr);
     canvas.width = Math.round(W * ri); canvas.height = Math.round(H * ri);
     canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
-    nSporchi = 0; ty = NaN; incrociAccesi = false; incrociDaFare = true;
+    nSporchi = 0; incrociAccesi = false; aloni.clear();
+    reticolo();
     const n = quanti();
     while (impulsi.length < n) impulsi.push(inCampo());
     impulsi.length = n;
@@ -204,45 +311,28 @@
 
   function fuori(p) { const s = p.y + oy; return p.x < -G * 3 || p.x > W + G * 3 || s < -G * 3 || s > H + G * 3; }
 
-  // posizione del reticolo: scorre di 0.12 pixel per ogni pixel di pagina, a passi di un pixel dello schermo
-  function posizioneReticolo() {
-    oy = base - sy * 0.12;
-    const inizio = ((oy % G) + G) % G;
-    const t = Math.round((inizio - G) * dpr) / dpr;
-    if (t !== ty) { ty = t; tela.style.transform = `translate3d(0, ${ty}px, 0)`; incrociDaFare = true; }
-  }
-
-  // reticolo: righe a x = 0.5 + kG e y = 0.5 + kG nel canvas, che sta più in alto di una maglia e scende con lo scorrimento
-  function disegnaGriglia() {
-    gctx.setTransform(1, 0, 0, 1, 0, 0);
-    gctx.clearRect(0, 0, tela.width, tela.height);
-    gctx.setTransform(rg, 0, 0, rg, 0, 0);
-    gctx.lineWidth = 1; gctx.strokeStyle = stili.linea;      // un solo tratto per tutte le righe: gli incroci non si sommano
-    gctx.beginPath();
-    const hg = H + G + 2;
-    for (let x = 0.5; x <= W; x += G) { gctx.moveTo(x, 0); gctx.lineTo(x, hg); }
-    for (let y = 0.5; y <= hg; y += G) { gctx.moveTo(0, y); gctx.lineTo(W, y); }
-    gctx.stroke();
-  }
-
-  // incroci accesi vicino al puntatore: quadratini di 3 pixel centrati sugli incroci delle righe, più accesi più sono vicini
+  // attorno al puntatore: l'alone e, sopra, gli incroci accesi (quadratini di 3 pixel centrati sugli incroci delle
+  // linee, più accesi più sono vicini)
   function disegnaIncroci() {
     incrociDaFare = false;
     if (incrociAccesi) { ictx.setTransform(1, 0, 0, 1, 0, 0); ictx.clearRect(0, 0, telaInc.width, telaInc.height); incrociAccesi = false; }
     if (mouse.x <= -999 || spento) return;
-    const mx = mouse.x, my = mouse.y - ty;                   // puntatore nelle coordinate del reticolo
+    const mx = mouse.x, my = mouse.y - ty;                   // puntatore nelle coordinate della rete
     const x0 = Math.floor(mx) - R - 6, y0 = Math.floor(my) - R - 6;
     telaInc.style.transform = `translate3d(${x0}px, ${y0 + ty}px, 0)`;
+    const alone = immagineAlone(colori.forza * sfumaturaIn(mx));
+    ictx.setTransform(1, 0, 0, 1, 0, 0); ictx.globalAlpha = 1;
+    if (alone) { const m = (alone.width - 1) / 2; ictx.drawImage(alone, Math.round((mx - x0) * rg) - m, Math.round((my - y0) * rg) - m); }
     ictx.setTransform(rg, 0, 0, rg, -x0 * rg, -y0 * rg);
-    ictx.fillStyle = stili.incroci;
-    const f = colori.forza;
+    ictx.fillStyle = `rgb(${colori.impulso})`;
+    const f = colori.forza, s = Math.abs(colori.salto), verso = Math.sign(colori.salto);
     for (let x = Math.ceil((mx - R - 0.5) / G) * G; x <= mx + R; x += G) {
       for (let y = Math.ceil((my - R - 0.5) / G) * G; y <= my + R; y += G) {
         const d = Math.hypot(x + 0.5 - mx, y + 0.5 - my);
         if (d > R) continue;
-        const k = (1 - d / R) ** 2;
-        if (0.75 * k * f * colori.picco < 3) continue;   // sotto 3/255: su un OLED non si vede, sugli altri schermi allargherebbe la zona
-        ictx.globalAlpha = 0.75 * k * f;
+        const v = 0.75 * (1 - d / R) ** 2 * f * sfumaturaIn(x) * s;   // livello come su uno schermo normale
+        if (v < 5) continue;   // sotto 5/255 su un OLED non si vede, e sugli altri schermi allargherebbe la zona accesa
+        ictx.globalAlpha = Math.min(1, Math.abs(perSchermo(colori.fondo, verso * v)) / s);
         ictx.fillRect(x - 1, y - 1, 3, 3);
       }
     }
@@ -291,7 +381,7 @@
       const oa = opacita(s0, L), ob = opacita(s1, L);         // capo verso la testa e capo verso la coda
       if (Math.abs(uy) < 1e-6) {                             // orizzontale
         const xa = (ax + ux * (s0 - fatto)) * k, xb = (ax + ux * (s1 - fatto)) * k;
-        if (xa < xb) striscia(c, false, xa, xb, hy * k, oa, ob); else striscia(c, false, xb, xa, hy * k, ob, oa);
+        if (xa < xb) striscia(c, false, xa, xb, ay * k, oa, ob); else striscia(c, false, xb, xa, ay * k, ob, oa);   // sulla sua riga, non su quella della testa
       } else if (Math.abs(ux) < 1e-6) {                      // verticale
         const ya = (ay + uy * (s0 - fatto)) * k, yb = (ay + uy * (s1 - fatto)) * k;
         if (ya < yb) striscia(c, true, ya, yb, ax * k, oa, ob); else striscia(c, true, yb, ya, ax * k, ob, oa);
@@ -360,9 +450,8 @@
     ctx.setTransform(1, 0, 0, 1, 0, 0);
   }
 
-  // un fotogramma: avanti di dt secondi (0 a finestra ferma: si ridisegna soltanto, per esempio dopo uno scorrimento)
+  // un fotogramma: avanti di dt secondi (0 a finestra ferma: si ridisegna soltanto, per esempio dopo un movimento del puntatore)
   function disegna(dt) {
-    posizioneReticolo();
     for (let i = 0; i < nSporchi * 4; i += 4) ctx.clearRect(sporchi[i], sporchi[i + 1], sporchi[i + 2] - sporchi[i], sporchi[i + 3] - sporchi[i + 1]);
     nSporchi = 0; veloci = 0;
     for (let i = 0; i < impulsi.length; i++) {
@@ -398,7 +487,7 @@
     else timer = setTimeout(sveglia, manca);
   }
   function sveglia() { timer = 0; if (!fermo && !spento && !raf) raf = requestAnimationFrame(fotogramma); }
-  // un fotogramma fuori dal ritmo, al prossimo aggiornamento dello schermo (scorrimento, tema, puntatore a finestra ferma)
+  // un fotogramma fuori dal ritmo, al prossimo aggiornamento dello schermo (tema, puntatore a finestra ferma)
   function ridisegna() {
     if (spento) return;
     subito = true;
@@ -406,23 +495,25 @@
     if (!raf) raf = requestAnimationFrame(fotogramma);
   }
 
-  function ferma() { cancelAnimationFrame(raf); raf = 0; clearTimeout(timer); timer = 0; }
+  function ferma() { cancelAnimationFrame(raf); cancelAnimationFrame(rafInc); raf = rafInc = 0; clearTimeout(timer); timer = 0; }
+  // alone e incroci dietro al puntatore, al prossimo aggiornamento dello schermo (gli impulsi restano al loro ritmo)
+  function seguiPuntatore() { rafInc = 0; if (!spento && incrociDaFare) disegnaIncroci(); }
   function statico() {
-    // animazioni spente: resta solo lo sfondo della pagina, senza reticolo, impulsi né onde
+    // animazioni spente: resta solo lo sfondo della pagina, senza alone, incroci, impulsi né onde
     ferma();
-    for (const [c, x] of [[ctx, canvas], [gctx, tela], [ictx, telaInc]]) { c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, x.width, x.height); }
-    nSporchi = 0; incrociAccesi = false; vuoto = true; oy = 0;
+    for (const [c, x] of [[ctx, canvas], [ictx, telaInc]]) { c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, x.width, x.height); }
+    nSporchi = 0; incrociAccesi = false; vuoto = true;
   }
   function aggiorna() {
     spento = root.classList.contains('meno-moto');
     const eraFermo = fermo;
     fermo = spento || document.hidden || !primoPiano;
     if (spento) { if (!vuoto) statico(); return; }
-    if (vuoto) { vuoto = false; disegnaGriglia(); incrociDaFare = true; disegna(0); ultimo = performance.now(); }   // il primo fotogramma subito
+    if (vuoto) { vuoto = false; incrociDaFare = true; disegna(0); ultimo = performance.now(); }   // il primo fotogramma subito
     if (fermo) { ferma(); return; }
     if (eraFermo) { ferma(); ultimo = performance.now(); pianifica(); }   // riparte da dove era, senza salti
   }
-  function cambioTema() { leggiColori(); preparaStili(); if (spento) return; disegnaGriglia(); incrociDaFare = true; ridisegna(); }
+  function cambioTema() { leggiColori(); preparaStili(); aloni.clear(); if (spento) return; incrociDaFare = true; ridisegna(); }
   function cambioMisura() {
     const w = window.innerWidth, h = window.innerHeight, wv = sfondo.clientWidth || w, d = window.devicePixelRatio || 1;
     if (w === W && h === H && wv === Wv && d === dpr && stretto.matches === ridotto) return;
@@ -430,7 +521,7 @@
     else misura();
     preparaStili();
     if (spento) { statico(); return; }
-    disegnaGriglia(); incrociDaFare = true; ridisegna();
+    incrociDaFare = true; ridisegna();
   }
 
   /* ---------- passaggio da una pagina all'altra ---------- */
@@ -455,8 +546,7 @@
     try { s = JSON.parse(sessionStorage.getItem(STATO)); } catch (e) { return false; }
     const eta = s ? Date.now() - s.t : NaN;
     if (!s || s.v !== 1 || !num(s.t, dopo + 1, 1e14) || !num(eta, 0, 5000) || !num(s.W, 1, 1e5) || !num(s.H, 1, 1e5) || !num(s.oy, -1e7, 1e7)) return false;
-    // la rete resta dov'era anche se la pagina nuova parte da un'altra posizione di scorrimento
-    oy = s.oy; base = s.oy + sy * 0.12; yRipresa = sy;
+    oy = s.oy; reticolo();                                   // la rete resta dov'era nella pagina di prima
     const m = s.m;
     if (Array.isArray(m) && m.length === 3 && num(m[0], -50, W + 50) && num(m[1], -50, H + 50) && num(m[2], 0, 6e4)) {
       mouse.x = m[0]; mouse.y = m[1]; mouse.t = performance.now() - m[2]; mouse.tipo = 'mouse';
@@ -490,10 +580,10 @@
 
   window.addEventListener('pointermove', e => {
     mouse.x = e.clientX; mouse.y = e.clientY; mouse.t = performance.now(); mouse.tipo = e.pointerType; incrociDaFare = true;
-    if (fermo && !spento && !document.hidden) ridisegna();   // finestra non in primo piano: solo gli incroci seguono il puntatore
+    if (!spento && !document.hidden && !rafInc) rafInc = requestAnimationFrame(seguiPuntatore);
   }, { passive: true });
   const via = () => { mouse.x = mouse.y = -9999; incrociDaFare = true; };
-  document.addEventListener('pointerleave', () => { via(); if (fermo) ridisegna(); });
+  document.addEventListener('pointerleave', () => { via(); if (!spento && !rafInc) rafInc = requestAnimationFrame(seguiPuntatore); });
   window.addEventListener('blur', () => { via(); primoPiano = false; aggiorna(); ridisegna(); });
   window.addEventListener('focus', () => { primoPiano = true; aggiorna(); });
   window.addEventListener('pointerdown', e => {
@@ -507,11 +597,7 @@
   }, { passive: true });
   window.addEventListener('resize', cambioMisura);
   if (window.ResizeObserver) new ResizeObserver(cambioMisura).observe(sfondo);   // per esempio la barra di scorrimento che compare
-  window.addEventListener('scroll', () => {
-    sy = window.scrollY;
-    if (yRipresa !== null) { base += (sy - yRipresa) * 0.12; yRipresa = sy; }   // vedi pagereveal
-    ridisegna();
-  }, { passive: true });
+  if (hdr && hdr.addEventListener) hdr.addEventListener('change', cambioTema);   // HDR acceso o spento: alone e incroci da rifare
   document.addEventListener('visibilitychange', aggiorna);
   window.addEventListener('appunti:moto', aggiorna);
   window.addEventListener('appunti:tema', cambioTema);
@@ -520,17 +606,11 @@
   // solo al primo fotogramma, quindi si riprende a «pagereveal» (se il browser non lo conosce, subito)
   const ricomincia = () => { if (!riprendi(salvatoAlle) || spento) return; ferma(); disegna(0); ultimo = performance.now(); pianifica(); };
   window.addEventListener('pageshow', e => { if (!e.persisted) return; if ('onpagereveal' in window) tornata = true; else ricomincia(); });
-  // un link con àncora (#corsi) fa scorrere la pagina nuova mentre si apre: quello scorrimento non deve spostare la rete ripresa.
-  // Gli eventi di scorrimento arrivano nello stesso aggiornamento dello schermo, dopo «pagereveal»: si compensano fino al
-  // primo fotogramma
   window.addEventListener('pagereveal', () => {
     if (!primoPiano && document.hasFocus()) { primoPiano = true; aggiorna(); }
     if (tornata) { tornata = false; ricomincia(); }
-    if (yRipresa !== null) requestAnimationFrame(() => { yRipresa = null; });
   });
-  if (!('onpagereveal' in window)) window.addEventListener('load', () => { yRipresa = null; });
 
-  sy = window.scrollY;   // l'unica lettura fuori dagli eventi di scorrimento: qui la pagina è ancora quasi vuota e non costa
   primoPiano = document.hasFocus();
   leggiColori(); misura(); preparaStili(); riprendi(); aggiorna();
 })();

@@ -162,7 +162,7 @@ def site_bar(root, it_url, current=""):
     id="barra": the <head> waits for this element before the first paint (see head_html)."""
     courses = ' aria-current="page"' if current == "courses" else ""
     return f"""<a class="salta" href="#contenuto">Skip to content</a>
-<div class="sfondo" aria-hidden="true"><canvas class="griglia"></canvas><canvas class="incroci"></canvas><canvas id="rete"></canvas></div>
+<div class="sfondo" aria-hidden="true"><canvas class="incroci"></canvas><canvas id="rete"></canvas></div>
 <script src="{root}assets/js/rete.js"></script>
 <header class="barra" id="barra">
   <div class="barra-in">

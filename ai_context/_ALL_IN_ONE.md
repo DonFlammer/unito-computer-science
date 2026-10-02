@@ -3586,10 +3586,10 @@ source: >-
   Information as Bit Patterns" and §1.5 "The Binary System", with the answers to their questions; summary of the
   lesson of 02/10/2026 on the channel B Moodle page; channel A 2026/27 slides on data encoding; the Unicode and UTF-8
   standards
-italian_file: 02_testo_colori_suoni_binario.html
+italian_file: 03_testo_colori_suoni_binario.html
 html_notes: notes/FDA/02_text_colours_sounds_binary.html
 generate_html: true
-italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/FDA/lezioni/02_testo_colori_suoni_binario.md
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/FDA/lezioni/03_testo_colori_suoni_binario.md
 ```
 
 ## In brief

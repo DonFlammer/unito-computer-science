@@ -55,3 +55,7 @@ The statements in the `DEF`, `PROP`, `THEOREM` boxes follow the slides or the ha
 - `checklist`: the "I can …" items to tick.
 - `graph`: a static figure (points, vectors, lines, polygons, circles), one line per element.
 - `widget`: an interactive tool of the HTML page (complex plane, vectors, 2×2 matrices, Gauss calculator, Ruffini, 3D space, simulator of the Von Neumann machine, logic gates with `mode: gates`, `flipflop`, `hexadecimal` or `memory`; text, colours, sounds and binary numbers with `widget codifica` and `mode: text`, `colours`, `sound`, `binary`, `divisions` or `addition`). In the Markdown only the initial parameters remain. The widget names stay in Italian as in the original (`widget porte`, `widget codifica`). The geometry tools keep their Italian parameters too (for example `modo: somma`); `porte` and `codifica` also accept English ones (`mode: gates`, `title:`).
+
+## Weekly summaries
+
+Every week, for every course, a summary of the lessons in `<COURSE>/summaries/week_NN.md` (for MDAG one per part: `week_NN_MD.md` and `week_NN_AG.md`). The format is the lessons' one, with `type: summary` and `lesson: S<N>` in the header: the page goes to `notes/<COURSE>/summary_week_NN….html` and appears in the "Weekly summaries" section at the bottom of the course page, not among the lessons. It contains "In brief", one section per lesson with the points, tables and methods to know, "Towards the exam", "Review questions" and the "Sources" with links to the full lessons.

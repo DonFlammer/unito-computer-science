@@ -45,9 +45,9 @@ def files_in_order():
         for name in PER_COURSE:
             if (course / name).exists():
                 yield course / name
-        lessons = course / "lessons"
-        if lessons.is_dir():
-            yield from sorted(lessons.glob("*.md"))
+        for sub in ("lessons", "summaries"):
+            if (course / sub).is_dir():
+                yield from sorted((course / sub).glob("*.md"))
 
 
 def main():

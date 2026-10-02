@@ -114,6 +114,10 @@ The statements in the `DEF`, `PROP`, `THEOREM` boxes follow the slides or the ha
 - `graph`: a static figure (points, vectors, lines, polygons, circles), one line per element.
 - `widget`: an interactive tool of the HTML page (complex plane, vectors, 2×2 matrices, Gauss calculator, Ruffini, 3D space, simulator of the Von Neumann machine, logic gates with `mode: gates`, `flipflop`, `hexadecimal` or `memory`; text, colours, sounds and binary numbers with `widget codifica` and `mode: text`, `colours`, `sound`, `binary`, `divisions` or `addition`). In the Markdown only the initial parameters remain. The widget names stay in Italian as in the original (`widget porte`, `widget codifica`). The geometry tools keep their Italian parameters too (for example `modo: somma`); `porte` and `codifica` also accept English ones (`mode: gates`, `title:`).
 
+## Weekly summaries
+
+Every week, for every course, a summary of the lessons in `<COURSE>/summaries/week_NN.md` (for MDAG one per part: `week_NN_MD.md` and `week_NN_AG.md`). The format is the lessons' one, with `type: summary` and `lesson: S<N>` in the header: the page goes to `notes/<COURSE>/summary_week_NN….html` and appears in the "Weekly summaries" section at the bottom of the course page, not among the lessons. It contains "In brief", one section per lesson with the points, tables and methods to know, "Towards the exam", "Review questions" and the "Sources" with links to the full lessons.
+
 
 ---
 
@@ -2439,6 +2443,202 @@ Logic error | The program runs but does not do what it should.
 
 ---
 
+<!-- FILE: ai_context/PROG1/summaries/week_01.md -->
+> File: `ai_context/PROG1/summaries/week_01.md`
+
+```yaml
+course: PROG1
+lesson: S1
+type: summary
+title: "Week 1: the algorithm, the Von Neumann machine, the first C program"
+date: 2026-10-02
+lecturers: Elvio Amparore
+eyebrow: Weekly summary · Programming I · Channel B · 28/09 – 02/10/2026
+description: >-
+  Summary of week 1 of Programming I (Programmazione I, channel B): what an algorithm is, the seven versions of
+  multiplication by repeated addition and the n = 0 bug, the Von Neumann machine and the CPU cycle, from machine
+  language to assembly and C, the first program, gcc and the three kinds of error.
+lede: >-
+  The three lessons of the week in a few pages: the ideas to know, the methods, the pitfalls and the questions to
+  check yourself. For details and exercises there is the full lesson, linked in each section.
+material: slides
+facts:
+  Lessons: "[01A](01A_first_algorithm.html) Mon 28/09 · [01B](01B_computer_architecture.html) Tue 29/09 · [02A](02A_from_assembly_to_c.html) Wed 30/09"
+  Revision time: 30–40 minutes
+source: >-
+  The notes of lessons 01A, 01B and 02A of Programming I (channel B), written on E. Amparore's slides
+italian_file: riassunto_settimana_01.html
+html_notes: notes/PROG1/summary_week_01.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/PROG1/riassunti/settimana_01.md
+```
+
+## In brief
+
+- An **algorithm** is a precise recipe: ordered, unambiguous and executable operations that give a result and always stop.
+- The golden rule of the course: **first check the conditions, then execute**. The initial case ($n = 0$) is "a typical source of errors, also in the exam".
+- The computer is a **Von Neumann machine**: CPU, memory holding program **and** data, secondary storage, bus. The CPU repeats fetch, decode, execute.
+- The CPU only understands **machine language**; **assembly** writes it with readable names; **C** is written like a real language and a **compiler** translates it.
+- You compile with `gcc -Wall -Werror`. A program that compiles is not necessarily right: it must be tested, also on the edge cases.
+
+## 01A · A first algorithm (Mon 28/09)
+
+Computer science studies **algorithms**, not computers: the computer is to computer science what the telescope is to astronomy (a saying attributed to Dijkstra).
+
+> [!DEF] Algorithm
+> An **ordered** set of **unambiguous** and **effectively executable** operations that, when executed, **produces a result** and **stops in a finite time**.
+
+In computer science **everything is a number**: text, images, instructions. **Imperative** programming tells the machine, step by step, what to do.
+
+**The guiding problem.** Compute $m \times n$ (integers, $n \ge 0$) with a machine that can only add, assign and compare. The idea: add $m$ to itself $n$ times, starting from 0, the neutral element of addition. Two variables are needed:
+
+- the **accumulator** `s`, the sum so far;
+- the **counter** `i`, how many additions I have done.
+
+Wirth: "Programs = Algorithms + Data Structures". In the slides' notation `←` means "assign" (`s ← s + m`), `=` means "compare" (`i = n?`).
+
+| Version | What changes |
+|---|---|
+| V1 | the idea in words: "add m to s exactly n times", too vague |
+| V2 | elementary steps, but the check "i = n?" is **at the end**: with n = 0 it never stops |
+| V3 | **first the check**, then the addition: correct also with n = 0 |
+| V4 | formal notation: `←`, `=`, `▷` for comments, indentation for what depends on the condition |
+| V5 | explicit jumps ("jump to line 6") and an End instruction |
+| V6 | Begin/End blocks; **conditional** jump (only if i = n) and **unconditional** jump (always) |
+| V7 | nested blocks, no line numbers: it is the shape of C's `while` |
+
+```text
+Inizio Algoritmo
+    s ← 0,  i ← 0
+    Inizio Ripetizione Condizionata
+    se i = n salta alla Fine Ripetizione Condizionata, altrimenti
+        s ← s + m
+        i ← i + 1
+        salta all'Inizio Ripetizione Condizionata
+    Fine Ripetizione Condizionata
+Fine Algoritmo
+```
+
+(The slides write it in Italian: *Inizio/Fine* = Begin/End, *Ripetizione Condizionata* = conditional repetition, *se … salta … altrimenti* = if … jump … otherwise.)
+
+> [!PITFALL] The n = 0 bug
+> V2 first adds and brings `i` to 1, then checks "1 = 0?": no, it repeats. Then "2 = 0?", and so on: `i` never goes back to 0 and the algorithm **never stops**. With V3 the first check is "0 = 0?": yes, end, and `s = 0` is the right result.
+
+> [!REMEMBER]
+> - Always try the **edge cases**: $n = 0$, $n = 1$, $m = 0$, negative values.
+> - The hand **trace**, one row per step and one column per variable, is the skill needed in the exercises on the state of memory.
+> - You leave the loop only through the condition: hence the exam rules (a single `return` in iterative functions, no `break`, `continue`, `switch`).
+
+## 01B · Computer architecture (Tue 29/09)
+
+| Milestone | What it brings |
+|---|---|
+| Abacus, Pascaline | they help to compute (the Pascaline carries by itself), but the logic comes from the user |
+| Hard-wired calculators | they only do the operations built into the hardware, like a blender |
+| Babbage, around 1840 | the analytical engine: punched cards, conditional jumps, the idea of a program |
+| Turing, 1936 | the universal machine: a single machine can run any algorithm |
+| ENIAC, 1943–46 | first general-purpose electronic computer, decimal, programmed by moving cables |
+| EDVAC | **stored program**, **same memory** for instructions and data, numbers in **binary** |
+
+- **Programmable computer**: the same machine does different tasks by changing the sequence of instructions, without touching the hardware.
+- A **bit** is 0 or 1; with $N$ bits you can tell $2^N$ pieces of information apart. A **byte** is 8 bits, that is 256 values. b is written for bit, B for byte: 100 Mb/s is 12.5 MB/s.
+- **Von Neumann architecture**: CPU (control unit, ALU, registers), main memory (RAM) with program and data, secondary storage, all connected by the **system bus**.
+- Memory is a row of bytes, each with an **address** starting from 0: with 1024 bytes the addresses go from 0 to **1023**. Numbers are stored in **words**, for example of 32 bits, that is 4 bytes.
+- The **state** is the snapshot of memory and registers at an instant. Running a program means going from one state to the next.
+
+> [!METHOD] The CPU cycle
+> 1. **Fetch**: read the instruction at the address written in the **PC** (program counter) and copy it into the **IR** (instruction register).
+> 2. **Decode**: work out what the instruction asks.
+> 3. **Execute**: the ALU works on the registers, or memory is read or written.
+> 4. The PC moves to the next instruction, or jumps where the instruction says. Start again.
+>
+> The same program and the same initial state always give the same result.
+
+## 02A · From machine language to C (Wed 30/09)
+
+- **Machine language**: numbers executed directly by the CPU. Each architecture has its own instruction set, so it is not portable.
+- **Assembly**: the same instructions with readable names, translated by an **assembler**. It stays tied to the CPU.
+- The ALU only works on **registers**: to add two memory cells you need `LOAD` (memory → register), `ADD` (register + register) and `STORE` (register → memory). An addition costs 4 instructions.
+- The multiplication of 01A in assembly costs 10 instructions, with `CMP` (compare), `JMPEQ` (jump if equal), `INC` (add 1) and `JMP` (always jump). It is V6, and the comparison comes **before** the addition.
+- From the 1950s, **high-level languages**, starting with FORTRAN: a **compiler** translates them, and for another CPU you just recompile.
+- **C** was born in 1972 (Dennis Ritchie, Bell Labs) to rewrite Unix. It is **compiled**, **imperative**, **structured** and **typed**.
+
+```c
+// Un primo programma in C
+#include <stdio.h>
+
+// La funzione "main" e' il punto di ingresso del programma
+int main(void) {
+    printf("Buongiorno dal C.\n");
+}
+```
+
+(The comments say "A first program in C" and "The main function is the program's entry point"; the program prints "Good morning from C.".)
+
+| Piece | What it does |
+|---|---|
+| `// …` | comment, ignored by the compiler |
+| `#include <stdio.h>` | preprocessor directive: brings in the declaration of `printf`. Without it gcc stops with "implicit declaration of function 'printf'" |
+| `int main(void) { … }` | where the program starts; the braces enclose a block |
+| `printf("…");` | prints a string; every statement ends with `;` |
+| `\n`, `\t`, `\\`, `\"`, `\0` | escape sequences: newline, tab, backslash, double quote, null character |
+
+- **Identifiers**: letters, digits and `_`, never a digit first. Upper and lower case matter (`var` and `Var` are different). No keywords (`int`, `while`, `return`…) and no library names (`printf`, `main`).
+- **gcc** takes four steps: preprocessor, compiler, assembler (object file `.o`) and **linker**, which joins the object files and the libraries into the executable.
+- The exam command: `gcc -Wall -Werror source.c -o executable`, then `./executable`. With `-Werror` every warning stops the compilation.
+
+> [!PITFALL] "It compiles" does not mean "it works"
+> Three kinds of error: **compile-time** (syntax: the program is not produced), **runtime** (for example a division by zero) and **logic** errors (the program runs but does the wrong thing). The compiler only checks the syntax: a program must always be tested.
+
+## Towards the exam
+
+- **Lab** of channel B, Turing lab, 14:00–17:00: group 2 (even student ID number) on Mondays from 05/10 with Elisa Marengo; group 1 (odd student ID number) on Tuesdays from 06/10 with Valerio Basile. Lab01 is about the command line and the compiler.
+- The exam is taken on the lab computers, with a simple editor, no IDE and no autocompletion: practise from now on with a text editor and `gcc -Wall -Werror`.
+- Exam sessions 2026/27: Monday 25/01/2027 and Thursday 11/02/2027, at 9:00.
+- To do now: copy "Buongiorno dal C.", compile it, then **break it on purpose** (remove a `;`, a brace, a quote) and read gcc's messages.
+
+## Review questions
+
+::: question What are the properties of an algorithm?
+Ordered, unambiguous and executable operations; it produces a result; it stops in a finite time.
+:::
+
+::: question Why is V2 of the multiplication wrong? With which value do you find out?
+It checks "i = n" after adding. With $n = 0$, `i` is already 1 at the first check and never goes back to 0, so the loop never ends.
+:::
+
+::: question What is the difference between `s ← s + m` and `i = n`?
+The first assigns to `s` the value `s + m`. The second asks whether `i` and `n` are equal: the answer is true or false.
+:::
+
+::: question With 1024 bytes of memory, what is the last address?
+1023, because addresses start from 0.
+:::
+
+::: question What do the PC and the IR contain?
+The PC contains the address of the next instruction, the IR the instruction being executed.
+:::
+
+::: question Why do you need LOAD and STORE to add two memory cells?
+Because the ALU only works on registers: you load from memory into a register (`LOAD`), add (`ADD`), and write back to memory (`STORE`).
+:::
+
+::: question What are the four steps of gcc?
+Preprocessor, compiler, assembler, linker.
+:::
+
+::: question A program compiles without errors but prints a wrong result: what kind of error is it?
+A logic error.
+:::
+
+## Sources
+
+- The full lessons: [01A · A first algorithm](01A_first_algorithm.html), [01B · Computer architecture](01B_computer_architecture.html), [02A · From machine language to C](02A_from_assembly_to_c.html), with exercises, quizzes and the slide references.
+- Labs and exam sessions: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/PROG1/course.md).
+
+
+---
+
 <!-- FILE: ai_context/FDA/course.md -->
 > File: `ai_context/FDA/course.md`
 
@@ -4414,6 +4614,184 @@ Overflow | When the result of a calculation does not fit in the available bits.
 - Channel A slides 2026/27, "Cenni sulla codifica dei dati" (notes on data encoding) (F. Cardone, channel A Moodle page, open to guests): the ASCII code and the passage between uppercase and lowercase, base 2 with the divisions, addition in base 2.
 - The Unicode standard (unicode.org) for the code points, and [RFC 3629](https://www.rfc-editor.org/rfc/rfc3629.html#section-3) for the byte pattern of UTF-8.
 - The explanations in words, the examples, the "Try it" boxes, the interactive tools, the quizzes and the exercises without a book number are original to these notes.
+
+
+---
+
+<!-- FILE: ai_context/FDA/summaries/week_01.md -->
+> File: `ai_context/FDA/summaries/week_01.md`
+
+```yaml
+course: FDA
+lesson: S1
+type: summary
+title: "Week 1: bits, logic gates, memories; text, colours and sounds; base 2"
+date: 2026-10-02
+lecturers: Stefano Berardi
+eyebrow: Weekly summary · Foundations of Computer Science · Channel B · 28/09 – 02/10/2026
+description: >-
+  Summary of week 1 of Foundations of Computer Science (Fondamenti dell'Informatica, channel B, book part 1,
+  §1.1–1.5): bits and powers of 2, AND, OR, XOR, NOT, logic gates and flip-flops, hexadecimal, main memory and mass
+  storage, ASCII, Unicode and UTF-8, pixels and RGB, audio samples, conversions between base 2 and base 10, binary
+  addition and overflow, binary fractions.
+lede: >-
+  The lessons of the week in a few pages: the tables to know by heart, the conversion methods, the quiz pitfalls and
+  the questions to check yourself. For details and the interactive tools there is the full lesson.
+material: book
+facts:
+  Lessons: "Mon 28/09 introduction · [01](01_bits_gates_hexadecimal.html) Thu 01/10, §1.1–1.3 · [02](02_text_colours_sounds_binary.html) Fri 02/10, §1.4–1.5"
+  Revision time: 40 minutes
+source: >-
+  The notes of lessons 01 and 02 of Foundations of Computer Science (channel B), written on the textbook, part 1,
+  §1.1–1.5
+italian_file: riassunto_settimana_01.html
+html_notes: notes/FDA/summary_week_01.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/FDA/riassunti/settimana_01.md
+```
+
+## In brief
+
+- Inside the computer everything is made of **bits**, 0 and 1. With $n$ bits you can write $2^n$ sequences: each extra bit doubles.
+- The **logic gates** AND, OR, XOR and NOT combine bits; the **flip-flop** remembers a bit.
+- **Hexadecimal** writes four bits with one digit. **Main memory** is a row of one-byte cells, each with an address.
+- Text, colours and sounds become numbers: **ASCII** and **UTF-8**, **RGB**, **samples**.
+- In **base 2** the positions are worth 1, 2, 4, 8…; you convert with divisions by 2 and add in columns, watching out for **overflow**.
+
+On Monday 28/09 there was the introductory lesson, with the presentation of the textbook: it has no number in the notes.
+
+## Lesson 01 · Bits, gates, hexadecimal and memories (Thu 01/10)
+
+**Bits and powers of 2.** 1 bit gives 2 sequences, 2 bits give 4, 3 bits 8, 8 bits (a **byte**) 256.
+
+| $n$ | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| $2^n$ | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1024 |
+
+> [!METHOD] How many bits are needed for a number of objects
+> Look for the first power of 2 that reaches at least that number: its exponent is the number of bits. For 26 letters: $2^5 = 32$ reaches 26, $2^4 = 16$ does not, so 5 bits.
+
+**The four operations**, to know by heart:
+
+| A | B | A AND B | A OR B | A XOR B | NOT A |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 0 | 0 |
+
+AND gives 1 only if **both** are 1; OR if **at least one** is 1; XOR if they are **different**; NOT gives the opposite.
+
+> [!PITFALL] The "or" of everyday language
+> "Discount for students or pensioners" is an OR: if you are both, you still get the discount. "Coffee or tea?" is usually an XOR. In computer science OR always means "at least one, possibly both".
+
+- A **logic gate** is the circuit that performs one of these operations. To read a circuit: write all the $2^n$ input combinations, add a column for each gate, fill one column at a time; the last one is the output.
+- The **flip-flop**: a pulse on the upper input sets the output to 1, one on the lower input sets it to 0; between pulses the output stays as it is. The trick is the wire that feeds the output back into the OR gate. It is the first building block of memory.
+
+**Hexadecimal.** One digit is worth four bits.
+
+| bits | hex | bits | hex | bits | hex | bits | hex |
+|---|:-:|---|:-:|---|:-:|---|:-:|
+| 0000 | 0 | 0100 | 4 | 1000 | 8 | 1100 | C |
+| 0001 | 1 | 0101 | 5 | 1001 | 9 | 1101 | D |
+| 0010 | 2 | 0110 | 6 | 1010 | A | 1110 | E |
+| 0011 | 3 | 0111 | 7 | 1011 | B | 1111 | F |
+
+> [!METHOD] From bits to hexadecimal, and back
+> Make groups of four bits **starting from the right**, with 0s in front if the first group is short, and write one digit per group: 1011 0101 = B5. To go back, write each digit with four bits, **zeros included**: the hexadecimal string 0100 means 0000 0001 0000 0000.
+
+**Memories.**
+
+- **Main memory** is a row of one-byte cells, each with an **address** from 0. Reading does not change the cell; writing erases the previous value. In **RAM** every cell is reached in the same time; when the computer is off it is emptied.
+- For memory 1 KB = 1024 bytes ($2^{10}$), 1 MB = 1024 KB, 1 GB = 1024 MB. To remove the doubt with 1000 there are KiB, MiB, GiB.
+- In a cell the leftmost bit is the **most significant**, the rightmost the **least significant**.
+- **Mass storage** keeps data with the computer off: large and cheap, but slow. Magnetic disk: concentric tracks divided into sectors, the stacked tracks form a cylinder; access time = seek time + rotation delay. CD, DVD and Blu-ray: one spiral track read by a laser. Flash and SSD: no moving parts, fast, but they wear out by rewriting.
+
+## Lesson 02 · Text, colours, sounds and base 2 (Fri 02/10)
+
+**Text.**
+
+- **ASCII** uses 7 bits, 128 symbols, and today one byte per symbol. A = 65 = 01000001, a = 97, the digit "0" = 48. Upper and lower case differ by **32**: a single bit changes. The symbol "7" is not the number 7.
+- **Unicode** gives every symbol of every language a number, the **code point**, written U+… in hexadecimal, up to 21 bits. **UTF-8** writes it with 1, 2, 3 or 4 bytes; the ASCII symbols stay one identical byte.
+
+| Code point | Bits | Bytes | UTF-8 pattern |
+|---|---|:-:|---|
+| U+0000 – U+007F | up to 7 | 1 | 0xxxxxxx |
+| U+0080 – U+07FF | up to 11 | 2 | 110xxxxx 10xxxxxx |
+| U+0800 – U+FFFF | up to 16 | 3 | 1110xxxx 10xxxxxx 10xxxxxx |
+| U+10000 – U+10FFFF | up to 21 | 4 | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx |
+
+> [!PITFALL] UTF-8 does not mean "8 bits per symbol"
+> The Italian word "perché" has 6 symbols and takes 7 bytes: the é takes two. To count the bytes, look at every symbol.
+
+**Images and sounds.**
+
+- A **bitmap** image is a grid of **pixels**. In **RGB** each pixel has three numbers from 0 to 255, red, green and blue: 3 bytes, $2^{24}$ colours. (0, 0, 0) is black, (255, 255, 255) white, three equal values a grey, red plus green yellow.
+- Bytes of an uncompressed image = width × height × 3. Full HD, 1920 × 1080: 6,220,800 bytes, about 6 MB.
+- **Vector** images describe shapes: they scale up without squares, but are not suitable for photos.
+- A sound is recorded by measuring the wave at regular intervals: each measurement is a **sample**. Two choices: **how many measurements per second** and **with how many bits** each one (with 16 bits there are 65,536 levels; rounding to the nearest level is called **quantisation**).
+- CD: 44,100 samples per second, 16 bits, stereo. Bytes = samples per second × bytes per sample × channels × seconds: one second takes 176,400 bytes, one hour about 635 MB.
+- **MIDI** does not store the wave but the instructions to play it: very compact, but the sound depends on who plays it.
+
+**Base 2.**
+
+- The positions are worth, from the right, 1, 2, 4, 8, 16, 32…: the value is the sum of the positions holding a 1. $1101_2 = 8 + 4 + 1 = 13$.
+- With $n$ bits the **unsigned** integers go from 0 to $2^n - 1$: with 8 bits from 0 to 255. Zeros on the left do not change the value; a zero on the right doubles it.
+
+> [!METHOD] From base 10 to base 2
+> Divide by 2 and write the remainder; go on with the quotient until it reaches 0; read the remainders **from the last to the first**. With small numbers it is faster to take away the largest power of 2 that fits: $45 = 32 + 8 + 4 + 1$, so 101101. Always check by converting back.
+
+> [!PITFALL] "How many bits are needed" and "write it with 8 bits"
+> 13 needs 4 bits, 1101; on 8 bits it is written 00001101. 256 needs 9 bits, 100000000: it does not fit in a byte.
+
+- **Column addition**: $0 + 0 = 0$, $0 + 1 = 1$, $1 + 1 = 10$ (write 0, carry 1), $1 + 1 + 1 = 11$ (write 1, carry 1).
+- **Overflow**: if a carry comes out of the **last column**, the result does not fit. On 8 bits 200 + 100 gives 44 instead of 300. Carries in the middle do not count: on 4 bits $0111 + 0001 = 1000$ is fine.
+- **Fractions**: after the point the positions are worth 1/2, 1/4, 1/8…: $101.101_2 = 5 + \frac12 + \frac18 = 5.625$. From base 10: double the part after the point and take the integer part, until 0 is left. $0.625 \to 1.25$ (1) $\to 0.5$ (0) $\to 1$ (1): 0.101.
+
+## Towards the exam
+
+- A single exam for the three channels on Moodle Esami: **9 quizzes in 45 minutes**, 3 points each, at least 18 to pass; then an optional open question, from −1 to 6 points, if you have at least 24 in the quizzes.
+- That is 5 minutes per question: the tables of AND, OR, XOR and NOT, the hexadecimal table and the powers of 2 up to $2^{10} = 1024$ must be known **by heart**.
+- In the 2023/24 mock exams the Boolean formula of a truth table and the function computed by a circuit come back. In the next lessons two's complement and floating point arrive, and they use these conversions.
+
+## Review questions
+
+::: question How many bits are needed to tell 100 objects apart?
+7 bits: $2^7 = 128$ reaches 100, while $2^6 = 64$ does not.
+:::
+
+::: question What are 1 XOR 1 and 1 OR 1?
+1 XOR 1 = 0, because the two bits are equal; 1 OR 1 = 1.
+:::
+
+::: question Write 1110 0011 in hexadecimal, and 3F in bits.
+1110 0011 = E3; 3F = 0011 1111.
+:::
+
+::: question How many bytes does the Italian word "città" take in UTF-8?
+6: c, i, t, t take one byte each, the à takes 2.
+:::
+
+::: question How many bytes does an 800 × 600 RGB photo take without compression?
+$800 \cdot 600 \cdot 3 = 1{,}440{,}000$ bytes.
+:::
+
+::: question How is 37 written in base 2?
+$37 = 32 + 4 + 1$, so 100101.
+:::
+
+::: question On 8 unsigned bits, what is 11111111 + 00000001?
+00000000, with overflow: the true result, 256, has 9 bits.
+:::
+
+::: question What is $10.11_2$ worth?
+$2 + \frac12 + \frac14 = 2.75$.
+:::
+
+## Sources
+
+- The full lessons: [01 · Bits, logic gates, hexadecimal and memories](01_bits_gates_hexadecimal.html) and [02 · Text, colours and sounds in bits; numbers in base 2](02_text_colours_sounds_binary.html), with interactive tools, quizzes and exercises.
+- Exam rules and the programme of the three channels: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md).
 
 
 ---
@@ -28150,6 +28528,316 @@ PCA | Principal component analysis: it diagonalises the symmetric data matrix to
 - **B. Martelli, *Geometria e algebra lineare***, the course's reference textbook, free online: [people.dm.unipi.it/martelli](https://people.dm.unipi.it/martelli/Alg%20Lin.pdf). Here: §11.3 (spectral theorem, Corollary 11.3.2, consequences) and Exercises 11.1–11.2.
 - **Exam papers** (Moodle 2025/26, [id 3503](https://informatica.i-learn.unito.it/course/view.php?id=3503)): text reported from 16/01/2025 (question 7), 02/09/2025 (problem 11, part 3) and 15/01/2026 (problem 11), with solutions written for these notes; the exam of 24/01/2024 (problem 11) is cited by type of question.
 - The **"Beyond the handouts"** parts ($2 \times 2$ case by hand, orthogonality of the eigenvectors of different eigenvalues, numerical example of PCA, additional examples and exercises) are additions in these notes to connect the lesson to the book and to the exam.
+
+
+---
+
+<!-- FILE: ai_context/MDAG/summaries/week_01_AG.md -->
+> File: `ai_context/MDAG/summaries/week_01_AG.md`
+
+```yaml
+course: MDAG
+module: AG
+lesson: S1
+type: summary
+title: "Week 1: the real numbers"
+date: 2026-10-01
+lecturers: Reto Buzano and Marco Radeschi
+eyebrow: Weekly summary · Part 2 (modB) · Linear Algebra and Geometry · Channels A, B and C · 28/09 – 02/10/2026
+description: >-
+  Summary of week 1 of Linear Algebra and Geometry (MDAG, part 2): the families of numbers, the real numbers and the
+  irrational ones, why the square root of 2 is not a fraction, what a field is, order, curly, round and square
+  brackets, calculations with roots without a calculator.
+lede: >-
+  The lesson of the week in a few pages: the four families of numbers, the nine rules of arithmetic, the brackets and
+  the rules for roots, with the questions to check yourself.
+material: handouts
+facts:
+  Lessons: "[L01](L01_real_numbers.html), in channel B on Thursday 01/10"
+  Handouts: Buzano and Radeschi 2026, pp. 2–5
+  Revision time: 20–30 minutes
+source: >-
+  The notes of lesson L01 of Linear Algebra and Geometry, written on the course's 2026 handouts (R. Buzano,
+  M. Radeschi)
+italian_file: riassunto_settimana_01_AG.html
+html_notes: notes/MDAG/summary_week_01_AG.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/riassunti/settimana_01_AG.md
+```
+
+## In brief
+
+- Numbers are four families, one inside the other: $\N \subset \Z \subset \Q \subset \R$.
+- Some real numbers are not fractions: they are **irrational**, like $\sqrt 2$. That it is not a fraction is proved **by contradiction**.
+- A **field** is a set of numbers in which the nine rules of arithmetic hold: $\Q$, $\R$ and $\C$ yes, $\N$ and $\Z$ no.
+- Curly, round and square brackets say different things.
+- In the exam there is no calculator: roots are simplified by hand.
+
+## L01 · The real numbers
+
+| Symbol | Name | What it contains | Examples |
+|:-:|---|---|---|
+| $\N$ | natural | the counting numbers, **zero included** | 0, 1, 2, 3… |
+| $\Z$ | integers | the natural numbers and their opposites | −3, 0, 7 |
+| $\Q$ | rational | the fractions $\frac ab$ with $b \neq 0$ | $\frac12$, $-\frac34$, 5 |
+| $\R$ | real | the numbers with infinitely many digits after the point, also without repetitions | $\sqrt 2$, $\pi$, $e$ |
+
+- Each family is inside the next and has something more: $\N \subsetneq \Z \subsetneq \Q \subsetneq \R$.
+- A fraction has many forms: $\frac12 = \frac24 = \frac36$. Fractions are the decimals that **end or repeat**; those that never repeat are **irrational**.
+- An oddity: $0.999\ldots = 1$, two ways of writing the same number.
+- Precisely, a real number is a list of fractions that get closer and closer to each other: useful for understanding, not for the exam. $\R$ is **complete**, that is it has no gaps; $\Q$ does: $\left(1 + \frac1n\right)^n$ rises towards $e \approx 2.718$, which is not a fraction.
+
+**Why $\sqrt 2$ is not a fraction.** $\sqrt 2$ is the diagonal of a square with side 1, by Pythagoras. You reason **by contradiction**:
+
+1. pretend that $\sqrt 2 = \frac ab$, with the fraction already in lowest terms;
+2. then $a^2 = 2b^2$, so $a^2$ is even and $a$ is even too: $a = 2k$;
+3. substituting, $4k^2 = 2b^2$, that is $b^2 = 2k^2$: $b$ is even too;
+4. but then the fraction could still be simplified by 2. Contradiction: $\sqrt 2$ is not a fraction.
+
+> [!PITFALL] Irrational times irrational
+> The product of two irrational numbers is not always irrational: $\sqrt 2 \cdot \sqrt 2 = 2$.
+
+**The nine rules of arithmetic.** For addition: associative, commutative, there is 0, every number has an opposite. For multiplication: associative, commutative, there is 1, every number **different from 0** has an inverse. Plus the distributive law, $a(b + c) = ab + ac$.
+
+> [!DEF] Field
+> A set of numbers with addition and multiplication in which all nine rules hold.
+
+**How to read it.** In practice a field is a set in which you can do the four operations without leaving it. $\Q$, $\R$ and $\C$ are fields; $\N$ is not, because $-1$ is missing; $\Z$ is not, because $\frac12$ is missing. Zero has no inverse: you do not divide by zero.
+
+**Order.** $a > b$ means that $a - b$ is positive, that is $a$ lies further right on the number line. $\N$, $\Z$, $\Q$ and $\R$ are ordered; $\C$ is not.
+
+| Notation | Means |
+|---|---|
+| $\{1, 2\}$ | the set with the two elements 1 and 2 |
+| $(1, 2)$ | the reals between 1 and 2, endpoints **excluded**; or the point or vector with coordinates 1 and 2, depending on the context |
+| $[1, 2]$ | the reals between 1 and 2, endpoints **included** |
+| $\lambda$, $\mu$, $\vartheta$ | Greek letters: usually $\lambda$ and $\mu$ are numbers, $\vartheta$ an angle |
+| $\forall$, $\exists$, $\Longrightarrow$ | "for all", "there exists", "if … then" |
+
+> [!PITFALL] "If … then" does not hold backwards
+> If $a = 2$ then $a^2 = 4$; but $a^2 = 4$ does not give $a = 2$, because $a = -2$ works too. When a sentence holds both ways one says "if and only if".
+
+> [!METHOD] Calculations with roots without a calculator
+> 1. $\sqrt a \cdot \sqrt b = \sqrt{ab}$, and a square comes out of the root: $\sqrt{12} = \sqrt{4 \cdot 3} = 2\sqrt 3$.
+> 2. Only equal roots add up: $2\sqrt 3 + 5\sqrt 3 = 7\sqrt 3$, while $\sqrt 2 + \sqrt 3$ stays as it is.
+> 3. To remove the root from the denominator multiply top and bottom by that root: $\frac1{\sqrt 3} = \frac{\sqrt 3}3$.
+> 4. $\sqrt{a + b}$ is **not** $\sqrt a + \sqrt b$: $\sqrt{9 + 16} = 5$, while $3 + 4 = 7$.
+
+## Towards the exam
+
+- An exam common to the three channels: **10 quiz questions** with 5 answers; with at least **6** correct ones the **2 problems** worth 11 points each are marked. It lasts 2 hours, **no calculator**, and you may bring only **4 handwritten sides**.
+- Exam sessions 2026/27: Friday 22/01/2027 and Friday 05/02/2027, at 14:00. The MDAG grade is the average with Discrete Mathematics.
+- From this lesson: recognising a field, using the right brackets, simplifying roots. In the session of 07/09/2026 the answers for a distance were $3$, $\frac{\sqrt 3}3$, $3\sqrt 3$, $\sqrt 3$ and $3 + \sqrt 3$: you must recognise that $\frac1{\sqrt 3}$ and $\frac{\sqrt 3}3$ are the same number.
+- On the 4-side sheet: the table of the families, the nine rules, the rules for roots.
+
+## Review questions
+
+::: question Is $-4$ in $\N$? In $\Z$? In $\Q$?
+It is not in $\N$; it is in $\Z$ and in $\Q$.
+:::
+
+::: question Is $0.333\ldots$ rational?
+Yes: it is $\frac13$, the digits repeat.
+:::
+
+::: question Is $\Z$ a field? Why?
+No: 2 has no inverse in $\Z$, because $\frac12$ is not an integer.
+:::
+
+::: question What is the difference between $(2, 5)$ and $[2, 5]$? Is 5 in both?
+The first excludes the endpoints, the second includes them: 5 is only in $[2, 5]$.
+:::
+
+::: question Simplify $\sqrt{50}$ and $\frac6{\sqrt 2}$.
+$\sqrt{50} = \sqrt{25 \cdot 2} = 5\sqrt 2$; $\frac6{\sqrt 2} = \frac{6\sqrt 2}2 = 3\sqrt 2$.
+:::
+
+::: question Is $\sqrt 2 \cdot \sqrt 8$ irrational?
+No: $\sqrt 2 \cdot \sqrt 8 = \sqrt{16} = 4$.
+:::
+
+## Sources
+
+- The full lesson: [L01 · Real numbers](L01_real_numbers.html), with exam quizzes and worked exercises. All 26 lessons of Linear Algebra and Geometry are already on the site.
+- R. Buzano, M. Radeschi, the course's 2026 handouts, pp. 2–5.
+- Exam rules and sessions: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/MDAG/course.md).
+
+
+---
+
+<!-- FILE: ai_context/MDAG/summaries/week_01_MD.md -->
+> File: `ai_context/MDAG/summaries/week_01_MD.md`
+
+```yaml
+course: MDAG
+module: MD
+lesson: S1
+type: summary
+title: "Week 1: sets, De Morgan, induction and partitions"
+date: 2026-10-02
+lecturers: Andrea Mori, Ignazio Longhi and Lea Terracini
+eyebrow: Weekly summary · Part 1 (modA) · Discrete Mathematics · Channels A, B and C · 28/09 – 02/10/2026
+description: >-
+  Summary of week 1 of Discrete Mathematics (MDAG, part 1): sets, elements and subsets, for all and there exists, the
+  empty set and cardinality, the power set, union, intersection, difference and complement, De Morgan's laws, Peano's
+  axioms and induction, coverings, partitions and the quotient set.
+lede: >-
+  The two lessons of the week in a few pages: the definitions to know, the methods needed for quiz questions 1 and 2,
+  the pitfalls and the questions to check yourself.
+material: book
+facts:
+  Lessons: "[D01](D01_sets_induction.html) Wed 30/09 · [D02](D02_complements_induction_partitions.html) Fri 02/10"
+  Book: A. Mori, Lezioni di Matematica Discreta, ch. 1, pp. 1–13
+  Revision time: 40 minutes
+source: >-
+  The notes of lessons D01 and D02 of Discrete Mathematics, written on A. Mori's book, ch. 1
+italian_file: riassunto_settimana_01_MD.html
+html_notes: notes/MDAG/summary_week_01_MD.html
+generate_html: true
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/MDAG/riassunti/settimana_01_MD.md
+```
+
+## In brief
+
+- A **set** is a bag of objects, its **elements**: only what is inside counts, not the order nor repetitions.
+- **Element** ($\in$) and **subset** ($\subset$) are two different things: it is the trick of almost every quiz question 1.
+- With sets you take **union**, **intersection**, **difference** and **complement**. **De Morgan's laws** say how "outside" behaves.
+- The natural numbers are described by **Peano's axioms**, and **induction** comes from there. A set with $n$ elements has $2^n$ subsets.
+- A **partition** splits a set into non-empty parts that do not touch: it is recognised with three checks.
+
+## D01 · Sets and induction (Wed 30/09)
+
+**Sets.**
+
+- Written with curly brackets: with the **list**, $\{1, 3, 5\}$, or with a **rule**, $\{n \in \N \mid n < 5\} = \{0, 1, 2, 3, 4\}$. The bar is read "such that".
+- $\{1, 2\} = \{2, 1\} = \{1, 1, 2\}$: order and repetitions do not matter.
+- A set can be inside another: $\{0, \{1, -1\}\}$ has **two** elements, zero and the bag $\{1, -1\}$. The inner brackets matter.
+- The **empty set** $\emptyset$ has no elements; $\{\emptyset\}$ instead has one, the empty set.
+- The **cardinality** $\lvert A \rvert$ is the number of elements: $\lvert \{a, b, a\} \rvert = 2$.
+
+**For all and there exists.** $\forall$ is read "for all", $\exists$ "there exists". To say the opposite, "for all" becomes "there exists" and the property is negated: the opposite of "everyone passed the exam" is "**at least one** did not pass it", not "nobody". To refute a sentence with "for all" a single **counterexample** is enough.
+
+**Subsets.** $B \subset A$ if **every** element of $B$ is in $A$. The empty set and $A$ itself are always subsets of $A$. Mori writes $\subset$ also when the two sets may be equal. Two sets are equal when each one is contained in the other: it is the **double inclusion**. The **power set** $P(A)$ has as elements all the subsets of $A$: $P(\{a, b\}) = \{\emptyset, \{a\}, \{b\}, \{a, b\}\}$.
+
+> [!METHOD] Element or subset?
+> 1. List the elements of $A$ looking only at the commas at the first level of brackets.
+> 2. "$x \in A$" is true if $x$ appears **identical** in that list.
+> 3. "$X \subset A$" is true if $X$ is a set and **each** of its elements appears in the list.
+>
+> With $A = \{1, 2, 3\}$: $\emptyset \subset A$ yes, $\emptyset \in A$ no; $\{1\} \subset A$ yes, $\{1\} \in A$ no; $1 \subset A$ no, because 1 is not a set.
+
+**Natural numbers and induction.**
+
+- $\N = \{0, 1, 2, \dots\}$: for Mori **zero is a natural number**.
+- **Induction**, like dominoes: **base case** (the property holds for the first number) and **inductive step** (if it holds for $n$, it holds for $n + 1$). Then it holds for all. The base case cannot be skipped.
+- Examples: $1 + 2 + \dots + n = \frac{n(n + 1)}2$; the book's one, $1^2 + 2^2 + \dots + n^2 = \frac{n(n + 1)(2n + 1)}6$.
+- A set with $n$ elements has $2^n$ subsets: for each element the choice is "in" or "out". Those of $\{1, \dots, 6\}$ containing 1 are $2^5 = 32$: you fix the 1 and choose the rest.
+- The families of numbers: $\N \subset \Z \subset \Q \subset \R$. Intervals: $(a, b)$ with the endpoints excluded, $[a, b]$ included.
+
+## D02 · Complement, De Morgan, induction and partitions (Fri 02/10)
+
+The example used throughout the lesson: $X$ = the tiles from 1 to 10, $A$ = the even ones $= \{2, 4, 6, 8, 10\}$, $B$ = the multiples of 3 $= \{3, 6, 9\}$.
+
+| Operation | Read as | Contains | With the tiles |
+|---|---|---|---|
+| $A \cap B$ | "$A$ intersect $B$" | the elements in $A$ **and** in $B$ | $\{6\}$ |
+| $A \cup B$ | "$A$ union $B$" | the elements in $A$ **or** in $B$, also in both | $\{2, 3, 4, 6, 8, 9, 10\}$ |
+| $A \setminus B$ | "$A$ minus $B$" | the elements of $A$ that are not in $B$ | $\{2, 4, 8, 10\}$ |
+| $B \setminus A$ | "$B$ minus $A$" | the order matters | $\{3, 9\}$ |
+| $C_X(A)$ | "complement of $A$ in $X$" | the elements of $X$ outside $A$ | $\{1, 3, 5, 7, 9\}$ |
+
+- Two sets are **disjoint** if the intersection is empty.
+- The intersection is a set: if $A \cap B = \{6\}$ then $6 \in A \cap B$ and $\{6\} \subset A \cap B$; $6 \subset A \cap B$ and $\{6\} \in A \cap B$ are wrong.
+- $\lvert A \cup B \rvert = \lvert A \rvert + \lvert B \rvert - \lvert A \cap B \rvert$: $5 + 3 - 1 = 7$, because common elements are counted once.
+- Distributive properties: $(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$, and the same with $\cap$ and $\cup$ swapped.
+- The complement **depends on $X$**: $\{2, 4\}$ in $\{1, \dots, 5\}$ has complement $\{1, 3, 5\}$, in the ten tiles $\{1, 3, 5, 6, 7, 8, 9, 10\}$. The complement of the complement is the starting set.
+
+> [!THEOREM] De Morgan's laws (theorem 1.18)
+> $$C_X(A \cup B) = C_X(A) \cap C_X(B) \qquad C_X(A \cap B) = C_X(A) \cup C_X(B)$$
+
+**How to read it.** Outside the union means outside **both**: with the tiles $\{1, 5, 7\}$. Outside the intersection means outside **at least one**: all except the 6. The complement enters the brackets and **swaps** $\cap$ and $\cup$, as in logic: the opposite of "it is raining and it is cold" is "it is not raining or it is not cold". The same laws hold with the difference: $X \setminus (A \cap B) = (X \setminus A) \cup (X \setminus B)$.
+
+**Peano's axioms**, explained by what goes wrong when one is missing:
+
+| Rule | Without this rule |
+|---|---|
+| 1. zero is a natural number | — |
+| 2. every natural number has a successor $s(n)$ | — |
+| 3. different numbers have different successors | the **loop**: from 0 to 5, with the successor of 5 equal to 3, you re-enter halfway |
+| 4. zero is not the successor of anything | the **clock**: after 11 comes 0 |
+| 5. a set that contains 0 and always passes to the successor contains all the natural numbers | the **ghost numbers**: a second row never reached from 0 |
+
+Rule 5 is the **principle of induction**.
+
+> [!METHOD] Proving by induction
+> 1. **Base case**: check the first number, 0 or 1.
+> 2. **Inductive hypothesis**: assume the property true for $n$.
+> 3. **Inductive step**: write the property for $n + 1$, start from the left-hand side, use the hypothesis and reach the right-hand side.
+> 4. **Conclusion**: it holds for all numbers from the first one on.
+>
+> Examples from the lesson: $1 + 3 + 5 + \dots + (2n - 1) = n^2$, the square that grows by an "L"; $2^n \ge n + 1$. The paradox of the horses all of the same colour breaks in the step from 1 to 2.
+
+**Power set, coverings, partitions.**
+
+- The subsets of $\{1, 2, 3\}$ by size are $1 + 3 + 3 + 1 = 8 = 2^3$. Adding an element doubles the count: those without plus those with.
+- The elements of $P(A)$ are sets: $\{1\} \in P(A)$ but $1 \notin P(A)$. $P(\emptyset) = \{\emptyset\}$. It holds that $P(A) \cap P(B) = P(A \cap B)$, but $P(A \cup B)$ is in general larger than $P(A) \cup P(B)$.
+- A **covering** of $X$ is a group of subsets of $X$ whose union is the whole of $X$; the parts may overlap.
+- $n\Z$ are the multiples of $n$: $2\Z$ the even numbers, $2\Z + 1$ the odd ones, and $\Z = 2\Z \cup (2\Z + 1)$.
+- The **quotient set** has as elements the parts of a partition; $[x]$ is the part containing $x$. For even and odd numbers: $[0]$ and $[1]$.
+- $\{1, 2, 3\}$ has **5** partitions; $\{a, b, c, d\}$ has 15.
+
+> [!METHOD] Is it a partition? Three checks
+> 1. The union of the parts is the **whole** set, and no part contains foreign elements.
+> 2. **No part is empty.**
+> 3. **No overlap**, checked on **every pair** of parts: each element is in one part only.
+
+## Towards the exam
+
+- An exam common to the three channels: **10 quiz questions** with 5 answers and **2 problems**, in 2 hours. With fewer than 6 in the quiz the problems are not marked; the pass mark is 18. You may bring the book, notes and a non-programmable calculator.
+- Exam sessions 2026/27: Tuesday 19/01/2027 and Wednesday 03/02/2027, at 14:00 (on MyUniTo the session is called "M.D.A.G.1").
+- **Question 1** is almost always about sets: $\in$ versus $\subset$, union and intersection (sessions of 2025 and 2026). **Question 2** sometimes asks for a partition (04/02/2025) or "a covering but not a partition" (07/07/2025).
+- In the problems, counts with $2^n$ come back and, later on, "at least one" counted as "all minus none", that is with the complement.
+- In the Discrete Mathematics exams you do not have to write an induction proof; in Foundations of Computer Science the principle of induction is among the quiz topics.
+
+## Review questions
+
+::: question How many elements does $\{\emptyset, \{\emptyset\}, \{1, 2\}\}$ have?
+Three: the empty set, the set containing the empty set and the set $\{1, 2\}$.
+:::
+
+::: question With $A = \{a, \{b\}\}$: $b \in A$? $\{b\} \in A$? $\{b\} \subset A$?
+$b \in A$ no: in $A$ there is $\{b\}$, not $b$. $\{b\} \in A$ yes. $\{b\} \subset A$ no: $b$ would have to be among the elements of $A$.
+:::
+
+::: question What is the opposite of "there exists an even number greater than 10"?
+"Every even number is less than or equal to 10". It is false, so the starting sentence is true.
+:::
+
+::: question How many subsets of $\{1, 2, 3, 4, 5\}$ contain 1 and 2?
+$2^3 = 8$: with 1 and 2 fixed, the other three elements are chosen freely.
+:::
+
+::: question With $X = \{1, \dots, 8\}$, $A = \{1, 2, 3\}$ and $B = \{3, 4, 5\}$, what is $C_X(A \cap B)$?
+$A \cap B = \{3\}$, so $C_X(A \cap B) = \{1, 2, 4, 5, 6, 7, 8\}$.
+:::
+
+::: question Are the parts $\{1, 2\}$, $\{2, 3\}$, $\{4\}$ a partition of $\{1, 2, 3, 4\}$?
+No: they cover everything and none is empty, but the 2 is in two parts.
+:::
+
+::: question Which of Peano's axioms fails for a clock with the hours from 0 to 11?
+The fourth: zero is the successor of 11.
+:::
+
+::: question In the inductive step of $1 + 3 + \dots + (2n - 1) = n^2$, where must you arrive?
+At $1 + 3 + \dots + (2n + 1) = (n + 1)^2$.
+:::
+
+## Sources
+
+- The full lessons: [D01 · Sets and induction](D01_sets_induction.html) and [D02 · Complement, De Morgan, induction and partitions](D02_complements_induction_partitions.html), with exam quizzes and worked exercises.
+- A. Mori, *Lezioni di Matematica Discreta*, ch. 1 "Insiemi", pp. 1–13.
+- Exam rules and sessions: [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/MDAG/course.md).
 
 
 ---

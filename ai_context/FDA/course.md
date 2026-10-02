@@ -86,7 +86,11 @@ The course has existed since 2023/24 and brings together topics that used to be 
 6. Weeks 11–13 (28/11–12/12): sequential circuits, finite-state machines, automata, grammars, NFA, regular languages.
 7. Last lecture (15/12/2025): review exercises. In 2026/27 lectures run until 15/01/2027.
 
-Channel C started with the slides "Azzeramento" (refresher) and "Rappresentazione" (Representation), in line with A. Channel B follows the book with the omissions listed above; the order will become clear from the lecture summaries on Moodle (on 28/09 the textbook presentation was released).
+Channel C started with the slides "Azzeramento" (refresher) and "Rappresentazione" (Representation), in line with A. Channel B follows the book with the omissions listed above; the lecture summaries on the channel B Moodle so far:
+
+- Mon 28/09: introductory lecture, with the presentation of the textbook. It has no number in the notes.
+- Thu 01/10: part 1, §1.1 "Bits and Their Storage" (flip-flops, hexadecimal notation), then main memory and mass storage (§1.2–1.3). In the notes it is lesson 01.
+- Fri 02/10: part 1, §1.4 "Representing Information as Bit Patterns" and §1.5 "The Binary System": the ASCII and UTF-8 alphabets, colours and sounds, conversions between binary and decimal, binary fractions, addition of unsigned integers. In the notes it is lesson 02.
 
 ## Materials
 

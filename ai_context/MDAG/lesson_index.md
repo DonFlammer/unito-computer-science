@@ -1,6 +1,19 @@
-# Linear Algebra and Geometry (MDAG, part 2, modB) — lesson index
+# Discrete Mathematics and Linear Algebra (MDAG) — lesson index
 
-Full course sheet (both modules, timetables of the three channels, exam): `course.md`. The 26 lessons follow the course's 2026 handouts (Buzano, Radeschi), the same for channels A, B and C, and are ready ahead of the lectures: the pace in class may differ. Every file has exam-style quizzes, worked exercises, review questions, a glossary and a "Towards the exam" section with the questions of the 2023–2026 exam sessions on the same topics. The notes for Discrete Mathematics (MDAG, part 1) are not there yet.
+Full course sheet (both modules, timetables of the three channels, exam): `course.md`.
+
+## Discrete Mathematics (part 1, modA)
+
+The lessons follow Andrea Mori's book and the topics given for channel B. They contain examples, proofs, quizzes, worked exercises, review questions, a glossary and a checklist.
+
+| # | Title | Book (Mori) | File | Topics |
+|---|---|---|---|---|
+| D01 | Sets and induction | ch. 1, pp. 1–8 | `lessons/D01_sets_induction.md` · HTML: `notes/MDAG/D01_sets_induction.html` | elements and sets, membership and inclusion, quantifiers, cardinality, first proofs by induction and the power set |
+| D02 | Complement, De Morgan, induction and partitions | ch. 1, pp. 5–13 | `lessons/D02_complements_induction_partitions.md` · HTML: `notes/MDAG/D02_complements_induction_partitions.html` | intersection and union, difference and complement, De Morgan's laws, Peano's axioms, induction, the power set, coverings, partitions and the quotient set |
+
+## Linear Algebra and Geometry (part 2, modB)
+
+The 26 lessons follow the course's 2026 handouts (Buzano, Radeschi), the same for channels A, B and C, and are ready ahead of the lectures: the pace in class may differ. Every file has exam-style quizzes, worked exercises, review questions, a glossary and a "Towards the exam" section with the questions of the 2023–2026 exam sessions on the same topics.
 
 | # | Title | Handouts | Book (Martelli) | File | Topics |
 |---|---|---|---|---|---|

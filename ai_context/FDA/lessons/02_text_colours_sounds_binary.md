@@ -24,10 +24,10 @@ source: >-
   Information as Bit Patterns" and §1.5 "The Binary System", with the answers to their questions; summary of the
   lesson of 02/10/2026 on the channel B Moodle page; channel A 2026/27 slides on data encoding; the Unicode and UTF-8
   standards
-italian_file: 03_testo_colori_suoni_binario.html
+italian_file: 02_testo_colori_suoni_binario.html
 html_notes: notes/FDA/02_text_colours_sounds_binary.html
 generate_html: true
-italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/FDA/lezioni/03_testo_colori_suoni_binario.md
+italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/contesto_ai/FDA/lezioni/02_testo_colori_suoni_binario.md
 ---
 
 ## In brief
@@ -94,7 +94,7 @@ Try writing the Italian word "perché" (why) in ASCII: you cannot. The é is not
 
 For the other languages 8-bit codes were created, with 256 symbols: the first 128 are those of ASCII, the others change from language to language. The code ISO 8859-1, called Latin-1, for example, has the accented letters of Western Europe. The book explains the two limits of this idea: 256 symbols are not enough for languages like Chinese, and a text in several languages does not know which table to use.
 
-Today's solution is **Unicode**: a single table with the symbols of all languages, plus mathematical symbols, emoji and much more. Each symbol has a number, called **code point**, which is written with "U+" followed by the number in hexadecimal. The numbers reach 21 bits: there is room for more than a million symbols. The first 128 are those of ASCII.
+Today's solution is **Unicode**: a single table with the symbols of all languages, plus mathematical symbols, emoji and much more. Each symbol has a number, called **code point**, which is written with "U+" followed by the number in hexadecimal. The numbers reach 21 bits: there is room for more than a million symbols, and many places are still free. The first 128 are those of ASCII.
 
 | Symbol | Code point | In decimal |
 |:-:|:-:|--:|
@@ -254,6 +254,11 @@ How many samples are needed?
 - For a phone call 8000 samples per second are enough.
 - A music CD uses **44,100 per second**, each of **16 bits**, and two channels for music in stereo, one per ear.
 
+These are two different choices.
+
+- **How many times per second** you measure the wave: this is the sampling rate. With 44,100 samples per second you measure the wave every 1/44,100 of a second.
+- **With how many bits** you write each measurement. With 16 bits there are $2^{16} = 65536$ possible values, and each measurement is rounded to the nearest value. This rounding is called **quantisation**.
+
 More samples per second and more bits per sample give a more faithful sound, but they take more space. In the tool below you see a wave, the samples taken at regular intervals and the sound that is rebuilt from the samples.
 
 ```widget codifica
@@ -331,6 +336,11 @@ For the opposite journey the book gives an algorithm, in figure 1.17.
 > [!IDEA]
 > The remainder of the division by 2 says whether the number is even, remainder 0, or odd, remainder 1: it is exactly the last bit. Dividing by 2 removes the last bit. So the bits come out from right to left, and that is why the remainders are read backwards.
 
+Zero needs no divisions: in binary it is 0, and in a byte 00000000. Zeros on the left do not change the value: 1101 and 00001101 are both 13. A zero on the right does: 11010 is 26, twice as much.
+
+> [!PITFALL] "How many bits are needed" and "write it with 8 bits" are different questions
+> 13 needs at least 4 bits, 1101; to write it with 8 bits you add four zeros on the left, 00001101. Instead 256 needs 9 bits, 100000000: it does not fit in a byte, because the largest number with 8 bits is 255.
+
 With small numbers there is also another way: take away the largest power of 2 that fits, then repeat with what is left. For example $45 = 32 + 8 + 4 + 1$: there are 32, 8, 4 and 1, while 16 and 2 are missing, so 45 is written 101101.
 
 ```widget codifica
@@ -380,6 +390,8 @@ This is called **overflow** (in Italian also *trabocco*): the result does not fi
 
 > [!PITFALL] The carry beyond the last column
 > With $n$ bits, if the last column on the left gives a carry, the sum is at least $2^n$ and does not fit: there is overflow. The result written with $n$ bits is wrong by $2^n$, like 44 instead of 300.
+
+Only the carry out of the last column counts, not the ones in between. With 4 bits, $0111 + 0001 = 1000$: the carries cross three columns, but $7 + 1 = 8$ fits, because with 4 bits you get up to 15. Instead $1111 + 0001$ gives a carry out of the last column too: $15 + 1 = 16$ does not fit, and it is overflow. This rule holds for unsigned integers; for signed ones, in the next lesson, there is another one.
 
 ```widget codifica
 title: Column addition with 8 bits: click the bits of the two numbers
@@ -751,6 +763,25 @@ A photo of 800 × 600 pixels in RGB, without compression. (a) How many bytes doe
 4. $1440000 : 176400$ is about 8.2: a single photo takes as much as a little more than 8 seconds of music.
 :::
 
+::: exercise intermediate The same bits, three meanings
+The byte 00110101 is read as an unsigned integer, as an ASCII character and as the amount of red of an RGB pixel with green and blue at zero. What does it mean in the three cases?
+::: solution
+1. As an integer: the weights of the 1s are 32, 16, 4 and 1, so it is $32 + 16 + 4 + 1 = 53$.
+2. As an ASCII character: code 53 is the digit "5". The number 5, written in binary, would instead be 00000101.
+3. As red: the pixel is (53, 0, 0), a dark red, because 53 is little compared with the maximum 255.
+
+The bits are the same: the rule you read them with decides whether they are a number, a letter or a colour.
+:::
+
+::: exercise intermediate Carry in the middle or overflow?
+With 8 unsigned bits compute (a) 01111111 + 00000001 and (b) 11111111 + 00000001. Say what is left in the 8 bits and whether there is overflow.
+::: solution
+1. (a) 01111111 is 127. Adding 1, the seven 1s on the right become 0 and the carry reaches the eighth column: 10000000, that is 128. It fits, because the maximum is 255: no overflow.
+2. (b) 11111111 is 255. Adding 1, a carry comes out of the eighth column too: the true result is 100000000, that is 256, which has 9 bits. In the 8 bits 00000000 is left, that is 0: there is overflow.
+
+It does not matter how many carries there are in the middle; what matters is whether a carry comes out of the last column.
+:::
+
 ## Review questions
 
 ::: question What is a code? Why is ASCII not enough for Italian?
@@ -819,5 +850,5 @@ Overflow | When the result of a calculation does not fit in the available bits.
 - R. Johnsonbaugh, J. G. Brookshear, D. Brylow, *Fondamenti dell'Informatica*, Pearson 2026 (ISBN 9788891939456), the course textbook: part 1, which is chapter 1 of J. G. Brookshear, D. Brylow, *Computer Science: an overview*. Section 1.4 "Representing Information as Bit Patterns": text, ASCII and Unicode (figure 1.11), numbers, images, RGB, luminance and chrominance, vector images, sounds, sampling and MIDI. Section 1.5 "The Binary System": binary notation (figures 1.15 and 1.16), the algorithm of the divisions (figures 1.17 and 1.18), addition, fractions (figure 1.19). Answers to the questions of the two sections in the book's appendix, published on the channel A Moodle page.
 - Summary of the lesson of 02/10/2026 on the channel B Moodle page: "Alfabeti ASCII e UTF-8, colori e suoni, conversioni tra binario e decimale, frazioni binarie, addizione di interi senza segno" (the ASCII and UTF-8 alphabets, colours and sounds, conversions between binary and decimal, binary fractions, addition of unsigned integers).
 - Channel A slides 2026/27, "Cenni sulla codifica dei dati" (notes on data encoding) (F. Cardone, channel A Moodle page, open to guests): the ASCII code and the passage between uppercase and lowercase, base 2 with the divisions, addition in base 2.
-- The Unicode standard (unicode.org) for the code points, and RFC 3629 for the byte pattern of UTF-8.
+- The Unicode standard (unicode.org) for the code points, and [RFC 3629](https://www.rfc-editor.org/rfc/rfc3629.html#section-3) for the byte pattern of UTF-8.
 - The explanations in words, the examples, the "Try it" boxes, the interactive tools, the quizzes and the exercises without a book number are original to these notes.

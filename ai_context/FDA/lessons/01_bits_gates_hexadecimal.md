@@ -1,27 +1,29 @@
 ---
 course: FDA
 lesson: "01"
-title: Bits, logic gates and hexadecimal
-date: 2026-09-28
+title: Bits, logic gates, hexadecimal and memory
+date: 2026-10-01
 lecturers: Stefano Berardi
-eyebrow: Channel B · Lesson 01 · Book, part 1, §1.1
+eyebrow: Channel B · Lesson 01 · Book, part 1, §1.1–1.3
 description: >-
   Notes on lesson 01 of Foundations of Computer Science (channel B): bits and how much can be written with n bits,
-  the Boolean operations AND, OR, XOR and NOT, logic gates, the flip-flop that remembers a bit and hexadecimal
-  notation, with an interactive tool, quizzes and worked exercises.
+  the Boolean operations AND, OR, XOR and NOT, logic gates, the flip-flop that remembers a bit, hexadecimal notation,
+  main memory (cells, addresses, RAM, kilobytes) and mass storage (magnetic and optical disks, flash memory), with
+  interactive tools, quizzes and worked exercises.
 lede: >-
   Inside a computer every piece of information is made of just two symbols, zero and one. Here you see how they are
-  combined with four operations, how circuits carry them out, how a circuit manages to remember and how long rows of
-  zeros and ones are written in short.
+  combined with four operations, how circuits carry them out, how a circuit manages to remember, how long rows of
+  zeros and ones are written in short and where the computer keeps them: in main memory and in mass storage.
 material: book
 facts:
-  Book: Johnsonbaugh, Brookshear, Brylow, Fondamenti dell'Informatica, part 1 (Brookshear, ch. 1), §1.1
+  Book: Johnsonbaugh, Brookshear, Brylow, Fondamenti dell'Informatica, part 1 (Brookshear, ch. 1), §1.1–1.3
   Lecturer: Stefano Berardi · channel B · A.Y. 2026/27
-  Study time: 2 hours, also in several sittings
+  Study time: 3 hours, also in several sittings
 source: >-
   Course textbook, part 1 (J. G. Brookshear, D. Brylow, Computer Science: an overview, ch. 1), §1.1 "Bits and Their
-  Storage" and the answers to its questions; channel B programme 2026/27; channel A 2026/27 slides on data encoding;
-  exam rules common to the three channels
+  Storage", §1.2 "Main Memory" and §1.3 "Mass Storage", with the answers to their questions; summary of the lesson of
+  01/10/2026 on the channel B Moodle page; channel A 2026/27 slides on data encoding; exam rules common to the three
+  channels
 italian_file: 01_bit_porte_esadecimale.html
 html_notes: notes/FDA/01_bits_gates_hexadecimal.html
 generate_html: true
@@ -32,14 +34,15 @@ italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/cont
 
 - Inside a computer every piece of information, numbers, text, images and sounds, is written with just two symbols, 0 and 1. Each of these symbols is called a **bit**.
 - Each extra bit doubles the possibilities: with $n$ bits you can write $2^n$ different sequences. With 8 bits, that is a **byte**, there are 256.
-- **Boolean operations** combine bits. **AND** gives 1 only if both inputs are 1, **OR** if at least one is 1, **XOR** if the two inputs are different. **NOT** swaps 0 and 1.
-- A **logic gate** is a small circuit that carries out one of these operations. By connecting several gates you build circuits that do more complicated calculations.
+- **Boolean operations** combine bits: **AND** gives 1 only if both inputs are 1, **OR** if at least one is 1, **XOR** if they are different, **NOT** swaps 0 and 1. A **logic gate** is the circuit that carries out one of these operations.
 - The **flip-flop** is a circuit that remembers a bit: its output stays the same until a pulse changes it. It is a first building block of memory.
 - **Hexadecimal notation** writes four bits with a single symbol, from 0 to 9 and from A to F. For example 1011 0101 becomes B5.
+- **Main memory** is a long row of one-byte **cells**, each with its own number, the **address**. Any cell can be reached in the same time (RAM). A **kilobyte** is 1024 bytes.
+- **Mass storage**, that is magnetic disks, optical disks and flash memory, keeps data even when the computer is off. It is larger and cheaper than main memory, but slower.
 - In the exam, common to the three channels, the tables of the operations and reading circuits come back: they must be known by heart.
 
 > [!CHANNELS]
-> The textbook and the exam are the same in channels A, B and C; the lecturers and the order of the lessons change. In channel B Stefano Berardi follows the book, in English, without slides of his own: on 28/09 he published on Moodle the presentation of Pearson's digital book. The channel B lesson summaries are on the channel's Moodle page, which requires a login: these notes follow the book from the beginning, section 1.1. In channel A (Felice Cardone) the first lesson was an introduction to the course, and the slides "Cenni sulla codifica dei dati" (notes on data encoding) start precisely from bits and from how many things can be labelled with $n$ bits. Channel C (Luca Paolini) started with the slides "Azzeramento" (reset) and "Rappresentazione" (representation). Watch out: the channel B programme skips some sections of the book that the common exam may ask about (details in the [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md)).
+> The textbook and the exam are the same in channels A, B and C; the lecturers and the order of the lessons change. In channel B Stefano Berardi follows the book, in English, without slides of his own. His first lesson, on Monday 28/09, was an introduction to the course: these notes start from the second one, on Thursday 01/10, which covered section 1.1 of the book (bits, gates, flip-flops, hexadecimal), main memory and mass storage. That is why here it is lesson 01. The lesson summaries are on the channel B Moodle page, which requires a login. In channel A (Felice Cardone) the slides "Cenni sulla codifica dei dati" (notes on data encoding) start precisely from bits and from how many things can be labelled with $n$ bits, and other slides describe the structure of memory. Channel C (Luca Paolini) started with the slides "Azzeramento" (reset) and "Rappresentazione" (representation). Watch out: the channel B programme skips some sections of the book that the common exam may ask about (details in the [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md)).
 
 ## Two symbols to say everything: bits (book, §1.1)
 
@@ -75,7 +78,7 @@ Each extra bit doubles the number of sequences. For every old sequence there are
 > |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 > | $2^n$ | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 1024 |
 
-A row of 8 bits is called a **byte**: section 1.2 of the book talks about it. A byte can have $2^8 = 256$ different values.
+A row of 8 bits is called a **byte**: you will meet it again later, in the section on main memory. A byte can have $2^8 = 256$ different values.
 
 ### How many bits are needed
 
@@ -322,7 +325,7 @@ Compare the second and the third rows: the inputs go back to what they were at t
 > [!NOTE] Another way to build it
 > The book also shows a second flip-flop (figure 1.5), with two OR gates and two NOT gates. The idea is the same: an output that goes back and holds itself. Question 3 of §1.1 tells the story.
 
-The flip-flop is one of the ways of storing a bit inside a computer. How memory, made of very many bits, is organised is explained in section 1.2 of the book.
+The flip-flop is one of the ways of storing a bit inside a computer. How memory, made of very many bits, is organised you see later, in the section on main memory.
 
 ::: try (a) The flip-flop has output 1 and a pulse arrives on the upper input. What happens? (b) It has output 1 and a pulse arrives on the lower input. What happens?
 (a) Nothing new. During the pulse the OR receives 1 from the input and 1 from the output, and gives 1; the NOT gives 1; the AND gives 1. After the pulse the output stays 1.
@@ -356,7 +359,7 @@ Four bits have $2^4 = 16$ combinations, so 16 symbols are needed. The digits fro
 | 0110 | 6 | | 1110 | E |
 | 0111 | 7 | | 1111 | F |
 
-There is a help for remembering the table. The four positions of the group are worth, from the left, 8, 4, 2 and 1. Add up the values of the positions where there is a 1. For example 1011 gives $8 + 2 + 1 = 11$. Then the numbers from 10 to 15 are written with letters: A is 10, B is 11, and so on up to F, which is 15. So 1011 is written B. Why it works you will see in section 1.5 of the book, on numbers in base 2.
+There is a help for remembering the table. The four positions of the group are worth, from the left, 8, 4, 2 and 1. Add up the values of the positions where there is a 1. For example 1011 gives $8 + 2 + 1 = 11$. Then the numbers from 10 to 15 are written with letters: A is 10, B is 11, and so on up to F, which is 15. So 1011 is written B. Why it works you see in [lesson 02](02_text_colours_sounds_binary.html), on numbers in base 2 (section 1.5 of the book).
 
 > [!METHOD] From bits to hexadecimal, and back
 > **From bits to hexadecimal.**
@@ -392,6 +395,160 @@ bit: 0110101011110010
 > - A hexadecimal digit is worth four bits: from 0000, that is 0, to 1111, that is F.
 > - To go to hexadecimal, make groups of four bits starting from the right. To go back to bits, write each digit with four bits, zeros included.
 
+## Main memory (book, §1.2)
+
+Imagine a very tall chest of drawers, with identical drawers one above the other. On each drawer there is a number: 0, 1, 2, 3, and so on. In each drawer there is room for a row of 8 bits. The main memory of a computer is made exactly like this.
+
+To store data, a computer has a great many circuits like the flip-flop, each able to hold one bit. All together they form the **main memory** (Italian *memoria centrale*).
+
+### Cells and bytes
+
+The bits of main memory are not scattered: they are grouped into **cells** (Italian *celle*). Usually a cell holds 8 bits, that is a **byte**. A microwave oven may have a few hundred cells; a computer today has billions.
+
+Inside a cell the bits are in a row. The book calls the left end the **high-order end** (Italian *estremo alto*) and the right end the **low-order end** (Italian *estremo basso*). The bit at the high-order end is called the **most significant bit** (Italian *bit più significativo*), the one at the low-order end the **least significant bit** (Italian *bit meno significativo*).
+
+| Position | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| A cell | **1** | 0 | 0 | 1 | 0 | 1 | 1 | **0** |
+| Name | most significant | | | | | | | least significant |
+
+The names come from numbers in base 2, which you see in [lesson 02](02_text_colours_sounds_binary.html): the leftmost bit is the one that weighs the most.
+
+### Addresses
+
+Each cell has a number that identifies it, like the street number of a house: it is its **address** (Italian *indirizzo*). Addresses start from 0 and grow one by one. So the cells have an order, and you can talk about the next cell or the previous one.
+
+The order is also used to store rows of bits longer than a byte: neighbouring cells are used. For example sixteen bits take two consecutive cells.
+
+You can do two things with a cell.
+
+- **Read it**: its content is copied, and the cell stays as it was.
+- **Write to it**: a new value is put into the cell. The previous value is lost.
+
+> [!EXAMPLE] Writing or copying (question 1 of §1.2)
+> Cell 5 holds the value 8. Writing the value 5 into cell 6 means that cell 6 holds 5. Copying the content of cell 5 into cell 6 means that cell 6 holds 8. In both cases cell 5 stays as it was.
+
+Try the two operations in the tool below. Then try to swap the contents of two cells, as question 2 of §1.2 asks: copying cell 2 into 3 and then 3 into 2 does not work. Why? And how do you do it?
+
+```widget porte
+title: A small memory of eight cells: write and copy
+mode: memory
+```
+
+### Random access: RAM
+
+Main memory is also called **RAM**, for *random access memory* (Italian *memoria ad accesso casuale*). "Random" here means that any cell can be reached, in any order, in the same time. On an old cassette tape, instead, to listen to the fifth song you have to wind the tape up to it.
+
+Many RAMs today hold the bits as tiny electric charges, which fade quickly. A circuit refreshes them many times a second. That is why they are called **dynamic RAM** (DRAM). RAM also has a limit: when the computer is switched off it loses all its content.
+
+### How large a memory is
+
+Cells are counted with powers of 2, because addresses are written with bits: with 10 bits you can number $2^{10} = 1024$ cells. That is why memories often have sizes like 1024 or 4096 cells.
+
+The number 1024 is close to 1000, so 1024 bytes are called a **kilobyte** (KB). Then it goes on in the same way: 1024 KB make a **megabyte** (MB) and 1024 MB make a **gigabyte** (GB).
+
+| Name | Abbreviation | Bytes | As a power of 2 |
+|---|---|--:|:-:|
+| kilobyte | KB | 1,024 | $2^{10}$ |
+| megabyte | MB | 1,048,576 | $2^{20}$ |
+| gigabyte | GB | 1,073,741,824 | $2^{30}$ |
+
+> [!PITFALL] Does kilo mean 1000 or 1024?
+> Outside computer science "kilo" means exactly 1000, and disk sellers often count that way too: a 1 GB disk may have 1,000,000,000 bytes. To remove the doubt, the names **kibibyte** (KiB), **mebibyte** (MiB) and **gibibyte** (GiB) were introduced in 1998: they always mean 1024 bytes, $2^{20}$ bytes and $2^{30}$ bytes. In these lessons, as in the book, for memory KB means 1024 bytes.
+
+> [!EXAMPLE] How many bits there are in 4 KB (question 3 of §1.2)
+> A kilobyte is 1024 bytes, so 4 KB are $4 \cdot 1024 = 4096$ bytes. Each byte has 8 bits: in all $4096 \cdot 8 = 32768$ bits.
+
+::: try (a) How many bytes are there in 2 KB? And how many bits? (b) With 12-bit addresses, how many cells can be numbered?
+(a) 2 KB are $2 \cdot 1024 = 2048$ bytes, that is $2048 \cdot 8 = 16384$ bits.
+
+(b) With 12 bits you can write $2^{12} = 4096$ different addresses, from 0 to 4095: 4096 cells can be numbered, that is 4 KB of memory if each cell is a byte.
+:::
+
+> [!REMEMBER]
+> - Main memory is a row of one-byte cells. Each cell has an address, from 0 upwards.
+> - Reading a cell does not change it; writing to it erases the previous value.
+> - In RAM any cell can be reached in the same time. When the computer is switched off, RAM loses everything.
+> - 1 KB = 1024 bytes, 1 MB = 1024 KB, 1 GB = 1024 MB.
+
+## Mass storage (book, §1.3)
+
+When you switch the computer off and on again, your files are still there. Yet main memory loses everything when it is switched off. The files are somewhere else: in **mass storage** (Italian *memorie di massa*), also called secondary memory.
+
+Compared with main memory, mass storage has three advantages and one drawback.
+
+- It keeps data even without power.
+- It is much larger.
+- It costs much less per byte, and it can often be removed and carried away.
+- But it is slower. Many devices have moving parts, like a spinning disk, and a mechanical movement is very slow compared with electronic circuits.
+
+The book presents three families: magnetic disks, optical disks and flash memory.
+
+### Magnetic disks
+
+A **hard disk** (Italian *disco rigido*) is made of thin disks covered with magnetic material, spinning very fast one above the other. Above each surface there is a **read/write head** (Italian *testina di lettura e scrittura*), which writes bits by magnetising small areas of the surface and reads them by sensing how they are magnetised.
+
+If the head stays still, the spinning disk passes under it along a circle. Moving the head towards the centre or towards the edge, you go to a different circle.
+
+- Each circle is called a **track** (Italian *traccia*): the tracks are circles with the same centre, one inside the other.
+- Each track is divided into arcs called **sectors** (Italian *settori*). All sectors hold the same number of bits, for example 512 bytes or a few KB.
+- The heads of all the surfaces move together. The tracks that lie one above the other, at the same distance from the centre, form a **cylinder** (Italian *cilindro*).
+
+Marking tracks and sectors on a new disk is called **formatting** it.
+
+To know how fast a disk is, you look at four measures.
+
+- **Seek time** (Italian *tempo di ricerca*): the time needed to move the heads from one track to another.
+- **Rotation delay** or **latency time** (Italian *ritardo di rotazione*, *latenza*): the time spent waiting for the right sector to arrive under the head. On average it is half a turn of the disk.
+- **Access time** (Italian *tempo di accesso*): the sum of the two previous times.
+- **Transfer rate** (Italian *velocità di trasferimento*): how many bits per second can be read or written.
+
+> [!EXAMPLE] The rotation delay of a disk
+> A disk makes 7200 turns per minute, that is $7200 : 60 = 120$ turns per second. One turn therefore lasts $1/120$ of a second, about 8.3 thousandths of a second. On average you wait half a turn: about 4.2 thousandths of a second. It seems little, but in that time a processor performs millions of operations.
+
+> [!NOTE] Magnetic tapes
+> There are also magnetic tapes, similar to old cassettes. To reach a piece of data you have to wind the tape up to it, so they are very slow. They are still used for backup copies of very large archives.
+
+### Optical disks: CD, DVD and Blu-ray
+
+A **CD** (*compact disk*) is a 12-centimetre disk with a surface that reflects light, protected by a layer of plastic. The bits are tiny irregularities of the surface: a laser lights them up and a sensor detects how the light comes back.
+
+Unlike magnetic disks, the data lie on a single **spiral** track. The spiral starts from the centre and reaches the edge, like the groove of an old vinyl record, and it is divided into sectors.
+
+- A CD holds from 600 to 700 MB.
+- A **DVD** (*digital versatile disk*) has the same size, but several semi-transparent layers one above the other: it holds several GB.
+- A **Blu-ray** (BD) uses a blue-violet laser instead of a red one. The beam is thinner and the bits are closer together: it holds more than five times as much as a DVD.
+
+The spiral is very good for long data read from beginning to end, like music and films. To jump to any piece of data, instead, it is slow: there are no tracks to reach with a single movement.
+
+### Flash memory
+
+**Flash memory** (Italian *memorie flash*) means USB sticks, the SD cards of cameras and solid-state disks. It has no moving parts. Bits are written with electric signals that trap electrons in tiny cells of silicon dioxide; there the electrons stay for years, even without power.
+
+Without moving parts it is fast, silent and does not fear knocks. It has a limit, though: each time a cell is erased it wears a little, and after many rewrites it stops working. That is why it is not suitable as main memory, which is rewritten all the time.
+
+A **solid-state disk** (SSD, Italian *disco a stato solido*) is a flash memory large enough to take the place of the hard disk. It is faster, silent and sturdy. It costs more per GB, though, and that is why magnetic disks are still used.
+
+| | Magnetic disks | Optical disks | Flash memory |
+|---|---|---|---|
+| How a bit is written | by magnetising a spot of the surface | by changing how the surface reflects light | by trapping electrons in small cells |
+| Moving parts | yes: disks and heads | yes: disk and laser | no |
+| How the data lie | concentric tracks, sectors, cylinders | a single spiral track | electronic cells |
+| Strong points | lots of space, low cost per byte | cheap and easy to carry | fast, sturdy, silent |
+| Weak points | slow compared with RAM | slow at jumping from one piece of data to another | cost more, wear out when rewritten |
+
+::: try (a) A disk makes 6000 turns per minute. What is the average rotation delay? (b) Why does a USB stick have no seek time?
+(a) 6000 turns per minute are $6000 : 60 = 100$ turns per second: one turn lasts $1/100$ of a second, that is 10 thousandths. On average you wait half a turn: 5 thousandths of a second.
+
+(b) The seek time is the time to move the heads from one track to another. A USB stick is a flash memory: it has no heads and no moving parts.
+:::
+
+> [!REMEMBER]
+> - Mass storage keeps data even with the computer off, it is large and cheap, but slower than main memory.
+> - Magnetic disk: concentric tracks divided into sectors; the tracks one above the other form a cylinder. Access time = seek time + rotation delay.
+> - CD, DVD and Blu-ray: a single spiral track read by a laser. Blu-ray uses a blue-violet laser and holds more.
+> - Flash memory and SSDs: no moving parts, fast and sturdy, but they wear out when rewritten.
+
 ## The symbols of this lesson
 
 | Symbol | Read as | It means | Example |
@@ -406,7 +563,11 @@ bit: 0110101011110010
 | NOT | "not" | the opposite of the input | NOT 0 = 1 |
 | $\land$, $\lor$, $\oplus$, $\lnot$ | "and", "or", "exclusive or", "not" | the same operations written as in logic (part 2 of the book) | $1 \land 0 = 0$ |
 | A, B, C, D, E, F | "a", "b", "c", "d", "e", "f" | the hexadecimal digits worth 10 to 15 | B = 1011 |
-| $1011_2$, $\text{B}_{16}$ | "1011 in base two", "B in base sixteen" | the small number at the bottom says in which base the number is written (section 1.5) | $1011_2 = \text{B}_{16}$ |
+| $1011_2$, $\text{B}_{16}$ | "1011 in base two", "B in base sixteen" | the small number at the bottom says in which base the number is written ([lesson 02](02_text_colours_sounds_binary.html)) | $1011_2 = \text{B}_{16}$ |
+| KB, MB, GB | "kilobyte", "megabyte", "gigabyte" | for memory: $2^{10}$, $2^{20}$ and $2^{30}$ bytes | 4 KB = 4096 bytes |
+| KiB, MiB, GiB | "kibibyte", "mebibyte", "gibibyte" | the same values, with names that leave no doubt | 1 KiB = 1024 bytes |
+| RAM | "ram" | main memory, with random access (*random access memory*) | 8 GB of RAM |
+| SSD | "ess-ess-dee" | solid-state disk, made of flash memory | a 512 GB SSD |
 
 ## Towards the exam
 
@@ -430,7 +591,8 @@ All the details are in the [course sheet](https://github.com/DonFlammer/unito-co
 1. **The tables of the operations.** In the 2023/24 exam simulations two kinds of quiz question come back. One asks for the Boolean formula of a truth table; the other gives a circuit, combinational or sequential, and asks what function it computes. These are the ideas of this lesson, taken up again later with Boolean algebras and circuits (chapter 11 of part 2 of the book).
 2. **Reading a circuit.** The method with the table of all the combinations of the inputs works for any circuit of gates.
 3. **Bits and powers of 2.** How many sequences with $n$ bits and how many bits are needed: these are calculations that come back with the representation of numbers.
-4. **Hexadecimal.** It comes back with the conversions between bases of section 1.5.
+4. **Hexadecimal.** It comes back with the conversions between bases of [lesson 02](02_text_colours_sounds_binary.html).
+5. **Main memory and mass storage.** They do not appear in the quiz questions of the 2023/24 simulations, but sections 1.2 and 1.3 are in the common map of the book. You need the ideas (cells, addresses, RAM, tracks, sectors, flash) and the calculations with powers of 2, like the bits of 4 KB.
 
 The quiz is in Italian and the book is in English: learn the names in both languages. The glossary at the end puts them side by side. On the exam page (Moodle Esami, id 2673) there are also review quizzes split by lesson.
 
@@ -443,6 +605,8 @@ The quiz is in Italian and the book is in English: learn the names in both langu
 - Forgetting a combination of the inputs: with 3 inputs there are 8 rows, not 6.
 - Thinking that the flip-flop goes back to 0 by itself when the pulse ends: that is exactly what it does not do.
 - In hexadecimal, dropping the 0s in front of a digit: 1 is 0001, not 1.
+- Forgetting that a byte has 8 bits, or that for memory a KB has 1024 bytes: 4 KB are $4 \cdot 1024 \cdot 8 = 32768$ bits.
+- Believing that the access time of a disk is only the seek time: the rotation delay must be added.
 
 ## Quiz
 
@@ -514,6 +678,38 @@ Q: Which row of bits represents the hexadecimal string 7E?
 Q: How many hexadecimal digits are needed to write a row of 24 bits?
 N: 6
 = Each hexadecimal digit is worth four bits, so you need $24 : 4 = 6$ digits. For example the string E85517 of §1.1 is made of 24 bits.
+
+Q: How many bits are there in a 2 KB memory?
+- $2000$
+- $2048$
+- $16000$
++ $16384$
+- $16$
+= 2 KB are $2 \cdot 1024 = 2048$ bytes, and each byte has 8 bits: $2048 \cdot 8 = 16384$. The answer $2048$ counts the bytes, not the bits. The answer $16000$ uses 1000 instead of 1024: for memory a KB is 1024 bytes.
+
+Q: Cells 2 and 3 hold two different values. Which sequence of steps swaps their contents?
+- Copy cell 2 into 3, then copy cell 3 into 2.
+- Copy cell 3 into 2, then copy cell 2 into 3.
++ Copy cell 2 into 1, then cell 3 into 2, then cell 1 into 3.
+- Copy cell 2 into 1, then cell 1 into 3, then cell 3 into 2.
+- It cannot be done: copying a cell always erases the source cell.
+= A spare cell is needed, here cell 1. You put aside the value of cell 2, then copy 3 into 2, and finally bring into 3 the value put aside. The first two answers lose a value at the first step: at the end the two cells hold the same value. The fourth copies into 3 the value of 2 before saving the value of 3, which is lost. The last one is false: copying reads the source cell without changing it.
+
+Q: A magnetic disk must read a sector that lies on another track. What do you add up to get the access time?
++ The seek time and the rotation delay.
+- The seek time and the transfer rate.
+- The rotation delay and the transfer rate.
+- Nothing: it is only the seek time, because the disk is always spinning.
+- Nothing: it is only the rotation delay, because the heads do not move.
+= First the heads move to the right track (seek time), then you wait for the sector to arrive under the head (rotation delay): the access time is the sum of the two. The transfer rate is another measure, in bits per second: it says how fast you read once you have arrived.
+
+Q: Which memory has no moving parts but wears out after many rewrites?
+- The magnetic hard disk.
+- The CD.
+- The Blu-ray.
++ Flash memory, like that of a USB stick or an SSD.
+- Magnetic tape.
+= Flash memory writes bits by trapping electrons in small cells, without disks or heads. Each erasure damages the cells a little, so after many rewrites they stop working. Hard disks, CDs, Blu-rays and tapes all have moving parts.
 ```
 
 ## Exercises
@@ -648,6 +844,52 @@ You need a circuit with two inputs that gives 1 exactly when the two inputs are 
 4. A OR B and A XOR B get several rows wrong.
 :::
 
+::: exercise basic Questions 1 and 3 of §1.2: writing, copying, counting bits
+(a) The cell with address 5 holds the value 8. What is the difference between writing the value 5 into cell 6 and copying the content of cell 5 into cell 6? (b) How many bits are there in a 4 KB memory?
+::: solution
+1. (a) Writing the value 5, cell 6 holds 5. Copying cell 5, cell 6 holds 8, the value that is in cell 5. In both cases cell 5 does not change, and the previous value of cell 6 is lost.
+2. (b) 4 KB are $4 \cdot 1024 = 4096$ bytes.
+3. Each byte has 8 bits: $4096 \cdot 8 = 32768$ bits.
+
+These are the answers the book gives. Check of (b) with powers of 2: $4 = 2^2$, $1024 = 2^{10}$ and $8 = 2^3$, so the bits are $2^{2+10+3} = 2^{15} = 32768$.
+:::
+
+::: exercise intermediate Question 2 of §1.2: swapping two cells
+You want to swap the values of cells 2 and 3. What is wrong with these two steps? Step 1: copy cell 2 into cell 3. Step 2: copy cell 3 into cell 2. Write a correct sequence of steps; you may use other cells.
+::: solution
+1. Step 1 writes into cell 3 the value of cell 2: the value that was in 3 is lost.
+2. Step 2 copies into 2 what is now in 3, that is the value of 2: cell 2 does not change.
+3. At the end both cells hold the value that was in 2.
+
+A correct sequence, as in the book's answers, uses cell 1 to put a value aside:
+
+1. Copy cell 2 into cell 1.
+2. Copy cell 3 into cell 2.
+3. Copy cell 1 into cell 3.
+
+You can try it in the memory tool: with 2 and 3 different, after the three steps they are swapped.
+:::
+
+::: exercise intermediate Questions 1 and 2 of §1.3: faster disks and cylinders
+(a) What do you gain by making a disk spin faster? (b) A disk has several surfaces. To record a lot of data, is it better to fill a whole surface before moving to the next one, or to fill a whole cylinder before moving to the next one?
+::: solution
+1. (a) The sector you are looking for arrives under the head sooner, so the rotation delay decreases. Moreover more bits pass under the head every second: the transfer rate increases.
+2. (b) Moving the heads is slow, because it is a mechanical movement: it is better to move them as little as possible.
+3. Filling one surface at a time, the heads move every time a track is full: as many movements as there are tracks on all the surfaces.
+4. Filling one cylinder at a time, when a track is full you go to the track above or below. It is enough to activate another head, with an electronic command, without moving anything. The heads move only when the whole cylinder is full.
+
+So it is better to fill one cylinder at a time, as the book's answers say.
+:::
+
+::: exercise intermediate Questions 3–6 of §1.3: which memory for which use
+(a) Why are the data of a reservation system, which change all the time, kept on a magnetic disk and not on a CD or a DVD? (b) Why can the same player read CDs, DVDs and Blu-rays? (c) What advantage does flash memory have over the other systems? (d) Why are magnetic disks still used?
+::: solution
+1. (a) In a reservation system you look up any piece of data, in any order. On the spiral of a CD or a DVD, jumping from one piece of data to another is slow. Moreover on these disks you cannot change a small piece of data here and there.
+2. (b) The three disks have the same size and the same spiral track. A player with several lasers, red and blue-violet, reads them all.
+3. (c) It has no moving parts: it responds sooner and does not wear out through friction.
+4. (d) They are faster and larger than the other magnetic media, like tapes. Compared with optical disks they are faster, larger and can be rewritten without problems. And they cost less per GB than solid-state disks, even if the difference has shrunk in recent years.
+:::
+
 ## Review questions
 
 ::: question What is a bit? Why does the book say it is "only a symbol"?
@@ -674,6 +916,22 @@ Its output goes back and becomes an input of the OR. After a pulse on the upper 
 Long rows of bits are hard to read. Hexadecimal writes four bits with a single symbol, from 0 to F. You make groups of four bits from the right and write the digit of each group.
 :::
 
+::: question How is main memory organised? What is an address?
+It is a row of cells, usually of one byte each. Each cell has a number, its address, which starts from 0 and grows one by one: it is used to find the cell and gives an order to all the cells.
+:::
+
+::: question Why is main memory called RAM? What drawback does it have?
+RAM means random access memory: any cell can be reached, in any order, in the same time. The drawback is that, when the computer is switched off, it loses everything.
+:::
+
+::: question What are the tracks, sectors and cylinders of a magnetic disk?
+The tracks are the circles, with the same centre, on which the head reads and writes. The sectors are the arcs into which each track is divided. A cylinder is the set of tracks that lie one above the other, on the various surfaces, at the same distance from the centre.
+:::
+
+::: question Why is flash memory not suitable as main memory?
+Each erasure damages its cells a little, and after many rewrites they stop working. Main memory is rewritten all the time, many times a second.
+:::
+
 ## Glossary
 
 ```glossary
@@ -692,6 +950,20 @@ Flip-flop | A circuit whose output stays the same until a pulse changes it: it r
 Bit string | A row of bits (Italian *stringa di bit*); when it is very long the book calls it a stream.
 Hexadecimal notation | The way of writing each group of four bits with a symbol from 0 to 9 or from A to F (Italian *notazione esadecimale*).
 Hexadecimal digit | One of the 16 symbols 0–9 and A–F. A is worth 10, F is worth 15.
+Main memory | The memory where the computer keeps the data it is working on (Italian *memoria centrale*): a row of cells.
+Cell | A piece of memory of fixed size, usually a byte (Italian *cella*).
+Address | The number that identifies a cell: it starts from 0 and grows one by one (Italian *indirizzo*).
+Most significant bit | The bit at the high-order end of the cell, that is on the left (Italian *bit più significativo*). The one on the right is the least significant.
+RAM | Random access memory (Italian *memoria ad accesso casuale*): each cell is reached in the same time. DRAM holds the bits as electric charges that must be refreshed.
+Kilobyte (KB) | For memory, 1024 bytes. A megabyte (MB) is 1024 KB, a gigabyte (GB) 1024 MB. To remove any doubt there is also the name kibibyte (KiB).
+Mass storage | A memory that keeps data even without power, larger and slower than main memory (Italian *memoria di massa*).
+Track | One of the concentric circles on which a magnetic disk records data (Italian *traccia*).
+Sector | An arc of a track; all sectors hold the same number of bits (Italian *settore*).
+Cylinder | The set of tracks that lie one above the other on the surfaces of a disk (Italian *cilindro*).
+Access time | Seek time, to bring the head to the track, plus rotation delay, to wait for the sector (Italian *tempo di accesso*).
+Transfer rate | How many bits per second are read or written (Italian *velocità di trasferimento*).
+Flash memory | A memory without moving parts that holds bits by trapping electrons; it wears out with rewrites (Italian *memoria flash*).
+SSD | Solid-state disk: a large flash memory, in place of the hard disk (Italian *disco a stato solido*).
 ```
 
 ## Checklist
@@ -703,12 +975,16 @@ Hexadecimal digit | One of the 16 symbols 0–9 and A–F. A is worth 10, F is w
 - I can read a circuit of gates with the table of all the combinations of the inputs.
 - I can tell what happens in a flip-flop with a pulse on the upper input and with a pulse on the lower input.
 - I can go from bits to hexadecimal and from hexadecimal to bits, without losing the zeros.
+- I can explain cells, addresses and RAM, and the difference between writing into a cell and copying it.
+- I can do calculations with KB, MB and GB: for example how many bits there are in 4 KB.
+- I know what tracks, sectors, cylinders, seek time and rotation delay are.
+- I can tell the strengths and weaknesses of magnetic disks, optical disks and flash memory.
 ```
 
 ## Sources
 
-- R. Johnsonbaugh, J. G. Brookshear, D. Brylow, *Fondamenti dell'Informatica*, Pearson 2026 (ISBN 9788891939456), the course textbook: part 1, which is chapter 1 of J. G. Brookshear, D. Brylow, *Computer Science: an overview*. Section 1.1 "Bits and Their Storage": Boolean operations, gates and flip-flops (figures 1.3 and 1.5), hexadecimal notation; answers to questions 1–6 of the section in the book's appendix, published on the channel A Moodle page.
-- Channel B programme 2026/27 (channel B Moodle page, consulted on 28/09/2026) and exam rules common to the three channels (exam page on Moodle Esami): [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md).
-- Channel A slides 2026/27, "Cenni sulla codifica dei dati" (F. Cardone, channel A Moodle page, open to guests): bits as labels, $2^n$ sequences, minimum number of bits.
-- Channel B lesson calendar (University Planner): first lesson on Monday 28/09/2026.
-- The explanations in words, the examples, the "Refresher" and "Try it" boxes, the interactive tool, the quizzes and the exercises without a book number are original to these notes.
+- R. Johnsonbaugh, J. G. Brookshear, D. Brylow, *Fondamenti dell'Informatica*, Pearson 2026 (ISBN 9788891939456), the course textbook: part 1, which is chapter 1 of J. G. Brookshear, D. Brylow, *Computer Science: an overview*. Section 1.1 "Bits and Their Storage": Boolean operations, gates and flip-flops (figures 1.3 and 1.5), hexadecimal notation. Section 1.2 "Main Memory": cells, high-order and low-order ends, addresses, RAM and DRAM, kilobytes. Section 1.3 "Mass Storage": magnetic disks, CDs, DVDs and Blu-rays, flash memory and SSDs. Answers to the questions of the three sections in the book's appendix, published on the channel A Moodle page.
+- Channel B lesson summaries (channel B Moodle page): lesson 1 on 28/09/2026, introductory; lesson 2 on 01/10/2026, "Bits and Their Storage", flip-flops, hexadecimal notation, main memory and mass storage. Channel B programme 2026/27 and exam rules common to the three channels (exam page on Moodle Esami): [course sheet](https://github.com/DonFlammer/unito-computer-science/blob/main/ai_context/FDA/course.md).
+- Channel A slides 2026/27, "Cenni sulla codifica dei dati" (notes on data encoding) and "Struttura della memoria ed esecuzione dei programmi" (structure of memory and execution of programs) (F. Cardone, channel A Moodle page, open to guests): bits as labels, $2^n$ sequences, minimum number of bits; cells and addresses.
+- Binary prefixes kibi, mebi and gibi: standard IEC 60027-2 (December 1998).
+- The explanations in words, the examples (like the disk at 7200 turns per minute), the "Refresher" and "Try it" boxes, the interactive tools, the quizzes and the exercises without a book number are original to these notes.

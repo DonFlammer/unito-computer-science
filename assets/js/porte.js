@@ -1,8 +1,10 @@
-// Strumenti interattivi delle lezioni di Fondamenti dell'Informatica: porte logiche, flip-flop e notazione esadecimale.
-// Il compilatore (strumenti/lezioni.mjs) scrive <figure class="widget" data-widget="porte" data-modo="…">; qui si disegna lo strumento.
-// Modi: «porte» (AND, OR, XOR e NOT con due ingressi da cambiare), «flipflop» (il flip-flop della figura 1.3 del libro:
-// una porta OR, una AND e una NOT, con l'uscita che torna all'ingresso dell'OR), «esadecimale» (bit da cambiare con un clic,
-// letti a gruppi di quattro). Solo nodi creati con il DOM, nessun HTML scritto come testo.
+// Strumenti interattivi delle lezioni di Fondamenti dell'Informatica: porte logiche, flip-flop, notazione esadecimale e
+// memoria centrale. Il compilatore (strumenti/lezioni.mjs) scrive <figure class="widget" data-widget="porte" data-modo="…">;
+// qui si disegna lo strumento. Modi: «porte» (AND, OR, XOR e NOT con due ingressi da cambiare), «flipflop» (il flip-flop
+// della figura 1.3 del libro: una porta OR, una AND e una NOT, con l'uscita che torna all'ingresso dell'OR), «esadecimale»
+// (bit da cambiare con un clic, letti a gruppi di quattro), «memoria» (otto celle di un byte con il loro indirizzo: si
+// scrive un valore in una cella o si copia una cella in un'altra, come nelle domande 1 e 2 del §1.2).
+// Solo nodi creati con il DOM, nessun HTML scritto come testo.
 (() => {
   'use strict';
   const en = (document.documentElement.lang || '').startsWith('en');
@@ -228,7 +230,80 @@
     disegna();
   }
 
-  const MODI = { porte, gates: porte, flipflop, esadecimale, hexadecimal: esadecimale };
+  /* ---------- una piccola memoria: scrivere e copiare celle ---------- */
+
+  function memoria(fig) {
+    const N = 8;
+    const iniziale = (fig.dataset.celle || fig.dataset.cells || '0 0 7 12 0 8 0 0').trim().split(/\s+/)
+      .map(x => Math.max(0, Math.min(255, parseInt(x, 10) || 0)));
+    while (iniziale.length < N) iniziale.push(0);
+    let celle = iniziale.slice(0, N), cambiata = -1, ultima = null;
+    const storia = [];
+    const scelta = (valore, nome) => {
+      const s = el('select', { 'aria-label': nome });
+      for (let k = 0; k < N; k++) s.append(el('option', { value: String(k), text: String(k) }));
+      s.value = String(valore);
+      return s;
+    };
+    const campo = (etichetta, controllo) => el('div', { class: 'w-campo' }, el('label', { text: etichetta }), controllo);
+    const valore = el('input', { type: 'number', min: '0', max: '255', value: '5', 'aria-label': t('valore da scrivere', 'value to write') });
+    const doveScrivi = scelta(6, t('cella in cui scrivere', 'cell to write into')), da = scelta(5, t('cella da copiare', 'cell to copy')),
+      a = scelta(6, t('cella in cui copiare', 'cell to copy into'));
+    const scrivi = el('button', { type: 'button', class: 'btn primary', text: t('Scrivi', 'Write') });
+    const copia = el('button', { type: 'button', class: 'btn primary', text: t('Copia', 'Copy') });
+    const daCapo = el('button', { type: 'button', class: 'btn', text: t('Ricomincia', 'Start again') });
+    const aiuto = el('p', { class: 'w-aiuto', text: t('Ogni cella contiene un byte: qui lo vedi in base 10 e, sotto, in bit. Scrivere mette un valore nuovo in una cella; copiare legge una cella e scrive il suo valore in un\'altra.',
+      'Each cell holds one byte: you see it in base ten and, below, in bits. Writing puts a new value into a cell; copying reads a cell and writes its value into another one.') });
+    const griglia = el('div', { class: 'vars mc-memoria' });
+    const lettura = el('div', { class: 'w-lettura', 'aria-live': 'polite' });
+    const lista = el('ol', { class: 'w-passi pt-storia', reversed: '' });
+    fig.append(
+      el('div', { class: 'w-riga' }, campo(t('Valore (0–255)', 'Value (0–255)'), valore), campo(t('Nella cella', 'Into cell'), doveScrivi), scrivi),
+      el('div', { class: 'w-riga' }, campo(t('Copia la cella', 'Copy cell'), da), campo(t('Nella cella', 'Into cell'), a), copia, daCapo),
+      aiuto, griglia, lettura, lista);
+
+    function disegna(frase) {
+      griglia.replaceChildren(...celle.map((v, k) => el('div', { class: 'var' + (k === cambiata ? ' mc-cambiato' : '') },
+        el('span', { class: 'k', text: t(`cella ${k}`, `cell ${k}`) }), el('span', { class: 'v', text: String(v) }),
+        el('span', { class: 'k', text: v.toString(2).padStart(8, '0') }))));
+      if (frase) {
+        storia.unshift(frase);
+        if (storia.length > 6) storia.pop();
+      }
+      lettura.replaceChildren(el('p', { text: storia[0] || t('Prova: scrivi 5 nella cella 6, poi copia la cella 5 nella cella 6. Poi prova a scambiare le celle 2 e 3.',
+        'Try: write 5 into cell 6, then copy cell 5 into cell 6. Then try to swap cells 2 and 3.') }));
+      lista.replaceChildren(...storia.slice(1).map(f => el('li', { text: f })));
+    }
+
+    scrivi.addEventListener('click', () => {
+      const v = Number(valore.value), c = Number(doveScrivi.value);
+      if (!Number.isInteger(v) || v < 0 || v > 255) { lettura.replaceChildren(el('p', { class: 'w-errore', text: t('Un byte contiene un numero da 0 a 255.', 'A byte holds a number from 0 to 255.') })); return; }
+      const prima = celle[c];
+      celle[c] = v; cambiata = c; ultima = null;
+      disegna(t(`Scritto ${v} nella cella ${c}: il valore di prima, ${prima}, si è perso.`, `Wrote ${v} into cell ${c}: the previous value, ${prima}, is lost.`));
+    });
+    copia.addEventListener('click', () => {
+      const x = Number(da.value), y = Number(a.value);
+      if (x === y) { disegna(t(`Copiare la cella ${x} in sé stessa non cambia niente.`, `Copying cell ${x} into itself changes nothing.`)); return; }
+      const prima = celle[y];
+      celle[y] = celle[x]; cambiata = y;
+      let frase = prima === celle[x]
+        ? t(`Copiata la cella ${x} nella cella ${y}: la cella ${y} conteneva già ${prima}, quindi non cambia.`, `Copied cell ${x} into cell ${y}: cell ${y} already held ${prima}, so it does not change.`)
+        : t(`Copiata la cella ${x} nella cella ${y}: ora la cella ${y} contiene ${celle[y]}, come la cella ${x}, che non cambia. Il valore di prima della cella ${y}, ${prima}, si è perso.`,
+          `Copied cell ${x} into cell ${y}: cell ${y} now holds ${celle[y]}, like cell ${x}, which does not change. The previous value of cell ${y}, ${prima}, is lost.`);
+      if (ultima && ultima[0] === y && ultima[1] === x) frase += ' ' + t(`Attenzione: la cella ${x} aveva già lo stesso valore della ${y}, quindi questo passo non scambia niente. Il valore che c'era nella cella ${x} si è perso al passo prima: per scambiare due celle serve una cella di appoggio.`,
+        `Careful: cell ${x} already held the same value as cell ${y}, so this step swaps nothing. The value that was in cell ${x} was lost at the previous step: to swap two cells you need a spare cell.`);
+      ultima = [x, y];
+      disegna(frase);
+    });
+    daCapo.addEventListener('click', () => {
+      celle = iniziale.slice(0, N); cambiata = -1; ultima = null; storia.length = 0;
+      disegna(t('Memoria come all\'inizio.', 'Memory back to the start.'));
+    });
+    disegna();
+  }
+
+  const MODI = { porte, gates: porte, flipflop, esadecimale, hexadecimal: esadecimale, memoria, memory: memoria };
   document.querySelectorAll('figure.widget[data-widget="porte"]').forEach(fig => {
     const carica = fig.querySelector('.widget-carica');
     if (carica) carica.remove();

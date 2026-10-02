@@ -222,14 +222,16 @@ def meta(text, name):
     return html.unescape(m.group(1)).strip() if m else ""
 
 
-def lessons(code):
-    """Reads title, code, date and module of every lesson of the course."""
+def lessons(code, summaries=False):
+    """Reads title, code, date and module of every lesson of the course (or of the weekly summaries, with summaries=True)."""
     folder = NOTES / code
     found = []
     for f in sorted(folder.glob("*.html")) if folder.is_dir() else []:
         if f.name == "index.html":
             continue
         text = f.read_text(encoding="utf-8")
+        if (meta(text, "type") == "summary") != summaries:
+            continue
         title = re.search(r"<title>(.*?)</title>", text, re.S)
         title = html.unescape(title.group(1)).strip() if title else f.stem
         lesson_code = meta(text, "lesson") or f.stem.split("_")[0]
@@ -262,7 +264,34 @@ def lesson_list(les):
 EMPTY = '<p class="vuoto">No lessons yet: the notes arrive lesson by lesson.</p>'
 
 
-def course_page(c, les):
+def summary_list(sums):
+    rows = "\n".join(
+        f'      <li><span class="nodo" aria-hidden="true">{e(s["code"])}</span><a href="{e(s["file"])}">'
+        f'<span class="tit">{e(s["title"])}</span><span class="tenue">{e((PARTS.get(s["module"], s["module"]) + " · ") if s["module"] else "")}Weekly summary</span>'
+        + (f'<time datetime="{e(s["date"])}">{e(date_str(s["date"]))}</time>' if s["date"] else "") + '</a></li>'
+        for s in sums)
+    return f'<ol class="lezioni">\n{rows}\n    </ol>'
+
+
+def summaries_section(c, sums):
+    """Below the lessons: one summary per week, to revise without rereading everything."""
+    if not sums:
+        return ""
+    if c.get("modules"):
+        blocks = [f'<h3 class="modulo-titolo">{e(name)}</h3>\n    ' + summary_list([s for s in sums if s["module"] == code])
+                  for code, name in c["modules"] if any(s["module"] == code for s in sums)]
+        body = "\n    ".join(blocks)
+    else:
+        body = summary_list(sums)
+    return f"""
+
+  <section class="sezione" aria-labelledby="h-summaries">
+    <div class="sez-testa"><h2 id="h-summaries">Weekly summaries</h2><p>The lessons of one week in a few pages, to revise without rereading them in full.</p></div>
+    {body}
+  </section>"""
+
+
+def course_page(c, les, sums=()):
     it_url = f"{IT_SITE}appunti/{c['it_code']}/"
     label = " · ".join(x for x in ["First year", f"{ordinal(c['semester'])} semester", c["course_code"], c.get("extra", "")] if x)
     if les:
@@ -336,7 +365,7 @@ def course_page(c, les):
   <section class="sezione" aria-labelledby="h-lessons">
     <div class="sez-testa"><h2 id="h-lessons">Lessons</h2></div>
     {body}
-  </section>
+  </section>{summaries_section(c, sums)}
 
   <section class="sezione" aria-labelledby="h-links">
     <div class="sez-testa"><h2 id="h-links">Further reading</h2><p>The Markdown sheets of the AI context: lecturers, timetables and Moodle for the three channels, exam and material.</p></div>
@@ -476,8 +505,9 @@ def main():
         all_lessons[c["code"]] = les
         folder = NOTES / c["code"]
         folder.mkdir(parents=True, exist_ok=True)
-        (folder / "index.html").write_text(course_page(c, les), encoding="utf-8", newline="\n")
-        print(f"notes/{c['code']}/index.html - {len(les)} lessons")
+        sums = lessons(c["code"], summaries=True)
+        (folder / "index.html").write_text(course_page(c, les, sums), encoding="utf-8", newline="\n")
+        print(f"notes/{c['code']}/index.html - {len(les)} lessons" + (f", {len(sums)} summaries" if sums else ""))
 
     text = INDEX.read_text(encoding="utf-8")
     text = replace(text, START, END, index_block(all_lessons))

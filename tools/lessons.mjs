@@ -43,7 +43,7 @@ const A_SCOMPARSA = new Set(['DIM', 'APPROFONDIMENTO']);
 
 const L = {
   it: {
-    contesto: 'contesto_ai', lezioni: 'lezioni', appunti: 'appunti', lang: 'it', altraLang: 'en',
+    contesto: 'contesto_ai', lezioni: 'lezioni', riassunti: 'riassunti', appunti: 'appunti', lang: 'it', altraLang: 'en',
     altroSito: 'https://donflammer.github.io/unito-computer-science/notes/', genera: 'strumenti/genera_materie.py',
     marcatori: ['TESTATA:INIZIO', 'TESTATA:FINE', 'PIEDE:INIZIO', 'PIEDE:FINE'],
     corsi: { PROG1: 'Programmazione I', FDA: "Fondamenti dell'Informatica", MDAG: 'Matematica Discreta, Algebra e Geometria',
@@ -57,7 +57,7 @@ const L = {
     distintivi: { esame: 'esame', esercizi: 'con soluzioni', domande: 'autoverifica', glossario: 'termini', quiz: "come all'esame" },
     T: {
       indice: 'Indice', indiceLezione: 'Indice della lezione', percorso: 'Percorso', appunti: 'Appunti', lezione: 'Lezione',
-      inBreve: 'In breve', inPunti: n => `La lezione in ${n} punti`, legenda: 'Legenda dei riquadri',
+      inBreve: 'In breve', inPunti: n => `La lezione in ${n} punti`, inPuntiR: n => `La settimana in ${n} punti`, riassunto: 'Riassunto settimanale', legenda: 'Legenda dei riquadri',
       lDef: 'Definizione o risultato da sapere', lTrap: 'Trappola / errore tipico', lExam: "Conta all'esame", lExtra: m => `Oltre ${m}`,
       lEsempio: 'Esempio svolto', lIdea: "L'idea e il metodo, passo per passo", lRicorda: 'Da ricordare', lRipasso: 'Ripasso', provaTu: 'Prova tu',
       soluzione: 'Soluzione', verifica: 'Verifica', mostraTutte: 'Mostra tutte le risposte',
@@ -72,7 +72,7 @@ const L = {
     chiavi: {},
   },
   en: {
-    contesto: 'ai_context', lezioni: 'lessons', appunti: 'notes', lang: 'en', altraLang: 'it',
+    contesto: 'ai_context', lezioni: 'lessons', riassunti: 'summaries', appunti: 'notes', lang: 'en', altraLang: 'it',
     altroSito: 'https://donflammer.github.io/unito-informatica/appunti/', genera: 'tools/generate_courses.py',
     marcatori: ['BAR:START', 'BAR:END', 'FOOTER:START', 'FOOTER:END'],
     corsi: { PROG1: 'Programming I', FDA: 'Foundations of Computer Science', MDAG: 'Discrete Mathematics, Algebra and Geometry',
@@ -86,7 +86,7 @@ const L = {
     distintivi: { exam: 'exam', exercises: 'with solutions', questions: 'self-check', glossary: 'terms', quiz: 'like the exam' },
     T: {
       indice: 'Contents', indiceLezione: 'Lesson contents', percorso: 'Breadcrumb', appunti: 'Notes', lezione: 'Lesson',
-      inBreve: 'In brief', inPunti: n => `The lesson in ${n} points`, legenda: 'Box legend',
+      inBreve: 'In brief', inPunti: n => `The lesson in ${n} points`, inPuntiR: n => `The week in ${n} points`, riassunto: 'Weekly summary', legenda: 'Box legend',
       lDef: 'Definition or result to know', lTrap: 'Pitfall / typical mistake', lExam: 'Matters in the exam', lExtra: m => `Beyond ${m}`,
       lEsempio: 'Worked example', lIdea: 'The idea and the method, step by step', lRicorda: 'To remember', lRipasso: 'Refresher', provaTu: 'Your turn',
       soluzione: 'Solution', verifica: 'Check', mostraTutte: 'Show all answers',
@@ -101,7 +101,7 @@ const L = {
     // chiavi inglesi dell'intestazione → nomi interni
     chiavi: { course: 'corso', module: 'modulo', lesson: 'lezione', title: 'titolo', date: 'data', eyebrow: 'sopratitolo', description: 'descrizione',
       facts: 'scheda', material: 'materiale', italian_file: 'file_altro', html_notes: 'appunti_html', generate_html: 'genera_html', lecturers: 'docenti',
-      source: 'fonte', italian_original: 'originale' },
+      source: 'fonte', italian_original: 'originale', type: 'tipo' },
   },
 }[LINGUA];
 if (LINGUA === 'it') L.chiavi = { file_en: 'file_altro' };
@@ -680,6 +680,8 @@ function compila(file) {
   if (!/^[A-Za-z0-9-]{1,60}-checklist$/.test(ctx.chiave)) ctx.errore(1, `chiave della checklist non valida «${ctx.chiave}»`);
   if (meta.data && !/^\d{4}-\d{2}-\d{2}$/.test(meta.data instanceof Date ? meta.data.toISOString().slice(0, 10) : String(meta.data))) ctx.errore(1, 'data nel formato AAAA-MM-GG');
   const data = meta.data ? (meta.data instanceof Date ? meta.data.toISOString().slice(0, 10) : String(meta.data)) : '';
+  // riassunto settimanale (tipo: riassunto / type: summary): una pagina come una lezione, ma fuori dall'elenco delle lezioni
+  const riassunto = ['riassunto', 'summary'].includes(String(meta.tipo || ''));
 
   const parti = sezioni(corpo);
   const toc = [], html = [];
@@ -701,7 +703,7 @@ function compila(file) {
       const elenco = righe.slice(0, k).join('\n'), dopo = righe.slice(k).join('\n');
       const punti = righe.slice(0, k).filter(r => /^[-*]\s/.test(r)).length;
       toc.push({ id: speciale, n: '→', titolo: inLinea(titolo, ctx) });
-      const dentroTldr = `\n<h2 id="tldr-title">${T.inPunti(punti)}</h2>\n${markdown(elenco, ctx)}`;
+      const dentroTldr = `\n<h2 id="tldr-title">${riassunto ? T.inPuntiR(punti) : T.inPunti(punti)}</h2>\n${markdown(elenco, ctx)}`;
       html.push(`<section class="tldr" id="${idUnico(ctx, speciale)}" aria-labelledby="tldr-title" style="--h:${altezzaStimata(dentroTldr)}px">${dentroTldr}</section>`);
       if (dopo.trim()) html.push(markdown(dopo, ctx));
       continue;
@@ -724,12 +726,12 @@ function compila(file) {
     const trovata = sorgente.match(re);
     if (trovata) ctx.errore(rigaDi(ctx, trovata[0]), `espressione da non usare negli appunti: «${trovata[0]}»`);
   }
-  if (!ctx.checklist) ctx.avviso(null, 'la lezione non ha una checklist (```checklist)');
+  if (!ctx.checklist && !riassunto) ctx.avviso(null, 'la lezione non ha una checklist (```checklist)');
 
   const nomeCorso = L.corsi[corso] || corso;
   const modulo = meta.modulo ? String(meta.modulo) : '';
   const parte = modulo && L.parti[modulo] ? L.parti[modulo] : '';
-  const sopratitolo = meta.sopratitolo || [parte, modulo ? L.moduli[modulo] : nomeCorso, `${T.lezione} ${lezione}`].filter(Boolean).join(' · ');
+  const sopratitolo = meta.sopratitolo || [parte, modulo ? L.moduli[modulo] : nomeCorso, riassunto ? T.riassunto : `${T.lezione} ${lezione}`].filter(Boolean).join(' · ');
   const scheda = meta.scheda && typeof meta.scheda === 'object'
     ? Object.entries(meta.scheda).map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${inLinea(String(v), ctx)}</dd></div>`).join('') : '';
   const u = ctx.usati;
@@ -761,7 +763,7 @@ function compila(file) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(titoloPagina)}</title>
 <meta name="${LINGUA === 'it' ? 'lezione' : 'lesson'}" content="${esc(lezione)}">
-${data ? `<meta name="${LINGUA === 'it' ? 'data' : 'date'}" content="${data}">\n` : ''}${modulo ? `<meta name="${LINGUA === 'it' ? 'modulo' : 'module'}" content="${esc(modulo)}">\n` : ''}<meta name="description" content="${esc(meta.descrizione || '')}">
+${data ? `<meta name="${LINGUA === 'it' ? 'data' : 'date'}" content="${data}">\n` : ''}${modulo ? `<meta name="${LINGUA === 'it' ? 'modulo' : 'module'}" content="${esc(modulo)}">\n` : ''}${riassunto ? `<meta name="${LINGUA === 'it' ? 'tipo' : 'type'}" content="${LINGUA === 'it' ? 'riassunto' : 'summary'}">\n` : ''}<meta name="description" content="${esc(meta.descrizione || '')}">
 <link rel="alternate" hreflang="${L.altraLang}" href="${esc(altro)}">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23080d19'/%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='none' stroke='%233fe0cc' stroke-opacity='.55'/%3E%3Ctext x='16' y='22.5' font-family='Consolas,monospace' font-size='18' font-weight='700' text-anchor='middle' fill='%233fe0cc'%3E%C2%A7%3C/text%3E%3C/svg%3E">
@@ -789,7 +791,7 @@ ${indice}
 
   <main id="contenuto" class="foglio">
     <header>
-      <nav class="crumbs" aria-label="${T.percorso}"><a href="../../index.html">${T.appunti}</a> › <a href="index.html">${esc(nomeCorso)}</a> › ${parte ? `${esc(parte)} · ` : ''}${T.lezione} ${esc(lezione)}</nav>
+      <nav class="crumbs" aria-label="${T.percorso}"><a href="../../index.html">${T.appunti}</a> › <a href="index.html">${esc(nomeCorso)}</a> › ${parte ? `${esc(parte)} · ` : ''}${riassunto ? T.riassunto : `${T.lezione} ${esc(lezione)}`}</nav>
       <p class="eyebrow">${inLinea(sopratitolo, ctx)}</p>
       <h1>${inLinea(String(meta.titolo || ''), ctx)}</h1>
 ${meta.lede ? `      <p class="lede">${inLinea(String(meta.lede), ctx)}</p>\n` : ''}${scheda ? `      <dl class="meta">${scheda}</dl>\n` : ''}      <ul class="legend" aria-label="${T.legenda}">
@@ -823,9 +825,11 @@ function sorgenti() {
   const out = [];
   for (const corso of readdirSync(base, { withFileTypes: true })) {
     if (!corso.isDirectory()) continue;
-    const cartella = join(base, corso.name, L.lezioni);
-    if (!existsSync(cartella)) continue;
-    for (const f of readdirSync(cartella)) if (f.endsWith('.md')) out.push(join(cartella, f));
+    for (const sotto of [L.lezioni, L.riassunti]) {
+      const cartella = join(base, corso.name, sotto);
+      if (!existsSync(cartella)) continue;
+      for (const f of readdirSync(cartella)) if (f.endsWith('.md')) out.push(join(cartella, f));
+    }
   }
   return out.sort();
 }

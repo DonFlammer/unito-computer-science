@@ -3773,9 +3773,9 @@ description: >-
   base 2 and base 10, fractions in binary and the addition of unsigned integers, with interactive tools, quizzes and
   worked exercises.
 lede: >-
-  Letters, colours and sounds become numbers, and numbers become rows of zeros and ones. Here you see how a text in
-  any language, a photo and a song are written in bits, and how to work with numbers in base 2: conversions, sums and
-  numbers with a point.
+  A computer stores only zeros and ones: letters, colours and sounds become numbers, and the numbers are written in
+  base 2. How to count with only two digits, how a text, a photo and a song become numbers, and how sums and numbers
+  with a point work in binary.
 material: book
 facts:
   Book: Johnsonbaugh, Brookshear, Brylow, Fondamenti dell'Informatica, part 1 (Brookshear, ch. 1), §1.4–1.5
@@ -3794,29 +3794,204 @@ italian_original: https://github.com/DonFlammer/unito-informatica/blob/main/cont
 
 ## In brief
 
-- Each symbol of a text becomes a number, written in bits. The **ASCII** code uses 7 bits, usually placed in a byte: A is 65, that is 01000001.
-- **Unicode** gives a number to every symbol of every language, including è, € and emoji. **UTF-8** writes those numbers with 1, 2, 3 or 4 bytes; for the ASCII symbols it uses the same byte as ASCII.
-- An image is a grid of **pixels**. With the **RGB** system each pixel has three numbers from 0 to 255, for red, green and blue: 3 bytes per pixel.
-- A sound is recorded by measuring the wave many times a second: each measurement is a **sample**. A CD takes 44,100 per second, of 16 bits each.
-- In the **binary system** each position is worth twice the one on its right: 1, 2, 4, 8, 16… So 1101 is worth 8 + 4 + 1 = 13.
-- To go from base 10 to base 2 you divide by 2 several times and read the remainders from the last to the first.
-- In binary you add in columns as in base 10, but 1 + 1 makes 10: I write 0 and carry 1. With $n$ bits the unsigned integers go from 0 to $2^n - 1$; if the sum does not fit there is **overflow**.
-- After the point the positions are worth 1/2, 1/4, 1/8…: 101.101 is worth 5 and 5/8.
+- A computer stores only bits. To store a letter, a colour or a sound you use a rule that turns it into numbers, and the numbers are written in bits.
+- In **base 2** each bit is a coin: the coins are worth 1, 2, 4, 8, 16 and so on, each twice the previous one. 1 means "the coin is there", 0 "it is not". So 1101 is worth 8 + 4 + 1 = 13.
+- For the letters of English there is the **ASCII** code: A is 65, B is 66. For all the languages of the world there is **Unicode**, and **UTF-8** writes each of its symbols with 1, 2, 3 or 4 bytes.
+- A photo is a grid of little coloured squares, the **pixels**. In **RGB** each pixel is made of three numbers from 0 to 255: how much red, how much green, how much blue.
+- A sound is recorded by measuring the wave many times a second. Each measurement is a **sample**.
+- In base 2 you add in columns as at school, but 1 + 1 makes 10: you write 0 and carry 1. If the result does not fit in the bits you have, there is **overflow**.
+- After the point the positions are worth a half, a quarter, an eighth and so on.
+- For the exam you mostly need the conversions and the sums in base 2: they come back in all the lessons that follow.
 
 > [!CHANNELS]
-> In channel B this is the lesson of Friday 02/10, from 11:00 to 13:00. For the lecturer it is lesson 3, because the first one was an introduction: here it is lesson 02. Stefano Berardi covered sections 1.4 and 1.5 of the book: the ASCII and UTF-8 alphabets, colours and sounds, conversions between binary and decimal, binary fractions, addition of unsigned integers. Sections 1.2 and 1.3 are in [lesson 01](01_bits_gates_hexadecimal.html). In channel A the slides "Cenni sulla codifica dei dati" (notes on data encoding) by Felice Cardone do the same conversions with divisions by 2, and recall that in ASCII the lowercase letter is obtained from the uppercase one by adding 32. In channel C the same sections are in the slides "Rappresentazione" (representation) by Luca Paolini.
+> In channel B this is the lesson of Friday 02/10. For the lecturer it is lesson 3, because the first one was an introduction: here it is lesson 02. Stefano Berardi covered sections 1.4 and 1.5 of the book. Here you find them in a different order: first base 2 (§1.5), which you need to read everything else, then text, images and sounds (§1.4), and at the end sums and the point (§1.5). In channel A the same topics are in the slides "Cenni sulla codifica dei dati" (notes on data encoding) by Felice Cardone, in channel C in the slides "Rappresentazione" (representation) by Luca Paolini.
 
-## Text: the ASCII code (book, §1.4)
+## A rule turns everything into numbers
 
-Two friends write secret messages to each other with a rule: A is 1, B is 2, C is 3, and so on. To write CIAO (Italian for hello) they send the numbers 3, 9, 1 and 15. A computer does the same thing with texts: each symbol has its number, and the number is written in bits.
+In [lesson 01](01_bits_gates_hexadecimal.html) you saw that a computer stores only bits: rows of 0s and 1s, grouped in bytes of 8. It has no place for letters, one for colours and one for music. It has only bits.
 
-A table that gives each symbol its own row of bits is called a **code**. The symbols are letters, digits and punctuation marks, but also commands like "go to a new line".
+So how does it store a message, a photo or a song? With an agreement, like two friends who write to each other in code. Their rule is: A is 1, B is 2, C is 3, and so on. To write CIAO they send the numbers 3, 9, 1 and 15. The one who receives them knows the rule and puts the word back together.
 
-The most famous code is **ASCII** (*American Standard Code for Information Interchange*, pronounced "ask-ee"). It uses 7 bits per symbol, so it has $2^7 = 128$ symbols: the uppercase and lowercase letters of the English alphabet, the digits, punctuation, the space and some commands. Today each symbol takes a whole byte, with an extra 0 on the left.
+The computer does the same thing, in two steps.
+
+1. A rule turns the thing into numbers: each letter has its number, each colour its three numbers, each instant of a sound its number.
+2. Each number is written with 0 and 1, that is in **base 2**.
+
+A byte, on its own, does not say what it contains. The same eight bits can be a number, a letter or a colour: the rule you read them with decides. At the end of the lesson there is an exercise about exactly this.
+
+In this lesson you first see the second step, because it is needed everywhere: how to write a number with 0 and 1. Then the rules for text, images and sounds. At the end, calculations in base 2: sums and numbers with a point.
+
+::: try With the two friends' rule, which word is 3, 1, 19, 1?
+C is the third letter, A the first, S the nineteenth: the word is CASA (house).
+:::
+
+> [!REMEMBER]
+> - A computer stores only bits.
+> - A rule turns letters, colours and sounds into numbers; then the numbers are written in base 2.
+> - The same bits can be a number, a letter or a colour: it depends on the rule you read them with.
+
+## Counting with two digits: base 2 (book, §1.5)
+
+Start from something you already know how to do. In the number 375 the 3 is worth three hundred, the 7 is worth seventy and the 5 is worth five. The same digit is worth more the further left it is: each position is worth ten times the one on its right. Units, tens, hundreds. There are ten digits, from 0 to 9, and that is why it is called **base 10**.
+
+Base 2 works the same way, with two differences: the digits are only 0 and 1, and each position is worth **twice** the one on its right.
+
+### The coins of base 2
+
+Imagine you have eight coins, one of each kind: worth 1, 2, 4, 8, 16, 32, 64 and 128 euros. Each coin is worth twice the previous one. Put them in a row, with the biggest on the left, like the digits of a number.
+
+| Position, from the right | 8th | 7th | 6th | 5th | 4th | 3rd | 2nd | 1st |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|
+| Coin worth | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+
+To pay an amount you choose which coins to give. A number in base 2 says exactly this: under each coin there is 1 if you give it, 0 if you keep it.
+
+Take the number 1101. Read it from the right, one coin at a time:
+
+1. the last digit is 1: the 1 coin is there;
+2. the one before is 0: the 2 coin is not there;
+3. then 1: the 4 coin is there;
+4. then 1: the 8 coin is there.
+
+The total is 8 + 4 + 1 = 13. So 1101 in base 2 is worth 13.
+
+Another example, the one in figure 1.16 of the book: 100101.
+
+| Bit | 1 | 0 | 0 | 1 | 0 | 1 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Coin | 32 | 16 | 8 | 4 | 2 | 1 |
+| Do you give it? | yes | no | no | yes | no | yes |
+
+The total is 32 + 4 + 1 = 37.
+
+To avoid mixing up the two ways of writing numbers, the base goes at the bottom: $100101_2 = 37_{10}$. It reads "100101 in base two equals 37 in base ten". Without the little number, 100101 could be one hundred thousand one hundred and one.
+
+> [!IDEA]
+> A number in base 2 is a row of coins: each position is worth twice the one on its right, and the number is worth the sum of the positions holding a 1. Base 2 is also called the **binary system**, and its digits are the bits.
+
+Now two things from [lesson 01](01_bits_gates_hexadecimal.html) make sense. The leftmost bit of a byte is called the "most significant" because it is the coin worth the most, 128. And a hexadecimal digit is the value of four bits, with the coins 8, 4, 2 and 1: for example 1101 is D, that is 13.
+
+Click on the bits in the tool below: each bit switched on adds its coin.
+
+```widget codifica
+title: From bits to the number: click on the bits
+mode: binary
+bits: 00100101
+```
+
+::: try What are the binary numbers (a) 1010 and (b) 11111 worth in base 10?
+(a) The coins are 8 and 2: 1010 is worth 10.
+
+(b) All the coins from 16 down are there: $16 + 8 + 4 + 2 + 1 = 31$.
+:::
+
+### Counting in base 2
+
+In base 10, after 9 the digits have run out: you write 0 and put a 1 on the left, and you get 10. In base 2 the digits run out straight away, after 1. Here are the first numbers.
+
+| Base 10 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| Base 2 | 0 | 1 | 10 | 11 | 100 | 101 | 110 | 111 | 1000 |
+
+Check with the coins: 110 means 4 + 2, that is 6.
+
+### How far 8 bits go
+
+With only the coins 1, 2 and 4 the most you can pay is 7, giving all of them: 111. Counting 0 as well, there are 8 possible amounts, from 0 to 7.
+
+With all eight coins, from 1 to 128, the maximum is 11111111. It is worth 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 = 255. There are 256 possible amounts, from 0 to 255.
+
+There is a shortcut. A row of 1s is always worth the next coin minus 1: 111 is worth 8 − 1 = 7, and 11111111 is worth 256 − 1 = 255.
+
+> [!REFRESHER] Powers of 2
+> $2^3$ reads "two to the third" and means 2 multiplied by itself 3 times: $2 \cdot 2 \cdot 2 = 8$. The coins of base 2 are exactly the powers of 2. It pays to know them by heart up to $2^{10}$.
+>
+> | Power | $2^0$ | $2^1$ | $2^2$ | $2^3$ | $2^4$ | $2^5$ | $2^6$ | $2^7$ | $2^8$ | $2^9$ | $2^{10}$ |
+> |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+> | Value | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 | 256 | 512 | 1024 |
+
+So with $n$ bits you write the numbers from 0 to $2^n - 1$, which reads "two to the n minus one". With 8 bits $2^8 - 1 = 255$; with 16 bits $2^{16} - 1 = 65535$. These numbers, from 0 up, without a minus sign and without a point, are called **unsigned integers**. For negative numbers and for numbers with a point the book uses other systems, in sections 1.6 and 1.7.
+
+### From decimal to binary: paying with the coins
+
+Now the trip the other way: from 45 to base 2. Pay 45 euros with the coins, always starting from the biggest one that fits.
+
+1. The 64 coin is too big. The 32 one fits: you give it, and 45 − 32 = 13 is left.
+2. The 16 one is too much for 13: you keep it.
+3. The 8 one fits: you give it, and 13 − 8 = 5 is left.
+4. The 4 one fits: you give it, and 5 − 4 = 1 is left.
+5. The 2 one is too much for 1: you keep it.
+6. The 1 one fits: you give it, and 0 is left.
+
+| Coin | 32 | 16 | 8 | 4 | 2 | 1 |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|
+| Do you give it? | yes | no | yes | yes | no | yes |
+| Bit | 1 | 0 | 1 | 1 | 0 | 1 |
+
+So 45 is written 101101. Check: 32 + 8 + 4 + 1 = 45.
+
+### The book's method: dividing by 2
+
+With the coins it is quick when the number is small. The book gives another method, in figure 1.17, which always works the same way, even with big numbers.
+
+> [!METHOD] The divisions by 2
+> 1. Divide the number by 2 and write down the remainder, which is 0 or 1.
+> 2. Divide the result by 2, and write down the remainder again.
+> 3. Go on until the result is 0.
+> 4. Read the remainders **from the last to the first**: that is the number in base 2.
+
+> [!EXAMPLE] 13 in base 2 (figure 1.18 of the book)
+> | Division | Result | Remainder |
+> |---|--:|--:|
+> | 13 : 2 | 6 | 1 |
+> | 6 : 2 | 3 | 0 |
+> | 3 : 2 | 1 | 1 |
+> | 1 : 2 | 0 | 1 |
+>
+> The remainders, from the last to the first: 1101. Check with the coins: 8 + 4 + 1 = 13.
+
+Why are they read backwards? The first remainder says whether the number is odd: 13 divided by 2 leaves 1, so the 1 coin is needed. Dividing by 2 is like swapping every coin for the one worth half: the 2 coin becomes the 1 coin, and the next remainder says whether the 2 coin is needed. So the bits come out from right to left, and to write them in the right order you read them from the last one.
+
+In the tool, choose a number and watch the divisions step by step.
+
+```widget codifica
+title: The divisions by 2, step by step: choose a number
+mode: divisions
+number: 13
+```
+
+Three things to know about zeros.
+
+- Zero needs no divisions: in base 2 it is 0, and in a byte 00000000.
+- Zeros on the left do not change the value, just as in base 10 007 is 7: 1101 and 00001101 are both worth 13.
+- A zero added on the right, instead, doubles the number: each bit moves to the next coin. 11010 is worth 26, twice 13.
+
+> [!PITFALL] "How many bits are needed" and "write it with 8 bits" are different questions
+> 13 needs at least 4 bits: 1101. To write it with 8 bits add four zeros on the left: 00001101. 256, instead, needs 9 bits, 100000000, and does not fit in a byte: with 8 bits you get up to 255.
+
+::: try (a) Write 27 in base 2, once with the coins and once with the divisions. (b) What is 101010 worth?
+(a) With the coins: 16 fits, 11 is left; 8 fits, 3 is left; 4 does not; 2 fits, 1 is left; 1 fits. You gave 16, 8, 2 and 1: 11011.
+
+With the divisions: 27 : 2 = 13 remainder 1; 13 : 2 = 6 remainder 1; 6 : 2 = 3 remainder 0; 3 : 2 = 1 remainder 1; 1 : 2 = 0 remainder 1. From the last to the first: 11011. The two methods give the same number.
+
+(b) The coins are 32, 8 and 2: $32 + 8 + 2 = 42$.
+:::
+
+> [!REMEMBER]
+> - In base 2 the positions are worth 1, 2, 4, 8, 16…, from the right: each twice the previous one. The number is worth the sum of the positions holding a 1.
+> - From base 10 to base 2: pay with the coins starting from the biggest, or divide by 2 until the result is 0 and read the remainders from the last to the first.
+> - With $n$ bits you get up to $2^n - 1$: with 8 bits up to 255.
+> - Always check backwards: convert again and see if it matches.
+
+## Letters: the ASCII code (book, §1.4)
+
+Now that you can write a number in bits, go back to the first step: the rule that turns letters into numbers. A table that gives each symbol its number is called a **code**. The symbols are letters, digits, punctuation, the space and also some commands, like "new line".
+
+The most famous code is **ASCII** (*American Standard Code for Information Interchange*). Its numbers go from 0 to 127, so 7 bits are enough: $2^7 = 128$ symbols. It has the letters of the English alphabet, uppercase and lowercase, the digits, punctuation and the space. Today each symbol takes a whole byte, with an extra 0 on the left.
 
 Here is the word "Hello." in ASCII, as in figure 1.11 of the book.
 
-| Symbol | Code | Byte |
+| Symbol | Number | Byte |
 |:-:|--:|:-:|
 | H | 72 | 01001000 |
 | e | 101 | 01100101 |
@@ -3825,121 +4000,141 @@ Here is the word "Hello." in ASCII, as in figure 1.11 of the book.
 | o | 111 | 01101111 |
 | . | 46 | 00101110 |
 
-The complete table is in the appendices of the book. It is enough to remember where the most used groups start.
+Check the H with the coins: 01001000 has the 64 and 8 coins, and 64 + 8 = 72.
 
-| Symbols | Codes | In hexadecimal | First and last byte |
-|---|:-:|:-:|---|
-| space | 32 | 20 | 00100000 |
-| digits from 0 to 9 | from 48 to 57 | from 30 to 39 | from 00110000 to 00111001 |
-| uppercase from A to Z | from 65 to 90 | from 41 to 5A | from 01000001 to 01011010 |
-| lowercase from a to z | from 97 to 122 | from 61 to 7A | from 01100001 to 01111010 |
+The complete table is in the appendices of the book, but there is no need to learn it. It is enough to know where the groups start.
+
+| Symbols | Numbers |
+|---|---|
+| space | 32 |
+| digits from "0" to "9" | from 48 to 57 |
+| uppercase from A to Z | from 65 to 90 |
+| lowercase from a to z | from 97 to 122 |
+
+> [!METHOD] Finding the number of a letter
+> - Uppercase: 64 plus the place of the letter in the English alphabet. A is the first, so 64 + 1 = 65; C is the third, so 67.
+> - Lowercase: 96 plus the place. a is 97, c is 99.
+> - Digit: 48 plus the digit. The symbol "7" is 55.
 
 Two things to notice.
 
-- **Uppercase and lowercase** differ by 32: A is 65, a is 97. In the bits only one bit changes, the sixth from the right, which is worth exactly 32: A is 01000001, a is 01100001. It is question 2 of §1.4.
-- **Digits** are symbols like the others. The symbol "7" has code 55, that is 00110111. The last four bits, 0111, are 7 in binary, but for the computer the symbol "7" is not the number 7: it is a drawing to print.
+- **Uppercase and lowercase** differ by 32: A is 65, a is 97. In the bits only one coin changes, exactly the 32 one: A is 01000001, a is 01100001. It is question 2 of §1.4 in the book.
+- **Digits are symbols like the others.** The symbol "7" is the number 55, that is 00110111. For the computer it is not the number 7, which in base 2 is 00000111: it is a drawing to show on the screen.
 
-::: try (a) The ASCII code of B is 66. What is the code of b? (b) Which symbol has the byte 00110011?
-(a) The lowercase letter is worth 32 more: $66 + 32 = 98$.
+### Numbers are not written in ASCII
 
-(b) 00110011 is worth $32 + 16 + 2 + 1 = 51$, that is $48 + 3$: it is the symbol "3". How to compute the value of a byte you see further on, in the section on the binary system.
+To write the number 25 in ASCII you need two symbols, "2" and "5", that is two bytes. In base 2, instead, 25 is 11001 and fits in a single byte.
+
+The difference grows with the bytes. With two bytes in ASCII you write two digits, so you get up to 99. With the same 16 bits in base 2 you get up to 65535. That is why the book concludes that numbers are stored in base 2, and calculations are done directly on the bits.
+
+::: try (a) The number of B is 66. What is the number of b? (b) Which symbol is the byte 00110011?
+(a) The lowercase letter is 32 more: $66 + 32 = 98$.
+
+(b) The coins are 32, 16, 2 and 1: the number is 51. Digits start at 48, and 51 = 48 + 3: it is the symbol "3".
 :::
 
 > [!REMEMBER]
-> - A code gives each symbol a row of bits. ASCII uses 7 bits, that is 128 symbols, and today one byte per symbol.
-> - Uppercase and lowercase differ by 32: only one bit changes, the sixth from the right.
-> - The symbol "7" is not the number 7.
+> - A code gives each symbol a number. ASCII goes from 0 to 127, that is 7 bits, and today uses one byte per symbol.
+> - Uppercase from 65, lowercase from 97, digits from 48, space 32. Uppercase and lowercase differ by 32.
+> - The symbol "7" is not the number 7. Numbers are written in base 2, not in ASCII.
 
 ## All languages: Unicode and UTF-8 (book, §1.4)
 
-Try writing the Italian word "perché" (why) in ASCII: you cannot. The é is not there, and neither is the euro sign.
+Try writing the Italian word "perché" (why) in ASCII: you cannot. The é is not there, and neither is the euro sign. ASCII was born for English.
 
-For the other languages 8-bit codes were created, with 256 symbols: the first 128 are those of ASCII, the others change from language to language. The code ISO 8859-1, called Latin-1, for example, has the accented letters of Western Europe. The book explains the two limits of this idea: 256 symbols are not enough for languages like Chinese, and a text in several languages does not know which table to use.
+First people tried 8-bit codes, that is 256 symbols: the first 128 as in ASCII, the others different for each group of languages. The Latin-1 code, for example, has the accented letters of Western Europe. The book explains why that is not enough: 256 symbols are too few for languages like Chinese, and a text written in several languages does not know which table to use.
 
-Today's solution is **Unicode**: a single table with the symbols of all languages, plus mathematical symbols, emoji and much more. Each symbol has a number, called **code point**, which is written with "U+" followed by the number in hexadecimal. The numbers reach 21 bits: there is room for more than a million symbols, and many places are still free. The first 128 are those of ASCII.
+### Unicode: a number for every symbol in the world
 
-| Symbol | Code point | In decimal |
+Today's solution is called **Unicode**: a single, huge table with the symbols of all languages, plus mathematical symbols, emoji and much more. It has room for more than a million symbols, and the first 128 are those of ASCII.
+
+The number of a symbol is called its **code point**. It is written "U+" followed by the number in hexadecimal, the short way of writing bits from [lesson 01](01_bits_gates_hexadecimal.html).
+
+| Symbol | Code point | In base 10 |
 |:-:|:-:|--:|
 | A | U+0041 | 65 |
 | è | U+00E8 | 232 |
 | € | U+20AC | 8364 |
 | 😀 | U+1F600 | 128512 |
 
-Unicode only says which number each symbol has. To store it in memory it must be written in bytes, and the most used way is **UTF-8**: from 1 to 4 bytes per symbol, depending on how large the number is.
+### UTF-8: how many bytes per symbol
 
-| Code points | Bits of the number | Bytes | Pattern of the bytes |
-|---|:-:|:-:|---|
-| from U+0000 to U+007F | up to 7 | 1 | 0xxxxxxx |
-| from U+0080 to U+07FF | up to 11 | 2 | 110xxxxx 10xxxxxx |
-| from U+0800 to U+FFFF | up to 16 | 3 | 1110xxxx 10xxxxxx 10xxxxxx |
-| from U+10000 to U+10FFFF | up to 21 | 4 | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx |
+Unicode only says which number each symbol has. It remains to decide how to write it in bytes. The simplest road would be to give every symbol the same space, for example 4 bytes; but then a text in Italian would take four times as much as in ASCII.
 
-In place of the x go the bits of the code point, in order. The first byte says how many bytes the symbol has: as many 1s as there are bytes, then a 0. The bytes that follow all start with 10. So, reading a file, you always know where each symbol starts.
+**UTF-8** does something smarter: it gives few bytes to small numbers and more to big ones. It is the most used way, and almost all web pages are written like this.
 
-The ASCII symbols take a single byte that starts with 0: it is exactly the ASCII byte. So a text in ASCII is already a text in UTF-8.
+| Symbols | Bytes in UTF-8 |
+|---|:-:|
+| those of ASCII: letters without accents, digits, punctuation, space | 1 |
+| accented letters like è and à, the Greek, Russian, Arabic and Hebrew alphabets | 2 |
+| almost all the others, including € and Chinese and Japanese characters | 3 |
+| emoji and rare symbols | 4 |
 
-> [!METHOD] From a symbol to the UTF-8 bytes
-> 1. Find the code point of the symbol and write it in binary.
-> 2. Count the bits and choose the row of the table: up to 7 bits one byte, up to 11 two, up to 16 three, up to 21 four.
-> 3. Add 0s on the left until there are as many bits as the x of the row.
-> 4. Put the bits in place of the x, from left to right.
+To know how much a text takes, count the symbols of each row. "perché" has 6 symbols: p, e, r, c, h have one byte each, the é has 2. In total 5 + 2 = 7 bytes.
 
-> [!EXAMPLE] The è and the euro
-> **The è.** The code point is U+00E8, that is 232, in binary 11101000: 8 bits, so two bytes are needed, which have room for 11 bits. With three 0s in front: 00011101000. The first 5 bits go into the first byte, the other 6 into the second. The first byte is 110 followed by 00011, the second is 10 followed by 101000: 11000011 10101000, that is C3 A8 in hexadecimal.
->
-> **The euro.** The code point is U+20AC, in binary 0010000010101100: 16 bits, so three bytes. The bits are split into 4, 6 and 6: 0010, 000010 and 101100. The bytes are 1110 followed by 0010, 10 followed by 000010, 10 followed by 101100: E2 82 AC.
+When reading a file, how does the computer know where one symbol ends and the next begins? The first byte of each symbol says it, with its first bits:
+
+- it starts with 0 if the symbol has a single byte;
+- it starts with 110 if it has two, with 1110 if it has three, with 11110 if it has four;
+- the bytes that follow all start with 10.
+
+The ASCII symbols have a single byte, which starts with 0, and it is exactly the ASCII byte. So a text written in ASCII is already a UTF-8 text, with the same bytes.
 
 > [!PITFALL] UTF-8 does not mean "8 bits per symbol"
-> The 8 says that UTF-8 works in bytes, but a symbol can take from 1 to 4 bytes. Counting the symbols is not enough to know how many bytes a text takes: "perché" has 6 symbols and takes 7 bytes.
+> The 8 says that UTF-8 works in bytes, but a symbol can take from 1 to 4 bytes. Counting the symbols is not enough to know the bytes: "perché" has 6 symbols and takes 7 bytes.
 
-A file made only of codes of symbols, one after the other, is called a **text file**: .txt files are text files, but so are programs in C and web pages. Word processors, like Word, also save bold, fonts and margins with codes of their own: a .docx file is not a text file.
+> [!DEEPER] How the bytes are built, bit by bit
+> This part does not appear in the quizzes of the mock exams: it helps to understand the tool below and the last exercise.
+>
+> | Code points | Bits of the number | Bytes | Byte pattern |
+> |---|:-:|:-:|---|
+> | from U+0000 to U+007F | up to 7 | 1 | 0xxxxxxx |
+> | from U+0080 to U+07FF | up to 11 | 2 | 110xxxxx 10xxxxxx |
+> | from U+0800 to U+FFFF | up to 16 | 3 | 1110xxxx 10xxxxxx 10xxxxxx |
+> | from U+10000 to U+10FFFF | up to 21 | 4 | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx |
+>
+> In place of the x go the bits of the code point, from left to right.
+>
+> 1. Write the code point in base 2.
+> 2. Count the bits and choose the row: up to 7 bits one byte, up to 11 two, up to 16 three, up to 21 four.
+> 3. Add zeros on the left until there are as many bits as x's in the row.
+> 4. Put the bits in place of the x's.
+>
+> **The è.** The code point is U+00E8, that is 232, in base 2 11101000: 8 bits, so two bytes, which have room for 11 bits. With three zeros in front: 00011101000. The first 5 bits go in the first byte, the other 6 in the second: 110 00011 and 10 101000, that is 11000011 10101000, in hexadecimal C3 A8.
+>
+> **The euro.** The code point is U+20AC, in base 2 0010000010101100: 16 bits, so three bytes. The bits split into 4, 6 and 6: 0010, 000010 and 101100. The bytes are 1110 0010, 10 000010 and 10 101100: in hexadecimal E2 82 AC.
 
-> [!NOTE] Not only UTF-8
-> Unicode can also be written in other ways. UTF-16, for example, uses 2 or 4 bytes per symbol, and Windows and Java use it internally. On the web, instead, almost all pages are in UTF-8.
-
-Type a word in the tool below: for each symbol you see the code point and the UTF-8 bytes, with the fixed parts of the pattern separated from the bits of the number.
+Write a word in the tool: for each symbol you see the code point and the UTF-8 bytes.
 
 ```widget codifica
-title: A text in Unicode and UTF-8: type whatever you like
+title: A text in Unicode and UTF-8: write whatever you like
 mode: text
 text: Ciao, è 5€!
 ```
 
+A file made only of symbol numbers, one after the other, is called a **text file**. .txt files are text files, but so are C programs and web pages. Word, instead, also saves bold, fonts and margins with codes of its own: a .docx file is not a text file.
+
+> [!NOTE] Not only UTF-8
+> Unicode can be written in bytes in other ways too. UTF-16, for example, uses 2 or 4 bytes per symbol, and Windows and Java use it internally.
+
 ::: try (a) How many bytes does the Italian word "caffè" (coffee) take in UTF-8? (b) Can it be written in ASCII?
-(a) c, a, f and f are ASCII symbols: one byte each. The è takes 2 bytes. In all $4 + 2 = 6$ bytes.
+(a) c, a, f and f have one byte each; the è has 2. In total $4 + 2 = 6$ bytes.
 
 (b) No: the è is not among the 128 ASCII symbols.
 :::
 
 > [!REMEMBER]
-> - Unicode gives a number, the code point U+…, to every symbol of every language. UTF-8 writes that number with 1, 2, 3 or 4 bytes.
-> - In UTF-8 the ASCII symbols take one byte, equal to the ASCII one.
-> - The first byte of a symbol says how many bytes it has: 0…, 110…, 1110… or 11110…; the bytes that follow start with 10.
-
-## Numbers: better in binary (book, §1.4)
-
-To write the number 25 in ASCII you need two symbols, "2" and "5": two bytes, that is 16 bits. With the same 16 bits used as digits in base 2 you can write any number from 0 to 65535. That is why the book concludes that numbers are stored in the **binary system**, which you see in the next sections.
-
-Why exactly 65535? With 16 bits you can write $2^{16} = 65536$ sequences, as in [lesson 01](01_bits_gates_hexadecimal.html). The first is worth 0, so the last is worth 65535.
-
-> [!IDEA]
-> With $n$ bits you can write the integers from 0 to $2^n - 1$. They are called **unsigned integers**: no negative numbers and no point. Those need other systems, in sections 1.6 and 1.7 of the book.
-
-Question 7 of §1.4 makes the same comparison with three bytes: in ASCII you write three digits, so you reach 999; in binary you reach $2^{24} - 1 = 16777215$.
-
-::: try With one byte, what is the largest number that can be written in binary? And with one ASCII digit?
-In binary $2^8 - 1 = 255$, that is 11111111. In ASCII a byte holds a single digit: you reach 9.
-:::
-
-> [!REMEMBER]
-> - With $n$ bits, in binary, you write the unsigned integers from 0 to $2^n - 1$.
-> - In ASCII each digit takes a whole byte: for numbers it is a waste.
+> - Unicode gives a number, the code point U+…, to every symbol of every language.
+> - UTF-8 writes that number with 1, 2, 3 or 4 bytes: 1 for the ASCII symbols, 2 for accented letters, 3 for €, 4 for emoji.
+> - The first byte of each symbol says how many bytes it has.
 
 ## Images: pixels and colours (book, §1.4)
 
-Zoom in a lot on a photo on your phone: at some point you see many small squares, each of a single colour. They are the **pixels**, from *picture elements*.
+Zoom far into a photo on your phone: at some point you see lots of little squares, each of a single colour. They are the **pixels**, from *picture elements*.
 
-An image made like this is called a **bit map**: a grid of pixels, each written with some bits. In a black and white image one bit per pixel is enough, for example 1 for black and 0 for white. Here is an F of five rows of five pixels.
+A photo, for the computer, is a grid of pixels, and each pixel is written with bits. An image made like this is called a **bit map**.
+
+In black and white one bit per pixel is enough: 1 for black, 0 for white. Here is an F made of five rows of five pixels.
 
 | Row | Bits | Drawing |
 |:-:|:-:|:-:|
@@ -3951,9 +4146,16 @@ An image made like this is called a **bit map**: a grid of pixels, each written 
 
 ### Colours in RGB
 
-For colours the most common way is **RGB**: each pixel has three numbers, how much red, how much green and how much blue. Each one goes from 0 to 255, so it takes a byte: 3 bytes per pixel in all.
+For colours, imagine three lamps pointed at the same spot: a red one, a green one and a blue one. Each has a knob that goes from off, 0, to full on, 255. Each knob is a number from 0 to 255, and 255 is exactly the biggest number that fits in a byte. So a pixel takes 3 bytes, one per lamp.
 
-The three colours mix like three lights pointed at the same spot. Red and green together give yellow; all three at maximum give white; all at zero, that is light off, give black. Three equal values give a grey.
+This way of writing colours is called **RGB**, from the initials of the three colours: *red*, *green*, *blue*.
+
+The lights mix like this:
+
+- all off give black;
+- all at full give white;
+- red and green together give yellow;
+- three equal values give a grey.
 
 | Colour | Red | Green | Blue | In hexadecimal |
 |---|--:|--:|--:|:-:|
@@ -3966,12 +4168,14 @@ The three colours mix like three lights pointed at the same spot. Red and green 
 | grey | 128 | 128 | 128 | #808080 |
 | orange | 255 | 128 | 0 | #FF8000 |
 
-The last column is the way colours are written in web pages: one byte per colour, so two hexadecimal digits each, as in [lesson 01](01_bits_gates_hexadecimal.html). With 3 bytes the possible colours are $2^{24} = 16777216$, more than sixteen million.
+The last column is the way colours are written in web pages: each byte becomes two hexadecimal digits, as in [lesson 01](01_bits_gates_hexadecimal.html). FF is 255, 80 is 128, 00 is 0.
 
-Try mixing the colours in the tool.
+How many colours are there in all? 256 values for red, for each of them 256 for green, for each of those 256 for blue: $256 \cdot 256 \cdot 256 = 16777216$, more than sixteen million. It is the same number as $2^{24}$, because 3 bytes are 24 bits.
+
+Turn the three knobs in the tool.
 
 ```widget codifica
-title: Red, green and blue: three bytes for one pixel
+title: Red, green and blue: three bytes for a pixel
 mode: colours
 r: 255
 g: 128
@@ -3979,49 +4183,50 @@ b: 0
 ```
 
 > [!NOTE] Brightness and colour
-> The book also describes another way: for each pixel you write the brightness (*luminance*) and two numbers for the colour (*chrominance*). Television and the JPEG format use a similar idea, because the eye notices differences in brightness more than differences in colour.
+> The book also describes another road: for each pixel you write the brightness (*luminance*) and two numbers for the colour (*chrominance*). Television and the JPEG format use a similar idea, because the eye notices differences in brightness more than differences in colour.
 
 ### How much an image weighs
 
-The screen of a Full HD laptop has 1920 × 1080 = 2073600 pixels. At 3 bytes per pixel, an image as large as the screen takes 6220800 bytes, about 6 MB. That is why images are compressed, for example in JPEG: section 1.9 of the book tells the story.
+The screen of a Full HD laptop has 1920 columns and 1080 rows of pixels. There are 1920 × 1080 = 2073600 pixels. Each takes 3 bytes, so an image as big as the screen takes 6220800 bytes, about 6 MB. That is why images are compressed, for example in JPEG: section 1.9 of the book tells the story.
 
-> [!METHOD] How many bytes an image takes without compression
-> Multiply the width by the height, in pixels, and the result by the bytes of each pixel: 3 in RGB. To get the bits multiply again by 8.
+> [!METHOD] How many bytes an uncompressed image takes
+> 1. Multiply the width by the height, in pixels: that is the number of pixels.
+> 2. Multiply by the bytes of each pixel: 3 in RGB.
+> 3. If the question asks for bits, multiply again by 8.
 
 ### Vector images
 
-A bit map has a limit: if you enlarge it, you also enlarge the pixels, and the image becomes blocky. There is another way: describing the image as a set of shapes, that is lines, curves and polygons with their coordinates. It is a bit like a list of instructions to draw it. It is called a **vector image**.
+A bit map has a limit: if you enlarge it, you also enlarge the pixels, and the image becomes blocky. There is another way: instead of the pixels you write how to draw the image, that is which lines, curves and shapes to trace and where. It is called a **vector image**.
 
-To enlarge a vector image the shapes are redrawn larger: no blocks. This is how fonts that can be enlarged at will are made, like Microsoft and Apple's TrueType and Adobe's PostScript, as well as technical drawings and .svg files. For photographs, instead, the bit map stays more faithful: it is question 9 of §1.4.
+To enlarge a vector image you redraw the shapes bigger: no blocks. Fonts that can be enlarged at will are made like this, such as TrueType and PostScript, and so are technical drawings and .svg files. For photographs, instead, the bit map remains more faithful: it is question 9 of §1.4.
 
-::: try (a) What colour is (255, 255, 0)? And (0, 255, 255)? (b) How many bytes does an image of 100 × 100 pixels take in RGB, without compression?
+::: try (a) What colour is (255, 255, 0)? And (0, 255, 255)? (b) How many bytes does an image of 100 × 100 pixels in RGB take, without compression?
 (a) The first is yellow: red plus green. The second is cyan, a light blue: green plus blue.
 
-(b) The pixels are $100 \cdot 100 = 10000$, each of 3 bytes: $30000$ bytes.
+(b) There are $100 \cdot 100 = 10000$ pixels, each of 3 bytes: $30000$ bytes.
 :::
 
 > [!REMEMBER]
-> - A bit-map image is a grid of pixels. In RGB each pixel has 3 bytes, red, green and blue, from 0 to 255: $2^{24}$ colours in all.
-> - Bytes of an image without compression: width × height × bytes per pixel.
-> - Vector images describe shapes: they can be enlarged without blocks, but they are not good for photos.
+> - A photo is a grid of pixels. In RGB each pixel has three numbers from 0 to 255, red, green and blue: 3 bytes.
+> - Bytes of an uncompressed image: width × height × 3.
+> - Vector images say how to draw the shapes: they enlarge without blocks, but they are not good for photos.
 
-## Sounds: samples (book, §1.4)
+## Sounds: measuring the wave (book, §1.4)
 
-A sound is a vibration of the air, a wave. How high the wave is gives the volume; how dense it is gives the note, lower or higher.
+A sound is air vibrating, back and forth, like a wave. How high the wave is gives the volume; how dense it is gives the note, lower or higher.
 
-To record a sound you measure the height of the wave at regular intervals, many times a second, and keep the numbers. Each measurement is a **sample**, and the procedure is called **sampling**. The book gives the example of a wave recorded with the samples 0, 1.5, 2.0, 1.5, 2.0, 3.0, 4.0, 3.0, 0.
+Think of a swing. If you photograph it once a second, from the photos you understand little of how it moves. If you photograph it a hundred times a second, from the photos you can rebuild the whole movement. With a sound you do the same: you measure the height of the wave many times a second, always at the same pace, and you keep the numbers.
 
-How many samples are needed?
+Each measurement is called a **sample**, and taking the measurements is called **sampling**. The book gives the example of a wave recorded with the samples 0, 1.5, 2.0, 1.5, 2.0, 3.0, 4.0, 3.0, 0.
 
-- For a phone call 8000 samples per second are enough.
-- A music CD uses **44,100 per second**, each of **16 bits**, and two channels for music in stereo, one per ear.
+To record a sound you make two choices.
 
-These are two different choices.
+- **How many measurements per second.** For a phone call 8000 samples per second are enough. A music CD takes 44,100 per second.
+- **How many bits each measurement is written with.** The CD uses 16 bits, that is $2^{16} = 65536$ possible values. Each measurement is rounded to the nearest value, as when you measure with a ruler that only has millimetre marks. This rounding is called **quantisation**.
 
-- **How many times per second** you measure the wave: this is the sampling rate. With 44,100 samples per second you measure the wave every 1/44,100 of a second.
-- **With how many bits** you write each measurement. With 16 bits there are $2^{16} = 65536$ possible values, and each measurement is rounded to the nearest value. This rounding is called **quantisation**.
+More measurements per second and more bits per measurement give a more faithful sound, but take more space. Stereo music, then, has two recordings, one per ear: they are called **channels**.
 
-More samples per second and more bits per sample give a more faithful sound, but they take more space. In the tool below you see a wave, the samples taken at regular intervals and the sound that is rebuilt from the samples.
+In the tool you see a wave, the samples taken at regular intervals and the sound rebuilt from the samples.
 
 ```widget codifica
 title: Sampling a sound: fewer samples, less fidelity
@@ -4029,111 +4234,40 @@ mode: sound
 ```
 
 > [!METHOD] How many bytes a sound takes
-> Multiply the samples per second by the bytes of each sample, by the number of channels (1 if mono, 2 if stereo) and by the seconds.
+> Multiply together four numbers: the samples per second, the bytes of each sample, the channels (1 if mono, 2 if stereo) and the seconds.
 
 > [!EXAMPLE] An hour of music on CD (question 10 of §1.4)
-> Each sample has 16 bits, that is 2 bytes. In one second of stereo there are $44100 \cdot 2 \cdot 2 = 176400$ bytes. An hour has 3600 seconds: $176400 \cdot 3600 = 635040000$ bytes, about 635 MB. A CD holds from 600 to 700 MB: an hour of music almost fills it.
+> 1. Each sample has 16 bits, that is 2 bytes.
+> 2. In one second of stereo: $44100 \cdot 2 \cdot 2 = 176400$ bytes.
+> 3. An hour has 3600 seconds: $176400 \cdot 3600 = 635040000$ bytes, about 635 MB.
+>
+> A CD holds from 600 to 700 MB: an hour of music fills almost all of it.
 
-The **MIDI** format (*Musical Instrument Digital Interface*) does something else: it does not store the wave, but the instructions to play it, that is which instrument, which note and for how long. It is much more compact. According to the book, a clarinet playing a D for two seconds takes 3 bytes in MIDI, against more than two million bits with 44,100 samples per second. The drawback: the real sound depends on the electronic instrument that carries out the instructions.
+There is also a completely different way. A recording stores the sound; a score stores the instructions to play it. The **MIDI** format (*Musical Instrument Digital Interface*) is a score: it says which instrument, which note and for how long. It takes very little: according to the book, a clarinet playing a D for two seconds takes 3 bytes in MIDI, against more than two million bits with 44,100 samples per second. The flaw is the same as a score's: the real sound depends on who plays it, that is on the electronic instrument that carries out the instructions.
 
 ::: try How many bytes does one minute of a phone call take, recorded with 8000 samples per second, 8 bits per sample and a single channel?
 Each sample takes 8 bits, that is one byte. In one second there are 8000 bytes, in one minute $8000 \cdot 60 = 480000$ bytes.
 :::
 
 > [!REMEMBER]
-> - A sound is recorded with samples, that is measurements of the wave taken at regular intervals.
+> - A sound is recorded with samples: measurements of the wave taken many times a second.
 > - CD: 44,100 samples per second, 16 bits each, two channels.
 > - Bytes of a sound: samples per second × bytes per sample × channels × seconds.
 
-## The binary system (book, §1.5)
+## Adding in base 2 (book, §1.5)
 
-In the number 375 the 3 is worth three hundred, the 7 seventy and the 5 five: the same digit is worth more the further left it is. In base ten each position is worth ten times the one on its right: units, tens, hundreds.
+Remember how you add in columns in base 10, for example 58 + 27. In the right column 8 + 7 makes 15: you write 5 and carry 1. In the next column 5 + 2 + 1 makes 8. The result is 85.
 
-In the **binary system**, or **base 2**, the digits are only 0 and 1, and each position is worth **twice** the one on its right, as in figure 1.15 of the book.
+In base 2 you do it the same way. Only one thing changes: as soon as a column reaches 2, you have already run out of digits. There are only four possible sums in a column.
 
-| Position, from the right | 8th | 7th | 6th | 5th | 4th | 3rd | 2nd | 1st |
-|---|--:|--:|--:|--:|--:|--:|--:|--:|
-| Value | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
-
-### From binary to decimal
-
-To know how much a binary number is worth you add up the values of the positions where there is a 1. For example 100101, as in figure 1.16 of the book:
-
-| Bit | 1 | 0 | 0 | 1 | 0 | 1 |
-|---|:-:|:-:|:-:|:-:|:-:|:-:|
-| Value of the position | 32 | 16 | 8 | 4 | 2 | 1 |
-| Does it count? | yes | no | no | yes | no | yes |
-
-The total is $32 + 4 + 1 = 37$. You also write $100101_2 = 37_{10}$: the small number at the bottom says the base, so 100101 is not confused with one hundred thousand one hundred and one.
-
-Now two things of [lesson 01](01_bits_gates_hexadecimal.html) make sense. The leftmost bit of a cell is called "most significant" because it is the one worth the most. And the hexadecimal digits are the values of the groups of four bits, which are worth 8, 4, 2 and 1.
-
-Click the bits in the tool and watch how the value changes.
-
-```widget codifica
-title: From bits to a number: click the bits
-mode: binary
-bit: 00100101
-```
-
-### From decimal to binary
-
-For the opposite journey the book gives an algorithm, in figure 1.17.
-
-> [!METHOD] Divisions by 2
-> 1. Divide the number by 2 and write down the remainder, which is 0 or 1.
-> 2. As long as the quotient is not 0, divide the quotient by 2 and write down the remainder.
-> 3. When the quotient is 0, read the remainders from the last to the first: it is the number in binary.
-
-> [!EXAMPLE] 13 in binary (figure 1.18 of the book)
-> | Division | Quotient | Remainder |
-> |---|--:|--:|
-> | 13 : 2 | 6 | 1 |
-> | 6 : 2 | 3 | 0 |
-> | 3 : 2 | 1 | 1 |
-> | 1 : 2 | 0 | 1 |
->
-> The remainders, from the last to the first: 1101. Check: $8 + 4 + 1 = 13$.
-
-> [!IDEA]
-> The remainder of the division by 2 says whether the number is even, remainder 0, or odd, remainder 1: it is exactly the last bit. Dividing by 2 removes the last bit. So the bits come out from right to left, and that is why the remainders are read backwards.
-
-Zero needs no divisions: in binary it is 0, and in a byte 00000000. Zeros on the left do not change the value: 1101 and 00001101 are both 13. A zero on the right does: 11010 is 26, twice as much.
-
-> [!PITFALL] "How many bits are needed" and "write it with 8 bits" are different questions
-> 13 needs at least 4 bits, 1101; to write it with 8 bits you add four zeros on the left, 00001101. Instead 256 needs 9 bits, 100000000: it does not fit in a byte, because the largest number with 8 bits is 255.
-
-With small numbers there is also another way: take away the largest power of 2 that fits, then repeat with what is left. For example $45 = 32 + 8 + 4 + 1$: there are 32, 8, 4 and 1, while 16 and 2 are missing, so 45 is written 101101.
-
-```widget codifica
-title: Divisions by 2, step by step: choose a number
-mode: divisions
-number: 13
-```
-
-::: try (a) How much is 101010 in decimal? (b) Write 27 in binary.
-(a) The 1s are in the positions worth 32, 8 and 2: $32 + 8 + 2 = 42$.
-
-(b) 27 : 2 = 13 remainder 1; 13 : 2 = 6 remainder 1; 6 : 2 = 3 remainder 0; 3 : 2 = 1 remainder 1; 1 : 2 = 0 remainder 1. From the last to the first: 11011. Check: $16 + 8 + 2 + 1 = 27$.
-:::
-
-> [!REMEMBER]
-> - In base 2 the positions are worth 1, 2, 4, 8, 16…, from the right. The value is the sum of the positions with a 1.
-> - From base 10 to base 2: divide by 2 until the quotient is 0 and read the remainders from the last to the first.
-> - Always check the other way round: convert back and see if it matches.
-
-## Addition in binary (book, §1.5)
-
-In base ten, to do 58 + 27 in columns: 8 + 7 makes 15, I write 5 and carry 1; then 5 + 2 + 1 makes 8. The result is 85. In base 2 you do it the same way, but the possible sums in a column are few.
-
-| In the column | It makes | I write | I carry |
+| In the column | Makes | Write | Carry |
 |---|---|:-:|:-:|
 | 0 + 0 | zero | 0 | 0 |
 | 0 + 1 or 1 + 0 | one | 1 | 0 |
-| 1 + 1 | two, that is 10 | 0 | 1 |
-| 1 + 1 + 1 carried | three, that is 11 | 1 | 1 |
+| 1 + 1 | two, which in base 2 is 10 | 0 | 1 |
+| 1 + 1 + 1 carried | three, which in base 2 is 11 | 1 | 1 |
 
-Here is the book's example, 00111010 + 00011011, that is 58 + 27. You start from the right-hand column; the first row holds the carries that come from the right.
+Here is the book's example: 00111010 + 00011011, that is exactly 58 + 27. You start from the right column. In the first row are the carries, which come from the column on the right.
 
 | | 8th | 7th | 6th | 5th | 4th | 3rd | 2nd | 1st |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
@@ -4142,108 +4276,135 @@ Here is the book's example, 00111010 + 00011011, that is 58 + 27. You start from
 | 27 | 0 | 0 | 0 | 1 | 1 | 0 | 1 | 1 |
 | sum, 85 | 0 | 1 | 0 | 1 | 0 | 1 | 0 | 1 |
 
-Check: 01010101 is worth $64 + 16 + 4 + 1 = 85$, and $58 + 27 = 85$.
+The first columns, from the right:
 
-### Unsigned integers and overflow
+1. 0 + 1 makes 1: write 1, no carry.
+2. 1 + 1 makes two, that is 10: write 0 and carry 1.
+3. 0 + 0 plus the carry makes 1: write 1, no carry.
+4. 1 + 1 makes 10: write 0 and carry 1.
+5. 1 + 1 plus the carry makes three, that is 11: write 1 and carry 1.
 
-With 8 bits the unsigned integers go from 0 to 255. What happens if the sum is larger? Try 200 + 100, that is 11001000 + 01100100: you get 100101100, that is 300, which has 9 bits. With 8 bits the final carry on the left is lost and what remains is 00101100, that is 44.
+And so on up to the left. Check with the coins: 01010101 is worth 64 + 16 + 4 + 1 = 85.
 
-This is called **overflow** (in Italian also *trabocco*): the result does not fit in the available bits. People who write programs really meet it: an 8-bit counter, after 255, starts again from 0.
+### When the result does not fit: overflow
 
-> [!PITFALL] The carry beyond the last column
-> With $n$ bits, if the last column on the left gives a carry, the sum is at least $2^n$ and does not fit: there is overflow. The result written with $n$ bits is wrong by $2^n$, like 44 instead of 300.
+Think of the odometer of a scooter with three digits. After 999 there is no room for 1000: it goes back to 000. The same happens with bits.
 
-Only the carry out of the last column counts, not the ones in between. With 4 bits, $0111 + 0001 = 1000$: the carries cross three columns, but $7 + 1 = 8$ fits, because with 4 bits you get up to 15. Instead $1111 + 0001$ gives a carry out of the last column too: $15 + 1 = 16$ does not fit, and it is overflow. This rule holds for unsigned integers; for signed ones, in the next lesson, there is another one.
+With 8 bits the unsigned integers go from 0 to 255. Try 200 + 100, that is 11001000 + 01100100. The true result is 300, which in base 2 is 100101100: it has 9 bits. In the 8 bits there is room only for the last 8. The leftmost 1 is lost and 00101100 is left, that is 44.
+
+This is called **overflow**: the result does not fit in the bits you have. Programmers really meet it: an 8-bit counter, after 255, starts again from 0.
+
+> [!PITFALL] Only the carry going out on the left counts
+> With $n$ bits there is overflow when the last column on the left gives a carry: it has nowhere left to go. The carries in the middle do not count. With 4 bits, $0111 + 0001 = 1000$: the carries cross three columns, but $7 + 1 = 8$ fits, because with 4 bits you get up to 15. Instead $1111 + 0001$ gives a carry from the last column too: $15 + 1 = 16$ does not fit, and it is overflow.
+
+This rule holds for unsigned integers. For numbers with a sign, in the next lesson, there is another one.
+
+Click on the bits of the two numbers in the tool and watch the carries.
 
 ```widget codifica
-title: Column addition with 8 bits: click the bits of the two numbers
+title: Column addition with 8 bits: click on the bits of the two numbers
 mode: addition
 a: 00111010
 b: 00011011
 ```
 
-::: try (a) Compute 1011 + 0110. (b) With 4 bits, does the result fit?
-(a) From the right: 1 + 0 makes 1; 1 + 1 makes 10, I write 0 and carry 1; 0 + 1 + 1 makes 10, I write 0 and carry 1; 1 + 0 + 1 makes 10, I write 0 and carry 1. The result is 10001, that is 17: indeed $11 + 6 = 17$.
+::: try (a) Calculate 1011 + 0110. (b) With 4 bits, does the result fit?
+(a) From the right: 1 + 0 makes 1; 1 + 1 makes 10, write 0 and carry 1; 0 + 1 plus the carry makes 10, write 0 and carry 1; 1 + 0 plus the carry makes 10, write 0 and carry 1. The final carry goes into a new column: 10001, that is 17. Indeed $11 + 6 = 17$.
 
-(b) No. With 4 bits you reach $2^4 - 1 = 15$. The final carry is lost and 0001 remains, that is 1: overflow.
+(b) No. With 4 bits you get up to 15. The final carry is lost and 0001 is left, that is 1: overflow.
 :::
 
 > [!REMEMBER]
-> - 0 + 0 = 0, 0 + 1 = 1, 1 + 1 = 10 (I write 0, carry 1), 1 + 1 + 1 = 11 (I write 1, carry 1).
-> - With $n$ bits the unsigned integers go from 0 to $2^n - 1$: a carry beyond the last column means overflow.
+> - 0 + 0 = 0; 0 + 1 = 1; 1 + 1 = 10, write 0 and carry 1; 1 + 1 + 1 = 11, write 1 and carry 1.
+> - With $n$ bits the unsigned integers go from 0 to $2^n - 1$.
+> - If the last column on the left gives a carry, the result does not fit: it is overflow.
 
-## Fractions in binary (book, §1.5)
+## Numbers with a point in base 2 (book, §1.5)
 
-In base ten 3.75 means 3 units, 7 tenths and 5 hundredths: after the point the positions are worth 1/10, 1/100, 1/1000. In base 2, after the point, each position is worth **half** of the one on its left: 1/2, 1/4, 1/8, 1/16.
+In base 10, 3.75 means 3 units, 7 tenths and 5 hundredths: after the point each position is worth a tenth of the one on its left. In base 2 the same idea holds with halves.
 
-| Bit | 1 | 0 | 1 | . | 1 | 0 | 1 |
+Go back to the coins. To the right of the point add ever smaller coins, each half the previous one: half a euro, a quarter of a euro, an eighth of a euro.
+
+| Coin | 4 | 2 | 1 | . | 1/2 | 1/4 | 1/8 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| Value of the position | 4 | 2 | 1 | | 1/2 | 1/4 | 1/8 |
+| Bits of 101.101 | 1 | 0 | 1 | . | 1 | 0 | 1 |
 
-So 101.101 is worth $4 + 1 + 1/2 + 1/8$, that is 5 and 5/8, or 5.625: it is figure 1.19 of the book.
+So 101.101 is worth 4 + 1 before the point, and 1/2 + 1/8 after it. It is figure 1.19 of the book.
+
+> [!REFRESHER] Adding halves, quarters and eighths
+> To add fractions with different numbers at the bottom, turn them all into eighths: a half is 4/8, a quarter is 2/8. So 1/2 + 1/8 = 4/8 + 1/8 = 5/8.
+
+The number 101.101 is worth 5 and 5/8. With the point in base 10 it is 5.625, because 5/8 = 0.625.
 
 > [!NOTE] Comma or point
 > The book, in English, writes 101.101 with the point, and calls it the *radix point*. Italian writes a comma, as in the Italian version of these notes: 101,101. It is the same number.
 
-### From a fraction to binary
+### From a fraction to base 2
 
-Write the fraction as a sum of halves, quarters, eighths and so on. For example 2 and 3/4 is $2 + 1/2 + 1/4$, so 10.11. And 5/16 is $4/16 + 1/16$, that is $1/4 + 1/16$: it is written 0.0101.
+With small fractions you still use the coins: write the fraction as a sum of halves, quarters, eighths.
+
+- 2 and 3/4: three quarters are a half plus a quarter. So $2 + 1/2 + 1/4$, that is 10.11.
+- 5/16: it is 4/16 plus 1/16, that is a quarter plus a sixteenth. The positions after the point are 1/2, 1/4, 1/8, 1/16: the bit is 1 in the second and in the fourth, so 0.0101.
+
+When the number is written with a point in base 10, like 0.625, there is a method that always works.
 
 > [!METHOD] Doubling the part after the point
-> When the number is written with a point, like 0.625:
-> 1. Double the part after the point: $0.625 \cdot 2 = 1.25$. The integer part, here 1, is the first bit after the point.
-> 2. Keep only the part after the point, 0.25, and double again: 0.5, so the bit is 0.
-> 3. Go on until nothing is left: $0.5 \cdot 2 = 1$, bit 1, and nothing is left.
+> 1. Double: $0.625 \cdot 2 = 1.25$. The digit before the point, here 1, is the first bit after the point.
+> 2. Keep only the part after the point, 0.25, and double again: 0.5. Before the point there is 0: the second bit is 0.
+> 3. Double again: $0.5 \cdot 2 = 1$. The third bit is 1, and nothing is left: you are done.
 > 4. The bits, in the order they come out: 0.625 is written 0.101.
 
-> [!BEYOND] · numbers that never end in binary
-> In base 2 some fractions never end, like 1/3 in base ten. One tenth becomes 0.000110011001100…, with 0011 repeating forever. The computer has to cut it somewhere, and a small error appears. That is why in many programming languages 0.1 + 0.2 gives 0.30000000000000004. It comes back with floating point, in section 1.7 of the book.
+Why does it work? Doubling moves all the coins up one place: the half becomes 1 and ends up before the point. So, at each doubling, the digit before the point says whether the next coin was there.
+
+> [!BEYOND] · numbers that never end in base 2
+> In base 10, 1/3 is 0.333… and never ends. In base 2 it also happens to numbers that in base 10 have a single digit after the point: one tenth becomes 0.000110011001100…, with 0011 repeating forever. The computer has to cut it somewhere, and a small error appears. That is why in many programming languages 0.1 + 0.2 gives 0.30000000000000004. It comes back with floating point, in section 1.7 of the book.
 
 ### Adding with the point
 
-You put the points one under the other and add as usual. The book's example: 10.011 + 100.110, that is 2 and 3/8 plus 4 and 3/4.
+You put the points one under the other and add as always, from the right. The book's example: 10.011 + 100.110, that is 2 and 3/8 plus 4 and 3/4.
 
-| Value of the position | 4 | 2 | 1 | . | 1/2 | 1/4 | 1/8 |
+| Coin | 4 | 2 | 1 | . | 1/2 | 1/4 | 1/8 |
 |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | carries | 0 | 0 | 1 | . | 1 | 0 | |
 | 2 and 3/8 | 0 | 1 | 0 | . | 0 | 1 | 1 |
 | 4 and 3/4 | 1 | 0 | 0 | . | 1 | 1 | 0 |
 | sum | 1 | 1 | 1 | . | 0 | 0 | 1 |
 
-The result is 111.001, that is $7 + 1/8$: indeed 2 and 3/8 plus 4 and 3/4 makes 7 and 1/8.
+The result is 111.001, that is 7 and 1/8. Check: 2 and 3/8 plus 4 and 3/4, that is 2 and 3/8 plus 4 and 6/8, makes 6 and 9/8, that is 7 and 1/8.
 
-In the tool below there are also three bits after the point.
+In the tool there are also three bits after the point.
 
 ```widget codifica
-title: Bits with a point: click the bits
+title: Bits with a point: click on the bits
 mode: binary
-bit: 101101
+bits: 101101
 fractions: 3
 ```
 
-::: try (a) How much is 11.01 worth? (b) Write 4 and 1/2 in binary.
-(a) $2 + 1 + 1/4$, that is 3 and 1/4.
+::: try (a) What is 11.01 worth? (b) Write 4 and 1/2 in base 2.
+(a) Before the point 2 + 1; after it, only the 1/4 coin. In total 3 and 1/4.
 
-(b) 4 is 100 and 1/2 is 0.1: in all 100.1.
+(b) 4 is 100 and a half is 0.1: in total 100.1.
 :::
 
 > [!REMEMBER]
 > - After the point the positions are worth 1/2, 1/4, 1/8, 1/16…
-> - From a fraction to binary: write the fraction as a sum of halves, quarters, eighths; or double the part after the point and take the integer parts.
-> - To add, put the points in a column and add as usual.
+> - From a fraction to base 2: write the fraction as a sum of halves, quarters, eighths; or double the part after the point and take the digits before the point.
+> - To add, put the points in a column and add as always.
 
 ## The symbols of this lesson
 
-| Symbol | Read as | It means | Example |
+| Symbol | Read | Means | Example |
 |---|---|---|---|
-| ASCII | "ask-ee" | the 7-bit code of the symbols of English | A = 65 = 01000001 |
+| $1101_2$ | "1101 in base two" | the little number at the bottom gives the base | $1101_2 = 13_{10}$ |
+| $2^n$ | "two to the n" | 2 multiplied by itself $n$ times | $2^3 = 8$ |
+| $2^n - 1$ | "two to the n minus one" | the largest unsigned integer with $n$ bits | with 8 bits, 255 |
+| ASCII | "ask-ee" | the code of the English symbols, numbers from 0 to 127 | A = 65 = 01000001 |
 | U+00E8 | "U plus zero zero E eight" | the code point of a symbol in Unicode, in hexadecimal | U+00E8 is è |
 | UTF-8 | "U-T-F eight" | the way of writing code points with 1, 2, 3 or 4 bytes | è becomes C3 A8 |
 | (R, G, B) | "R, G, B" | red, green and blue of a pixel, from 0 to 255 | (255, 255, 0) is yellow |
 | #FF8000 | "hash F F eight zero zero zero" | an RGB colour in hexadecimal, two digits per colour | orange |
-| $1101_2$ | "1101 in base two" | the small number at the bottom says the base | $1101_2 = 13_{10}$ |
-| $2^n - 1$ | "two to the n minus one" | the largest unsigned integer with $n$ bits | with 8 bits, 255 |
-| 101.101 | "one zero one point one zero one" | a binary number with a point: after the point 1/2, 1/4, 1/8 | 5 and 5/8 |
+| 101.101 | "one zero one point one zero one" | a number in base 2 with a point: after the point 1/2, 1/4, 1/8 | 5 and 5/8 |
 
 ## Towards the exam
 
@@ -4415,7 +4576,7 @@ Quick check: 11111 is worth $32 - 1$, because it is all 1s up to the position of
 In ASCII, what is the link between the code of an uppercase letter and that of the same letter in lowercase?
 ::: solution
 1. A is 01000001, that is 65; a is 01100001, that is 97.
-2. The two bytes are equal except for the sixth bit from the right, that is from the low-order end: 0 in the uppercase letter, 1 in the lowercase one.
+2. The two bytes are equal except for one bit, the sixth from the right, the one of the 32 coin: 0 in the uppercase letter, 1 in the lowercase one.
 3. That bit is worth 32: the lowercase letter has a code 32 higher than the uppercase one. The same holds for all the 26 letters.
 
 It is the book's answer. The channel A slides say the same thing the other way round: to go from lowercase to uppercase you subtract 32.
@@ -4528,7 +4689,7 @@ A photo of 800 × 600 pixels in RGB, without compression. (a) How many bytes doe
 ::: exercise intermediate The same bits, three meanings
 The byte 00110101 is read as an unsigned integer, as an ASCII character and as the amount of red of an RGB pixel with green and blue at zero. What does it mean in the three cases?
 ::: solution
-1. As an integer: the weights of the 1s are 32, 16, 4 and 1, so it is $32 + 16 + 4 + 1 = 53$.
+1. As an integer: the coins are 32, 16, 4 and 1, so it is $32 + 16 + 4 + 1 = 53$.
 2. As an ASCII character: code 53 is the digit "5". The number 5, written in binary, would instead be 00000101.
 3. As red: the pixel is (53, 0, 0), a dark red, because 53 is little compared with the maximum 255.
 
